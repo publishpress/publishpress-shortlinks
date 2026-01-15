@@ -10,6 +10,12 @@
 if ( ! class_exists( 'WPDK_Settings_Fields' ) ) {
 	abstract class WPDK_Settings_Fields extends WPDK_Settings_Abstract {
 
+		public $field;
+		public $value;
+		public $unique;
+		public $where;
+		public $parent;
+
 		public function __construct( $field = array(), $value = '', $unique = '', $where = '', $parent = '' ) {
 			$this->field  = $field;
 			$this->value  = apply_filters( 'WPDK_Settings/Filters/field_value', $value, ( $field['id'] ?? '' ), $field['type'] );

@@ -18,6 +18,8 @@ if ( ! class_exists( 'WPDK_Settings_Metabox' ) ) {
 		public $pre_fields = array();
 		public $sections = array();
 		public $post_type = array();
+		public $post_formats = array();
+		public $page_templates = array();
 		public $args = array(
 			'title'              => '',
 			'post_type'          => 'post',
