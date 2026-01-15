@@ -47,8 +47,8 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 			$this->define_scripts();
 			$this->define_classes_functions();
 
-			add_action( 'init', array( $this, 'create_data_table' ) );
-			add_action( 'plugins_loaded', array( $this, 'load_text_domain' ) );
+			add_action( 'init', array( $this, 'create_data_table' ), 5 );
+			add_action( 'init', array( $this, 'load_text_domain' ), 0 );
 
 			register_activation_hook( __FILE__, array( $this, 'flush_rewrite_rules' ) );
 		}
@@ -109,6 +109,12 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-columns-link.php';
 			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-settings.php';
 			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-redirection.php';
+
+			new TINYPRESS_Hooks();
+			new TINYPRESS_Meta_boxes();
+			new TINYPRESS_Column_link();
+			new TINYPRESS_Settings();
+			new TINYPRESS_Redirection();
 		}
 
 

@@ -18,6 +18,13 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 		 * TINYPRESS_Settings constructor.
 		 */
 		public function __construct() {
+			add_action( 'init', array( $this, 'create_settings_page' ) );
+		}
+
+		/**
+		 * Create settings page on init to ensure text domain is loaded
+		 */
+		public function create_settings_page() {
 			global $tinypress_wpdk;
 
 			// Generate settings page
@@ -246,4 +253,3 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 		}
 	}
 }
-TINYPRESS_Settings::instance();

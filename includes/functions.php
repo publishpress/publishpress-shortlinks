@@ -117,7 +117,7 @@ if ( ! function_exists( 'tinypress_get_tiny_slug_copier' ) ) {
 
 		echo '<div class="tiny-slug-wrap ' . esc_attr( $wrapper_class ) . '">';
 
-		echo '<div class="tiny-slug-preview hint--top" aria-label="' . tinypress()::$text_hint . '" data-text-copied="' . tinypress()::$text_copied . '">';
+		echo '<div class="tiny-slug-preview hint--top" aria-label="' . tinypress()::get_text_hint() . '" data-text-copied="' . tinypress()::get_text_copied() . '">';
 
 		if ( $preview ) {
 			echo '<span class="preview"> ' . esc_html__( $preview_text ) . ' </span>';

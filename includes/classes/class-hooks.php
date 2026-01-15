@@ -192,5 +192,3 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 		}
 	}
 }
-
-TINYPRESS_Hooks::instance();

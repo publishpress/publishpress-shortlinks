@@ -69,7 +69,7 @@ if ( ! class_exists( 'WPDK_Settings' ) ) {
 			do_action( 'pb_settings_init' );
 
 			// Setup textdomain
-			self::textdomain();
+		    add_action( 'init', array( 'WPDK_Settings', 'textdomain' ) );
 
 			add_action( 'after_setup_theme', array( 'WPDK_Settings', 'setup' ) );
 			add_action( 'init', array( 'WPDK_Settings', 'setup' ) );

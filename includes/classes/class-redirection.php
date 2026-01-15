@@ -267,5 +267,3 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 		}
 	}
 }
-
-TINYPRESS_Redirection::instance();

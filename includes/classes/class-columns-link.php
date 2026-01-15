@@ -160,6 +160,3 @@ class TINYPRESS_Column_link {
 		return self::$_instance;
 	}
 }
-
-
-TINYPRESS_Column_link::instance();
