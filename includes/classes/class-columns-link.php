@@ -60,10 +60,6 @@ class TINYPRESS_Column_link {
 			echo '<span class="dashicons dashicons-admin-links"></span>';
 			echo '</div>';
 
-			echo '<div class="single-link analytics-link hint--top" aria-label="' . esc_html__( 'Analytics - Upcoming', 'tinypress' ) . '">';
-			echo '<span class="dashicons dashicons-chart-bar"></span>';
-			echo '</div>';
-
 			echo '</div>';
 		}
 	}
