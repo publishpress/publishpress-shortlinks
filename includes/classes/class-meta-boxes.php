@@ -23,15 +23,6 @@ if ( ! class_exists( 'TINYPRESS_Meta_boxes' ) ) {
 		 * TINYPRESS_Meta_boxes constructor.
 		 */
 		function __construct() {
-			add_action( 'init', array( $this, 'init_meta_boxes' ) );
-			add_action( 'add_meta_boxes', array( $this, 'add_side_meta_box' ), 0 );
-			add_action( 'WPDK_Settings/meta_section/analytics', array( $this, 'render_analytics' ) );
-		}
-
-		/**
-		 * Initialize meta boxes on init to ensure text domain is loaded
-		 */
-		function init_meta_boxes() {
 			$this->tinypress_default_slug = tinypress_create_url_slug();
 
 			$this->generate_tinypress_meta_box();
@@ -41,6 +32,9 @@ if ( ! class_exists( 'TINYPRESS_Meta_boxes' ) ) {
 					$this->generate_tinypress_meta_box_side( $post_type );
 				}
 			}
+
+			add_action( 'add_meta_boxes', array( $this, 'add_side_meta_box' ), 0 );
+			add_action( 'WPDK_Settings/meta_section/analytics', array( $this, 'render_analytics' ) );
 		}
 
 
@@ -88,7 +82,7 @@ if ( ! class_exists( 'TINYPRESS_Meta_boxes' ) ) {
 
 			WPDK_Settings::createMetabox( $prefix,
 				array(
-					'title'     => esc_html__( 'TinyPress', 'tinypress' ),
+					'title'     => esc_html__( 'Shortlinks', 'tinypress' ),
 					'post_type' => $post_type,
 					'data_type' => 'unserialize',
 					'nav'       => 'inline',
@@ -100,7 +94,7 @@ if ( ! class_exists( 'TINYPRESS_Meta_boxes' ) ) {
 
 			WPDK_Settings::createSection( $prefix,
 				array(
-					'title'  => esc_html__( 'TinyPress', 'tinypress' ),
+					'title'  => esc_html__( 'Shortlinks', 'tinypress' ),
 					'fields' => array(
 						array(
 							'id'       => 'tiny_slug',
@@ -136,7 +130,7 @@ if ( ! class_exists( 'TINYPRESS_Meta_boxes' ) ) {
 			// Create a metabox for tinypress.
 			WPDK_Settings::createMetabox( $this->tinypress_metabox_main,
 				array(
-					'title'     => esc_html__( 'TinyPress', 'tinypress' ),
+					'title'     => esc_html__( 'PublishPress Shortlinks', 'tinypress' ),
 					'post_type' => 'tinypress_link',
 					'data_type' => 'unserialize',
 					'context'   => 'normal',

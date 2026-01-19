@@ -2,15 +2,17 @@
 /* CSS Document */
 
 :root {
-    --tinypress-color-primary: #24417C;
-    --tinypress-color-primary-dim: rgba(36, 65, 124, 0.08);
+    --tinypress-color-primary: #6B5B95;
+    --tinypress-color-primary-dim: rgba(107, 91, 149, 0.08);
     --tinypress-color-red: #f44336;
     --tinypress-color-red-dim: rgba(244, 67, 54, 0.08);
     --tinypress-color-green: #009688;
+    --tinypress-color-yellow: #ffb200;
 
     --wpdk_settings-primary-color: var(--tinypress-color-primary);
     --wpdk_settings-primary-color-dim: var(--tinypress-color-primary-dim);
     --wpdk_settings-red-color: var(--tinypress-color-red);
+    --wpdk_settings-yellow-color: var(--tinypress-color-yellow);
 }
 
 body.post-type-tinypress_link .wpdk_settings-metabox {
@@ -32,7 +34,8 @@ body.post-type-tinypress_link #submitdiv #minor-publishing,
 body.post-type-tinypress_link #submitdiv #major-publishing-actions .clear,
 body.post-type-tinypress_link #tinypress_link_catdiv .postbox-header,
 body.post-type-tinypress_link #tagsdiv-tinypress_link_tags .postbox-header,
-body.post-type-tinypress_link #tinypress-meta-side .postbox-header {
+body.post-type-tinypress_link #tinypress-meta-side .postbox-header,
+body.post-type-tinypress_link #slugdiv {
     display: none !important;
 }
 
@@ -60,13 +63,20 @@ body.post-type-tinypress_link #tinypress-meta-side .inside {
 body.post-type-tinypress_link #submitdiv #major-publishing-actions #publish,
 body.post-type-tinypress_link #submitdiv #major-publishing-actions #publish:active,
 body.post-type-tinypress_link #submitdiv #major-publishing-actions #publish:focus {
-    background: var(--wpdk_settings-primary-color);
-    color: #fff;
-    border: none;
+    background: var(--wpdk_settings-primary-color) !important;
+    color: #fff !important;
+    border: none !important;
     font-size: 16px;
     line-height: 26px;
     padding: 14px 30px;
-    border-radius: 0;
+    border-radius: 4px;
+}
+
+body.post-type-tinypress_link #submitdiv #major-publishing-actions #publish:disabled,
+body.post-type-tinypress_link #submitdiv #major-publishing-actions #publish.disabled {
+    background: #ccc !important;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 body.post-type-tinypress_link #submitdiv #major-publishing-actions .submitdelete,
@@ -81,9 +91,9 @@ body.post-type-tinypress_link #submitdiv #major-publishing-actions .submitdelete
     line-height: 22px;
 }
 
-body.post-type-tinypress_link #tinypress_link_catdiv {
+/* body.post-type-tinypress_link #tinypress_link_catdiv {
 
-}
+} */
 
 body.post-type-tinypress_link #tinypress_link_catdiv .taxonomy-add-new,
 body.post-type-tinypress_link #tinypress_link_catdiv .taxonomy-add-new:active,
@@ -128,23 +138,23 @@ body.post-type-tinypress_link #tinypress_link_catdiv #newtinypress_link_cat:focu
  * Meta Side
  */
 
-.tinypress-meta-side {
+/* .tinypress-meta-side {
 
 }
 
 .tinypress-meta-side .side-qr-code {
-}
+} */
 
 .tinypress-meta-side .side-qr-code .qr-download,
 .tinypress-meta-side .side-qr-code .qr-download:focus,
 .tinypress-meta-side .side-qr-code .qr-download:active {
     display: inline-block;
-    background: var(--tinypress-color-green);
+    background: var(--tinypress-color-yellow);
     padding: 12px 18px;
     font-size: 14px;
     line-height: 26px;
     color: #fff;
-    border-radius: 3px;
+    border-radius: 4px;
     cursor: pointer;
     text-transform: uppercase;
     margin-top: 10px;
@@ -178,9 +188,9 @@ body.post-type-tinypress_link .tinypress-settings-copy input {
     position: relative;
 }
 
-body.post-type-tinypress_link .tinypress-settings-copy input:hover {
+/* body.post-type-tinypress_link .tinypress-settings-copy input:hover {
 
-}
+} */
 
 body.post-type-tinypress_link .tinypress-settings-copy .copied {
     margin-left: 15px;
@@ -197,9 +207,9 @@ body.post-type-tinypress_link .tinypress-settings-copy .copied {
     display: inline;
 }
 
-ul.tinypress-extensions-list {
+/* ul.tinypress-extensions-list {
 
-}
+} */
 
 ul.tinypress-extensions-list > li {
     margin-bottom: 20px;
@@ -265,7 +275,7 @@ ul.tinypress-extensions-list > li.active > a > span.name {
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 0 30px 2px rgb(0 0 0 / 17%);
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .tinypress-popup-container .tinypress-popup-box .box-content {
@@ -346,11 +356,11 @@ table.tinypress_link_page_tinypress-reports th#details {
 
 .link-actions a.action {
     display: inline-block;
-    background: var(--tinypress-color-green);
+    background: var(--tinypress-color-yellow);
     color: #fff;
     padding: 3px 8px;
     margin-right: 5px;
-    border-radius: 3px;
+    border-radius: 4px;
 }
 
 .link-actions a.action.action-delete {
@@ -367,7 +377,7 @@ table.tinypress_link_page_tinypress-reports th#details {
 
 .wpdk_settings-section #chart .filter-buttons {
     display: inline-block;
-    border: 1px solid #627823;
+    border: 1px solid var(--tinypress-color-primary);
     padding: 0;
     border-radius: 5px;
     overflow: hidden;
@@ -379,12 +389,12 @@ table.tinypress_link_page_tinypress-reports th#details {
     cursor: pointer;
     transition: 0.3s;
     border-right: 1px solid;
-    float: left;
+    /* float: left; */
 }
 
 .wpdk_settings-section #chart .filter-buttons .date-filter.active {
     color: #fff;
-    background: #627823;
+    background: var(--tinypress-color-primary);
 }
 
 .wpdk_settings-section #chart .filter-buttons .date-filter:last-child {
@@ -406,7 +416,7 @@ table.tinypress_link_page_tinypress-reports th#details {
     width: 320px;
     box-shadow: 3px 3px 30px 0 rgb(0 0 0 / 17%);
     display: inline-block;
-    float: left;
+    /* float: left; */
     margin-right: 30px;
     margin-bottom: 30px;
     padding: 20px;
@@ -414,11 +424,11 @@ table.tinypress_link_page_tinypress-reports th#details {
     border: 1px solid #ddd;
 }
 
-.settings-block .block-icon {
+/* .settings-block .block-icon {
 }
 
 .settings-block .title {
-}
+} */
 
 .settings-block .details {
     margin-bottom: 20px;
@@ -431,10 +441,10 @@ table.tinypress_link_page_tinypress-reports th#details {
     font-size: 12px;
     line-height: 18px;
     text-decoration: none;
-    background: #627823;
+    background: var(--tinypress-color-primary);
     color: #f1f1f1;
     padding: 3px 8px;
-    border-radius: 2px;
+    border-radius: 4px;
     display: inline-block;
     box-shadow: none;
     outline: none;
@@ -457,12 +467,12 @@ th#tinypress-link {
     vertical-align: top;
 }
 
-.tinypress-column-content .single-link.copy-link {
+/* .tinypress-column-content .single-link.copy-link {
 
-}
+} */
 
 .tinypress-column-content .single-link.analytics-link {
-    background: var(--tinypress-color-green);
+    background: var(--tinypress-color-yellow);
 }
 
 .tinypress-column-content .single-link .dashicons {
@@ -474,7 +484,7 @@ th#tinypress-link {
 }
 
 #wpadminbar ul#wp-admin-bar-root-default > li.tinypress-admin-bar-icon {
-    background: #F44336;
+    background: #6B5B95;
     min-width: 100px;
     position: relative;
     max-width: 100px;
@@ -482,7 +492,7 @@ th#tinypress-link {
 
 #wpadminbar ul#wp-admin-bar-root-default > li.tinypress-admin-bar-icon > a,
 #wpadminbar ul#wp-admin-bar-root-default > li.tinypress-admin-bar-icon:hover > a {
-    background: #F44336;
+    background: #6B5B95;
     color: #fff;
 }
 

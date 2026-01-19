@@ -35,7 +35,7 @@ class TINYPRESS_Column_link {
 
 	function tinypress_copy_columns( $columns ) {
 
-		$columns['tinypress-link'] = esc_html__( 'TinyPress', 'tinypress' );
+		$columns['tinypress-link'] = esc_html__( 'Shortlinks', 'tinypress' );
 
 		return $columns;
 	}
@@ -56,7 +56,7 @@ class TINYPRESS_Column_link {
 
 			echo '<div class="tinypress-column-content">';
 
-			echo '<div class="single-link copy-link hint--top" data-tiny_slug="' . esc_attr( tinypress_get_tinyurl( $post_id ) ) . '" aria-label="' . tinypress()::$text_hint . '" data-text-copied="' . tinypress()::$text_copied . '">';
+			echo '<div class="single-link copy-link hint--top" data-tiny_slug="' . esc_attr( tinypress_get_tinyurl( $post_id ) ) . '" aria-label="' . tinypress()::get_text_hint() . '" data-text-copied="' . tinypress()::get_text_copied() . '">';
 			echo '<span class="dashicons dashicons-admin-links"></span>';
 			echo '</div>';
 

@@ -17,7 +17,7 @@ $tiny_slug_args = array(
     <form class="tinypress-popup-box" action="" method="post">
         <div class="popup-content">
             <div class="tinypress-logo">
-                <a target="_blank" href="<?php echo TINYPRESS_LINK_PRO . '?ref=' . site_url(); ?>"><img src="<?php echo esc_url( TINYPRESS_PLUGIN_URL . 'assets/images/tinypress.svg' ); ?>" alt="<?php esc_attr_e( 'tinyPress logo', 'tinypress' ); ?>"></a>
+                <a target="_blank" href="<?php echo TINYPRESS_LINK_PRO . '?ref=' . site_url(); ?>"><img src="<?php echo esc_url( TINYPRESS_PLUGIN_URL . 'assets/images/publishpress-shortlinks.svg' ); ?>" alt="<?php esc_attr_e( 'tinyPress logo', 'tinypress' ); ?>"></a>
             </div>
             <label for="tinypress-modal-url"><?php esc_html_e( 'Enter a long url and make into a tiny version', 'tinypress' ) ?>
                 <input autocomplete="off" id="tinypress-modal-url" name="long_url" type="url" required class="tinypress-modal-url" placeholder="<?php echo esc_url( 'https://example.com/my-long-url/' ); ?>">

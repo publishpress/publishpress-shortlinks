@@ -1,12 +1,12 @@
 <?php
 /*
-	Plugin Name: tinyPress - Shorten and Track URLs
-	Plugin URI: https://pluginbazar.com/plugins/tinypress-shorten-and-track-your-urls/
-	Description: No more long URL, Shorten and track it with tinyPress.
+	Plugin Name: PublishPress Shortlinks - Shorten and Track URLs
+	Plugin URI:  https://publishpress.com/shortlinks/
+	Description: No more long URL, Shorten and track it with PublishPress Shortlinks.
 	Version: 1.2.5
 	Text Domain: tinypress
-	Author: Pluginbazar
-	Author URI: https://pluginbazar.com/
+	Author: PublishPress
+	Author URI: https://publishpress.com/
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -111,10 +111,14 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-redirection.php';
 
 			new TINYPRESS_Hooks();
-			new TINYPRESS_Meta_boxes();
 			new TINYPRESS_Column_link();
 			new TINYPRESS_Settings();
 			new TINYPRESS_Redirection();
+			
+			// Initialize metaboxes after translations are loaded
+			add_action( 'init', function() {
+				new TINYPRESS_Meta_boxes();
+			}, 1 );
 		}
 
 

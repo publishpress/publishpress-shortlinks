@@ -98,24 +98,25 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 
 			$get_ip_address = tinypress_get_ip_address();
 			$curr_user_id   = is_user_logged_in() ? get_current_user_id() : 0;
-			$get_user_data  = @file_get_contents( 'http://www.geoplugin.net/json.gp?ip=' . $get_ip_address );
-
-			if ( ! $get_user_data ) {
-				return;
-			}
-
-			$user_data     = json_decode( $get_user_data, true );
-			$location_info = array(
-				'geoplugin_city',
-				'geoplugin_region',
-				'geoplugin_regionName',
-				'geoplugin_countryCode',
-				'geoplugin_countryName',
-				'geoplugin_continentName',
-				'geoplugin_latitude',
-				'geoplugin_longitude',
+			$location_info  = array(
+				'geoplugin_city'          => null,
+				'geoplugin_region'        => null,
+				'geoplugin_regionName'    => null,
+				'geoplugin_countryCode'   => null,
+				'geoplugin_countryName'   => null,
+				'geoplugin_continentName' => null,
+				'geoplugin_latitude'      => null,
+				'geoplugin_longitude'     => null,
 			);
-			$location_info = array_merge( array_fill_keys( $location_info, null ), array_intersect_key( $user_data, array_flip( $location_info ) ) );
+
+			// Try to get geolocation data, but don't fail if it's unavailable
+			$get_user_data = @file_get_contents( 'http://www.geoplugin.net/json.gp?ip=' . $get_ip_address );
+
+			if ( $get_user_data ) {
+				$user_data     = json_decode( $get_user_data, true );
+				$location_keys = array_keys( $location_info );
+				$location_info = array_merge( $location_info, array_intersect_key( $user_data, array_flip( $location_keys ) ) );
+			}
 
 			$wpdb->insert( TINYPRESS_TABLE_REPORTS,
 				array(
