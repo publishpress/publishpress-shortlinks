@@ -1,7 +1,7 @@
 <?php
 /*
 	Plugin Name: PublishPress Shortlinks - Shorten and Track URLs
-	Plugin URI: https://pluginbazar.com/plugins/tinypress-shorten-and-track-your-urls/
+	Plugin URI:  https://publishpress.com/shortlinks/
 	Description: No more long URL, Shorten and track it with PublishPress Shortlinks.
 	Version: 1.2.5
 	Text Domain: tinypress
