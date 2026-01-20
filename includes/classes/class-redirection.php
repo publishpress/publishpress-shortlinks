@@ -173,6 +173,14 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 				$this->redirect_url( $link_id );
 			}
 
+			// Check if password was already verified
+			$password_nonce = isset( $_GET['password'] ) ? sanitize_text_field( $_GET['password'] ) : '';
+
+			if ( wp_verify_nonce( $password_nonce, 'password_check' ) ) {
+				$this->redirect_url( $link_id );
+			}
+
+			// Show password prompt only if password hasn't been checked yet
 			?>
             <script>
                 if ('<?php echo esc_attr( $link_password ); ?>' === prompt("Password:")) {
@@ -182,12 +190,6 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
                 }
             </script>
 			<?php
-
-			$password_nonce = isset( $_GET['password'] ) ? sanitize_text_field( $_GET['password'] ) : '';
-
-			if ( wp_verify_nonce( $password_nonce, 'password_check' ) ) {
-				$this->redirect_url( $link_id );
-			}
 
 			die();
 		}
