@@ -36,14 +36,14 @@ if ( ! class_exists( 'TINYPRESS_Functions' ) ) {
 
 		public static function get_text_hint() {
 			if ( is_null( self::$text_hint ) ) {
-				self::$text_hint = esc_html__( 'Click to copy.', 'tinypress' );
+				self::$text_hint = esc_html__( 'Click to copy', 'tinypress' );
 			}
 			return self::$text_hint;
 		}
 
 		public static function get_text_copied() {
 			if ( is_null( self::$text_copied ) ) {
-				self::$text_copied = esc_html__( 'Copied.', 'tinypress' );
+				self::$text_copied = esc_html__( 'Copied', 'tinypress' );
 			}
 			return self::$text_copied;
 		}

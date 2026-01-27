@@ -485,25 +485,22 @@ th#tinypress-link {
 
 #wpadminbar ul#wp-admin-bar-root-default > li.tinypress-admin-bar-icon {
     background: #6B5B95;
-    min-width: 100px;
+    min-width: 70px;
     position: relative;
-    max-width: 100px;
+    max-width: 70px;
 }
 
 #wpadminbar ul#wp-admin-bar-root-default > li.tinypress-admin-bar-icon > a,
 #wpadminbar ul#wp-admin-bar-root-default > li.tinypress-admin-bar-icon:hover > a {
     background: #6B5B95;
     color: #fff;
-}
-
-#wpadminbar ul#wp-admin-bar-root-default > li.tinypress-admin-bar-icon > a > svg {
-    margin-top: 3px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #wpadminbar ul#wp-admin-bar-root-default > li.tinypress-admin-bar-icon > a > span.tinypress-icon-text {
-    position: absolute;
-    top: 0;
-    left: 34px;
     font-size: 14px;
     line-height: 30px;
 }

@@ -1,22 +1,25 @@
 <?php
-/*
-	Plugin Name: PublishPress Shortlinks
-	Plugin URI:  https://publishpress.com/shortlinks/
-	Description: Create custom links for your posts. These links are brandable, trackable, and can have custom view permissions.
-	Version: 1.2.6
-	Text Domain: tinypress
-	Author: PublishPress
-	Author URI: https://publishpress.com/
-	License: GPLv2 or later
-	License URI: http://www.gnu.org/licenses/gpl-2.0.html
-*/
+/**
+ * Plugin Name: PublishPress Shortlinks
+ * Plugin URI:  https://publishpress.com/shortlinks/
+ * Description: Create custom links for your posts. These links are brandable, trackable, and can have custom view permissions.
+ * Version: 1.2.6
+ * Text Domain: tinypress
+ * Author: PublishPress
+ * Author URI: https://publishpress.com/
+ * License: GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ */
 
 global $wpdb;
 defined( 'ABSPATH' ) || exit;
 
+if (!defined('TINYPRESS_PLUGIN_VERSION')) {
+define('TINYPRESS_PLUGIN_VERSION', '1.2.6');
+}
+
 defined( 'TINYPRESS_PLUGIN_URL' ) || define( 'TINYPRESS_PLUGIN_URL', WP_PLUGIN_URL . '/' . plugin_basename( dirname( __FILE__ ) ) . '/' );
 defined( 'TINYPRESS_PLUGIN_DIR' ) || define( 'TINYPRESS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-defined( 'TINYPRESS_PLUGIN_VERSION' ) || define( 'TINYPRESS_PLUGIN_VERSION', '1.2.6' );
 defined( 'TINYPRESS_PLUGIN_FILE' ) || define( 'TINYPRESS_PLUGIN_FILE', plugin_basename( __FILE__ ) );
 defined( 'TINYPRESS_TABLE_REPORTS' ) || define( 'TINYPRESS_TABLE_REPORTS', sprintf( '%stinypress_reports', $wpdb->prefix ) );
 defined( 'TINYPRESS_SERVER' ) || define( 'TINYPRESS_SERVER', esc_url_raw( 'https://endearing-lobster-8e2abe.instawp.xyz/' ) );

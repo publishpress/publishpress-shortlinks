@@ -61,7 +61,7 @@ if ( ! class_exists( 'WPDK_Settings_Options' ) ) {
 			// footer
 			'footer_text'             => 'Thank you for using WPDK Settings Framework',
 			'footer_after'            => '',
-			'footer_credit'           => 'Thank you for creating with <a href="https://github.com/jaedm97/wpdk" target="_blank">WPDK</a>',
+			'footer_credit'           => '',
 
 			// database model
 			'database'                => '', // options, transient, theme_mod, network
