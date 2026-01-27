@@ -1,8 +1,8 @@
 <?php
 /*
-	Plugin Name: PublishPress Shortlinks - Shorten and Track URLs
+	Plugin Name: PublishPress Shortlinks
 	Plugin URI:  https://publishpress.com/shortlinks/
-	Description: No more long URL, Shorten and track it with PublishPress Shortlinks.
+	Description: Create custom links for your posts. These links are brandable, trackable, and can have custom view permissions.
 	Version: 1.2.5
 	Text Domain: tinypress
 	Author: PublishPress
@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
 
 defined( 'TINYPRESS_PLUGIN_URL' ) || define( 'TINYPRESS_PLUGIN_URL', WP_PLUGIN_URL . '/' . plugin_basename( dirname( __FILE__ ) ) . '/' );
 defined( 'TINYPRESS_PLUGIN_DIR' ) || define( 'TINYPRESS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-defined( 'TINYPRESS_PLUGIN_VERSION' ) || define( 'TINYPRESS_PLUGIN_VERSION', '1.2.5' );
+defined( 'TINYPRESS_PLUGIN_VERSION' ) || define( 'TINYPRESS_PLUGIN_VERSION', '1.2.6' );
 defined( 'TINYPRESS_PLUGIN_FILE' ) || define( 'TINYPRESS_PLUGIN_FILE', plugin_basename( __FILE__ ) );
 defined( 'TINYPRESS_TABLE_REPORTS' ) || define( 'TINYPRESS_TABLE_REPORTS', sprintf( '%stinypress_reports', $wpdb->prefix ) );
 defined( 'TINYPRESS_SERVER' ) || define( 'TINYPRESS_SERVER', esc_url_raw( 'https://endearing-lobster-8e2abe.instawp.xyz/' ) );
