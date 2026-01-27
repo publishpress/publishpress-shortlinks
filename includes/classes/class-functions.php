@@ -36,7 +36,7 @@ if ( ! class_exists( 'TINYPRESS_Functions' ) ) {
 
 		public static function get_text_hint() {
 			if ( is_null( self::$text_hint ) ) {
-				self::$text_hint = esc_html__( 'Click to Copy.', 'tinypress' );
+				self::$text_hint = esc_html__( 'Click to copy.', 'tinypress' );
 			}
 			return self::$text_hint;
 		}
