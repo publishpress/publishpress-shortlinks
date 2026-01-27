@@ -4,7 +4,7 @@
 	Tags: affiliate links, link shortener, short links, redirects, link tracking
 	Requires at least: 4.6
 	Tested up to: 6.7
-	Stable tag: 1.2.5
+	Stable tag: 1.2.6
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,6 +75,15 @@ Yes! tinyPress is ready for translation. You can translate easily as you do for 
 
 
 == Changelog ==
+
+= 1.2.6 - 27 January 2026 =
+- FIX: Function _load_textdomain_just_in_time error, #10
+- FIX: PHP 8.2+ dynamic property deprecation warnings in WPDK framework, #11
+- REMOVED: Remove the Browser extension feature, #15
+- REMOVED: Remove the Upcoming column, #16
+- REMOVED: Remove brand logo, #14
+- UPDATE: Update the Help and Supports feature, #13
+- UPDATE: Use PublishPress colors and design, #20
 
 = 1.2.5 - 14 March 2025 =
 - FIX: Readme updated with more content.
