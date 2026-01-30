@@ -1,6 +1,6 @@
 <!--
   Hey, that's awesome! Thanks for your interest and for taking the time to contribute.
-  The following is a set of guidelines for contributing to PublishPress Links plugin. Use your best judgment, and feel free to propose changes to this document in a pull request. 
+  The following is a set of guidelines for contributing to PublishPress Shortlinks plugin. Use your best judgment, and feel free to propose changes to this document in a pull request. 
   
   Filling out this template is required when contributing.
   Any pull request that does not include enough information to be reviewed in a timely manner may be closed at the maintainers' discretion.
