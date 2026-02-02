@@ -18,6 +18,7 @@
         bindEvents: function() {
             const self = this;
 
+            // Auto-save on post type or behavior change
             $(document).on('change', '.tinypress-autolist-post-type, .tinypress-autolist-behavior', function() {
                 clearTimeout(saveTimeout);
                 saveTimeout = setTimeout(function() {
@@ -25,11 +26,13 @@
                 }, 1000);
             });
 
+            // Listen for clicks on the switcher div that contains our hidden input field
             $(document).on('click', '.wpdk_settings--switcher', function() {
                 const $switcher = $(this);
                 const $hiddenInput = $switcher.find('input[name="tinypress[tinypress_autolist_enabled]"]');
                 
                 if ($hiddenInput.length > 0) {
+                    // Wait 800ms to ensure WPDK has updated the value before triggering AJAX save
                     clearTimeout(saveTimeout);
                     saveTimeout = setTimeout(function() {
                         AutolistAjax.saveConfiguration();
@@ -37,11 +40,13 @@
                 }
             });
 
+            // Add new row
             $(document).on('click', '.tinypress-autolist-add', function(e) {
                 e.preventDefault();
                 self.addRow();
             });
 
+            // Remove row
             $(document).on('click', '.tinypress-autolist-remove', function(e) {
                 e.preventDefault();
                 if (confirm(tinypressAutolist.i18n.confirmDelete)) {
@@ -184,9 +189,7 @@
                     <div class="tinypress-autolist-field">
                         <select class="tinypress-autolist-behavior">
                             <option value="never">${tinypressAutolist.i18n.never}</option>
-                            <option value="on_first_use_or_on_create" selected>${tinypressAutolist.i18n.onFirstUseOrOnCreate}</option>
-                            <option value="on_first_use">${tinypressAutolist.i18n.onFirstUse}</option>
-                            <option value="on_create">${tinypressAutolist.i18n.onCreate}</option>
+                            <option value="on_first_use" selected>${tinypressAutolist.i18n.onFirstUse}</option>
                             <option value="on_publish">${tinypressAutolist.i18n.onPublish}</option>
                         </select>
                     </div>

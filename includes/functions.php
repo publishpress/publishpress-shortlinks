@@ -317,3 +317,18 @@ if (! function_exists('tinypress_is_auto_listed')) {
         return ! empty($source_post_id);
     }
 }
+
+
+if ( ! function_exists( 'tinypress_is_auto_listed' ) ) {
+	/**
+	 * Check if a tinypress_link is auto-listed from a post type
+	 *
+	 * @param int $link_id
+	 *
+	 * @return bool
+	 */
+	function tinypress_is_auto_listed( $link_id ) {
+		$source_post_id = Utils::get_meta( 'source_post_id', $link_id );
+		return ! empty( $source_post_id );
+	}
+}
