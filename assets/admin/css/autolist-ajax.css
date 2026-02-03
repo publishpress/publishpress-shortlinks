@@ -16,6 +16,8 @@
     border-radius: 4px;
     margin-bottom: 10px;
     transition: all 0.2s;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .tinypress-autolist-row:hover {
@@ -43,20 +45,24 @@
 .tinypress-autolist-field {
     flex: 1;
     position: relative;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .tinypress-autolist-field:first-of-type {
     flex: 2;
+    min-width: 0;
 }
 
 .tinypress-autolist-post-type,
 .tinypress-autolist-behavior {
-    width: 100%;
+    width: 95%;
     padding: 8px 12px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
     transition: all 0.2s;
+    max-width: 100%;
 }
 
 .tinypress-autolist-post-type:focus,

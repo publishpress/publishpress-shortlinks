@@ -20,6 +20,8 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 		public function __construct() {
 			add_action( 'init', array( $this, 'create_settings_page' ), 5 );
 			add_filter( 'pb_settings_tinypress_settings_save', array( $this, 'sanitize_autolist_settings' ), 10, 2 );
+			add_action( 'pb_settings_options_before', array( $this, 'add_settings_wrapper_start' ) );
+			add_action( 'pb_settings_options_after', array( $this, 'add_settings_wrapper_end' ) );
 		}
 
 		/**
@@ -99,8 +101,13 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 			WPDK_Settings::createSettingsPage( $tinypress_wpdk->plugin_unique_id, $settings_args, $this->get_settings_pages() );
 		}
 
-		function render_field_tinypress_supports() {
+		function add_settings_wrapper_start() {
+			echo '<div class="tinypress-settings-layout">';
+		}
+
+		function add_settings_wrapper_end() {
 			include TINYPRESS_PLUGIN_DIR . 'templates/admin/settings/supports.php';
+			echo '</div>';
 		}
 
 		function render_field_tinypress_upgrade() {
@@ -283,17 +290,8 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 							),
 						),
 					),
-					array(
-						'title'  => esc_html__( 'Help and Supports', 'tinypress' ),
-						'fields' => array(
-							array(
-								'id'       => 'tinypress_supports',
-								'type'     => 'callback',
-								'function' => array( $this, 'render_field_tinypress_supports' ),
-							),
-						),
-					),
 				),
+
 
 			);
 

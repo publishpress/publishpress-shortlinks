@@ -647,9 +647,63 @@ th#tinypress-link {
     color: var(--tinypress-color-red);
 }
 
+.tinypress-settings-layout {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 10px;
+}
+
+.tinypress-settings-layout .pb_settings.wpdk_settings-options {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.tinypress-settings-layout .wpdk_settings-content,
+.tinypress-settings-layout .wpdk_settings-sections,
+.tinypress-settings-layout .wpdk_settings-section {
+    overflow: hidden;
+}
+
+.tinypress-settings-layout .wpdk_settings-nav-normal {
+    width: 180px;
+}
+
+.tinypress-settings-layout .wpdk_settings-nav-normal + .wpdk_settings-content {
+    margin-left: 180px;
+}
+
+.tinypress-settings-layout .wpdk_settings-nav ul li a {
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.4;
+    padding: 12px 14px;
+}
+
+.tinypress-settings-layout .wpdk_settings-nav ul ul li a {
+    padding: 12px 14px 12px 24px;
+}
+
+.tinypress-settings-sidebar {
+    width: 25%;
+    flex-shrink: 0;
+    margin-top: 4%;
+}
+
+@media screen and (max-width: 700px) {
+    .tinypress-settings-layout {
+        flex-direction: column;
+    }
+    
+    .tinypress-settings-sidebar {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
 /* Support Sidebar Styles */
 .tinypress-support-sidebar {
-    max-width: 600px;
+    max-width: 100%;
 }
 
 .tinypress-support-sidebar .support-box-header {
@@ -663,6 +717,7 @@ th#tinypress-link {
 
 .tinypress-support-sidebar .support-box-content {
     border: 1px solid #655897;
+    background: #fff;
 }
 
 .tinypress-support-sidebar .inside {
