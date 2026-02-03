@@ -1,0 +1,233 @@
+/**
+ * TinyPress Autolist AJAX Styles
+ */
+
+.tinypress-autolist-container {
+    margin: 20px 0;
+}
+
+.tinypress-autolist-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+}
+
+.tinypress-autolist-row:hover {
+    border-color: #999;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.tinypress-autolist-row.ui-sortable-helper {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    border-color: #2271b1;
+}
+
+.tinypress-autolist-handle {
+    cursor: move;
+    color: #999;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.tinypress-autolist-handle:hover {
+    color: #2271b1;
+}
+
+.tinypress-autolist-field {
+    flex: 1;
+    position: relative;
+}
+
+.tinypress-autolist-field:first-of-type {
+    flex: 2;
+}
+
+.tinypress-autolist-post-type,
+.tinypress-autolist-behavior {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.tinypress-autolist-post-type:focus,
+.tinypress-autolist-behavior:focus {
+    border-color: #2271b1;
+    outline: none;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+.tinypress-autolist-post-type.validating {
+    border-color: #f0b849;
+    background: #fffbf0;
+}
+
+.tinypress-autolist-post-type.valid {
+    border-color: #00a32a;
+    background: #f0fff4;
+}
+
+.tinypress-autolist-post-type.invalid {
+    border-color: #d63638;
+    background: #fff5f5;
+}
+
+.tinypress-validation-feedback {
+    margin-top: 5px;
+    font-size: 12px;
+    min-height: 18px;
+}
+
+.tinypress-validation-feedback .validating {
+    color: #f0b849;
+}
+
+.tinypress-validation-feedback .valid {
+    color: #00a32a;
+}
+
+.tinypress-validation-feedback .invalid {
+    color: #d63638;
+}
+
+.tinypress-autolist-actions .dashicons-trash {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    
+}
+
+.tinypress-autolist-remove {
+    padding: 6px 10px;
+    border-color: #d63638;
+    color: #d63638;
+    background: #fff;
+}
+
+.tinypress-autolist-remove:hover {
+    background: #d63638;
+    color: #fff;
+    border-color: #d63638;
+}
+
+.tinypress-autolist-add {
+    margin-top: 15px;
+}
+
+.tinypress-autolist-add .dashicons {
+    vertical-align: middle;
+    margin-bottom: 5px;
+}
+
+.tinypress-save-indicator {
+    position: fixed;
+    top: 32px;
+    right: 20px;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 999999;
+    display: none;
+}
+
+.tinypress-save-indicator .saving {
+    color: #f0b849;
+}
+
+.tinypress-save-indicator .saved {
+    color: #00a32a;
+}
+
+.tinypress-save-indicator .error {
+    color: #d63638;
+}
+
+.tinypress-save-indicator .dashicons {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.tinypress-save-indicator .dashicons.spin {
+    animation: tinypress-spin 1s linear infinite;
+}
+
+@keyframes tinypress-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.tinypress-autolist-empty {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    border: 2px dashed #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.tinypress-autolist-empty .dashicons {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 10px;
+    opacity: 0.5;
+}
+
+.ppma_select2-container {
+    z-index: 1;
+}
+
+.ppma_select2-dropdown {
+    z-index: 9998;
+    border: 1px solid #2271b1;
+    border-radius: 4px;
+}
+
+.ppma_select2-container--default .ppma_select2-selection--single {
+    height: auto;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.ppma_select2-container--default .ppma_select2-selection--single .ppma_select2-selection__rendered {
+    line-height: normal;
+    padding: 0;
+}
+
+.ppma_select2-container--default .ppma_select2-selection--single .ppma_select2-selection__arrow {
+    height: 100%;
+}
+
+.ppma_select2-container--default .ppma_select2-results__option--highlighted[aria-selected] {
+    background-color: #2271b1;
+}
+
+@media (max-width: 782px) {
+    .tinypress-autolist-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .tinypress-autolist-field:first-of-type {
+        flex: 1;
+    }
+    
+    .tinypress-autolist-handle {
+        order: -1;
+    }
+}

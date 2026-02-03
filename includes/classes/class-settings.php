@@ -19,6 +19,63 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 		 */
 		public function __construct() {
 			add_action( 'init', array( $this, 'create_settings_page' ), 5 );
+			add_filter( 'pb_settings_tinypress_settings_save', array( $this, 'sanitize_autolist_settings' ), 10, 2 );
+		}
+
+		/**
+		 * Sanitize autolist settings to prevent duplicates and invalid post types
+		 *
+		 * @param array $request
+		 * @param array $args
+		 * @return array
+		 */
+		function sanitize_autolist_settings( $request, $args ) {
+			if ( ! isset( $request['tinypress_autolist_post_types'] ) ) {
+				return $request;
+			}
+
+			$post_types = $request['tinypress_autolist_post_types'];
+			
+			if ( ! is_array( $post_types ) ) {
+				return $request;
+			}
+
+			$all_post_types = get_post_types( array( 'public' => true ), 'names' );
+			$valid_post_types = array_diff( $all_post_types, array( 'attachment', 'tinypress_link' ) );
+			
+			// Track seen post types to prevent duplicates
+			$seen = array();
+			$sanitized = array();
+
+			foreach ( $post_types as $config ) {
+				if ( ! isset( $config['post_type'] ) || empty( $config['post_type'] ) || trim( $config['post_type'] ) === '' ) {
+					continue;
+				}
+
+				$post_type = trim( $config['post_type'] );
+
+				if ( ! in_array( $post_type, $valid_post_types ) ) {
+					continue;
+				}
+
+				if ( isset( $seen[ $post_type ] ) ) {
+					continue;
+				}
+
+				if ( ! isset( $config['behavior'] ) || empty( $config['behavior'] ) ) {
+					$config['behavior'] = 'never';
+				}
+
+				$seen[ $post_type ] = true;
+				$sanitized[] = array(
+					'post_type' => $post_type,
+					'behavior'  => $config['behavior'],
+				);
+			}
+
+			$request['tinypress_autolist_post_types'] = $sanitized;
+
+			return $request;
 		}
 
 		/**
@@ -52,6 +109,45 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 
 
 		/**
+		 * Get all public post types for auto-list settings
+		 *
+		 * @return array
+		 */
+		function get_public_post_types_for_autolist() {
+			$post_types = get_post_types( array( 'public' => true ), 'objects' );
+			$default_settings = array();
+
+			foreach ( $post_types as $post_type ) {
+				if ( ! in_array( $post_type->name, array( 'attachment', 'tinypress_link' ) ) ) {
+					$default_settings[] = array(
+						'post_type' => $post_type->name,
+						'behavior'  => 'never',
+					);
+				}
+			}
+
+			return $default_settings;
+		}
+
+		/**
+		 * Get post type options for dropdown
+		 *
+		 * @return array
+		 */
+		function get_post_type_options() {
+			$post_types = get_post_types( array( 'public' => true ), 'objects' );
+			$options = array();
+
+			foreach ( $post_types as $post_type ) {
+				if ( ! in_array( $post_type->name, array( 'attachment', 'tinypress_link' ) ) ) {
+					$options[ $post_type->name ] = $post_type->labels->singular_name . ' (' . $post_type->name . ')';
+				}
+			}
+
+			return $options;
+		}
+
+		/**
 		 * Return settings pages
 		 *
 		 * @return mixed|void
@@ -59,6 +155,10 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 		function get_settings_pages() {
 
 			$user_roles = tinypress_get_roles();
+			
+			// Get post type options dynamically when settings page is rendered
+			// This ensures CPT UI and other late-registered post types are included
+			$post_type_options = $this->get_post_type_options();
 
 			$field_sections['settings'] = array(
 				'title'    => esc_html__( 'General', 'tinypress' ),
@@ -162,6 +262,28 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 						),
 					),
 					array(
+						'title'  => esc_html__( 'Auto-List Links for Post Types', 'tinypress' ),
+						'fields' => array(
+							array(
+								'id'       => 'tinypress_autolist_enabled',
+								'type'     => 'switcher',
+								'title'    => esc_html__( 'Enable Auto-Listing Links', 'tinypress' ),
+								'subtitle' => esc_html__( 'Automatically list post type shortlinks in the "All Links" table', 'tinypress' ),
+								'label'    => esc_html__( 'When enabled, shortlinks for posts, pages, and other post types will appear in the "All Links" table based on the behavior you configure below.', 'tinypress' ),
+								'default'  => false,
+							),
+							array(
+								'id'         => 'tinypress_autolist_post_types',
+								'type'       => 'callback',
+								'title'      => esc_html__( 'Configure Post Types', 'tinypress' ),
+								'subtitle'   => esc_html__( 'Set when links should be auto-listed for each post type', 'tinypress' ),
+								'desc'       => esc_html__( 'Add post types and configure when their shortlinks should appear in the "All Links" table. Changes are saved automatically.', 'tinypress' ),
+								'dependency' => array( 'tinypress_autolist_enabled', '==', '1' ),
+								'function'   => array( $this, 'render_autolist_ajax_field' ),
+							),
+						),
+					),
+					array(
 						'title'  => esc_html__( 'Help and Supports', 'tinypress' ),
 						'fields' => array(
 							array(
@@ -199,6 +321,76 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 			return apply_filters( 'TINYPRESS/Filters/settings_pages', $field_sections );
 		}
 
+		/**
+		 * Render custom AJAX-powered autolist field
+		 */
+		public function render_autolist_ajax_field() {
+			$all_settings = get_option( 'tinypress_settings', array() );
+			$config = isset( $all_settings['tinypress_autolist_post_types'] ) ? $all_settings['tinypress_autolist_post_types'] : array();
+			
+			if ( empty( $config ) ) {
+				$config = array(
+					array(
+						'post_type' => 'post',
+						'behavior' => 'on_first_use'
+					),
+					array(
+						'post_type' => 'page',
+						'behavior' => 'on_first_use'
+					)
+				);
+			}
+			
+			// Enqueue CSS
+			wp_enqueue_style(
+				'tinypress-autolist-ajax',
+				TINYPRESS_PLUGIN_URL . 'assets/admin/css/autolist-ajax.css',
+				array(),
+				TINYPRESS_PLUGIN_VERSION
+			);
+			
+			?>
+			<div class="tinypress-save-indicator"></div>
+			<div class="tinypress-autolist-wrapper">
+				<div class="tinypress-autolist-container">
+					<?php if ( empty( $config ) ) : ?>
+						<div class="tinypress-autolist-empty">
+							<span class="dashicons dashicons-admin-post"></span>
+							<p><?php esc_html_e( 'No post types configured yet. Click "Add Post Type" to get started.', 'tinypress' ); ?></p>
+						</div>
+					<?php else : ?>
+						<?php foreach ( $config as $index => $item ) : ?>
+							<div class="tinypress-autolist-row" data-index="<?php echo esc_attr( $index ); ?>">
+								<div class="tinypress-autolist-handle">
+									<span class="dashicons dashicons-menu"></span>
+								</div>
+								<div class="tinypress-autolist-field">
+									<select class="tinypress-autolist-post-type" data-selected="<?php echo esc_attr( $item['post_type'] ); ?>">
+										<option value="<?php echo esc_attr( $item['post_type'] ); ?>" selected><?php echo esc_html( $item['post_type'] ); ?></option>
+									</select>
+								</div>
+								<div class="tinypress-autolist-field">
+									<select class="tinypress-autolist-behavior">
+										<option value="never" <?php selected( $item['behavior'], 'never' ); ?>><?php esc_html_e( 'Never', 'tinypress' ); ?></option>
+										<option value="on_first_use" <?php selected( $item['behavior'], 'on_first_use' ); ?>><?php esc_html_e( 'On First Use', 'tinypress' ); ?></option>
+										<option value="on_publish" <?php selected( $item['behavior'], 'on_publish' ); ?>><?php esc_html_e( 'On Publish', 'tinypress' ); ?></option>
+									</select>
+								</div>
+								<div class="tinypress-autolist-actions">
+									<button type="button" class="button tinypress-autolist-remove">
+										<span class="dashicons dashicons-trash"></span>
+									</button>
+								</div>
+							</div>
+						<?php endforeach; ?>
+					<?php endif; ?>
+				</div>
+				<button type="button" class="button button-primary tinypress-autolist-add">
+					<span class="dashicons dashicons-plus-alt"></span> <?php esc_html_e( 'Add Post Type', 'tinypress' ); ?>
+				</button>
+			</div>
+			<?php
+		}
 
 		/**
 		 * @return TINYPRESS_Settings
