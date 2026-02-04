@@ -782,3 +782,117 @@ th#tinypress-link {
     top: 50% !important;
     transform: translateY(-50%) !important;
 }
+
+.pressshack-admin-wrapper a:link,
+.pressshack-admin-wrapper a:visited,
+.pressshack-admin-wrapper a:active,
+.pressshack-admin-wrapper a:hover {
+    text-decoration: none;
+}
+
+.pressshack-admin-wrapper a,
+.pressshack-admin-wrapper button,
+.pressshack-admin-wrapper button::before {
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+
+.pressshack-admin-wrapper a,
+.pressshack-admin-wrapper a div,
+.pressshack-admin-wrapper a p {
+    color: #655997;
+}
+
+.pressshack-admin-wrapper a:hover,
+.pressshack-admin-wrapper a:focus,
+.pressshack-admin-wrapper a:active,
+.pressshack-admin-wrapper a:hover div,
+.pressshack-admin-wrapper a:focus div,
+.pressshack-admin-wrapper a:active div,
+.pressshack-admin-wrapper a:hover p,
+.pressshack-admin-wrapper a:focus p,
+.pressshack-admin-wrapper a:active p,
+.pressshack-admin-wrapper a:hover .dashicons:before,
+.pressshack-admin-wrapper a:focus .dashicons:before,
+.pressshack-admin-wrapper a:active .dashicons:before {
+    color: #5A4F87;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -o-box-shadow: none;
+}
+
+.pressshack-admin-wrapper > footer {
+    text-align: center;
+    font-size: 12px;
+}
+
+.pressshack-admin-wrapper > footer > div.tinypress-rating {
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+
+.pressshack-admin-wrapper > footer * {
+    color: #777;
+}
+
+.pressshack-admin-wrapper > footer > nav ul {
+    list-style: none;
+    margin: 12px 0;
+    padding: 0;
+}
+
+.pressshack-admin-wrapper > footer > nav ul > li {
+    display: inline-block;
+}
+
+.pressshack-admin-wrapper > footer > nav ul > li:not(:first-child) {
+    margin-left: 15px;
+}
+
+.pressshack-admin-wrapper > footer > nav ul > li > a {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.pressshack-admin-wrapper > footer .dashicons.dashicons-star-filled {
+    line-height: 18px;
+    font-size: 12px;
+    width: 12px;
+    height: 12px;
+    color: #FFB300;
+    -webkit-transition: color 200ms ease-in-out;
+    -moz-transition: color 200ms ease-in-out;
+    -o-transition: color 200ms ease-in-out;
+    transition: color 200ms ease-in-out;
+}
+
+.pressshack-admin-wrapper .tinypress-pressshack-logo {
+    margin-top: 10px;
+}
+
+.pressshack-admin-wrapper .tinypress-pressshack-logo img {
+    width: 170px;
+    max-width: 100%;
+}
+
+body.tinypress_link_page_settings #wpcontent,
+body.edit-php.post-type-tinypress_link #wpcontent,
+body.post-new-php.post-type-tinypress_link #wpcontent,
+body.post-php.post-type-tinypress_link #wpcontent {
+    margin-bottom: 100px;
+}
+
+body.tinypress_link_page_settings #wpcontent {
+    padding-bottom: 120px;
+}
+
+body.tinypress_link_page_settings #wpwrap,
+body.edit-php.post-type-tinypress_link #wpwrap,
+body.post-new-php.post-type-tinypress_link #wpwrap,
+body.post-php.post-type-tinypress_link #wpwrap {
+    display: inline-block;
+}
