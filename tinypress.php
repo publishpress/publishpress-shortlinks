@@ -52,6 +52,8 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 
 			add_action( 'init', array( $this, 'create_data_table' ), 5 );
 			add_action( 'init', array( $this, 'load_text_domain' ), 0 );
+			add_filter( 'admin_footer_text', array( $this, 'update_footer_admin' ) );
+			add_filter( 'tinypress_show_footer', array( $this, 'filter_display_footer' ), 10 );
 
 			register_activation_hook( __FILE__, array( $this, 'flush_rewrite_rules' ) );
 		}
@@ -112,16 +114,24 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-columns-link.php';
 			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-settings.php';
 			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-redirection.php';
+			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-autolist.php';
+			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-autolist-ajax.php';
 
 			new TINYPRESS_Hooks();
-			new TINYPRESS_Column_link();
 			new TINYPRESS_Settings();
 			new TINYPRESS_Redirection();
+			new TINYPRESS_AutoList();
+			TINYPRESS_Autolist_Ajax::instance();
 			
-			// Initialize metaboxes after translations are loaded
+			// Initialize metaboxes early for proper registration
 			add_action( 'init', function() {
 				new TINYPRESS_Meta_boxes();
 			}, 1 );
+			
+			// Initialize columns late to catch all registered post types
+			add_action( 'init', function() {
+				new TINYPRESS_Column_link();
+			}, 999 );
 		}
 
 
@@ -159,6 +169,112 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 		 */
 		function define_scripts() {
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
+		}
+
+
+		/**
+		 * Update admin footer with PublishPress footer
+		 *
+		 * @param string $footer
+		 * @return string
+		 */
+		public function update_footer_admin( $footer ) {
+			if ( $this->should_display_footer() ) {
+				$html = '<div class="pressshack-admin-wrapper">';
+				$html .= $this->print_default_footer( false );
+
+				// Add the wordpress footer
+				$html .= $footer;
+
+				if ( ! defined( 'TINYPRESS_FOOTER_DISPLAYED' ) ) {
+					define( 'TINYPRESS_FOOTER_DISPLAYED', true );
+				}
+
+				return $html;
+			}
+
+			return $footer;
+		}
+
+
+		/**
+		 * Check if footer should be displayed
+		 *
+		 * @return bool
+		 */
+		private function should_display_footer() {
+			return apply_filters( 'tinypress_show_footer', false );
+		}
+
+
+		/**
+		 * Echo or return the default footer
+		 *
+		 * @param bool $echo
+		 * @return string
+		 */
+		public function print_default_footer( $echo = true ) {
+			$html = '';
+			
+			$show_footer = apply_filters( 'tinypress_show_footer', true );
+
+			if ( $show_footer ) {
+				$context = array(
+					'plugin_name' => __( 'PublishPress Shortlinks', 'tinypress' ),
+					'plugin_slug' => 'tinypress',
+					'plugin_url'  => TINYPRESS_PLUGIN_URL,
+				);
+
+				ob_start();
+				include TINYPRESS_PLUGIN_DIR . 'templates/admin/footer.php';
+				$html = ob_get_clean();
+			}
+
+			if ( ! $echo ) {
+				return $html;
+			}
+
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo $html;
+
+			return '';
+		}
+
+
+		/**
+		 * Filter to determine which pages should display the footer
+		 *
+		 * @param bool $should_display
+		 * @return bool
+		 */
+		public function filter_display_footer( $should_display = true ) {
+			global $current_screen;
+
+			if ( defined( 'TINYPRESS_FOOTER_DISPLAYED' ) ) {
+				return false;
+			}
+
+			if ( $current_screen->base === 'tinypress_link_page_settings' ) {
+				return true;
+			}
+
+			if ( $current_screen->base === 'tinypress_link_page_tinypress-logs' ) {
+				return true;
+			}
+
+			if ( $current_screen->base === 'edit' && $current_screen->post_type === 'tinypress_link' ) {
+				return true;
+			}
+
+			if ( $current_screen->base === 'edit-tags' && $current_screen->post_type === 'tinypress_link' ) {
+				return true;
+			}
+
+			if ( ( $current_screen->base === 'post' || $current_screen->base === 'post-new' ) && $current_screen->post_type === 'tinypress_link' ) {
+				return true;
+			}
+
+			return $should_display;
 		}
 
 
