@@ -290,6 +290,27 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 							),
 						),
 					),
+					array(
+						'title'  => esc_html__( 'Post Status Visibility', 'tinypress' ),
+						'fields' => array(
+							array(
+								'id'       => 'tinypress_allowed_post_statuses',
+								'type'     => 'checkbox',
+								'title'    => esc_html__( 'Allowed Post Statuses', 'tinypress' ),
+								'subtitle' => esc_html__( 'Choose which post statuses can be accessed via shortlinks', 'tinypress' ),
+								'desc'     => esc_html__( 'Select which post statuses are accessible when visiting a PublishPress shortlink.', 'tinypress' ),
+								'inline'   => true,
+								'options'  => array(
+									'publish' => esc_html__( 'Published', 'tinypress' ),
+									'draft'   => esc_html__( 'Draft', 'tinypress' ),
+									'pending' => esc_html__( 'Pending Review', 'tinypress' ),
+									'private' => esc_html__( 'Private', 'tinypress' ),
+									'future'  => esc_html__( 'Scheduled', 'tinypress' ),
+								),
+								'default'  => array( 'publish' ),
+							),
+						),
+					),
 				),
 
 

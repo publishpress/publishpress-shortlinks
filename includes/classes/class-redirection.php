@@ -22,6 +22,7 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 		 */
 		function __construct() {
 			add_action( 'template_redirect', array( $this, 'redirection_controller' ) );
+			add_action( 'pre_get_posts', array( $this, 'tinypress_filter_shortlink_preview_visibility' ) );
 		}
 
 
@@ -38,7 +39,40 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 			$target_url = Utils::get_meta( 'target_url', $link_id );
 
 			if ( empty( $target_url ) && 'tinypress_link' != get_post_type( $link_id ) ) {
+				$post_status = get_post_status( $link_id );
+				$post_object = get_post( $link_id );
+				
+				$can_view_post = false;
+				if ( is_user_logged_in() ) {
+					$current_user_id = get_current_user_id();
+					if ( $current_user_id == $post_object->post_author || current_user_can( 'edit_post', $link_id ) ) {
+						$can_view_post = true;
+					}
+				}
+				
+				if ( ! $can_view_post ) {
+					$allowed_statuses = Utils::get_option( 'tinypress_allowed_post_statuses', array( 'publish' ) );
+					
+					if ( ! is_array( $allowed_statuses ) ) {
+						$allowed_statuses = array( 'publish' );
+					}
+
+					if ( ! in_array( $post_status, $allowed_statuses ) ) {
+						wp_die( 
+							sprintf( 
+								esc_html__( 'This content is not publicly accessible. Post status: %s', 'tinypress' ),
+								esc_html( $post_status )
+							),
+							esc_html__( 'Content Not Available', 'tinypress' ),
+							array( 'response' => 403 )
+						);
+					}
+				}
+				
 				$target_url = get_permalink( $link_id );
+				
+				// Add preview parameter for all posts to trigger our filter
+				$target_url = add_query_arg( 'preview', 'true', $target_url );
 			}
 
 			$redirection_method   = Utils::get_meta( 'redirection_method', $link_id );
@@ -237,6 +271,35 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 				}
 
 				$this->check_protection( $link_id );
+			}
+		}
+
+
+		/**
+		 * Filters the main query to determine post visibility for TinyPress shortlink previews.
+		 *
+		 * @param WP_Query $query
+		 * @return void
+		 */
+		public function tinypress_filter_shortlink_preview_visibility( $query ) {
+			if ( ! $query->is_main_query() ) {
+				return;
+			}
+			
+			if ( ! isset( $_GET['preview'] ) || $_GET['preview'] !== 'true' ) {
+				return;
+			}
+			
+			$allowed_statuses = Utils::get_option( 'tinypress_allowed_post_statuses', array( 'publish' ) );
+			
+			if ( ! is_array( $allowed_statuses ) ) {
+				$allowed_statuses = array( 'publish' );
+			}
+			
+			if ( is_user_logged_in() && current_user_can( 'edit_posts' ) ) {
+				$query->set( 'post_status', 'any' );
+			} else {
+				$query->set( 'post_status', $allowed_statuses );
 			}
 		}
 
