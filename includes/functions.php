@@ -198,7 +198,7 @@ if ( ! function_exists( 'tinypress_create_shorten_url' ) ) {
 		if ( empty( $post_title ) ) {
 			wp_update_post( array(
 				'ID'         => $new_url_id,
-				'post_title' => sprintf( esc_html__( 'Link - %s', 'tinypress' ), $new_url_id ),
+				'post_title' => esc_html( sprintf( __( 'Link - %s', 'tinypress' ), $new_url_id ) ),
 			) );
 		}
 

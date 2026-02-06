@@ -140,7 +140,7 @@ class WP_List_Table_Logs extends WP_List_Table {
 		}
 
 		return sprintf( '<div class="report-details">%s</div>',
-			sprintf( esc_html__( '%s from %s visited at %s', 'tinypress' ), $user_display_name, $user_location_name, $user_visited_time )
+			esc_html( sprintf( __( '%s from %s visited at %s', 'tinypress' ), $user_display_name, $user_location_name, $user_visited_time ) )
 		);
 	}
 }

@@ -186,7 +186,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 								'type'        => 'text',
 								'title'       => esc_html__( 'Prefix Slug', 'tinypress' ),
 								'subtitle'    => esc_html__( 'Custom prefix slug.', 'tinypress' ),
-								'desc'        => sprintf( esc_html__( 'This prefix slug will be added this way - %s', 'tinypress' ), esc_url( site_url( 'go/my-tiny-slug' ) ) ),
+								'desc'        => esc_html( sprintf( __( 'This prefix slug will be added this way - %s', 'tinypress' ), esc_url( site_url( 'go/my-tiny-slug' ) ) ) ),
 								'placeholder' => esc_html__( 'go', 'tinypress' ),
 								'default'     => esc_html__( 'go', 'tinypress' ),
 								'dependency'  => array( 'tinypress_link_prefix', '==', '1' ),
