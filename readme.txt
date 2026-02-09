@@ -76,6 +76,16 @@ Yes! tinyPress is ready for translation. You can translate easily as you do for 
 
 == Changelog ==
 
+= 1.3.0 - 10 February 2026 =
+- REMOVED: Remove the General tab, #38
+- UPDATE: Make the Metabox a normal wordpress metabox, #17
+- UPDATE: Allow links to be automatically listed on the Links screen, #19
+- UPDATE: Add PublishPress Footer, #33
+- UPDATE: Add PublishPress Review Banners, #34
+- UPDATE: Move support box to the sidebar, #36
+- UPDATE: Add post status access control for shortlinks, #18
+- UPDATE: tinypress-1.2.6-Translation Updates ES-FR-IT, #41
+
 = 1.2.6 - 27 January 2026 =
 - FIX: Function _load_textdomain_just_in_time error, #10
 - FIX: PHP 8.2+ dynamic property deprecation warnings in WPDK framework, #11
