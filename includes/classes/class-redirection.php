@@ -82,14 +82,12 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 						}
 
 						if ( ! in_array( $post_status, $allowed_statuses ) ) {
-							wp_die( 
-								sprintf( 
-									esc_html__( 'This content is not publicly accessible. Post status: %s', 'tinypress' ),
-									esc_html( $post_status )
-								),
-								esc_html__( 'Content Not Available', 'tinypress' ),
-								array( 'response' => 403 )
-							);
+							global $wp_query;
+							$wp_query->set_404();
+							status_header( 404 );
+							nocache_headers();
+							include( get_query_template( '404' ) );
+							die();
 						}
 					}
 					
