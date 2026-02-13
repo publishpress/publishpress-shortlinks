@@ -76,7 +76,7 @@ Yes! tinyPress is ready for translation. You can translate easily as you do for 
 
 == Changelog ==
 
-= 1.3.0 - 10 February 2026 =
+= 1.3.0 - 16 February 2026 =
 - REMOVED: Remove the General tab, #38
 - UPDATE: Make the Metabox a normal wordpress metabox, #17
 - UPDATE: Allow links to be automatically listed on the Links screen, #19
