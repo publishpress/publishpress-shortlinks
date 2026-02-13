@@ -155,7 +155,10 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 		 * Load Text Domain
 		 */
 		function load_text_domain() {
-			load_plugin_textdomain( 'tinypress', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
+			$locale = determine_locale();
+			if ( 'en_US' !== $locale ) {
+				load_plugin_textdomain( 'tinypress', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
+			}
 		}
 
 
