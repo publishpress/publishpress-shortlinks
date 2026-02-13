@@ -215,7 +215,7 @@ if ( ! class_exists( 'TINYPRESS_Meta_boxes' ) ) {
 							'id'         => 'link_status',
 							'type'       => 'switcher',
 							'title'      => esc_html__( 'Status', 'tinypress' ),
-							'subtitle'   => esc_html__( 'Disable the link instantly.', 'tinypress' ),
+							'subtitle'   => esc_html__( 'Disable the shortlink instantly.', 'tinypress' ),
 							'label'      => esc_html__( 'After disabling the link will not active but the settings will be reserved.', 'tinypress' ),
 							'text_on'    => esc_html__( 'Enable', 'tinypress' ),
 							'text_off'   => esc_html__( 'Disable', 'tinypress' ),
@@ -283,7 +283,7 @@ if ( ! class_exists( 'TINYPRESS_Meta_boxes' ) ) {
 							'id'           => 'password_protection',
 							'type'         => 'switcher',
 							'title'        => esc_html__( 'Password Protection', 'tinypress' ),
-							'subtitle'     => esc_html__( 'Secure your link.', 'tinypress' ),
+							'subtitle'     => esc_html__( 'Secure your shortlink.', 'tinypress' ),
 							'label'        => esc_html__( 'Users must enter the password to redirect to the target link.', 'tinypress' ),
 						),
 						array(

@@ -176,7 +176,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 							array(
 								'id'       => 'tinypress_link_prefix',
 								'type'     => 'switcher',
-								'title'    => esc_html__( 'Link Prefix', 'tinypress' ),
+								'title'    => esc_html__( 'Shortlink Prefix', 'tinypress' ),
 								'label'    => esc_html__( 'Add a prefix between your domain name and shortlink.', 'tinypress' ),
 								'default'  => true,
 							),
@@ -217,7 +217,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 							array(
 								'id'         => 'tinypress_role_view',
 								'type'       => 'checkbox',
-								'title'      => esc_html__( 'Who Can View Links', 'tinypress' ),
+								'title'      => esc_html__( 'Who Can View Shortlinks', 'tinypress' ),
 								'subtitle'   => esc_html__( 'Upcoming feature.', 'tinypress' ),
 								'desc'       => esc_html__( 'Only selected user roles can view links.', 'tinypress' ),
 								'inline'     => true,
@@ -229,7 +229,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 							array(
 								'id'         => 'tinypress_role_create',
 								'type'       => 'checkbox',
-								'title'      => esc_html__( 'Who Can Create/Edit Links', 'tinypress' ),
+								'title'      => esc_html__( 'Who Can Create/Edit Shortlinks', 'tinypress' ),
 								'subtitle'   => esc_html__( 'Upcoming feature.', 'tinypress' ),
 								'desc'       => esc_html__( 'Only selected user roles can create or edit links.', 'tinypress' ),
 								'inline'     => true,
@@ -270,9 +270,9 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 							array(
 								'id'       => 'tinypress_autolist_enabled',
 								'type'     => 'switcher',
-								'title'    => esc_html__( 'Enable Auto-Listing Links', 'tinypress' ),
+								'title'    => esc_html__( 'Auto-List Shortlinks', 'tinypress' ),
 								'label'    => esc_html__( 'When enabled, shortlinks will appear in the "All Links" table based on the behavior you configure below.', 'tinypress' ),
-								'default'  => false,
+								'default'  => true,
 							),
 							array(
 								'id'         => 'tinypress_autolist_post_types',

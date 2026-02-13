@@ -77,7 +77,7 @@ class WP_List_Table_Logs extends WP_List_Table {
 	function get_columns() {
 		return array(
 			'title'      => esc_html__( 'Title', 'tinypress' ),
-			'short_link' => esc_html__( 'Short Link', 'tinypress' ),
+			'short_link' => esc_html__( 'Shortlink', 'tinypress' ),
 			'details'    => esc_html__( 'Details', 'tinypress' ),
 		);
 	}

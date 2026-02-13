@@ -113,8 +113,8 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 			global $tinypress_wpdk;
 
 			$tinypress_wpdk->utils()->register_post_type( 'tinypress_link', array(
-				'singular'            => esc_html__( 'Link', 'tinypress' ),
-				'plural'              => esc_html__( 'All Links', 'tinypress' ),
+				'singular'            => esc_html__( 'Shortlinks', 'tinypress' ),
+				'plural'              => esc_html__( 'All Shortlinks', 'tinypress' ),
 				'labels'              => array(
 					'menu_name' => esc_html__( 'Shortlinks', 'tinypress' ),
 				),

@@ -52,10 +52,12 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 
 			add_action( 'init', array( $this, 'create_data_table' ), 5 );
 			add_action( 'init', array( $this, 'load_text_domain' ), 0 );
+			add_action( 'init', array( $this, 'initialize_default_settings' ), 10 );
 			add_filter( 'admin_footer_text', array( $this, 'update_footer_admin' ) );
 			add_filter( 'tinypress_show_footer', array( $this, 'filter_display_footer' ), 10 );
 
 			register_activation_hook( __FILE__, array( $this, 'flush_rewrite_rules' ) );
+			register_activation_hook( __FILE__, array( $this, 'set_default_settings' ) );
 		}
 
 
@@ -92,6 +94,60 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
             );";
 
 			maybe_create_table( TINYPRESS_TABLE_REPORTS, $sql_create_table );
+		}
+
+
+		/**
+		 * Set default settings on plugin activation
+		 *
+		 * @return void
+		 */
+		function set_default_settings() {
+			$settings = get_option( 'tinypress_settings', array() );
+			
+			if ( empty( $settings ) || ! isset( $settings['tinypress_autolist_enabled'] ) ) {
+				if ( ! is_array( $settings ) ) {
+					$settings = array();
+				}
+
+				if ( ! isset( $settings['tinypress_autolist_enabled'] ) ) {
+					$settings['tinypress_autolist_enabled'] = '1';
+				}
+				
+				if ( ! isset( $settings['tinypress_autolist_post_types'] ) || empty( $settings['tinypress_autolist_post_types'] ) ) {
+					$settings['tinypress_autolist_post_types'] = array(
+						array(
+							'post_type' => 'post',
+							'behavior' => 'on_first_use'
+						),
+						array(
+							'post_type' => 'page',
+							'behavior' => 'on_first_use'
+						)
+					);
+				}
+				
+				if ( ! isset( $settings['tinypress_allowed_post_statuses'] ) ) {
+					$settings['tinypress_allowed_post_statuses'] = array( 'publish', 'draft', 'pending', 'private', 'future' );
+				}
+				
+				update_option( 'tinypress_settings', $settings );
+			}
+		}
+		
+		/**
+		 * Initialize default settings on init (for upgrades from older versions)
+		 *
+		 * @return void
+		 */
+		function initialize_default_settings() {
+			// Check if we need to initialize defaults (for sites upgrading from older versions)
+			$settings = get_option( 'tinypress_settings', array() );
+			
+			// If settings exist but autolist settings are missing, initialize them
+			if ( is_array( $settings ) && ! empty( $settings ) && ! isset( $settings['tinypress_autolist_enabled'] ) ) {
+				$this->set_default_settings();
+			}
 		}
 
 
