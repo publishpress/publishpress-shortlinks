@@ -133,6 +133,25 @@ if ( ! function_exists( 'tinypress_get_tiny_slug_copier' ) ) {
 				echo '<input type="text" class="tinypress-tiny-slug" name="tinypress_meta_main[tiny_slug]" value="' . esc_attr( $tiny_slug ) . '" placeholder="ad34o">';
 			} else {
 				echo '<input type="text" class="tinypress-tiny-slug" name="tinypress_meta_side_' . $post->post_type . '[tiny_slug]" value="' . esc_attr( $tiny_slug ) . '" placeholder="ad34o">';
+			
+			$link_posts = get_posts( array(
+				'post_type'      => 'tinypress_link',
+				'posts_per_page' => 1,
+				'post_status'    => 'any',
+				'meta_query'     => array(
+					array(
+						'key'     => 'source_post_id',
+						'value'   => absint( $post_id ),
+						'compare' => '='
+					)
+				),
+				'fields'         => 'ids'
+			) );
+			
+			if ( ! empty( $link_posts ) ) {
+				$edit_url = get_edit_post_link( $link_posts[0] );
+				echo '<a href="' . esc_url( $edit_url ) . '" target="_blank" class="tinypress-settings-link">' . esc_html__( 'Edit shortlink settings', 'tinypress' ) . '</a>';
+			}
 			}
 			echo '</div>';
 		}

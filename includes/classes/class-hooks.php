@@ -94,12 +94,12 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 		 */
 		function change_url_update_message( $messages ) {
 
-			$post_messages = Utils::get_args_option( 'post', $messages );
-			$post_messages = array_map( function ( $message ) {
+			$tinypress_messages = Utils::get_args_option( 'post', $messages );
+			$tinypress_messages = array_map( function ( $message ) {
 				return str_replace( 'Post', 'Shortlinks', $message );
-			}, $post_messages );
+			}, $tinypress_messages );
 
-			$messages['post'] = $post_messages;
+			$messages['tinypress_link'] = $tinypress_messages;
 
 			return $messages;
 		}
@@ -113,8 +113,8 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 			global $tinypress_wpdk;
 
 			$tinypress_wpdk->utils()->register_post_type( 'tinypress_link', array(
-				'singular'            => esc_html__( 'Link', 'tinypress' ),
-				'plural'              => esc_html__( 'All Links', 'tinypress' ),
+				'singular'            => esc_html__( 'Shortlinks', 'tinypress' ),
+				'plural'              => esc_html__( 'All Shortlinks', 'tinypress' ),
 				'labels'              => array(
 					'menu_name' => esc_html__( 'Shortlinks', 'tinypress' ),
 				),

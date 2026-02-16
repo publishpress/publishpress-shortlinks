@@ -23,7 +23,7 @@ if ( ! class_exists( 'TINYPRESS_AutoList' ) ) {
 		 */
 		function __construct() {
 			add_action( 'transition_post_status', array( $this, 'tinypress_handle_post_publish' ), 10, 3 );
-			add_action( 'tinypress_after_redirect_track', array( $this, 'tinypress_handle_first_use' ), 10, 1 );
+			add_action( 'tinypress_before_redirect_track', array( $this, 'tinypress_handle_first_use' ), 10, 1 );
 			add_action( 'updated_post_meta', array( $this, 'sync_tiny_slug_to_source' ), 10, 4 );
 			add_action( 'save_post_tinypress_link', array( $this, 'tinypress_sync_on_link_save' ), 20, 3 );
 		}

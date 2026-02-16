@@ -82,14 +82,12 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 						}
 
 						if ( ! in_array( $post_status, $allowed_statuses ) ) {
-							wp_die( 
-								sprintf( 
-									esc_html__( 'This content is not publicly accessible. Post status: %s', 'tinypress' ),
-									esc_html( $post_status )
-								),
-								esc_html__( 'Content Not Available', 'tinypress' ),
-								array( 'response' => 403 )
-							);
+							global $wp_query;
+							$wp_query->set_404();
+							status_header( 404 );
+							nocache_headers();
+							include( get_query_template( '404' ) );
+							die();
 						}
 					}
 					
@@ -203,6 +201,21 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 
 			$get_ip_address = tinypress_get_ip_address();
 			$curr_user_id   = is_user_logged_in() ? get_current_user_id() : 0;
+
+			// Prevent duplicate tracking: check if this IP already tracked this link in the last 60 seconds
+			$recent_track = $wpdb->get_var( $wpdb->prepare(
+				"SELECT COUNT(*) FROM " . TINYPRESS_TABLE_REPORTS . "
+				WHERE post_id = %d 
+				AND user_ip = %s 
+				AND datetime > DATE_SUB(NOW(), INTERVAL 60 SECOND)",
+				$link_id,
+				$get_ip_address
+			) );
+
+			if ( $recent_track > 0 ) {
+				return;
+			}
+
 			$location_info  = array(
 				'geoplugin_city'          => null,
 				'geoplugin_region'        => null,
@@ -307,10 +320,28 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 		 */
 		function redirect_url( $link_id ) {
 
-			// Track redirection
-			$this->track_redirection( $link_id );
+			// Fire action before tracking to allow auto-list links to be created first
+			do_action( 'tinypress_before_redirect_track', $link_id );
 
-			// Do the redirection
+			// After the action, check if a tinypress_link entry was created for this post
+			// If so, use that ID for tracking instead of the source post ID
+			$tracking_id = $link_id;
+			if ( get_post_type( $link_id ) !== 'tinypress_link' ) {
+				global $wpdb;
+				$tinypress_link_id = $wpdb->get_var( $wpdb->prepare(
+					"SELECT post_id FROM {$wpdb->postmeta} 
+					WHERE meta_key = 'source_post_id' 
+					AND meta_value = %d 
+					AND post_id IN (SELECT ID FROM {$wpdb->posts} WHERE post_type = 'tinypress_link')",
+					$link_id
+				) );
+				if ( $tinypress_link_id ) {
+					$tracking_id = (int) $tinypress_link_id;
+				}
+			}
+
+			$this->track_redirection( $tracking_id );
+
 			$this->do_redirection( $link_id );
 		}
 

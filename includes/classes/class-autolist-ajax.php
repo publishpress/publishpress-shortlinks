@@ -225,7 +225,11 @@ if ( ! class_exists( 'TINYPRESS_Autolist_Ajax' ) ) {
 		 * Enqueue scripts for AJAX functionality
 		 */
 		public function enqueue_scripts( $hook ) {
-			if ( strpos( $hook, 'tinypress_link' ) === false ) {
+			if ( ! is_admin() ) {
+				return;
+			}
+			
+			if ( $hook !== 'tinypress_link_page_settings' ) {
 				return;
 			}
 			
@@ -246,13 +250,15 @@ if ( ! class_exists( 'TINYPRESS_Autolist_Ajax' ) ) {
 			wp_enqueue_script( 'tinypress-admin-select2' );
 			wp_enqueue_style( 'tinypress-admin-select2' );
 			
-			wp_enqueue_script(
+			wp_register_script(
 				'tinypress-autolist-ajax',
 				TINYPRESS_PLUGIN_URL . 'assets/admin/js/autolist-ajax.js',
 				array( 'jquery', 'jquery-ui-sortable', 'tinypress-admin-select2' ),
 				TINYPRESS_PLUGIN_VERSION,
 				true
 			);
+			
+			wp_enqueue_script( 'tinypress-autolist-ajax' );
 			
 			wp_localize_script( 'tinypress-autolist-ajax', 'tinypressAutolist', array(
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),

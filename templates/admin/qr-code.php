@@ -6,7 +6,7 @@
 ?>
 <div id="side-qr-code" class="side-qr-code">
     <div id="qr-code" class="qr-code"></div>
-    <a class="qr-download" href=""><?php esc_html_e( 'Download QR', 'tinypress' ) ?></a>
+    <a class="qr-download" href=""><?php esc_html_e( 'Download QR Code', 'tinypress' ) ?></a>
 </div>
 
 <script>

@@ -176,9 +176,8 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 							array(
 								'id'       => 'tinypress_link_prefix',
 								'type'     => 'switcher',
-								'title'    => esc_html__( 'Link Prefix', 'tinypress' ),
-								'subtitle' => esc_html__( 'Add custom prefix.', 'tinypress' ),
-								'label'    => esc_html__( 'Customize your tiny url in a better way.', 'tinypress' ),
+								'title'    => esc_html__( 'Shortlink Prefix', 'tinypress' ),
+								'label'    => esc_html__( 'Add a prefix between your domain name and shortlink.', 'tinypress' ),
 								'default'  => true,
 							),
 							array(
@@ -186,7 +185,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 								'type'        => 'text',
 								'title'       => esc_html__( 'Prefix Slug', 'tinypress' ),
 								'subtitle'    => esc_html__( 'Custom prefix slug.', 'tinypress' ),
-								'desc'        => esc_html( sprintf( __( 'This prefix slug will be added this way - %s', 'tinypress' ), esc_url( site_url( 'go/my-tiny-slug' ) ) ) ),
+								'desc'        => esc_html__( 'This text will be added between your domain name and shortlink.', 'tinypress' ),
 								'placeholder' => esc_html__( 'go', 'tinypress' ),
 								'default'     => esc_html__( 'go', 'tinypress' ),
 								'dependency'  => array( 'tinypress_link_prefix', '==', '1' ),
@@ -195,9 +194,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 								'id'          => 'tinypress_kb_shortcut',
 								'type'        => 'text',
 								'title'       => esc_html__( 'Keyboard Shortcut', 'tinypress' ),
-								'subtitle'    => esc_html__( 'Configure your K/B', 'tinypress' ),
-								'desc'        => esc_html__( 'You can now short your large links from anywhere inside your WordPress dashboard.', 'tinypress' ) . '<br>' .
-								                 esc_html__( 'For now you have no option to set your own shortcut but this will come soon.', 'tinypress' ),
+								'desc'        => esc_html__( 'Create shortlinks from anywhere inside your WordPress dashboard.', 'tinypress' ),
 								'placeholder' => esc_html__( 'Ctrl or Cmd + /', 'tinypress' ),
 								'default'     => esc_html__( 'Ctrl or Cmd + /', 'tinypress' ),
 								'attributes'  => array(
@@ -208,8 +205,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 							array(
 								'id'       => 'tinypress_hide_modal_opener',
 								'type'     => 'switcher',
-								'title'    => esc_html__( 'Hide Modal Opener', 'tinypress' ),
-								'subtitle' => esc_html__( 'Remove from WP Admin Bar', 'tinypress' ),
+								'title'    => esc_html__( 'Remove from Admin Bar', 'tinypress' ),
 								'label'    => esc_html__( 'Hide quick short link modal opener from WP Admin Bar.', 'tinypress' ),
 								'default'  => false,
 							),
@@ -221,7 +217,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 							array(
 								'id'         => 'tinypress_role_view',
 								'type'       => 'checkbox',
-								'title'      => esc_html__( 'Who Can View Links', 'tinypress' ),
+								'title'      => esc_html__( 'Who Can View Shortlinks', 'tinypress' ),
 								'subtitle'   => esc_html__( 'Upcoming feature.', 'tinypress' ),
 								'desc'       => esc_html__( 'Only selected user roles can view links.', 'tinypress' ),
 								'inline'     => true,
@@ -233,7 +229,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 							array(
 								'id'         => 'tinypress_role_create',
 								'type'       => 'checkbox',
-								'title'      => esc_html__( 'Who Can Create/Edit Links', 'tinypress' ),
+								'title'      => esc_html__( 'Who Can Create/Edit Shortlinks', 'tinypress' ),
 								'subtitle'   => esc_html__( 'Upcoming feature.', 'tinypress' ),
 								'desc'       => esc_html__( 'Only selected user roles can create or edit links.', 'tinypress' ),
 								'inline'     => true,
@@ -269,15 +265,14 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 						),
 					),
 					array(
-						'title'  => esc_html__( 'Auto-List Links for Post Types', 'tinypress' ),
+						'title'  => esc_html__( 'Auto-List Links', 'tinypress' ),
 						'fields' => array(
 							array(
 								'id'       => 'tinypress_autolist_enabled',
 								'type'     => 'switcher',
-								'title'    => esc_html__( 'Enable Auto-Listing Links', 'tinypress' ),
-								'subtitle' => esc_html__( 'Automatically list post type shortlinks in the "All Links" table', 'tinypress' ),
-								'label'    => esc_html__( 'When enabled, shortlinks for posts, pages, and other post types will appear in the "All Links" table based on the behavior you configure below.', 'tinypress' ),
-								'default'  => false,
+								'title'    => esc_html__( 'Auto-List Shortlinks', 'tinypress' ),
+								'label'    => esc_html__( 'When enabled, shortlinks will appear in the "All Links" table based on the behavior you configure below.', 'tinypress' ),
+								'default'  => true,
 							),
 							array(
 								'id'         => 'tinypress_autolist_post_types',
@@ -307,7 +302,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 									'private' => esc_html__( 'Private', 'tinypress' ),
 									'future'  => esc_html__( 'Scheduled', 'tinypress' ),
 								),
-								'default'  => array( 'publish' ),
+								'default'  => array( 'publish', 'draft', 'pending', 'private', 'future' ),
 							),
 						),
 					),

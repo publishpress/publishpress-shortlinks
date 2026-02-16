@@ -44,8 +44,6 @@ if ( ! class_exists( 'WPDK_Settings_Options' ) ) {
 			'show_in_customizer' => false,
 
 			'show_search'             => true,
-			'show_reset_all'          => true,
-			'show_reset_section'      => true,
 			'show_footer'             => false,
 			'show_all_options'        => false,
 			'show_form_warning'       => true,
@@ -586,8 +584,7 @@ if ( ! class_exists( 'WPDK_Settings_Options' ) ) {
 			}
 
 			echo '<input type="submit" name="' . esc_attr( $this->unique ) . '[_nonce][save]" class="button button-primary wpdk_settings-top-save wpdk_settings-save' . esc_attr( $ajax_class ) . '" value="' . esc_html__( 'Save' ) . '" data-save="' . esc_html__( 'Saving...' ) . '">';
-			echo ( $this->args['show_reset_section'] ) ? '<input type="submit" name="pb_settings_transient[reset_section]" class="button button-secondary wpdk_settings-reset-section wpdk_settings-confirm" value="' . esc_html__( 'Reset Section' ) . '" data-confirm="' . esc_html__( 'Are you sure to reset this section options?' ) . '">' : '';
-			echo ( $this->args['show_reset_all'] ) ? '<input type="submit" name="pb_settings_transient[reset]" class="button wpdk_settings-warning-primary wpdk_settings-reset-all wpdk_settings-confirm" value="' . ( ( $this->args['show_reset_section'] ) ? esc_html__( 'Reset All' ) : esc_html__( 'Reset' ) ) . '" data-confirm="' . esc_html__( 'Are you sure you want to reset all settings to default values?' ) . '">' : '';
+
 			echo '</div>';
 
 			echo '</div>';
@@ -708,8 +705,6 @@ if ( ! class_exists( 'WPDK_Settings_Options' ) ) {
 				if ( ! empty( $this->args['show_footer_buttons'] ) ) {
 					echo '<div class="wpdk_settings-buttons">';
 					echo '<input type="submit" name="pb_settings_transient[save]" class="button button-primary wpdk_settings-save' . esc_attr( $ajax_class ) . '" value="' . esc_html__( 'Save' ) . '" data-save="' . esc_html__( 'Saving...' ) . '">';
-					echo ( $this->args['show_reset_section'] ) ? '<input type="submit" name="pb_settings_transient[reset_section]" class="button button-secondary wpdk_settings-reset-section wpdk_settings-confirm" value="' . esc_html__( 'Reset Section' ) . '" data-confirm="' . esc_html__( 'Are you sure to reset this section options?' ) . '">' : '';
-					echo ( $this->args['show_reset_all'] ) ? '<input type="submit" name="pb_settings_transient[reset]" class="button wpdk_settings-warning-primary wpdk_settings-reset-all wpdk_settings-confirm" value="' . ( ( $this->args['show_reset_section'] ) ? esc_html__( 'Reset All' ) : esc_html__( 'Reset' ) ) . '" data-confirm="' . esc_html__( 'Are you sure you want to reset all settings to default values?' ) . '">' : '';
 					echo '</div>';
 				}
 
