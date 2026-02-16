@@ -29,7 +29,8 @@ if ( ! class_exists( 'TINYPRESS_Meta_boxes' ) ) {
 
 			foreach ( get_post_types( array( 'public' => true ) ) as $post_type ) {
 				if ( ! in_array( $post_type, array( 'attachment', 'tinypress_link' ) ) ) {
-					$this->generate_tinypress_meta_box_side( $post_type );
+					add_action( 'add_meta_boxes_' . $post_type, array( $this, 'add_shortlinks_metabox' ) );
+					add_action( 'save_post_' . $post_type, array( $this, 'save_native_shortlinks_metabox' ), 10, 2 );
 				}
 			}
 
@@ -71,41 +72,80 @@ if ( ! class_exists( 'TINYPRESS_Meta_boxes' ) ) {
 
 
 		/**
-		 * Generate side metabox
-		 *
-		 * @param $post_type
+		 * Add shortlinks metabox to post edit screen
 		 *
 		 * @return void
 		 */
-		function generate_tinypress_meta_box_side( $post_type ) {
-			$prefix = $this->tinypress_metabox_side . '_' . $post_type;
-
-			WPDK_Settings::createMetabox( $prefix,
-				array(
-					'title'     => esc_html__( 'Shortlinks', 'tinypress' ),
-					'post_type' => $post_type,
-					'data_type' => 'unserialize',
-					'nav'       => 'inline',
-					'context'   => 'side',
-					'priority'  => 'high',
-					'preview'   => true,
-				)
+		function add_shortlinks_metabox() {
+			global $post;
+			
+			if ( ! $post ) {
+				return;
+			}
+			
+			add_meta_box(
+				'tinypress_shortlinks_' . $post->post_type,
+				esc_html__( 'Shortlinks', 'tinypress' ),
+				array( $this, 'render_native_shortlinks_metabox' ),
+				$post->post_type,
+				'side',
+				'high'
 			);
+		}
 
-			WPDK_Settings::createSection( $prefix,
-				array(
-					'title'  => esc_html__( 'Shortlinks', 'tinypress' ),
-					'fields' => array(
-						array(
-							'id'       => 'tiny_slug',
-							'title'    => ' ',
-							'type'     => 'callback',
-							'function' => array( $this, 'render_field_tinypress_link' ),
-							'default'  => $this->tinypress_default_slug,
-						),
-					),
-				)
+
+		/**
+		 * Render native shortlinks metabox content
+		 *
+		 * @param $post
+		 * @return void
+		 */
+		function render_native_shortlinks_metabox( $post ) {
+			wp_nonce_field( 'tinypress_shortlinks_nonce', 'tinypress_shortlinks_nonce_' . $post->post_type );
+			
+			$args = array(
+				'default' => $this->tinypress_default_slug,
 			);
+			
+			echo tinypress_get_tiny_slug_copier( $post->ID, true, $args );
+		}
+		
+		/**
+		 * Save native shortlinks metabox data
+		 *
+		 * @param $post_id
+		 * @param $post
+		 * @return void
+		 */
+		function save_native_shortlinks_metabox( $post_id, $post ) {
+			if ( ! isset( $_POST['tinypress_shortlinks_nonce_' . $post->post_type] ) || 
+			     ! wp_verify_nonce( $_POST['tinypress_shortlinks_nonce_' . $post->post_type], 'tinypress_shortlinks_nonce' ) ) {
+				return;
+			}
+
+			if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+				return;
+			}
+
+			if ( ! current_user_can( 'edit_post', $post_id ) ) {
+				return;
+			}
+
+			$meta_key = 'tinypress_meta_side_' . $post->post_type;
+			if ( isset( $_POST[ $meta_key ]['tiny_slug'] ) ) {
+				$tiny_slug = sanitize_text_field( $_POST[ $meta_key ]['tiny_slug'] );
+				
+				// Save directly as 'tiny_slug' meta key for compatibility with the rest of the plugin
+				update_post_meta( $post_id, 'tiny_slug', $tiny_slug );
+				
+				// Also save in the nested format for backward compatibility with WPDK
+				$meta_data = get_post_meta( $post_id, $meta_key, true );
+				if ( ! is_array( $meta_data ) ) {
+					$meta_data = array();
+				}
+				$meta_data['tiny_slug'] = $tiny_slug;
+				update_post_meta( $post_id, $meta_key, $meta_data );
+			}
 		}
 
 
@@ -175,7 +215,7 @@ if ( ! class_exists( 'TINYPRESS_Meta_boxes' ) ) {
 							'id'         => 'link_status',
 							'type'       => 'switcher',
 							'title'      => esc_html__( 'Status', 'tinypress' ),
-							'subtitle'   => esc_html__( 'Disable the link instantly.', 'tinypress' ),
+							'subtitle'   => esc_html__( 'Disable the shortlink instantly.', 'tinypress' ),
 							'label'      => esc_html__( 'After disabling the link will not active but the settings will be reserved.', 'tinypress' ),
 							'text_on'    => esc_html__( 'Enable', 'tinypress' ),
 							'text_off'   => esc_html__( 'Disable', 'tinypress' ),
@@ -243,7 +283,7 @@ if ( ! class_exists( 'TINYPRESS_Meta_boxes' ) ) {
 							'id'           => 'password_protection',
 							'type'         => 'switcher',
 							'title'        => esc_html__( 'Password Protection', 'tinypress' ),
-							'subtitle'     => esc_html__( 'Secure your link.', 'tinypress' ),
+							'subtitle'     => esc_html__( 'Secure your shortlink.', 'tinypress' ),
 							'label'        => esc_html__( 'Users must enter the password to redirect to the target link.', 'tinypress' ),
 						),
 						array(

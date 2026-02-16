@@ -19,6 +19,26 @@ body.post-type-tinypress_link .wpdk_settings-metabox {
     margin-top: -20px;
 }
 
+#side-sortables [id*="tinypress_shortlinks"] .inside {
+    margin: 0;
+    padding: 0;
+}
+
+#side-sortables [id*="tinypress_shortlinks"] .tiny-slug-wrap {
+    padding: 12px;
+    display: block;
+    width: 86%;
+}
+
+#side-sortables .tiny-slug-wrap .tiny-slug-preview {
+    font-weight: normal;
+}
+
+#side-sortables .tiny-slug-wrap .tiny-slug-preview .prefix,
+#side-sortables .tiny-slug-wrap .tiny-slug-preview .tiny-slug {
+    font-weight: normal;
+}
+
 body.post-type-tinypress_link #submitdiv {
     border: none;
     background: transparent;
@@ -149,7 +169,7 @@ body.post-type-tinypress_link #tinypress_link_catdiv #newtinypress_link_cat:focu
 .tinypress-meta-side .side-qr-code .qr-download:focus,
 .tinypress-meta-side .side-qr-code .qr-download:active {
     display: inline-block;
-    background: var(--tinypress-color-yellow);
+    background: var(--tinypress-color-primary);
     padding: 12px 18px;
     font-size: 14px;
     line-height: 26px;
@@ -166,7 +186,7 @@ body.post-type-tinypress_link #tinypress_link_catdiv #newtinypress_link_cat:focu
 body.post-type-tinypress_link .wpdk_settings-field-text input,
 body.post-type-tinypress_link .wpdk_settings-field-textarea textarea {
     padding: 10px 8px;
-    border: 1px solid #eee;
+    border: 1px solid #8c8f94;
     transition: 0.3s;
 }
 
@@ -301,17 +321,20 @@ table.tinypress_link_page_tinypress-reports th#details {
 }
 
 .tiny-slug-wrap .tiny-slug-preview {
-    border: none;
-    padding: 16px;
-    background-color: #393e46;
-    color: #ffd350;
+    border: 1px solid #dcdcde;
+    padding-top: 8px;
+    /* padding-bottom: 8px; */
+    padding-left: 5px;
+    background-color: #f6f7f7;
+    color: #2c3338;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 4px;
     width: 100%;
     display: inline-block;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 13px;
     overflow-wrap: anywhere;
+    line-height: 1.5;
 }
 
 .tiny-slug-wrap.mini .tiny-slug-preview {
@@ -333,25 +356,36 @@ table.tinypress_link_page_tinypress-reports th#details {
 }
 
 .tiny-slug-wrap .tinypress-slug-field {
-    margin-top: 10px;
+    margin-top: 8px;
     width: 100%;
 }
 
 .tiny-slug-wrap .tinypress-slug-field input[type=text],
 .tiny-slug-wrap .tinypress-slug-field textarea {
-    padding: 10px 8px;
-    border: 1px solid #eee;
+    padding: 6px 8px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
     transition: 0.3s;
-    width: 100px;
+    width: 100%;
+    font-size: 13px;
+    line-height: 1.5;
+    background-color: #fff;
+    color: #2c3338;
 }
 
 .tiny-slug-wrap .tinypress-slug-field input[type=text]:focus,
 .tiny-slug-wrap .tinypress-slug-field input[type=text]:focus:active,
 .tiny-slug-wrap .tinypress-slug-field textarea:focus,
 .tiny-slug-wrap .tinypress-slug-field textarea:focus:active {
-    border-color: var(--tinypress-color-primary);
-    box-shadow: none;
-    outline: none;
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+    outline: 2px solid transparent;
+}
+
+.tinypress-settings-link{
+    display: block; 
+    margin-top: 8px; 
+    font-size: 12px;
 }
 
 .link-actions a.action {
@@ -484,7 +518,6 @@ th#tinypress-link {
 }
 
 #wpadminbar ul#wp-admin-bar-root-default > li.tinypress-admin-bar-icon {
-    background: #6B5B95;
     min-width: 70px;
     position: relative;
     max-width: 70px;
@@ -492,7 +525,6 @@ th#tinypress-link {
 
 #wpadminbar ul#wp-admin-bar-root-default > li.tinypress-admin-bar-icon > a,
 #wpadminbar ul#wp-admin-bar-root-default > li.tinypress-admin-bar-icon:hover > a {
-    background: #6B5B95;
     color: #fff;
     text-align: center;
     display: flex;
@@ -647,9 +679,74 @@ th#tinypress-link {
     color: var(--tinypress-color-red);
 }
 
-/* Support Sidebar Styles */
+.tinypress-settings-layout {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 10px;
+}
+
+.tinypress-settings-layout .pb_settings.wpdk_settings-options {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.tinypress-settings-layout .wpdk_settings-content,
+.tinypress-settings-layout .wpdk_settings-sections,
+.tinypress-settings-layout .wpdk_settings-section {
+    overflow: hidden;
+}
+
+.tinypress-settings-layout .wpdk_settings-nav-normal {
+    width: 180px;
+}
+
+.tinypress-settings-layout .wpdk_settings-nav-normal + .wpdk_settings-content {
+    margin-left: 180px;
+}
+
+.tinypress-settings-layout .wpdk_settings-nav ul li a {
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.4;
+    padding: 12px 14px;
+}
+
+.tinypress-settings-layout .wpdk_settings-nav ul ul li a {
+    padding: 12px 14px 12px 24px;
+}
+
+.tinypress-settings-layout .wpdk_settings-nav > ul > li.wpdk_settings-tab-item:first-child > a.wpdk_settings-arrow {
+    display: none;
+}
+
+.tinypress-settings-layout .wpdk_settings-nav > ul > li.wpdk_settings-tab-item:first-child > ul {
+    display: block !important;
+}
+
+.tinypress-settings-layout .wpdk_settings-nav > ul > li.wpdk_settings-tab-item:first-child > ul > li > a {
+    padding-left: 14px;
+}
+
+.tinypress-settings-sidebar {
+    width: 25%;
+    flex-shrink: 0;
+    margin-top: 4%;
+}
+
+@media screen and (max-width: 700px) {
+    .tinypress-settings-layout {
+        flex-direction: column;
+    }
+    
+    .tinypress-settings-sidebar {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
 .tinypress-support-sidebar {
-    max-width: 600px;
+    max-width: 100%;
 }
 
 .tinypress-support-sidebar .support-box-header {
@@ -663,6 +760,7 @@ th#tinypress-link {
 
 .tinypress-support-sidebar .support-box-content {
     border: 1px solid #655897;
+    background: #fff;
 }
 
 .tinypress-support-sidebar .inside {
@@ -701,4 +799,141 @@ th#tinypress-link {
     vertical-align: top;
     margin-left: 4px;
     margin-top: -2px;
+}
+
+.tinypress-auto-badge{
+    background: #2271b1; 
+    color: #fff; 
+    padding: 2px 8px; 
+    border-radius: 3px; 
+    font-size: 11px; 
+    margin-left: 8px;
+}
+
+.wpdk_settings-field-group .wpdk_settings-cloneable-helper {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+.pressshack-admin-wrapper a:link,
+.pressshack-admin-wrapper a:visited,
+.pressshack-admin-wrapper a:active,
+.pressshack-admin-wrapper a:hover {
+    text-decoration: none;
+}
+
+.pressshack-admin-wrapper a,
+.pressshack-admin-wrapper button,
+.pressshack-admin-wrapper button::before {
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+
+.pressshack-admin-wrapper a,
+.pressshack-admin-wrapper a div,
+.pressshack-admin-wrapper a p {
+    color: #655997;
+}
+
+.pressshack-admin-wrapper a:hover,
+.pressshack-admin-wrapper a:focus,
+.pressshack-admin-wrapper a:active,
+.pressshack-admin-wrapper a:hover div,
+.pressshack-admin-wrapper a:focus div,
+.pressshack-admin-wrapper a:active div,
+.pressshack-admin-wrapper a:hover p,
+.pressshack-admin-wrapper a:focus p,
+.pressshack-admin-wrapper a:active p,
+.pressshack-admin-wrapper a:hover .dashicons:before,
+.pressshack-admin-wrapper a:focus .dashicons:before,
+.pressshack-admin-wrapper a:active .dashicons:before {
+    color: #5A4F87;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -o-box-shadow: none;
+}
+
+.pressshack-admin-wrapper > footer {
+    text-align: center;
+    font-size: 12px;
+}
+
+.pressshack-admin-wrapper > footer > div.tinypress-rating {
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+
+.pressshack-admin-wrapper > footer * {
+    color: #777;
+}
+
+.pressshack-admin-wrapper > footer > nav ul {
+    list-style: none;
+    margin: 12px 0;
+    padding: 0;
+}
+
+.pressshack-admin-wrapper > footer > nav ul > li {
+    display: inline-block;
+}
+
+.pressshack-admin-wrapper > footer > nav ul > li:not(:first-child) {
+    margin-left: 15px;
+}
+
+.pressshack-admin-wrapper > footer > nav ul > li > a {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.pressshack-admin-wrapper > footer .dashicons.dashicons-star-filled {
+    line-height: 18px;
+    font-size: 12px;
+    width: 12px;
+    height: 12px;
+    color: #FFB300;
+    -webkit-transition: color 200ms ease-in-out;
+    -moz-transition: color 200ms ease-in-out;
+    -o-transition: color 200ms ease-in-out;
+    transition: color 200ms ease-in-out;
+}
+
+.pressshack-admin-wrapper .tinypress-pressshack-logo {
+    margin-top: 10px;
+}
+
+.pressshack-admin-wrapper .tinypress-pressshack-logo img {
+    width: 170px;
+    max-width: 100%;
+}
+
+body.tinypress_link_page_settings #wpcontent,
+body.edit-php.post-type-tinypress_link #wpcontent,
+body.post-new-php.post-type-tinypress_link #wpcontent,
+body.post-php.post-type-tinypress_link #wpcontent {
+    margin-bottom: 100px;
+}
+
+body.tinypress_link_page_settings #wpcontent {
+    padding-bottom: 120px;
+}
+
+body.tinypress_link_page_settings #wpwrap,
+body.edit-php.post-type-tinypress_link #wpwrap,
+body.post-new-php.post-type-tinypress_link #wpwrap,
+body.post-php.post-type-tinypress_link #wpwrap {
+    display: inline-block;
+}
+
+body.tinypress_link_page_tinypress-logs #wpcontent {
+    margin-bottom: 100px;
+    padding-bottom: 120px;
+}
+
+body.tinypress_link_page_tinypress-logs #wpwrap {
+    display: inline-block;
 }

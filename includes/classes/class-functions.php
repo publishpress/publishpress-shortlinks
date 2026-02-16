@@ -65,7 +65,29 @@ if ( ! class_exists( 'TINYPRESS_Functions' ) ) {
 
 			global $wpdb;
 
-			return (int) $wpdb->get_var( $wpdb->prepare( "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_value like %s", $slug ) );
+			// First try to find a tinypress_link post with this slug (for auto-list links)
+			$link_id = (int) $wpdb->get_var( $wpdb->prepare( 
+				"SELECT pm.post_id FROM {$wpdb->postmeta} pm
+				INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
+				WHERE pm.meta_key = 'tiny_slug' 
+				AND pm.meta_value = %s 
+				AND p.post_type = 'tinypress_link'
+				LIMIT 1",
+				$slug 
+			) );
+
+			// If no tinypress_link found, look for any post with this slug
+			if ( empty( $link_id ) ) {
+				$link_id = (int) $wpdb->get_var( $wpdb->prepare( 
+					"SELECT post_id FROM {$wpdb->postmeta} 
+					WHERE meta_key = 'tiny_slug' 
+					AND meta_value = %s
+					LIMIT 1", 
+					$slug 
+				) );
+			}
+
+			return $link_id;
 		}
 	}
 }

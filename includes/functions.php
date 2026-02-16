@@ -76,12 +76,12 @@ if ( ! function_exists( 'tinypress_get_ip_address' ) ) {
 	 */
 
 	function tinypress_get_ip_address() {
-		if ( ! empty( sanitize_text_field( $_SERVER['HTTP_CLIENT_IP'] ) ) ) {
+		if ( isset( $_SERVER['HTTP_CLIENT_IP'] ) && ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
 			$ip = sanitize_text_field( $_SERVER['HTTP_CLIENT_IP'] );
-		} elseif ( ! empty( sanitize_text_field( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) ) {
+		} elseif ( isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) && ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
 			$ip = sanitize_text_field( $_SERVER['HTTP_X_FORWARDED_FOR'] );
 		} else {
-			$ip = sanitize_text_field( $_SERVER['REMOTE_ADDR'] );
+			$ip = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( $_SERVER['REMOTE_ADDR'] ) : '0.0.0.0';
 		}
 
 		return $ip;
@@ -133,6 +133,25 @@ if ( ! function_exists( 'tinypress_get_tiny_slug_copier' ) ) {
 				echo '<input type="text" class="tinypress-tiny-slug" name="tinypress_meta_main[tiny_slug]" value="' . esc_attr( $tiny_slug ) . '" placeholder="ad34o">';
 			} else {
 				echo '<input type="text" class="tinypress-tiny-slug" name="tinypress_meta_side_' . $post->post_type . '[tiny_slug]" value="' . esc_attr( $tiny_slug ) . '" placeholder="ad34o">';
+			
+			$link_posts = get_posts( array(
+				'post_type'      => 'tinypress_link',
+				'posts_per_page' => 1,
+				'post_status'    => 'any',
+				'meta_query'     => array(
+					array(
+						'key'     => 'source_post_id',
+						'value'   => absint( $post_id ),
+						'compare' => '='
+					)
+				),
+				'fields'         => 'ids'
+			) );
+			
+			if ( ! empty( $link_posts ) ) {
+				$edit_url = get_edit_post_link( $link_posts[0] );
+				echo '<a href="' . esc_url( $edit_url ) . '" target="_blank" class="tinypress-settings-link">' . esc_html__( 'Edit shortlink settings', 'tinypress' ) . '</a>';
+			}
 			}
 			echo '</div>';
 		}
@@ -198,7 +217,7 @@ if ( ! function_exists( 'tinypress_create_shorten_url' ) ) {
 		if ( empty( $post_title ) ) {
 			wp_update_post( array(
 				'ID'         => $new_url_id,
-				'post_title' => sprintf( esc_html__( 'Link - %s', 'tinypress' ), $new_url_id ),
+				'post_title' => esc_html( sprintf( __( 'Link - %s', 'tinypress' ), $new_url_id ) ),
 			) );
 		}
 
@@ -248,5 +267,20 @@ if ( ! function_exists( 'tinypress_get_tinyurl' ) ) {
 		$tinyurl_parts[] = $tiny_slug;
 
 		return apply_filters( 'TINYPRESS/Filters/get_tinyurl', implode( '/', $tinyurl_parts ), $tinypress_link_id, $tinyurl_parts );
+	}
+}
+
+
+if ( ! function_exists( 'tinypress_is_auto_listed' ) ) {
+	/**
+	 * Check if a tinypress_link is auto-listed from a post type
+	 *
+	 * @param int $link_id
+	 *
+	 * @return bool
+	 */
+	function tinypress_is_auto_listed( $link_id ) {
+		$source_post_id = Utils::get_meta( 'source_post_id', $link_id );
+		return ! empty( $source_post_id );
 	}
 }

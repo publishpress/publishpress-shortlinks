@@ -94,7 +94,17 @@ class TINYPRESS_Column_link {
 	function columns_content( $column_id, $post_id ) {
 		switch ( $column_id ) {
 			case 'link-title':
-				echo '<strong><a class="row-title" href="' . esc_url( get_edit_post_link( $post_id ) ) . '">' . get_the_title( $post_id ) . '</a></strong>';
+				$source_post_id = Utils::get_meta( 'source_post_id', $post_id );
+				$title_html = '<strong><a class="row-title" href="' . esc_url( get_edit_post_link( $post_id ) ) . '">' . get_the_title( $post_id ) . '</a></strong>';
+				
+				if ( ! empty( $source_post_id ) ) {
+					$source_post_type = Utils::get_meta( 'source_post_type', $post_id );
+					$post_type_obj = get_post_type_object( $source_post_type );
+					$post_type_label = $post_type_obj ? $post_type_obj->labels->singular_name : $source_post_type;
+					$title_html .= ' <span class="tinypress-auto-badge">' . esc_html( sprintf( __( 'Auto: %s', 'tinypress' ), $post_type_label ) ) . '</span>';
+				}
+				
+				echo $title_html;
 				break;
 
 			case 'short-link':
@@ -107,7 +117,7 @@ class TINYPRESS_Column_link {
 
 				$click_count = $wpdb->get_var( "SELECT COUNT(*) FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id = $post_id" );
 
-				echo '<div class="click-count">' . sprintf( esc_html__( 'Clicked %s times', 'tinypress' ), $click_count ) . '</div>';
+				echo '<div class="click-count">' . esc_html( sprintf( __( 'Clicked %s times', 'tinypress' ), $click_count ) ) . '</div>';
 				break;
 
 			case 'link-actions':
