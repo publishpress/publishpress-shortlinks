@@ -107,7 +107,13 @@ if ( ! class_exists( 'TINYPRESS_Meta_boxes' ) ) {
 				'default' => $this->tinypress_default_slug,
 			);
 			
+			// Hook for Pro to add content before shortlink field
+			do_action( 'tinypress_metabox_before_shortlink_field', $post );
+			
 			echo tinypress_get_tiny_slug_copier( $post->ID, true, $args );
+			
+			// Hook for Pro to add content after shortlink field
+			do_action( 'tinypress_metabox_after_shortlink_field', $post );
 		}
 		
 		/**

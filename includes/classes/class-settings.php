@@ -307,30 +307,23 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 						),
 					),
 				),
-
-
 			);
+
+			// Hook for Pro to add additional settings sections (only if non-empty)
+			$extra_general = apply_filters( 'tinypress_settings_after_general', array() );
+			if ( ! empty( $extra_general ) && ! empty( $extra_general['title'] ) ) {
+				$field_sections['settings']['sections'][] = $extra_general;
+			}
+
+			$extra_post_status = apply_filters( 'tinypress_settings_after_post_status', array() );
+			if ( ! empty( $extra_post_status ) && ! empty( $extra_post_status['title'] ) ) {
+				$field_sections['settings']['sections'][] = $extra_post_status;
+			}
 
 			$field_sections['dummy'] = array(
 				'title'    => esc_html__( 'Dummy', 'tinypress' ),
 				'sections' => array(),
 			);
-
-//			$field_sections['premium'] = array(
-//				'title'    => esc_html__( 'Upgrade - 60% off', 'tinypress' ),
-//				'sections' => array(
-//					array(
-//						'title'  => esc_html__( 'Upgrade to Premium', 'tinypress' ),
-//						'fields' => array(
-//							array(
-//								'id'       => 'tinypress_upgrade',
-//								'type'     => 'callback',
-//								'function' => array( $this, 'render_field_tinypress_upgrade' ),
-//							),
-//						),
-//					),
-//				),
-//			);
 
 			return apply_filters( 'TINYPRESS/Filters/settings_pages', $field_sections );
 		}

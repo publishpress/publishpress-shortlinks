@@ -14,6 +14,61 @@
 global $wpdb;
 defined( 'ABSPATH' ) || exit;
 
+// Check if Pro version is active and deactivate Free if so
+if ( ! function_exists( 'tinypress_check_pro_active' ) ) {
+	function tinypress_check_pro_active() {
+		$pro_active = false;
+
+		foreach ( (array) get_option( 'active_plugins' ) as $plugin_file ) {
+			if ( false !== strpos( $plugin_file, 'publishpress-shortlinks-pro.php' ) ) {
+				$pro_active = true;
+				break;
+			}
+		}
+
+		if ( ! $pro_active && is_multisite() ) {
+			foreach ( array_keys( (array) get_site_option( 'active_sitewide_plugins' ) ) as $plugin_file ) {
+				if ( false !== strpos( $plugin_file, 'publishpress-shortlinks-pro.php' ) ) {
+					$pro_active = true;
+					break;
+				}
+			}
+		}
+
+		return $pro_active;
+	}
+}
+
+$pro_active = tinypress_check_pro_active();
+
+// Add message to plugin row if Pro is active
+if ( $pro_active ) {
+	add_filter(
+		'plugin_row_meta',
+		function( $links, $file ) {
+			if ( $file === plugin_basename( __FILE__ ) ) {
+				$links[] = '<strong>' . esc_html__( 'This plugin can be deleted.', 'tinypress' ) . '</strong>';
+			}
+			return $links;
+		},
+		10,
+		2
+	);
+}
+
+// Prevent loading if Pro is active or if TINYPRESS_FILE is already defined
+if ( defined( 'TINYPRESS_FILE' ) || $pro_active ) {
+	if ( ! function_exists( 'deactivate_plugins' ) ) {
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+	}
+	// Deactivate current plugin if pro is active
+	deactivate_plugins( plugin_basename( __FILE__ ) );
+	return;
+}
+
+// Define the main constant to prevent duplicate loading
+define( 'TINYPRESS_FILE', __FILE__ );
+
 if (!defined('TINYPRESS_PLUGIN_VERSION')) {
 define('TINYPRESS_PLUGIN_VERSION', '1.3.0');
 }
@@ -22,11 +77,11 @@ defined( 'TINYPRESS_PLUGIN_URL' ) || define( 'TINYPRESS_PLUGIN_URL', WP_PLUGIN_U
 defined( 'TINYPRESS_PLUGIN_DIR' ) || define( 'TINYPRESS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 defined( 'TINYPRESS_PLUGIN_FILE' ) || define( 'TINYPRESS_PLUGIN_FILE', plugin_basename( __FILE__ ) );
 defined( 'TINYPRESS_TABLE_REPORTS' ) || define( 'TINYPRESS_TABLE_REPORTS', sprintf( '%stinypress_reports', $wpdb->prefix ) );
-defined( 'TINYPRESS_SERVER' ) || define( 'TINYPRESS_SERVER', esc_url_raw( 'https://endearing-lobster-8e2abe.instawp.xyz/' ) );
-defined( 'TINYPRESS_LINK_PRO' ) || define( 'TINYPRESS_LINK_PRO', esc_url_raw( 'https://pluginbazar.com/products/tinypress/?ref=' . site_url() ) );
-defined( 'TINYPRESS_LINK_DOC' ) || define( 'TINYPRESS_LINK_DOC', esc_url_raw( 'https://docs.pluginbazar.com/plugin/tinypress/' ) );
-defined( 'TINYPRESS_LINK_DOC' ) || define( 'TINYPRESS_LINK_DOC', esc_url_raw( 'https://docs.pluginbazar.com/plugin/tinypress/' ) );
-defined( 'TINYPRESS_LINK_SUPPORT' ) || define( 'TINYPRESS_LINK_SUPPORT', esc_url_raw( 'mailto:hello@tinypress.xyz' ) );
+defined( 'TINYPRESS_SERVER' ) || define( 'TINYPRESS_SERVER', 'https://publishpress.com/' );
+defined( 'TINYPRESS_LINK_PRO' ) || define( 'TINYPRESS_LINK_PRO', 'https://publishpress.com/shortlinks/' );
+defined( 'TINYPRESS_LINK_DOC' ) || define( 'TINYPRESS_LINK_DOC', 'https://publishpress.com/knowledge-base/shortlinks/' );
+defined( 'TINYPRESS_LINK_SUPPORT' ) || define( 'TINYPRESS_LINK_SUPPORT', 'https://publishpress.com/contact/' );
+defined( 'TINYPRESS_ABSPATH' ) || define( 'TINYPRESS_ABSPATH', __DIR__ );
 
 if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 	/**
@@ -222,6 +277,9 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 
 			wp_enqueue_style( 'tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/css/style.css', self::$_script_version );
 			wp_enqueue_style( 'tinypress-tool-tip', TINYPRESS_PLUGIN_URL . 'assets/hint.min.css' );
+
+            do_action('tinypress_admin_class_before_assets_register');
+			do_action('tinypress_admin_class_after_styles_enqueue');
 		}
 
 
@@ -352,21 +410,23 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 	}
 }
 
-function pb_sdk_init_tinypress() {
+if ( ! function_exists( 'pb_sdk_init_tinypress' ) ) {
+	function pb_sdk_init_tinypress() {
 
-	if ( ! function_exists( 'get_plugins' ) ) {
-		include_once ABSPATH . '/wp-admin/includes/plugin.php';
+		if ( ! function_exists( 'get_plugins' ) ) {
+			include_once ABSPATH . '/wp-admin/includes/plugin.php';
+		}
+
+		if ( ! class_exists( 'WPDK\Client' ) ) {
+			require_once( plugin_dir_path( __FILE__ ) . 'includes/wp-dev-kit/classes/class-client.php' );
+		}
+
+		global $tinypress_wpdk;
+
+		$tinypress_wpdk = new WPDK\Client( esc_html( 'TinyPress - Shorten and Track your links' ), 'tinypress', 35, __FILE__ );
+
+		do_action( 'pb_sdk_init_tinypress', $tinypress_wpdk );
 	}
-
-	if ( ! class_exists( 'WPDK\Client' ) ) {
-		require_once( plugin_dir_path( __FILE__ ) . 'includes/wp-dev-kit/classes/class-client.php' );
-	}
-
-	global $tinypress_wpdk;
-
-	$tinypress_wpdk = new WPDK\Client( esc_html( 'TinyPress - Shorten and Track your links' ), 'tinypress', 35, __FILE__ );
-
-	do_action( 'pb_sdk_init_tinypress', $tinypress_wpdk );
 }
 
 /**
@@ -377,3 +437,12 @@ global $tinypress_wpdk;
 pb_sdk_init_tinypress();
 
 TINYPRESS_Main::instance();
+
+// Init Free-only features
+function init_free_tinypress() {
+	if ( is_admin() && ! defined( 'TINYPRESS_PRO_VERSION' ) ) {
+		require_once( TINYPRESS_ABSPATH . '/includes-core/ShortlinksCoreAdmin.php' );
+		new \PublishPress\Shortlinks\ShortlinksCoreAdmin();
+	}
+}
+add_action( 'init', 'init_free_tinypress', 0 );

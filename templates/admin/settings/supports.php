@@ -4,9 +4,37 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+$upgrade_url = defined( 'TINYPRESS_LINK_PRO' ) ? TINYPRESS_LINK_PRO : 'https://publishpress.com/shortlinks/';
 ?>
 
 <div class="tinypress-settings-sidebar">
+    <?php if ( ! defined( 'TINYPRESS_PRO_VERSION' ) ) : ?>
+    <div class="tinypress-support-sidebar" style="margin-bottom: 20px;">
+        <div class="support-box-content postbox">
+            <div class="postbox-header">
+                <h3 class="support-box-header hndle is-non-sortable">
+                    <span><?php echo esc_html__( 'Upgrade to PublishPress Shortlinks Pro', 'tinypress' ); ?></span>
+                </h3>
+            </div>
+
+            <div class="inside">
+                <p><?php echo esc_html__( 'Enhance the power of PublishPress Shortlinks with the Pro version:', 'tinypress' ); ?></p>
+                <ul>
+                    <li><?php echo esc_html__( 'REST API for creating shortlinks', 'tinypress' ); ?></li>
+                    <li><?php echo esc_html__( 'Advanced click analytics', 'tinypress' ); ?></li>
+                    <li><?php echo esc_html__( 'Role-based access control', 'tinypress' ); ?></li>
+                    <li><?php echo esc_html__( 'Priority support', 'tinypress' ); ?></li>
+                    <li><?php echo esc_html__( 'No ads inside the plugin', 'tinypress' ); ?></li>
+                </ul>
+                <a class="tinypress-support-link" href="<?php echo esc_url( $upgrade_url ); ?>" target="_blank">
+                    <?php echo esc_html__( 'Upgrade to Pro', 'tinypress' ); ?>
+                </a>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+
     <div class="tinypress-support-sidebar">
         <div class="support-box-content postbox">
             <div class="postbox-header">

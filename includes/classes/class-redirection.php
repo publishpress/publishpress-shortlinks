@@ -35,6 +35,9 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 		 */
 		function do_redirection( $link_id ) {
 
+			// Hook for Pro to execute before redirection tracking
+			do_action( 'tinypress_before_redirect_track', $link_id );
+
 			$tags       = array();
 			$target_url = Utils::get_meta( 'target_url', $link_id );
 
@@ -139,6 +142,9 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 			header( 'Pragma: no-cache' );
 			header( 'Expires: Mon, 10 Oct 1975 08:09:15 GMT' );
 			header( 'X-Redirect-Powered-By: TinyPress ' . TINYPRESS_PLUGIN_VERSION . ' https://pluginbazar.com' );
+
+			// Hook for Pro to execute after redirection headers
+			do_action( 'tinypress_after_redirect_headers', $link_id, $target_url, $redirection_method );
 
 			header( "Location: $target_url", true, $redirection_method );
 
