@@ -92,6 +92,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 				'menu_slug'       => 'settings',
 				'menu_type'       => 'submenu',
 				'menu_parent'     => 'edit.php?post_type=tinypress_link',
+				'menu_capability' => 'edit_posts',
 				'database'        => 'option',
 				'theme'           => 'light',
 				'show_search'     => false,
@@ -109,11 +110,6 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 			include TINYPRESS_PLUGIN_DIR . 'templates/admin/settings/supports.php';
 			echo '</div>';
 		}
-
-		function render_field_tinypress_upgrade() {
-			include TINYPRESS_PLUGIN_DIR . 'templates/admin/settings/upgrade.php';
-		}
-
 
 		/**
 		 * Get all public post types for auto-list settings
@@ -206,63 +202,54 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 								'id'       => 'tinypress_hide_modal_opener',
 								'type'     => 'switcher',
 								'title'    => esc_html__( 'Remove from Admin Bar', 'tinypress' ),
-								'label'    => esc_html__( 'Hide quick short link modal opener from WP Admin Bar.', 'tinypress' ),
+								'label'    => esc_html__( 'Hide the "Shorten" button from the WordPress admin bar.', 'tinypress' ),
 								'default'  => false,
 							),
 						),
 					),
 					array(
 						'title'  => esc_html__( 'Role Management', 'tinypress' ),
-						'fields' => array(
+						'fields' => apply_filters( 'tinypress_role_management_fields', array(
 							array(
 								'id'         => 'tinypress_role_view',
 								'type'       => 'checkbox',
 								'title'      => esc_html__( 'Who Can View Shortlinks', 'tinypress' ),
-								'subtitle'   => esc_html__( 'Upcoming feature.', 'tinypress' ),
 								'desc'       => esc_html__( 'Only selected user roles can view links.', 'tinypress' ),
 								'inline'     => true,
 								'options'    => $user_roles,
-								'attributes' => array(
-									'disabled' => true,
-								),
+								'default'    => array( 'administrator', 'editor', 'author', 'contributor', 'subscriber', 'revisor' ),
 							),
 							array(
-								'id'         => 'tinypress_role_create',
-								'type'       => 'checkbox',
-								'title'      => esc_html__( 'Who Can Create/Edit Shortlinks', 'tinypress' ),
-								'subtitle'   => esc_html__( 'Upcoming feature.', 'tinypress' ),
-								'desc'       => esc_html__( 'Only selected user roles can create or edit links.', 'tinypress' ),
-								'inline'     => true,
-								'options'    => $user_roles,
-								'attributes' => array(
-									'disabled' => true,
-								),
+								'id'           => 'tinypress_role_create',
+								'type'         => 'checkbox',
+								'title'        => esc_html__( 'Who Can Create/Edit Shortlinks', 'tinypress' ),
+								'desc'         => esc_html__( 'Only selected user roles can create or edit links.', 'tinypress' ),
+								'inline'       => true,
+								'options'      => $user_roles,
+								'default'      => array( 'administrator', 'editor', 'author' ),
+								'attributes'   => ! defined( 'TINYPRESS_PRO_VERSION' ) ? array( 'disabled' => true ) : array(),
 							),
 							array(
-								'id'         => 'tinypress_role_analytics',
-								'type'       => 'checkbox',
-								'title'      => esc_html__( 'Who Can See Analytics', 'tinypress' ),
-								'subtitle'   => esc_html__( 'Upcoming feature.', 'tinypress' ),
-								'desc'       => esc_html__( 'Only selected user roles can see analytics.', 'tinypress' ),
-								'inline'     => true,
-								'options'    => $user_roles,
-								'attributes' => array(
-									'disabled' => true,
-								),
+								'id'           => 'tinypress_role_analytics',
+								'type'         => 'checkbox',
+								'title'        => esc_html__( 'Who Can See Analytics', 'tinypress' ),
+								'desc'         => esc_html__( 'Only selected user roles can see analytics.', 'tinypress' ),
+								'inline'       => true,
+								'options'      => $user_roles,
+								'default'      => array( 'administrator', 'editor' ),
+								'attributes'   => ! defined( 'TINYPRESS_PRO_VERSION' ) ? array( 'disabled' => true ) : array(),
 							),
 							array(
-								'id'         => 'tinypress_role_edit',
-								'type'       => 'checkbox',
-								'title'      => esc_html__( 'Who Can Control Settings', 'tinypress' ),
-								'subtitle'   => esc_html__( 'Upcoming feature.', 'tinypress' ),
-								'desc'       => esc_html__( 'Only selected user roles can control settings.', 'tinypress' ),
-								'inline'     => true,
-								'options'    => $user_roles,
-								'attributes' => array(
-									'disabled' => true,
-								),
+								'id'           => 'tinypress_role_edit',
+								'type'         => 'checkbox',
+								'title'        => esc_html__( 'Who Can Control Settings', 'tinypress' ),
+								'desc'         => esc_html__( 'Only selected user roles can control settings.', 'tinypress' ),
+								'inline'       => true,
+								'options'      => $user_roles,
+								'default'      => array( 'administrator', 'editor', 'author' ),
+								'attributes'   => ! defined( 'TINYPRESS_PRO_VERSION' ) ? array( 'disabled' => true ) : array(),
 							),
-						),
+						), $user_roles ),
 					),
 					array(
 						'title'  => esc_html__( 'Auto-List Links', 'tinypress' ),

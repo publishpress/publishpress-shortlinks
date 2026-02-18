@@ -17,6 +17,7 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 
 		protected static $_instance = null;
 
+		private static $_filtering_caps = false;
 
 		/**
 		 * TINYPRESS_Hooks constructor.
@@ -27,6 +28,9 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 			add_action( 'admin_menu', array( $this, 'links_log' ) );
 			add_filter( 'post_updated_messages', array( $this, 'change_url_update_message' ) );
 
+			add_action( 'admin_menu', array( $this, 'enforce_role_view_access' ), 9999 );
+			add_filter( 'user_has_cap', array( $this, 'filter_view_capabilities' ), 10, 4 );
+			add_action( 'admin_init', array( $this, 'block_direct_access' ) );
 
 			add_action( 'admin_bar_menu', array( $this, 'add_admin_bar_menu' ), 999 );
 			add_action( 'admin_footer', array( $this, 'render_admin_modal' ) );
@@ -34,6 +38,11 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 		}
 
 		public function tinypress_popup_create_url() {
+
+			if ( ! self::current_user_can_create() ) {
+				wp_send_json_error( array( 'message' => esc_html__( 'You do not have permission to create shortlinks.', 'tinypress' ) ) );
+			}
+
 			$_url_data = isset( $_POST['url_data'] ) ? wp_unslash( $_POST['url_data'] ) : null;
 
 			parse_str( $_url_data, $url_data );
@@ -59,12 +68,16 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 				array(
 					'tiny_url' => $tiny_url,
 					'long_url' => $long_url,
-					'message'  => esc_html__( 'Tinyurl created successfully.', 'tinypress' )
+					'message'  => esc_html__( 'Shortlink created successfully.', 'tinypress' )
 				)
 			);
 		}
 
 		public function render_admin_modal() {
+
+        	if ( ! self::current_user_can_create() ) {
+				return;
+			}
 
 			include_once TINYPRESS_PLUGIN_DIR . 'templates/admin-modal-new-link.php';
 		}
@@ -72,6 +85,10 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 		public function add_admin_bar_menu( WP_Admin_Bar $admin_bar ) {
 
 			$hide_modal_opener = (bool) Utils::get_option( 'tinypress_hide_modal_opener' );
+
+			if ( ! self::current_user_can_view() || ! self::current_user_can_create() ) {
+				return;
+			}
 
 			if ( $hide_modal_opener !== true ) {
 				$admin_bar->add_menu( array(
@@ -151,7 +168,7 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 		 */
 		function links_log() {
 			add_submenu_page( 'edit.php?post_type=tinypress_link',
-				esc_html__( 'Logs', 'tinypress' ), esc_html__( 'Logs', 'tinypress' ), 'manage_options', 'tinypress-logs',
+				esc_html__( 'Logs', 'tinypress' ), esc_html__( 'Logs', 'tinypress' ), 'edit_posts', 'tinypress-logs',
 				array( $this, 'render_menu_logs' )
 			);
 		}
@@ -177,6 +194,190 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 			echo '</div>';
 		}
 
+
+		/**
+		 * Check if a user has access for a given role setting key.
+		 *
+		 * @param string  $setting_key The option key for the role setting
+		 * @param WP_User|null $user   User to check. Defaults to current user.
+		 * @return bool
+		 */
+		public static function user_has_role_access( $setting_key, $user = null ) {
+			if ( ! $user ) {
+				$user = wp_get_current_user();
+			}
+
+			if ( ! $user || ! $user->exists() ) {
+				return false;
+			}
+
+			// Admins always have access
+			if ( in_array( 'administrator', (array) $user->roles, true ) ) {
+				return true;
+			}
+
+			$allowed_roles = Utils::get_option( $setting_key, array() );
+
+			// If no setting saved yet (empty string or empty array from default), allow all
+			if ( empty( $allowed_roles ) || ! is_array( $allowed_roles ) ) {
+				return true;
+			}
+
+			$user_roles = (array) $user->roles;
+
+			return ! empty( array_intersect( $user_roles, $allowed_roles ) );
+		}
+
+		/**
+		 * Check if the current user can view shortlinks.
+		 *
+		 * @return bool
+		 */
+		public static function current_user_can_view() {
+			return self::user_has_role_access( 'tinypress_role_view' );
+		}
+
+		/**
+		 * Check if the current user can create/edit shortlinks.
+		 *
+		 * @return bool
+		 */
+		public static function current_user_can_create() {
+			if ( ! defined( 'TINYPRESS_PRO_VERSION' ) ) {
+				return true;
+			}
+			return self::user_has_role_access( 'tinypress_role_create' );
+		}
+
+		/**
+		 * Check if the current user can control settings.
+		 *
+		 * @return bool
+		 */
+		public static function current_user_can_settings() {
+			if ( ! defined( 'TINYPRESS_PRO_VERSION' ) ) {
+				return true;
+			}
+			return self::user_has_role_access( 'tinypress_role_edit' );
+		}
+
+		/**
+		 * Enforce "Who Can View Shortlinks" role restriction.
+		 * Removes the Shortlinks menu for users whose role is not in the allowed list.
+		 */
+		function enforce_role_view_access() {
+			if ( ! self::current_user_can_view() ) {
+				remove_menu_page( 'edit.php?post_type=tinypress_link' );
+			}
+		}
+
+		/**
+		 * Filter user capabilities for tinypress_link post type based on view role setting.
+		 * Since the post type uses capability_type 'post', we filter edit_posts etc.
+		 * only on tinypress_link screens.
+		 *
+		 * @param array   $allcaps All capabilities of the user
+		 * @param array   $caps    Required capabilities
+		 * @param array   $args    Arguments
+		 * @param WP_User $user    The user object
+		 * @return array
+		 */
+		function filter_view_capabilities( $allcaps, $caps, $args, $user ) {
+			// Prevent recursion if Utils::get_option triggers current_user_can
+			if ( self::$_filtering_caps ) {
+				return $allcaps;
+			}
+
+			if ( ! is_admin() || ! $user || ! $user->exists() ) {
+				return $allcaps;
+			}
+
+			// Only act on tinypress_link screens
+			if ( ! $this->is_tinypress_screen() ) {
+				return $allcaps;
+			}
+
+			// Admins always have access
+			if ( in_array( 'administrator', (array) $user->roles, true ) ) {
+				return $allcaps;
+			}
+
+			self::$_filtering_caps = true;
+
+			// Check view access
+			if ( ! self::user_has_role_access( 'tinypress_role_view', $user ) ) {
+				$allcaps['edit_posts']    = false;
+				$allcaps['publish_posts'] = false;
+				$allcaps['delete_posts']  = false;
+				$allcaps['read']          = false;
+			}
+
+			self::$_filtering_caps = false;
+
+			return $allcaps;
+		}
+
+		/**
+		 * Block direct URL access to tinypress_link screens for restricted users.
+		 */
+		function block_direct_access() {
+			if ( ! $this->is_tinypress_screen() ) {
+				return;
+			}
+
+			$user = wp_get_current_user();
+			if ( ! $user || ! $user->exists() ) {
+				return;
+			}
+
+			if ( in_array( 'administrator', (array) $user->roles, true ) ) {
+				return;
+			}
+
+			if ( ! self::current_user_can_view() ) {
+				wp_die(
+					esc_html__( 'Sorry, you are not allowed to access shortlinks.', 'tinypress' ),
+					esc_html__( 'Access Denied', 'tinypress' ),
+					array( 'response' => 403 )
+				);
+			}
+		}
+
+		/**
+		 * Check if the current admin page is a tinypress_link screen.
+		 *
+		 * @return bool
+		 */
+		private function is_tinypress_screen() {
+			global $pagenow, $typenow;
+
+			// Check query params for post_type
+			$post_type = '';
+			if ( ! empty( $_GET['post_type'] ) ) {
+				$post_type = sanitize_text_field( wp_unslash( $_GET['post_type'] ) );
+			} elseif ( ! empty( $_GET['post'] ) ) {
+				$post_type = get_post_type( absint( $_GET['post'] ) );
+			} elseif ( ! empty( $typenow ) ) {
+				$post_type = $typenow;
+			}
+
+			if ( $post_type === 'tinypress_link' ) {
+				return true;
+			}
+
+			// Check for settings/logs pages
+			if ( ! empty( $_GET['page'] ) ) {
+				$page = sanitize_text_field( wp_unslash( $_GET['page'] ) );
+				if ( in_array( $page, array( 'settings', 'tinypress-logs' ), true ) ) {
+					// Only if we're under the tinypress parent
+					if ( isset( $_GET['post_type'] ) && $_GET['post_type'] === 'tinypress_link' ) {
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
 
 		/**
 		 * @return TINYPRESS_Hooks

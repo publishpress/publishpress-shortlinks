@@ -16,7 +16,7 @@ $tiny_slug_args = array(
 <div class="tinypress-popup">
     <form class="tinypress-popup-box" action="" method="post">
         <div class="popup-content">
-            <label for="tinypress-modal-url"><?php esc_html_e( 'Enter a long url and make into a tiny version', 'tinypress' ) ?>
+            <label for="tinypress-modal-url"><?php esc_html_e( 'Enter a long url and make into a short url', 'tinypress' ) ?>
                 <input autocomplete="off" id="tinypress-modal-url" name="long_url" type="url" required class="tinypress-modal-url" placeholder="<?php echo esc_url( 'https://example.com/my-long-url/' ); ?>">
             </label>
             <div class="response-area">
