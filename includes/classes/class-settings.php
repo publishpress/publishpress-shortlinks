@@ -307,10 +307,13 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 				$field_sections['settings']['sections'][] = $extra_post_status;
 			}
 
-			$field_sections['dummy'] = array(
-				'title'    => esc_html__( 'Dummy', 'tinypress' ),
-				'sections' => array(),
-			);
+			// Dummy tab used to force WPDK to render the left sidebar navigation.
+			if ( count( $field_sections ) === 1 && isset( $field_sections['settings'] ) ) {
+				$field_sections['dummy'] = array(
+					'title'    => esc_html__( 'Dummy', 'tinypress' ),
+					'sections' => array(),
+				);
+			}
 
 			return apply_filters( 'TINYPRESS/Filters/settings_pages', $field_sections );
 		}

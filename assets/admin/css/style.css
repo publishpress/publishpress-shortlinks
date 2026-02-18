@@ -442,7 +442,11 @@ table.tinypress_link_page_tinypress-reports th#details {
     cursor: pointer;
 }
 
-.wpdk_settings-nav > ul > li.wpdk_settings-tab-item:last-child {
+.tinypress-settings-layout .wpdk_settings-nav > ul > li.wpdk_settings-tab-item:only-child {
+    display: none;
+}
+
+.tinypress-settings-layout .wpdk_settings-nav > ul > li.wpdk_settings-tab-item:last-child {
     display: none;
 }
 
@@ -716,6 +720,15 @@ th#tinypress-link {
     padding: 12px 14px 12px 24px;
 }
 
+.tinypress-settings-layout .wpdk_settings-nav > ul > li.wpdk_settings-tab-item > a {
+    padding: 12px 14px 12px 24px;
+}
+
+.tinypress-settings-layout .wpdk_settings-nav > ul > li.wpdk_settings-tab-item > a.wpdk_settings-active {
+    background-color: #fff;
+    color: var(--wpdk_settings-primary-color);
+}
+
 .tinypress-settings-layout .wpdk_settings-nav > ul > li.wpdk_settings-tab-item:first-child > a.wpdk_settings-arrow {
     display: none;
 }
@@ -728,10 +741,32 @@ th#tinypress-link {
     padding-left: 14px;
 }
 
+.tinypress-settings-layout .tinypress_licence_key_status .tinypress_licence_key_label {
+    font-weight: 400;
+    color: inherit;
+}
+
+.tinypress-settings-layout .tinypress_licence_key_status .tinypress_licence_key_value {
+    font-weight: 700;
+}
+
+.tinypress-settings-layout .tinypress_licence_key_status.active .tinypress_licence_key_value {
+    color: #009688;
+}
+
+.tinypress-settings-layout .tinypress_licence_key_status:not(.active) .tinypress_licence_key_value {
+    color: #d63638;
+}
+
 .tinypress-settings-sidebar {
     width: 27%;
     flex-shrink: 0;
     margin-top: 4%;
+}
+
+.tinypress-settings-layout .wpdk_settings-content {
+    padding-bottom: 80px;
+    min-height: 420px;
 }
 
 @media screen and (max-width: 700px) {
@@ -844,6 +879,19 @@ th#tinypress-link {
     border: 1px solid #fca871;
     break-inside: avoid;
     white-space: nowrap;
+}
+
+.tinypress-pro-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: 8px;
+    vertical-align: middle;
 }
 
 .tinypress-auto-badge{
