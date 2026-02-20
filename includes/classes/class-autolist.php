@@ -25,6 +25,7 @@ if ( ! class_exists( 'TINYPRESS_AutoList' ) ) {
 			add_action( 'transition_post_status', array( $this, 'tinypress_handle_post_publish' ), 10, 3 );
 			add_action( 'tinypress_before_redirect_track', array( $this, 'tinypress_handle_first_use' ), 10, 1 );
 			add_action( 'updated_post_meta', array( $this, 'sync_tiny_slug_to_source' ), 10, 4 );
+			add_action( 'updated_post_meta', array( $this, 'tinypress_sync_source_to_link' ), 10, 4 );
 			add_action( 'save_post_tinypress_link', array( $this, 'tinypress_sync_on_link_save' ), 20, 3 );
 		}
 
@@ -247,10 +248,17 @@ if ( ! class_exists( 'TINYPRESS_AutoList' ) ) {
 			if ( ! empty( $link_tiny_slug ) && $link_tiny_slug !== $source_tiny_slug ) {
 				update_post_meta( $source_post_id, 'tiny_slug', $link_tiny_slug );
 			}
+
+			$link_target_url = Utils::get_meta( 'target_url', $post_id );
+			$source_target_url = Utils::get_meta( 'target_url', $source_post_id );
+
+			if ( ! empty( $link_target_url ) && $link_target_url !== $source_target_url ) {
+				update_post_meta( $source_post_id, 'target_url', $link_target_url );
+			}
 		}
 
 		/**
-		 * Sync tiny_slug changes from tinypress_link back to source post
+		 * Sync tiny_slug and target_url changes from tinypress_link back to source post
 		 *
 		 * @param int $meta_id
 		 * @param int $post_id
@@ -260,7 +268,7 @@ if ( ! class_exists( 'TINYPRESS_AutoList' ) ) {
 		 * @return void
 		 */
 		function sync_tiny_slug_to_source( $meta_id, $post_id, $meta_key, $meta_value ) {
-			if ( $meta_key !== 'tiny_slug' ) {
+			if ( ! in_array( $meta_key, array( 'tiny_slug', 'target_url' ) ) ) {
 				return;
 			}
 
@@ -274,12 +282,47 @@ if ( ! class_exists( 'TINYPRESS_AutoList' ) ) {
 				return;
 			}
 
-			$current_source_slug = Utils::get_meta( 'tiny_slug', $source_post_id );
+			$current_source_value = Utils::get_meta( $meta_key, $source_post_id );
 
-			if ( $current_source_slug !== $meta_value ) {
+			if ( $current_source_value !== $meta_value ) {
 				remove_action( 'updated_post_meta', array( $this, 'sync_tiny_slug_to_source' ), 10 );
-				update_post_meta( $source_post_id, 'tiny_slug', $meta_value );
+				update_post_meta( $source_post_id, $meta_key, $meta_value );
 				add_action( 'updated_post_meta', array( $this, 'sync_tiny_slug_to_source' ), 10, 4 );
+			}
+		}
+
+		/**
+		 * Sync tiny_slug and target_url changes from source post back to tinypress_link
+		 *
+		 * @param int $meta_id
+		 * @param int $post_id
+		 * @param string $meta_key
+		 * @param mixed $meta_value
+		 *
+		 * @return void
+		 */
+		function tinypress_sync_source_to_link( $meta_id, $post_id, $meta_key, $meta_value ) {
+			if ( ! in_array( $meta_key, array( 'tiny_slug', 'target_url' ) ) ) {
+				return;
+			}
+
+			// Skip if this is a tinypress_link post
+			if ( get_post_type( $post_id ) === 'tinypress_link' ) {
+				return;
+			}
+
+			$link_post_id = $this->get_existing_tinypress_link_entry( $post_id );
+
+			if ( empty( $link_post_id ) ) {
+				return;
+			}
+
+			$current_link_value = Utils::get_meta( $meta_key, $link_post_id );
+
+			if ( $current_link_value !== $meta_value ) {
+				remove_action( 'updated_post_meta', array( $this, 'tinypress_sync_source_to_link' ), 10 );
+				update_post_meta( $link_post_id, $meta_key, $meta_value );
+				add_action( 'updated_post_meta', array( $this, 'tinypress_sync_source_to_link' ), 10, 4 );
 			}
 		}
 
