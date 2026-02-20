@@ -184,12 +184,24 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 			}
 
 			$table_logs = new WP_List_Table_Logs();
+			$clear_logs_url = wp_nonce_url( add_query_arg( array( 'action' => 'clear_logs' ) ), 'tinypress_clear_logs' );
 
 			echo '<div class="wrap">';
-			echo '<h2 class="report-table">' . esc_html__( 'All Logs', 'tinypress' ) . '</h2>';
+            $log_message = get_transient( 'tinypress_log_message' );
+            if ( $log_message ) {
+                $notice_type = isset( $log_message['type'] ) ? $log_message['type'] : 'success';
+                echo '<div class="notice notice-' . esc_attr( $notice_type ) . ' is-dismissible"><p>' . esc_html( $log_message['message'] ) . '</p></div>';
+                delete_transient( 'tinypress_log_message' );
+            }
+			echo '<h2 class="report-table">' . esc_html__( 'All Logs', 'tinypress' ) . ' <a href="' . esc_url( $clear_logs_url ) . '" class="page-title-action" onclick="return confirm(\'' . esc_js( __( 'Are you sure you want to clear all logs?', 'tinypress' ) ) . '\');">' . esc_html__( 'Clear Logs', 'tinypress' ) . '</a></h2>';
 
+			echo '<form method="post">';
+			echo '<input type="hidden" name="post_type" value="tinypress_link" />';
+			echo '<input type="hidden" name="page" value="tinypress-logs" />';
+			wp_nonce_field( 'tinypress_logs_nonce', 'tinypress_logs_nonce' );
 			$table_logs->prepare_items();
 			$table_logs->display();
+			echo '</form>';
 
 			echo '</div>';
 		}

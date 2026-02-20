@@ -5,9 +5,6 @@ namespace PublishPress\Shortlinks;
 /**
  * Class ShortlinksCoreAdmin
  *
- * Free-only admin features: upgrade prompts, sidebar banners, menu links.
- * This class is loaded ONLY when Pro is NOT active (checked via TINYPRESS_PRO_VERSION).
- *
  * @package publishpress-shortlinks
  */
 class ShortlinksCoreAdmin
