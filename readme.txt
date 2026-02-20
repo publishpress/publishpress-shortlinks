@@ -1,78 +1,117 @@
-=== tinyPress - Complete solution for Affiliate Links, Link Shortening, Link Tracking, Link Branding & Marketing  ===
-	Contributors: pluginbazar, jaedm97
-	Donate link: https://pluginbazar.com/contact/
-	Tags: affiliate links, link shortener, short links, redirects, link tracking
+=== PublishPress Shortlinks - Custom URLs for Posts - Share Previews for Draft Posts  ===
+	Contributors: stevejburge, publishpress, deji98
+	Tags: link shortener, shortlinks, redirects, link tracking, custom URLs
 	Requires at least: 4.6
-	Tested up to: 6.7
+	Tested up to: 6.9
 	Stable tag: 1.3.0
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-    Complete solution to create, shorten, track and manage any URL without paying other platforms. Get reports and run successful marketing campaigns.
+    Create custom links for your posts. These links are brandable, trackable, and can have custom view permissions.
 
 == Description ==
 
-[TRY LIVE DEMO](https://pluginbazar.com/go/tinypress-demo/) | [PRICING](https://pluginbazar.com/buy/tinypress)
+With PublishPress Shortlinks you can create custom links for your posts. These links are brandable, trackable, and can have custom view permissions. You can share links for any type of content, even unpublished posts in draft status.
 
-Transform long, messy URLs into clean, branded links while gaining powerful click analytics—all directly from your WordPress dashboard. tinyPress combines robust link management with intuitive tools for bloggers, marketers, and affiliate managers.
+## Key Features in PublishPress Shortlinks ##
+✅ Automatically create shortlinks for your posts
+✅ Use your own website domain for shortlinks
+✅ Customize the slug for each shortlink
+✅ Share shortlinks for posts in any status
+✅ Add password protection to your shortlinks
+✅ Automatically export your shortlinks on a specific date
+✅ Choose from 301, 302, and 307 redirects
+✅ Track who is clicking your shortlinks with analytics
+✅ Generate a QR code for each shortlink to allow easy sharing
+✅ Cloak your affiliate links
 
-#### *Key Features Included Free*
-✅ Clean and easy user interface (Free)
-✅ Supports 301, 302, and 307 redirects (Free)
-✅ One-Click Link Sharing (Free)
-✅ Analytics (Free)
-✅ Automatically Create Links for Posts/Pages (Free)
-✅ Fully configurable slugs (Free)
-✅ Link Categories & Tags (Free)
-✅ Expiring Links (Free)
-✅ Password Protected Redirect (Free)
-✅ QR Codes Of Short Links (Free)
-✅ Control User Roles & Permissions (Free)
-✅ Keyboard Shortcut (Free)
+## Automatically create shortlinks for your posts
 
-#### *Standout Advantages*
-✨ **Keyboard Wizardry** - Press `Ctrl/Cmd + /` anywhere in WP Admin to instantly create shortlinks.
-✨ **Browser Power-Up** - [Chrome Extension](https://pluginbazar.com/plugins/tinypress-shorten-and-track-your-urls/) lets you shorten URLs in one click without dashboard access
+PublishPress Shortlinks will automatically generate links for all your posts and pages. This makes it really easy to have shareable links for content. These shortlinks are available from the Posts screen and the Post Edit screen.
 
-https://www.youtube.com/watch?v=71B3GkqiT6E
+## Use your own website domain for shortlinks
 
-#### *Upcoming Features*
- 👉 Auto-link keywords
- 👉 Broken link scanner
- 👉 Stealth cloaking
- 👉 Geo-targeted redirects
- 👉 A/B testing paths
- 👉 Bulk short links imports/exports
- 👉 Google Analytics integration.
- 👉 MonsterInsights integration.
+There's no need to use an external service to build and track your links. With PublishPress Shortlinks, all your custom URLs use your own domain name. To avoid conflicts with any regular URLs on your site, there's also a folder which is set to "go" by default. This means that your custom URLs will look like this: https://example.com/go/shortlinks
 
-== Installation ==
+## Customize the slug for each shortlink
 
-1. Install as regular WordPress plugin.<br />
-2. Go your plugin list and find "<strong>tinyPress</strong>" activate it.<br />
+Every post has its own URL. By default, the final part of the URL will be a unique combination of 5 characters, so your shortlink will look like this: https://example.com/go/8vi3n. However, you can customize the slug so it looks like this: https://example.com/go/shortlinks.
+
+[More on customizing shortlinks](https://publishpress.com/knowledge-base/how-to-customize-shortlinks/)
+
+## Share shortlinks for posts in any status
+
+When you're writing a draft post, do you sometimes need to share it with someone who doesn't have access to your site? PublishPress Shortlinks is the answer. PublishPress Shortlinks allows you to share posts before you make them public. If you've written a draft of a post, you can share a preview with other people. You can protect these links by combining this with other features, including password protection and automatic expiry of links. This feature is similar to the Public Post Preview plugin, but with more features and customizable features.
+
+[More on shortlinks for unpublished posts](https://publishpress.com/knowledge-base/posts-status-visibility/)
+
+## Add password protection to your shortlinks
+
+Edit a shortlink and go to the "Security" tab. You'll be able to create a password for your sharable links. Nobody will be able to access the post via your shortlink unless they know the password.
+
+[More on passwords for shortlinks](https://publishpress.com/knowledge-base/protect-shortlinks/)
+
+## Automatically expire your shortlinks on a specific date
+
+Edit a shortlink and go to the "Security" tab. You'll be able to choose an expiration date for your shortlink. Anyone trying to visit your link after the expiration date will see the message, "This link is expired."
+
+[More on expiry dates for shortlinks](https://publishpress.com/knowledge-base/protect-shortlinks/)
+
+## Choose from 301, 302, and 307 redirects
+
+Edit a shortlink and go to the "Redirection" tab. You can choose what kind of redirect is used for each link. 301 (Permanent) redirects are used to tell search engines that a requested URL has been permanently moved to another URL. If you're confident that your target URL will never change, then use this redirect type. 302 and 307 (Temporary) redirects tell search engines that the requested URL has been moved temporarily, but will be back eventually.
+
+[More on redirects for shortlinks](https://publishpress.com/knowledge-base/redirect-options-for-shortlinks/)
+
+## Track who is clicking your shortlinks with analytics
+
+PublishPress Shortlinks has a Logs feature that records everyone who clicks your links. These logs are then turned into analytics charts so you can see how popular each shortlink is.
+
+[More on logs for shortlinks](https://publishpress.com/knowledge-base/analytics-and-logs-for-shortlinks/)
+
+## Generate a QR code for each shortlink to allow easy sharing
+
+PublishPress Shortlinks will automatically create a QR code for each link. This makes it easy to download and share the QR code so people can visit your URL. This is great for advertisements, brochures, PDFs, restaurant menus, or anywhere you want to use a QR code.
+
+[More on QR codes for shortlinks](https://publishpress.com/knowledge-base/qr-codes-for-shortlinks/)
+
+## Cloak affiliate links
+
+PublishPress Shortlinks is ideal for websites that have affiliate links in posts. You can manage, clean up, brand, and track your links. It's a great tool for cloaking affiliate links. PublishPress Shortlinks is a great tool for marketers plugin for people who want to clean up their affiliate links.
+
+## Create Shortlinks via Keyboard Shortcuts
+
+Click `Ctrl/Cmd + /` anywhere in the WordPress admin area to instantly create shortlinks.
+
 
 
 == Frequently Asked Questions ==
-= tinyPress is helpful to whom? =
-tinyPress is particularly helpful to affiliate marketers & website owners. It helps them to manage, clean up, brand, and track their links. In addition to affiliate marketing, tinyPress also helpful to SEO marketers, bloggers, merchants, social media marketers, and anyone else who wants to easily take control of their link strategy.
+= PublishPress Shortlinks is helpful to whom? =
+PublishPress Shortlinks is particularly helpful to affiliate marketers & website owners. It helps them to manage, clean up, brand, and track their links. In addition to affiliate marketing, PublishPress Shortlinks is also helpful to SEO marketers, bloggers, merchants, social media marketers, and anyone else who wants to easily take control of their link strategy.
 
 = Is it compatible with any WordPress theme? =
-Absolutely YES! tinyPress mainly run in the WordPress admin, So it is not depended on any WordPress theme.
+Yes, absolutely! PublishPress Shortlinks mainly runs in the WordPress admin, so it is not dependent on any one WordPress theme.
 
-= Why I should try tinyPress whereas there are lots of alternatives in the market? =
-Most of the available plugins, make the basic features on their premium version like link protection, link expiry, etc. But tinyPress made all of them free for the users.
+= Is PublishPress Shortlinks translatable? =
+Yes! PublishPress Shortlinks is ready for translation. You can easily translate PublishPress Shortlinks into the language of your choice.
 
-= Is tinyPress translatable? =
-Yes! tinyPress is ready for translation. You can translate easily as you do for the other plugins in your own language.
+= Is PublishPress Shortlinks similar to other plugins? =
 
-= What are the differences in redirect types? =
-301 (Permanent) redirects are used to tell search engines that a requested URL has been permanently moved to another URL. If you're confident that your target URL will never change, then use this redirect type. 302 and 307 (Temporary) redirects tell search engines that the requested URL has been moved temporarily, but will be back eventually.
+It's similar to the Public Post Preview plugin because it allows you to share posts before you make them public.
 
+It's similar to link sharing plugins such as Bitly, Better Links, and URL Shortly because it enables you to create custom URLs for your posts.
+
+It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliates because it enables you to create affiliate URLs for promoting your partners.
 
 == Screenshots ==
 
-1. screenshot-1.png
-
+1. You can get the shortlink for any post via the Posts screen.
+2. The All Shortlinks screen allows you to edit any shortlink
+3. The Shortlinks screen allows you to quickly edit any shortlink and download a QR code
+4. The Redirection tab has settings for the redirection method, no follow, and sponsored options
+5. You can password protect your shortlinks and add expiry dates
+6. The All Logs screen will keep details of everyone accessing your links
+7. Select which post statuses are accessible when visiting a PublishPress shortlink
 
 == Changelog ==
 
