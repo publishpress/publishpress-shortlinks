@@ -97,12 +97,12 @@ class TINYPRESS_Column_link {
 				$source_post_id = Utils::get_meta( 'source_post_id', $post_id );
 				$title_html = '<strong><a class="row-title" href="' . esc_url( get_edit_post_link( $post_id ) ) . '">' . get_the_title( $post_id ) . '</a></strong>';
 				
-				if ( ! empty( $source_post_id ) ) {
-					$source_post_type = Utils::get_meta( 'source_post_type', $post_id );
-					$post_type_obj = get_post_type_object( $source_post_type );
-					$post_type_label = $post_type_obj ? $post_type_obj->labels->singular_name : $source_post_type;
-					$title_html .= ' <span class="tinypress-auto-badge">' . esc_html( sprintf( __( 'Auto: %s', 'tinypress' ), $post_type_label ) ) . '</span>';
-				}
+				// if ( ! empty( $source_post_id ) ) {
+				// 	$source_post_type = Utils::get_meta( 'source_post_type', $post_id );
+				// 	$post_type_obj = get_post_type_object( $source_post_type );
+				// 	$post_type_label = $post_type_obj ? $post_type_obj->labels->singular_name : $source_post_type;
+				// 	$title_html .= ' <span class="tinypress-auto-badge">' . esc_html( sprintf( __( 'Auto: %s', 'tinypress' ), $post_type_label ) ) . '</span>';
+				// }
 				
 				echo $title_html;
 				break;
@@ -146,7 +146,7 @@ class TINYPRESS_Column_link {
 		$new_columns = array(
 			'cb'           => Utils::get_args_option( 'cb', $columns ),
 			'link-title'   => esc_html__( 'Link Title', 'tinypress' ),
-			'short-link'   => esc_html__( 'Shorten Link', 'tinypress' ),
+			'short-link'   => esc_html__( 'Shortlink', 'tinypress' ),
 			'click-count'  => esc_html__( 'Stats', 'tinypress' ),
 			'link-actions' => esc_html__( 'Actions', 'tinypress' ),
 		);
