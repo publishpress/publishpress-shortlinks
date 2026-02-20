@@ -317,7 +317,10 @@ table.tinypress_link_page_tinypress-reports th#details {
 }
 
 .tiny-slug-wrap {
-    display: inline-block;
+    display: block;
+    width: 50%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .tiny-slug-wrap .tiny-slug-preview {
@@ -362,13 +365,12 @@ table.tinypress_link_page_tinypress-reports th#details {
 
 .tiny-slug-wrap .tinypress-slug-field input[type=text],
 .tiny-slug-wrap .tinypress-slug-field textarea {
-    padding: 6px 8px;
+    padding: 10px 8px;
     border: 1px solid #8c8f94;
     border-radius: 4px;
     transition: 0.3s;
     width: 100%;
     font-size: 13px;
-    line-height: 1.5;
     background-color: #fff;
     color: #2c3338;
 }
@@ -377,9 +379,9 @@ table.tinypress_link_page_tinypress-reports th#details {
 .tiny-slug-wrap .tinypress-slug-field input[type=text]:focus:active,
 .tiny-slug-wrap .tinypress-slug-field textarea:focus,
 .tiny-slug-wrap .tinypress-slug-field textarea:focus:active {
-    border-color: #2271b1;
-    box-shadow: 0 0 0 1px #2271b1;
-    outline: 2px solid transparent;
+    border-color: var(--wpdk_settings-primary-color);
+    box-shadow: none;
+    outline: none;
 }
 
 .tinypress-settings-link{
