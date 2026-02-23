@@ -20,7 +20,7 @@ $tiny_slug_args = array(
                 <input autocomplete="off" id="tinypress-modal-url" name="long_url" type="url" required class="tinypress-modal-url" placeholder="<?php echo esc_url( 'https://example.com/my-long-url/' ); ?>">
             </label>
             <div class="response-area">
-                <div class="response-item">
+                <div class="long-url response-item">
                     <div class="item-label"><?php esc_html_e( 'Long URL', 'tinypress' ) ?></div>
                     <div class="item-val long-url"></div>
                 </div>
@@ -33,7 +33,7 @@ $tiny_slug_args = array(
         <div class="popup-actions">
             <input type="hidden" name="tiny_slug" value="<?php echo esc_attr( $default_string ); ?>">
             <div class="popup-action popup-action-cancel"><?php esc_html_e( 'Close', 'tinypress' ) ?></div>
-            <button type="submit" class="popup-action popup-action-create"><?php esc_html_e( 'Create Short URL', 'tinypress' ) ?></button>
+            <button type="submit" class="popup-action popup-action-create"><?php esc_html_e( 'Create Shortlink', 'tinypress' ) ?></button>
         </div>
     </form>
 </div>
