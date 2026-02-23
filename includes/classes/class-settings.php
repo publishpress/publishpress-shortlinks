@@ -294,6 +294,43 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 				),
 			);
 
+			if ( function_exists( 'rvy_in_revision_workflow' ) ) {
+				$field_sections['settings']['sections'][] = array(
+					'title'  => esc_html__( 'Revisions', 'tinypress' ),
+					'fields' => array(
+						array(
+							'id'         => 'tinypress_revision_autolist',
+							'type'       => 'select',
+							'title'      => esc_html__( 'Revision Link Visibility', 'tinypress' ),
+							'subtitle'   => esc_html__( 'When should revision shortlinks appear in the All Shortlinks table?', 'tinypress' ),
+							'desc'       => esc_html__( 'Controls when a companion entry is created in the All Shortlinks table for revision shortlinks. The shortlink itself is always generated regardless of this setting.', 'tinypress' ),
+							'options'    => array(
+								'on_revision_creation'              => esc_html__( 'When Revision is Created', 'tinypress' ),
+								'on_first_use'                      => esc_html__( 'When Link is First Used', 'tinypress' ),
+								'on_revision_creation_or_first_use' => esc_html__( 'When Revision is Created or Link is First Used', 'tinypress' ),
+								'never'                             => esc_html__( 'Never', 'tinypress' ),
+							),
+							'default'    => 'on_revision_creation',
+						),
+						array(
+							'id'       => 'tinypress_revision_column_enabled',
+							'type'     => 'switcher',
+							'title'    => esc_html__( 'Show Shortlink in Revision Table', 'tinypress' ),
+							'label'    => esc_html__( 'Display shortlink column when viewing revisions in PublishPress Revisions.', 'tinypress' ),
+							'default'  => true,
+						),
+						array(
+							'id'       => 'tinypress_revision_visitor_access',
+							'type'     => 'switcher',
+							'title'    => esc_html__( 'Revision Visibility for Visitors', 'tinypress' ),
+							'label'    => esc_html__( 'Allow logged-out visitors to view revision content via shortlinks.', 'tinypress' ),
+							'desc'     => esc_html__( 'By default, PublishPress Revisions blocks visitors from viewing revision previews. When enabled, revision shortlinks will render the revision content directly for logged-out visitors instead of redirecting to the preview URL. This applies to all existing revision shortlinks regardless of the setting above.', 'tinypress' ),
+							'default'  => false,
+						),
+					),
+				);
+			}
+
 			// Hook for Pro to add additional settings sections (only if non-empty)
 			$extra_general = apply_filters( 'tinypress_settings_after_general', array() );
 			if ( ! empty( $extra_general ) && ! empty( $extra_general['title'] ) ) {

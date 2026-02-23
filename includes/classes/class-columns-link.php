@@ -23,6 +23,54 @@ class TINYPRESS_Column_link {
 				add_action( 'manage_' . $post_type . '_posts_custom_column', array( $this, 'tinypress_copy_content' ), 10, 2 );
 			}
 		}
+
+		if ( function_exists( 'rvy_in_revision_workflow' ) ) {
+			add_filter( 'manage_revisionary-q_columns', array( $this, 'add_revision_shortlink_column' ), 20, 1 );
+			add_action( 'revisionary_list_table_custom_col', array( $this, 'display_revision_shortlink_column' ), 10, 2 );
+		}
+	}
+
+	/**
+	 * Add shortlink column to revision listings
+	 *
+	 * @param array $columns
+	 * @return array
+	 */
+	public function add_revision_shortlink_column( $columns ) {
+		if ( ! Utils::get_option( 'tinypress_revision_column_enabled', true ) ) {
+			return $columns;
+		}
+
+		$columns['tinypress-revision-shortlink'] = esc_html__( 'Shortlink', 'tinypress' );
+		return $columns;
+	}
+
+	/**
+	 * Display revision shortlink column content
+	 *
+	 * @param string $column
+	 * @param WP_Post $post
+	 * @return void
+	 */
+	public function display_revision_shortlink_column( $column, $post ) {
+		if ( 'tinypress-revision-shortlink' !== $column ) {
+			return;
+		}
+
+		$post_id = $post->ID;
+
+		$tiny_slug = get_post_meta( $post_id, 'tiny_slug', true );
+
+		if ( empty( $tiny_slug ) ) {
+			echo '<span class="tinypress-no-shortlink">' . esc_html__( 'No shortlink', 'tinypress' ) . '</span>';
+			return;
+		}
+
+		echo '<div class="tinypress-column-content">';
+		echo '<div class="single-link copy-link hint--top" data-tiny_slug="' . esc_attr( tinypress_get_tinyurl( $post_id ) ) . '" aria-label="' . esc_attr( tinypress()::get_text_hint() ) . '" data-text-copied="' . esc_attr( tinypress()::get_text_copied() ) . '">';
+		echo '<span class="dashicons dashicons-admin-links"></span>';
+		echo '</div>';
+		echo '</div>';
 	}
 
 	/**
@@ -53,10 +101,9 @@ class TINYPRESS_Column_link {
 
 		if ( 'tinypress-link' == $column_name ) {
 
-
 			echo '<div class="tinypress-column-content">';
 
-			echo '<div class="single-link copy-link hint--top" data-tiny_slug="' . esc_attr( tinypress_get_tinyurl( $post_id ) ) . '" aria-label="' . tinypress()::get_text_hint() . '" data-text-copied="' . tinypress()::get_text_copied() . '">';
+			echo '<div class="single-link copy-link hint--top" data-tiny_slug="' . esc_attr( tinypress_get_tinyurl( $post_id ) ) . '" aria-label="' . esc_attr( tinypress()::get_text_hint() ) . '" data-text-copied="' . esc_attr( tinypress()::get_text_copied() ) . '">';
 			echo '<span class="dashicons dashicons-admin-links"></span>';
 			echo '</div>';
 
@@ -80,6 +127,10 @@ class TINYPRESS_Column_link {
 			unset( $actions['view'] );
 			unset( $actions['edit'] );
 			unset( $actions['trash'] );
+			unset( $actions['create_revision'] );
+			unset( $actions['create_draft_revision'] );
+			unset( $actions['edit_revision'] );
+			unset( $actions['view_revision'] );
 		}
 
 		return $actions;
@@ -96,14 +147,16 @@ class TINYPRESS_Column_link {
 			case 'link-title':
 				$source_post_id = Utils::get_meta( 'source_post_id', $post_id );
 				$title_html = '<strong><a class="row-title" href="' . esc_url( get_edit_post_link( $post_id ) ) . '">' . get_the_title( $post_id ) . '</a></strong>';
-				
-				// if ( ! empty( $source_post_id ) ) {
-				// 	$source_post_type = Utils::get_meta( 'source_post_type', $post_id );
-				// 	$post_type_obj = get_post_type_object( $source_post_type );
-				// 	$post_type_label = $post_type_obj ? $post_type_obj->labels->singular_name : $source_post_type;
-				// 	$title_html .= ' <span class="tinypress-auto-badge">' . esc_html( sprintf( __( 'Auto: %s', 'tinypress' ), $post_type_label ) ) . '</span>';
-				// }
-				
+
+				$is_revision_link = get_post_meta( $post_id, 'is_revision_link', true );
+				if ( ! $is_revision_link && ! empty( $source_post_id ) && function_exists( 'rvy_in_revision_workflow' ) ) {
+					$source_post = get_post( $source_post_id );
+					$is_revision_link = $source_post && rvy_in_revision_workflow( $source_post );
+				}
+				if ( $is_revision_link ) {
+					$title_html .= ' <span class="tinypress-revision-badge">' . esc_html__( 'rev', 'tinypress' ) . '</span>';
+				}
+
 				echo $title_html;
 				break;
 
@@ -116,6 +169,40 @@ class TINYPRESS_Column_link {
 				$badge_class = 'internal' === $link_type ? 'internal-badge' : 'external-badge';
 				$badge_text = 'internal' === $link_type ? esc_html__( 'Internal', 'tinypress' ) : esc_html__( 'External', 'tinypress' );
 				$tooltip_text = 'internal' === $link_type ? esc_html__( 'This links to your post', 'tinypress' ) : esc_html__( 'This links to an external website', 'tinypress' );
+
+				$is_revision_type = get_post_meta( $post_id, 'is_revision_link', true );
+				$source_post_id_for_type = Utils::get_meta( 'source_post_id', $post_id );
+
+				if ( ! $is_revision_type && ! empty( $source_post_id_for_type ) && function_exists( 'rvy_in_revision_workflow' ) ) {
+					$source_post_for_type = get_post( $source_post_id_for_type );
+					$is_revision_type = $source_post_for_type && rvy_in_revision_workflow( $source_post_for_type );
+				}
+
+				if ( $is_revision_type ) {
+					$badge_class = 'revision-badge';
+					$badge_text = esc_html__( 'Revision', 'tinypress' );
+					$tooltip_text = esc_html__( 'This links to a revision', 'tinypress' );
+
+					// Try to get the specific revision status for a more detailed tooltip
+					if ( ! empty( $source_post_id_for_type ) ) {
+						$source_post_for_type = isset( $source_post_for_type ) ? $source_post_for_type : get_post( $source_post_id_for_type );
+						if ( $source_post_for_type && ! empty( $source_post_for_type->post_mime_type ) ) {
+							$revision_status = $source_post_for_type->post_mime_type;
+							$status_labels = array(
+								'draft-revision'       => __( 'Not yet submitted', 'tinypress' ),
+								'pending-revision'     => __( 'Submitted for approval', 'tinypress' ),
+								'future-revision'      => __( 'Scheduled', 'tinypress' ),
+								'revision-deferred'    => __( 'Deferred', 'tinypress' ),
+								'revision-needs-work'  => __( 'Needs work', 'tinypress' ),
+								'revision-rejected'    => __( 'Rejected', 'tinypress' ),
+							);
+							if ( isset( $status_labels[ $revision_status ] ) ) {
+								$tooltip_text = esc_html( sprintf( __( 'Revision: %s', 'tinypress' ), $status_labels[ $revision_status ] ) );
+							}
+						}
+					}
+				}
+
 				echo '<span class="tinypress-link-type-badge ' . esc_attr( $badge_class ) . ' pp-tooltips-library" data-toggle="tooltip">' . $badge_text . '<span class="tinypress tooltip-text">' . $tooltip_text . '</span></span>';
 				break;
 
@@ -123,7 +210,7 @@ class TINYPRESS_Column_link {
 
 				global $wpdb;
 
-				$click_count = $wpdb->get_var( "SELECT COUNT(*) FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id = $post_id" );
+				$click_count = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id = %d", $post_id ) );
 
 				echo '<div class="click-count">' . esc_html( sprintf( __( 'Clicked %s times', 'tinypress' ), $click_count ) ) . '</div>';
 				break;
