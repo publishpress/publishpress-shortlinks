@@ -179,7 +179,6 @@ if ( ! class_exists( 'TINYPRESS_AutoList' ) ) {
 				return;
 			}
 
-			// Skip revisions — handled by revision-specific autolist in class-revisions-simple.php
 			if ( function_exists( 'tinypress_is_pp_revision' ) && tinypress_is_pp_revision( $post->ID ) ) {
 				return;
 			}
@@ -215,7 +214,6 @@ if ( ! class_exists( 'TINYPRESS_AutoList' ) ) {
 				return;
 			}
 
-			// Skip revisions — handled by revision-specific autolist
 			if ( function_exists( 'tinypress_is_pp_revision' ) && tinypress_is_pp_revision( $post_id ) ) {
 				// But allow first-use creation if revision autolist behavior includes it
 				if ( function_exists( 'tinypress_get_revision_autolist_behavior' ) ) {
