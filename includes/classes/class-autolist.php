@@ -82,11 +82,14 @@ if ( ! class_exists( 'TINYPRESS_AutoList' ) ) {
 			global $wpdb;
 
 			$link_id = $wpdb->get_var( $wpdb->prepare(
-				"SELECT post_id FROM {$wpdb->postmeta} 
-				WHERE meta_key = 'source_post_id' 
-				AND meta_value = %d 
-				AND post_id IN (SELECT ID FROM {$wpdb->posts} WHERE post_type = 'tinypress_link')",
-				$post_id
+				"SELECT pm.post_id FROM {$wpdb->postmeta} pm
+				INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
+				WHERE pm.meta_key = %s
+				AND pm.meta_value = %d
+				AND p.post_type = %s",
+				'source_post_id',
+				$post_id,
+				'tinypress_link'
 			) );
 
 			return $link_id ? (int) $link_id : null;
@@ -130,7 +133,7 @@ if ( ! class_exists( 'TINYPRESS_AutoList' ) ) {
 				return $link_id;
 			}
 
-			update_post_meta( $link_id, 'target_url', get_permalink( $post_id ) );
+			update_post_meta( $link_id, 'target_url', esc_url_raw( get_permalink( $post_id ) ) );
 			update_post_meta( $link_id, 'tiny_slug', $tiny_slug );
 			update_post_meta( $link_id, 'source_post_id', $post_id );
 			update_post_meta( $link_id, 'source_post_type', $post->post_type );
@@ -159,7 +162,7 @@ if ( ! class_exists( 'TINYPRESS_AutoList' ) ) {
 				'post_title' => $post->post_title,
 			) );
 
-			update_post_meta( $link_id, 'target_url', get_permalink( $post_id ) );
+			update_post_meta( $link_id, 'target_url', esc_url_raw( get_permalink( $post_id ) ) );
 		}
 
 		/**
@@ -173,6 +176,11 @@ if ( ! class_exists( 'TINYPRESS_AutoList' ) ) {
 		 */
 		function tinypress_handle_post_publish( $new_status, $old_status, $post ) {
 			if ( $post->post_type === 'tinypress_link' || $post->post_type === 'attachment' ) {
+				return;
+			}
+
+			// Skip revisions — handled by revision-specific autolist in class-revisions-simple.php
+			if ( function_exists( 'tinypress_is_pp_revision' ) && tinypress_is_pp_revision( $post->ID ) ) {
 				return;
 			}
 
@@ -207,6 +215,20 @@ if ( ! class_exists( 'TINYPRESS_AutoList' ) ) {
 				return;
 			}
 
+			// Skip revisions — handled by revision-specific autolist
+			if ( function_exists( 'tinypress_is_pp_revision' ) && tinypress_is_pp_revision( $post_id ) ) {
+				// But allow first-use creation if revision autolist behavior includes it
+				if ( function_exists( 'tinypress_get_revision_autolist_behavior' ) ) {
+					$rev_behavior = tinypress_get_revision_autolist_behavior();
+					if ( in_array( $rev_behavior, array( 'on_first_use', 'on_revision_creation_or_first_use' ), true ) ) {
+						if ( ! tinypress_get_revision_link_entry( $post_id ) ) {
+							tinypress_create_revision_link_entry( $post_id );
+						}
+					}
+				}
+				return;
+			}
+
 			$behavior = $this->get_post_type_behavior( $post->post_type );
 
 			if ( ! in_array( $behavior, array( 'on_first_use', 'on_first_use_or_on_create' ) ) ) {
@@ -235,6 +257,10 @@ if ( ! class_exists( 'TINYPRESS_AutoList' ) ) {
 			}
 
 			if ( $post->post_type === 'tinypress_link' || $post->post_type === 'attachment' ) {
+				return;
+			}
+
+			if ( function_exists( 'tinypress_is_pp_revision' ) && tinypress_is_pp_revision( $post_id ) ) {
 				return;
 			}
 

@@ -508,6 +508,7 @@ th#tinypress-link {
 
 .tinypress-column-content .single-link {
     display: inline-block;
+    position: relative;
     background: var(--tinypress-color-primary);
     margin-right: 10px;
     color: #fff;
@@ -661,6 +662,8 @@ th#tinypress-link {
 
 
 .tinypress-popup .tinypress-popup-box .popup-content .response-area .tinypress-modal-link .tiny-slug-preview {
+    width: 500px !important;
+    max-width: 100%;
     padding: 5px 12px;
     font-size: 16px;
     line-height: 24px;
@@ -1055,15 +1058,38 @@ body.tinypress_link_page_tinypress-logs #wpwrap {
 }
 
 .tinypress-link-type-badge.internal-badge {
-    background-color: var(--tinypress-color-primary-dim);
-    color: var(--tinypress-color-primary);
-    border: 1px solid var(--tinypress-color-primary);
+    background-color: rgba(33, 150, 243, 0.08);
+    color: #1976D2;
+    border: 1px solid #1976D2;
 }
 
 .tinypress-link-type-badge.external-badge {
     background-color: rgba(244, 67, 54, 0.08);
     color: var(--tinypress-color-red);
     border: 1px solid var(--tinypress-color-red);
+}
+
+.tinypress-link-type-badge.revision-badge {
+    background-color: var(--tinypress-color-primary-dim);
+    color: var(--tinypress-color-primary);
+    border: 1px solid var(--tinypress-color-primary);
+}
+
+.tinypress-revision-badge {
+    display: inline-block;
+    background: var(--tinypress-color-primary);
+    color: #fff;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    min-width: 18px;
+    text-align: center;
 }
 
 .column-link-type {
