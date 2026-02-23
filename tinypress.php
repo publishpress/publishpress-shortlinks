@@ -228,7 +228,7 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-autolist.php';
 			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-autolist-ajax.php';
 			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-reviews.php';
-			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-revisions.php';
+			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-revision.php';
 
 			new TINYPRESS_Hooks();
 			new TINYPRESS_Settings();

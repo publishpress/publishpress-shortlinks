@@ -37,6 +37,8 @@ class TINYPRESS_Revisions {
 		add_action( 'revision_applied', array( $this, 'tinypress_cleanup_revision_link_on_approval' ), 10, 2 );
 
 		add_action( 'rvy_delete_revision', array( $this, 'tinypress_cleanup_revision_link_on_delete' ), 10, 2 );
+
+		add_action( 'before_delete_post', array( $this, 'tinypress_cleanup_revision_link_before_delete' ), 10, 1 );
 	}
 
 	/**
@@ -263,6 +265,26 @@ class TINYPRESS_Revisions {
 		}
 
 		$link_id = $this->get_revision_link_entry( $revision_id );
+
+		if ( $link_id ) {
+			wp_delete_post( $link_id, true );
+		}
+	}
+
+	/**
+	 * Clean up tinypress_link entry when any revision post is about to be deleted.
+	 *
+	 * @param int $post_id The post ID being deleted
+	 * @return void
+	 */
+	public function tinypress_cleanup_revision_link_before_delete( $post_id ) {
+		$post_id = absint( $post_id );
+
+		if ( empty( $post_id ) || ! rvy_in_revision_workflow( $post_id ) ) {
+			return;
+		}
+
+		$link_id = $this->get_revision_link_entry( $post_id );
 
 		if ( $link_id ) {
 			wp_delete_post( $link_id, true );
