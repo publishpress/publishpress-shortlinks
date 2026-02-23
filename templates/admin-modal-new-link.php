@@ -8,7 +8,7 @@ $tiny_slug_args = array(
 	'default'       => $default_string,
 	'wrapper_class' => 'tinypress-modal-link',
 	'preview'       => true,
-	'preview_text'  => esc_html__( 'Short url will come here', 'tinypress' ),
+	'preview_text'  => esc_html__( 'Shortlink will appear here', 'tinypress' ),
 );
 
 ?>
@@ -16,16 +16,16 @@ $tiny_slug_args = array(
 <div class="tinypress-popup">
     <form class="tinypress-popup-box" action="" method="post">
         <div class="popup-content">
-            <label for="tinypress-modal-url"><?php esc_html_e( 'Enter a long url and make into a short url', 'tinypress' ) ?>
+            <label for="tinypress-modal-url"><?php esc_html_e( 'Enter a long URL and make a shortlink', 'tinypress' ) ?>
                 <input autocomplete="off" id="tinypress-modal-url" name="long_url" type="url" required class="tinypress-modal-url" placeholder="<?php echo esc_url( 'https://example.com/my-long-url/' ); ?>">
             </label>
             <div class="response-area">
-                <div class="response-item">
+                <div class="long-url response-item">
                     <div class="item-label"><?php esc_html_e( 'Long URL', 'tinypress' ) ?></div>
                     <div class="item-val long-url"></div>
                 </div>
                 <div class="response-item">
-                    <div class="item-label"><?php esc_html_e( 'Short URL', 'tinypress' ) ?></div>
+                    <div class="item-label"><?php esc_html_e( 'Shortlink', 'tinypress' ) ?></div>
                     <div class="item-val"><?php echo tinypress_get_tiny_slug_copier( 0, false, $tiny_slug_args ); ?></div>
                 </div>
             </div>
@@ -33,7 +33,7 @@ $tiny_slug_args = array(
         <div class="popup-actions">
             <input type="hidden" name="tiny_slug" value="<?php echo esc_attr( $default_string ); ?>">
             <div class="popup-action popup-action-cancel"><?php esc_html_e( 'Close', 'tinypress' ) ?></div>
-            <button type="submit" class="popup-action popup-action-create"><?php esc_html_e( 'Create Short URL', 'tinypress' ) ?></button>
+            <button type="submit" class="popup-action popup-action-create"><?php esc_html_e( 'Create Shortlink', 'tinypress' ) ?></button>
         </div>
     </form>
 </div>
