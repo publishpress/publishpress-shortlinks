@@ -39,6 +39,8 @@ class TINYPRESS_Revisions {
 		add_action( 'rvy_delete_revision', array( $this, 'tinypress_cleanup_revision_link_on_delete' ), 10, 2 );
 
 		add_action( 'before_delete_post', array( $this, 'tinypress_cleanup_revision_link_before_delete' ), 10, 1 );
+
+		add_filter( 'revisionary_enabled_post_types', array( $this, 'tinypress_exclude_from_revisions' ) );
 	}
 
 	/**
@@ -304,6 +306,18 @@ class TINYPRESS_Revisions {
 		}
 
 		return (bool) rvy_in_revision_workflow( $post_id );
+	}
+
+	/**
+	 * Exclude tinypress_link post type from PP Revisions
+	 *
+	 * @param array $post_types Enabled post types
+	 * @return array
+	 */
+	public function tinypress_exclude_from_revisions( $post_types ) {
+		unset( $post_types['tinypress_link'] );
+ 
+		return $post_types;
 	}
 
 	/**

@@ -266,13 +266,19 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 		 * Load Admin Scripts
 		 */
 		function admin_scripts() {
+			$screen = get_current_screen();
 
-			wp_enqueue_script( 'apexcharts', plugins_url( '/assets/admin/js/apexcharts.js', __FILE__ ), array( 'jquery' ), self::$_script_version );
-
-			wp_enqueue_script( 'qrcode', plugins_url( '/assets/admin/js/qrcode.min.js', __FILE__ ), array( 'jquery' ), self::$_script_version );
-			wp_enqueue_script( 'tinypress', plugins_url( '/assets/admin/js/scripts.js', __FILE__ ), array( 'jquery' ), self::$_script_version );
+			// Register all scripts
+			wp_register_script( 'apexcharts', plugins_url( '/assets/admin/js/apexcharts.js', __FILE__ ), array( 'jquery' ), self::$_script_version, true );
+			wp_register_script( 'qrcode', plugins_url( '/assets/admin/js/qrcode.min.js', __FILE__ ), array( 'jquery' ), self::$_script_version, true );
+			wp_register_script( 'tinypress-analytics', plugins_url( '/assets/admin/js/analytics.js', __FILE__ ), array( 'jquery', 'apexcharts' ), self::$_script_version, true );
+			wp_register_script( 'tinypress-qr-code', plugins_url( '/assets/admin/js/qr-code.js', __FILE__ ), array( 'jquery', 'qrcode' ), self::$_script_version, true );
+			
+			// Main scripts - always enqueue on shortlinks pages
+			wp_enqueue_script( 'tinypress', plugins_url( '/assets/admin/js/scripts.js', __FILE__ ), array( 'jquery' ), self::$_script_version, true );
 			wp_localize_script( 'tinypress', 'tinypress', $this->localize_scripts() );
 
+			// Always enqueue styles
 			wp_enqueue_style( 'tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/css/style.css', self::$_script_version );
 			wp_enqueue_style( 'tinypress-tool-tip', TINYPRESS_PLUGIN_URL . 'assets/hint.min.css' );
 
