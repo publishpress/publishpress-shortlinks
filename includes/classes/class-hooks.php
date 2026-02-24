@@ -35,6 +35,7 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 			add_action( 'admin_bar_menu', array( $this, 'add_admin_bar_menu' ), 999 );
 			add_action( 'admin_footer', array( $this, 'render_admin_modal' ) );
 			add_action( 'wp_ajax_tinypress_popup_create_url', array( $this, 'tinypress_popup_create_url' ) );
+			add_action( 'wp_ajax_tinypress_reset_analytics', array( $this, 'tinypress_reset_analytics' ) );
 		}
 
 		public function tinypress_popup_create_url() {
@@ -71,6 +72,54 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 					'message'  => esc_html__( 'Shortlink created successfully.', 'tinypress' )
 				)
 			);
+		}
+
+		public function tinypress_reset_analytics() {
+			if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'tinypress_reset_analytics_nonce' ) ) {
+				wp_send_json_error( esc_html__( 'Invalid nonce verification.', 'tinypress' ) );
+			}
+
+			if ( ! current_user_can( 'edit_posts' ) ) {
+				wp_send_json_error( esc_html__( 'You do not have permission to reset analytics.', 'tinypress' ) );
+			}
+
+			$post_id = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
+			$period  = isset( $_POST['period'] ) ? sanitize_text_field( $_POST['period'] ) : 'today';
+
+			if ( ! $post_id ) {
+				wp_send_json_error( esc_html__( 'Invalid post ID.', 'tinypress' ) );
+			}
+
+			global $wpdb;
+
+			$date_condition = '';
+			switch ( $period ) {
+				case 'today':
+					$date_condition = "AND DATE(datetime) = CURDATE()";
+					break;
+				case 'last_7_days':
+					$date_condition = "AND datetime >= DATE_SUB(NOW(), INTERVAL 7 DAY)";
+					break;
+				case 'last_1_month':
+					$date_condition = "AND datetime >= DATE_SUB(NOW(), INTERVAL 1 MONTH)";
+					break;
+				case 'last_1_year':
+					$date_condition = "AND datetime >= DATE_SUB(NOW(), INTERVAL 1 YEAR)";
+					break;
+				default:
+					$date_condition = "AND DATE(datetime) = CURDATE()";
+			}
+
+			$result = $wpdb->query( $wpdb->prepare(
+				"DELETE FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id = %d " . $date_condition,
+				$post_id
+			) );
+
+			if ( $result !== false ) {
+				wp_send_json_success( esc_html__( 'Analytics reset successfully.', 'tinypress' ) );
+			} else {
+				wp_send_json_error( esc_html__( 'Failed to reset analytics.', 'tinypress' ) );
+			}
 		}
 
 		public function render_admin_modal() {

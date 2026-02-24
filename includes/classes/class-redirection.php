@@ -23,6 +23,7 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 		function __construct() {
 			add_action( 'template_redirect', array( $this, 'redirection_controller' ) );
 			add_action( 'pre_get_posts', array( $this, 'tinypress_filter_shortlink_preview_visibility' ) );
+			add_action( 'wp_footer', array( $this, 'inject_reload_detection' ) );
 		}
 
 
@@ -484,6 +485,44 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 			return str_replace( site_url(), '', $current_url );
 		}
 
+		/**
+		 * Inject JavaScript to detect and reload when landing on a post ID URL
+		 * This handles first-visit cases where the tinypress_link entry is being created
+		 * while the page is loading, causing a temporary redirect to the post ID.
+		 *
+		 * @return void
+		 */
+		public function inject_reload_detection() {
+			if ( ! is_404() ) {
+				return;
+			}
+
+			$tiny_slug_1 = trim( $this->get_request_uri(), '/' );
+			$link_prefix = Utils::get_option( 'tinypress_link_prefix' );
+			$link_prefix_slug = Utils::get_option( 'tinypress_link_prefix_slug', 'go' );
+
+			// Only inject on shortlink URLs
+			if ( '1' == $link_prefix && strpos( $tiny_slug_1, $link_prefix_slug ) === false ) {
+				return;
+			}
+			?>
+			<script>
+			(function() {
+				var urlParams = new URLSearchParams(window.location.search);
+				var postId = urlParams.get('p');
+				
+				// If we have a ?p=postid parameter, reload after 1.5 seconds to let the
+				// tinypress_link entry be fully created, then try again
+				if (postId && !sessionStorage.getItem('tinypress_reload_attempted')) {
+					sessionStorage.setItem('tinypress_reload_attempted', 'true');
+					setTimeout(function() {
+						window.location.reload();
+					}, 1500);
+				}
+			})();
+			</script>
+			<?php
+		}
 
 		/**
 		 * @return TINYPRESS_Redirection
