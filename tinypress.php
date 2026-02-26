@@ -3,7 +3,7 @@
  * Plugin Name: PublishPress Shortlinks
  * Plugin URI:  https://publishpress.com/shortlinks/
  * Description: Create custom links for your posts. These links are brandable, trackable, and can have custom view permissions.
- * Version: 1.3.0
+ * Version: 1.4.0
  * Text Domain: tinypress
  * Author: PublishPress
  * Author URI: https://publishpress.com/
@@ -65,7 +65,7 @@ if ( defined( 'TINYPRESS_FILE' ) || $pro_active ) {
 define( 'TINYPRESS_FILE', __FILE__ );
 
 if (!defined('TINYPRESS_PLUGIN_VERSION')) {
-define('TINYPRESS_PLUGIN_VERSION', '1.3.0');
+define('TINYPRESS_PLUGIN_VERSION', '1.4.0');
 }
 
 defined( 'TINYPRESS_PLUGIN_URL' ) || define( 'TINYPRESS_PLUGIN_URL', WP_PLUGIN_URL . '/' . plugin_basename( dirname( __FILE__ ) ) . '/' );
