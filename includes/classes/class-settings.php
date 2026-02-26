@@ -291,6 +291,39 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 							),
 						),
 					),
+					array(
+						'title'  => esc_html__( 'Expired Links', 'tinypress' ),
+						'fields' => array(
+							array(
+								'id'          => 'tinypress_expired_redirect_url',
+								'type'        => 'text',
+								'title'       => esc_html__( 'Default Expired Redirect URL', 'tinypress' ),
+								'subtitle'    => esc_html__( 'Where should expired shortlinks redirect?', 'tinypress' ),
+								'desc'        => esc_html__( 'When a shortlink expires, visitors will be redirected to this URL instead of seeing an error. Leave empty to show the default expiration message.', 'tinypress' ),
+								'placeholder' => esc_html( home_url( '/' ) ),
+								'default'     => '',
+								'attributes'  => ! defined( 'PUBLISHPRESS_SHORTLINKS_PRO_VERSION' ) ? array( 'disabled' => true ) : array(),
+							),
+							( defined( 'PUBLISHPRESS_SHORTLINKS_PRO_VERSION' ) ?
+							array(
+								'id'         => 'tinypress_expired_show_notice',
+								'type'       => 'switcher',
+								'title'      => esc_html__( 'Show Expiration Notice', 'tinypress' ),
+								'label'      => esc_html__( 'Display a brief notice before redirecting expired links (using a JavaScript redirect with a short delay).', 'tinypress' ),
+								'default'    => false,
+							) :
+							array(
+								'id'      => 'tinypress_expired_show_notice',
+								'type'    => 'content',
+								'title'   => esc_html__( 'Show Expiration Notice', 'tinypress' ),
+								'content' => '<label style="opacity:0.5;pointer-events:none;display:inline-flex;align-items:center;gap:8px;">'
+									. '<input type="checkbox" disabled />'
+									. esc_html__( 'Display a brief notice before redirecting expired links (using a JavaScript redirect with a short delay).', 'tinypress' )
+									. '</label>',
+							)
+						),
+						),
+					),
 				),
 			);
 
@@ -310,7 +343,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 								'on_revision_creation_or_first_use' => esc_html__( 'When Revision is Created or Link is First Used', 'tinypress' ),
 								'never'                             => esc_html__( 'Never', 'tinypress' ),
 							),
-							'default'    => 'on_revision_creation',
+							'default'    => 'on_revision_creation_or_first_use',
 						),
 						array(
 							'id'       => 'tinypress_revision_column_enabled',

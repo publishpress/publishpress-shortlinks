@@ -45,6 +45,13 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 			$is_revision_redirect = false;
 			if ( 'tinypress_link' == get_post_type( $link_id ) ) {
 				$is_revision_link = get_post_meta( $link_id, 'is_revision_link', true );
+				if ( ! $is_revision_link && function_exists( 'rvy_in_revision_workflow' ) ) {
+					$source_post_id_check = absint( get_post_meta( $link_id, 'source_post_id', true ) );
+					if ( $source_post_id_check && rvy_in_revision_workflow( $source_post_id_check ) ) {
+						$is_revision_link = '1';
+						update_post_meta( $link_id, 'is_revision_link', '1' );
+					}
+				}
 				if ( $is_revision_link && function_exists( 'rvy_preview_url' ) ) {
 					$source_post_id = absint( get_post_meta( $link_id, 'source_post_id', true ) );
 					$revision_post  = $source_post_id ? get_post( $source_post_id ) : null;
@@ -222,6 +229,44 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 
 
 		/**
+		 * Display a brief notice page before redirecting expired links.
+		 *
+		 * @param string $redirect_url The URL to redirect to.
+		 * @return void
+		 */
+		protected function display_expired_notice_page( $redirect_url ) {
+			status_header( 200 );
+			$safe_url = esc_url( $redirect_url );
+			?>
+			<!DOCTYPE html>
+			<html>
+			<head>
+				<meta charset="utf-8">
+				<meta name="robots" content="noindex, nofollow">
+				<title><?php esc_html_e( 'Link Expired', 'tinypress' ); ?></title>
+				<meta http-equiv="refresh" content="3;url=<?php echo esc_attr( $safe_url ); ?>">
+				<style>
+					body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #f0f0f1; color: #3c434a; }
+					.notice-box { text-align: center; background: #fff; padding: 40px 50px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.1); max-width: 480px; }
+					.notice-box h1 { font-size: 22px; margin: 0 0 12px; }
+					.notice-box p { font-size: 14px; color: #646970; margin: 0 0 20px; }
+					.notice-box a { color: #2271b1; text-decoration: none; font-weight: 500; }
+					.notice-box a:hover { text-decoration: underline; }
+				</style>
+			</head>
+			<body>
+				<div class="notice-box">
+					<h1><?php esc_html_e( 'This link has expired', 'tinypress' ); ?></h1>
+					<p><?php esc_html_e( 'You will be redirected shortly.', 'tinypress' ); ?></p>
+					<a href="<?php echo esc_attr( $safe_url ); ?>"><?php esc_html_e( 'Click here if you are not redirected', 'tinypress' ); ?></a>
+				</div>
+			</body>
+			</html>
+			<?php
+		}
+
+
+		/**
 		 * Track the redirection
 		 *
 		 * @param $link_id
@@ -325,6 +370,21 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 					$expiration_date = $expiration_date . ' 23:59:59';
 
 					if ( current_time( 'd-m-Y G:i:s' ) > $expiration_date ) {
+						$expired_redirect_url = apply_filters( 'tinypress_link_expired_redirect', '', $link_id );
+
+						if ( ! empty( $expired_redirect_url ) ) {
+							$show_notice = Utils::get_option( 'tinypress_expired_show_notice', false );
+
+							if ( $show_notice ) {
+								$this->display_expired_notice_page( $expired_redirect_url );
+								die();
+							}
+
+							header( 'Cache-Control: no-store, no-cache, must-revalidate, max-age=0' );
+							header( 'Location: ' . esc_url_raw( $expired_redirect_url ), true, 302 );
+							die();
+						}
+
 						wp_die( esc_html__( 'This link is expired.', 'tinypress' ) );
 					}
 				}

@@ -108,6 +108,9 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 
 			register_activation_hook( __FILE__, array( $this, 'flush_rewrite_rules' ) );
 			register_activation_hook( __FILE__, array( $this, 'set_default_settings' ) );
+			register_activation_hook( __FILE__, function () {
+				set_transient( 'tinypress_activation_redirect', true, 30 );
+			} );
 		}
 
 
@@ -147,46 +150,46 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 		maybe_create_table( TINYPRESS_TABLE_REPORTS, $sql_create_table );
 
 		global $wpdb;
-		$column_exists = $wpdb->get_results( $wpdb->prepare(
-			"SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = %s AND COLUMN_NAME = 'is_cleared'",
-			$wpdb->prefix . 'tinypress_reports'
-		) );
+		$table_name = TINYPRESS_TABLE_REPORTS;
+		$column_exists = $wpdb->get_results( "SHOW COLUMNS FROM `{$table_name}` LIKE 'is_cleared'" );
 
 		if ( empty( $column_exists ) ) {
-			$wpdb->query( "ALTER TABLE " . TINYPRESS_TABLE_REPORTS . " ADD COLUMN is_cleared TINYINT(1) NOT NULL DEFAULT 0" );
+			$wpdb->query( "ALTER TABLE `{$table_name}` ADD COLUMN is_cleared TINYINT(1) NOT NULL DEFAULT 0" );
 		}
 	}
 		function set_default_settings() {
 			$settings = get_option( 'tinypress_settings', array() );
 			
-			if ( empty( $settings ) || ! isset( $settings['tinypress_autolist_enabled'] ) ) {
-				if ( ! is_array( $settings ) ) {
-					$settings = array();
-				}
-
-				if ( ! isset( $settings['tinypress_autolist_enabled'] ) ) {
-					$settings['tinypress_autolist_enabled'] = '1';
-				}
-				
-				if ( ! isset( $settings['tinypress_autolist_post_types'] ) || empty( $settings['tinypress_autolist_post_types'] ) ) {
-					$settings['tinypress_autolist_post_types'] = array(
-						array(
-							'post_type' => 'post',
-							'behavior' => 'on_first_use_or_on_create'
-						),
-						array(
-							'post_type' => 'page',
-							'behavior' => 'on_first_use_or_on_create'
-						)
-					);
-				}
-				
-				if ( ! isset( $settings['tinypress_allowed_post_statuses'] ) ) {
-					$settings['tinypress_allowed_post_statuses'] = array( 'publish', 'draft', 'pending', 'private', 'future' );
-				}
-				
-				update_option( 'tinypress_settings', $settings );
+			if ( ! is_array( $settings ) ) {
+				$settings = array();
 			}
+
+			if ( ! isset( $settings['tinypress_autolist_enabled'] ) ) {
+				$settings['tinypress_autolist_enabled'] = '1';
+			}
+			
+			if ( ! isset( $settings['tinypress_autolist_post_types'] ) || empty( $settings['tinypress_autolist_post_types'] ) ) {
+				$settings['tinypress_autolist_post_types'] = array(
+					array(
+						'post_type' => 'post',
+						'behavior' => 'on_first_use_or_on_create'
+					),
+					array(
+						'post_type' => 'page',
+						'behavior' => 'on_first_use_or_on_create'
+					)
+				);
+			}
+			
+			if ( ! isset( $settings['tinypress_allowed_post_statuses'] ) ) {
+				$settings['tinypress_allowed_post_statuses'] = array( 'publish', 'draft', 'pending', 'private', 'future' );
+			}
+
+			if ( ! isset( $settings['tinypress_role_view'] ) ) {
+				$settings['tinypress_role_view'] = array( 'administrator', 'editor', 'author', 'contributor', 'subscriber', 'revisor' );
+			}
+			
+			update_option( 'tinypress_settings', $settings );
 		}
 		
 		/**
@@ -195,11 +198,7 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 		 * @return void
 		 */
 		function initialize_default_settings() {
-			$settings = get_option( 'tinypress_settings', array() );
-			
-			if ( is_array( $settings ) && ! empty( $settings ) && ! isset( $settings['tinypress_autolist_enabled'] ) ) {
-				$this->set_default_settings();
-			}
+			$this->set_default_settings();
 		}
 
 
@@ -281,6 +280,8 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 			// Always enqueue styles
 			wp_enqueue_style( 'tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/css/style.css', self::$_script_version );
 			wp_enqueue_style( 'tinypress-tool-tip', TINYPRESS_PLUGIN_URL . 'assets/hint.min.css' );
+			wp_enqueue_style( 'tinypress-tooltip-lib', TINYPRESS_PLUGIN_URL . 'assets/lib/tooltip/css/tooltip.min.css', array(), self::$_script_version );
+			wp_enqueue_script( 'tinypress-tooltip-lib', TINYPRESS_PLUGIN_URL . 'assets/lib/tooltip/js/tooltip.min.js', array( 'jquery' ), self::$_script_version, true );
 
             do_action('tinypress_admin_class_before_assets_register');
 			do_action('tinypress_admin_class_after_styles_enqueue');
@@ -382,6 +383,10 @@ if ( ! class_exists( 'TINYPRESS_Main' ) ) {
 			}
 
 			if ( $current_screen->base === 'tinypress_link_page_tinypress-logs' ) {
+				return true;
+			}
+
+			if ( $current_screen->base === 'tinypress_link_page_tinypress-import-export' ) {
 				return true;
 			}
 

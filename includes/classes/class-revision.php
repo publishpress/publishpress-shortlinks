@@ -19,7 +19,12 @@ class TINYPRESS_Revisions {
 	 */
 	function __construct() {
 		add_action( 'init', array( $this, 'init_hooks' ), 5 );
-		add_action( 'init', array( $this, 'sync_revision_shortlinks_status' ), 1 );
+		add_action( 'init', array( $this, 'migrate_revision_link_meta' ), 2 );
+		add_action( 'init', array( $this, 'migrate_legacy_revision_slugs' ), 3 );
+		add_action( 'init', array( $this, 'sync_revision_shortlinks_status' ), 4 );
+		add_action( 'admin_notices', array( $this, 'show_legacy_migration_notice' ) );
+		add_action( 'admin_init', array( $this, 'redirect_after_activation' ) );
+		add_action( 'wp_ajax_tinypress_dismiss_migration_notice', array( $this, 'dismiss_migration_notice' ) );
 	}
 
 	/**
@@ -41,6 +46,200 @@ class TINYPRESS_Revisions {
 		add_action( 'before_delete_post', array( $this, 'tinypress_cleanup_revision_link_before_delete' ), 10, 1 );
 
 		add_filter( 'revisionary_enabled_post_types', array( $this, 'tinypress_exclude_from_revisions' ) );
+	}
+
+	/**
+	 * One-time migration: backfill is_revision_link meta for existing tinypress_link
+	 * entries that have a source_post_id pointing to a PP Revisions revision but
+	 * were created before is_revision_link meta was introduced.
+	 */
+	public function migrate_revision_link_meta() {
+		if ( ! function_exists( 'rvy_in_revision_workflow' ) ) {
+			return;
+		}
+
+		if ( get_option( 'tinypress_revision_meta_migrated', false ) ) {
+			return;
+		}
+
+		global $wpdb;
+
+		$entries = $wpdb->get_results( $wpdb->prepare(
+			"SELECT pm.post_id, pm.meta_value AS source_post_id, source_post.post_mime_type AS source_mime
+			FROM {$wpdb->postmeta} pm
+			INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
+			LEFT JOIN {$wpdb->postmeta} pm2 ON pm.post_id = pm2.post_id AND pm2.meta_key = %s
+			LEFT JOIN {$wpdb->posts} source_post ON CAST(pm.meta_value AS UNSIGNED) = source_post.ID
+			WHERE p.post_type = %s
+			AND pm.meta_key = %s
+			AND pm2.meta_key IS NULL",
+			'is_revision_link',
+			'tinypress_link',
+			'source_post_id'
+		) );
+
+		$revision_mime_types = array(
+			'draft-revision', 'pending-revision', 'future-revision',
+			'revision-deferred', 'revision-needs-work', 'revision-rejected',
+		);
+
+		if ( ! empty( $entries ) ) {
+			foreach ( $entries as $entry ) {
+				$source_id = absint( $entry->source_post_id );
+				if ( $source_id && in_array( $entry->source_mime, $revision_mime_types, true ) && rvy_in_revision_workflow( $source_id ) ) {
+					update_post_meta( (int) $entry->post_id, 'is_revision_link', '1' );
+				} else {
+					update_post_meta( (int) $entry->post_id, 'is_revision_link', '0' );
+				}
+			}
+		}
+
+		update_option( 'tinypress_revision_meta_migrated', '1', true );
+	}
+
+	/**
+	 * One-time migration: find PP Revisions posts that do not have a
+	 * corresponding tinypress_link entry, and create one.
+	 */
+	public function migrate_legacy_revision_slugs() {
+		if ( ! function_exists( 'rvy_in_revision_workflow' ) ) {
+			return;
+		}
+
+		if ( get_option( 'tinypress_legacy_revision_slugs_migrated', false ) ) {
+			return;
+		}
+
+		global $wpdb;
+
+		// Find all PP Revisions posts that do NOT have a tinypress_link entry
+		$orphaned_revisions = $wpdb->get_results(
+			"SELECT p.ID AS revision_id,
+				pm_slug.meta_value AS tiny_slug,
+				parent_slug.meta_value AS parent_slug
+			FROM {$wpdb->posts} p
+			LEFT JOIN {$wpdb->postmeta} pm_slug
+				ON p.ID = pm_slug.post_id AND pm_slug.meta_key = 'tiny_slug'
+			LEFT JOIN {$wpdb->postmeta} parent_slug
+				ON p.post_parent = parent_slug.post_id AND parent_slug.meta_key = 'tiny_slug'
+			LEFT JOIN (
+				SELECT CAST(pm_src.meta_value AS UNSIGNED) AS source_id
+				FROM {$wpdb->postmeta} pm_src
+				INNER JOIN {$wpdb->posts} lp ON pm_src.post_id = lp.ID
+				WHERE pm_src.meta_key = 'source_post_id'
+				AND lp.post_type = 'tinypress_link'
+			) existing_links ON existing_links.source_id = p.ID
+			WHERE p.post_mime_type IN (
+				'draft-revision', 'pending-revision', 'future-revision',
+				'revision-deferred', 'revision-needs-work', 'revision-rejected'
+			)
+			AND existing_links.source_id IS NULL"
+		);
+
+		$migrated_count = 0;
+
+		if ( ! empty( $orphaned_revisions ) ) {
+			foreach ( $orphaned_revisions as $entry ) {
+				$revision_id = absint( $entry->revision_id );
+
+				if ( ! rvy_in_revision_workflow( $revision_id ) ) {
+					continue;
+				}
+
+				$slug        = $entry->tiny_slug;
+				$parent_slug = $entry->parent_slug;
+				$slug_changed = false;
+
+				if ( empty( $slug ) ) {
+					// Case 1: No slug at all — generate one
+					$new_slug = tinypress_create_url_slug();
+					update_post_meta( $revision_id, 'tiny_slug', $new_slug );
+					$slug_changed = true;
+				} elseif ( ! empty( $parent_slug ) && $slug === $parent_slug ) {
+					// Case 2: Shared slug with parent — generate a unique one
+					$new_slug = tinypress_create_url_slug();
+					update_post_meta( $revision_id, 'tiny_slug', $new_slug );
+					$slug_changed = true;
+				}
+
+				// Create a tinypress_link entry for this revision
+				$result = $this->create_revision_link_entry( $revision_id );
+
+				if ( ! is_wp_error( $result ) && $slug_changed ) {
+					$migrated_count++;
+				}
+			}
+		}
+
+		update_option( 'tinypress_legacy_revision_slugs_migrated', '1', true );
+
+		if ( $migrated_count > 0 ) {
+			update_option( 'tinypress_legacy_migration_count', $migrated_count, true );
+		}
+
+	}
+
+	/**
+	 * Show a dismissible admin notice after legacy revision slug migration.
+	 */
+	public function show_legacy_migration_notice() {
+		$count = get_option( 'tinypress_legacy_migration_count', 0 );
+
+		$screen = get_current_screen();
+
+		if ( empty( $count ) ) {
+			return;
+		}
+
+		if ( ! $screen || 'edit-tinypress_link' !== $screen->id ) {
+			return;
+		}
+
+		printf(
+			'<div class="notice notice-success is-dismissible tinypress-migration-notice" data-nonce="%s"><p>%s</p></div>',
+			esc_attr( wp_create_nonce( 'tinypress_dismiss_migration' ) ),
+			sprintf(
+				/* translators: %d: number of revision shortlinks migrated */
+				esc_html__( '%d revision shortlink(s) were updated with unique links. Previously, these revisions shared the same shortlink as their parent post.', 'tinypress' ),
+				absint( $count )
+			)
+		);
+
+		echo '<script>
+			jQuery(function($) {
+				$(".tinypress-migration-notice").on("click", ".notice-dismiss", function() {
+					$.post(ajaxurl, {
+						action: "tinypress_dismiss_migration_notice",
+						nonce: $(".tinypress-migration-notice").data("nonce")
+					});
+				});
+			});
+		</script>';
+	}
+
+	/**
+	 * AJAX handler to dismiss the legacy migration notice.
+	 */
+	public function dismiss_migration_notice() {
+		if ( ! wp_verify_nonce( sanitize_text_field( $_POST['nonce'] ?? '' ), 'tinypress_dismiss_migration' ) ) {
+			wp_send_json_error();
+		}
+		delete_option( 'tinypress_legacy_migration_count' );
+		wp_send_json_success();
+	}
+
+	/**
+	 * Redirect to All Shortlinks page after plugin activation.
+	 */
+	public function redirect_after_activation() {
+		if ( get_transient( 'tinypress_activation_redirect' ) ) {
+			delete_transient( 'tinypress_activation_redirect' );
+
+			if ( ! is_network_admin() && ! isset( $_GET['activate-multi'] ) ) {
+				wp_safe_redirect( admin_url( 'edit.php?post_type=tinypress_link' ) );
+				exit;
+			}
+		}
 	}
 
 	/**
@@ -151,7 +350,7 @@ class TINYPRESS_Revisions {
 		update_post_meta( $revision_id, 'tiny_slug', $unique_slug );
 
 		// Create a tinypress_link entry if revision autolist behavior requires it
-		$revision_autolist = \WPDK\Utils::get_option( 'tinypress_revision_autolist', 'on_revision_creation' );
+		$revision_autolist = \WPDK\Utils::get_option( 'tinypress_revision_autolist', 'on_revision_creation_or_first_use' );
 
 		if ( in_array( $revision_autolist, array( 'on_revision_creation', 'on_revision_creation_or_first_use' ), true ) ) {
 			$this->create_revision_link_entry( $revision_id );
@@ -175,6 +374,26 @@ class TINYPRESS_Revisions {
 		$existing = $this->get_revision_link_entry( $revision_id );
 		if ( $existing ) {
 			return $existing;
+		}
+
+		$parent_id = absint( $revision->post_parent );
+		if ( $parent_id ) {
+			global $wpdb;
+			$parent_link = $wpdb->get_var( $wpdb->prepare(
+				"SELECT pm.post_id FROM {$wpdb->postmeta} pm
+				INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
+				WHERE pm.meta_key = %s
+				AND pm.meta_value = %d
+				AND p.post_type = %s
+				LIMIT 1",
+				'source_post_id',
+				$parent_id,
+				'tinypress_link'
+			) );
+
+			if ( ! $parent_link ) {
+				return 0;
+			}
 		}
 
 		$tiny_slug = get_post_meta( $revision_id, 'tiny_slug', true );
@@ -326,7 +545,7 @@ class TINYPRESS_Revisions {
 	 * @return string
 	 */
 	public static function tinypress_get_revision_autolist_behavior() {
-		return \WPDK\Utils::get_option( 'tinypress_revision_autolist', 'on_revision_creation' );
+		return \WPDK\Utils::get_option( 'tinypress_revision_autolist', 'on_revision_creation_or_first_use' );
 	}
 
 	/**

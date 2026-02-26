@@ -673,7 +673,8 @@ if ( ! class_exists( 'WPDK_Settings_Options' ) ) {
 							$field['default'] = $this->get_default( $field );
 						}
 
-						$value = ( ! empty( $field['id'] ) && isset( $this->options[ $field['id'] ] ) ) ? $this->options[ $field['id'] ] : '';
+						$field_default = isset( $field['default'] ) ? $field['default'] : '';
+						$value = ( ! empty( $field['id'] ) && isset( $this->options[ $field['id'] ] ) ) ? $this->options[ $field['id'] ] : $field_default;
 
 						WPDK_Settings::field( $field, $value, $this->unique, 'options' );
 

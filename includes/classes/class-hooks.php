@@ -28,6 +28,7 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 			add_action( 'admin_menu', array( $this, 'links_log' ) );
 			add_filter( 'post_updated_messages', array( $this, 'change_url_update_message' ) );
 
+			add_action( 'admin_menu', array( $this, 'reorder_submenu' ), 998 );
 			add_action( 'admin_menu', array( $this, 'enforce_role_view_access' ), 9999 );
 			add_filter( 'user_has_cap', array( $this, 'filter_view_capabilities' ), 10, 4 );
 			add_action( 'admin_init', array( $this, 'block_direct_access' ) );
@@ -320,6 +321,32 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 				return true;
 			}
 			return self::user_has_role_access( 'tinypress_role_edit' );
+		}
+
+		function reorder_submenu() {
+			global $submenu;
+
+			$parent = 'edit.php?post_type=tinypress_link';
+
+			if ( empty( $submenu[ $parent ] ) ) {
+				return;
+			}
+
+			$settings_item = null;
+			$settings_key  = null;
+
+			foreach ( $submenu[ $parent ] as $key => $item ) {
+				if ( isset( $item[2] ) && $item[2] === 'settings' ) {
+					$settings_item = $item;
+					$settings_key  = $key;
+					break;
+				}
+			}
+
+			if ( $settings_item ) {
+				unset( $submenu[ $parent ][ $settings_key ] );
+				$submenu[ $parent ][] = $settings_item;
+			}
 		}
 
 		/**
