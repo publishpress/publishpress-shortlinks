@@ -1,4 +1,4 @@
-=== PublishPress Shortlinks - Custom URLs for Posts - Share Previews for Draft Posts  ===
+=== PublishPress Shortlinks - Custom URLs for Posts and External Links - Share Previews for Draft Posts  ===
 	Contributors: stevejburge, publishpress, deji98
 	Tags: link shortener, shortlinks, redirects, link tracking, custom URLs
 	Requires at least: 4.6
@@ -11,7 +11,17 @@
 
 == Description ==
 
-With PublishPress Shortlinks you can create custom links for your posts. These links are brandable, trackable, and can have custom view permissions. You can share links for any type of content, even unpublished posts in draft status.
+With PublishPress Shortlinks you can create custom links for your posts and external links. These are not ordinary links! 
+
+- Make your links short and memorable.
+- Track who clicks on your links with detailed analytics.
+- Control who can visit your links with passwords, expiry dates, and access control.
+
+## How to use PublishPress Shortlinks ##
+
+- **Custom URLs for your posts**. Imagine you're hosting a big event and have a page on your website with all the details. PublishPress Shortlinks allows to create a short, memorable link for the event, for example: https://publishpress.com/go/cool-party. You can track how many people click the link. You can set the link to expire after the event finishes. You can even download a QR code to share on brochures. Oh, because of the next feature, you can do all of this even if you're selling event tickets on another website.
+- **Custom URLs for external links**. Imagine you run a website with toy reviews. You join affiliate programs and make money when people click on your links and buy tools. PublishPress Shortlinks allows to create a short, memorable link for each toy, for example: https://publishpress.com/go/cool-toy. You can track how many people click the link and get a full analytics report on those clicks.
+
 
 ## Key Features in PublishPress Shortlinks ##
 ✅ Automatically create shortlinks for your posts
