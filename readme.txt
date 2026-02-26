@@ -125,6 +125,26 @@ It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliate
 
 == Changelog ==
 
+= 1.4.0 - 02 March 2026 =
+FIX: Analytics subtabs aren't clickable, #74
+FIX: Custom URL doesn't update, #96
+FEATURE: Add support for PublishPress Revisions, #32
+FEATURE: Allow Users to import/export shortlinks in bulk, #110
+FEATURE: Allow users to choose a redirect URL for expired shortlinks, #111
+REMOVED: Someone from earth text, #73
+UPDATE: Improve description text for Redirection options, #75
+UPDATE: Improve Logs screen, #76
+UPDATE: Improve Shortlinks screen #77,
+UPDATE: Improve the modal, #78
+UPDATE: Short String box design, #84
+UPDATE: Change permissions for low level users, #79
+UPDATE: Complete the Roles feature #12
+UPDATE: Add the new readme file, #89
+UPDATE: Add PublishPress Upgrade banner, #90
+UPDATE: Enhance auto-list behavior options, #97
+UPDATE: Add a column on the "All Shortlinks" screen to distinguish between Internal vs External links, #98
+UPDATE: tinypress-1.3.0-Translation Updates ES-FR-IT #87
+
 = 1.3.0 - 16 February 2026 =
 - REMOVED: Remove the General tab, #38
 - UPDATE: Make the Metabox a normal wordpress metabox, #17
