@@ -183,9 +183,25 @@ class WP_List_Table_Logs extends WP_List_Table {
 			$actions['delete'] = '<a href="' . esc_url( $delete_url ) . '" onclick="return confirm(\'' . esc_js( __( 'Are you sure you want to delete this log entry?', 'tinypress' ) ) . '\');">' . esc_html__( 'Delete', 'tinypress' ) . '</a>';
 		}
 
-		return sprintf( '<div class="post-title"><a href="post.php?post=%s&action=edit">%s</a>%s</div>',
+		$revision_badge = '';
+		if ( ! empty( $post_id ) ) {
+			$is_revision_link = get_post_meta( $post_id, 'is_revision_link', true );
+			if ( '1' !== $is_revision_link && function_exists( 'rvy_in_revision_workflow' ) ) {
+				$source_post_id = Utils::get_meta( 'source_post_id', $post_id );
+				if ( ! empty( $source_post_id ) ) {
+					$source_post = get_post( absint( $source_post_id ) );
+					$is_revision_link = $source_post && rvy_in_revision_workflow( $source_post->ID ) ? '1' : '0';
+				}
+			}
+			if ( '1' === $is_revision_link ) {
+				$revision_badge = ' <span class="tinypress-revision-badge">' . esc_html__( 'rev', 'tinypress' ) . '</span>';
+			}
+		}
+
+		return sprintf( '<div class="post-title"><a href="post.php?post=%s&action=edit">%s</a>%s%s</div>',
 			esc_attr( $post_id ),
 			esc_html( $title ),
+			$revision_badge,
 			$this->row_actions( $actions )
 		);
 	}

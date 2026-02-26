@@ -149,11 +149,11 @@ class TINYPRESS_Column_link {
 				$title_html = '<strong><a class="row-title" href="' . esc_url( get_edit_post_link( $post_id ) ) . '">' . get_the_title( $post_id ) . '</a></strong>';
 
 				$is_revision_link = get_post_meta( $post_id, 'is_revision_link', true );
-				if ( ! $is_revision_link && ! empty( $source_post_id ) && function_exists( 'rvy_in_revision_workflow' ) ) {
-					$source_post = get_post( $source_post_id );
-					$is_revision_link = $source_post && rvy_in_revision_workflow( $source_post );
+				if ( '1' !== $is_revision_link && ! empty( $source_post_id ) && function_exists( 'rvy_in_revision_workflow' ) ) {
+					$source_post = get_post( absint( $source_post_id ) );
+					$is_revision_link = $source_post && rvy_in_revision_workflow( $source_post->ID ) ? '1' : '0';
 				}
-				if ( $is_revision_link ) {
+				if ( '1' === $is_revision_link ) {
 					$title_html .= ' <span class="tinypress-revision-badge">' . esc_html__( 'rev', 'tinypress' ) . '</span>';
 				}
 
@@ -173,12 +173,12 @@ class TINYPRESS_Column_link {
 				$is_revision_type = get_post_meta( $post_id, 'is_revision_link', true );
 				$source_post_id_for_type = Utils::get_meta( 'source_post_id', $post_id );
 
-				if ( ! $is_revision_type && ! empty( $source_post_id_for_type ) && function_exists( 'rvy_in_revision_workflow' ) ) {
-					$source_post_for_type = get_post( $source_post_id_for_type );
-					$is_revision_type = $source_post_for_type && rvy_in_revision_workflow( $source_post_for_type );
+				if ( '1' !== $is_revision_type && ! empty( $source_post_id_for_type ) && function_exists( 'rvy_in_revision_workflow' ) ) {
+					$source_post_for_type = get_post( absint( $source_post_id_for_type ) );
+					$is_revision_type = $source_post_for_type && rvy_in_revision_workflow( $source_post_for_type->ID ) ? '1' : '0';
 				}
 
-				if ( $is_revision_type ) {
+				if ( '1' === $is_revision_type ) {
 					$badge_class = 'revision-badge';
 					$badge_text = esc_html__( 'Revision', 'tinypress' );
 					$tooltip_text = esc_html__( 'This links to a revision', 'tinypress' );

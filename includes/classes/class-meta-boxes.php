@@ -282,50 +282,54 @@ if ( ! class_exists( 'TINYPRESS_Meta_boxes' ) ) {
 			);
 
 			// Security Settings section.
+			$security_fields = array(
+				array(
+					'id'           => 'password_protection',
+					'type'         => 'switcher',
+					'title'        => esc_html__( 'Password Protection', 'tinypress' ),
+					'subtitle'     => esc_html__( 'Secure your shortlink.', 'tinypress' ),
+					'label'        => esc_html__( 'Users must enter the password to redirect to the target link.', 'tinypress' ),
+				),
+				array(
+					'id'           => 'link_password',
+					'type'         => 'text',
+					'title'        => esc_html__( 'Password', 'tinypress' ),
+					'subtitle'     => esc_html__( 'Share this with users.', 'tinypress' ),
+					'desc'         => esc_html__( 'Passwords are case sensitive.', 'tinypress' ),
+					'placeholder'  => esc_html__( '********', 'tinypress' ),
+					'attributes'   => array(
+						'minlength' => 6,
+					),
+					'dependency'   => array( 'password_protection', '==', '1' ),
+				),
+				array(
+					'id'           => 'enable_expiration',
+					'type'         => 'switcher',
+					'title'        => esc_html__( 'Enable Expiration', 'tinypress' ),
+					'subtitle'     => esc_html__( 'Expire automatically.', 'tinypress' ),
+					'label'        => esc_html__( 'Users will not able to redirect to the target URL once expire.', 'tinypress' ),
+				),
+				array(
+					'id'           => 'expiration_date',
+					'type'         => 'datetime',
+					'title'        => esc_html__( 'Expiration Date', 'tinypress' ),
+					'subtitle'     => esc_html__( 'It will automatically expire.', 'tinypress' ),
+					'settings'     => array(
+						'dateFormat'      => 'd-m-Y',
+						'allowInput'      => false,
+						'minuteIncrement' => 1,
+						'minDate'         => 'today',
+					),
+					'dependency'   => array( 'enable_expiration', '==', '1' ),
+				),
+			);
+
+			$security_fields = apply_filters( 'tinypress_security_metabox_fields', $security_fields );
+
 			WPDK_Settings::createSection( $this->tinypress_metabox_main,
 				array(
 					'title'  => esc_html__( 'Security', 'tinypress' ),
-					'fields' => array(
-						array(
-							'id'           => 'password_protection',
-							'type'         => 'switcher',
-							'title'        => esc_html__( 'Password Protection', 'tinypress' ),
-							'subtitle'     => esc_html__( 'Secure your shortlink.', 'tinypress' ),
-							'label'        => esc_html__( 'Users must enter the password to redirect to the target link.', 'tinypress' ),
-						),
-						array(
-							'id'           => 'link_password',
-							'type'         => 'text',
-							'title'        => esc_html__( 'Password', 'tinypress' ),
-							'subtitle'     => esc_html__( 'Share this with users.', 'tinypress' ),
-							'desc'         => esc_html__( 'Passwords are case sensitive.', 'tinypress' ),
-							'placeholder'  => esc_html__( '********', 'tinypress' ),
-							'attributes'   => array(
-								'minlength' => 6,
-							),
-							'dependency'   => array( 'password_protection', '==', '1' ),
-						),
-						array(
-							'id'           => 'enable_expiration',
-							'type'         => 'switcher',
-							'title'        => esc_html__( 'Enable Expiration', 'tinypress' ),
-							'subtitle'     => esc_html__( 'Expire automatically.', 'tinypress' ),
-							'label'        => esc_html__( 'Users will not able to redirect to the target URL once expire.', 'tinypress' ),
-						),
-						array(
-							'id'           => 'expiration_date',
-							'type'         => 'datetime',
-							'title'        => esc_html__( 'Expiration Date', 'tinypress' ),
-							'subtitle'     => esc_html__( 'It will automatically expire.', 'tinypress' ),
-							'settings'     => array(
-								'dateFormat'      => 'd-m-Y',
-								'allowInput'      => false,
-								'minuteIncrement' => 1,
-								'minDate'         => 'today',
-							),
-							'dependency'   => array( 'enable_expiration', '==', '1' ),
-						),
-					),
+					'fields' => $security_fields,
 				)
 			);
 
