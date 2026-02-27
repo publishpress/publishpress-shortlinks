@@ -309,7 +309,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 								'id'         => 'tinypress_expired_show_notice',
 								'type'       => 'switcher',
 								'title'      => esc_html__( 'Show Expiration Notice', 'tinypress' ),
-								'label'      => esc_html__( 'Display a brief notice before redirecting expired links (using a JavaScript redirect with a short delay).', 'tinypress' ),
+								'label'      => esc_html__( 'Display a brief notice before redirecting expired links.', 'tinypress' ),
 								'default'    => false,
 							) :
 							array(
@@ -318,7 +318,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 								'title'   => esc_html__( 'Show Expiration Notice', 'tinypress' ),
 								'content' => '<label style="opacity:0.5;pointer-events:none;display:inline-flex;align-items:center;gap:8px;">'
 									. '<input type="checkbox" disabled />'
-									. esc_html__( 'Display a brief notice before redirecting expired links (using a JavaScript redirect with a short delay).', 'tinypress' )
+									. esc_html__( 'Display a brief notice before redirecting expired links.', 'tinypress' )
 									. '</label>',
 							)
 						),
@@ -335,8 +335,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 							'id'         => 'tinypress_revision_autolist',
 							'type'       => 'select',
 							'title'      => esc_html__( 'Revision Link Visibility', 'tinypress' ),
-							'subtitle'   => esc_html__( 'When should revision shortlinks appear in the All Shortlinks table?', 'tinypress' ),
-							'desc'       => esc_html__( 'Controls when a companion entry is created in the All Shortlinks table for revision shortlinks. The shortlink itself is always generated regardless of this setting.', 'tinypress' ),
+							'desc'       => esc_html__( 'When enabled, revision shortlinks will appear in the "All Shortlinks" table based on the behavior you configure below.', 'tinypress' ),
 							'options'    => array(
 								'on_revision_creation'              => esc_html__( 'When Revision is Created', 'tinypress' ),
 								'on_first_use'                      => esc_html__( 'When Link is First Used', 'tinypress' ),
@@ -357,7 +356,7 @@ if ( ! class_exists( 'TINYPRESS_Settings' ) ) {
 							'type'     => 'switcher',
 							'title'    => esc_html__( 'Revision Visibility for Visitors', 'tinypress' ),
 							'label'    => esc_html__( 'Allow logged-out visitors to view revision content via shortlinks.', 'tinypress' ),
-							'desc'     => esc_html__( 'By default, PublishPress Revisions blocks visitors from viewing revision previews. When enabled, revision shortlinks will render the revision content directly for logged-out visitors instead of redirecting to the preview URL. This applies to all existing revision shortlinks regardless of the setting above.', 'tinypress' ),
+							'desc'     => esc_html__( 'By default, PublishPress Revisions blocks visitors from viewing revision previews. When enabled, revision shortlinks will render the revision content directly for logged-out visitors instead of redirecting to the preview URL.', 'tinypress' ),
 							'default'  => false,
 						),
 					),

@@ -367,13 +367,24 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 
 				// Check if the link is expired or not
 				if ( ! empty( $expiration_date ) ) {
-					$expiration_date = $expiration_date . ' 23:59:59';
+					$expiration_time = Utils::get_meta( 'expiration_time', $link_id );
 
-					if ( current_time( 'd-m-Y G:i:s' ) > $expiration_date ) {
+					if ( ! empty( $expiration_time ) ) {
+						$expiration_timestamp = DateTime::createFromFormat( 'd-m-Y g:i A', $expiration_date . ' ' . $expiration_time );
+					} elseif ( strpos( $expiration_date, ' ' ) !== false ) {
+						$expiration_timestamp = DateTime::createFromFormat( 'd-m-Y H:i', $expiration_date );
+					} else {
+						$expiration_timestamp = DateTime::createFromFormat( 'd-m-Y H:i:s', $expiration_date . ' 23:59:59' );
+					}
+
+					$now = new DateTime( current_time( 'Y-m-d H:i:s' ) );
+
+					if ( $expiration_timestamp && $now > $expiration_timestamp ) {
 						$expired_redirect_url = apply_filters( 'tinypress_link_expired_redirect', '', $link_id );
 
 						if ( ! empty( $expired_redirect_url ) ) {
-							$show_notice = Utils::get_option( 'tinypress_expired_show_notice', false );
+							$per_link_notice = Utils::get_meta( 'expired_show_notice', $link_id );
+							$show_notice = ! empty( $per_link_notice ) ? $per_link_notice : Utils::get_option( 'tinypress_expired_show_notice', false );
 
 							if ( $show_notice ) {
 								$this->display_expired_notice_page( $expired_redirect_url );
@@ -390,11 +401,19 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 				}
 			}
 
-			// Check the password protection for this link
+			// If password protection is not enabled, redirect directly
 			if ( '1' != $password_protection ) {
 				$this->redirect_url( $link_id );
 			}
 
+			// Password protection is enabled — check if user already entered correct password
+			$password_nonce = isset( $_GET['password'] ) ? sanitize_text_field( $_GET['password'] ) : '';
+
+			if ( wp_verify_nonce( $password_nonce, 'password_check' ) ) {
+				$this->redirect_url( $link_id );
+			}
+
+			// Show password prompt
 			?>
             <script>
                 if ('<?php echo esc_attr( $link_password ); ?>' === prompt("Password:")) {
@@ -404,12 +423,6 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
                 }
             </script>
 			<?php
-
-			$password_nonce = isset( $_GET['password'] ) ? sanitize_text_field( $_GET['password'] ) : '';
-
-			if ( wp_verify_nonce( $password_nonce, 'password_check' ) ) {
-				$this->redirect_url( $link_id );
-			}
 
 			die();
 		}
