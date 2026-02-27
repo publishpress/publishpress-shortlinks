@@ -30,8 +30,12 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 
 			add_action( 'admin_menu', array( $this, 'reorder_submenu' ), 998 );
 			add_action( 'admin_menu', array( $this, 'enforce_role_view_access' ), 9999 );
+			add_action( 'admin_menu', array( $this, 'enforce_role_create_access' ), 9999 );
+			add_action( 'admin_menu', array( $this, 'enforce_role_settings_access' ), 9999 );
 			add_filter( 'user_has_cap', array( $this, 'filter_view_capabilities' ), 10, 4 );
 			add_action( 'admin_init', array( $this, 'block_direct_access' ) );
+			add_action( 'admin_init', array( $this, 'block_create_direct_access' ) );
+			add_action( 'admin_init', array( $this, 'block_settings_direct_access' ) );
 
 			add_action( 'admin_bar_menu', array( $this, 'add_admin_bar_menu' ), 999 );
 			add_action( 'admin_footer', array( $this, 'render_admin_modal' ) );
@@ -306,7 +310,12 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 		 */
 		public static function current_user_can_create() {
 			if ( ! defined( 'PUBLISHPRESS_SHORTLINKS_PRO_VERSION' ) ) {
-				return true;
+				$user = wp_get_current_user();
+				if ( ! $user || ! $user->exists() ) {
+					return false;
+				}
+				$allowed = array( 'administrator', 'editor', 'author' );
+				return ! empty( array_intersect( (array) $user->roles, $allowed ) );
 			}
 			return self::user_has_role_access( 'tinypress_role_create' );
 		}
@@ -318,7 +327,12 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 		 */
 		public static function current_user_can_settings() {
 			if ( ! defined( 'PUBLISHPRESS_SHORTLINKS_PRO_VERSION' ) ) {
-				return true;
+				$user = wp_get_current_user();
+				if ( ! $user || ! $user->exists() ) {
+					return false;
+				}
+				$allowed = array( 'administrator', 'editor', 'author' );
+				return ! empty( array_intersect( (array) $user->roles, $allowed ) );
 			}
 			return self::user_has_role_access( 'tinypress_role_edit' );
 		}
@@ -356,6 +370,26 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 		function enforce_role_view_access() {
 			if ( ! self::current_user_can_view() ) {
 				remove_menu_page( 'edit.php?post_type=tinypress_link' );
+			}
+		}
+
+		/**
+		 * Enforce "Who Can Create/Edit Shortlinks" restriction.
+		 * Removes the "Add New" submenu for restricted roles.
+		 */
+		function enforce_role_create_access() {
+			if ( ! self::current_user_can_create() ) {
+				remove_submenu_page( 'edit.php?post_type=tinypress_link', 'post-new.php?post_type=tinypress_link' );
+			}
+		}
+
+		/**
+		 * Enforce "Who Can Control Settings" restriction.
+		 * Removes the Settings submenu for restricted roles.
+		 */
+		function enforce_role_settings_access() {
+			if ( ! self::current_user_can_settings() ) {
+				remove_submenu_page( 'edit.php?post_type=tinypress_link', 'settings' );
 			}
 		}
 
@@ -425,6 +459,53 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 			if ( ! self::current_user_can_view() ) {
 				wp_die(
 					esc_html__( 'Sorry, you are not allowed to access shortlinks.', 'tinypress' ),
+					esc_html__( 'Access Denied', 'tinypress' ),
+					array( 'response' => 403 )
+				);
+			}
+		}
+
+		/**
+		 * Block direct URL access to create/edit tinypress_link for restricted roles.
+		 */
+		function block_create_direct_access() {
+			if ( self::current_user_can_create() ) {
+				return;
+			}
+
+			global $pagenow;
+
+			if ( $pagenow === 'post-new.php' && isset( $_GET['post_type'] ) && $_GET['post_type'] === 'tinypress_link' ) {
+				wp_die(
+					esc_html__( 'Sorry, you are not allowed to create shortlinks.', 'tinypress' ),
+					esc_html__( 'Access Denied', 'tinypress' ),
+					array( 'response' => 403 )
+				);
+			}
+
+			if ( $pagenow === 'post.php' && ! empty( $_GET['post'] ) ) {
+				$post_type = get_post_type( absint( $_GET['post'] ) );
+				if ( $post_type === 'tinypress_link' ) {
+					wp_die(
+						esc_html__( 'Sorry, you are not allowed to edit shortlinks.', 'tinypress' ),
+						esc_html__( 'Access Denied', 'tinypress' ),
+						array( 'response' => 403 )
+					);
+				}
+			}
+		}
+
+		/**
+		 * Block direct URL access to settings page for restricted roles.
+		 */
+		function block_settings_direct_access() {
+			if ( self::current_user_can_settings() ) {
+				return;
+			}
+
+			if ( isset( $_GET['post_type'] ) && $_GET['post_type'] === 'tinypress_link' && isset( $_GET['page'] ) && $_GET['page'] === 'settings' ) {
+				wp_die(
+					esc_html__( 'Sorry, you are not allowed to access shortlink settings.', 'tinypress' ),
 					esc_html__( 'Access Denied', 'tinypress' ),
 					array( 'response' => 403 )
 				);
