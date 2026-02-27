@@ -171,8 +171,8 @@ class ShortlinksCoreAdmin
 
         if ($screen->id === 'tinypress_link_page_tinypress-import-export') {
             wp_enqueue_style(
-                'tinypress-import-export-teaser',
-                TINYPRESS_PLUGIN_URL . 'includes-core/assets/css/import-export-teaser.css',
+                'tinypress-import-export-core',
+                TINYPRESS_PLUGIN_URL . 'includes-core/assets/css/import-export-core.css',
                 array(),
                 TINYPRESS_PLUGIN_VERSION
             );
