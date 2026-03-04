@@ -9,7 +9,7 @@ services:
         profiles: ["term"]
         container_name: ${CONTAINER_NAME}-env-terminal
         env_file:
-            - ../.env
+            - ../../.env
         command: ["zsh"]
         stdin_open: true
         tty: true
