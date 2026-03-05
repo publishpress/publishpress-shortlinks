@@ -184,10 +184,11 @@ if ( ! class_exists( 'TINYPRESS_Hooks' ) ) {
 			global $tinypress_wpdk;
 
 			$tinypress_wpdk->utils()->register_post_type( 'tinypress_link', array(
-				'singular'            => esc_html__( 'Shortlinks', 'tinypress' ),
-				'plural'              => esc_html__( 'All Shortlinks', 'tinypress' ),
+				'singular'            => esc_html__( 'Shortlink', 'tinypress' ),
+				'plural'              => esc_html__( 'Shortlinks', 'tinypress' ),
 				'labels'              => array(
 					'menu_name' => esc_html__( 'Shortlinks', 'tinypress' ),
+					'all_items' => esc_html__( 'All Shortlinks', 'tinypress' ),
 				),
 				'menu_icon'           => 'dashicons-admin-links',
 				'supports'            => array( '' ),
