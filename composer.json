@@ -90,9 +90,12 @@
             "@fix:cs"
         ],
         "docker:cleanup": "docker system prune -f",
-        "info:versions": "bash ./dev-workspace/scripts/info-versions.sh",
+        "info:versions": "bash ./dev-workspace/scripts/dependency-versions.sh",
         "set:version": "php ./dev-workspace/scripts/bump-version.php \"$@\"",
         "config:phpcs": "@php -r \"file_exists('vendor/bin/phpcs') && shell_exec('phpcs --config-set installed_paths \\\"../../phpcsstandards/phpcsutils,../../phpcsstandards/phpcsextra,../../automattic/vipwpcs,../../phpcompatibility/php-compatibility,../../sirbrillig/phpcs-variable-analysis,../../publishpress/publishpress-phpcs-standards/standards,../../wp-coding-standards/wpcs\\\"');\"",
+        "pre-autoload-dump": "composer dumpautoload --working-dir=./lib",
+        "pre-update-cmd": "composer update --working-dir=./lib",
+        "pre-install-cmd": "composer install --working-dir=./lib",
         "post-install-cmd": [
             "@config:phpcs"
         ],
