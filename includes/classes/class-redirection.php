@@ -406,22 +406,48 @@ if ( ! class_exists( 'TINYPRESS_Redirection' ) ) {
 				$this->redirect_url( $link_id );
 			}
 
-			// Password protection is enabled — check if user already entered correct password
-			$password_nonce = isset( $_GET['password'] ) ? sanitize_text_field( $_GET['password'] ) : '';
-
-			if ( wp_verify_nonce( $password_nonce, 'password_check' ) ) {
-				$this->redirect_url( $link_id );
+			// Password protection is enabled — check if password was submitted
+			$error_message = '';
+			if ( isset( $_POST['tinypress_password'] ) && isset( $_POST['tinypress_pw_nonce'] ) ) {
+				$submitted_nonce = sanitize_text_field( wp_unslash( $_POST['tinypress_pw_nonce'] ) );
+				$submitted_password = sanitize_text_field( wp_unslash( $_POST['tinypress_password'] ) );
+				
+				if ( wp_verify_nonce( $submitted_nonce, 'tinypress_password_check_' . $link_id ) && $submitted_password === $link_password ) {
+					$this->redirect_url( $link_id );
+				} else {
+					$error_message = esc_html__( 'Incorrect password. Please try again.', 'tinypress' );
+				}
 			}
 
-			// Show password prompt
+			// Show password form
+			status_header( 200 );
+			$form_nonce = wp_create_nonce( 'tinypress_password_check_' . $link_id );
+			$css_url = plugin_dir_url( TINYPRESS_FILE ) . 'assets/admin/css/style.css';
 			?>
-            <script>
-                if ('<?php echo esc_attr( $link_password ); ?>' === prompt("Password:")) {
-                    window.location.href = '<?php echo esc_url( $password_checked_url ); ?>';
-                } else {
-                    window.location.href = '<?php echo esc_url( $current_url ); ?>';
-                }
-            </script>
+			<!DOCTYPE html>
+			<html <?php language_attributes(); ?>>
+			<head>
+				<meta charset="<?php bloginfo( 'charset' ); ?>">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<meta name="robots" content="noindex, nofollow">
+				<title><?php esc_html_e( 'Password Protected Link', 'tinypress' ); ?></title>
+				<link rel="stylesheet" href="<?php echo esc_url( $css_url ); ?>">
+			</head>
+			<body class="tinypress-password-page">
+				<div class="tinypress-password-form">
+					<h2><?php esc_html_e( 'Password Protected Link', 'tinypress' ); ?></h2>
+					<?php if ( ! empty( $error_message ) ) : ?>
+						<div class="tinypress-password-error"><?php echo esc_html( $error_message ); ?></div>
+					<?php endif; ?>
+					<form method="post" action="">
+						<input type="hidden" name="tinypress_pw_nonce" value="<?php echo esc_attr( $form_nonce ); ?>">
+						<label for="tinypress_password"><?php esc_html_e( 'Enter password to continue:', 'tinypress' ); ?></label>
+						<input type="password" name="tinypress_password" id="tinypress_password" required autofocus>
+						<button type="submit"><?php esc_html_e( 'Submit', 'tinypress' ); ?></button>
+					</form>
+				</div>
+			</body>
+			</html>
 			<?php
 
 			die();
