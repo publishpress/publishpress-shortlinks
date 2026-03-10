@@ -76,15 +76,20 @@ if ( ! function_exists( 'tinypress_get_ip_address' ) ) {
 	 */
 
 	function tinypress_get_ip_address() {
-		if ( isset( $_SERVER['HTTP_CLIENT_IP'] ) && ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
-			$ip = sanitize_text_field( $_SERVER['HTTP_CLIENT_IP'] );
-		} elseif ( isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) && ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-			$ip = sanitize_text_field( $_SERVER['HTTP_X_FORWARDED_FOR'] );
-		} else {
-			$ip = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( $_SERVER['REMOTE_ADDR'] ) : '0.0.0.0';
+		$ip = isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0';
+
+		// Only use X-Forwarded-For if behind a trusted reverse proxy
+		if ( defined( 'TINYPRESS_TRUSTED_PROXY' ) && $ip === TINYPRESS_TRUSTED_PROXY ) {
+			if ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
+				$forwarded_ips = explode( ',', $_SERVER['HTTP_X_FORWARDED_FOR'] );
+				$candidate     = trim( $forwarded_ips[0] );
+				if ( filter_var( $candidate, FILTER_VALIDATE_IP ) ) {
+					$ip = $candidate;
+				}
+			}
 		}
 
-		return $ip;
+		return filter_var( $ip, FILTER_VALIDATE_IP ) ? $ip : '0.0.0.0';
 	}
 }
 
