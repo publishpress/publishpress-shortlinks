@@ -34,6 +34,7 @@
         "wp-coding-standards/wpcs": "^3",
         "squizlabs/php_codesniffer": "^3.8",
         "phpmd/phpmd": "^2.15",
+        "phpmetrics/phpmetrics": "^2.9",
         "overtrue/phplint": "^9.1",
         "wp-cli/i18n-command": "^2.6",
         "wp-cli/wp-cli-bundle": "^2.10",
@@ -89,6 +90,7 @@
             "php-cs-fixer fix .",
             "@fix:cs"
         ],
+        "metrics": "dev-workspace/run phpmetrics --report-html=metrics --exclude=vendor,lib/vendor,tests,dist,dev-workspace,.claude,.cursor,.github,.wordpress-org,.git,.zed,docs,languages .",
         "docker:cleanup": "docker system prune -f",
         "info:versions": "bash ./dev-workspace/scripts/dependency-versions.sh",
         "set:version": "php ./dev-workspace/scripts/bump-version.php \"$@\"",
