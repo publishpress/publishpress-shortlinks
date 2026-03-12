@@ -129,10 +129,9 @@ class Client {
 				),
 				'body'        => array_merge( $params, array( 'version' => $this->plugin_version ) ),
 				'cookies'     => array(),
-				'sslverify'   => false,
 			) );
 		} else {
-			$response = wp_remote_get( $url, array( 'timeout' => 30, 'sslverify' => false ) );
+			$response = wp_remote_get( $url, array( 'timeout' => 30 ) );
 		}
 
 		if ( is_wp_error( $response ) ) {
