@@ -247,7 +247,7 @@ if ( ! class_exists( 'TINYPRESS_Meta_boxes' ) ) {
 							'type'        => 'select',
 							'title'       => esc_html__( 'Redirection Method', 'tinypress' ),
 							'subtitle'    => esc_html__( 'Select redirection method', 'tinypress' ),
-							'placeholder' => 'Select a method',
+							'placeholder' => esc_html__( 'Select a method', 'tinypress' ),
 							'options'     => array(
 								307 => esc_html__( '307 (Temporary)', 'tinypress' ),
 								302 => esc_html__( '302 (Temporary)', 'tinypress' ),
