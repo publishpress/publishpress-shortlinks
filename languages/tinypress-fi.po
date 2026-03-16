@@ -11,26 +11,336 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-06T09:06:45+00:00\n"
-"PO-Revision-Date: 2026-02-13 10:17+0000\n"
+"POT-Creation-Date: 2026-02-26 14:40+0000\n"
+"PO-Revision-Date: 2026-03-03 08:45+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: tinypress\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "Language: fi\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: tinypress.php
-#: includes/classes/class-meta-boxes.php:162
-#: tinypress.php:225, fuzzy
-#. Plugin Name of the plugin
-msgid "PublishPress Shortlinks"
-msgstr "PublishPress Shortlinks"
+#: includes/classes/class-autolist-ajax.php:55
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:55
+#, php-format
+msgid "\"%s\" cannot be used for auto-listing"
+msgstr "\"%s\" ei voi olla käytössä automaattista luetteloa varten"
 
-#: tinypress.php, fuzzy
-#. Plugin URI of the plugin
-msgid "https://publishpress.com/shortlinks/"
-msgstr "https://publishpress.com/shortlinks/"
+#: includes/classes/class-autolist-ajax.php:64
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:64
+#, php-format
+msgid "\"%s\" is already configured"
+msgstr "\"%s\" on jo määritetty"
 
-#: tinypress.php
+#: includes/classes/class-autolist-ajax.php:49
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:49
+#, php-format
+msgid "\"%s\" is not a public post type"
+msgstr "\"%s\" ei ole julkinen postityyppi"
+
+#: includes/classes/class-autolist-ajax.php:42
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:42
+#, php-format
+msgid "\"%s\" is not a registered post type"
+msgstr "\"%s\" ei ole rekisteröity postityyppi"
+
+#: includes/classes/class-table-logs.php:71
+#, fuzzy
+msgid "%d log entries deleted successfully."
+msgstr "Tinyurl luotiin onnistuneesti."
+
+#: includes/classes/class-revision.php:212
+#. %d: number of revision shortlinks migrated
+msgid ""
+"%d revision shortlink(s) were updated with unique links. Previously, these "
+"revisions shared the same shortlink as their parent post."
+msgstr ""
+"%d muokattua lyhyttä linkkiä päivitettiin ainutlaatuisilla linkeillä. "
+"Aiemmin nämä muokkaukset jakoivat saman lyhyen linkin vanhemman viestin "
+"kanssa."
+
+#: includes/classes/class-table-logs.php:252
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:143
+#, php-format
+msgid "%s from %s visited at %s"
+msgstr "%s %s vieraili %s"
+
+#: includes/classes/class-meta-boxes.php:299
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:301, fuzzy
+msgid "********"
+msgstr "********"
+
+#: includes/classes/class-meta-boxes.php:254
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:254
+msgid "301 (Permanent)"
+msgstr "301 (Pysyvä)"
+
+#: includes/classes/class-meta-boxes.php:253
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:253
+msgid "302 (Temporary)"
+msgstr "302 (Tilapäinen)"
+
+#: includes/classes/class-meta-boxes.php:252
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:252
+msgid "307 (Temporary)"
+msgstr "307 (Tilapäinen)"
+
+#: templates/admin/footer.php:21
+#: dist/publishpress-shortlinks/templates/admin/footer.php:21
+msgid "About"
+msgstr "Tietoja"
+
+#: includes/classes/class-hooks.php:432
+#, fuzzy
+msgid "Access Denied"
+msgstr "Käyttöoikeus evätty"
+
+#: includes/classes/class-columns-link.php:272
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:151
+msgid "Actions"
+msgstr "Toiminnot"
+
+#: includes/classes/class-settings.php:174
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:180
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "Lisää etuliite verkkotunnuksesi ja lyhyen linkin väliin."
+
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:269
+msgid "Add nofollow attribute."
+msgstr "Lisää nofollow-attribuutti."
+
+#: includes/classes/class-settings.php:456
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:405
+msgid "Add Post Type"
+msgstr "Lisää postityyppi"
+
+#: includes/classes/class-settings.php:267
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:284
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr ""
+"Lisää postityyppejä ja määritä, milloin niiden lyhyet linkit näkyvät "
+"\"Kaikki linkit\" -taulukossa. Muutokset tallennetaan automaattisesti."
+
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:262
+msgid "Add sponsored attribute."
+msgstr "Lisää sponsoroitu attribuutti."
+
+#: includes/classes/class-meta-boxes.php:270
+msgid ""
+"Adds rel=\"nofollow\" attribute. Recommended for external links and "
+"untrusted sources."
+msgstr ""
+"Lisää rel=\"nofollow\" -attribuutti. Suositellaan ulkoisille linkeille ja "
+"epäluotettaville lähteille."
+
+#: includes/classes/class-meta-boxes.php:263
+msgid ""
+"Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
+"promotions."
+msgstr ""
+"Lisää rel=\"sponsored\" -attribuutti. Suositellaan kumppanuuslinkeille ja "
+"maksetuille mainoksille."
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:121
+#: templates/admin/settings/supports.php:25
+msgid "Advanced click analytics"
+msgstr "Edistyneet klikkausanalytiikat"
+
+#: includes/classes/class-meta-boxes.php:225
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:225
+msgid "After disabling the link will not active but the settings will be reserved."
+msgstr ""
+"Linkin poistamisen jälkeen se ei ole aktiivinen, mutta asetukset "
+"säilytetään."
+
+#: includes/classes/class-hooks.php:246
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:172
+msgid "All Logs"
+msgstr "Kaikki lokit"
+
+#: includes/classes/class-table-logs.php:75
+msgid "All logs have been cleared."
+msgstr "Kaikki lokit on tyhjennetty."
+
+#: includes/classes/class-hooks.php:184
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:117
+#, fuzzy
+msgid "All Shortlinks"
+msgstr "Lyhyet linkit"
+
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:277
+msgid "All the parameters will pass to the target link."
+msgstr "Kaikki parametrit siirtyvät kohdelinkkiin."
+
+#: includes/classes/class-settings.php:359
+msgid "Allow logged-out visitors to view revision content via shortlinks."
+msgstr ""
+"Salli kirjautumattomien kävijöiden nähdä muokkauksen sisältö lyhyiden "
+"linkkien kautta."
+
+#: includes/classes/class-settings.php:279
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:296
+msgid "Allowed Post Statuses"
+msgstr "Sallitut postitustilat"
+
+#: includes/classes/class-meta-boxes.php:341
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:336
+msgid "Analytics"
+msgstr "Analytiikka"
+
+#: includes/classes/class-hooks.php:120
+#, fuzzy
+msgid "Analytics reset successfully."
+msgstr "Tinyurl luotiin onnistuneesti."
+
+#: includes/classes/class-meta-boxes.php:278
+msgid ""
+"Any parameters added to the short URL (e.g., ?utm_source=email) will be "
+"forwarded to the target URL."
+msgstr ""
+"Lyhyeen URL-osoitteeseen lisätyt parametrit (esim. ?utm_source=email) "
+"siirretään kohde-URL-osoitteeseen."
+
+#: includes/classes/class-hooks.php:246
+#, fuzzy
+msgid "Are you sure you want to clear all logs?"
+msgstr "Oletko varma, että haluat poistaa tämän postityypin?"
+
+#: includes/classes/class-table-logs.php:183
+#, fuzzy
+msgid "Are you sure you want to delete this log entry?"
+msgstr "Oletko varma, että haluat poistaa tämän postityypin?"
+
+#: includes/classes/class-autolist-ajax.php:271
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:271
+msgid "Are you sure you want to remove this post type?"
+msgstr "Oletko varma, että haluat poistaa tämän postityypin?"
+
+#: includes/classes/class-settings.php:253
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:270
+#, fuzzy
+msgid "Auto-List Links"
+msgstr "Ota automaattinen luetteloituminen linkeille käyttöön"
+
+#: includes/classes/class-settings.php:258
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:275
+#, fuzzy
+msgid "Auto-List Shortlinks"
+msgstr "Lyhyet linkit"
+
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:104
+#, php-format
+msgid "Auto: %s"
+msgstr "Automaattinen: %s"
+
+#: includes-core/ShortlinksCoreAdmin.php:210
+msgid "Bulk Import & Export"
+msgstr "Massatuonti & vienti"
+
+#: includes-core/ShortlinksCoreAdmin.php:223
+#, fuzzy
+msgid "Bulk Management"
+msgstr "Roolien hallinta"
+
+#: includes/classes/class-settings.php:360
+msgid ""
+"By default, PublishPress Revisions blocks visitors from viewing revision "
+"previews. When enabled, revision shortlinks will render the revision "
+"content directly for logged-out visitors instead of redirecting to the "
+"preview URL. This applies to all existing revision shortlinks regardless of "
+"the setting above."
+msgstr ""
+"Oletusarvoisesti PublishPress Revisions estää kävijöitä näkemästä "
+"muokkauksen esikatseluja. Kun tämä on käytössä, muokkauksen lyhyet linkit "
+"näyttävät muokkauksen sisällön suoraan kirjautumattomille kävijöille sen "
+"sijaan, että ohjaisivat esikatselu-URL-osoitteeseen. Tämä koskee kaikkia "
+"olemassa olevia muokkauksen lyhyitä linkkejä riippumatta yllä olevasta "
+"asetuksesta."
+
+#: includes/classes/class-hooks.php:199
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:132
+msgid "Categories"
+msgstr "Kategoriat"
+
+#: includes/classes/class-hooks.php:198
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:131
+msgid "Category"
+msgstr "Kategoria"
+
+#: includes/classes/class-settings.php:280
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:297
+msgid "Choose which post statuses can be accessed via shortlinks"
+msgstr "Valitse, mitkä postitustilat ovat käytettävissä lyhytlinkkien kautta"
+
+#: includes/classes/class-hooks.php:246
+#, fuzzy
+msgid "Clear Logs"
+msgstr "Kaikki lokit"
+
+#: includes/classes/class-redirection.php:261
+msgid "Click here if you are not redirected"
+msgstr "Napsauta tästä, jos sinua ei ohjata"
+
+#: templates/admin/settings/browsers.php:8
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:8
+msgid "Click on your preferred one to Download the extension."
+msgstr "Napsauta haluamaasi ladataaksesi laajennuksen."
+
+#: includes/classes/class-functions.php:39
+#: dist/publishpress-shortlinks/includes/classes/class-functions.php:39
+msgid "Click to copy"
+msgstr "Napsauta kopioidaksesi"
+
+#: includes/classes/class-columns-link.php:215
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:120
+#, php-format
+msgid "Clicked %s times"
+msgstr "Klikattu %s kertaa"
+
+#: templates/admin-modal-new-link.php:35
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:35
+msgid "Close"
+msgstr "Sulje"
+
+#: includes/classes/class-autolist-ajax.php:120
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:120
+msgid "Configuration saved successfully"
+msgstr "Asetukset tallennettu onnistuneesti"
+
+#: includes/classes/class-autolist-ajax.php:111
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:111
+msgid "Configuration unchanged (already saved)"
+msgstr "Asetukset muuttumattomat (jo tallennettu)"
+
+#: includes/classes/class-settings.php:265
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:282
+msgid "Configure Post Types"
+msgstr "Määritä postityypit"
+
+#: templates/admin/footer.php:30
+#: dist/publishpress-shortlinks/templates/admin/footer.php:30
+msgid "Contact"
+msgstr "Ota yhteyttä"
+
+#: includes/classes/class-settings.php:339
+msgid ""
+"Controls when a companion entry is created in the All Shortlinks table for "
+"revision shortlinks. The shortlink itself is always generated regardless of "
+"this setting."
+msgstr ""
+"Ohjaa, milloin kumppanitieto luodaan Kaikki lyhyet linkit -taulukkoon "
+"muokkauksen lyhyille linkeille. Itse lyhyt linkki luodaan aina riippumatta "
+"tästä asetuksesta."
+
+#: includes/classes/class-functions.php:46
+#: dist/publishpress-shortlinks/includes/classes/class-functions.php:46
+msgid "Copied"
+msgstr "Kopioitu"
+
+#: tinypress.php:259 dist/publishpress-shortlinks/tinypress.php:264
+msgid "Copied."
+msgstr "Kopioitu."
+
 #. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
@@ -39,564 +349,648 @@ msgstr ""
 "Luo mukautettuja linkkejä viesteillesi. Nämä linkit ovat brändättävissä, "
 "seurattavissa ja niillä voi olla mukautetut katseluoikeudet."
 
-#: tinypress.php, fuzzy
-#. Author of the plugin
-msgid "PublishPress"
-msgstr "PublishPress"
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:36
+msgid "Create Short URL"
+msgstr "Luo lyhyt URL"
+
+#: templates/admin-modal-new-link.php:36
+#, fuzzy
+msgid "Create Shortlink"
+msgstr "Luo lyhyt URL"
 
-#: tinypress.php, fuzzy
-#. Author URI of the plugin
-msgid "https://publishpress.com/"
-msgstr "https://publishpress.com/"
-
-#: includes/classes/class-autolist-ajax.php:30
-#: includes/classes/class-autolist-ajax.php:180
-msgid "Permission denied"
-msgstr "Käyttöoikeus evätty"
-
-#: includes/classes/class-autolist-ajax.php:37
-msgid "Post type is required"
-msgstr "Viestin tyyppi on pakollinen"
-
-#: includes/classes/class-autolist-ajax.php:42
-#, php-format
-msgid "\"%s\" is not a registered post type"
-msgstr "\"%s\" ei ole rekisteröity postityyppi"
-
-#: includes/classes/class-autolist-ajax.php:49
-#, php-format
-msgid "\"%s\" is not a public post type"
-msgstr "\"%s\" ei ole julkinen postityyppi"
-
-#: includes/classes/class-autolist-ajax.php:55
-#, php-format
-msgid "\"%s\" cannot be used for auto-listing"
-msgstr "\"%s\" ei voi olla käytössä automaattista luetteloa varten"
-
-#: includes/classes/class-autolist-ajax.php:64
-#, php-format
-msgid "\"%s\" is already configured"
-msgstr "\"%s\" on jo määritetty"
-
-#: includes/classes/class-autolist-ajax.php:70
-#, php-format
-msgid "Valid: %s"
-msgstr "Voimassa: %s"
-
-#: includes/classes/class-autolist-ajax.php:83
-msgid "Permission denied - you must be an administrator"
-msgstr "Käyttöoikeus evätty - sinun on oltava ylläpitäjä"
-
-#: includes/classes/class-autolist-ajax.php:90
-msgid "Invalid configuration format - expected array"
-msgstr "Virheellinen asetusten muoto - odotettiin taulukkoa"
-
-#: includes/classes/class-autolist-ajax.php:111
-msgid "Configuration unchanged (already saved)"
-msgstr "Asetukset muuttumattomat (jo tallennettu)"
-
-#: includes/classes/class-autolist-ajax.php:115
-msgid "Failed to save configuration to database"
-msgstr "Asetusten tallentaminen tietokantaan epäonnistui"
-
-#: includes/classes/class-autolist-ajax.php:120
-msgid "Configuration saved successfully"
-msgstr "Asetukset tallennettu onnistuneesti"
-
-#: includes/classes/class-autolist-ajax.php:127
-#, php-format
-msgid "Error: %s"
-msgstr "Virhe: %s"
-
-#: includes/classes/class-autolist-ajax.php:261
-msgid "Validating..."
-msgstr "Vahvistetaan..."
-
-#: includes/classes/class-autolist-ajax.php:262
-msgid "Saving..."
-msgstr "Tallennetaan..."
-
-#: includes/classes/class-autolist-ajax.php:263
-msgid "Saved!"
-msgstr "Tallennettu!"
-
-#: includes/classes/class-autolist-ajax.php:264
-msgid "Error"
-msgstr "Virhe"
-
-#: includes/classes/class-autolist-ajax.php:265
-msgid "Are you sure you want to remove this post type?"
-msgstr "Oletko varma, että haluat poistaa tämän postityypin?"
-
-#: includes/classes/class-autolist-ajax.php:266
-msgid "Select a post type"
-msgstr "Valitse postityyppi"
-
-#: includes/classes/class-autolist-ajax.php:267
-#: includes/classes/class-settings.php:393
-msgid "Never"
-msgstr "Ei koskaan"
-
-#: includes/classes/class-autolist-ajax.php:268
-#: includes/classes/class-settings.php:394
-msgid "On First Use"
-msgstr "Ensimmäisellä käytöllä"
-
-#: includes/classes/class-autolist-ajax.php:269
-#: includes/classes/class-settings.php:395
-msgid "On Publish"
-msgstr "Julkaisun yhteydessä"
-
-#: includes/classes/class-autolist.php:103
-msgid "Invalid post ID or post type."
-msgstr "Virheellinen postin ID tai postityyppi."
-
-#: includes/classes/class-columns-link.php:38
-#: includes/classes/class-hooks.php:119
-#: includes/classes/class-meta-boxes.php:77
-msgid "Shortlinks"
-msgstr "Lyhyet linkit"
-
-#: includes/classes/class-columns-link.php:104
-#, php-format
-msgid "Auto: %s"
-msgstr "Automaattinen: %s"
-
-#: includes/classes/class-columns-link.php:120
-#, php-format
-msgid "Clicked %s times"
-msgstr "Klikattu %s kertaa"
-
-#: includes/classes/class-columns-link.php:127
-msgid "Edit"
-msgstr "Muokkaa"
-
-#: includes/classes/class-columns-link.php:128
-msgid "Delete"
-msgstr "Poista"
-
-#: includes/classes/class-columns-link.php:148
-msgid "Link Title"
-msgstr "Linkin otsikko"
-
-#: includes/classes/class-columns-link.php:149
-msgid "Shorten Link"
-msgstr "Lyhennä linkkiä"
-
-#: includes/classes/class-columns-link.php:150
-msgid "Stats"
-msgstr "Tilastot"
-
-#: includes/classes/class-columns-link.php:151
-msgid "Actions"
-msgstr "Toiminnot"
-
-#: includes/classes/class-functions.php:39
-msgid "Click to copy"
-msgstr "Napsauta kopioidaksesi"
-
-#: includes/classes/class-functions.php:46
-msgid "Copied"
-msgstr "Kopioitu"
-
-#: includes/classes/class-hooks.php:45
-msgid "Invalid or empty URL"
-msgstr "Virheellinen tai tyhjä URL"
-
-#: includes/classes/class-hooks.php:62
-msgid "Tinyurl created successfully."
-msgstr "Tinyurl luotiin onnistuneesti."
-
-#: includes/classes/class-hooks.php:79
-msgid "Shorten"
-msgstr "Lyhennä"
-
-#: includes/classes/class-hooks.php:116
-msgid "Link"
-msgstr "Linkki"
-
-#: includes/classes/class-hooks.php:117
-msgid "All Links"
-msgstr "Kaikki linkit"
-
-#: includes/classes/class-hooks.php:131
-msgid "Category"
-msgstr "Kategoria"
-
-#: includes/classes/class-hooks.php:132
-msgid "Categories"
-msgstr "Kategoriat"
-
-#: includes/classes/class-hooks.php:154
-msgid "Logs"
-msgstr "Lokit"
-
-#: includes/classes/class-hooks.php:172
-msgid "All Logs"
-msgstr "Kaikki lokit"
-
-#: includes/classes/class-meta-boxes.php:174
-#: includes/classes/class-settings.php:171
-msgid "General"
-msgstr "Yleinen"
-
-#: includes/classes/class-meta-boxes.php:179
-msgid "Label *"
-msgstr "Tunniste *"
-
-#: includes/classes/class-meta-boxes.php:181
-msgid "For admin purpose only."
-msgstr "Vain ylläpitäjätarkoituksiin."
-
-#: includes/classes/class-meta-boxes.php:190
-msgid "Target URL *"
-msgstr "Kohde-URL *"
-
-#: includes/classes/class-meta-boxes.php:199
-msgid "Short String *"
-msgstr "Lyhyt merkkijono *"
-
-#: includes/classes/class-meta-boxes.php:200
-msgid "Short string of this URL."
-msgstr "Tämän URL-osoitteen lyhyt merkkijono."
-
-#: includes/classes/class-meta-boxes.php:206
-msgid "Status"
-msgstr "Tila"
-
-#: includes/classes/class-meta-boxes.php:207
-msgid "Disable the link instantly."
-msgstr "Poista linkki heti käytöstä."
-
-#: includes/classes/class-meta-boxes.php:208
-msgid "After disabling the link will not active but the settings will be reserved."
-msgstr ""
-"Linkin poistamisen jälkeen se ei ole aktiivinen, mutta asetukset "
-"säilytetään."
-
-#: includes/classes/class-meta-boxes.php:209
-msgid "Enable"
-msgstr "Ota käyttöön"
-
-#: includes/classes/class-meta-boxes.php:210
-msgid "Disable"
-msgstr "Poista käytöstä"
-
-#: includes/classes/class-meta-boxes.php:217
-msgid "Notes"
-msgstr "Huomautukset"
-
-#: includes/classes/class-meta-boxes.php:226
-msgid "Redirection"
-msgstr "Ohjaus"
-
-#: includes/classes/class-meta-boxes.php:231
-msgid "Redirection Method"
-msgstr "Ohjausmenetelmä"
-
-#: includes/classes/class-meta-boxes.php:232
-msgid "Select redirection method"
-msgstr "Valitse ohjausmenetelmä"
-
-#: includes/classes/class-meta-boxes.php:235
-msgid "307 (Temporary)"
-msgstr "307 (Tilapäinen)"
-
-#: includes/classes/class-meta-boxes.php:236
-msgid "302 (Temporary)"
-msgstr "302 (Tilapäinen)"
-
-#: includes/classes/class-meta-boxes.php:237
-msgid "301 (Permanent)"
-msgstr "301 (Pysyvä)"
-
-#: includes/classes/class-meta-boxes.php:244
-msgid "Sponsored"
-msgstr "Sponsoroitu"
-
-#: includes/classes/class-meta-boxes.php:245
-msgid "Add sponsored attribute."
-msgstr "Lisää sponsoroitu attribuutti."
-
-#: includes/classes/class-meta-boxes.php:246
-msgid "Recommended for affiliate links."
-msgstr "Suositellaan kumppanuuslinkeille."
-
-#: includes/classes/class-meta-boxes.php:251, fuzzy
-msgid "NoFollow"
-msgstr "NoFollow"
-
-#: includes/classes/class-meta-boxes.php:252
-msgid "Add nofollow attribute."
-msgstr "Lisää nofollow-attribuutti."
-
-#: includes/classes/class-meta-boxes.php:253
-msgid "We recommended to use this."
-msgstr "Suosittelemme käyttämään tätä."
-
-#: includes/classes/class-meta-boxes.php:259
-msgid "Parameter Forwarding"
-msgstr "Parametrin välittäminen"
-
-#: includes/classes/class-meta-boxes.php:260
-msgid "All the parameters will pass to the target link."
-msgstr "Kaikki parametrit siirtyvät kohdelinkkiin."
-
-#: includes/classes/class-meta-boxes.php:269
-msgid "Security"
-msgstr "Tietoturva"
-
-#: includes/classes/class-meta-boxes.php:274
-msgid "Password Protection"
-msgstr "Salasanan suojaus"
-
-#: includes/classes/class-meta-boxes.php:275
-msgid "Secure your link."
-msgstr "Varmista linkkisi."
-
-#: includes/classes/class-meta-boxes.php:276
-msgid "Users must enter the password to redirect to the target link."
-msgstr "Käyttäjien on syötettävä salasana, jotta heidät ohjataan kohdelinkkiin."
-
-#: includes/classes/class-meta-boxes.php:281
-msgid "Password"
-msgstr "Salasana"
-
-#: includes/classes/class-meta-boxes.php:282
-msgid "Share this with users."
-msgstr "Jaa tämä käyttäjille."
-
-#: includes/classes/class-meta-boxes.php:283
-msgid "Passwords are case sensitive."
-msgstr "Salasanat ovat kirjainkooltaan herkkiä."
-
-#: includes/classes/class-meta-boxes.php:284, fuzzy
-msgid "********"
-msgstr "********"
-
-#: includes/classes/class-meta-boxes.php:293
-msgid "Enable Expiration"
-msgstr "Ota käyttöön vanhentuminen"
-
-#: includes/classes/class-meta-boxes.php:294
-msgid "Expire automatically."
-msgstr "Vanhenee automaattisesti."
-
-#: includes/classes/class-meta-boxes.php:295
-msgid "Users will not able to redirect to the target URL once expire."
-msgstr "Käyttäjät eivät voi ohjata kohde-URL:lle sen jälkeen, kun se on vanhentunut."
-
-#: includes/classes/class-meta-boxes.php:300
-msgid "Expiration Date"
-msgstr "Vanhentumispäivämäärä"
-
-#: includes/classes/class-meta-boxes.php:301
-msgid "It will automatically expire."
-msgstr "Se vanhenee automaattisesti."
-
-#: includes/classes/class-meta-boxes.php:319
-msgid "Analytics"
-msgstr "Analytiikka"
-
-#: includes/classes/class-redirection.php:87
-#, php-format
-msgid "This content is not publicly accessible. Post status: %s"
-msgstr "Tämä sisältö ei ole julkisesti saatavilla. Postin tila: %s"
-
-#: includes/classes/class-redirection.php:90
-msgid "Content Not Available"
-msgstr "Sisältö ei ole saatavilla"
-
-#: includes/classes/class-redirection.php:164
-msgid "Post not found."
-msgstr "Viestiä ei löytynyt."
-
-#: includes/classes/class-redirection.php:265
-msgid "This link is not active."
-msgstr "Tämä linkki ei ole aktiivinen."
-
-#: includes/classes/class-redirection.php:273
-msgid "This link is expired."
-msgstr "Tämä linkki on vanhentunut."
-
-#: includes/classes/class-redirection.php:353
-msgid "This link is not containing the right prefix slug."
-msgstr "Tämä linkki ei sisällä oikeaa etuliitteen slugia."
-
-#: includes/classes/class-settings.php:91
-msgid "Settings"
-msgstr "Asetukset"
-
-#: includes/classes/class-settings.php:174
-msgid "Options"
-msgstr "Vaihtoehdot"
-
-#: includes/classes/class-settings.php:179
-msgid "Link Prefix"
-msgstr "Linkin etuliite"
-
-#: includes/classes/class-settings.php:180
-msgid "Add custom prefix."
-msgstr "Lisää mukautettu etuliite."
-
-#: includes/classes/class-settings.php:181
-msgid "Customize your tiny url in a better way."
-msgstr "Mukauta pientä URL-osoitettasi paremmin."
-
-#: includes/classes/class-settings.php:187
-msgid "Prefix Slug"
-msgstr "Etuliite"
-
-#: includes/classes/class-settings.php:188
-msgid "Custom prefix slug."
-msgstr "Mukautettu etuliite slug."
-
-#: includes/classes/class-settings.php:189
-#, php-format
-msgid "This prefix slug will be added this way - %s"
-msgstr "Tämä etuliitteen slug lisätään tällä tavalla - %s"
-
-#: includes/classes/class-settings.php:190
 #: includes/classes/class-settings.php:191
-msgid "go"
-msgstr "mennä"
-
-#: includes/classes/class-settings.php:197
-msgid "Keyboard Shortcut"
-msgstr "Pikanäppäin"
-
-#: includes/classes/class-settings.php:198
-msgid "Configure your K/B"
-msgstr "Määritä K/B:si"
-
-#: includes/classes/class-settings.php:199
-msgid ""
-"You can now short your large links from anywhere inside your WordPress "
-"dashboard."
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:197
+#, fuzzy
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr ""
 "Voit nyt lyhentää suuria linkkejä mistä tahansa "
 "WordPress-ohjauspaneelissasi."
 
-#: includes/classes/class-settings.php:200
-msgid "For now you have no option to set your own shortcut but this will come soon."
-msgstr ""
-"Tällä hetkellä sinulla ei ole mahdollisuutta asettaa omaa pikakuvaketta, "
-"mutta tämä tulee pian."
+#: includes-core/ShortlinksCoreAdmin.php:215
+msgid "CSV Export"
+msgstr "CSV-vienti"
 
-#: includes/classes/class-settings.php:201
-#: includes/classes/class-settings.php:202
+#: includes-core/ShortlinksCoreAdmin.php:219
+msgid "CSV Import"
+msgstr "CSV-tuonti"
+
+#: includes/classes/class-settings.php:192
+#: includes/classes/class-settings.php:193
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:198
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:199
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl tai Cmd + /"
 
-#: includes/classes/class-settings.php:211
-msgid "Hide Modal Opener"
-msgstr "Piilota modaalin avauspainike"
+#: includes/classes/class-settings.php:181
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:187
+msgid "Custom prefix slug."
+msgstr "Mukautettu etuliite slug."
 
-#: includes/classes/class-settings.php:212
-msgid "Remove from WP Admin Bar"
-msgstr "Poista WP Admin -palkista"
+#: includes/classes/class-settings.php:300
+msgid "Default Expired Redirect URL"
+msgstr "Oletusarvoinen vanhentunut ohjaus-URL"
 
-#: includes/classes/class-settings.php:213
+#: includes/classes/class-columns-link.php:195
+msgid "Deferred"
+msgstr "Siirretty"
+
+#: includes/classes/class-columns-link.php:223
+#: includes/classes/class-table-logs.php:163
+#: includes/classes/class-table-logs.php:183
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:128
+msgid "Delete"
+msgstr "Poista"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:145
+#: templates/admin/settings/supports.php:54
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:26
+msgid "Detailed documentation is also available on the plugin website."
+msgstr ""
+"Yksityiskohtaiset asiakirjat ovat myös saatavilla liitännäisen "
+"verkkosivustolla."
+
+#: includes/classes/class-table-logs.php:152
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:81
+msgid "Details"
+msgstr "Yksityiskohdat"
+
+#: includes/classes/class-meta-boxes.php:227
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:227
+msgid "Disable"
+msgstr "Poista käytöstä"
+
+#: includes/classes/class-meta-boxes.php:224
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:224
+#, fuzzy
+msgid "Disable the shortlink instantly."
+msgstr "Poista linkki heti käytöstä."
+
+#: includes/classes/class-settings.php:312
+#: includes/classes/class-settings.php:321
+msgid ""
+"Display a brief notice before redirecting expired links (using a JavaScript "
+"redirect with a short delay)."
+msgstr ""
+"Näytä lyhyt ilmoitus ennen vanhentuneiden linkkien ohjaamista (käyttämällä "
+"JavaScript-ohjausta lyhyellä viiveellä)."
+
+#: includes/classes/class-settings.php:352
+msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
+msgstr ""
+"Näytä lyhyen linkin sarake muokkauksia katsottaessa PublishPress Revisions "
+"-sovelluksessa."
+
+#: templates/admin/footer.php:26
+#: dist/publishpress-shortlinks/templates/admin/footer.php:26
+msgid "Documentation"
+msgstr "Dokumentaatio"
+
+#: templates/admin/qr-code.php:15
+#: dist/publishpress-shortlinks/templates/admin/qr-code.php:9
+#, fuzzy
+msgid "Download QR Code"
+msgstr "Lataa QR"
+
+#: templates/admin/settings/browsers.php:15
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:15
+msgid "Download the Extension"
+msgstr "Lataa laajennus"
+
+#: includes/classes/class-settings.php:285
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:302
+msgid "Draft"
+msgstr "Luonnos"
+
+#: includes/classes/class-settings.php:381
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:317
+msgid "Dummy"
+msgstr "Malli"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:125
+msgid "Earth"
+msgstr "Maapallo"
+
+#: includes/classes/class-columns-link.php:222
+#: includes/classes/class-table-logs.php:181
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:127
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: includes/functions.php:153
+#: dist/publishpress-shortlinks/includes/functions.php:153
+msgid "Edit shortlink settings"
+msgstr "Muokkaa lyhyiden linkkien asetuksia"
+
+#: includes/classes/class-meta-boxes.php:226
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:226
+msgid "Enable"
+msgstr "Ota käyttöön"
+
+#: includes/classes/class-meta-boxes.php:308
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:310
+msgid "Enable Expiration"
+msgstr "Ota käyttöön vanhentuminen"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:118
+#: templates/admin/settings/supports.php:22
+msgid "Enhance the power of PublishPress Shortlinks with the Pro version:"
+msgstr "Vahvista PublishPress Shortlinksin tehoa Pro-versiolla:"
+
+#: templates/admin-modal-new-link.php:19
+#, fuzzy
+msgid "Enter a long URL and make a shortlink"
+msgstr "Syötä pitkä URL-osoite ja muunna se lyhyeksi versioksi"
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:19
+msgid "Enter a long url and make into a tiny version"
+msgstr "Syötä pitkä URL-osoite ja muunna se lyhyeksi versioksi"
+
+#: includes/classes/class-autolist-ajax.php:270
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:270
+msgid "Error"
+msgstr "Virhe"
+
+#: includes/classes/class-autolist-ajax.php:127
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:127
+#, php-format
+msgid "Error: %s"
+msgstr "Virhe: %s"
+
+#: includes/classes/class-meta-boxes.php:315
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:317
+msgid "Expiration Date"
+msgstr "Vanhentumispäivämäärä"
+
+#: includes/classes/class-meta-boxes.php:309
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:311
+msgid "Expire automatically."
+msgstr "Vanhenee automaattisesti."
+
+#: includes/classes/class-settings.php:295
+msgid "Expired Links"
+msgstr "Vanhentuneet linkit"
+
+#: includes/classes/class-columns-link.php:170
+msgid "External"
+msgstr "Ulkoiset"
+
+#: includes/classes/class-hooks.php:122
+msgid "Failed to reset analytics."
+msgstr "Analytiikan nollaus epäonnistui."
+
+#: includes/classes/class-autolist-ajax.php:115
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:115
+msgid "Failed to save configuration to database"
+msgstr "Asetusten tallentaminen tietokantaan epäonnistui"
+
+#: includes/classes/class-meta-boxes.php:198
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:198
+msgid "For admin purpose only."
+msgstr "Vain ylläpitäjätarkoituksiin."
+
+#: includes/classes/class-meta-boxes.php:191
+#: includes/classes/class-settings.php:165
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:191
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:171
+msgid "General"
+msgstr "Yleinen"
+
+#: includes/classes/class-settings.php:183
+#: includes/classes/class-settings.php:184
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:189
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:190
+msgid "go"
+msgstr "mennä"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:209
 msgid "Hide quick short link modal opener from WP Admin Bar."
 msgstr "Piilota pikakuvaketavan modaalin avauspainike WP Admin -valikosta."
 
-#: includes/classes/class-settings.php:219
-msgid "Role Management"
-msgstr "Roolien hallinta"
+#: includes/classes/class-settings.php:203, fuzzy
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "Piilota \"Lyhennä\" -painike WordPressin hallintapalkista."
 
-#: includes/classes/class-settings.php:224
-msgid "Who Can View Links"
-msgstr "Kuka voi nähdä linkit"
+#. Author URI of the plugin
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
 
-#: includes/classes/class-settings.php:225
-#: includes/classes/class-settings.php:237
-#: includes/classes/class-settings.php:249
-#: includes/classes/class-settings.php:261
-msgid "Upcoming feature."
-msgstr "Tuleva ominaisuus."
+#. URI of the plugin
+msgid "https://publishpress.com/shortlinks/"
+msgstr "https://publishpress.com/shortlinks/"
 
-#: includes/classes/class-settings.php:226
-msgid "Only selected user roles can view links."
-msgstr "Vain valitut käyttäjäroolit voivat tarkastella linkkejä."
+#: templates/admin/footer.php:14
+#: dist/publishpress-shortlinks/templates/admin/footer.php:14
+#, php-format
+msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
+msgstr "Jos pidät %1$s:stä, jätä meille %2$s-arvio. Kiitos!"
 
-#: includes/classes/class-settings.php:236
-msgid "Who Can Create/Edit Links"
-msgstr "Kuka voi luoda/muokata linkkejä"
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:139
+#: templates/admin/settings/supports.php:47
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:19
+msgid "If you need help or have a new feature request, let us know."
+msgstr "Jos tarvitset apua tai sinulla on uusi ominaisuuspyyntö, kerro meille."
 
-#: includes/classes/class-settings.php:238
-msgid "Only selected user roles can create or edit links."
-msgstr "Vain valitut käyttäjäroolit voivat luoda tai muokata linkkejä."
+#: includes-core/ShortlinksCoreAdmin.php:189
+#: includes-core/ShortlinksCoreAdmin.php:190
+msgid "Import / Export"
+msgstr "Tuonti / Vienti"
 
-#: includes/classes/class-settings.php:248
-msgid "Who Can See Analytics"
-msgstr "Kuka voi nähdä analytiikan"
+#: includes-core/ShortlinksCoreAdmin.php:205
+msgid "Import / Export Shortlinks"
+msgstr "Tuonti / Vienti lyhyitä linkkejä"
 
-#: includes/classes/class-settings.php:250
-msgid "Only selected user roles can see analytics."
-msgstr "Vain valitut käyttäjäroolit voivat nähdä analytiikkaa."
+#: includes-core/ShortlinksCoreAdmin.php:211
+msgid ""
+"Import and export your shortlinks in bulk using CSV files. Migrate from "
+"other plugins or manage links across multiple sites."
+msgstr ""
+"Tuo ja vie lyhyitä linkkejä suurissa erissä CSV-tiedostojen avulla. Siirry "
+"muista lisäosista tai hallitse linkkejä useilla sivustoilla."
 
-#: includes/classes/class-settings.php:260
-msgid "Who Can Control Settings"
-msgstr "Kuka voi hallita asetuksia"
+#: includes/classes/class-columns-link.php:170
+msgid "Internal"
+msgstr "Sisäiset"
 
-#: includes/classes/class-settings.php:262
+#: includes/classes/class-autolist-ajax.php:90
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:90
+msgid "Invalid configuration format - expected array"
+msgstr "Virheellinen asetusten muoto - odotettiin taulukkoa"
+
+#: includes/classes/class-hooks.php:80
+msgid "Invalid nonce verification."
+msgstr "Virheellinen nonce-tarkistus."
+
+#: includes/classes/class-hooks.php:56
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:45
+msgid "Invalid or empty URL"
+msgstr "Virheellinen tai tyhjä URL"
+
+#: includes/classes/class-autolist.php:109
+#: dist/publishpress-shortlinks/includes/classes/class-autolist.php:103
+msgid "Invalid post ID or post type."
+msgstr "Virheellinen postin ID tai postityyppi."
+
+#: includes/classes/class-hooks.php:91
+#, fuzzy
+msgid "Invalid post ID."
+msgstr "Virheellinen postin ID tai postityyppi."
+
+#: includes/classes/class-revision.php:379
+msgid "Invalid revision ID."
+msgstr "Virheellinen revision ID."
+
+#: includes/classes/class-meta-boxes.php:316
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:318
+msgid "It will automatically expire."
+msgstr "Se vanhenee automaattisesti."
+
+#: includes/classes/class-settings.php:190
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:196
+msgid "Keyboard Shortcut"
+msgstr "Pikanäppäin"
+
+#: includes/classes/class-meta-boxes.php:196
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:196
+msgid "Label *"
+msgstr "Tunniste *"
+
+#: includes/functions.php:220
+#: dist/publishpress-shortlinks/includes/functions.php:220
+#, php-format
+msgid "Link - %s"
+msgstr "Linkki - %s"
+
+#: includes/classes/class-redirection.php:246
+#, fuzzy
+msgid "Link Expired"
+msgstr "Linkin otsikko"
+
+#: includes/classes/class-columns-link.php:268
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:148
+msgid "Link Title"
+msgstr "Linkin otsikko"
+
+#: includes/classes/class-columns-link.php:270
+#, fuzzy
+msgid "Link Type"
+msgstr "Linkin otsikko"
+
+#: includes/classes/class-table-logs.php:62
+#, fuzzy
+msgid "Log entry deleted successfully."
+msgstr "Tinyurl luotiin onnistuneesti."
+
+#: includes/classes/class-hooks.php:221
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:154
+msgid "Logs"
+msgstr "Lokit"
+
+#: templates/admin-modal-new-link.php:24
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:24
+msgid "Long URL"
+msgstr "Pitkä URL"
+
+#: includes/classes/class-meta-boxes.php:262
+msgid "Mark links as sponsored content."
+msgstr "Merkitse linkit sponsoroinniksi sisällöksi."
+
+#: templates/admin/settings/supports.php:42
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:14
+msgid "Need PublishPress Shortlinks Support?"
+msgstr "Tarvitsetko PublishPress Shortlinks -tukea?"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:134
+#, fuzzy
+msgid "Need Support?"
+msgstr "Pyydä tukea"
+
+#: includes/classes/class-columns-link.php:196
+msgid "Needs work"
+msgstr "Tarvitsee työtä"
+
+#: includes/classes/class-autolist-ajax.php:273
+#: includes/classes/class-settings.php:344
+#: includes/classes/class-settings.php:439
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:273
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:390
+msgid "Never"
+msgstr "Ei koskaan"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:124
+#: templates/admin/settings/supports.php:28
+msgid "No ads inside the plugin"
+msgstr "Ei mainoksia lisäosassa"
+
+#: includes/classes/class-settings.php:424
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:375
+msgid "No post types configured yet. Click \"Add Post Type\" to get started."
+msgstr ""
+"Ei postityyppejä ole vielä määritetty. Klikkaa \"Lisää postityyppi\" "
+"aloittaaksesi."
+
+#: includes/classes/class-columns-link.php:65
+#, fuzzy
+msgid "No shortlink"
+msgstr "Lyhyet linkit"
+
+#: includes/classes/class-meta-boxes.php:268
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:268, fuzzy
+msgid "NoFollow"
+msgstr "NoFollow"
+
+#: includes/classes/class-columns-link.php:192
+msgid "Not yet submitted"
+msgstr "Ei vielä lähetetty"
+
+#: includes/classes/class-meta-boxes.php:234
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:234
+msgid "Notes"
+msgstr "Huomautukset"
+
+#: includes/classes/class-autolist-ajax.php:274
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:274
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:391
+msgid "On First Use"
+msgstr "Ensimmäisellä käytöllä"
+
+#: includes/classes/class-autolist-ajax.php:275
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:275
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:392
+msgid "On Publish"
+msgstr "Julkaisun yhteydessä"
+
+#: includes/classes/class-settings.php:244
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:260
 msgid "Only selected user roles can control settings."
 msgstr "Vain valitut käyttäjäroolit voivat hallita asetuksia."
 
-#: includes/classes/class-settings.php:272
-msgid "Auto-List Links for Post Types"
-msgstr "Automaattiset linkit postityypeille"
+#: includes/classes/class-settings.php:224
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:236
+msgid "Only selected user roles can create or edit links."
+msgstr "Vain valitut käyttäjäroolit voivat luoda tai muokata linkkejä."
 
-#: includes/classes/class-settings.php:277
-msgid "Enable Auto-Listing Links"
-msgstr "Ota automaattinen luetteloituminen linkeille käyttöön"
+#: includes/classes/class-settings.php:234
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:248
+msgid "Only selected user roles can see analytics."
+msgstr "Vain valitut käyttäjäroolit voivat nähdä analytiikkaa."
 
-#: includes/classes/class-settings.php:278
-msgid "Automatically list post type shortlinks in the \"All Links\" table"
-msgstr ""
-"Listaa automaattisesti postityyppien lyhytlinkit \"Kaikki linkit\" "
-"-taulukossa"
+#: includes/classes/class-settings.php:215
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:224
+msgid "Only selected user roles can view links."
+msgstr "Vain valitut käyttäjäroolit voivat tarkastella linkkejä."
 
-#: includes/classes/class-settings.php:279
-msgid ""
-"When enabled, shortlinks for posts, pages, and other post types will appear "
-"in the \"All Links\" table based on the behavior you configure below."
-msgstr ""
-"Kun tämä on käytössä, lyhyet linkit viesteille, sivuille ja muille "
-"viestityypeille näkyvät \"Kaikki linkit\" -taulukossa sen perusteella, mitä "
-"käyttäytymistä määrittelet alla."
+#: includes/classes/class-settings.php:168
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:174
+msgid "Options"
+msgstr "Vaihtoehdot"
 
-#: includes/classes/class-settings.php:285
-msgid "Configure Post Types"
-msgstr "Määritä postityypit"
+#: includes/classes/class-meta-boxes.php:276
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:276
+msgid "Parameter Forwarding"
+msgstr "Parametrin välittäminen"
+
+#: includes/classes/class-meta-boxes.php:277
+#, fuzzy
+msgid "Pass URL parameters to the target link."
+msgstr "Kaikki parametrit siirtyvät kohdelinkkiin."
+
+#: includes/classes/class-meta-boxes.php:296
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:298
+msgid "Password"
+msgstr "Salasana"
+
+#: includes/classes/class-meta-boxes.php:289
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:291
+msgid "Password Protection"
+msgstr "Salasanan suojaus"
+
+#: includes/classes/class-meta-boxes.php:298
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:300
+msgid "Passwords are case sensitive."
+msgstr "Salasanat ovat kirjainkooltaan herkkiä."
 
 #: includes/classes/class-settings.php:286
-msgid "Set when links should be auto-listed for each post type"
-msgstr ""
-"Aseta, milloin linkit tulisi automaattisesti luetella jokaiselle "
-"postityypille"
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:303
+msgid "Pending Review"
+msgstr "Odottaa tarkistusta"
 
-#: includes/classes/class-settings.php:287
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr ""
-"Lisää postityyppejä ja määritä, milloin niiden lyhyet linkit näkyvät "
-"\"Kaikki linkit\" -taulukossa. Muutokset tallennetaan automaattisesti."
+#: includes/classes/class-autolist-ajax.php:30
+#: includes/classes/class-autolist-ajax.php:180
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:30
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:180
+msgid "Permission denied"
+msgstr "Käyttöoikeus evätty"
 
-#: includes/classes/class-settings.php:294
+#: includes/classes/class-autolist-ajax.php:83
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:83
+msgid "Permission denied - you must be an administrator"
+msgstr "Käyttöoikeus evätty - sinun on oltava ylläpitäjä"
+
+#: includes/classes/class-redirection.php:211
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:168
+msgid "Post not found."
+msgstr "Viestiä ei löytynyt."
+
+#: includes/classes/class-settings.php:274
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:291
 msgid "Post Status Visibility"
 msgstr "Viestin tila näkyvissä"
 
-#: includes/classes/class-settings.php:299
-msgid "Allowed Post Statuses"
-msgstr "Sallitut postitustilat"
+#: includes/classes/class-autolist-ajax.php:37
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:37
+msgid "Post type is required"
+msgstr "Viestin tyyppi on pakollinen"
 
-#: includes/classes/class-settings.php:300
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Valitse, mitkä postitustilat ovat käytettävissä lyhytlinkkien kautta"
+#: includes/classes/class-settings.php:180
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:186
+msgid "Prefix Slug"
+msgstr "Etuliite"
 
-#: includes/classes/class-settings.php:301
+#: includes/classes/class-meta-boxes.php:269
+msgid "Prevent search engines from following this link."
+msgstr "Estä hakukoneita seuraamasta tätä linkkiä."
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:123
+#: templates/admin/settings/supports.php:27
+msgid "Priority support"
+msgstr "Prioriteetti-tuki"
+
+#: includes/classes/class-settings.php:287
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:304
+msgid "Private"
+msgstr "Yksityinen"
+
+#: includes-core/ShortlinksCoreAdmin.php:114
+#: includes-core/ShortlinksCoreAdmin.php:152
+msgid "Pro Feature"
+msgstr "Pro-ominaisuus"
+
+#: includes/classes/class-settings.php:284
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:301, fuzzy
+msgid "Published"
+msgstr "Julkaistu"
+
+#. Author of the plugin
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#: tinypress.php:347 dist/publishpress-shortlinks/tinypress.php:341
+#: includes/classes/class-meta-boxes.php:179
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:179, fuzzy
+#. Name of the plugin
+msgid "PublishPress Shortlinks"
+msgstr "PublishPress Shortlinks"
+
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:263
+msgid "Recommended for affiliate links."
+msgstr "Suositellaan kumppanuuslinkeille."
+
+#: includes/classes/class-meta-boxes.php:243
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:243
+msgid "Redirection"
+msgstr "Ohjaus"
+
+#: includes/classes/class-meta-boxes.php:248
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:248
+msgid "Redirection Method"
+msgstr "Ohjausmenetelmä"
+
+#: includes/classes/class-columns-link.php:197
+msgid "Rejected"
+msgstr "Hylätty"
+
+#: includes/classes/class-settings.php:202
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:208
+#, fuzzy
+msgid "Remove from Admin Bar"
+msgstr "Poista WP Admin -palkista"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:141
+#: templates/admin/settings/supports.php:49
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:21
+msgid "Request Support"
+msgstr "Pyydä tukea"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:120
+#: templates/admin/settings/supports.php:24
+msgid "REST API for creating shortlinks"
+msgstr "REST API lyhyiden linkkien luomiseen"
+
+#: includes/classes/class-columns-link.php:157
+#: includes/classes/class-table-logs.php:197, fuzzy
+msgid "rev"
+msgstr "rev"
+
+#: includes/classes/class-columns-link.php:183
+msgid "Revision"
+msgstr "Versio"
+
+#: includes/classes/class-settings.php:337
+msgid "Revision Link Visibility"
+msgstr "Version Linkin Näkyvyys"
+
+#: includes/classes/class-settings.php:358
+msgid "Revision Visibility for Visitors"
+msgstr "Version Näkyvyys Vieraileville"
+
+#: includes/classes/class-columns-link.php:200
+#, php-format
+msgid "Revision: %s"
+msgstr "Versio: %s"
+
+#: includes/classes/class-settings.php:332
+msgid "Revisions"
+msgstr "Versiot"
+
+#: includes/classes/class-settings.php:209
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:217
+msgid "Role Management"
+msgstr "Roolien hallinta"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:122
+#: templates/admin/settings/supports.php:26
+msgid "Role-based access control"
+msgstr "Roolipohjainen pääsynhallinta"
+
+#: includes/classes/class-autolist-ajax.php:269
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:269
+msgid "Saved!"
+msgstr "Tallennettu!"
+
+#: includes/classes/class-autolist-ajax.php:268
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:268
+msgid "Saving..."
+msgstr "Tallennetaan..."
+
+#: includes/classes/class-columns-link.php:194
+#: includes/classes/class-settings.php:288
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:305
+msgid "Scheduled"
+msgstr "Ajastettu"
+
+#: includes/classes/class-meta-boxes.php:290
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:292
+#, fuzzy
+msgid "Secure your shortlink."
+msgstr "Varmista linkkisi."
+
+#: includes/classes/class-meta-boxes.php:331
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:286
+msgid "Security"
+msgstr "Tietoturva"
+
+#: includes/classes/class-autolist-ajax.php:272
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:272
+msgid "Select a post type"
+msgstr "Valitse postityyppi"
+
+#: includes/classes/class-meta-boxes.php:249
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:249
+msgid "Select redirection method"
+msgstr "Valitse ohjausmenetelmä"
+
+#: includes/classes/class-settings.php:281
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:298
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -604,157 +998,361 @@ msgstr ""
 "Valitse, mitkä postitilat ovat käytettävissä vieraillessasi "
 "PublishPress-lyhyessä linkissä."
 
-#: includes/classes/class-settings.php:304
-msgid "Published"
-msgstr "Julkaistu"
-
-#: includes/classes/class-settings.php:305
-msgid "Draft"
-msgstr "Luonnos"
-
-#: includes/classes/class-settings.php:306
-msgid "Pending Review"
-msgstr "Odottaa tarkistusta"
-
-#: includes/classes/class-settings.php:307
-msgid "Private"
-msgstr "Yksityinen"
-
-#: includes/classes/class-settings.php:308
-msgid "Scheduled"
-msgstr "Ajastettu"
-
-#: includes/classes/class-settings.php:320
-msgid "Dummy"
-msgstr "Malli"
-
-#: includes/classes/class-settings.php:378
-msgid "No post types configured yet. Click \"Add Post Type\" to get started."
+#: includes/classes/class-settings.php:266
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:283
+msgid "Set when links should be auto-listed for each post type"
 msgstr ""
-"Ei postityyppejä ole vielä määritetty. Klikkaa \"Lisää postityyppi\" "
-"aloittaaksesi."
+"Aseta, milloin linkit tulisi automaattisesti luetella jokaiselle "
+"postityypille"
 
-#: includes/classes/class-settings.php:408
-msgid "Add Post Type"
-msgstr "Lisää postityyppi"
+#: includes/classes/class-settings.php:91
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:91
+msgid "Settings"
+msgstr "Asetukset"
 
-#: includes/classes/class-table-logs.php:79
-msgid "Title"
-msgstr "Otsikko"
+#: includes/classes/class-meta-boxes.php:297
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:299
+msgid "Share this with users."
+msgstr "Jaa tämä käyttäjille."
 
-#: includes/classes/class-table-logs.php:80
-msgid "Short Link"
-msgstr "Lyhyt linkki"
+#: includes/classes/class-meta-boxes.php:216
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:216
+msgid "Short String *"
+msgstr "Lyhyt merkkijono *"
 
-#: includes/classes/class-table-logs.php:81
-msgid "Details"
-msgstr "Yksityiskohdat"
+#: includes/classes/class-meta-boxes.php:217
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:217
+msgid "Short string of this URL."
+msgstr "Tämän URL-osoitteen lyhyt merkkijono."
 
-#: includes/classes/class-table-logs.php:124
-msgid "Someone"
-msgstr "Joku"
-
-#: includes/classes/class-table-logs.php:125
-msgid "Earth"
-msgstr "Maapallo"
-
-#: includes/classes/class-table-logs.php:143
-#, php-format
-msgid "%s from %s visited at %s"
-msgstr "%s %s vieraili %s"
-
-#: includes/functions.php:179
-msgid "Target url not found."
-msgstr "Kohde-URL:ta ei löytynyt."
-
-#: includes/functions.php:183
-msgid "Tiny slug could not created."
-msgstr "Pientä slugia ei voitu luoda."
-
-#: includes/functions.php:201
-#, php-format
-msgid "Link - %s"
-msgstr "Linkki - %s"
-
-#: templates/admin-modal-new-link.php:11
-msgid "Short url will come here"
-msgstr "Lyhyt URL tulee tänne"
-
-#: templates/admin-modal-new-link.php:19
-msgid "Enter a long url and make into a tiny version"
-msgstr "Syötä pitkä URL-osoite ja muunna se lyhyeksi versioksi"
-
-#: templates/admin-modal-new-link.php:24
-msgid "Long URL"
-msgstr "Pitkä URL"
-
-#: templates/admin-modal-new-link.php:28
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:28
 msgid "Short URL"
 msgstr "Lyhyt URL"
 
-#: templates/admin-modal-new-link.php:35
-msgid "Close"
-msgstr "Sulje"
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:11
+msgid "Short url will come here"
+msgstr "Lyhyt URL tulee tänne"
 
-#: templates/admin-modal-new-link.php:36
-msgid "Create Short URL"
-msgstr "Luo lyhyt URL"
+#: includes/classes/class-hooks.php:146
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:79
+msgid "Shorten"
+msgstr "Lyhennä"
 
-#: templates/admin/footer.php:14
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:149
+msgid "Shorten Link"
+msgstr "Lyhennä linkkiä"
+
+#: templates/admin-modal-new-link.php:28
+#: includes/classes/class-columns-link.php:44
+#: includes/classes/class-columns-link.php:269
+#: includes/classes/class-table-logs.php:151
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:80
+#, fuzzy
+msgid "Shortlink"
+msgstr "Lyhyet linkit"
+
+#: includes/classes/class-hooks.php:73
+#, fuzzy
+msgid "Shortlink created successfully."
+msgstr "Tinyurl luotiin onnistuneesti."
+
+#: includes/classes/class-settings.php:173
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:179
+#, fuzzy
+msgid "Shortlink Prefix"
+msgstr "Linkin etuliite"
+
+#: templates/admin-modal-new-link.php:11
+#, fuzzy
+msgid "Shortlink will appear here"
+msgstr "Lyhyt URL tulee tänne"
+
+#: includes/classes/class-columns-link.php:86
+#: includes/classes/class-hooks.php:183 includes/classes/class-hooks.php:186
+#: includes/classes/class-meta-boxes.php:88
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:38
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:116
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:119
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:88
+msgid "Shortlinks"
+msgstr "Lyhyet linkit"
+
+#: includes/classes/class-settings.php:311
+#: includes/classes/class-settings.php:318
+#, fuzzy
+msgid "Show Expiration Notice"
+msgstr "Vanhentumispäivämäärä"
+
+#: includes/classes/class-settings.php:351
+msgid "Show Shortlink in Revision Table"
+msgstr "Näytä Lyhytlinkki Versiolistassa"
+
+#: includes/classes/class-meta-boxes.php:70
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:70
+msgid "Side"
+msgstr "Sivu"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:124
+msgid "Someone"
+msgstr "Joku"
+
+#: includes/classes/class-hooks.php:431
+msgid "Sorry, you are not allowed to access shortlinks."
+msgstr "Anteeksi, sinulla ei ole oikeutta käyttää lyhyitä linkkejä."
+
+#: includes/classes/class-meta-boxes.php:261
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:261
+msgid "Sponsored"
+msgstr "Sponsoroitu"
+
+#: includes/classes/class-columns-link.php:271
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:150
+msgid "Stats"
+msgstr "Tilastot"
+
+#: includes/classes/class-meta-boxes.php:223
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:223
+msgid "Status"
+msgstr "Tila"
+
+#: includes/classes/class-columns-link.php:193
+msgid "Submitted for approval"
+msgstr "Hyväksyttäväksi lähetetty"
+
+#: includes/classes/class-meta-boxes.php:207
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:207
+msgid "Target URL *"
+msgstr "Kohde-URL *"
+
+#: includes/functions.php:198
+#: dist/publishpress-shortlinks/includes/functions.php:198
+msgid "Target url not found."
+msgstr "Kohde-URL:ta ei löytynyt."
+
+#: includes/classes/class-redirection.php:259
+#, fuzzy
+msgid "This link has expired"
+msgstr "Tämä linkki on vanhentunut."
+
+#: includes/classes/class-redirection.php:388
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:292
+msgid "This link is expired."
+msgstr "Tämä linkki on vanhentunut."
+
+#: includes/classes/class-redirection.php:365
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:284
+msgid "This link is not active."
+msgstr "Tämä linkki ei ole aktiivinen."
+
+#: includes/classes/class-redirection.php:489
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:390
+msgid "This link is not containing the right prefix slug."
+msgstr "Tämä linkki ei sisällä oikeaa etuliitteen slugia."
+
+#: includes/classes/class-columns-link.php:184
+#, fuzzy
+msgid "This links to a revision"
+msgstr "Tämä linkki ei ole aktiivinen."
+
+#: includes/classes/class-columns-link.php:171
+msgid "This links to an external website"
+msgstr "Tämä linkittää ulkoiselle verkkosivustolle"
+
+#: includes/classes/class-columns-link.php:171
+msgid "This links to your post"
+msgstr "Tämä linkittää julkaisuusi"
+
+#: tinypress.php:48 dist/publishpress-shortlinks/tinypress.php:52
+msgid "This plugin can be deleted."
+msgstr "Tämä liitännäinen voidaan poistaa."
+
+#: includes/classes/class-settings.php:182
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:188
+msgid "This text will be added between your domain name and shortlink."
+msgstr "Tämä teksti lisätään verkkotunnuksesi ja lyhytlinkin väliin."
+
+#: includes/functions.php:202
+#: dist/publishpress-shortlinks/includes/functions.php:202
+msgid "Tiny slug could not created."
+msgstr "Pientä slugia ei voitu luoda."
+
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:62
+msgid "Tinyurl created successfully."
+msgstr "Tinyurl luotiin onnistuneesti."
+
+#: includes/classes/class-table-logs.php:150
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:79
+msgid "Title"
+msgstr "Otsikko"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:223
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:235
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:247
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:259
+msgid "Upcoming feature."
+msgstr "Tuleva ominaisuus."
+
+#: includes-core/ShortlinksCoreAdmin.php:83
+#: includes-core/ShortlinksCoreAdmin.php:100
+#: includes-core/ShortlinksCoreAdmin.php:101
+#: includes-core/ShortlinksCoreAdmin.php:227
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:93
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:94
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:127
+#: templates/admin/settings/supports.php:31
+msgid "Upgrade to Pro"
+msgstr "Päivitä Pro-versioon"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:113
+#: templates/admin/settings/supports.php:17
+#, fuzzy
+msgid "Upgrade to PublishPress Shortlinks Pro"
+msgstr "PublishPress Shortlinks"
+
+#: includes/classes/class-meta-boxes.php:291
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:293
+msgid "Users must enter the password to redirect to the target link."
+msgstr "Käyttäjien on syötettävä salasana, jotta heidät ohjataan kohdelinkkiin."
+
+#: includes/classes/class-meta-boxes.php:310
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:312
+msgid "Users will not able to redirect to the target URL once expire."
+msgstr "Käyttäjät eivät voi ohjata kohde-URL:lle sen jälkeen, kun se on vanhentunut."
+
+#: includes/classes/class-autolist-ajax.php:70
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:70
 #, php-format
-msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
-msgstr "Jos pidät %1$s:stä, jätä meille %2$s-arvio. Kiitos!"
+msgid "Valid: %s"
+msgstr "Voimassa: %s"
 
-#: templates/admin/footer.php:21
-msgid "About"
-msgstr "Tietoja"
+#: includes/classes/class-autolist-ajax.php:267
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:267
+msgid "Validating..."
+msgstr "Vahvistetaan..."
 
-#: templates/admin/footer.php:26
-msgid "Documentation"
-msgstr "Dokumentaatio"
-
-#: templates/admin/footer.php:30
-msgid "Contact"
-msgstr "Ota yhteyttä"
-
-#: templates/admin/qr-code.php:9
-msgid "Download QR"
-msgstr "Lataa QR"
-
-#: templates/admin/settings/browsers.php:7
-msgid "We have developed extensions for the below browsers."
-msgstr "Olemme kehittäneet laajennuksia alla oleville selaimille."
-
-#: templates/admin/settings/browsers.php:8
-msgid "Click on your preferred one to Download the extension."
-msgstr "Napsauta haluamaasi ladataaksesi laajennuksen."
-
-#: templates/admin/settings/browsers.php:15
-msgid "Download the Extension"
-msgstr "Lataa laajennus"
-
-#: templates/admin/settings/supports.php:14
-msgid "Need PublishPress Shortlinks Support?"
-msgstr "Tarvitsetko PublishPress Shortlinks -tukea?"
-
-#: templates/admin/settings/supports.php:19
-msgid "If you need help or have a new feature request, let us know."
-msgstr "Jos tarvitset apua tai sinulla on uusi ominaisuuspyyntö, kerro meille."
-
-#: templates/admin/settings/supports.php:21
-msgid "Request Support"
-msgstr "Pyydä tukea"
-
-#: templates/admin/settings/supports.php:26
-msgid "Detailed documentation is also available on the plugin website."
-msgstr ""
-"Yksityiskohtaiset asiakirjat ovat myös saatavilla liitännäisen "
-"verkkosivustolla."
-
-#: templates/admin/settings/supports.php:28
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:147
+#: templates/admin/settings/supports.php:56
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:28
 msgid "View Knowledge Base"
 msgstr "Näytä tietopankki"
 
-#: tinypress.php:148
-msgid "Copied."
-msgstr "Kopioitu."
+#: includes/classes/class-table-logs.php:254
+#, php-format
+msgid "Visited at %s"
+msgstr "%s %s vieraili %s"
+
+#: templates/admin/settings/browsers.php:7
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:7
+msgid "We have developed extensions for the below browsers."
+msgstr "Olemme kehittäneet laajennuksia alla oleville selaimille."
+
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:270
+msgid "We recommended to use this."
+msgstr "Suosittelemme käyttämään tätä."
+
+#: includes/classes/class-settings.php:302
+msgid ""
+"When a shortlink expires, visitors will be redirected to this URL instead "
+"of seeing an error. Leave empty to show the default expiration message."
+msgstr ""
+"Kun lyhytlinkki vanhenee, vierailijat ohjataan tälle URL-osoitteelle sen "
+"sijaan, että he näkisivät virheen. Jätä tyhjäksi, jotta "
+"oletusvanhenemisteksti näkyy."
+
+#: includes/classes/class-settings.php:259
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:276
+msgid ""
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
+msgstr ""
+"Kun tämä on käytössä, lyhyet linkit viesteille, sivuille ja muille "
+"viestityypeille näkyvät \"Kaikki linkit\" -taulukossa sen perusteella, mitä "
+"käyttäytymistä määrittelet alla."
+
+#: includes/classes/class-settings.php:342
+#: includes/classes/class-settings.php:441
+#, fuzzy
+msgid "When Link is First Used"
+msgstr "Ensimmäisellä käytöllä"
+
+#: includes/classes/class-settings.php:440
+msgid "When Link is First Used or Post Created"
+msgstr "Kun Linkkiä Käytetään Ensimmäistä Kertaa tai Julkaisua Luodaan"
+
+#: includes/classes/class-settings.php:442
+msgid "When Post is Created"
+msgstr "Kun Julkaisu Luodaan"
+
+#: includes/classes/class-settings.php:443
+msgid "When Post is Published"
+msgstr "Kun Julkaisu Julkaistaan"
+
+#: includes/classes/class-settings.php:341
+msgid "When Revision is Created"
+msgstr "Kun Versio Luodaan"
+
+#: includes/classes/class-settings.php:343
+msgid "When Revision is Created or Link is First Used"
+msgstr "Kun versio on luotu tai linkkiä käytetään ensimmäisen kerran"
+
+#: includes/classes/class-settings.php:338
+msgid "When should revision shortlinks appear in the All Shortlinks table?"
+msgstr ""
+"Milloin versioiden lyhyet linkit pitäisi näkyä Kaikki lyhyet linkit "
+"-taulukossa?"
+
+#: includes/classes/class-settings.php:301
+msgid "Where should expired shortlinks redirect?"
+msgstr "Minne vanhentuneet lyhyet linkit pitäisi ohjata?"
+
+#: includes/classes/class-settings.php:243
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:258
+msgid "Who Can Control Settings"
+msgstr "Kuka voi hallita asetuksia"
+
+#: includes/classes/class-settings.php:223
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:234
+#, fuzzy
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "Kuka voi luoda/muokata linkkejä"
+
+#: includes/classes/class-settings.php:233
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:246
+msgid "Who Can See Analytics"
+msgstr "Kuka voi nähdä analytiikan"
+
+#: includes/classes/class-settings.php:214
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:222
+#, fuzzy
+msgid "Who Can View Shortlinks"
+msgstr "Kuka voi nähdä linkit"
+
+#: includes/classes/class-hooks.php:45
+msgid "You do not have permission to create shortlinks."
+msgstr "Sinulla ei ole oikeuksia luoda lyhyitä linkkejä."
+
+#: includes/classes/class-hooks.php:84
+msgid "You do not have permission to reset analytics."
+msgstr "Sinulla ei ole oikeuksia nollata analytiikkaa."
+
+#: includes/classes/class-redirection.php:260
+msgid "You will be redirected shortly."
+msgstr "Sinut ohjataan pian."
+
+#: includes-core/ShortlinksCoreAdmin.php:82
+msgid ""
+"You're using PublishPress Shortlinks Free. The Pro version has more "
+"features and support. "
+msgstr ""
+"Käytät PublishPress Shortlinks Free -versiota. Pro-versiossa on enemmän "
+"ominaisuuksia ja tukea. "
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:74
+#. %1$s: opening link tag, %2$s: closing link tag
+#, php-format
+msgid ""
+"You're using PublishPress Shortlinks Free. The Pro version has more "
+"features and support. %1$sUpgrade to Pro%2$s"
+msgstr ""
+"Käytät PublishPress Shortlinks Free -versiota. Pro-versiossa on enemmän "
+"ominaisuuksia ja tukea. %1$sPäivitä Pro:hon%2$s"

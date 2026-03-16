@@ -64,15 +64,19 @@ if ( ! function_exists( 'pb_settings_get_icons' ) ) {
 if ( ! function_exists( 'pb_settings_export' ) ) {
 	function pb_settings_export() {
 
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( esc_html__( 'Error: Insufficient permissions.' ), 403 );
+		}
+
 		$nonce  = ( ! empty( $_GET['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_GET['nonce'] ) ) : '';
 		$unique = ( ! empty( $_GET['unique'] ) ) ? sanitize_text_field( wp_unslash( $_GET['unique'] ) ) : '';
 
 		if ( ! wp_verify_nonce( $nonce, 'pb_settings_backup_nonce' ) ) {
-			die( esc_html__( 'Error: Invalid nonce verification.' ) );
+			wp_die( esc_html__( 'Error: Invalid nonce verification.' ), 403 );
 		}
 
 		if ( empty( $unique ) ) {
-			die( esc_html__( 'Error: Invalid key.' ) );
+			wp_die( esc_html__( 'Error: Invalid key.' ), 400 );
 		}
 
 		// Export
@@ -101,6 +105,10 @@ if ( ! function_exists( 'pb_settings_export' ) ) {
  */
 if ( ! function_exists( 'pb_settings_import_ajax' ) ) {
 	function pb_settings_import_ajax() {
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Insufficient permissions.' ) ) );
+		}
 
 		$nonce  = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 		$unique = ( ! empty( $_POST['unique'] ) ) ? sanitize_text_field( wp_unslash( $_POST['unique'] ) ) : '';
@@ -138,6 +146,10 @@ if ( ! function_exists( 'pb_settings_import_ajax' ) ) {
  */
 if ( ! function_exists( 'pb_settings_reset_ajax' ) ) {
 	function pb_settings_reset_ajax() {
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Insufficient permissions.' ) ) );
+		}
 
 		$nonce  = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 		$unique = ( ! empty( $_POST['unique'] ) ) ? sanitize_text_field( wp_unslash( $_POST['unique'] ) ) : '';

@@ -32,6 +32,7 @@ $tiny_slug_args = array(
         </div>
         <div class="popup-actions">
             <input type="hidden" name="tiny_slug" value="<?php echo esc_attr( $default_string ); ?>">
+            <input type="hidden" name="tinypress_create_nonce" value="<?php echo esc_attr( wp_create_nonce( 'tinypress_popup_create_url' ) ); ?>">
             <div class="popup-action popup-action-cancel"><?php esc_html_e( 'Close', 'tinypress' ) ?></div>
             <button type="submit" class="popup-action popup-action-create"><?php esc_html_e( 'Create Shortlink', 'tinypress' ) ?></button>
         </div>

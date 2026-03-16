@@ -76,15 +76,20 @@ if ( ! function_exists( 'tinypress_get_ip_address' ) ) {
 	 */
 
 	function tinypress_get_ip_address() {
-		if ( isset( $_SERVER['HTTP_CLIENT_IP'] ) && ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
-			$ip = sanitize_text_field( $_SERVER['HTTP_CLIENT_IP'] );
-		} elseif ( isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) && ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-			$ip = sanitize_text_field( $_SERVER['HTTP_X_FORWARDED_FOR'] );
-		} else {
-			$ip = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( $_SERVER['REMOTE_ADDR'] ) : '0.0.0.0';
+		$ip = isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0';
+
+		// Only use X-Forwarded-For if behind a trusted reverse proxy
+		if ( defined( 'TINYPRESS_TRUSTED_PROXY' ) && $ip === TINYPRESS_TRUSTED_PROXY ) {
+			if ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
+				$forwarded_ips = explode( ',', $_SERVER['HTTP_X_FORWARDED_FOR'] );
+				$candidate     = trim( $forwarded_ips[0] );
+				if ( filter_var( $candidate, FILTER_VALIDATE_IP ) ) {
+					$ip = $candidate;
+				}
+			}
 		}
 
-		return $ip;
+		return filter_var( $ip, FILTER_VALIDATE_IP ) ? $ip : '0.0.0.0';
 	}
 }
 
@@ -117,14 +122,16 @@ if ( ! function_exists( 'tinypress_get_tiny_slug_copier' ) ) {
 
 		echo '<div class="tiny-slug-wrap ' . esc_attr( $wrapper_class ) . '">';
 
-		echo '<div class="tiny-slug-preview hint--top" aria-label="' . tinypress()::get_text_hint() . '" data-text-copied="' . tinypress()::get_text_copied() . '">';
+		echo '<div class="tiny-slug-preview hint--top" aria-label="' . esc_attr( tinypress()::get_text_hint() ) . '" data-text-copied="' . esc_attr( tinypress()::get_text_copied() ) . '">';
 
+		echo '<span class="tiny-slug-inner">';
 		if ( $preview ) {
 			echo '<span class="preview"> ' . esc_html__( $preview_text ) . ' </span>';
 		} else {
 			echo '<span class="prefix">' . esc_url( site_url( '/' . $link_prefix_slug . '/' ) ) . '</span>';
 			echo '<span class="tiny-slug"> ' . esc_attr( $tiny_slug ) . ' </span>';
 		}
+		echo '</span>';
 		echo '</div>';
 
 		if ( $display_input_field ) {
@@ -196,6 +203,19 @@ if ( ! function_exists( 'tinypress_create_shorten_url' ) ) {
 
 		if ( empty( $target_url = Utils::get_args_option( 'target_url', $args ) ) ) {
 			return new WP_Error( 404, esc_html__( 'Target url not found.', 'tinypress' ) );
+		}
+
+		$allowed_schemes = array( 'http', 'https', 'ftp', 'ftps', 'mailto' );
+		$parsed_scheme   = parse_url( $target_url, PHP_URL_SCHEME );
+
+		if ( empty( $parsed_scheme ) || ! in_array( $parsed_scheme, $allowed_schemes, true ) ) {
+			return new WP_Error( 'invalid_url', esc_html__( 'Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed.', 'tinypress' ) );
+		}
+
+		$target_url = esc_url_raw( $target_url, $allowed_schemes );
+
+		if ( empty( $target_url ) ) {
+			return new WP_Error( 'invalid_url', esc_html__( 'Invalid URL.', 'tinypress' ) );
 		}
 
 		if ( empty( $tiny_slug = Utils::get_args_option( 'tiny_slug', $args, tinypress_create_url_slug() ) ) ) {

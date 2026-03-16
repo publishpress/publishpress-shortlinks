@@ -11,26 +11,317 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-06T09:06:45+00:00\n"
-"PO-Revision-Date: 2026-02-13 10:17+0000\n"
+"POT-Creation-Date: 2026-02-26 14:40+0000\n"
+"PO-Revision-Date: 2026-03-03 08:45+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: tinypress\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "Language: ko-KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
-#: tinypress.php
-#: includes/classes/class-meta-boxes.php:162
-#: tinypress.php:225
-#. Plugin Name of the plugin
-msgid "PublishPress Shortlinks"
-msgstr "PublishPress 단축 링크"
+#: includes/classes/class-autolist-ajax.php:55
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:55
+#, php-format
+msgid "\"%s\" cannot be used for auto-listing"
+msgstr "\"%s\"는 자동 목록에 사용할 수 없습니다"
 
-#: tinypress.php, fuzzy
-#. Plugin URI of the plugin
-msgid "https://publishpress.com/shortlinks/"
-msgstr "https://publishpress.com/shortlinks/"
+#: includes/classes/class-autolist-ajax.php:64
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:64
+#, php-format
+msgid "\"%s\" is already configured"
+msgstr "\"%s\"는 이미 구성되어 있습니다"
 
-#: tinypress.php
+#: includes/classes/class-autolist-ajax.php:49
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:49
+#, php-format
+msgid "\"%s\" is not a public post type"
+msgstr "\"%s\"는 공개 게시물 유형이 아닙니다"
+
+#: includes/classes/class-autolist-ajax.php:42
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:42
+#, php-format
+msgid "\"%s\" is not a registered post type"
+msgstr "\"%s\"는 등록된 게시물 유형이 아닙니다"
+
+#: includes/classes/class-table-logs.php:71
+#, fuzzy
+msgid "%d log entries deleted successfully."
+msgstr "Tinyurl이 성공적으로 생성되었습니다."
+
+#: includes/classes/class-revision.php:212
+#. %d: number of revision shortlinks migrated
+msgid ""
+"%d revision shortlink(s) were updated with unique links. Previously, these "
+"revisions shared the same shortlink as their parent post."
+msgstr "%d 수정된 단축 링크가 고유 링크로 업데이트되었습니다. 이전에는 이 수정본들이 부모 게시물과 동일한 단축 링크를 공유했습니다."
+
+#: includes/classes/class-table-logs.php:252
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:143
+#, php-format
+msgid "%s from %s visited at %s"
+msgstr "%s에서 %s가 %s에 방문했습니다"
+
+#: includes/classes/class-meta-boxes.php:299
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:301, fuzzy
+msgid "********"
+msgstr "********"
+
+#: includes/classes/class-meta-boxes.php:254
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:254
+msgid "301 (Permanent)"
+msgstr "301 (영구적)"
+
+#: includes/classes/class-meta-boxes.php:253
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:253
+msgid "302 (Temporary)"
+msgstr "302 (임시)"
+
+#: includes/classes/class-meta-boxes.php:252
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:252
+msgid "307 (Temporary)"
+msgstr "307 (임시)"
+
+#: templates/admin/footer.php:21
+#: dist/publishpress-shortlinks/templates/admin/footer.php:21
+msgid "About"
+msgstr "정보"
+
+#: includes/classes/class-hooks.php:432
+#, fuzzy
+msgid "Access Denied"
+msgstr "권한이 거부되었습니다"
+
+#: includes/classes/class-columns-link.php:272
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:151
+msgid "Actions"
+msgstr "작업"
+
+#: includes/classes/class-settings.php:174
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:180
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "도메인 이름과 단축 링크 사이에 접두사를 추가하세요."
+
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:269
+msgid "Add nofollow attribute."
+msgstr "nofollow 속성을 추가합니다."
+
+#: includes/classes/class-settings.php:456
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:405
+msgid "Add Post Type"
+msgstr "게시물 유형 추가"
+
+#: includes/classes/class-settings.php:267
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:284
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr "게시물 유형을 추가하고 해당 단축 링크가 \"모든 링크\" 테이블에 표시될 시점을 구성합니다. 변경 사항은 자동으로 저장됩니다."
+
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:262
+msgid "Add sponsored attribute."
+msgstr "스폰서 속성을 추가합니다."
+
+#: includes/classes/class-meta-boxes.php:270
+msgid ""
+"Adds rel=\"nofollow\" attribute. Recommended for external links and "
+"untrusted sources."
+msgstr "rel=\"nofollow\" 속성을 추가합니다. 외부 링크 및 신뢰할 수 없는 소스에 권장됩니다."
+
+#: includes/classes/class-meta-boxes.php:263
+msgid ""
+"Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
+"promotions."
+msgstr "rel=\"sponsored\" 속성을 추가합니다. 제휴 링크 및 유료 프로모션에 권장됩니다."
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:121
+#: templates/admin/settings/supports.php:25
+msgid "Advanced click analytics"
+msgstr "고급 클릭 분석"
+
+#: includes/classes/class-meta-boxes.php:225
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:225
+msgid "After disabling the link will not active but the settings will be reserved."
+msgstr "비활성화 후 링크는 활성화되지 않지만 설정은 유지됩니다."
+
+#: includes/classes/class-hooks.php:246
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:172
+msgid "All Logs"
+msgstr "모든 로그"
+
+#: includes/classes/class-table-logs.php:75
+msgid "All logs have been cleared."
+msgstr "모든 로그가 지워졌습니다."
+
+#: includes/classes/class-hooks.php:184
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:117
+#, fuzzy
+msgid "All Shortlinks"
+msgstr "짧은 링크"
+
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:277
+msgid "All the parameters will pass to the target link."
+msgstr "모든 매개변수는 대상 링크로 전달됩니다."
+
+#: includes/classes/class-settings.php:359
+msgid "Allow logged-out visitors to view revision content via shortlinks."
+msgstr "로그아웃된 방문자가 단축 링크를 통해 수정 내용을 볼 수 있도록 허용합니다."
+
+#: includes/classes/class-settings.php:279
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:296
+msgid "Allowed Post Statuses"
+msgstr "허용된 게시물 상태"
+
+#: includes/classes/class-meta-boxes.php:341
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:336
+msgid "Analytics"
+msgstr "분석"
+
+#: includes/classes/class-hooks.php:120
+#, fuzzy
+msgid "Analytics reset successfully."
+msgstr "Tinyurl이 성공적으로 생성되었습니다."
+
+#: includes/classes/class-meta-boxes.php:278
+msgid ""
+"Any parameters added to the short URL (e.g., ?utm_source=email) will be "
+"forwarded to the target URL."
+msgstr "단축 URL에 추가된 모든 매개변수(예: ?utm_source=email)는 대상 URL로 전달됩니다."
+
+#: includes/classes/class-hooks.php:246
+#, fuzzy
+msgid "Are you sure you want to clear all logs?"
+msgstr "이 게시물 유형을 제거하시겠습니까?"
+
+#: includes/classes/class-table-logs.php:183
+#, fuzzy
+msgid "Are you sure you want to delete this log entry?"
+msgstr "이 게시물 유형을 제거하시겠습니까?"
+
+#: includes/classes/class-autolist-ajax.php:271
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:271
+msgid "Are you sure you want to remove this post type?"
+msgstr "이 게시물 유형을 제거하시겠습니까?"
+
+#: includes/classes/class-settings.php:253
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:270
+#, fuzzy
+msgid "Auto-List Links"
+msgstr "자동 나열 링크 활성화"
+
+#: includes/classes/class-settings.php:258
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:275
+#, fuzzy
+msgid "Auto-List Shortlinks"
+msgstr "짧은 링크"
+
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:104
+#, php-format
+msgid "Auto: %s"
+msgstr "자동: %s"
+
+#: includes-core/ShortlinksCoreAdmin.php:210
+msgid "Bulk Import & Export"
+msgstr "대량 가져오기 및 내보내기"
+
+#: includes-core/ShortlinksCoreAdmin.php:223
+#, fuzzy
+msgid "Bulk Management"
+msgstr "역할 관리"
+
+#: includes/classes/class-settings.php:360
+msgid ""
+"By default, PublishPress Revisions blocks visitors from viewing revision "
+"previews. When enabled, revision shortlinks will render the revision "
+"content directly for logged-out visitors instead of redirecting to the "
+"preview URL. This applies to all existing revision shortlinks regardless of "
+"the setting above."
+msgstr ""
+"기본적으로, PublishPress Revisions는 방문자가 수정 미리보기를 볼 수 없도록 차단합니다. 이 기능이 활성화되면, 수정 "
+"단축 링크는 로그아웃된 방문자에게 수정 내용을 미리보기 URL로 리디렉션하는 대신 직접 렌더링합니다. 이는 위 설정과 관계없이 모든 "
+"기존 수정 단축 링크에 적용됩니다."
+
+#: includes/classes/class-hooks.php:199
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:132
+msgid "Categories"
+msgstr "카테고리"
+
+#: includes/classes/class-hooks.php:198
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:131
+msgid "Category"
+msgstr "카테고리"
+
+#: includes/classes/class-settings.php:280
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:297
+msgid "Choose which post statuses can be accessed via shortlinks"
+msgstr "단축 링크를 통해 접근할 수 있는 게시물 상태를 선택하세요"
+
+#: includes/classes/class-hooks.php:246
+#, fuzzy
+msgid "Clear Logs"
+msgstr "모든 로그"
+
+#: includes/classes/class-redirection.php:261
+msgid "Click here if you are not redirected"
+msgstr "리디렉션되지 않는 경우 여기를 클릭하세요"
+
+#: templates/admin/settings/browsers.php:8
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:8
+msgid "Click on your preferred one to Download the extension."
+msgstr "선택한 것을 클릭하여 확장 프로그램을 다운로드하세요."
+
+#: includes/classes/class-functions.php:39
+#: dist/publishpress-shortlinks/includes/classes/class-functions.php:39
+msgid "Click to copy"
+msgstr "복사하려면 클릭하세요"
+
+#: includes/classes/class-columns-link.php:215
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:120
+#, php-format
+msgid "Clicked %s times"
+msgstr "클릭됨: %s 회"
+
+#: templates/admin-modal-new-link.php:35
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:35
+msgid "Close"
+msgstr "닫기"
+
+#: includes/classes/class-autolist-ajax.php:120
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:120
+msgid "Configuration saved successfully"
+msgstr "구성이 성공적으로 저장되었습니다"
+
+#: includes/classes/class-autolist-ajax.php:111
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:111
+msgid "Configuration unchanged (already saved)"
+msgstr "구성이 변경되지 않았습니다 (이미 저장됨)"
+
+#: includes/classes/class-settings.php:265
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:282
+msgid "Configure Post Types"
+msgstr "게시물 유형 구성"
+
+#: templates/admin/footer.php:30
+#: dist/publishpress-shortlinks/templates/admin/footer.php:30
+msgid "Contact"
+msgstr "연락처"
+
+#: includes/classes/class-settings.php:339
+msgid ""
+"Controls when a companion entry is created in the All Shortlinks table for "
+"revision shortlinks. The shortlink itself is always generated regardless of "
+"this setting."
+msgstr ""
+"수정 단축 링크에 대해 All Shortlinks 테이블에서 동반 항목이 생성되는 시점을 제어합니다. 이 설정과 관계없이 단축 링크 "
+"자체는 항상 생성됩니다."
+
+#: includes/classes/class-functions.php:46
+#: dist/publishpress-shortlinks/includes/classes/class-functions.php:46
+msgid "Copied"
+msgstr "복사됨"
+
+#: tinypress.php:259 dist/publishpress-shortlinks/tinypress.php:264
+msgid "Copied."
+msgstr "복사됨."
+
 #. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
@@ -39,701 +330,984 @@ msgstr ""
 "게시물에 대한 사용자 정의 링크를 만드세요. 이러한 링크는 브랜드화할 수 있으며, 추적 가능하고, 사용자 정의 보기 권한을 가질 수 "
 "있습니다."
 
-#: tinypress.php, fuzzy
-#. Author of the plugin
-msgid "PublishPress"
-msgstr "PublishPress"
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:36
+msgid "Create Short URL"
+msgstr "짧은 URL 만들기"
 
-#: tinypress.php, fuzzy
-#. Author URI of the plugin
-msgid "https://publishpress.com/"
-msgstr "https://publishpress.com/"
+#: templates/admin-modal-new-link.php:36
+#, fuzzy
+msgid "Create Shortlink"
+msgstr "짧은 URL 만들기"
 
-#: includes/classes/class-autolist-ajax.php:30
-#: includes/classes/class-autolist-ajax.php:180
-msgid "Permission denied"
-msgstr "권한이 거부되었습니다"
+#: includes/classes/class-settings.php:191
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:197
+#, fuzzy
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
+msgstr "이제 WordPress 대시보드 내 어디에서나 긴 링크를 짧게 만들 수 있습니다."
 
-#: includes/classes/class-autolist-ajax.php:37
-msgid "Post type is required"
-msgstr "게시물 유형이 필요합니다"
+#: includes-core/ShortlinksCoreAdmin.php:215
+msgid "CSV Export"
+msgstr "CSV 내보내기"
 
-#: includes/classes/class-autolist-ajax.php:42
-#, php-format
-msgid "\"%s\" is not a registered post type"
-msgstr "\"%s\"는 등록된 게시물 유형이 아닙니다"
+#: includes-core/ShortlinksCoreAdmin.php:219
+msgid "CSV Import"
+msgstr "CSV 가져오기"
 
-#: includes/classes/class-autolist-ajax.php:49
-#, php-format
-msgid "\"%s\" is not a public post type"
-msgstr "\"%s\"는 공개 게시물 유형이 아닙니다"
+#: includes/classes/class-settings.php:192
+#: includes/classes/class-settings.php:193
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:198
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:199
+msgid "Ctrl or Cmd + /"
+msgstr "Ctrl 또는 Cmd + /"
 
-#: includes/classes/class-autolist-ajax.php:55
-#, php-format
-msgid "\"%s\" cannot be used for auto-listing"
-msgstr "\"%s\"는 자동 목록에 사용할 수 없습니다"
+#: includes/classes/class-settings.php:181
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:187
+msgid "Custom prefix slug."
+msgstr "사용자 정의 접두사 슬러그."
 
-#: includes/classes/class-autolist-ajax.php:64
-#, php-format
-msgid "\"%s\" is already configured"
-msgstr "\"%s\"는 이미 구성되어 있습니다"
+#: includes/classes/class-settings.php:300
+msgid "Default Expired Redirect URL"
+msgstr "기본 만료 리디렉션 URL"
 
-#: includes/classes/class-autolist-ajax.php:70
-#, php-format
-msgid "Valid: %s"
-msgstr "유효: %s"
+#: includes/classes/class-columns-link.php:195
+msgid "Deferred"
+msgstr "연기됨"
 
-#: includes/classes/class-autolist-ajax.php:83
-msgid "Permission denied - you must be an administrator"
-msgstr "권한이 거부되었습니다 - 관리자여야 합니다"
+#: includes/classes/class-columns-link.php:223
+#: includes/classes/class-table-logs.php:163
+#: includes/classes/class-table-logs.php:183
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:128
+msgid "Delete"
+msgstr "삭제"
 
-#: includes/classes/class-autolist-ajax.php:90
-msgid "Invalid configuration format - expected array"
-msgstr "잘못된 구성 형식 - 배열이 예상됨"
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:145
+#: templates/admin/settings/supports.php:54
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:26
+msgid "Detailed documentation is also available on the plugin website."
+msgstr "자세한 문서는 플러그인 웹사이트에서도 제공됩니다."
 
-#: includes/classes/class-autolist-ajax.php:111
-msgid "Configuration unchanged (already saved)"
-msgstr "구성이 변경되지 않았습니다 (이미 저장됨)"
+#: includes/classes/class-table-logs.php:152
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:81
+msgid "Details"
+msgstr "세부정보"
 
-#: includes/classes/class-autolist-ajax.php:115
-msgid "Failed to save configuration to database"
-msgstr "구성을 데이터베이스에 저장하지 못했습니다"
+#: includes/classes/class-meta-boxes.php:227
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:227
+msgid "Disable"
+msgstr "비활성화"
 
-#: includes/classes/class-autolist-ajax.php:120
-msgid "Configuration saved successfully"
-msgstr "구성이 성공적으로 저장되었습니다"
+#: includes/classes/class-meta-boxes.php:224
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:224
+#, fuzzy
+msgid "Disable the shortlink instantly."
+msgstr "링크를 즉시 비활성화합니다."
+
+#: includes/classes/class-settings.php:312
+#: includes/classes/class-settings.php:321
+msgid ""
+"Display a brief notice before redirecting expired links (using a JavaScript "
+"redirect with a short delay)."
+msgstr "만료된 링크를 리디렉션하기 전에 간단한 알림을 표시합니다(짧은 지연이 있는 JavaScript 리디렉션 사용)."
+
+#: includes/classes/class-settings.php:352
+msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
+msgstr "PublishPress Revisions에서 수정을 볼 때 단축 링크 열을 표시합니다."
+
+#: templates/admin/footer.php:26
+#: dist/publishpress-shortlinks/templates/admin/footer.php:26
+msgid "Documentation"
+msgstr "문서"
+
+#: templates/admin/qr-code.php:15
+#: dist/publishpress-shortlinks/templates/admin/qr-code.php:9
+#, fuzzy
+msgid "Download QR Code"
+msgstr "QR 다운로드"
+
+#: templates/admin/settings/browsers.php:15
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:15
+msgid "Download the Extension"
+msgstr "확장 프로그램 다운로드"
+
+#: includes/classes/class-settings.php:285
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:302
+msgid "Draft"
+msgstr "초안"
+
+#: includes/classes/class-settings.php:381
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:317
+msgid "Dummy"
+msgstr "더미"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:125
+msgid "Earth"
+msgstr "지구"
+
+#: includes/classes/class-columns-link.php:222
+#: includes/classes/class-table-logs.php:181
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:127
+msgid "Edit"
+msgstr "편집"
+
+#: includes/functions.php:153
+#: dist/publishpress-shortlinks/includes/functions.php:153
+msgid "Edit shortlink settings"
+msgstr "단축 링크 설정 편집"
+
+#: includes/classes/class-meta-boxes.php:226
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:226
+msgid "Enable"
+msgstr "활성화"
+
+#: includes/classes/class-meta-boxes.php:308
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:310
+msgid "Enable Expiration"
+msgstr "만료 활성화"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:118
+#: templates/admin/settings/supports.php:22
+msgid "Enhance the power of PublishPress Shortlinks with the Pro version:"
+msgstr "Pro 버전으로 PublishPress Shortlinks의 기능을 강화하세요:"
+
+#: templates/admin-modal-new-link.php:19
+#, fuzzy
+msgid "Enter a long URL and make a shortlink"
+msgstr "긴 URL을 입력하고 짧은 버전으로 만드세요"
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:19
+msgid "Enter a long url and make into a tiny version"
+msgstr "긴 URL을 입력하고 짧은 버전으로 만드세요"
+
+#: includes/classes/class-autolist-ajax.php:270
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:270
+msgid "Error"
+msgstr "오류"
 
 #: includes/classes/class-autolist-ajax.php:127
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:127
 #, php-format
 msgid "Error: %s"
 msgstr "오류: %s"
 
-#: includes/classes/class-autolist-ajax.php:261
-msgid "Validating..."
-msgstr "검증 중..."
-
-#: includes/classes/class-autolist-ajax.php:262
-msgid "Saving..."
-msgstr "저장 중..."
-
-#: includes/classes/class-autolist-ajax.php:263
-msgid "Saved!"
-msgstr "저장됨!"
-
-#: includes/classes/class-autolist-ajax.php:264
-msgid "Error"
-msgstr "오류"
-
-#: includes/classes/class-autolist-ajax.php:265
-msgid "Are you sure you want to remove this post type?"
-msgstr "이 게시물 유형을 제거하시겠습니까?"
-
-#: includes/classes/class-autolist-ajax.php:266
-msgid "Select a post type"
-msgstr "게시물 유형 선택"
-
-#: includes/classes/class-autolist-ajax.php:267
-#: includes/classes/class-settings.php:393
-msgid "Never"
-msgstr "절대"
-
-#: includes/classes/class-autolist-ajax.php:268
-#: includes/classes/class-settings.php:394
-msgid "On First Use"
-msgstr "첫 사용 시"
-
-#: includes/classes/class-autolist-ajax.php:269
-#: includes/classes/class-settings.php:395
-msgid "On Publish"
-msgstr "게시 시"
-
-#: includes/classes/class-autolist.php:103
-msgid "Invalid post ID or post type."
-msgstr "잘못된 게시물 ID 또는 게시물 유형입니다."
-
-#: includes/classes/class-columns-link.php:38
-#: includes/classes/class-hooks.php:119
-#: includes/classes/class-meta-boxes.php:77
-msgid "Shortlinks"
-msgstr "짧은 링크"
-
-#: includes/classes/class-columns-link.php:104
-#, php-format
-msgid "Auto: %s"
-msgstr "자동: %s"
-
-#: includes/classes/class-columns-link.php:120
-#, php-format
-msgid "Clicked %s times"
-msgstr "클릭됨: %s 회"
-
-#: includes/classes/class-columns-link.php:127
-msgid "Edit"
-msgstr "편집"
-
-#: includes/classes/class-columns-link.php:128
-msgid "Delete"
-msgstr "삭제"
-
-#: includes/classes/class-columns-link.php:148
-msgid "Link Title"
-msgstr "링크 제목"
-
-#: includes/classes/class-columns-link.php:149
-msgid "Shorten Link"
-msgstr "링크 단축"
-
-#: includes/classes/class-columns-link.php:150
-msgid "Stats"
-msgstr "통계"
-
-#: includes/classes/class-columns-link.php:151
-msgid "Actions"
-msgstr "작업"
-
-#: includes/classes/class-functions.php:39
-msgid "Click to copy"
-msgstr "복사하려면 클릭하세요"
-
-#: includes/classes/class-functions.php:46
-msgid "Copied"
-msgstr "복사됨"
-
-#: includes/classes/class-hooks.php:45
-msgid "Invalid or empty URL"
-msgstr "잘못되었거나 비어 있는 URL"
-
-#: includes/classes/class-hooks.php:62
-msgid "Tinyurl created successfully."
-msgstr "Tinyurl이 성공적으로 생성되었습니다."
-
-#: includes/classes/class-hooks.php:79
-msgid "Shorten"
-msgstr "단축"
-
-#: includes/classes/class-hooks.php:116
-msgid "Link"
-msgstr "링크"
-
-#: includes/classes/class-hooks.php:117
-msgid "All Links"
-msgstr "모든 링크"
-
-#: includes/classes/class-hooks.php:131
-msgid "Category"
-msgstr "카테고리"
-
-#: includes/classes/class-hooks.php:132
-msgid "Categories"
-msgstr "카테고리"
-
-#: includes/classes/class-hooks.php:154
-msgid "Logs"
-msgstr "로그"
-
-#: includes/classes/class-hooks.php:172
-msgid "All Logs"
-msgstr "모든 로그"
-
-#: includes/classes/class-meta-boxes.php:174
-#: includes/classes/class-settings.php:171
-msgid "General"
-msgstr "일반"
-
-#: includes/classes/class-meta-boxes.php:179
-msgid "Label *"
-msgstr "레이블 *"
-
-#: includes/classes/class-meta-boxes.php:181
-msgid "For admin purpose only."
-msgstr "관리자 목적에만 사용됩니다."
-
-#: includes/classes/class-meta-boxes.php:190
-msgid "Target URL *"
-msgstr "대상 URL *"
-
-#: includes/classes/class-meta-boxes.php:199
-msgid "Short String *"
-msgstr "짧은 문자열 *"
-
-#: includes/classes/class-meta-boxes.php:200
-msgid "Short string of this URL."
-msgstr "이 URL의 짧은 문자열입니다."
-
-#: includes/classes/class-meta-boxes.php:206
-msgid "Status"
-msgstr "상태"
-
-#: includes/classes/class-meta-boxes.php:207
-msgid "Disable the link instantly."
-msgstr "링크를 즉시 비활성화합니다."
-
-#: includes/classes/class-meta-boxes.php:208
-msgid "After disabling the link will not active but the settings will be reserved."
-msgstr "비활성화 후 링크는 활성화되지 않지만 설정은 유지됩니다."
-
-#: includes/classes/class-meta-boxes.php:209
-msgid "Enable"
-msgstr "활성화"
-
-#: includes/classes/class-meta-boxes.php:210
-msgid "Disable"
-msgstr "비활성화"
-
-#: includes/classes/class-meta-boxes.php:217
-msgid "Notes"
-msgstr "노트"
-
-#: includes/classes/class-meta-boxes.php:226
-msgid "Redirection"
-msgstr "리디렉션"
-
-#: includes/classes/class-meta-boxes.php:231
-msgid "Redirection Method"
-msgstr "리디렉션 방법"
-
-#: includes/classes/class-meta-boxes.php:232
-msgid "Select redirection method"
-msgstr "리디렉션 방법 선택"
-
-#: includes/classes/class-meta-boxes.php:235
-msgid "307 (Temporary)"
-msgstr "307 (임시)"
-
-#: includes/classes/class-meta-boxes.php:236
-msgid "302 (Temporary)"
-msgstr "302 (임시)"
-
-#: includes/classes/class-meta-boxes.php:237
-msgid "301 (Permanent)"
-msgstr "301 (영구적)"
-
-#: includes/classes/class-meta-boxes.php:244
-msgid "Sponsored"
-msgstr "후원됨"
-
-#: includes/classes/class-meta-boxes.php:245
-msgid "Add sponsored attribute."
-msgstr "스폰서 속성을 추가합니다."
-
-#: includes/classes/class-meta-boxes.php:246
-msgid "Recommended for affiliate links."
-msgstr "제휴 링크에 추천됩니다."
-
-#: includes/classes/class-meta-boxes.php:251
-msgid "NoFollow"
-msgstr "노팔로우"
-
-#: includes/classes/class-meta-boxes.php:252
-msgid "Add nofollow attribute."
-msgstr "nofollow 속성을 추가합니다."
-
-#: includes/classes/class-meta-boxes.php:253
-msgid "We recommended to use this."
-msgstr "이것을 사용하는 것을 추천합니다."
-
-#: includes/classes/class-meta-boxes.php:259
-msgid "Parameter Forwarding"
-msgstr "파라미터 전달"
-
-#: includes/classes/class-meta-boxes.php:260
-msgid "All the parameters will pass to the target link."
-msgstr "모든 매개변수는 대상 링크로 전달됩니다."
-
-#: includes/classes/class-meta-boxes.php:269
-msgid "Security"
-msgstr "보안"
-
-#: includes/classes/class-meta-boxes.php:274
-msgid "Password Protection"
-msgstr "비밀번호 보호"
-
-#: includes/classes/class-meta-boxes.php:275
-msgid "Secure your link."
-msgstr "링크를 안전하게 보호하세요."
-
-#: includes/classes/class-meta-boxes.php:276
-msgid "Users must enter the password to redirect to the target link."
-msgstr "사용자는 대상 링크로 리디렉션하기 위해 비밀번호를 입력해야 합니다."
-
-#: includes/classes/class-meta-boxes.php:281
-msgid "Password"
-msgstr "비밀번호"
-
-#: includes/classes/class-meta-boxes.php:282
-msgid "Share this with users."
-msgstr "사용자와 공유하세요."
-
-#: includes/classes/class-meta-boxes.php:283
-msgid "Passwords are case sensitive."
-msgstr "비밀번호는 대소문자를 구분합니다."
-
-#: includes/classes/class-meta-boxes.php:284, fuzzy
-msgid "********"
-msgstr "********"
-
-#: includes/classes/class-meta-boxes.php:293
-msgid "Enable Expiration"
-msgstr "만료 활성화"
-
-#: includes/classes/class-meta-boxes.php:294
-msgid "Expire automatically."
-msgstr "자동으로 만료됩니다."
-
-#: includes/classes/class-meta-boxes.php:295
-msgid "Users will not able to redirect to the target URL once expire."
-msgstr "사용자는 만료된 후 대상 URL로 리디렉션할 수 없습니다."
-
-#: includes/classes/class-meta-boxes.php:300
+#: includes/classes/class-meta-boxes.php:315
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:317
 msgid "Expiration Date"
 msgstr "만료 날짜"
 
-#: includes/classes/class-meta-boxes.php:301
-msgid "It will automatically expire."
+#: includes/classes/class-meta-boxes.php:309
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:311
+msgid "Expire automatically."
 msgstr "자동으로 만료됩니다."
 
-#: includes/classes/class-meta-boxes.php:319
-msgid "Analytics"
-msgstr "분석"
+#: includes/classes/class-settings.php:295
+msgid "Expired Links"
+msgstr "만료된 링크"
 
-#: includes/classes/class-redirection.php:87
-#, php-format
-msgid "This content is not publicly accessible. Post status: %s"
-msgstr "이 콘텐츠는 공개적으로 접근할 수 없습니다. 게시물 상태: %s"
+#: includes/classes/class-columns-link.php:170
+msgid "External"
+msgstr "외부"
 
-#: includes/classes/class-redirection.php:90
-msgid "Content Not Available"
-msgstr "내용을 사용할 수 없습니다"
+#: includes/classes/class-hooks.php:122
+msgid "Failed to reset analytics."
+msgstr "분석 리셋에 실패했습니다."
 
-#: includes/classes/class-redirection.php:164
-msgid "Post not found."
-msgstr "게시물이 없습니다."
+#: includes/classes/class-autolist-ajax.php:115
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:115
+msgid "Failed to save configuration to database"
+msgstr "구성을 데이터베이스에 저장하지 못했습니다"
 
-#: includes/classes/class-redirection.php:265
-msgid "This link is not active."
-msgstr "이 링크는 활성화되어 있지 않습니다."
+#: includes/classes/class-meta-boxes.php:198
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:198
+msgid "For admin purpose only."
+msgstr "관리자 목적에만 사용됩니다."
 
-#: includes/classes/class-redirection.php:273
-msgid "This link is expired."
-msgstr "이 링크는 만료되었습니다."
+#: includes/classes/class-meta-boxes.php:191
+#: includes/classes/class-settings.php:165
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:191
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:171
+msgid "General"
+msgstr "일반"
 
-#: includes/classes/class-redirection.php:353
-msgid "This link is not containing the right prefix slug."
-msgstr "이 링크에는 올바른 접두사 슬러그가 포함되어 있지 않습니다."
-
-#: includes/classes/class-settings.php:91
-msgid "Settings"
-msgstr "설정"
-
-#: includes/classes/class-settings.php:174
-msgid "Options"
-msgstr "옵션"
-
-#: includes/classes/class-settings.php:179
-msgid "Link Prefix"
-msgstr "링크 접두사"
-
-#: includes/classes/class-settings.php:180
-msgid "Add custom prefix."
-msgstr "사용자 정의 접두사를 추가합니다."
-
-#: includes/classes/class-settings.php:181
-msgid "Customize your tiny url in a better way."
-msgstr "더 나은 방법으로 작은 URL을 사용자 정의하세요."
-
-#: includes/classes/class-settings.php:187
-msgid "Prefix Slug"
-msgstr "접두사 슬러그"
-
-#: includes/classes/class-settings.php:188
-msgid "Custom prefix slug."
-msgstr "사용자 정의 접두사 슬러그."
-
-#: includes/classes/class-settings.php:189
-#, php-format
-msgid "This prefix slug will be added this way - %s"
-msgstr "이 접두사 슬러그는 다음과 같이 추가됩니다 - %s"
-
-#: includes/classes/class-settings.php:190
-#: includes/classes/class-settings.php:191
+#: includes/classes/class-settings.php:183
+#: includes/classes/class-settings.php:184
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:189
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:190
 msgid "go"
 msgstr "가다"
 
-#: includes/classes/class-settings.php:197
-msgid "Keyboard Shortcut"
-msgstr "키보드 단축키"
-
-#: includes/classes/class-settings.php:198
-msgid "Configure your K/B"
-msgstr "K/B 구성"
-
-#: includes/classes/class-settings.php:199
-msgid ""
-"You can now short your large links from anywhere inside your WordPress "
-"dashboard."
-msgstr "이제 WordPress 대시보드 내 어디에서나 긴 링크를 짧게 만들 수 있습니다."
-
-#: includes/classes/class-settings.php:200
-msgid "For now you have no option to set your own shortcut but this will come soon."
-msgstr "현재는 자체 단축키를 설정할 수 있는 옵션이 없지만 곧 제공될 예정입니다."
-
-#: includes/classes/class-settings.php:201
-#: includes/classes/class-settings.php:202
-msgid "Ctrl or Cmd + /"
-msgstr "Ctrl 또는 Cmd + /"
-
-#: includes/classes/class-settings.php:211
-msgid "Hide Modal Opener"
-msgstr "모달 열기기 숨기기"
-
-#: includes/classes/class-settings.php:212
-msgid "Remove from WP Admin Bar"
-msgstr "WP 관리 바에서 제거"
-
-#: includes/classes/class-settings.php:213
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:209
 msgid "Hide quick short link modal opener from WP Admin Bar."
 msgstr "WP 관리자 바에서 빠른 단축 링크 모달 열기를 숨깁니다."
 
-#: includes/classes/class-settings.php:219
-msgid "Role Management"
-msgstr "역할 관리"
+#: includes/classes/class-settings.php:203, fuzzy
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "워드프레스 관리자 바에서 \"단축\" 버튼을 숨깁니다."
 
-#: includes/classes/class-settings.php:224
-msgid "Who Can View Links"
-msgstr "링크를 볼 수 있는 사람"
+#. Author URI of the plugin
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
 
-#: includes/classes/class-settings.php:225
-#: includes/classes/class-settings.php:237
-#: includes/classes/class-settings.php:249
-#: includes/classes/class-settings.php:261
-msgid "Upcoming feature."
-msgstr "예정된 기능."
+#. URI of the plugin
+msgid "https://publishpress.com/shortlinks/"
+msgstr "https://publishpress.com/shortlinks/"
 
-#: includes/classes/class-settings.php:226
-msgid "Only selected user roles can view links."
-msgstr "선택된 사용자 역할만 링크를 볼 수 있습니다."
+#: templates/admin/footer.php:14
+#: dist/publishpress-shortlinks/templates/admin/footer.php:14
+#, php-format
+msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
+msgstr "%1$s가 마음에 드신다면 %2$s 평가를 남겨주세요. 감사합니다!"
 
-#: includes/classes/class-settings.php:236
-msgid "Who Can Create/Edit Links"
-msgstr "링크를 생성/편집할 수 있는 사람"
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:139
+#: templates/admin/settings/supports.php:47
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:19
+msgid "If you need help or have a new feature request, let us know."
+msgstr "도움이 필요하시거나 새로운 기능 요청이 있으시면 알려주세요."
 
-#: includes/classes/class-settings.php:238
-msgid "Only selected user roles can create or edit links."
-msgstr "선택된 사용자 역할만 링크를 생성하거나 편집할 수 있습니다."
+#: includes-core/ShortlinksCoreAdmin.php:189
+#: includes-core/ShortlinksCoreAdmin.php:190
+msgid "Import / Export"
+msgstr "가져오기 / 내보내기"
 
-#: includes/classes/class-settings.php:248
-msgid "Who Can See Analytics"
-msgstr "분석을 볼 수 있는 사람"
+#: includes-core/ShortlinksCoreAdmin.php:205
+msgid "Import / Export Shortlinks"
+msgstr "단축 링크 가져오기 / 내보내기"
 
-#: includes/classes/class-settings.php:250
-msgid "Only selected user roles can see analytics."
-msgstr "선택된 사용자 역할만 분석 정보를 볼 수 있습니다."
+#: includes-core/ShortlinksCoreAdmin.php:211
+msgid ""
+"Import and export your shortlinks in bulk using CSV files. Migrate from "
+"other plugins or manage links across multiple sites."
+msgstr "CSV 파일을 사용하여 단축 링크를 대량으로 가져오고 내보냅니다. 다른 플러그인에서 마이그레이션하거나 여러 사이트에서 링크를 관리하세요."
 
-#: includes/classes/class-settings.php:260
-msgid "Who Can Control Settings"
-msgstr "설정을 제어할 수 있는 사람"
+#: includes/classes/class-columns-link.php:170
+msgid "Internal"
+msgstr "내부"
 
-#: includes/classes/class-settings.php:262
+#: includes/classes/class-autolist-ajax.php:90
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:90
+msgid "Invalid configuration format - expected array"
+msgstr "잘못된 구성 형식 - 배열이 예상됨"
+
+#: includes/classes/class-hooks.php:80
+msgid "Invalid nonce verification."
+msgstr "유효하지 않은 nonce 확인."
+
+#: includes/classes/class-hooks.php:56
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:45
+msgid "Invalid or empty URL"
+msgstr "잘못되었거나 비어 있는 URL"
+
+#: includes/classes/class-autolist.php:109
+#: dist/publishpress-shortlinks/includes/classes/class-autolist.php:103
+msgid "Invalid post ID or post type."
+msgstr "잘못된 게시물 ID 또는 게시물 유형입니다."
+
+#: includes/classes/class-hooks.php:91
+#, fuzzy
+msgid "Invalid post ID."
+msgstr "잘못된 게시물 ID 또는 게시물 유형입니다."
+
+#: includes/classes/class-revision.php:379
+msgid "Invalid revision ID."
+msgstr "유효하지 않은 수정 ID."
+
+#: includes/classes/class-meta-boxes.php:316
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:318
+msgid "It will automatically expire."
+msgstr "자동으로 만료됩니다."
+
+#: includes/classes/class-settings.php:190
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:196
+msgid "Keyboard Shortcut"
+msgstr "키보드 단축키"
+
+#: includes/classes/class-meta-boxes.php:196
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:196
+msgid "Label *"
+msgstr "레이블 *"
+
+#: includes/functions.php:220
+#: dist/publishpress-shortlinks/includes/functions.php:220
+#, php-format
+msgid "Link - %s"
+msgstr "링크 - %s"
+
+#: includes/classes/class-redirection.php:246
+#, fuzzy
+msgid "Link Expired"
+msgstr "링크 제목"
+
+#: includes/classes/class-columns-link.php:268
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:148
+msgid "Link Title"
+msgstr "링크 제목"
+
+#: includes/classes/class-columns-link.php:270
+#, fuzzy
+msgid "Link Type"
+msgstr "링크 제목"
+
+#: includes/classes/class-table-logs.php:62
+#, fuzzy
+msgid "Log entry deleted successfully."
+msgstr "Tinyurl이 성공적으로 생성되었습니다."
+
+#: includes/classes/class-hooks.php:221
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:154
+msgid "Logs"
+msgstr "로그"
+
+#: templates/admin-modal-new-link.php:24
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:24
+msgid "Long URL"
+msgstr "긴 URL"
+
+#: includes/classes/class-meta-boxes.php:262
+msgid "Mark links as sponsored content."
+msgstr "링크를 후원 콘텐츠로 표시합니다."
+
+#: templates/admin/settings/supports.php:42
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:14
+msgid "Need PublishPress Shortlinks Support?"
+msgstr "PublishPress 단축 링크 지원이 필요하신가요?"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:134
+#, fuzzy
+msgid "Need Support?"
+msgstr "지원 요청"
+
+#: includes/classes/class-columns-link.php:196
+msgid "Needs work"
+msgstr "작업 필요"
+
+#: includes/classes/class-autolist-ajax.php:273
+#: includes/classes/class-settings.php:344
+#: includes/classes/class-settings.php:439
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:273
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:390
+msgid "Never"
+msgstr "절대"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:124
+#: templates/admin/settings/supports.php:28
+msgid "No ads inside the plugin"
+msgstr "플러그인 내 광고 없음"
+
+#: includes/classes/class-settings.php:424
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:375
+msgid "No post types configured yet. Click \"Add Post Type\" to get started."
+msgstr "아직 구성된 게시물 유형이 없습니다. 시작하려면 \"게시물 유형 추가\"를 클릭하세요."
+
+#: includes/classes/class-columns-link.php:65
+#, fuzzy
+msgid "No shortlink"
+msgstr "짧은 링크"
+
+#: includes/classes/class-meta-boxes.php:268
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:268
+msgid "NoFollow"
+msgstr "노팔로우"
+
+#: includes/classes/class-columns-link.php:192
+msgid "Not yet submitted"
+msgstr "아직 제출되지 않음"
+
+#: includes/classes/class-meta-boxes.php:234
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:234
+msgid "Notes"
+msgstr "노트"
+
+#: includes/classes/class-autolist-ajax.php:274
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:274
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:391
+msgid "On First Use"
+msgstr "첫 사용 시"
+
+#: includes/classes/class-autolist-ajax.php:275
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:275
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:392
+msgid "On Publish"
+msgstr "게시 시"
+
+#: includes/classes/class-settings.php:244
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:260
 msgid "Only selected user roles can control settings."
 msgstr "선택된 사용자 역할만 설정을 제어할 수 있습니다."
 
-#: includes/classes/class-settings.php:272
-msgid "Auto-List Links for Post Types"
-msgstr "게시물 유형에 대한 자동 링크 목록"
+#: includes/classes/class-settings.php:224
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:236
+msgid "Only selected user roles can create or edit links."
+msgstr "선택된 사용자 역할만 링크를 생성하거나 편집할 수 있습니다."
 
-#: includes/classes/class-settings.php:277
-msgid "Enable Auto-Listing Links"
-msgstr "자동 나열 링크 활성화"
+#: includes/classes/class-settings.php:234
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:248
+msgid "Only selected user roles can see analytics."
+msgstr "선택된 사용자 역할만 분석 정보를 볼 수 있습니다."
 
-#: includes/classes/class-settings.php:278
-msgid "Automatically list post type shortlinks in the \"All Links\" table"
-msgstr "“모든 링크” 테이블에 게시물 유형 단축 링크를 자동으로 나열합니다"
+#: includes/classes/class-settings.php:215
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:224
+msgid "Only selected user roles can view links."
+msgstr "선택된 사용자 역할만 링크를 볼 수 있습니다."
 
-#: includes/classes/class-settings.php:279
-msgid ""
-"When enabled, shortlinks for posts, pages, and other post types will appear "
-"in the \"All Links\" table based on the behavior you configure below."
-msgstr "활성화되면, 아래에서 구성한 동작에 따라 게시물, 페이지 및 기타 게시물 유형에 대한 짧은 링크가 \"모든 링크\" 테이블에 나타납니다."
+#: includes/classes/class-settings.php:168
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:174
+msgid "Options"
+msgstr "옵션"
 
-#: includes/classes/class-settings.php:285
-msgid "Configure Post Types"
-msgstr "게시물 유형 구성"
+#: includes/classes/class-meta-boxes.php:276
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:276
+msgid "Parameter Forwarding"
+msgstr "파라미터 전달"
+
+#: includes/classes/class-meta-boxes.php:277
+#, fuzzy
+msgid "Pass URL parameters to the target link."
+msgstr "모든 매개변수는 대상 링크로 전달됩니다."
+
+#: includes/classes/class-meta-boxes.php:296
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:298
+msgid "Password"
+msgstr "비밀번호"
+
+#: includes/classes/class-meta-boxes.php:289
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:291
+msgid "Password Protection"
+msgstr "비밀번호 보호"
+
+#: includes/classes/class-meta-boxes.php:298
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:300
+msgid "Passwords are case sensitive."
+msgstr "비밀번호는 대소문자를 구분합니다."
 
 #: includes/classes/class-settings.php:286
-msgid "Set when links should be auto-listed for each post type"
-msgstr "각 게시물 유형에 대해 링크가 자동으로 나열되어야 할 시점을 설정하세요"
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:303
+msgid "Pending Review"
+msgstr "검토 대기 중"
 
-#: includes/classes/class-settings.php:287
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr "게시물 유형을 추가하고 해당 단축 링크가 \"모든 링크\" 테이블에 표시될 시점을 구성합니다. 변경 사항은 자동으로 저장됩니다."
+#: includes/classes/class-autolist-ajax.php:30
+#: includes/classes/class-autolist-ajax.php:180
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:30
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:180
+msgid "Permission denied"
+msgstr "권한이 거부되었습니다"
 
-#: includes/classes/class-settings.php:294
+#: includes/classes/class-autolist-ajax.php:83
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:83
+msgid "Permission denied - you must be an administrator"
+msgstr "권한이 거부되었습니다 - 관리자여야 합니다"
+
+#: includes/classes/class-redirection.php:211
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:168
+msgid "Post not found."
+msgstr "게시물이 없습니다."
+
+#: includes/classes/class-settings.php:274
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:291
 msgid "Post Status Visibility"
 msgstr "게시물 상태 가시성"
 
-#: includes/classes/class-settings.php:299
-msgid "Allowed Post Statuses"
-msgstr "허용된 게시물 상태"
+#: includes/classes/class-autolist-ajax.php:37
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:37
+msgid "Post type is required"
+msgstr "게시물 유형이 필요합니다"
 
-#: includes/classes/class-settings.php:300
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "단축 링크를 통해 접근할 수 있는 게시물 상태를 선택하세요"
+#: includes/classes/class-settings.php:180
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:186
+msgid "Prefix Slug"
+msgstr "접두사 슬러그"
 
-#: includes/classes/class-settings.php:301
+#: includes/classes/class-meta-boxes.php:269
+msgid "Prevent search engines from following this link."
+msgstr "검색 엔진이 이 링크를 따라가지 않도록 방지합니다."
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:123
+#: templates/admin/settings/supports.php:27
+msgid "Priority support"
+msgstr "우선 지원"
+
+#: includes/classes/class-settings.php:287
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:304
+msgid "Private"
+msgstr "비공개"
+
+#: includes-core/ShortlinksCoreAdmin.php:114
+#: includes-core/ShortlinksCoreAdmin.php:152
+msgid "Pro Feature"
+msgstr "프로 기능"
+
+#: includes/classes/class-settings.php:284
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:301, fuzzy
+msgid "Published"
+msgstr "게시됨"
+
+#. Author of the plugin
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#: tinypress.php:347 dist/publishpress-shortlinks/tinypress.php:341
+#: includes/classes/class-meta-boxes.php:179
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:179
+#. Name of the plugin
+msgid "PublishPress Shortlinks"
+msgstr "PublishPress 단축 링크"
+
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:263
+msgid "Recommended for affiliate links."
+msgstr "제휴 링크에 추천됩니다."
+
+#: includes/classes/class-meta-boxes.php:243
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:243
+msgid "Redirection"
+msgstr "리디렉션"
+
+#: includes/classes/class-meta-boxes.php:248
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:248
+msgid "Redirection Method"
+msgstr "리디렉션 방법"
+
+#: includes/classes/class-columns-link.php:197
+msgid "Rejected"
+msgstr "거부됨"
+
+#: includes/classes/class-settings.php:202
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:208
+#, fuzzy
+msgid "Remove from Admin Bar"
+msgstr "WP 관리 바에서 제거"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:141
+#: templates/admin/settings/supports.php:49
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:21
+msgid "Request Support"
+msgstr "지원 요청"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:120
+#: templates/admin/settings/supports.php:24
+msgid "REST API for creating shortlinks"
+msgstr "단축 링크 생성을 위한 REST API"
+
+#: includes/classes/class-columns-link.php:157
+#: includes/classes/class-table-logs.php:197, fuzzy
+msgid "rev"
+msgstr "rev"
+
+#: includes/classes/class-columns-link.php:183
+msgid "Revision"
+msgstr "개정"
+
+#: includes/classes/class-settings.php:337
+msgid "Revision Link Visibility"
+msgstr "개정 링크 가시성"
+
+#: includes/classes/class-settings.php:358
+msgid "Revision Visibility for Visitors"
+msgstr "방문자를 위한 개정 가시성"
+
+#: includes/classes/class-columns-link.php:200
+#, php-format
+msgid "Revision: %s"
+msgstr "개정: %s"
+
+#: includes/classes/class-settings.php:332
+msgid "Revisions"
+msgstr "개정들"
+
+#: includes/classes/class-settings.php:209
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:217
+msgid "Role Management"
+msgstr "역할 관리"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:122
+#: templates/admin/settings/supports.php:26
+msgid "Role-based access control"
+msgstr "역할 기반 접근 제어"
+
+#: includes/classes/class-autolist-ajax.php:269
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:269
+msgid "Saved!"
+msgstr "저장됨!"
+
+#: includes/classes/class-autolist-ajax.php:268
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:268
+msgid "Saving..."
+msgstr "저장 중..."
+
+#: includes/classes/class-columns-link.php:194
+#: includes/classes/class-settings.php:288
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:305
+msgid "Scheduled"
+msgstr "예약됨"
+
+#: includes/classes/class-meta-boxes.php:290
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:292
+#, fuzzy
+msgid "Secure your shortlink."
+msgstr "링크를 안전하게 보호하세요."
+
+#: includes/classes/class-meta-boxes.php:331
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:286
+msgid "Security"
+msgstr "보안"
+
+#: includes/classes/class-autolist-ajax.php:272
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:272
+msgid "Select a post type"
+msgstr "게시물 유형 선택"
+
+#: includes/classes/class-meta-boxes.php:249
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:249
+msgid "Select redirection method"
+msgstr "리디렉션 방법 선택"
+
+#: includes/classes/class-settings.php:281
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:298
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
 msgstr "PublishPress 단축 링크를 방문할 때 접근 가능한 게시물 상태를 선택하세요."
 
-#: includes/classes/class-settings.php:304
-msgid "Published"
-msgstr "게시됨"
+#: includes/classes/class-settings.php:266
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:283
+msgid "Set when links should be auto-listed for each post type"
+msgstr "각 게시물 유형에 대해 링크가 자동으로 나열되어야 할 시점을 설정하세요"
 
-#: includes/classes/class-settings.php:305
-msgid "Draft"
-msgstr "초안"
+#: includes/classes/class-settings.php:91
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:91
+msgid "Settings"
+msgstr "설정"
 
-#: includes/classes/class-settings.php:306
-msgid "Pending Review"
-msgstr "검토 대기 중"
+#: includes/classes/class-meta-boxes.php:297
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:299
+msgid "Share this with users."
+msgstr "사용자와 공유하세요."
 
-#: includes/classes/class-settings.php:307
-msgid "Private"
-msgstr "비공개"
+#: includes/classes/class-meta-boxes.php:216
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:216
+msgid "Short String *"
+msgstr "짧은 문자열 *"
 
-#: includes/classes/class-settings.php:308
-msgid "Scheduled"
-msgstr "예약됨"
+#: includes/classes/class-meta-boxes.php:217
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:217
+msgid "Short string of this URL."
+msgstr "이 URL의 짧은 문자열입니다."
 
-#: includes/classes/class-settings.php:320
-msgid "Dummy"
-msgstr "더미"
-
-#: includes/classes/class-settings.php:378
-msgid "No post types configured yet. Click \"Add Post Type\" to get started."
-msgstr "아직 구성된 게시물 유형이 없습니다. 시작하려면 \"게시물 유형 추가\"를 클릭하세요."
-
-#: includes/classes/class-settings.php:408
-msgid "Add Post Type"
-msgstr "게시물 유형 추가"
-
-#: includes/classes/class-table-logs.php:79
-msgid "Title"
-msgstr "제목"
-
-#: includes/classes/class-table-logs.php:80
-msgid "Short Link"
-msgstr "단축 링크"
-
-#: includes/classes/class-table-logs.php:81
-msgid "Details"
-msgstr "세부정보"
-
-#: includes/classes/class-table-logs.php:124
-msgid "Someone"
-msgstr "누군가"
-
-#: includes/classes/class-table-logs.php:125
-msgid "Earth"
-msgstr "지구"
-
-#: includes/classes/class-table-logs.php:143
-#, php-format
-msgid "%s from %s visited at %s"
-msgstr "%s에서 %s가 %s에 방문했습니다"
-
-#: includes/functions.php:179
-msgid "Target url not found."
-msgstr "대상 URL을 찾을 수 없습니다."
-
-#: includes/functions.php:183
-msgid "Tiny slug could not created."
-msgstr "짧은 슬러그를 생성할 수 없습니다."
-
-#: includes/functions.php:201
-#, php-format
-msgid "Link - %s"
-msgstr "링크 - %s"
-
-#: templates/admin-modal-new-link.php:11
-msgid "Short url will come here"
-msgstr "짧은 URL이 여기에 표시됩니다"
-
-#: templates/admin-modal-new-link.php:19
-msgid "Enter a long url and make into a tiny version"
-msgstr "긴 URL을 입력하고 짧은 버전으로 만드세요"
-
-#: templates/admin-modal-new-link.php:24
-msgid "Long URL"
-msgstr "긴 URL"
-
-#: templates/admin-modal-new-link.php:28
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:28
 msgid "Short URL"
 msgstr "짧은 URL"
 
-#: templates/admin-modal-new-link.php:35
-msgid "Close"
-msgstr "닫기"
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:11
+msgid "Short url will come here"
+msgstr "짧은 URL이 여기에 표시됩니다"
 
-#: templates/admin-modal-new-link.php:36
-msgid "Create Short URL"
-msgstr "짧은 URL 만들기"
+#: includes/classes/class-hooks.php:146
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:79
+msgid "Shorten"
+msgstr "단축"
 
-#: templates/admin/footer.php:14
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:149
+msgid "Shorten Link"
+msgstr "링크 단축"
+
+#: templates/admin-modal-new-link.php:28
+#: includes/classes/class-columns-link.php:44
+#: includes/classes/class-columns-link.php:269
+#: includes/classes/class-table-logs.php:151
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:80
+#, fuzzy
+msgid "Shortlink"
+msgstr "짧은 링크"
+
+#: includes/classes/class-hooks.php:73
+#, fuzzy
+msgid "Shortlink created successfully."
+msgstr "Tinyurl이 성공적으로 생성되었습니다."
+
+#: includes/classes/class-settings.php:173
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:179
+#, fuzzy
+msgid "Shortlink Prefix"
+msgstr "링크 접두사"
+
+#: templates/admin-modal-new-link.php:11
+#, fuzzy
+msgid "Shortlink will appear here"
+msgstr "짧은 URL이 여기에 표시됩니다"
+
+#: includes/classes/class-columns-link.php:86
+#: includes/classes/class-hooks.php:183 includes/classes/class-hooks.php:186
+#: includes/classes/class-meta-boxes.php:88
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:38
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:116
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:119
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:88
+msgid "Shortlinks"
+msgstr "짧은 링크"
+
+#: includes/classes/class-settings.php:311
+#: includes/classes/class-settings.php:318
+#, fuzzy
+msgid "Show Expiration Notice"
+msgstr "만료 날짜"
+
+#: includes/classes/class-settings.php:351
+msgid "Show Shortlink in Revision Table"
+msgstr "개정 테이블에서 짧은 링크 표시"
+
+#: includes/classes/class-meta-boxes.php:70
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:70
+msgid "Side"
+msgstr "측면"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:124
+msgid "Someone"
+msgstr "누군가"
+
+#: includes/classes/class-hooks.php:431
+msgid "Sorry, you are not allowed to access shortlinks."
+msgstr "죄송합니다, 짧은 링크에 접근할 수 없습니다."
+
+#: includes/classes/class-meta-boxes.php:261
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:261
+msgid "Sponsored"
+msgstr "후원됨"
+
+#: includes/classes/class-columns-link.php:271
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:150
+msgid "Stats"
+msgstr "통계"
+
+#: includes/classes/class-meta-boxes.php:223
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:223
+msgid "Status"
+msgstr "상태"
+
+#: includes/classes/class-columns-link.php:193
+msgid "Submitted for approval"
+msgstr "승인을 위해 제출됨"
+
+#: includes/classes/class-meta-boxes.php:207
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:207
+msgid "Target URL *"
+msgstr "대상 URL *"
+
+#: includes/functions.php:198
+#: dist/publishpress-shortlinks/includes/functions.php:198
+msgid "Target url not found."
+msgstr "대상 URL을 찾을 수 없습니다."
+
+#: includes/classes/class-redirection.php:259
+#, fuzzy
+msgid "This link has expired"
+msgstr "이 링크는 만료되었습니다."
+
+#: includes/classes/class-redirection.php:388
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:292
+msgid "This link is expired."
+msgstr "이 링크는 만료되었습니다."
+
+#: includes/classes/class-redirection.php:365
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:284
+msgid "This link is not active."
+msgstr "이 링크는 활성화되어 있지 않습니다."
+
+#: includes/classes/class-redirection.php:489
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:390
+msgid "This link is not containing the right prefix slug."
+msgstr "이 링크에는 올바른 접두사 슬러그가 포함되어 있지 않습니다."
+
+#: includes/classes/class-columns-link.php:184
+#, fuzzy
+msgid "This links to a revision"
+msgstr "이 링크는 활성화되어 있지 않습니다."
+
+#: includes/classes/class-columns-link.php:171
+msgid "This links to an external website"
+msgstr "이 링크는 외부 웹사이트로 연결됩니다"
+
+#: includes/classes/class-columns-link.php:171
+msgid "This links to your post"
+msgstr "이 링크는 귀하의 게시물로 연결됩니다"
+
+#: tinypress.php:48 dist/publishpress-shortlinks/tinypress.php:52
+msgid "This plugin can be deleted."
+msgstr "이 플러그인은 삭제할 수 있습니다."
+
+#: includes/classes/class-settings.php:182
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:188
+msgid "This text will be added between your domain name and shortlink."
+msgstr "이 텍스트는 귀하의 도메인 이름과 짧은 링크 사이에 추가됩니다."
+
+#: includes/functions.php:202
+#: dist/publishpress-shortlinks/includes/functions.php:202
+msgid "Tiny slug could not created."
+msgstr "짧은 슬러그를 생성할 수 없습니다."
+
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:62
+msgid "Tinyurl created successfully."
+msgstr "Tinyurl이 성공적으로 생성되었습니다."
+
+#: includes/classes/class-table-logs.php:150
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:79
+msgid "Title"
+msgstr "제목"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:223
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:235
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:247
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:259
+msgid "Upcoming feature."
+msgstr "예정된 기능."
+
+#: includes-core/ShortlinksCoreAdmin.php:83
+#: includes-core/ShortlinksCoreAdmin.php:100
+#: includes-core/ShortlinksCoreAdmin.php:101
+#: includes-core/ShortlinksCoreAdmin.php:227
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:93
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:94
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:127
+#: templates/admin/settings/supports.php:31
+msgid "Upgrade to Pro"
+msgstr "프로로 업그레이드"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:113
+#: templates/admin/settings/supports.php:17
+#, fuzzy
+msgid "Upgrade to PublishPress Shortlinks Pro"
+msgstr "PublishPress 단축 링크"
+
+#: includes/classes/class-meta-boxes.php:291
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:293
+msgid "Users must enter the password to redirect to the target link."
+msgstr "사용자는 대상 링크로 리디렉션하기 위해 비밀번호를 입력해야 합니다."
+
+#: includes/classes/class-meta-boxes.php:310
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:312
+msgid "Users will not able to redirect to the target URL once expire."
+msgstr "사용자는 만료된 후 대상 URL로 리디렉션할 수 없습니다."
+
+#: includes/classes/class-autolist-ajax.php:70
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:70
 #, php-format
-msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
-msgstr "%1$s가 마음에 드신다면 %2$s 평가를 남겨주세요. 감사합니다!"
+msgid "Valid: %s"
+msgstr "유효: %s"
 
-#: templates/admin/footer.php:21
-msgid "About"
-msgstr "정보"
+#: includes/classes/class-autolist-ajax.php:267
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:267
+msgid "Validating..."
+msgstr "검증 중..."
 
-#: templates/admin/footer.php:26
-msgid "Documentation"
-msgstr "문서"
-
-#: templates/admin/footer.php:30
-msgid "Contact"
-msgstr "연락처"
-
-#: templates/admin/qr-code.php:9
-msgid "Download QR"
-msgstr "QR 다운로드"
-
-#: templates/admin/settings/browsers.php:7
-msgid "We have developed extensions for the below browsers."
-msgstr "아래 브라우저용 확장 프로그램을 개발했습니다."
-
-#: templates/admin/settings/browsers.php:8
-msgid "Click on your preferred one to Download the extension."
-msgstr "선택한 것을 클릭하여 확장 프로그램을 다운로드하세요."
-
-#: templates/admin/settings/browsers.php:15
-msgid "Download the Extension"
-msgstr "확장 프로그램 다운로드"
-
-#: templates/admin/settings/supports.php:14
-msgid "Need PublishPress Shortlinks Support?"
-msgstr "PublishPress 단축 링크 지원이 필요하신가요?"
-
-#: templates/admin/settings/supports.php:19
-msgid "If you need help or have a new feature request, let us know."
-msgstr "도움이 필요하시거나 새로운 기능 요청이 있으시면 알려주세요."
-
-#: templates/admin/settings/supports.php:21
-msgid "Request Support"
-msgstr "지원 요청"
-
-#: templates/admin/settings/supports.php:26
-msgid "Detailed documentation is also available on the plugin website."
-msgstr "자세한 문서는 플러그인 웹사이트에서도 제공됩니다."
-
-#: templates/admin/settings/supports.php:28
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:147
+#: templates/admin/settings/supports.php:56
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:28
 msgid "View Knowledge Base"
 msgstr "지식 베이스 보기"
 
-#: tinypress.php:148
-msgid "Copied."
-msgstr "복사됨."
+#: includes/classes/class-table-logs.php:254
+#, php-format
+msgid "Visited at %s"
+msgstr "%s에서 %s가 %s에 방문했습니다"
+
+#: templates/admin/settings/browsers.php:7
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:7
+msgid "We have developed extensions for the below browsers."
+msgstr "아래 브라우저용 확장 프로그램을 개발했습니다."
+
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:270
+msgid "We recommended to use this."
+msgstr "이것을 사용하는 것을 추천합니다."
+
+#: includes/classes/class-settings.php:302
+msgid ""
+"When a shortlink expires, visitors will be redirected to this URL instead "
+"of seeing an error. Leave empty to show the default expiration message."
+msgstr "짧은 링크가 만료되면 방문자는 오류 대신 이 URL로 리디렉션됩니다. 기본 만료 메시지를 표시하려면 비워 두십시오."
+
+#: includes/classes/class-settings.php:259
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:276
+msgid ""
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
+msgstr "활성화되면, 아래에서 구성한 동작에 따라 게시물, 페이지 및 기타 게시물 유형에 대한 짧은 링크가 \"모든 링크\" 테이블에 나타납니다."
+
+#: includes/classes/class-settings.php:342
+#: includes/classes/class-settings.php:441
+#, fuzzy
+msgid "When Link is First Used"
+msgstr "첫 사용 시"
+
+#: includes/classes/class-settings.php:440
+msgid "When Link is First Used or Post Created"
+msgstr "링크가 처음 사용되거나 게시물이 생성될 때"
+
+#: includes/classes/class-settings.php:442
+msgid "When Post is Created"
+msgstr "게시물이 생성될 때"
+
+#: includes/classes/class-settings.php:443
+msgid "When Post is Published"
+msgstr "게시물이 게시될 때"
+
+#: includes/classes/class-settings.php:341
+msgid "When Revision is Created"
+msgstr "개정이 생성될 때"
+
+#: includes/classes/class-settings.php:343
+msgid "When Revision is Created or Link is First Used"
+msgstr "수정이 생성되거나 링크가 처음 사용될 때"
+
+#: includes/classes/class-settings.php:338
+msgid "When should revision shortlinks appear in the All Shortlinks table?"
+msgstr "모든 단축 링크 테이블에 수정 단축 링크가 언제 나타나야 합니까?"
+
+#: includes/classes/class-settings.php:301
+msgid "Where should expired shortlinks redirect?"
+msgstr "만료된 단축 링크는 어디로 리디렉션되어야 합니까?"
+
+#: includes/classes/class-settings.php:243
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:258
+msgid "Who Can Control Settings"
+msgstr "설정을 제어할 수 있는 사람"
+
+#: includes/classes/class-settings.php:223
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:234
+#, fuzzy
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "링크를 생성/편집할 수 있는 사람"
+
+#: includes/classes/class-settings.php:233
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:246
+msgid "Who Can See Analytics"
+msgstr "분석을 볼 수 있는 사람"
+
+#: includes/classes/class-settings.php:214
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:222
+#, fuzzy
+msgid "Who Can View Shortlinks"
+msgstr "링크를 볼 수 있는 사람"
+
+#: includes/classes/class-hooks.php:45
+msgid "You do not have permission to create shortlinks."
+msgstr "단축 링크를 생성할 권한이 없습니다."
+
+#: includes/classes/class-hooks.php:84
+msgid "You do not have permission to reset analytics."
+msgstr "분석을 재설정할 권한이 없습니다."
+
+#: includes/classes/class-redirection.php:260
+msgid "You will be redirected shortly."
+msgstr "곧 리디렉션됩니다."
+
+#: includes-core/ShortlinksCoreAdmin.php:82
+msgid ""
+"You're using PublishPress Shortlinks Free. The Pro version has more "
+"features and support. "
+msgstr "PublishPress Shortlinks 무료 버전을 사용하고 있습니다. Pro 버전은 더 많은 기능과 지원을 제공합니다. "
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:74
+#. %1$s: opening link tag, %2$s: closing link tag
+#, php-format
+msgid ""
+"You're using PublishPress Shortlinks Free. The Pro version has more "
+"features and support. %1$sUpgrade to Pro%2$s"
+msgstr ""
+"PublishPress Shortlinks 무료 버전을 사용하고 있습니다. Pro 버전은 더 많은 기능과 지원을 제공합니다. "
+"%1$sPro로 업그레이드%2$s"

@@ -333,37 +333,53 @@ table.tinypress_link_page_tinypress-reports th#details {
     cursor: pointer;
     border-radius: 4px;
     width: 100%;
-    display: inline-block;
+    display: flex;
     box-sizing: border-box;
     font-size: 13px;
-    overflow-wrap: anywhere;
     line-height: 1.5;
+    white-space: nowrap;
+    overflow: visible !important;
+}
+
+.tiny-slug-wrap .tiny-slug-inner {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 0;
+    flex: 1;
+    scrollbar-width: none;
+}
+
+.tiny-slug-wrap .tiny-slug-inner::-webkit-scrollbar {
+    display: none;
+}
+
+.tiny-slug-wrap .tiny-slug-inner > span {
+    display: inline-block;
+    float: none;
+}
+
+.tiny-slug-wrap .tiny-slug-inner > span.prefix {
+    flex-shrink: 0;
+}
+
+.tiny-slug-wrap .tiny-slug-inner > span.tiny-slug {
+    flex-shrink: 0;
 }
 
 .tiny-slug-wrap.mini .tiny-slug-preview {
     line-height: 24px;
     width: 200px !important;
     padding-right: 5px;
-    word-break: break-word;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
 }
 
-.tiny-slug-wrap .tiny-slug-preview.preview-mini {
-    width: auto;
-    padding: 4px 8px;
-    font-size: 14px;
-    line-height: 24px;
-}
-
-.tiny-slug-wrap .tiny-slug-preview > span {
-    float: left;
-}
-
-.tiny-slug-wrap.mini .tiny-slug-preview > span {
+.tiny-slug-wrap.mini .tiny-slug-inner > span {
     float: none;
-    display: inline;
+    display: inline-block;
+}
+
+.tiny-slug-wrap.mini .tiny-slug-inner > span.tiny-slug {
+    flex-shrink: 0;
 }
 
 .tiny-slug-wrap .tinypress-slug-field {
@@ -1106,4 +1122,76 @@ body.tinypress_link_page_tinypress-logs #wpwrap {
 
 #reset-analytics{
     margin-left: 10px;
+}
+
+.tinypress-password-page {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background: #f0f0f1;
+}
+
+.tinypress-password-form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.tinypress-password-form h2 {
+    margin-top: 0;
+    color: #1d2327;
+}
+
+.tinypress-password-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #1d2327;
+    font-weight: 500;
+}
+
+.tinypress-password-form input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0 1rem 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.tinypress-password-form input[type="password"]:focus {
+    border-color: #2271b1;
+    outline: none;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+.tinypress-password-form button {
+    background: #2271b1;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.tinypress-password-form button:hover {
+    background: #135e96;
+}
+
+.tinypress-password-error {
+    color: #d63638;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: #fcf0f1;
+    border-left: 4px solid #d63638;
+    border-radius: 4px;
 }

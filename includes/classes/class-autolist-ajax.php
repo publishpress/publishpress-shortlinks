@@ -156,7 +156,8 @@ if ( ! class_exists( 'TINYPRESS_Autolist_Ajax' ) ) {
 				}
 				
 				$behavior = isset( $item['behavior'] ) ? sanitize_text_field( $item['behavior'] ) : 'never';
-				if ( ! in_array( $behavior, array( 'never', 'on_first_use', 'on_publish' ) ) ) {
+				$valid_behaviors = array( 'never', 'on_first_use', 'on_publish', 'on_create', 'on_first_use_or_on_create' );
+				if ( ! in_array( $behavior, $valid_behaviors ) ) {
 					$behavior = 'never';
 				}
 				

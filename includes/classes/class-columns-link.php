@@ -153,9 +153,6 @@ class TINYPRESS_Column_link {
 					$source_post = get_post( absint( $source_post_id ) );
 					$is_revision_link = $source_post && rvy_in_revision_workflow( $source_post->ID ) ? '1' : '0';
 				}
-				if ( '1' === $is_revision_link ) {
-					$title_html .= ' <span class="tinypress-revision-badge">' . esc_html__( 'rev', 'tinypress' ) . '</span>';
-				}
 
 				echo $title_html;
 				break;
