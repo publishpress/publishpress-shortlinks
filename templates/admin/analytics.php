@@ -33,14 +33,14 @@ wp_localize_script( 'tinypress-analytics', 'tinypressAnalytics', array(
     <div id="chart">
         <div class="toolbar">
             <div class="filter-buttons">
-                <span class="btn date-filter today active" data-filter="today">Today</span>
-                <span class="btn date-filter last_7_days" data-filter="last_7_days">Last 7 Days</span>
-                <span class="btn date-filter last_1_month" data-filter="last_1_month">Last 1 Month</span>
-                <span class="btn date-filter last_1_year" data-filter="last_1_year">Last 1 Year</span>
+                <span class="btn date-filter today active" data-filter="today"><?php esc_html_e('Today', 'tinypress'); ?></span>
+                <span class="btn date-filter last_7_days" data-filter="last_7_days"><?php esc_html_e('Last 7 Days', 'tinypress'); ?></span>
+                <span class="btn date-filter last_1_month" data-filter="last_1_month"><?php esc_html_e('Last 1 Month', 'tinypress'); ?></span>
+                <span class="btn date-filter last_1_year" data-filter="last_1_year"><?php esc_html_e('Last 1 Year', 'tinypress'); ?></span>
             </div>
         </div>
         <button id="reset-analytics" class="button button-secondary" data-action="reset-analytics">
-            <span class="reset-text">Reset Today's Analytics</span>
+            <span class="reset-text"><?php esc_html_e("Reset Today's Analytics", 'tinypress'); ?></span>
         </button>
         <div id="chart-timeline"></div>
     </div>
