@@ -12,7 +12,7 @@
         }
     ],
     "config": {
-        "process-timeout": 6000,
+        "process-timeout": 600,
         "preferred-install": {
             "*": "dist"
         },
@@ -104,13 +104,22 @@
         "post-update-cmd": [
             "@config:phpcs"
         ],
-        "translate": "vendor/bin/publishpress-translate",
-        "translate:dry-run": "vendor/bin/publishpress-translate --dry-run",
-        "translate:download": "vendor/bin/publishpress-translate --download",
-        "translate:upload": "vendor/bin/publishpress-translate --upload",
-        "translate:custom": "vendor/bin/publishpress-translate --languages",
-        "translate:force": "vendor/bin/publishpress-translate --force",
-        "translate:force-custom": "vendor/bin/publishpress-translate --force --languages"
+        "translate": "dev-workspace/run vendor/bin/publishpress-translate --languages=de_DE,fi,fil,id_ID,ja,ko_KR,nl_NL,ru_RU,yo",
+        "translate:dry-run": "dev-workspace/run vendor/bin/publishpress-translate --dry-run",
+        "translate:download": "dev-workspace/run vendor/bin/publishpress-translate --download",
+        "translate:upload": "dev-workspace/run vendor/bin/publishpress-translate --upload",
+        "translate:custom": "dev-workspace/run vendor/bin/publishpress-translate --languages",
+        "translate:force": "dev-workspace/run vendor/bin/publishpress-translate --force",
+        "translate:force-custom": "dev-workspace/run vendor/bin/publishpress-translate --force --languages",
+        "translate:compile": [
+            "@translate:mo",
+            "@translate:json",
+            "@translate:php"
+        ],
+        "translate:pot": "dev-workspace/run wp i18n make-pot . ./languages/tinypress.pot --domain=tinypress --exclude=dev-workspace,.wordpress-org,.github,dist,tests,lib,tmp,doc,*.js,*.js.map --allow-root",
+        "translate:mo": "dev-workspace/run wp i18n make-mo ./languages ./languages --allow-root",
+        "translate:json": "dev-workspace/run bash ./dev-workspace/scripts/lang-make-json.sh",
+        "translate:php": "dev-workspace/run wp i18n make-php ./languages --allow-root"
     },
     "scripts-descriptions": {
         "build": "Builds the plugin.",
