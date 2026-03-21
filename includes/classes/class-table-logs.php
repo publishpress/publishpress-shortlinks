@@ -11,6 +11,7 @@ if (! class_exists('WP_List_Table')) {
 /**
  * Logs Class
  */
+// phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps -- Extends WP_List_Table; must follow WordPress naming conventions for overridden methods
 class WP_List_Table_Logs extends WP_List_Table
 {
     private int $items_per_page = 20;
@@ -37,12 +38,14 @@ class WP_List_Table_Logs extends WP_List_Table
             return;
         }
         $placeholders = implode(',', array_fill(0, count($ids), '%d'));
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; $placeholders generated from array_fill with %d, not user input
         $wpdb->query($wpdb->prepare("UPDATE " . TINYPRESS_TABLE_REPORTS . " SET is_cleared = 1 WHERE id IN ($placeholders)", $ids));
     }
 
     private function clear_all_logs()
     {
         global $wpdb;
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; no user input in query
         $wpdb->query("UPDATE " . TINYPRESS_TABLE_REPORTS . " SET is_cleared = 1");
     }
 
@@ -66,11 +69,11 @@ class WP_List_Table_Logs extends WP_List_Table
             $this->delete_logs_by_ids(array( $id ));
             set_transient('tinypress_log_message', array( 'type' => 'error', 'message' => __('Log entry deleted successfully.', 'tinypress') ), 30);
         } elseif ($action === 'bulk-delete') {
-            if (! isset($_SERVER['REQUEST_METHOD']) || strtoupper($_SERVER['REQUEST_METHOD']) !== 'POST') {
+            if (! isset($_SERVER['REQUEST_METHOD']) || strtoupper(sanitize_text_field(wp_unslash($_SERVER['REQUEST_METHOD']))) !== 'POST') {
                 return;
             }
             check_admin_referer('bulk-' . $this->_args['plural']);
-            $ids = isset($_POST['log']) ? (array) $_POST['log'] : array();
+            $ids = isset($_POST['log']) ? array_map('absint', (array) $_POST['log']) : array();
             $count = count($ids);
             $this->delete_logs_by_ids($ids);
             set_transient('tinypress_log_message', array( 'type' => 'error', 'message' => sprintf(__('%d log entries deleted successfully.', 'tinypress'), $count) ), 30);
@@ -100,7 +103,7 @@ class WP_List_Table_Logs extends WP_List_Table
 
         global $wpdb;
 
-		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- TINYPRESS_TABLE_REPORTS is a constant, no user input
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; no user input; results used once for display
         $all_posts = $wpdb->get_results("SELECT id,post_id,user_id,user_ip,user_location, datetime FROM " . TINYPRESS_TABLE_REPORTS . " WHERE is_cleared = 0 ORDER BY datetime DESC", ARRAY_A);
         $all_posts = array_map(function ($post) {
 
@@ -128,7 +131,7 @@ class WP_List_Table_Logs extends WP_List_Table
      *
      * @return void
      */
-    function prepare_items()
+    public function prepare_items()
     {
         $this->process_actions();
 
@@ -152,7 +155,7 @@ class WP_List_Table_Logs extends WP_List_Table
      *
      * @return array
      */
-    function get_columns()
+    public function get_columns()
     {
         return array(
             'cb'         => '<input type="checkbox" />',
@@ -162,7 +165,7 @@ class WP_List_Table_Logs extends WP_List_Table
         );
     }
 
-    function column_cb($item)
+    public function column_cb($item)
     {
         $id = Utils::get_args_option('id', $item);
         return sprintf('<input type="checkbox" name="log[]" value="%s" />', esc_attr($id));
@@ -182,7 +185,7 @@ class WP_List_Table_Logs extends WP_List_Table
      *
      * @return string
      */
-    function column_title($item)
+    public function column_title($item)
     {
         $post_id = Utils::get_args_option('post_id', $item);
         $log_id  = Utils::get_args_option('id', $item);
@@ -224,7 +227,7 @@ class WP_List_Table_Logs extends WP_List_Table
      *
      * @return string
      */
-    function column_short_link($item)
+    public function column_short_link($item)
     {
         return tinypress_get_tiny_slug_copier(Utils::get_args_option('post_id', $item), false, array( 'wrapper_class' => 'mini' ));
     }
@@ -235,7 +238,7 @@ class WP_List_Table_Logs extends WP_List_Table
      *
      * @return string
      */
-    function column_details($item)
+    public function column_details($item)
     {
 
         $user_id            = Utils::get_args_option('user_id', $item);

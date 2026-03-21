@@ -11,6 +11,12 @@ use WPDK\Utils;
 defined('ABSPATH') || exit;
 
 if (! class_exists('TINYPRESS_Settings')) {
+    /**
+     * Class TINYPRESS_Settings
+     * Note: Uses WordPress naming conventions (TINYPRESS_ prefix, snake_case methods)
+     * for backwards compatibility and WordPress plugin ecosystem standards.
+     */
+    // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
     class TINYPRESS_Settings
     {
         protected static $_instance = null;
@@ -33,7 +39,7 @@ if (! class_exists('TINYPRESS_Settings')) {
          * @param array $args
          * @return array
          */
-        function sanitize_autolist_settings($request, $args)
+        public function sanitize_autolist_settings($request, $args)
         {
             if (! isset($request['tinypress_autolist_post_types'])) {
                 return $request;
@@ -106,12 +112,12 @@ if (! class_exists('TINYPRESS_Settings')) {
             WPDK_Settings::createSettingsPage($tinypress_wpdk->plugin_unique_id, $settings_args, $this->get_settings_pages());
         }
 
-        function add_settings_wrapper_start()
+        public function add_settings_wrapper_start()
         {
             echo '<div class="tinypress-settings-layout">';
         }
 
-        function add_settings_wrapper_end()
+        public function add_settings_wrapper_end()
         {
             include TINYPRESS_PLUGIN_DIR . 'templates/admin/settings/supports.php';
             echo '</div>';
@@ -122,7 +128,7 @@ if (! class_exists('TINYPRESS_Settings')) {
          *
          * @return array
          */
-        function get_public_post_types_for_autolist()
+        public function get_public_post_types_for_autolist()
         {
             $post_types = get_post_types(array( 'public' => true ), 'objects');
             $default_settings = array();
@@ -144,7 +150,7 @@ if (! class_exists('TINYPRESS_Settings')) {
          *
          * @return array
          */
-        function get_post_type_options()
+        public function get_post_type_options()
         {
             $post_types = get_post_types(array( 'public' => true ), 'objects');
             $options = array();
@@ -163,7 +169,7 @@ if (! class_exists('TINYPRESS_Settings')) {
          *
          * @return mixed|void
          */
-        function get_settings_pages()
+        public function get_settings_pages()
         {
 
             $user_roles = tinypress_get_roles();

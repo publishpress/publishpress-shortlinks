@@ -13,7 +13,10 @@ defined('ABSPATH') || exit;
 if (! class_exists('TINYPRESS_Redirection')) {
     /**
      * Class TINYPRESS_Redirection
+     * 
+     * Note: This class uses WordPress naming conventions for compatibility and backwards compatibility.
      */
+    // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
     class TINYPRESS_Redirection
     {
         protected static $_instance = null;
@@ -21,7 +24,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
         /**
          * TINYPRESS_Redirection constructor.
          */
-        function __construct()
+        public function __construct()
         {
             // RankMath compatibility
             add_filter('rank_math/redirection/fallback_exclude_locations', array( $this, 'rankmath_exclude_shortlinks' ), 10, 1);
@@ -40,7 +43,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
          *
          * @return void
          */
-        function do_redirection($link_id)
+        public function do_redirection($link_id)
         {
 
             // Hook for Pro to execute before redirection tracking
@@ -89,12 +92,12 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $post_to_check = $link_id;
 
             if (! $is_revision_redirect && ! empty($target_url) && 'tinypress_link' == get_post_type($link_id)) {
-                // Try to get post ID from the URL
+                // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.url_to_postid_url_to_postid -- Not a VIP environment; url_to_postid is standard WP core function
                 $extracted_post_id = url_to_postid($target_url);
                 
                 // If url_to_postid fails, try parsing query string for ?p= format
                 if (! $extracted_post_id) {
-                    $url_parts = parse_url($target_url);
+                    $url_parts = wp_parse_url($target_url);
                     if (isset($url_parts['query'])) {
                         parse_str($url_parts['query'], $query_vars);
                         if (isset($query_vars['p'])) {
@@ -135,7 +138,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                         }
 
                         if (! in_array($post_status, $allowed_statuses)) {
-                            global $wp_query;
+                            global $wp_query; // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.VariableRedeclaration -- Must re-declare to access in this scope
                             $wp_query->set_404();
                             status_header(404);
                             nocache_headers();
@@ -162,7 +165,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $parameter_forwarding = Utils::get_meta('redirection_parameter_forwarding', $link_id);
 
             if ('1' == $parameter_forwarding) {
-                $parameters = wp_unslash($_GET);
+                $parameters = wp_unslash($_GET); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Front-end redirect; forwarding URL query parameters to target
 
                 if (isset($parameters['password'])) {
                     unset($parameters['password']);
@@ -252,7 +255,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 <meta charset="utf-8">
                 <meta name="robots" content="noindex, nofollow">
                 <title><?php esc_html_e('Link Expired', 'tinypress'); ?></title>
-                <meta http-equiv="refresh" content="3;url=<?php echo esc_attr($safe_url); ?>">
+                <meta http-equiv="refresh" content="3;url=<?php echo esc_url($safe_url); ?>">
                 <style>
                     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #f0f0f1; color: #3c434a; }
                     .notice-box { text-align: center; background: #fff; padding: 40px 50px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.1); max-width: 480px; }
@@ -266,7 +269,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 <div class="notice-box">
                     <h1><?php esc_html_e('This link has expired', 'tinypress'); ?></h1>
                     <p><?php esc_html_e('You will be redirected shortly.', 'tinypress'); ?></p>
-                    <a href="<?php echo esc_attr($safe_url); ?>"><?php esc_html_e('Click here if you are not redirected', 'tinypress'); ?></a>
+                    <a href="<?php echo esc_url($safe_url); ?>"><?php esc_html_e('Click here if you are not redirected', 'tinypress'); ?></a>
                 </div>
             </body>
             </html>
@@ -281,7 +284,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
          *
          * @return void
          */
-        function track_redirection($link_id)
+        public function track_redirection($link_id)
         {
 
             global $wpdb;
@@ -299,6 +302,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $curr_user_id   = is_user_logged_in() ? get_current_user_id() : 0;
 
             // Prevent duplicate tracking: check if this IP already tracked this link in the last 60 seconds
+            // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; time-sensitive query not suitable for caching
             $recent_track = $wpdb->get_var($wpdb->prepare(
                 "SELECT COUNT(*) FROM " . TINYPRESS_TABLE_REPORTS . "
 				WHERE post_id = %d 
@@ -307,6 +311,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 $link_id,
                 $get_ip_address
             ));
+            // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
 
             if ($recent_track > 0) {
                 return;
@@ -324,6 +329,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
             );
 
             // Try to get geolocation data, but don't fail if it's unavailable
+            // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get -- Not a VIP environment; standard WP function is appropriate
             $response = wp_remote_get('https://www.geoplugin.net/json.gp?ip=' . urlencode($get_ip_address));
 
             if (! is_wp_error($response) && 200 === wp_remote_retrieve_response_code($response)) {
@@ -335,13 +341,14 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
             }
 
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery -- Custom table insert for tracking; no caching needed for write operations
             $wpdb->insert(
                 TINYPRESS_TABLE_REPORTS,
                 array(
                     'user_id'       => $curr_user_id,
                     'post_id'       => $link_id,
                     'user_ip'       => $get_ip_address,
-                    'user_location' => json_encode($location_info),
+                    'user_location' => wp_json_encode($location_info),
                 ),
                 array( '%d', '%d', '%s', '%s' )
             );
@@ -357,7 +364,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
          *
          * @return void
          */
-        function check_protection($link_id)
+        public function check_protection($link_id)
         {
 
             $current_url          = site_url($this->get_request_uri());
@@ -367,7 +374,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $link_status          = Utils::get_meta('link_status', $link_id, '1');
             $password_check_nonce = wp_create_nonce('password_check');
 
-            if (parse_url($current_url, PHP_URL_QUERY)) {
+            if (wp_parse_url($current_url, PHP_URL_QUERY)) {
                 $password_checked_url = $current_url . '&password=' . $password_check_nonce;
             } else {
                 $password_checked_url = $current_url . '?password=' . $password_check_nonce;
@@ -473,7 +480,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
          *
          * @return void
          */
-        function redirect_url($link_id)
+        public function redirect_url($link_id)
         {
 
             // Fire action before tracking to allow auto-list links to be created first
@@ -484,6 +491,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $tracking_id = $link_id;
             if (get_post_type($link_id) !== 'tinypress_link') {
                 global $wpdb;
+                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Cross-table join lookup; not cacheable via standard WP functions
                 $tinypress_link_id = $wpdb->get_var($wpdb->prepare(
                     "SELECT pm.post_id FROM {$wpdb->postmeta} pm
 					INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
@@ -494,6 +502,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                     $link_id,
                     'tinypress_link'
                 ));
+                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
                 if ($tinypress_link_id) {
                     $tracking_id = (int) $tinypress_link_id;
                 }
@@ -560,6 +569,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 return;
             }
             
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Front-end query; checking URL parameter for preview mode detection
             if (! isset($_GET['preview']) || $_GET['preview'] !== 'true') {
                 return;
             }

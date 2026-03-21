@@ -10,7 +10,10 @@ defined('ABSPATH') || exit;
 
 /**
  * Class TINYPRESS_Revisions
+ * Note: Uses WordPress naming conventions (TINYPRESS_ prefix, snake_case methods)
+ * for backwards compatibility and WordPress plugin ecosystem standards.
  */
+// phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
 class TINYPRESS_Revisions
 {
     protected static $_instance = null;
@@ -18,7 +21,7 @@ class TINYPRESS_Revisions
     /**
      * TINYPRESS_Revisions constructor.
      */
-    function __construct()
+    public function __construct()
     {
         add_action('init', array( $this, 'init_hooks' ), 5);
         add_action('init', array( $this, 'migrate_revision_link_meta' ), 2);
@@ -67,6 +70,7 @@ class TINYPRESS_Revisions
 
         global $wpdb;
 
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- One-time migration query; results not reused
         $entries = $wpdb->get_results($wpdb->prepare(
             "SELECT pm.post_id, pm.meta_value AS source_post_id, source_post.post_mime_type AS source_mime
 			FROM {$wpdb->postmeta} pm
@@ -117,6 +121,7 @@ class TINYPRESS_Revisions
         global $wpdb;
 
         // Find all PP Revisions posts that do NOT have a tinypress_link entry
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- One-time migration query; complex join not cacheable
         $orphaned_revisions = $wpdb->get_results(
             "SELECT p.ID AS revision_id,
 				pm_slug.meta_value AS tiny_slug,
@@ -190,6 +195,7 @@ class TINYPRESS_Revisions
         if (get_transient('tinypress_activation_redirect')) {
             delete_transient('tinypress_activation_redirect');
 
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Checking WP core activation parameter, not a form submission
             if (! is_network_admin() && ! isset($_GET['activate-multi'])) {
                 wp_safe_redirect(admin_url('edit.php?post_type=tinypress_link'));
                 exit;
@@ -222,6 +228,7 @@ class TINYPRESS_Revisions
         global $wpdb;
 
         if (! $is_active) {
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Cross-table join query; not cacheable
             $link_ids = $wpdb->get_col($wpdb->prepare(
                 "SELECT p.ID FROM {$wpdb->posts} p
 				INNER JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id
@@ -237,15 +244,18 @@ class TINYPRESS_Revisions
 
             if (! empty($link_ids)) {
                 $ids_placeholder = implode(',', array_fill(0, count($link_ids), '%d'));
+                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $ids_placeholder is generated from array_fill with %d placeholders, not user input
                 $wpdb->query($wpdb->prepare(
                     "UPDATE {$wpdb->posts} SET post_status = 'tinypress_suspended' WHERE ID IN ({$ids_placeholder})",
                     array_map('intval', $link_ids)
                 ));
+                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
                 foreach ($link_ids as $id) {
                     clean_post_cache((int) $id);
                 }
             }
         } elseif ($is_active && ! $was_active) {
+            // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Cross-table join query; not cacheable
             $link_ids = $wpdb->get_col($wpdb->prepare(
                 "SELECT p.ID FROM {$wpdb->posts} p
 				INNER JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id
@@ -258,13 +268,16 @@ class TINYPRESS_Revisions
                 'is_revision_link',
                 '1'
             ));
+            // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 
             if (! empty($link_ids)) {
                 $ids_placeholder = implode(',', array_fill(0, count($link_ids), '%d'));
+                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $ids_placeholder is generated from array_fill with %d placeholders, not user input
                 $wpdb->query($wpdb->prepare(
                     "UPDATE {$wpdb->posts} SET post_status = 'publish' WHERE ID IN ({$ids_placeholder})",
                     array_map('intval', $link_ids)
                 ));
+                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
                 foreach ($link_ids as $id) {
                     clean_post_cache((int) $id);
                 }
@@ -338,6 +351,7 @@ class TINYPRESS_Revisions
         $parent_id = absint($revision->post_parent);
         if ($parent_id) {
             global $wpdb;
+            // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Cross-table join lookup; not cacheable
             $parent_link = $wpdb->get_var($wpdb->prepare(
                 "SELECT pm.post_id FROM {$wpdb->postmeta} pm
 				INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
@@ -349,6 +363,7 @@ class TINYPRESS_Revisions
                 $parent_id,
                 'tinypress_link'
             ));
+            // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 
             if (! $parent_link) {
                 return 0;
@@ -396,6 +411,7 @@ class TINYPRESS_Revisions
     {
         global $wpdb;
 
+        // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Cross-table join lookup; not cacheable via standard WP functions
         $link_id = $wpdb->get_var($wpdb->prepare(
             "SELECT pm.post_id FROM {$wpdb->postmeta} pm
 			INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
@@ -406,6 +422,7 @@ class TINYPRESS_Revisions
             $revision_id,
             'tinypress_link'
         ));
+        // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 
         return $link_id ? (int) $link_id : null;
     }

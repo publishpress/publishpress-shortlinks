@@ -114,6 +114,7 @@ if (! defined('TINYPRESS_LOADED')) {
         /**
          * Class TINYPRESS_Main
          */
+        // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore, Squiz.Scope.MethodScope.Missing -- WordPress naming conventions; legacy class
         class TINYPRESS_Main
         {
             protected static $_instance = null;
@@ -155,7 +156,7 @@ if (! defined('TINYPRESS_LOADED')) {
             function flush_rewrite_rules()
             {
                 global $wp_rewrite;
-                $wp_rewrite->flush_rules(true);
+                $wp_rewrite->flush_rules(true); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.flush_rules_flush_rules -- Only called on plugin activation, not on every page load
             }
 
 

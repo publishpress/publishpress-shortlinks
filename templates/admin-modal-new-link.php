@@ -27,7 +27,7 @@ $tiny_slug_args = array(
                 </div>
                 <div class="response-item">
                     <div class="item-label"><?php esc_html_e('Shortlink', 'tinypress') ?></div>
-                    <div class="item-val"><?php echo tinypress_get_tiny_slug_copier(0, false, $tiny_slug_args); ?></div>
+                    <div class="item-val"><?php echo tinypress_get_tiny_slug_copier(0, false, $tiny_slug_args); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Function returns pre-escaped HTML via esc_attr(), esc_url(), esc_html() internally ?></div>
                 </div>
             </div>
         </div>

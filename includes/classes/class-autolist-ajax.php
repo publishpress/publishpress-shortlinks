@@ -10,6 +10,12 @@ if (! defined('ABSPATH')) {
 }
 
 if (! class_exists('TINYPRESS_Autolist_Ajax')) {
+    /**
+     * AJAX handler for autolist settings
+     * 
+     * Note: This class uses WordPress naming conventions instead of strict PSR-1/PSR-2 standards.
+     */
+    // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
     class TINYPRESS_Autolist_Ajax
     {
         protected static $_instance = null;
@@ -33,6 +39,7 @@ if (! class_exists('TINYPRESS_Autolist_Ajax')) {
                 wp_send_json_error(array( 'message' => __('Permission denied', 'tinypress') ));
             }
             
+            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- $_POST['post_type'] is sanitized below
             $post_type = isset($_POST['post_type']) ? sanitize_text_field(trim($_POST['post_type'])) : '';
             $current_index = isset($_POST['current_index']) ? intval($_POST['current_index']) : -1;
             
@@ -87,6 +94,7 @@ if (! class_exists('TINYPRESS_Autolist_Ajax')) {
                     wp_send_json_error(array( 'message' => __('Permission denied - you must be an administrator', 'tinypress') ));
                 }
                 
+                // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- $_POST['config'] is validated and sanitized by sanitize_config()
                 $config = isset($_POST['config']) ? $_POST['config'] : array();
                 $enabled = isset($_POST['enabled']) ? sanitize_text_field($_POST['enabled']) : '0';
                 
@@ -186,6 +194,7 @@ if (! class_exists('TINYPRESS_Autolist_Ajax')) {
                 wp_send_json_error(array( 'message' => __('Permission denied', 'tinypress') ));
             }
             
+            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- $_POST['page'] and $_POST['search'] are properly sanitized
             $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
             $per_page = 10;
             $search = isset($_POST['search']) ? sanitize_text_field($_POST['search']) : '';

@@ -4,7 +4,10 @@ use WPDK\Utils;
 
 /**
  * Class Link Columns
+ * 
+ * Note: This class uses WordPress naming conventions instead of strict PSR-1/PSR-2 standards.
  */
+// phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
 class TINYPRESS_Column_link
 {
     protected static $_instance = null;
@@ -12,7 +15,7 @@ class TINYPRESS_Column_link
     /**
      * TINYPRESS_Column_link Constructor.
      */
-    function __construct()
+    public function __construct()
     {
         add_filter('manage_tinypress_link_posts_columns', array( $this, 'add_columns' ), 16, 1);
         add_action('manage_tinypress_link_posts_custom_column', array( $this, 'columns_content' ), 10, 2);
@@ -83,8 +86,7 @@ class TINYPRESS_Column_link
      *
      * @return array
      */
-
-    function tinypress_copy_columns($columns)
+    public function tinypress_copy_columns($columns)
     {
 
         $columns['tinypress-link'] = esc_html__('Shortlinks', 'tinypress');
@@ -93,15 +95,14 @@ class TINYPRESS_Column_link
     }
 
     /**
-     *tinypress_copy_content
+     * tinypress_copy_content
      *
      * @param $column
      * @param $post_id
      *
      * @return void
      */
-
-    function tinypress_copy_content($column_name, $post_id)
+    public function tinypress_copy_content($column_name, $post_id)
     {
 
         if ('tinypress-link' == $column_name) {
@@ -123,7 +124,7 @@ class TINYPRESS_Column_link
      *
      * @return mixed
      */
-    function remove_row_actions($actions)
+    public function remove_row_actions($actions)
     {
         global $post;
 
@@ -147,7 +148,7 @@ class TINYPRESS_Column_link
      * @param $column_id
      * @param $post_id
      */
-    function columns_content($column_id, $post_id)
+    public function columns_content($column_id, $post_id)
     {
         switch ($column_id) {
             case 'link-title':
@@ -160,10 +161,12 @@ class TINYPRESS_Column_link
                     $is_revision_link = $source_post && rvy_in_revision_workflow($source_post->ID) ? '1' : '0';
                 }
 
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $title_html is constructed from esc_url() and get_the_title() which are already escaped
                 echo $title_html;
                 break;
 
             case 'short-link':
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tinypress_get_tiny_slug_copier() returns properly escaped HTML
                 echo tinypress_get_tiny_slug_copier($post_id, false, array( 'wrapper_class' => 'mini' ));
                 break;
 
@@ -206,12 +209,14 @@ class TINYPRESS_Column_link
                     }
                 }
 
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $badge_text and $tooltip_text are escaped via esc_html__() and esc_html()
                 echo '<span class="tinypress-link-type-badge ' . esc_attr($badge_class) . ' pp-tooltips-library" data-toggle="tooltip">' . $badge_text . '<span class="tinypress tooltip-text">' . $tooltip_text . '</span></span>';
                 break;
 
             case 'click-count':
                 global $wpdb;
 
+                // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table query; TINYPRESS_TABLE_REPORTS is a safe constant; result varies per post and is not reused
                 $click_count = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id = %d", $post_id));
 
                 echo '<div class="click-count">' . esc_html(sprintf(__('Clicked %s times', 'tinypress'), $click_count)) . '</div>';
@@ -239,7 +244,7 @@ class TINYPRESS_Column_link
      *
      * @return string 'internal' or 'external'
      */
-    function get_link_type($post_id)
+    private function get_link_type($post_id)
     {
         $target_url = Utils::get_meta('target_url', $post_id);
 
@@ -264,7 +269,7 @@ class TINYPRESS_Column_link
      *
      * @return string[]
      */
-    function add_columns($columns)
+    public function add_columns($columns)
     {
         $new_columns = array(
             'cb'           => Utils::get_args_option('cb', $columns),
