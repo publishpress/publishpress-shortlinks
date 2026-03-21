@@ -40,8 +40,6 @@ class TINYPRESS_Revisions
             return;
         }
 
-        add_filter('revisionary_private_type_use_preview_url', array( $this, 'enable_preview_urls_for_shortlinks' ), 10, 2);
-
         add_filter('revisionary_unrevisioned_postmeta', array( $this, 'tinypress_exclude_slug_from_revision_copy' ));
 
         add_action('revisionary_new_revision', array( $this, 'tinypress_create_revision_unique_shortlink' ), 10, 2);
@@ -53,57 +51,6 @@ class TINYPRESS_Revisions
         add_action('before_delete_post', array( $this, 'tinypress_cleanup_revision_link_before_delete' ), 10, 1);
 
         add_filter('revisionary_enabled_post_types', array( $this, 'tinypress_exclude_from_revisions' ));
-    }
-
-    /**
-     * Enable front-end preview URLs for non-public post types when creating shortlinks.
-     *
-     * @param bool $enable Whether to enable preview URLs for non-public types
-     * @param object $revision The revision post object
-     * @return bool True to enable preview URLs
-     */
-    public function enable_preview_urls_for_shortlinks($enable, $revision)
-    {
-        return true;
-    }
-
-    /**
-     * Build a manual preview URL for revisions when rvy_preview_url() fails.
-     *
-     * @param int $revision_id The revision post ID
-     * @return string The constructed preview URL, or empty string on error
-     */
-    public function build_manual_preview_url($revision_id)
-    {
-        if (! function_exists('rvy_preview_url')) {
-            return '';
-        }
-
-        $revision = get_post($revision_id);
-        if (! $revision) {
-            return '';
-        }
-
-        $post_type = $revision->post_type;
-        
-        if (!function_exists('rvy_in_revision_workflow') || !rvy_in_revision_workflow($revision_id)) {
-            return '';
-        }
-
-        // Build the preview URL manually with required parameters
-        $base_url = home_url('/');
-        $preview_url = add_query_arg(
-            array(
-                $post_type       => sanitize_title($revision->post_title),
-                'rv_preview'     => '1',
-                'page_id'        => $revision_id,
-                'post_type'      => $post_type,
-                'nc'             => md5(wp_rand()),
-            ),
-            $base_url
-        );
-
-        return $preview_url;
     }
 
     /**
@@ -401,6 +348,28 @@ class TINYPRESS_Revisions
             return $existing;
         }
 
+        $parent_id = absint($revision->post_parent);
+        if ($parent_id) {
+            global $wpdb;
+            // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Cross-table join lookup; not cacheable
+            $parent_link = $wpdb->get_var($wpdb->prepare(
+                "SELECT pm.post_id FROM {$wpdb->postmeta} pm
+				INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
+				WHERE pm.meta_key = %s
+				AND pm.meta_value = %d
+				AND p.post_type = %s
+				LIMIT 1",
+                'source_post_id',
+                $parent_id,
+                'tinypress_link'
+            ));
+            // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+
+            if (! $parent_link) {
+                return 0;
+            }
+        }
+
         $tiny_slug = get_post_meta($revision_id, 'tiny_slug', true);
         if (empty($tiny_slug)) {
             $tiny_slug = tinypress_create_url_slug();
@@ -420,18 +389,7 @@ class TINYPRESS_Revisions
             return $link_id;
         }
 
-        $target_url = '';
-        if (function_exists('rvy_preview_url')) {
-            $target_url = rvy_preview_url($revision_id);
-        }
-        
-        if (empty($target_url)) {
-            $target_url = get_permalink($revision_id);
-        }
-
-        if (empty($target_url)) {
-            $target_url = $this->build_manual_preview_url($revision_id);
-        }
+        $target_url = get_permalink($revision_id);
 
         update_post_meta($link_id, 'target_url', esc_url_raw($target_url));
         update_post_meta($link_id, 'tiny_slug', $tiny_slug);

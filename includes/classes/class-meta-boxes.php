@@ -10,9 +10,12 @@ use WPDK\Utils;
 defined('ABSPATH') || exit;
 
 if (! class_exists('TINYPRESS_Meta_boxes')) {
-/**
+    /**
      * Class TINYPRESS_Meta_boxes
+     * 
+     * Note: This class uses WordPress naming conventions instead of strict PSR-1/PSR-2 standards.
      */
+    // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
     class TINYPRESS_Meta_boxes
     {
         private $tinypress_metabox_main = 'tinypress_meta_main';
@@ -23,7 +26,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         /**
          * TINYPRESS_Meta_boxes constructor.
          */
-        function __construct()
+        public function __construct()
         {
             $this->tinypress_default_slug = tinypress_create_url_slug();
             $this->generate_tinypress_meta_box();
@@ -44,7 +47,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
          *
          * @return void
          */
-        function render_analytics()
+        public function render_analytics()
         {
             include TINYPRESS_PLUGIN_DIR . 'templates/admin/analytics.php';
         }
@@ -55,7 +58,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
          *
          * @return void
          */
-        function render_side_box()
+        public function render_side_box()
         {
             echo '<div class="tinypress-meta-side">';
             include TINYPRESS_PLUGIN_DIR . 'templates/admin/qr-code.php';
@@ -68,7 +71,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
          *
          * @return void
          */
-        function add_side_meta_box()
+        public function add_side_meta_box()
         {
             add_meta_box('tinypress-meta-side', esc_html__('Side', 'tinypress'), array( $this, 'render_side_box' ), 'tinypress_link', 'side', 'core');
         }
@@ -79,7 +82,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
          *
          * @return void
          */
-        function add_shortlinks_metabox()
+        public function add_shortlinks_metabox()
         {
             global $post;
             
@@ -97,7 +100,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
          * @param $post
          * @return void
          */
-        function render_native_shortlinks_metabox($post)
+        public function render_native_shortlinks_metabox($post)
         {
             wp_nonce_field('tinypress_shortlinks_nonce', 'tinypress_shortlinks_nonce_' . $post->post_type);
           
@@ -108,6 +111,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
             // Hook for Pro to add content before shortlink field
             do_action('tinypress_metabox_before_shortlink_field', $post);
            
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tinypress_get_tiny_slug_copier() returns properly escaped HTML
             echo tinypress_get_tiny_slug_copier($post->ID, true, $args);
           
             // Hook for Pro to add content after shortlink field
@@ -121,11 +125,11 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
          * @param $post
          * @return void
          */
-        function save_native_shortlinks_metabox($post_id, $post)
+        public function save_native_shortlinks_metabox($post_id, $post)
         {
             if (
                 ! isset($_POST['tinypress_shortlinks_nonce_' . $post->post_type]) || 
-                 ! wp_verify_nonce($_POST['tinypress_shortlinks_nonce_' . $post->post_type], 'tinypress_shortlinks_nonce') 
+                 ! wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['tinypress_shortlinks_nonce_' . $post->post_type])), 'tinypress_shortlinks_nonce') 
             ) {
                 return;
             }
@@ -163,9 +167,10 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
          *
          * @return void
          */
-        function render_field_tinypress_link($args)
+        public function render_field_tinypress_link($args)
         {
             global $post;
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tinypress_get_tiny_slug_copier() returns escaped HTML
             echo tinypress_get_tiny_slug_copier($post->ID, true, $args);
         }
 
@@ -173,7 +178,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         /**
          * Generate meta box for slider data
          */
-        function generate_tinypress_meta_box()
+        private function generate_tinypress_meta_box()
         {
             // Create a metabox for tinypress.
             WPDK_Settings::createMetabox(
