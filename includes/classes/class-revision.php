@@ -24,7 +24,6 @@ class TINYPRESS_Revisions
         add_action('init', array( $this, 'migrate_revision_link_meta' ), 2);
         add_action('init', array( $this, 'migrate_legacy_revision_slugs' ), 3);
         add_action('init', array( $this, 'sync_revision_shortlinks_status' ), 4);
-        add_action('admin_notices', array( $this, 'show_legacy_migration_notice' ));
         add_action('admin_init', array( $this, 'redirect_after_activation' ));
         add_action('wp_ajax_tinypress_dismiss_migration_notice', array( $this, 'dismiss_migration_notice' ));
     }
@@ -181,57 +180,6 @@ class TINYPRESS_Revisions
         if ($migrated_count > 0) {
             update_option('tinypress_legacy_migration_count', $migrated_count, true);
         }
-    }
-
-    /**
-     * Show a dismissible admin notice after legacy revision slug migration.
-     */
-    public function show_legacy_migration_notice()
-    {
-        $count = get_option('tinypress_legacy_migration_count', 0);
-
-        $screen = get_current_screen();
-
-        if (empty($count)) {
-            return;
-        }
-
-        if (! $screen || 'edit-tinypress_link' !== $screen->id) {
-            return;
-        }
-
-        printf(
-            '<div class="notice notice-success is-dismissible tinypress-migration-notice" data-nonce="%s"><p>%s</p></div>',
-            esc_attr(wp_create_nonce('tinypress_dismiss_migration')),
-            sprintf(
-                /* translators: %d: number of revision shortlinks migrated */
-                esc_html__('%d revision shortlink(s) were updated with unique links. Previously, these revisions shared the same shortlink as their parent post.', 'tinypress'),
-                absint($count)
-            )
-        );
-
-        echo '<script>
-			jQuery(function($) {
-				$(".tinypress-migration-notice").on("click", ".notice-dismiss", function() {
-					$.post(ajaxurl, {
-						action: "tinypress_dismiss_migration_notice",
-						nonce: $(".tinypress-migration-notice").data("nonce")
-					});
-				});
-			});
-		</script>';
-    }
-
-    /**
-     * AJAX handler to dismiss the legacy migration notice.
-     */
-    public function dismiss_migration_notice()
-    {
-        if (! wp_verify_nonce(sanitize_text_field($_POST['nonce'] ?? ''), 'tinypress_dismiss_migration')) {
-            wp_send_json_error();
-        }
-        delete_option('tinypress_legacy_migration_count');
-        wp_send_json_success();
     }
 
     /**
