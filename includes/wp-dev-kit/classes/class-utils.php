@@ -70,7 +70,7 @@ class Utils
         $args = wp_parse_args(
             $args,
             array(
-                'description'         => sprintf($this->client->__trans('This is where you can create and manage %s.'), $plural),
+                'description'         => sprintf($this->client->_trans('This is where you can create and manage %s.'), $plural),
                 'public'              => true,
                 'show_ui'             => true,
                 'capability_type'     => 'post',
@@ -88,21 +88,21 @@ class Utils
         $args['labels'] = wp_parse_args(
             $labels,
             array(
-                'name'               => sprintf($this->client->__trans('%s'), $plural),
+                'name'               => sprintf($this->client->_trans('%s'), $plural),
                 'singular_name'      => $singular,
-                'menu_name'          => $this->client->__trans($plural),
-                'all_items'          => sprintf($this->client->__trans('%s'), $plural),
-                'add_new'            => sprintf($this->client->__trans('Add %s'), $singular),
-                'add_new_item'       => sprintf($this->client->__trans('Add %s'), $singular),
-                'edit'               => $this->client->__trans('Edit'),
-                'edit_item'          => sprintf($this->client->__trans('%s Details'), $singular),
-                'new_item'           => sprintf($this->client->__trans('New %s'), $singular),
-                'view'               => sprintf($this->client->__trans('View %s'), $singular),
-                'view_item'          => sprintf($this->client->__trans('View %s'), $singular),
-                'search_items'       => sprintf($this->client->__trans('Search %s'), $plural),
-                'not_found'          => sprintf($this->client->__trans('No %s found'), $plural),
-                'not_found_in_trash' => sprintf($this->client->__trans('No %s found in trash'), $plural),
-                'parent'             => sprintf($this->client->__trans('Parent %s'), $singular),
+                'menu_name'          => $this->client->_trans($plural),
+                'all_items'          => sprintf($this->client->_trans('%s'), $plural),
+                'add_new'            => sprintf($this->client->_trans('Add %s'), $singular),
+                'add_new_item'       => sprintf($this->client->_trans('Add %s'), $singular),
+                'edit'               => $this->client->_trans('Edit'),
+                'edit_item'          => sprintf($this->client->_trans('%s Details'), $singular),
+                'new_item'           => sprintf($this->client->_trans('New %s'), $singular),
+                'view'               => sprintf($this->client->_trans('View %s'), $singular),
+                'view_item'          => sprintf($this->client->_trans('View %s'), $singular),
+                'search_items'       => sprintf($this->client->_trans('Search %s'), $plural),
+                'not_found'          => sprintf($this->client->_trans('No %s found'), $plural),
+                'not_found_in_trash' => sprintf($this->client->_trans('No %s found in trash'), $plural),
+                'parent'             => sprintf($this->client->_trans('Parent %s'), $singular),
             )
         );
 
@@ -130,7 +130,7 @@ class Utils
         $args = wp_parse_args(
             $args,
             array(
-                'description'         => sprintf($this->client->__trans('This is where you can create and manage %s.'), $plural),
+                'description'         => sprintf($this->client->_trans('This is where you can create and manage %s.'), $plural),
                 'public'              => true,
                 'show_ui'             => true,
                 'capability_type'     => 'post',
@@ -150,21 +150,21 @@ class Utils
         $args['labels'] = wp_parse_args(
             $labels,
             array(
-                'name'               => sprintf($this->client->__trans('%s'), $plural),
+                'name'               => sprintf($this->client->_trans('%s'), $plural),
                 'singular_name'      => $singular,
-                'menu_name'          => $this->client->__trans($plural),
-                'all_items'          => sprintf($this->client->__trans('%s'), $plural),
-                'add_new'            => sprintf($this->client->__trans('Add %s'), $singular),
-                'add_new_item'       => sprintf($this->client->__trans('Add %s'), $singular),
-                'edit'               => $this->client->__trans('Edit'),
-                'edit_item'          => sprintf($this->client->__trans('Edit %s'), $singular),
-                'new_item'           => sprintf($this->client->__trans('New %s'), $singular),
-                'view'               => sprintf($this->client->__trans('View %s'), $singular),
-                'view_item'          => sprintf($this->client->__trans('View %s'), $singular),
-                'search_items'       => sprintf($this->client->__trans('Search %s'), $plural),
-                'not_found'          => sprintf($this->client->__trans('No %s found'), $plural),
-                'not_found_in_trash' => sprintf($this->client->__trans('No %s found in trash'), $plural),
-                'parent'             => sprintf($this->client->__trans('Parent %s'), $singular),
+                'menu_name'          => $this->client->_trans($plural),
+                'all_items'          => sprintf($this->client->_trans('%s'), $plural),
+                'add_new'            => sprintf($this->client->_trans('Add %s'), $singular),
+                'add_new_item'       => sprintf($this->client->_trans('Add %s'), $singular),
+                'edit'               => $this->client->_trans('Edit'),
+                'edit_item'          => sprintf($this->client->_trans('Edit %s'), $singular),
+                'new_item'           => sprintf($this->client->_trans('New %s'), $singular),
+                'view'               => sprintf($this->client->_trans('View %s'), $singular),
+                'view_item'          => sprintf($this->client->_trans('View %s'), $singular),
+                'search_items'       => sprintf($this->client->_trans('Search %s'), $plural),
+                'not_found'          => sprintf($this->client->_trans('No %s found'), $plural),
+                'not_found_in_trash' => sprintf($this->client->_trans('No %s found in trash'), $plural),
+                'parent'             => sprintf($this->client->_trans('Parent %s'), $singular),
             )
         );
 
