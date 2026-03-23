@@ -233,6 +233,10 @@ if (! defined('TINYPRESS_LOADED')) {
                 if (! isset($settings['tinypress_role_view'])) {
                     $settings['tinypress_role_view'] = array( 'administrator', 'editor', 'author', 'contributor', 'subscriber', 'revisor' );
                 }
+
+                if (! isset($settings['tinypress_revision_visitor_access'])) {
+                    $settings['tinypress_revision_visitor_access'] = '1';
+                }
             
                 update_option('tinypress_settings', $settings);
             }

@@ -26,8 +26,16 @@ if (! class_exists('TINYPRESS_Redirection')) {
          */
         public function __construct()
         {
+            // General redirection plugin protection: prevent WP from setting 404 for valid shortlinks.
+            add_filter('pre_handle_404', array( $this, 'prevent_shortlink_404' ), 10, 2);
+
             // RankMath compatibility
             add_filter('rank_math/redirection/fallback_exclude_locations', array( $this, 'rankmath_exclude_shortlinks' ), 10, 1);
+            // Yoast SEO compatibility
+            add_filter('wpseo_redirect_bypass_redirect', array( $this, 'yoast_bypass_shortlink_redirect' ), 10, 1);
+            // Redirection plugin compatibility
+            add_filter('redirection_url_target', array( $this, 'redirection_plugin_bypass' ), 10, 2);
+
             add_filter('wp_title', array( $this, 'fix_shortlink_title' ), 10, 2);
             // Main redirection controller
             add_action('template_redirect', array( $this, 'redirection_controller' ), 0);
@@ -53,7 +61,10 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $target_url = Utils::get_meta('target_url', $link_id);
 
             $is_revision_redirect = false;
+            $revision_post_id    = 0;
+
             if ('tinypress_link' == get_post_type($link_id)) {
+                // Case 1: $link_id is a tinypress_link entry — check if it's a revision link
                 $is_revision_link = get_post_meta($link_id, 'is_revision_link', true);
                 if (! $is_revision_link && function_exists('rvy_in_revision_workflow')) {
                     $source_post_id_check = absint(get_post_meta($link_id, 'source_post_id', true));
@@ -62,28 +73,40 @@ if (! class_exists('TINYPRESS_Redirection')) {
                         update_post_meta($link_id, 'is_revision_link', '1');
                     }
                 }
-                if ($is_revision_link && function_exists('rvy_preview_url')) {
-                    $source_post_id = absint(get_post_meta($link_id, 'source_post_id', true));
-                    $revision_post  = $source_post_id ? get_post($source_post_id) : null;
+                if ($is_revision_link) {
+                    $revision_post_id = absint(get_post_meta($link_id, 'source_post_id', true));
+                }
+            } elseif (function_exists('rvy_in_revision_workflow') && rvy_in_revision_workflow($link_id)) {
+                // Case 2: $link_id is a revision post directly (no tinypress_link entry)
+                $revision_post_id = $link_id;
+            }
 
-                    if ($revision_post) {
-                        if (is_user_logged_in()) {
-                            $target_url = rvy_preview_url($source_post_id);
+            if ($revision_post_id && function_exists('rvy_preview_url')) {
+                $revision_post = get_post($revision_post_id);
+
+                if ($revision_post) {
+                    if (is_user_logged_in()) {
+                        $preview_url = rvy_preview_url($revision_post_id);
+                        if (! empty($preview_url)) {
+                            $target_url = $preview_url;
                             $is_revision_redirect = true;
-                        } else {
-                            $visitor_access = Utils::get_option('tinypress_revision_visitor_access', false);
+                        }
+                    } else {
+                        $visitor_access = Utils::get_option('tinypress_revision_visitor_access', '1');
 
-                            if ('1' == $visitor_access) {
-                                $this->display_non_published_post($source_post_id);
-                                die();
-                            } else {
-                                global $wp_query;
-                                $wp_query->set_404();
-                                status_header(404);
-                                nocache_headers();
-                                include(get_query_template('404'));
-                                die();
+                        if ('1' == $visitor_access) {
+                            $this->display_non_published_post($revision_post_id);
+                            die();
+                        } else {
+                            global $wp_query;
+                            $wp_query->set_404();
+                            status_header(404);
+                            nocache_headers();
+                            $template_404 = get_query_template('404');
+                            if ($template_404) {
+                                include($template_404);
                             }
+                            die();
                         }
                     }
                 }
@@ -111,7 +134,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
             }
             
-            if (( empty($target_url) && 'tinypress_link' != get_post_type($link_id) ) || $post_to_check != $link_id) {
+            if (! $is_revision_redirect && (( empty($target_url) && 'tinypress_link' != get_post_type($link_id) ) || $post_to_check != $link_id)) {
                 $post_status = get_post_status($post_to_check);
                 $post_object = get_post($post_to_check);
                 
@@ -142,7 +165,10 @@ if (! class_exists('TINYPRESS_Redirection')) {
                             $wp_query->set_404();
                             status_header(404);
                             nocache_headers();
-                            include(get_query_template('404'));
+                            $template_404 = get_query_template('404');
+                            if ($template_404) {
+                                include($template_404);
+                            }
                             die();
                         }
                     }
@@ -234,7 +260,13 @@ if (! class_exists('TINYPRESS_Redirection')) {
             setup_postdata($post);
             
             status_header(200);
-            include(get_query_template('single'));
+            $single_template = get_query_template('single');
+            if ($single_template) {
+                include($single_template);
+            } else {
+                // Fallback: display basic post content if no single template found
+                wp_die(esc_html($post->post_title), esc_html($post->post_title), array( 'response' => 200 ));
+            }
         }
 
 
@@ -543,7 +575,14 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 if ('1' == $link_prefix) {
                     $is_shortlink_request = ( strpos($tiny_slug_1, $link_prefix_slug) !== false );
                 } else {
-                    $is_shortlink_request = is_404();
+                    $resolved_post_type = get_post_type($link_id);
+                    if ('tinypress_link' === $resolved_post_type) {
+                        $is_shortlink_request = true;
+                    } elseif (function_exists('rvy_in_revision_workflow') && rvy_in_revision_workflow($link_id)) {
+                        $is_shortlink_request = true;
+                    } else {
+                        $is_shortlink_request = is_404();
+                    }
                 }
                 
                 if ($is_shortlink_request && ! is_page($tiny_slug_4)) {
@@ -612,7 +651,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
         /**
          * Check if the current request is a valid TinyPress shortlink.
-         * This is used to tell RankMath to skip processing our shortlinks.
+         * Used by RankMath compatibility and general 404 prevention.
          *
          * @param string $uri The URI to check
          * @return bool True if this is a valid shortlink
@@ -645,6 +684,48 @@ if (! class_exists('TINYPRESS_Redirection')) {
         }
 
         /**
+         * Check if the current request resolves to a dedicated shortlink post
+         * (tinypress_link or PP Revisions post). This is a stricter check than
+         * is_shortlink_request() — it excludes regular posts that just happen
+         * to have a tiny_slug meta.
+         *
+         * Used by prevent_shortlink_404() to avoid interfering with normal WP
+         * routing for regular posts.
+         *
+         * @return bool True if this resolves to a tinypress_link or revision post
+         */
+        protected function is_dedicated_shortlink_request()
+        {
+            $uri = trim($this->get_request_uri(), '/');
+
+            $link_prefix      = Utils::get_option('tinypress_link_prefix');
+            $link_prefix_slug = Utils::get_option('tinypress_link_prefix_slug', 'go');
+
+            if ('1' == $link_prefix) {
+                return $this->is_shortlink_request($uri);
+            }
+
+            $tiny_slug_parts = explode('?', $uri);
+            $tiny_slug = $tiny_slug_parts[0] ?? '';
+
+            $link_id = tinypress()->tiny_slug_to_post_id($tiny_slug);
+
+            if (empty($link_id) || $link_id === 0) {
+                return false;
+            }
+
+            if ('tinypress_link' === get_post_type($link_id)) {
+                return true;
+            }
+
+            if (function_exists('rvy_in_revision_workflow') && rvy_in_revision_workflow($link_id)) {
+                return true;
+            }
+
+            return false;
+        }
+
+        /**
          * RankMath compatibility: Add current shortlink to RankMath's fallback exclusion list.
          * This prevents RankMath from redirecting valid shortlinks to homepage.
          *
@@ -660,6 +741,58 @@ if (! class_exists('TINYPRESS_Redirection')) {
             }
 
             return $exclude_locations;
+        }
+
+        /**
+         * General protection: Prevent WordPress from setting 404 status for valid shortlinks.
+         * This filter runs during wp() before template_redirect, so ALL redirect plugins
+         * (RankMath, Yoast, Redirection, AIOSEO, SEOPress, etc.) will see a non-404 state.
+         *
+         * @param bool     $preempt  Whether to short-circuit default 404 handling.
+         * @param WP_Query $wp_query The WP_Query object.
+         * @return bool True to prevent 404, original value otherwise.
+         */
+        public function prevent_shortlink_404($preempt, $wp_query)
+        {
+            if ($this->is_dedicated_shortlink_request()) {
+                // Tell WordPress this is NOT a 404 — we will handle it in template_redirect
+                $wp_query->is_404 = false;
+                status_header(200);
+                return true;
+            }
+
+            return $preempt;
+        }
+
+        /**
+         * Yoast SEO compatibility: Bypass Yoast's redirect for valid shortlinks.
+         *
+         * @param bool $bypass Whether to bypass the redirect.
+         * @return bool True to bypass, original value otherwise.
+         */
+        public function yoast_bypass_shortlink_redirect($bypass)
+        {
+            if ($this->is_dedicated_shortlink_request()) {
+                return true;
+            }
+
+            return $bypass;
+        }
+
+        /**
+         * Redirection plugin compatibility: Cancel redirect for valid shortlinks.
+         *
+         * @param string $target The redirect target URL.
+         * @param string $url    The requested URL.
+         * @return string Empty string to cancel redirect, original target otherwise.
+         */
+        public function redirection_plugin_bypass($target, $url)
+        {
+            if ($this->is_dedicated_shortlink_request()) {
+                return false;
+            }
+
+            return $target;
         }
 
         /**

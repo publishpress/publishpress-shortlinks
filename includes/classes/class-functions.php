@@ -71,7 +71,7 @@ if (! class_exists('TINYPRESS_Functions')) {
             }
 
             global $wpdb;
-// First try to find a tinypress_link post with this slug (for auto-list links)
+            // First try to find a tinypress_link post with this slug (for auto-list links)
             // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Cross-table join lookup; not cacheable via standard WP functions
             $link_id = (int) $wpdb->get_var($wpdb->prepare("SELECT pm.post_id FROM {$wpdb->postmeta} pm
 				INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
@@ -79,7 +79,7 @@ if (! class_exists('TINYPRESS_Functions')) {
 				AND pm.meta_value = %s 
 				AND p.post_type = 'tinypress_link'
 				LIMIT 1", $slug));
-// If no tinypress_link found, look for any post with this slug
+            // If no tinypress_link found, look for any post with this slug
             if (empty($link_id)) {
                 // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Fallback lookup by meta_key; not cacheable via standard WP functions
                 $link_id = (int) $wpdb->get_var($wpdb->prepare("SELECT post_id FROM {$wpdb->postmeta} 
