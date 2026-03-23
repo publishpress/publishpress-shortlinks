@@ -348,28 +348,6 @@ class TINYPRESS_Revisions
             return $existing;
         }
 
-        $parent_id = absint($revision->post_parent);
-        if ($parent_id) {
-            global $wpdb;
-            // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Cross-table join lookup; not cacheable
-            $parent_link = $wpdb->get_var($wpdb->prepare(
-                "SELECT pm.post_id FROM {$wpdb->postmeta} pm
-				INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
-				WHERE pm.meta_key = %s
-				AND pm.meta_value = %d
-				AND p.post_type = %s
-				LIMIT 1",
-                'source_post_id',
-                $parent_id,
-                'tinypress_link'
-            ));
-            // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
-
-            if (! $parent_link) {
-                return 0;
-            }
-        }
-
         $tiny_slug = get_post_meta($revision_id, 'tiny_slug', true);
         if (empty($tiny_slug)) {
             $tiny_slug = tinypress_create_url_slug();
