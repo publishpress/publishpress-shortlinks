@@ -42,7 +42,7 @@ if (! function_exists('tinypress_generate_random_string')) {
         $randomString     = '';
 
         for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[ rand(0, $charactersLength - 1) ];
+            $randomString .= $characters[ wp_rand(0, $charactersLength - 1) ];
         }
 
         return strtolower($randomString);
@@ -62,6 +62,7 @@ if (! function_exists('tinypress_create_url_slug')) {
         global $wpdb;
 
         $given_string = empty($given_string) ? tinypress_generate_random_string() : $given_string;
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Collision check for unique slug generation; must query directly
         $post_id      = $wpdb->get_var($wpdb->prepare("SELECT post_id FROM {$wpdb->postmeta} WHERE meta_value like %s", $given_string));
 
         if (! empty($post_id)) {
@@ -81,12 +82,13 @@ if (! function_exists('tinypress_get_ip_address')) {
 
     function tinypress_get_ip_address()
     {
-        $ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0';
+        // phpcs:disable WordPressVIPMinimum.Variables.ServerVariables.UserControlledHeaders, WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___SERVER__REMOTE_ADDR__ -- Not a VIP environment; IP collection is required for analytics tracking
+        $ip = isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'])) : '0.0.0.0';
 
         // Only use X-Forwarded-For if behind a trusted reverse proxy
         if (defined('TINYPRESS_TRUSTED_PROXY') && $ip === TINYPRESS_TRUSTED_PROXY) {
             if (! empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-                $forwarded_ips = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+                $forwarded_ips = explode(',', sanitize_text_field(wp_unslash($_SERVER['HTTP_X_FORWARDED_FOR'])));
                 $candidate     = trim($forwarded_ips[0]);
                 if (filter_var($candidate, FILTER_VALIDATE_IP)) {
                     $ip = $candidate;
@@ -94,6 +96,7 @@ if (! function_exists('tinypress_get_ip_address')) {
             }
         }
 
+        // phpcs:enable WordPressVIPMinimum.Variables.ServerVariables.UserControlledHeaders, WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___SERVER__REMOTE_ADDR__
         return filter_var($ip, FILTER_VALIDATE_IP) ? $ip : '0.0.0.0';
     }
 }
@@ -132,10 +135,10 @@ if (! function_exists('tinypress_get_tiny_slug_copier')) {
 
         echo '<span class="tiny-slug-inner">';
         if ($preview) {
-            echo '<span class="preview"> ' . esc_html__($preview_text) . ' </span>';
+            echo '<span class="preview"> ' . esc_html($preview_text) . ' </span>';
         } else {
             echo '<span class="prefix">' . esc_url(site_url('/' . $link_prefix_slug . '/')) . '</span>';
-            echo '<span class="tiny-slug"> ' . esc_attr($tiny_slug) . ' </span>';
+            echo '<span class="tiny-slug"> ' . esc_html($tiny_slug) . ' </span>';
         }
         echo '</span>';
         echo '</div>';
@@ -145,13 +148,13 @@ if (! function_exists('tinypress_get_tiny_slug_copier')) {
             if ('tinypress_link' == $post->post_type) {
                 echo '<input type="text" class="tinypress-tiny-slug" name="tinypress_meta_main[tiny_slug]" value="' . esc_attr($tiny_slug) . '" placeholder="ad34o">';
             } else {
-                echo '<input type="text" class="tinypress-tiny-slug" name="tinypress_meta_side_' . $post->post_type . '[tiny_slug]" value="' . esc_attr($tiny_slug) . '" placeholder="ad34o">';
+                echo '<input type="text" class="tinypress-tiny-slug" name="tinypress_meta_side_' . esc_attr($post->post_type) . '[tiny_slug]" value="' . esc_attr($tiny_slug) . '" placeholder="ad34o">';
             
                 $link_posts = get_posts(array(
                 'post_type'      => 'tinypress_link',
                 'posts_per_page' => 1,
                 'post_status'    => 'any',
-                'meta_query'     => array(
+                'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Required to find linked tinypress_link entry by source_post_id
                     array(
                         'key'     => 'source_post_id',
                         'value'   => absint($post_id),
@@ -214,7 +217,7 @@ if (! function_exists('tinypress_create_shorten_url')) {
         }
 
         $allowed_schemes = array( 'http', 'https', 'ftp', 'ftps', 'mailto' );
-        $parsed_scheme   = parse_url($target_url, PHP_URL_SCHEME);
+        $parsed_scheme   = wp_parse_url($target_url, PHP_URL_SCHEME);
 
         if (empty($parsed_scheme) || ! in_array($parsed_scheme, $allowed_schemes, true)) {
             return new WP_Error('invalid_url', esc_html__('Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed.', 'tinypress'));

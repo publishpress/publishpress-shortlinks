@@ -13,7 +13,10 @@ defined('ABSPATH') || exit;
 if (! class_exists('TINYPRESS_Hooks')) {
     /**
      * Class TINYPRESS_Hooks
+     * 
+     * Note: This class uses WordPress naming conventions instead of strict PSR-1/PSR-2 standards.
      */
+    // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
     class TINYPRESS_Hooks
     {
         protected static $_instance = null;
@@ -23,7 +26,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
         /**
          * TINYPRESS_Hooks constructor.
          */
-        function __construct()
+        public function __construct()
         {
 
             add_action('init', array( $this, 'register_everything' ));
@@ -47,7 +50,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
 
         public function tinypress_popup_create_url()
         {
-
+            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- $_POST['url_data'] is parsed and sanitized via parse_str() then validated per field
             $_url_data = isset($_POST['url_data']) ? wp_unslash($_POST['url_data']) : null;
 
             parse_str($_url_data, $url_data);
@@ -90,6 +93,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
 
         public function tinypress_reset_analytics()
         {
+            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- $_POST['nonce'] is validated by wp_verify_nonce()
             if (! isset($_POST['nonce']) || ! wp_verify_nonce($_POST['nonce'], 'tinypress_reset_analytics_nonce')) {
                 wp_send_json_error(esc_html__('Invalid nonce verification.', 'tinypress'));
             }
@@ -125,10 +129,12 @@ if (! class_exists('TINYPRESS_Hooks')) {
                     $date_condition = "AND DATE(datetime) = CURDATE()";
             }
 
+            // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; $date_condition is a hardcoded string from switch above
             $result = $wpdb->query($wpdb->prepare(
                 "DELETE FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id = %d " . $date_condition,
                 $post_id
             ));
+            // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
 
             if ($result !== false) {
                 wp_send_json_success(esc_html__('Analytics reset successfully.', 'tinypress'));
@@ -175,7 +181,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
          *
          * @return mixed
          */
-        function change_url_update_message($messages)
+        public function change_url_update_message($messages)
         {
 
             $tinypress_messages = Utils::get_args_option('post', $messages);
@@ -192,7 +198,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
         /**
          * Register Post Types
          */
-        function register_everything()
+        public function register_everything()
         {
 
             global $tinypress_wpdk;
@@ -224,6 +230,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
                 )
             );
 
+// phpcs:disable Squiz.PHP.CommentedOutCode.Found -- Intentionally kept for potential future tags taxonomy feature
 //          $tinypress_wpdk->utils()->register_taxonomy( 'tinypress_link_tags', 'tinypress_link',
 //              apply_filters( 'TINYPRESS/Filters/link_tags_args',
 //                  array(
@@ -232,13 +239,14 @@ if (! class_exists('TINYPRESS_Hooks')) {
 //                  )
 //              )
 //          );
+// phpcs:enable Squiz.PHP.CommentedOutCode.Found
         }
 
 
         /**
          * Adds a submenu page under a custom post type parent.
          */
-        function links_log()
+        public function links_log()
         {
             add_submenu_page(
                 'edit.php?post_type=tinypress_link',
@@ -254,7 +262,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
         /**
          * Render logs menu
          */
-        function render_menu_logs()
+        public function render_menu_logs()
         {
 
             if (! class_exists('WP_List_Table_Logs')) {
@@ -365,7 +373,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
             return self::user_has_role_access('tinypress_role_edit');
         }
 
-        function reorder_submenu()
+        public function reorder_submenu()
         {
             global $submenu;
 
@@ -396,7 +404,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
          * Enforce "Who Can View Shortlinks" role restriction.
          * Removes the Shortlinks menu for users whose role is not in the allowed list.
          */
-        function enforce_role_view_access()
+        public function enforce_role_view_access()
         {
             if (! self::current_user_can_view()) {
                 remove_menu_page('edit.php?post_type=tinypress_link');
@@ -407,7 +415,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
          * Enforce "Who Can Create/Edit Shortlinks" restriction.
          * Removes the "Add New" submenu for restricted roles.
          */
-        function enforce_role_create_access()
+        public function enforce_role_create_access()
         {
             if (! self::current_user_can_create()) {
                 remove_submenu_page('edit.php?post_type=tinypress_link', 'post-new.php?post_type=tinypress_link');
@@ -418,7 +426,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
          * Enforce "Who Can Control Settings" restriction.
          * Removes the Settings submenu for restricted roles.
          */
-        function enforce_role_settings_access()
+        public function enforce_role_settings_access()
         {
             if (! self::current_user_can_settings()) {
                 remove_submenu_page('edit.php?post_type=tinypress_link', 'settings');
@@ -436,7 +444,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
          * @param WP_User $user    The user object
          * @return array
          */
-        function filter_view_capabilities($allcaps, $caps, $args, $user)
+        public function filter_view_capabilities($allcaps, $caps, $args, $user)
         {
             // Prevent recursion if Utils::get_option triggers current_user_can
             if (self::$_filtering_caps) {
@@ -475,7 +483,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
         /**
          * Block direct URL access to tinypress_link screens for restricted users.
          */
-        function block_direct_access()
+        public function block_direct_access()
         {
             if (! $this->is_tinypress_screen()) {
                 return;
@@ -502,7 +510,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
         /**
          * Block direct URL access to create/edit tinypress_link for restricted roles.
          */
-        function block_create_direct_access()
+        public function block_create_direct_access()
         {
             if (self::current_user_can_create()) {
                 return;
@@ -510,6 +518,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
 
             global $pagenow;
 
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- No form submission; checking admin URL parameters for access control
             if ($pagenow === 'post-new.php' && isset($_GET['post_type']) && $_GET['post_type'] === 'tinypress_link') {
                 wp_die(
                     esc_html__('Sorry, you are not allowed to create shortlinks.', 'tinypress'),
@@ -518,6 +527,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
                 );
             }
 
+            // phpcs:disable WordPress.Security.NonceVerification.Recommended -- No form submission; checking admin URL parameters for access control
             if ($pagenow === 'post.php' && ! empty($_GET['post'])) {
                 $post_type = get_post_type(absint($_GET['post']));
                 if ($post_type === 'tinypress_link') {
@@ -528,17 +538,19 @@ if (! class_exists('TINYPRESS_Hooks')) {
                     );
                 }
             }
+            // phpcs:enable WordPress.Security.NonceVerification.Recommended
         }
 
         /**
          * Block direct URL access to settings page for restricted roles.
          */
-        function block_settings_direct_access()
+        public function block_settings_direct_access()
         {
             if (self::current_user_can_settings()) {
                 return;
             }
 
+            // phpcs:disable WordPress.Security.NonceVerification.Recommended -- No form submission; checking admin URL parameters for access control
             if (isset($_GET['post_type']) && $_GET['post_type'] === 'tinypress_link' && isset($_GET['page']) && $_GET['page'] === 'settings') {
                 wp_die(
                     esc_html__('Sorry, you are not allowed to access shortlink settings.', 'tinypress'),
@@ -546,6 +558,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
                     array( 'response' => 403 )
                 );
             }
+            // phpcs:enable WordPress.Security.NonceVerification.Recommended
         }
 
         /**
@@ -559,6 +572,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
 
             // Check query params for post_type
             $post_type = '';
+            // phpcs:disable WordPress.Security.NonceVerification.Recommended -- No form submission; reading admin URL parameters for screen detection
             if (! empty($_GET['post_type'])) {
                 $post_type = sanitize_text_field(wp_unslash($_GET['post_type']));
             } elseif (! empty($_GET['post'])) {
@@ -581,6 +595,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
                     }
                 }
             }
+            // phpcs:enable WordPress.Security.NonceVerification.Recommended
 
             return false;
         }

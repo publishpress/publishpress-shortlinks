@@ -7,9 +7,10 @@ namespace PublishPress\Shortlinks;
  *
  * @package publishpress-shortlinks
  */
+// phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps -- WordPress naming conventions for hook callbacks
 class ShortlinksCoreAdmin
 {
-    function __construct()
+    public function __construct()
     {
         if (is_admin()) {
             add_action('in_admin_header', [$this, 'tinypress_render_upgrade_notice']);
@@ -30,14 +31,14 @@ class ShortlinksCoreAdmin
         }
     }
 
-    function tinypress_load_admin_core_assets()
+    public function tinypress_load_admin_core_assets()
     {
         wp_register_style('tinypress-tooltip', TINYPRESS_PLUGIN_URL . 'assets/lib/tooltip/css/tooltip.min.css', array(), TINYPRESS_PLUGIN_VERSION, 'all');
         wp_register_script('tinypress-tooltip', TINYPRESS_PLUGIN_URL . 'assets/lib/tooltip/js/tooltip.min.js', array(), TINYPRESS_PLUGIN_VERSION, true);
         wp_register_style('tinypress-admin-core', TINYPRESS_PLUGIN_URL . 'includes-core/assets/css/core.css', array('tinypress-tooltip'), TINYPRESS_PLUGIN_VERSION, 'all');
     }
 
-    function tinypress_load_admin_core_styles()
+    public function tinypress_load_admin_core_styles()
     {
         wp_enqueue_style('tinypress-admin-core');
         wp_enqueue_script('tinypress-tooltip');
@@ -49,7 +50,7 @@ class ShortlinksCoreAdmin
         ");
     }
 
-    function tinypress_render_upgrade_notice()
+    public function tinypress_render_upgrade_notice()
     {
         $screen = get_current_screen();
 
@@ -83,15 +84,15 @@ class ShortlinksCoreAdmin
         $button_text = esc_html__('Upgrade to Pro', 'tinypress');
         ?>
         <div class="tinypress-version-notice-bold-purple">
-            <div class="tinypress-version-notice-bold-purple-message"><?php echo $message; ?></div>
+            <div class="tinypress-version-notice-bold-purple-message"><?php echo wp_kses_post($message); ?></div>
             <div class="tinypress-version-notice-bold-purple-button">
-                <a href="<?php echo esc_url($upgrade_url); ?>" target="_blank"><?php echo $button_text; ?></a>
+                <a href="<?php echo esc_url($upgrade_url); ?>" target="_blank"><?php echo esc_html($button_text); ?></a>
             </div>
         </div>
         <?php
     }
 
-    function tinypress_add_upgrade_menu_link()
+    public function tinypress_add_upgrade_menu_link()
     {
         $upgrade_url = defined('TINYPRESS_LINK_PRO') ? TINYPRESS_LINK_PRO : 'https://publishpress.com/shortlinks/';
 
@@ -121,22 +122,22 @@ class ShortlinksCoreAdmin
         <?php
     }
 
-    function render_pro_nudge_create()
+    public function render_pro_nudge_create()
     {
         $this->render_pro_nudge();
     }
 
-    function render_pro_nudge_analytics()
+    public function render_pro_nudge_analytics()
     {
         $this->render_pro_nudge();
     }
 
-    function render_pro_nudge_settings()
+    public function render_pro_nudge_settings()
     {
         $this->render_pro_nudge();
     }
 
-    function render_pro_nudge_expired_links()
+    public function render_pro_nudge_expired_links()
     {
         ?>
         <script>
@@ -162,7 +163,7 @@ class ShortlinksCoreAdmin
     /**
      * Enqueue teaser CSS on our pages.
      */
-    function enqueue_teaser_assets()
+    public function enqueue_teaser_assets()
     {
         $screen = get_current_screen();
         if (!$screen) {
@@ -182,7 +183,7 @@ class ShortlinksCoreAdmin
     /**
      * Add Import/Export teaser submenu for Free users.
      */
-    function tinypress_add_import_export_teaser()
+    public function tinypress_add_import_export_teaser()
     {
         add_submenu_page(
             'edit.php?post_type=tinypress_link',
@@ -197,7 +198,7 @@ class ShortlinksCoreAdmin
     /**
      * Render the Import/Export teaser page.
      */
-    function render_import_export_teaser()
+    public function render_import_export_teaser()
     {
         $upgrade_url = defined('TINYPRESS_LINK_PRO') ? TINYPRESS_LINK_PRO : 'https://publishpress.com/shortlinks/';
         ?>

@@ -14,7 +14,11 @@ show_help() {
 }
 
 check_env_file() {
-    if [[ ! -f .env ]]; then
+    if [[ -f ../.env ]]; then
+        ENV_FILE="../.env"
+    elif [[ -f ./.env ]]; then
+        ENV_FILE="./.env"
+    else
         echo "Error: .env file not found in the root directory. Please run 'cp .env.example .env' to create it."
         exit 1
     fi
@@ -22,7 +26,7 @@ check_env_file() {
 
 set_env_file() {
     set -a
-    source .env
+    source "$ENV_FILE"
     set +a
 }
 

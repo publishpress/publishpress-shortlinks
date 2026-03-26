@@ -4,7 +4,7 @@
  * Plugin Name: PublishPress Shortlinks
  * Plugin URI:  https://publishpress.com/shortlinks/
  * Description: Create custom links for your posts. These links are brandable, trackable, and can have custom view permissions.
- * Version: 1.3.0
+ * Version: 1.4.0
  * Text Domain: tinypress
  * Author: PublishPress
  * Author URI: https://publishpress.com/
@@ -62,7 +62,7 @@ if (! defined('TINYPRESS_LOADED')) {
     define('TINYPRESS_LOADED', 1);
 
     define('TINYPRESS_FILE', __DIR__ . '/tinypress.php');
-    define('TINYPRESS_PLUGIN_VERSION', '1.3.0');
+    define('TINYPRESS_PLUGIN_VERSION', '1.4.0');
 
     if (! defined('TINYPRESS_LIB_VENDOR_PATH')) {
         define('TINYPRESS_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
@@ -114,6 +114,7 @@ if (! defined('TINYPRESS_LOADED')) {
         /**
          * Class TINYPRESS_Main
          */
+        // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore, Squiz.Scope.MethodScope.Missing -- WordPress naming conventions; legacy class
         class TINYPRESS_Main
         {
             protected static $_instance = null;
@@ -155,7 +156,7 @@ if (! defined('TINYPRESS_LOADED')) {
             function flush_rewrite_rules()
             {
                 global $wp_rewrite;
-                $wp_rewrite->flush_rules(true);
+                $wp_rewrite->flush_rules(true); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.flush_rules_flush_rules -- Only called on plugin activation, not on every page load
             }
 
 
@@ -231,6 +232,10 @@ if (! defined('TINYPRESS_LOADED')) {
 
                 if (! isset($settings['tinypress_role_view'])) {
                     $settings['tinypress_role_view'] = array( 'administrator', 'editor', 'author', 'contributor', 'subscriber', 'revisor' );
+                }
+
+                if (! isset($settings['tinypress_revision_visitor_access'])) {
+                    $settings['tinypress_revision_visitor_access'] = '1';
                 }
             
                 update_option('tinypress_settings', $settings);

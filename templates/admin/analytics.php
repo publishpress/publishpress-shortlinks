@@ -10,6 +10,7 @@ $post_id = get_the_ID();
 
 global $wpdb;
 
+// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; aggregation query not suitable for caching
 $reports = $wpdb->get_results($wpdb->prepare("SELECT DATE(datetime) AS DateOnly, COUNT(*) AS ClickCount FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id =%d AND is_cleared = 0 GROUP BY DATE(datetime) ORDER BY DATE(datetime)", $post_id), ARRAY_A);
 
 $data  = array();

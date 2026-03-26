@@ -13,7 +13,10 @@ defined('ABSPATH') || exit;
 if (! class_exists('TINYPRESS_Redirection')) {
     /**
      * Class TINYPRESS_Redirection
+     * 
+     * Note: This class uses WordPress naming conventions for compatibility and backwards compatibility.
      */
+    // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
     class TINYPRESS_Redirection
     {
         protected static $_instance = null;
@@ -21,17 +24,232 @@ if (! class_exists('TINYPRESS_Redirection')) {
         /**
          * TINYPRESS_Redirection constructor.
          */
-        function __construct()
+        public function __construct()
         {
+            // General redirection plugin protection: prevent WP from setting 404 for valid shortlinks.
+            add_filter('pre_handle_404', array( $this, 'prevent_shortlink_404' ), 10, 2);
+
             // RankMath compatibility
             add_filter('rank_math/redirection/fallback_exclude_locations', array( $this, 'rankmath_exclude_shortlinks' ), 10, 1);
+            // Yoast SEO compatibility
+            add_filter('wpseo_redirect_bypass_redirect', array( $this, 'yoast_bypass_shortlink_redirect' ), 10, 1);
+            // Redirection plugin compatibility
+            add_filter('redirection_url_target', array( $this, 'redirection_plugin_bypass' ), 10, 2);
+
             add_filter('wp_title', array( $this, 'fix_shortlink_title' ), 10, 2);
             // Main redirection controller
             add_action('template_redirect', array( $this, 'redirection_controller' ), 0);
             add_action('pre_get_posts', array( $this, 'tinypress_filter_shortlink_preview_visibility' ));
             add_action('wp_footer', array( $this, 'inject_reload_detection' ));
+
+            $preview_arg = defined('RVY_PREVIEW_ARG') ? sanitize_key(RVY_PREVIEW_ARG) : 'rv_preview'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+            $is_visitor_preview = ! is_admin() && ! empty($_GET['tinypress_visitor']) && (! empty($_GET['rv_preview']) || ! empty($_GET['preview'])); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+            if ($is_visitor_preview) {
+                add_action('init', array( $this, 'inject_visitor_preview_capability' ), 0);
+                add_action('init', array( $this, 'bust_cache_for_visitor_preview' ), 1);
+
+                add_filter('revisionary_private_type_use_preview_url', array( $this, 'enable_private_type_frontend_preview' ), 10, 2);
+                
+                // Remove Elementor's blocking hook at very high priority so we can render elementor templates for visitors
+                add_action('template_redirect', array( $this, 'prevent_elementor_homepage_redirect' ), -10000);
+                
+                add_filter('posts_request', array( $this, 'visitor_revision_sql_rewrite' ), 999);
+                add_filter('posts_results', array( $this, 'visitor_revision_inject_post' ), 5, 2);
+                add_action('pre_get_posts', array( $this, 'visitor_revision_fix_query' ), 1);
+                add_filter('redirect_canonical', array( $this, 'visitor_revision_block_canonical' ), 10, 2);
+                add_filter('get_post_metadata', array( $this, 'visitor_revision_fallback_metadata' ), 10, 5);
+                add_filter('the_author', array( $this, 'visitor_revision_author' ), 20);
+                add_action('wp_head', array( $this, 'visitor_revision_hide_toolbar' ));
+                add_action('wp_head', array( $this, 'visitor_revision_elementor_support' ), 15);
+                nocache_headers();
+            }
         }
 
+
+        /**
+         * Build a manual preview URL for revisions when rvy_preview_url() fails.
+         *
+         * @param int $revision_id The revision post ID
+         * @return string The constructed preview URL, or empty string on error
+         */
+        private function build_revision_preview_url($revision_id)
+        {
+            $revision = get_post($revision_id);
+            if (! $revision) {
+                $this->debug_log('build_revision_preview_url: revision post not found', array(
+                    'revision_id' => $revision_id,
+                ));
+                return '';
+            }
+
+            $post_type = $revision->post_type;
+            
+            // Skip if not a revision post
+            if (!function_exists('rvy_in_revision_workflow') || !rvy_in_revision_workflow($revision_id)) {
+                $this->debug_log('build_revision_preview_url: not in revision workflow', array(
+                    'revision_id' => $revision_id,
+                    'post_type' => $post_type,
+                ));
+                return '';
+            }
+
+            $this->debug_log('build_revision_preview_url: building URL', array(
+                'revision_id' => $revision_id,
+                'post_type' => $post_type,
+                'revision_title' => $revision->post_title,
+            ));
+
+            // Build the preview URL manually with required parameters
+            $base_url = home_url('/');
+            $preview_url = add_query_arg(
+                array(
+                    $post_type       => sanitize_title($revision->post_title),
+                    'rv_preview'     => '1',
+                    'page_id'        => $revision_id,
+                    'post_type'      => $post_type,
+                    'nc'             => md5(wp_rand()),
+                ),
+                $base_url
+            );
+
+            $this->debug_log('build_revision_preview_url: URL built', array(
+                'preview_url' => $preview_url,
+            ));
+
+            return $preview_url;
+        }
+
+        /**
+         * Helper method to log debug information
+         *
+         * @param string $message Debug message
+         * @param array $data Additional data to log
+         * @return void
+         */
+        private function debug_log($message, $data = array())
+        {
+            if (defined('WP_DEBUG') && WP_DEBUG) {
+                $log_message = '[TinyPress Shortlinks] ' . $message;
+                if (!empty($data)) {
+                    $log_message .= ' | ' . json_encode($data);
+                }
+                error_log($log_message);
+            }
+        }
+
+        public function prevent_elementor_homepage_redirect()
+        {
+            if (empty($_GET['tinypress_visitor'])) {
+                return;
+            }
+
+            global $wp_filter;
+            
+            if (!isset($wp_filter['template_redirect'])) {
+                return;
+            }
+
+            foreach ($wp_filter['template_redirect']->callbacks as $priority => $callbacks) {
+                foreach ($callbacks as $hook_name => $callback_item) {
+                    $callback = $callback_item['function'];
+
+                    if (is_array($callback)) {
+                        $obj = $callback[0];
+                        $method = $callback[1] ?? '';
+
+                        $is_source_local = (is_object($obj) && get_class($obj) === 'Elementor\TemplateLibrary\Source_Local') ||
+                                         (is_string($obj) && $obj === 'Elementor\TemplateLibrary\Source_Local');
+                        
+                        if ($is_source_local && $method === 'block_template_frontend') {
+                            remove_action('template_redirect', $callback, $priority);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
+        /**
+         * Bust cache for visitor previews to ensure they see the true live state.
+         * Some cache plugins (WP Rocket, Cloudflare, etc) may cache preview URLs,
+         * so we aggressively prevent caching to ensure visitors see actual content.
+         *
+         * @return void
+         */
+        public function bust_cache_for_visitor_preview()
+        {
+            if (empty($_GET['tinypress_visitor'])) {
+                return;
+            }
+
+            // Prevent WP Rocket from caching this page
+            if (! defined('DONOTCACHEPAGE')) {
+                define('DONOTCACHEPAGE', true);
+            }
+            
+            // Prevent SG Optimizer from caching
+            if (! defined('SG_CACHE_DO_NOT_CACHE')) {
+                define('SG_CACHE_DO_NOT_CACHE', true);
+            }
+
+            // Set headers to prevent browser and intermediary caching
+            header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0', true);
+            header('Pragma: no-cache', true);
+            header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() - 86400), true);
+            
+            // Add timestamp to prevent any client-side caching
+            header('X-Cache-Busted: ' . microtime(true), true);
+        }
+
+        /**
+         * Enable frontend preview URLs for non-public post types
+         * when accessed via TinyPress visitor shortlinks.
+         *
+         * PublishPress Revisions normally blocks frontend previews for non-public post types,
+         * returning admin revision comparison URLs instead. This filter tells it
+         * to allow frontend previews when visitors access via our shortlinks.
+         *
+         * @param bool $use_preview_url Current filter value
+         * @param object $revision The revision post object
+         * @return bool True to use frontend preview URL, false for admin URL
+         */
+        public function enable_private_type_frontend_preview($use_preview_url, $revision)
+        {
+            if (!empty($_GET['tinypress_visitor'])) {
+                return true;
+            }
+            
+            return $use_preview_url;
+        }
+
+        /**
+         * Inject preview_others_revisions capability for visitors accessing revision shortlinks.
+         *
+         * @return void
+         */
+        public function inject_visitor_preview_capability()
+        {
+            global $current_user;
+
+            $has_visitor_flag = !empty($_GET['tinypress_visitor']) || !empty($_REQUEST['tinypress_visitor']); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+            $has_preview_param = !empty($_GET['rv_preview']) || !empty($_GET['preview']) || !empty($_REQUEST['rv_preview']) || !empty($_REQUEST['preview']); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+            
+            if (!$has_visitor_flag || !$has_preview_param) {
+                return;
+            }
+
+            $current_user = wp_get_current_user();
+
+            if (0 !== $current_user->ID) {
+                return;
+            }
+            
+            if (!isset($current_user->allcaps) || !is_array($current_user->allcaps)) {
+                $current_user->allcaps = array();
+            }
+
+            $current_user->allcaps['preview_others_revisions'] = 1;
+        }
 
         /**
          * Do the redirection
@@ -40,7 +258,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
          *
          * @return void
          */
-        function do_redirection($link_id)
+        public function do_redirection($link_id)
         {
 
             // Hook for Pro to execute before redirection tracking
@@ -50,7 +268,10 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $target_url = Utils::get_meta('target_url', $link_id);
 
             $is_revision_redirect = false;
+            $revision_post_id    = 0;
+
             if ('tinypress_link' == get_post_type($link_id)) {
+                // Case 1: $link_id is a tinypress_link entry — check if it's a revision link
                 $is_revision_link = get_post_meta($link_id, 'is_revision_link', true);
                 if (! $is_revision_link && function_exists('rvy_in_revision_workflow')) {
                     $source_post_id_check = absint(get_post_meta($link_id, 'source_post_id', true));
@@ -59,28 +280,109 @@ if (! class_exists('TINYPRESS_Redirection')) {
                         update_post_meta($link_id, 'is_revision_link', '1');
                     }
                 }
-                if ($is_revision_link && function_exists('rvy_preview_url')) {
-                    $source_post_id = absint(get_post_meta($link_id, 'source_post_id', true));
-                    $revision_post  = $source_post_id ? get_post($source_post_id) : null;
+                if ($is_revision_link) {
+                    $revision_post_id = absint(get_post_meta($link_id, 'source_post_id', true));
+                }
+            } elseif (function_exists('rvy_in_revision_workflow') && rvy_in_revision_workflow($link_id)) {
+                // Case 2: $link_id is a revision post directly (no tinypress_link entry)
+                $revision_post_id = $link_id;
+            }
 
-                    if ($revision_post) {
-                        if (is_user_logged_in()) {
-                            $target_url = rvy_preview_url($source_post_id);
+            if ($revision_post_id && function_exists('rvy_preview_url')) {
+                $revision_post = get_post($revision_post_id);
+
+                if ($revision_post) {
+                    $this->debug_log('REVISION DETECTED', array(
+                        'revision_post_id' => $revision_post_id,
+                        'revision_post_type' => $revision_post->post_type,
+                        'is_logged_in' => is_user_logged_in(),
+                        'stored_target_url' => $target_url,
+                    ));
+
+                    if (is_user_logged_in()) {
+                        $preview_url = rvy_preview_url($revision_post_id);
+                        $this->debug_log('LOGGED-IN USER: rvy_preview_url result', array(
+                            'preview_url' => $preview_url,
+                            'is_empty' => empty($preview_url),
+                        ));
+
+                        if (! empty($preview_url)) {
+                            $target_url = $preview_url;
                             $is_revision_redirect = true;
                         } else {
-                            $visitor_access = Utils::get_option('tinypress_revision_visitor_access', false);
+                            // Fallback for non-public post types
+                            $preview_url = $this->build_revision_preview_url($revision_post_id);
+                            $this->debug_log('LOGGED-IN USER: manual preview URL fallback', array(
+                                'preview_url' => $preview_url,
+                                'is_empty' => empty($preview_url),
+                            ));
 
-                            if ('1' == $visitor_access) {
-                                $this->display_non_published_post($source_post_id);
-                                die();
-                            } else {
-                                global $wp_query;
-                                $wp_query->set_404();
-                                status_header(404);
-                                nocache_headers();
-                                include(get_query_template('404'));
-                                die();
+                            if (! empty($preview_url)) {
+                                $target_url = $preview_url;
+                                $is_revision_redirect = true;
                             }
+                        }
+                    } else {
+                        $visitor_access = Utils::get_option('tinypress_revision_visitor_access', '1');
+                        $this->debug_log('VISITOR: visitor_access setting', array(
+                            'visitor_access' => $visitor_access,
+                        ));
+
+                        if ('1' == $visitor_access) {
+                            $this->debug_log('VISITOR: attempting rvy_preview_url', array(
+                                'revision_post_id' => $revision_post_id,
+                            ));
+
+                            $preview_url = rvy_preview_url($revision_post_id);
+                            $this->debug_log('VISITOR: rvy_preview_url result', array(
+                                'preview_url' => $preview_url,
+                                'is_empty' => empty($preview_url),
+                            ));
+
+                            if (! empty($preview_url)) {
+                                $target_url = add_query_arg('tinypress_visitor', '1', $preview_url);
+                                $is_revision_redirect = true;
+                                
+                                $this->debug_log('VISITOR: using rvy_preview_url', array(
+                                    'target_url' => $target_url,
+                                ));
+                            } else {
+                                $this->debug_log('VISITOR: rvy_preview_url empty, trying manual builder', array());
+
+                                $preview_url = $this->build_revision_preview_url($revision_post_id);
+                                $this->debug_log('VISITOR: manual preview URL result', array(
+                                    'preview_url' => $preview_url,
+                                    'is_empty' => empty($preview_url),
+                                ));
+
+                                if (! empty($preview_url)) {
+                                    $target_url = add_query_arg('tinypress_visitor', '1', $preview_url);
+                                    $is_revision_redirect = true;
+                                    
+                                    $this->debug_log('VISITOR: using manual preview URL', array(
+                                        'target_url' => $target_url,
+                                    ));
+                                } else {
+                                    $this->debug_log('VISITOR: both rvy_preview_url and manual builder failed', array(
+                                        'stored_target_url' => $target_url,
+                                    ));
+                                }
+                            }
+                                if (! empty($preview_url)) {
+                                    $target_url = add_query_arg('tinypress_visitor', '1', $preview_url);
+                                    $is_revision_redirect = true;
+                                }
+                            }
+                        else {
+                            global $wp_query;
+                            $wp_query->set_404();
+                            status_header(404);
+                            nocache_headers();
+                            $template_404 = get_query_template('404');
+                            if ($template_404) {
+                                include($template_404);
+                            }
+                            die();
                         }
                     }
                 }
@@ -89,12 +391,12 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $post_to_check = $link_id;
 
             if (! $is_revision_redirect && ! empty($target_url) && 'tinypress_link' == get_post_type($link_id)) {
-                // Try to get post ID from the URL
+                // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.url_to_postid_url_to_postid -- Not a VIP environment; url_to_postid is standard WP core function
                 $extracted_post_id = url_to_postid($target_url);
                 
                 // If url_to_postid fails, try parsing query string for ?p= format
                 if (! $extracted_post_id) {
-                    $url_parts = parse_url($target_url);
+                    $url_parts = wp_parse_url($target_url);
                     if (isset($url_parts['query'])) {
                         parse_str($url_parts['query'], $query_vars);
                         if (isset($query_vars['p'])) {
@@ -108,7 +410,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
             }
             
-            if (( empty($target_url) && 'tinypress_link' != get_post_type($link_id) ) || $post_to_check != $link_id) {
+            if (! $is_revision_redirect && (( empty($target_url) && 'tinypress_link' != get_post_type($link_id) ) || $post_to_check != $link_id)) {
                 $post_status = get_post_status($post_to_check);
                 $post_object = get_post($post_to_check);
                 
@@ -135,11 +437,14 @@ if (! class_exists('TINYPRESS_Redirection')) {
                         }
 
                         if (! in_array($post_status, $allowed_statuses)) {
-                            global $wp_query;
+                            global $wp_query; // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.VariableRedeclaration -- Must re-declare to access in this scope
                             $wp_query->set_404();
                             status_header(404);
                             nocache_headers();
-                            include(get_query_template('404'));
+                            $template_404 = get_query_template('404');
+                            if ($template_404) {
+                                include($template_404);
+                            }
                             die();
                         }
                     }
@@ -162,7 +467,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $parameter_forwarding = Utils::get_meta('redirection_parameter_forwarding', $link_id);
 
             if ('1' == $parameter_forwarding) {
-                $parameters = wp_unslash($_GET);
+                $parameters = wp_unslash($_GET); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Front-end redirect; forwarding URL query parameters to target
 
                 if (isset($parameters['password'])) {
                     unset($parameters['password']);
@@ -194,6 +499,14 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
             // Hook for Pro to execute after redirection headers
             do_action('tinypress_after_redirect_headers', $link_id, $target_url, $redirection_method);
+
+            $this->debug_log('FINAL REDIRECT', array(
+                'link_id' => $link_id,
+                'target_url' => $target_url,
+                'redirection_method' => $redirection_method,
+                'is_revision_redirect' => $is_revision_redirect,
+                'is_user_logged_in' => is_user_logged_in(),
+            ));
 
             header('Location: ' . esc_url_raw($target_url), true, $redirection_method);
 
@@ -231,7 +544,13 @@ if (! class_exists('TINYPRESS_Redirection')) {
             setup_postdata($post);
             
             status_header(200);
-            include(get_query_template('single'));
+            $single_template = get_query_template('single');
+            if ($single_template) {
+                include($single_template);
+            } else {
+                // Fallback: display basic post content if no single template found
+                wp_die(esc_html($post->post_title), esc_html($post->post_title), array( 'response' => 200 ));
+            }
         }
 
 
@@ -252,7 +571,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 <meta charset="utf-8">
                 <meta name="robots" content="noindex, nofollow">
                 <title><?php esc_html_e('Link Expired', 'tinypress'); ?></title>
-                <meta http-equiv="refresh" content="3;url=<?php echo esc_attr($safe_url); ?>">
+                <meta http-equiv="refresh" content="3;url=<?php echo esc_url($safe_url); ?>">
                 <style>
                     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #f0f0f1; color: #3c434a; }
                     .notice-box { text-align: center; background: #fff; padding: 40px 50px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.1); max-width: 480px; }
@@ -266,7 +585,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 <div class="notice-box">
                     <h1><?php esc_html_e('This link has expired', 'tinypress'); ?></h1>
                     <p><?php esc_html_e('You will be redirected shortly.', 'tinypress'); ?></p>
-                    <a href="<?php echo esc_attr($safe_url); ?>"><?php esc_html_e('Click here if you are not redirected', 'tinypress'); ?></a>
+                    <a href="<?php echo esc_url($safe_url); ?>"><?php esc_html_e('Click here if you are not redirected', 'tinypress'); ?></a>
                 </div>
             </body>
             </html>
@@ -281,7 +600,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
          *
          * @return void
          */
-        function track_redirection($link_id)
+        public function track_redirection($link_id)
         {
 
             global $wpdb;
@@ -299,6 +618,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $curr_user_id   = is_user_logged_in() ? get_current_user_id() : 0;
 
             // Prevent duplicate tracking: check if this IP already tracked this link in the last 60 seconds
+            // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; time-sensitive query not suitable for caching
             $recent_track = $wpdb->get_var($wpdb->prepare(
                 "SELECT COUNT(*) FROM " . TINYPRESS_TABLE_REPORTS . "
 				WHERE post_id = %d 
@@ -307,6 +627,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 $link_id,
                 $get_ip_address
             ));
+            // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
 
             if ($recent_track > 0) {
                 return;
@@ -324,6 +645,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
             );
 
             // Try to get geolocation data, but don't fail if it's unavailable
+            // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get -- Not a VIP environment; standard WP function is appropriate
             $response = wp_remote_get('https://www.geoplugin.net/json.gp?ip=' . urlencode($get_ip_address));
 
             if (! is_wp_error($response) && 200 === wp_remote_retrieve_response_code($response)) {
@@ -335,13 +657,14 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
             }
 
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery -- Custom table insert for tracking; no caching needed for write operations
             $wpdb->insert(
                 TINYPRESS_TABLE_REPORTS,
                 array(
                     'user_id'       => $curr_user_id,
                     'post_id'       => $link_id,
                     'user_ip'       => $get_ip_address,
-                    'user_location' => json_encode($location_info),
+                    'user_location' => wp_json_encode($location_info),
                 ),
                 array( '%d', '%d', '%s', '%s' )
             );
@@ -357,7 +680,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
          *
          * @return void
          */
-        function check_protection($link_id)
+        public function check_protection($link_id)
         {
 
             $current_url          = site_url($this->get_request_uri());
@@ -367,7 +690,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $link_status          = Utils::get_meta('link_status', $link_id, '1');
             $password_check_nonce = wp_create_nonce('password_check');
 
-            if (parse_url($current_url, PHP_URL_QUERY)) {
+            if (wp_parse_url($current_url, PHP_URL_QUERY)) {
                 $password_checked_url = $current_url . '&password=' . $password_check_nonce;
             } else {
                 $password_checked_url = $current_url . '?password=' . $password_check_nonce;
@@ -473,7 +796,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
          *
          * @return void
          */
-        function redirect_url($link_id)
+        public function redirect_url($link_id)
         {
 
             // Fire action before tracking to allow auto-list links to be created first
@@ -484,6 +807,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $tracking_id = $link_id;
             if (get_post_type($link_id) !== 'tinypress_link') {
                 global $wpdb;
+                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Cross-table join lookup; not cacheable via standard WP functions
                 $tinypress_link_id = $wpdb->get_var($wpdb->prepare(
                     "SELECT pm.post_id FROM {$wpdb->postmeta} pm
 					INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
@@ -494,6 +818,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                     $link_id,
                     'tinypress_link'
                 ));
+                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
                 if ($tinypress_link_id) {
                     $tracking_id = (int) $tinypress_link_id;
                 }
@@ -520,7 +845,20 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $is_prefix_request = ( '1' == $link_prefix && strpos($tiny_slug_1, $link_prefix_slug) !== false );
 
             if (! $is_prefix_request && ( is_single() || is_archive() )) {
-                return;
+                if ('1' == $link_prefix) {
+                    return;
+                }
+                
+                global $post;
+                if (!$post) {
+                    return;
+                }
+                
+                $resolved_post_type = get_post_type($post->ID);
+                if ('tinypress_link' !== $resolved_post_type && 
+                    (!function_exists('rvy_in_revision_workflow') || !rvy_in_revision_workflow($post->ID))) {
+                    return;
+                }
             }
 
             $tiny_slug_2 = ( '1' == $link_prefix ) ? str_replace($link_prefix_slug . '/', '', $tiny_slug_1) : $tiny_slug_1;
@@ -530,14 +868,25 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
             if (! empty($link_id) && $link_id !== 0) {
                 $is_shortlink_request = false;
+                $is_definite_shortlink = false;
                 
                 if ('1' == $link_prefix) {
                     $is_shortlink_request = ( strpos($tiny_slug_1, $link_prefix_slug) !== false );
+                    $is_definite_shortlink = $is_shortlink_request;
                 } else {
-                    $is_shortlink_request = is_404();
+                    $resolved_post_type = get_post_type($link_id);
+                    if ('tinypress_link' === $resolved_post_type) {
+                        $is_shortlink_request = true;
+                        $is_definite_shortlink = true;
+                    } elseif (function_exists('rvy_in_revision_workflow') && rvy_in_revision_workflow($link_id)) {
+                        $is_shortlink_request = true;
+                        $is_definite_shortlink = true;
+                    } else {
+                        $is_shortlink_request = is_404();
+                    }
                 }
                 
-                if ($is_shortlink_request && ! is_page($tiny_slug_4)) {
+                if ($is_shortlink_request && ($is_definite_shortlink || ! is_page($tiny_slug_4))) {
                     if ('1' == $link_prefix && strpos($tiny_slug_1, $link_prefix_slug) === false) {
                         wp_die(esc_html__('This link is not containing the right prefix slug.', 'tinypress'));
                     }
@@ -560,6 +909,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 return;
             }
             
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Front-end query; checking URL parameter for preview mode detection
             if (! isset($_GET['preview']) || $_GET['preview'] !== 'true') {
                 return;
             }
@@ -602,7 +952,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
         /**
          * Check if the current request is a valid TinyPress shortlink.
-         * This is used to tell RankMath to skip processing our shortlinks.
+         * Used by RankMath compatibility and general 404 prevention.
          *
          * @param string $uri The URI to check
          * @return bool True if this is a valid shortlink
@@ -635,6 +985,48 @@ if (! class_exists('TINYPRESS_Redirection')) {
         }
 
         /**
+         * Check if the current request resolves to a dedicated shortlink post
+         * (tinypress_link or PP Revisions post). This is a stricter check than
+         * is_shortlink_request() — it excludes regular posts that just happen
+         * to have a tiny_slug meta.
+         *
+         * Used by prevent_shortlink_404() to avoid interfering with normal WP
+         * routing for regular posts.
+         *
+         * @return bool True if this resolves to a tinypress_link or revision post
+         */
+        protected function is_dedicated_shortlink_request()
+        {
+            $uri = trim($this->get_request_uri(), '/');
+
+            $link_prefix      = Utils::get_option('tinypress_link_prefix');
+            $link_prefix_slug = Utils::get_option('tinypress_link_prefix_slug', 'go');
+
+            if ('1' == $link_prefix) {
+                return $this->is_shortlink_request($uri);
+            }
+
+            $tiny_slug_parts = explode('?', $uri);
+            $tiny_slug = $tiny_slug_parts[0] ?? '';
+
+            $link_id = tinypress()->tiny_slug_to_post_id($tiny_slug);
+
+            if (empty($link_id) || $link_id === 0) {
+                return false;
+            }
+
+            if ('tinypress_link' === get_post_type($link_id)) {
+                return true;
+            }
+
+            if (function_exists('rvy_in_revision_workflow') && rvy_in_revision_workflow($link_id)) {
+                return true;
+            }
+
+            return false;
+        }
+
+        /**
          * RankMath compatibility: Add current shortlink to RankMath's fallback exclusion list.
          * This prevents RankMath from redirecting valid shortlinks to homepage.
          *
@@ -650,6 +1042,56 @@ if (! class_exists('TINYPRESS_Redirection')) {
             }
 
             return $exclude_locations;
+        }
+
+        /**
+         * General protection: Prevent WordPress from setting 404 status for valid shortlinks.
+         *
+         * @param bool     $preempt  Whether to short-circuit default 404 handling.
+         * @param WP_Query $wp_query The WP_Query object.
+         * @return bool True to prevent 404, original value otherwise.
+         */
+        public function prevent_shortlink_404($preempt, $wp_query)
+        {
+            if ($this->is_dedicated_shortlink_request()) {
+                // Tell WordPress this is NOT a 404 — we will handle it in template_redirect
+                $wp_query->is_404 = false;
+                status_header(200);
+                return true;
+            }
+
+            return $preempt;
+        }
+
+        /**
+         * Yoast SEO compatibility: Bypass Yoast's redirect for valid shortlinks.
+         *
+         * @param bool $bypass Whether to bypass the redirect.
+         * @return bool True to bypass, original value otherwise.
+         */
+        public function yoast_bypass_shortlink_redirect($bypass)
+        {
+            if ($this->is_dedicated_shortlink_request()) {
+                return true;
+            }
+
+            return $bypass;
+        }
+
+        /**
+         * Redirection plugin compatibility: Cancel redirect for valid shortlinks.
+         *
+         * @param string $target The redirect target URL.
+         * @param string $url    The requested URL.
+         * @return string Empty string to cancel redirect, original target otherwise.
+         */
+        public function redirection_plugin_bypass($target, $url)
+        {
+            if ($this->is_dedicated_shortlink_request()) {
+                return false;
+            }
+
+            return $target;
         }
 
         /**
@@ -712,6 +1154,290 @@ if (! class_exists('TINYPRESS_Redirection')) {
             })();
             </script>
             <?php
+        }
+
+        /**
+         * Rewrite SQL query to load WP core revision post type for visitor preview.
+         * Mirrors what PP Revisions' flt_view_revision does for logged-in users,
+         * but without the capability check.
+         *
+         * @param string $request SQL query string
+         * @return string Modified SQL query string
+         */
+        public function visitor_revision_sql_rewrite($request)
+        {
+            global $wpdb;
+            
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+            $revision_id = ! empty($_GET['page_id']) ? absint($_GET['page_id']) : (! empty($_GET['p']) ? absint($_GET['p']) : 0);
+
+            if (! $revision_id) {
+                return $request;
+            }
+
+            $post = get_post($revision_id);
+            if (! $post) {
+                return $request;
+            }
+
+            if ('revision' === $post->post_type) {
+                $pub_post = get_post($post->post_parent);
+                if (! $pub_post) {
+                    return $request;
+                }
+                $post_type_to_rewrite = $pub_post->post_type;
+            } else {
+                $post_type_to_rewrite = $post->post_type;
+            }
+
+            // Strategy 1: Replace hardcoded post_type values
+            $request = str_replace("post_type = 'post'", "post_type = 'revision'", $request);
+
+            if ('revision' === $post->post_type && !empty($pub_post)) {
+                $request = str_replace("post_type = '{$pub_post->post_type}'", "post_type = 'revision'", $request);
+            }
+
+            // Strategy 2: Use regex to handle variations with spaces/tabs/newlines
+            $request = preg_replace(
+                "/post_type\s*=\s*['\"]post['\"]/i",
+                "post_type = 'revision'",
+                $request
+            );
+
+            if ('revision' === $post->post_type && !empty($pub_post)) {
+                $request = preg_replace(
+                    "/post_type\s*=\s*['\"]" . preg_quote($pub_post->post_type) . "['\"]([^)])/i",
+                    "post_type = 'revision'$1",
+                    $request
+                );
+            }
+
+            // Strategy 3: Handle table-prefixed references
+            $request = str_replace(
+                "{$wpdb->posts}.post_type = 'post'",
+                "{$wpdb->posts}.post_type = 'revision'",
+                $request
+            );
+
+            return $request;
+        }
+
+        /**
+         * Inject revision post into main query results for visitor preview.
+         * When WP main query returns empty (non-published status), fetch the post
+         * directly from DB and fix all query flags so the correct single/page
+         * template loads — enabling Elementor and other page builders.
+         *
+         * @param array    $posts Array of post objects
+         * @param WP_Query $query The WP_Query instance
+         * @return array Modified array of post objects
+         */
+        public function visitor_revision_inject_post($posts, $query)
+        {
+            if (! $query->is_main_query()) {
+                return $posts;
+            }
+
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+            $revision_id = ! empty($_GET['page_id']) ? absint($_GET['page_id']) : (! empty($_GET['p']) ? absint($_GET['p']) : 0);
+
+            if (! $revision_id) {
+                return $posts;
+            }
+
+            if (! empty($posts) && isset($posts[0]->ID) && (int) $posts[0]->ID === $revision_id) {
+                $posts[0]->post_status = 'publish';
+                wp_cache_set($posts[0]->ID, $posts[0], 'posts');
+
+                global $post;
+                $post = $posts[0];
+                setup_postdata($post);
+                
+                remove_filter('posts_results', array( $this, 'visitor_revision_inject_post' ), 5);
+                return $posts;
+            }
+
+            global $wpdb;
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+            $post = $wpdb->get_row(
+                $wpdb->prepare("SELECT * FROM $wpdb->posts WHERE ID = %d", $revision_id)
+            );
+
+            if (! $post) {
+                return $posts;
+            }
+
+            // Set status to publish so WordPress renders the correct template
+            $post->post_status = 'publish';
+            wp_cache_set($post->ID, $post, 'posts');
+
+            // Fix WP_Query flags so it doesn't 404
+            $query->is_404       = false;
+            $query->is_singular  = true;
+            $query->is_single    = ('page' !== $post->post_type);
+            $query->is_page      = ('page' === $post->post_type);
+            $query->found_posts  = 1;
+            $query->post_count   = 1;
+            $query->post         = $post;
+            $query->posts        = array( $post );
+            $query->queried_object    = $post;
+            $query->queried_object_id = $post->ID;
+
+            status_header(200);
+
+            global $post;
+            $post = $query->post;
+            setup_postdata($post);
+
+            // Only run once
+            remove_filter('posts_results', array( $this, 'visitor_revision_inject_post' ), 5);
+
+            return array( $post );
+        }
+
+        /**
+         * Fix the main WP_Query for visitor revision preview.
+         * The preview URL uses the published page's slug path, so WP resolves it
+         * to the parent page. Force WP to query by page_id/p instead.
+         *
+         * @param WP_Query $query The WP_Query instance
+         * @return void
+         */
+        public function visitor_revision_fix_query($query)
+        {
+            if (! $query->is_main_query()) {
+                return;
+            }
+
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+            $revision_id = ! empty($_GET['page_id']) ? absint($_GET['page_id']) : (! empty($_GET['p']) ? absint($_GET['p']) : 0);
+
+            if (! $revision_id) {
+                return;
+            }
+
+            // Clear slug-based query vars so WP doesn't resolve to the published parent
+            $query->set('pagename', '');
+            $query->set('name', '');
+            $query->set('page_id', $revision_id);
+
+            // Allow non-published statuses in the query
+            $query->set('post_status', array( 'publish', 'pending', 'draft', 'future', 'inherit', 'private' ));
+
+            // Only run once
+            remove_action('pre_get_posts', array( $this, 'visitor_revision_fix_query' ), 1);
+        }
+
+        /**
+         * Prevent WordPress from redirecting visitor away from the preview URL.
+         *
+         * @param string $redirect_url The redirect URL
+         * @param string $requested_url The requested URL
+         * @return false|string False to block redirect, or the URL
+         */
+        public function visitor_revision_block_canonical($redirect_url, $requested_url)
+        {
+            return false;
+        }
+
+        /**
+         * Hide PP Revisions admin toolbar for visitor preview via CSS.
+         *
+         * @return void
+         */
+        public function visitor_revision_hide_toolbar()
+        {
+            echo '<style>#pp_revisions_top_bar,.rvy-preview-linkbar,.rvy-creation-bar{display:none!important}</style>' . "\n";
+        }
+
+        /**
+         * Support Elementor revision previews by ensuring CSS files are accessible.
+         * Elementor stores CSS in post meta (_elementor_css) and loads it dynamically.
+         * This ensures the fallback metadata filter works properly with Elementor.
+         *
+         * @return void
+         */
+        public function visitor_revision_elementor_support()
+        {
+            if (!defined('ELEMENTOR_VERSION')) {
+                return;
+            }
+
+            echo '<!-- Elementor revision preview via tinypress shortlink -->' . "\n";
+        }
+
+        /**
+         * Display the published post author instead of revision creator.
+         * When previewing a revision, show the author of the published post,
+         * matching the behavior of PP Revisions display.
+         *
+         * @param string $author The author display name
+         * @return string The corrected author name
+         */
+        public function visitor_revision_author($author)
+        {
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+            $revision_id = !empty($_GET['page_id']) ? absint($_GET['page_id']) : (!empty($_GET['p']) ? absint($_GET['p']) : 0);
+
+            if (!$revision_id) {
+                return $author;
+            }
+
+            $revision = wp_get_post_revision($revision_id);
+            if (!$revision) {
+                return $author;
+            }
+
+            // Get the published post
+            $published_post = get_post($revision->post_parent);
+            if (!$published_post) {
+                return $author;
+            }
+
+            // Get the published post's author
+            $published_author = get_the_author_meta('display_name', $published_post->post_author);
+
+            return $published_author ? $published_author : $author;
+        }
+
+        /**
+         * Fallback to published post metadata when revision lacks metadata..
+         *
+         * @param mixed  $meta_val    The metadata value
+         * @param int    $object_id   The post/object ID
+         * @param string $meta_key    The metadata key
+         * @param bool   $single      Whether to return single value
+         * @param string $meta_type   The metadata type (post, user, etc.)
+         *
+         * @return mixed The metadata value (original or fallback)
+         */
+        public function visitor_revision_fallback_metadata($meta_val, $object_id, $meta_key, $single, $meta_type)
+        {
+            static $busy;
+
+            if (!empty($busy) || 'post' !== $meta_type) {
+                return $meta_val;
+            }
+
+            $busy = true;
+
+            if (wp_is_post_revision($object_id)) {
+                $unfiltered_meta_val = get_post_meta($object_id, $meta_key, $single);
+
+                if (in_array($unfiltered_meta_val, array(null, array()), true)) {
+                    $published_post_id = get_post_field('post_parent', $object_id);
+                    if ($published_post_id) {
+                        $published_meta_val = get_post_meta($published_post_id, $meta_key, $single);
+                        if (null !== $published_meta_val) {
+                            $meta_val = $published_meta_val;
+                        }
+                    }
+                }
+            }
+
+            $busy = false;
+
+            return $meta_val;
         }
 
         /**

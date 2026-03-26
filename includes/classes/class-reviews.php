@@ -33,6 +33,7 @@ if (! defined('ABSPATH')) {
  *
  * This class adds a review request system for the PublishPress Shortlinks plugin.
  */
+// phpcs:ignore PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps -- WordPress naming convention; legacy class name
 class SHORTLINKS_Reviews
 {
     /**

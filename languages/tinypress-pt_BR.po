@@ -4,18 +4,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PublishPress Shortlinks 1.2.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Portuguese (Brazil) "
-"<https://weblate.publishpress.com/projects/publishpress-shortlinks/"
-"tinypress/pt_BR/>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-26 14:40+0000\n"
 "PO-Revision-Date: 2026-03-02 08:23+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Portuguese (Brazil) <https://weblate.publishpress.com/"
+"projects/publishpress-shortlinks/tinypress/pt_BR/>\n"
+"Language: pt-BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: tinypress\n"
-"Language: pt-BR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 
 #: includes/classes/class-autolist-ajax.php:55
@@ -48,8 +47,8 @@ msgstr "\"%s\" não é um tipo de postagem registrado"
 msgid "%d log entries deleted successfully."
 msgstr "Tinyurl criada com sucesso."
 
-#: includes/classes/class-revision.php:212
 #. %d: number of revision shortlinks migrated
+#: includes/classes/class-revision.php:212
 msgid ""
 "%d revision shortlink(s) were updated with unique links. Previously, these "
 "revisions shared the same shortlink as their parent post."
@@ -65,7 +64,8 @@ msgid "%s from %s visited at %s"
 msgstr "%s de %s visitado em %s"
 
 #: includes/classes/class-meta-boxes.php:299
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:301, fuzzy
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:301
+#, fuzzy
 msgid "********"
 msgstr "********"
 
@@ -140,8 +140,8 @@ msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
 msgstr ""
-"Adiciona o atributo rel=\"sponsored\". Recomendado para links de afiliados "
-"e promoções pagas."
+"Adiciona o atributo rel=\"sponsored\". Recomendado para links de afiliados e "
+"promoções pagas."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:121
 #: templates/admin/settings/supports.php:25
@@ -150,10 +150,10 @@ msgstr "Análise avançada de cliques"
 
 #: includes/classes/class-meta-boxes.php:225
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:225
-msgid "After disabling the link will not active but the settings will be reserved."
+msgid ""
+"After disabling the link will not active but the settings will be reserved."
 msgstr ""
-"Após desativar, o link não estará ativo, mas as configurações serão "
-"mantidas."
+"Após desativar, o link não estará ativo, mas as configurações serão mantidas."
 
 #: includes/classes/class-hooks.php:246
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:172
@@ -247,16 +247,16 @@ msgstr "Gerenciamento de Funções"
 #: includes/classes/class-settings.php:360
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
-"previews. When enabled, revision shortlinks will render the revision "
-"content directly for logged-out visitors instead of redirecting to the "
-"preview URL. This applies to all existing revision shortlinks regardless of "
-"the setting above."
+"previews. When enabled, revision shortlinks will render the revision content "
+"directly for logged-out visitors instead of redirecting to the preview URL. "
+"This applies to all existing revision shortlinks regardless of the setting "
+"above."
 msgstr ""
 "Por padrão, o PublishPress Revisions bloqueia os visitantes de verem as "
 "prévias de revisão. Quando habilitado, os links curtos de revisão "
 "renderizarão o conteúdo da revisão diretamente para visitantes "
-"desconectados, em vez de redirecionar para a URL da prévia. Isso se aplica "
-"a todos os links curtos de revisão existentes, independentemente da "
+"desconectados, em vez de redirecionar para a URL da prévia. Isso se aplica a "
+"todos os links curtos de revisão existentes, independentemente da "
 "configuração acima."
 
 #: includes/classes/class-hooks.php:199
@@ -436,10 +436,10 @@ msgstr ""
 "redirecionamento JavaScript com um pequeno atraso)."
 
 #: includes/classes/class-settings.php:352
-msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
+msgid ""
+"Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
-"Exibir coluna de link curto ao visualizar revisões no PublishPress "
-"Revisions."
+"Exibir coluna de link curto ao visualizar revisões no PublishPress Revisions."
 
 #: templates/admin/footer.php:26
 #: dist/publishpress-shortlinks/templates/admin/footer.php:26
@@ -565,9 +565,11 @@ msgstr "ir"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:209
 msgid "Hide quick short link modal opener from WP Admin Bar."
-msgstr "Ocultar o abridor de modal de link curto rápido da Barra de Admin do WP."
+msgstr ""
+"Ocultar o abridor de modal de link curto rápido da Barra de Admin do WP."
 
-#: includes/classes/class-settings.php:203, fuzzy
+#: includes/classes/class-settings.php:203
+#, fuzzy
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "Oculte o botão \"Encurtar\" da barra de administração do WordPress."
 
@@ -583,13 +585,15 @@ msgstr "https://publishpress.com/shortlinks/"
 #: dist/publishpress-shortlinks/templates/admin/footer.php:14
 #, php-format
 msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
-msgstr "Se você gosta de %1$s, por favor, nos deixe uma avaliação %2$s. Obrigado!"
+msgstr ""
+"Se você gosta de %1$s, por favor, nos deixe uma avaliação %2$s. Obrigado!"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:139
 #: templates/admin/settings/supports.php:47
 #: dist/publishpress-shortlinks/templates/admin/settings/supports.php:19
 msgid "If you need help or have a new feature request, let us know."
-msgstr "Se você precisar de ajuda ou tiver um novo pedido de recurso, nos avise."
+msgstr ""
+"Se você precisar de ajuda ou tiver um novo pedido de recurso, nos avise."
 
 #: includes-core/ShortlinksCoreAdmin.php:189
 #: includes-core/ShortlinksCoreAdmin.php:190
@@ -735,7 +739,8 @@ msgid "No shortlink"
 msgstr "Links curtos"
 
 #: includes/classes/class-meta-boxes.php:268
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:268, fuzzy
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:268
+#, fuzzy
 msgid "NoFollow"
 msgstr "NoFollow"
 
@@ -763,7 +768,8 @@ msgstr "Na Publicação"
 #: includes/classes/class-settings.php:244
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:260
 msgid "Only selected user roles can control settings."
-msgstr "Apenas os papéis de usuário selecionados podem controlar as configurações."
+msgstr ""
+"Apenas os papéis de usuário selecionados podem controlar as configurações."
 
 #: includes/classes/class-settings.php:224
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:236
@@ -867,7 +873,8 @@ msgid "Pro Feature"
 msgstr "Recurso Pro"
 
 #: includes/classes/class-settings.php:284
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:301, fuzzy
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:301
+#, fuzzy
 msgid "Published"
 msgstr "Publicado"
 
@@ -875,10 +882,11 @@ msgstr "Publicado"
 msgid "PublishPress"
 msgstr "PublishPress"
 
+#. Name of the plugin
 #: tinypress.php:347 dist/publishpress-shortlinks/tinypress.php:341
 #: includes/classes/class-meta-boxes.php:179
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:179, fuzzy
-#. Name of the plugin
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:179
+#, fuzzy
 msgid "PublishPress Shortlinks"
 msgstr "PublishPress Shortlinks"
 
@@ -918,7 +926,8 @@ msgid "REST API for creating shortlinks"
 msgstr "REST API para criar links curtos"
 
 #: includes/classes/class-columns-link.php:157
-#: includes/classes/class-table-logs.php:197, fuzzy
+#: includes/classes/class-table-logs.php:197
+#, fuzzy
 msgid "rev"
 msgstr "rev"
 
@@ -1112,7 +1121,8 @@ msgid "Stats"
 msgstr "Estatísticas"
 
 #: includes/classes/class-meta-boxes.php:223
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:223, fuzzy
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:223
+#, fuzzy
 msgid "Status"
 msgstr "Status"
 
@@ -1213,7 +1223,8 @@ msgstr "PublishPress Shortlinks"
 #: includes/classes/class-meta-boxes.php:291
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:293
 msgid "Users must enter the password to redirect to the target link."
-msgstr "Os usuários devem inserir a senha para redirecionar para o link de destino."
+msgstr ""
+"Os usuários devem inserir a senha para redirecionar para o link de destino."
 
 #: includes/classes/class-meta-boxes.php:310
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:312
@@ -1255,18 +1266,18 @@ msgstr "Recomendamos usar isso."
 
 #: includes/classes/class-settings.php:302
 msgid ""
-"When a shortlink expires, visitors will be redirected to this URL instead "
-"of seeing an error. Leave empty to show the default expiration message."
+"When a shortlink expires, visitors will be redirected to this URL instead of "
+"seeing an error. Leave empty to show the default expiration message."
 msgstr ""
-"Quando um shortlink expira, os visitantes serão redirecionados para esta "
-"URL em vez de ver um erro. Deixe vazio para mostrar a mensagem padrão de "
+"Quando um shortlink expira, os visitantes serão redirecionados para esta URL "
+"em vez de ver um erro. Deixe vazio para mostrar a mensagem padrão de "
 "expiração."
 
 #: includes/classes/class-settings.php:259
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:276
 msgid ""
-"When enabled, shortlinks will appear in the \"All Links\" table based on "
-"the behavior you configure below."
+"When enabled, shortlinks will appear in the \"All Links\" table based on the "
+"behavior you configure below."
 msgstr ""
 "Quando ativado, links curtos para postagens, páginas e outros tipos de "
 "postagem aparecerão na tabela \"Todos os Links\" com base no comportamento "
@@ -1344,18 +1355,18 @@ msgstr "Você será redirecionado em breve."
 
 #: includes-core/ShortlinksCoreAdmin.php:82
 msgid ""
-"You're using PublishPress Shortlinks Free. The Pro version has more "
-"features and support. "
+"You're using PublishPress Shortlinks Free. The Pro version has more features "
+"and support. "
 msgstr ""
 "Você está usando o PublishPress Shortlinks Free. A versão Pro tem mais "
 "recursos e suporte. "
 
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:74
 #. %1$s: opening link tag, %2$s: closing link tag
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:74
 #, php-format
 msgid ""
-"You're using PublishPress Shortlinks Free. The Pro version has more "
-"features and support. %1$sUpgrade to Pro%2$s"
+"You're using PublishPress Shortlinks Free. The Pro version has more features "
+"and support. %1$sUpgrade to Pro%2$s"
 msgstr ""
 "Você está usando o PublishPress Shortlinks Free. A versão Pro tem mais "
 "recursos e suporte. %1$sAtualizar para Pro%2$s"

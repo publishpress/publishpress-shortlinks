@@ -14,7 +14,10 @@ defined('ABSPATH') || exit;
 if (! class_exists('TINYPRESS_AutoList')) {
     /**
      * Class TINYPRESS_AutoList
+     * 
+     * Note: This class uses WordPress naming conventions instead of strict PSR-1/PSR-2 standards.
      */
+    // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
     class TINYPRESS_AutoList
     {
         protected static $_instance = null;
@@ -22,7 +25,7 @@ if (! class_exists('TINYPRESS_AutoList')) {
         /**
          * TINYPRESS_AutoList constructor.
          */
-        function __construct()
+        public function __construct()
         {
             add_action('transition_post_status', array( $this, 'tinypress_handle_post_publish' ), 10, 3);
             add_action('tinypress_before_redirect_track', array( $this, 'tinypress_handle_first_use' ), 10, 1);
@@ -38,7 +41,7 @@ if (! class_exists('TINYPRESS_AutoList')) {
          *
          * @return bool
          */
-        function is_autolist_enabled()
+        public function is_autolist_enabled()
         {
             $settings = get_option('tinypress_settings', array());
             $enabled = isset($settings['tinypress_autolist_enabled']) && '1' == $settings['tinypress_autolist_enabled'];
@@ -52,7 +55,7 @@ if (! class_exists('TINYPRESS_AutoList')) {
          *
          * @return string|null
          */
-        function get_post_type_behavior($post_type)
+        public function get_post_type_behavior($post_type)
         {
             if (! $this->is_autolist_enabled()) {
                 return null;
@@ -82,10 +85,11 @@ if (! class_exists('TINYPRESS_AutoList')) {
          *
          * @return int|null Post ID of existing tinypress_link or null
          */
-        function get_existing_tinypress_link_entry($post_id)
+        public function get_existing_tinypress_link_entry($post_id)
         {
             global $wpdb;
 
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom cross-table join query not cacheable via standard WP functions; results are not reused
             $link_id = $wpdb->get_var($wpdb->prepare(
                 "SELECT pm.post_id FROM {$wpdb->postmeta} pm
 				INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
@@ -107,7 +111,7 @@ if (! class_exists('TINYPRESS_AutoList')) {
          *
          * @return int|WP_Error
          */
-        function tinypress_create_link_entry($post_id)
+        public function tinypress_create_link_entry($post_id)
         {
             $post = get_post($post_id);
 
@@ -156,7 +160,7 @@ if (! class_exists('TINYPRESS_AutoList')) {
          *
          * @return void
          */
-        function tinypress_update_link_entry($link_id, $post_id)
+        public function tinypress_update_link_entry($link_id, $post_id)
         {
             $post = get_post($post_id);
 
@@ -181,7 +185,7 @@ if (! class_exists('TINYPRESS_AutoList')) {
          *
          * @return void
          */
-        function tinypress_handle_post_publish($new_status, $old_status, $post)
+        public function tinypress_handle_post_publish($new_status, $old_status, $post)
         {
             if ($post->post_type === 'tinypress_link' || $post->post_type === 'attachment') {
                 return;
@@ -215,7 +219,7 @@ if (! class_exists('TINYPRESS_AutoList')) {
          *
          * @return void
          */
-        function tinypress_handle_first_use($post_id)
+        public function tinypress_handle_first_use($post_id)
         {
             $post = get_post($post_id);
 
@@ -258,7 +262,7 @@ if (! class_exists('TINYPRESS_AutoList')) {
          *
          * @return void
          */
-        function tinypress_handle_post_created($post_id, $post, $update)
+        public function tinypress_handle_post_created($post_id, $post, $update)
         {
             if ($update) {
                 return;
@@ -294,7 +298,7 @@ if (! class_exists('TINYPRESS_AutoList')) {
          *
          * @return void
          */
-        function sync_link_title_from_source($post_id, $post, $post_before)
+        public function sync_link_title_from_source($post_id, $post, $post_before)
         {
             if ($post->post_type === 'tinypress_link' || $post->post_type === 'attachment') {
                 return;
@@ -329,7 +333,7 @@ if (! class_exists('TINYPRESS_AutoList')) {
          *
          * @return void
          */
-        function tinypress_sync_on_link_save($post_id, $post, $update)
+        public function tinypress_sync_on_link_save($post_id, $post, $update)
         {
             if (! $update) {
                 return;
@@ -370,7 +374,7 @@ if (! class_exists('TINYPRESS_AutoList')) {
          *
          * @return void
          */
-        function sync_tiny_slug_to_source($meta_id, $post_id, $meta_key, $meta_value)
+        public function sync_tiny_slug_to_source($meta_id, $post_id, $meta_key, $meta_value)
         {
             if (! in_array($meta_key, array( 'tiny_slug', 'target_url' ))) {
                 return;
@@ -405,7 +409,7 @@ if (! class_exists('TINYPRESS_AutoList')) {
          *
          * @return void
          */
-        function tinypress_sync_source_to_link($meta_id, $post_id, $meta_key, $meta_value)
+        public function tinypress_sync_source_to_link($meta_id, $post_id, $meta_key, $meta_value)
         {
             if (! in_array($meta_key, array( 'tiny_slug', 'target_url' ))) {
                 return;
