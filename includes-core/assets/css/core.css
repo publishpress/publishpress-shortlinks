@@ -1,0 +1,126 @@
+.tinypress-upgrade-link {
+    font-weight: bold !important;
+    color: #FEB123 !important;
+}
+
+.tinypress-upgrade-link:hover {
+    color: #FEB123 !important;
+}
+
+.tinypress-version-notice-bold-purple {
+    background: #655897 !important;
+    height: auto;
+    box-sizing: border-box;
+    padding: 18px 7px 20px 7px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    line-height: 20px;
+    margin-left: -20px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.tinypress-version-notice-bold-purple .tinypress-version-notice-bold-purple-button a {
+    background: #FCB223;
+    color: #000 !important;
+    font-weight: normal;
+    text-decoration: none;
+    padding: 9px 12px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid #fca871;
+    break-inside: avoid;
+    white-space: nowrap;
+}
+
+.tinypress-version-notice-bold-purple .tinypress-version-notice-bold-purple-button a:hover {
+    background: #fcca46;
+    color: #000 !important;
+}
+
+@media only screen and (min-width: 1075px) {
+    .tinypress-version-notice-bold-purple-message,
+    .tinypress-version-notice-bold-purple-button {
+        display: inline-block;
+    }
+
+    .tinypress-version-notice-bold-purple-message {
+        margin-right: 25px;
+    }
+}
+
+@media only screen and (max-width: 1074px) {
+    .tinypress-version-notice-bold-purple-message,
+    .tinypress-version-notice-bold-purple-button {
+        display: block;
+    }
+
+    .tinypress-version-notice-bold-purple-button {
+        margin-top: 20px;
+    }
+
+    .tinypress-version-notice-bold-purple-button a {
+        max-width: 170px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .tinypress-version-notice-bold-purple {
+        padding-top: 60px;
+    }
+}
+
+.wpdk_settings-fieldset input[type="checkbox"][disabled],
+.wpdk_settings-fieldset input[type="checkbox"][disabled] + label {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: default;
+}
+
+.wpdk_settings-fieldset li:has(input[type="checkbox"][disabled]) {
+    opacity: 0.5;
+}
+
+.tinypress-pro-nudge-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 30px 0 0 0;
+    justify-content: flex-start;
+    clear: both;
+    pointer-events: auto !important;
+    user-select: auto !important;
+    -webkit-user-select: auto !important;
+}
+
+.tinypress-pro-nudge-btn {
+    background: #FCB223;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 16px 6px 12px;
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    line-height: 1.4;
+}
+
+.tinypress-pro-nudge-lock {
+    font-size: 20px;
+    margin-right: 2px;
+    color: #000;
+}
+
+.tinypress-pro-nudge-wrapper .pp-tooltips-library {
+    position: relative;
+}
+
+.tinypress-pro-nudge-wrapper .tooltip-text {
+    text-align: center !important;
+}

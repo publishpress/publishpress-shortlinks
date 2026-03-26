@@ -11,27 +11,341 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-06T09:06:45+00:00\n"
-"PO-Revision-Date: 2026-02-13 10:17+0000\n"
+"POT-Creation-Date: 2026-02-26 14:40+0000\n"
+"PO-Revision-Date: 2026-03-24 11:45+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: tinypress\n"
-"|| n % 10 == 6 || n % 10 == 9);\n"
 "Language: fil\n"
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"|| n % 10 == 6 || n % 10 == 9);: \n"
 "Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 || n % 10 == 6 || n % 10 == 9);\n"
 
-#: tinypress.php
-#: includes/classes/class-meta-boxes.php:162
-#: tinypress.php:225, fuzzy
-#. Plugin Name of the plugin
-msgid "PublishPress Shortlinks"
-msgstr "PublishPress Shortlinks"
+#: includes/classes/class-autolist-ajax.php:55
+#: includes/classes/class-autolist-ajax.php:55
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:55
+#, php-format
+msgid "\"%s\" cannot be used for auto-listing"
+msgstr "\"%s\" ay hindi maaaring gamitin para sa auto-listing"
 
-#: tinypress.php, fuzzy
-#. Plugin URI of the plugin
-msgid "https://publishpress.com/shortlinks/"
-msgstr "https://publishpress.com/shortlinks/"
+#: includes/classes/class-autolist-ajax.php:64
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:64
+#, php-format
+msgid "\"%s\" is already configured"
+msgstr "\"%s\" ay nakakonfigura na"
 
-#: tinypress.php
+#: includes/classes/class-autolist-ajax.php:49
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:49
+#, php-format
+msgid "\"%s\" is not a public post type"
+msgstr "\"%s\" ay hindi isang pampublikong uri ng post"
+
+#: includes/classes/class-autolist-ajax.php:42
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:42
+#, php-format
+msgid "\"%s\" is not a registered post type"
+msgstr "\"%s\" ay hindi isang nakarehistrong uri ng post"
+
+#: includes/classes/class-table-logs.php:71
+#, fuzzy
+msgid "%d log entries deleted successfully."
+msgstr "Matagumpay na nalikha ang tinyurl."
+
+#: includes/classes/class-revision.php:212
+#. %d: number of revision shortlinks migrated
+msgid ""
+"%d revision shortlink(s) were updated with unique links. Previously, these "
+"revisions shared the same shortlink as their parent post."
+msgstr ""
+"%d na revision shortlink ang na-update na may natatanging mga link. Dati, "
+"ang mga revision na ito ay nagbahagi ng parehong shortlink bilang kanilang "
+"magulang na post."
+
+#: includes/classes/class-table-logs.php:252
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:143
+#, php-format
+msgid "%s from %s visited at %s"
+msgstr "%s mula sa %s na bumisita sa %s"
+
+#: includes/classes/class-meta-boxes.php:299
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:301, fuzzy
+msgid "********"
+msgstr "********"
+
+#: includes/classes/class-meta-boxes.php:254
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:254
+msgid "301 (Permanent)"
+msgstr "301 (Permanenteng)"
+
+#: includes/classes/class-meta-boxes.php:253
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:253
+msgid "302 (Temporary)"
+msgstr "302 (Pansamantala)"
+
+#: includes/classes/class-meta-boxes.php:252
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:252
+msgid "307 (Temporary)"
+msgstr "307 (Pansamantala)"
+
+#: templates/admin/footer.php:21
+#: dist/publishpress-shortlinks/templates/admin/footer.php:21
+msgid "About"
+msgstr "Tungkol"
+
+#: includes/classes/class-hooks.php:432
+#, fuzzy
+msgid "Access Denied"
+msgstr "Tinanggihan ang pahintulot"
+
+#: includes/classes/class-columns-link.php:272
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:151
+msgid "Actions"
+msgstr "Mga Aksyon"
+
+#: includes/classes/class-settings.php:174
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:180
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "Magdagdag ng prefix sa pagitan ng iyong domain name at shortlink."
+
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:269
+msgid "Add nofollow attribute."
+msgstr "Magdagdag ng nofollow na katangian."
+
+#: includes/classes/class-settings.php:456
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:405
+msgid "Add Post Type"
+msgstr "Magdagdag ng Uri ng Post"
+
+#: includes/classes/class-settings.php:267
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:284
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr ""
+"Magdagdag ng mga uri ng post at i-configure kung kailan dapat lumitaw ang "
+"kanilang shortlinks sa talahanayan ng \"Lahat ng Link\". Ang mga pagbabago "
+"ay awtomatikong nasusulat."
+
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:262
+msgid "Add sponsored attribute."
+msgstr "Magdagdag ng sponsored na katangian."
+
+#: includes/classes/class-meta-boxes.php:270
+msgid ""
+"Adds rel=\"nofollow\" attribute. Recommended for external links and "
+"untrusted sources."
+msgstr ""
+"Nagdaragdag ng rel=\"nofollow\" na katangian. Inirerekomenda para sa mga "
+"panlabas na link at hindi mapagkakatiwalaang mga mapagkukunan."
+
+#: includes/classes/class-meta-boxes.php:263
+msgid ""
+"Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
+"promotions."
+msgstr ""
+"Nagdaragdag ng rel=\"sponsored\" na katangian. Inirerekomenda para sa mga "
+"affiliate link at mga bayad na promosyon."
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:121
+#: templates/admin/settings/supports.php:25
+msgid "Advanced click analytics"
+msgstr "Advanced na click analytics"
+
+#: includes/classes/class-meta-boxes.php:225
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:225
+msgid "After disabling the link will not active but the settings will be reserved."
+msgstr ""
+"Matapos i-disable, ang link ay hindi magiging aktibo ngunit ang mga setting "
+"ay mananatili."
+
+#: includes/classes/class-hooks.php:246
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:172
+msgid "All Logs"
+msgstr "Lahat ng Logs"
+
+#: includes/classes/class-table-logs.php:75
+msgid "All logs have been cleared."
+msgstr "Lahat ng log ay nalinis na."
+
+#: includes/classes/class-hooks.php:184
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:117
+#, fuzzy
+msgid "All Shortlinks"
+msgstr "Maikling link"
+
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:277
+msgid "All the parameters will pass to the target link."
+msgstr "Lahat ng mga parameter ay ipapasa sa target na link."
+
+#: includes/classes/class-settings.php:359
+msgid "Allow logged-out visitors to view revision content via shortlinks."
+msgstr ""
+"Payagan ang mga bisitang hindi naka-log in na tingnan ang nilalaman ng "
+"revision sa pamamagitan ng mga shortlink."
+
+#: includes/classes/class-settings.php:279
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:296
+msgid "Allowed Post Statuses"
+msgstr "Pinapayagang Katayuan ng Post"
+
+#: includes/classes/class-meta-boxes.php:341
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:336
+msgid "Analytics"
+msgstr "Analitika"
+
+#: includes/classes/class-hooks.php:120
+#, fuzzy
+msgid "Analytics reset successfully."
+msgstr "Matagumpay na nalikha ang tinyurl."
+
+#: includes/classes/class-meta-boxes.php:278
+msgid ""
+"Any parameters added to the short URL (e.g., ?utm_source=email) will be "
+"forwarded to the target URL."
+msgstr ""
+"Anumang parameter na idinadagdag sa maikling URL (hal., ?utm_source=email) "
+"ay ipapasa sa target na URL."
+
+#: includes/classes/class-hooks.php:246
+#, fuzzy
+msgid "Are you sure you want to clear all logs?"
+msgstr "Sigurado ka bang nais mong tanggalin ang uri ng post na ito?"
+
+#: includes/classes/class-table-logs.php:183
+#, fuzzy
+msgid "Are you sure you want to delete this log entry?"
+msgstr "Sigurado ka bang nais mong tanggalin ang uri ng post na ito?"
+
+#: includes/classes/class-autolist-ajax.php:271
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:271
+msgid "Are you sure you want to remove this post type?"
+msgstr "Sigurado ka bang nais mong tanggalin ang uri ng post na ito?"
+
+#: includes/classes/class-settings.php:253
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:270
+#, fuzzy
+msgid "Auto-List Links"
+msgstr "I-enable ang Auto-Listing ng Mga Link"
+
+#: includes/classes/class-settings.php:258
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:275
+#, fuzzy
+msgid "Auto-List Shortlinks"
+msgstr "Maikling link"
+
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:104
+#, php-format
+msgid "Auto: %s"
+msgstr "Awtomatik: %s"
+
+#: includes-core/ShortlinksCoreAdmin.php:210, fuzzy
+msgid "Bulk Import & Export"
+msgstr "Bulk Import & Export"
+
+#: includes-core/ShortlinksCoreAdmin.php:223
+#, fuzzy
+msgid "Bulk Management"
+msgstr "Pamamahala ng Papel"
+
+#: includes/classes/class-settings.php:360
+msgid ""
+"By default, PublishPress Revisions blocks visitors from viewing revision "
+"previews. When enabled, revision shortlinks will render the revision "
+"content directly for logged-out visitors instead of redirecting to the "
+"preview URL. This applies to all existing revision shortlinks regardless of "
+"the setting above."
+msgstr ""
+"Sa default, pinipigilan ng PublishPress Revisions ang mga bisita na tingnan "
+"ang mga preview ng revision. Kapag pinagana, ang mga shortlink ng revision "
+"ay direktang ipapakita ang nilalaman ng revision para sa mga bisitang hindi "
+"naka-log in sa halip na i-redirect sa preview URL. Ito ay nalalapat sa "
+"lahat ng umiiral na shortlink ng revision anuman ang setting sa itaas."
+
+#: includes/classes/class-hooks.php:199
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:132
+msgid "Categories"
+msgstr "Mga Kategorya"
+
+#: includes/classes/class-hooks.php:198
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:131
+msgid "Category"
+msgstr "Kategorya"
+
+#: includes/classes/class-settings.php:280
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:297
+msgid "Choose which post statuses can be accessed via shortlinks"
+msgstr ""
+"Pumili ng mga katayuan ng post na maaaring ma-access sa pamamagitan ng mga "
+"maikling link"
+
+#: includes/classes/class-hooks.php:246
+#, fuzzy
+msgid "Clear Logs"
+msgstr "Lahat ng Logs"
+
+#: includes/classes/class-redirection.php:261
+msgid "Click here if you are not redirected"
+msgstr "I-click dito kung hindi ka na-redirect"
+
+#: templates/admin/settings/browsers.php:8
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:8
+msgid "Click on your preferred one to Download the extension."
+msgstr "I-click ang iyong piniling isa upang I-download ang extension."
+
+#: includes/classes/class-functions.php:39
+#: dist/publishpress-shortlinks/includes/classes/class-functions.php:39
+msgid "Click to copy"
+msgstr "I-click upang kopyahin"
+
+#: includes/classes/class-columns-link.php:215
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:120
+#, php-format
+msgid "Clicked %s times"
+msgstr "Na-click %s na beses"
+
+#: templates/admin-modal-new-link.php:35
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:35
+msgid "Close"
+msgstr "Isara"
+
+#: includes/classes/class-autolist-ajax.php:120
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:120
+msgid "Configuration saved successfully"
+msgstr "Matagumpay na na-save ang configuration"
+
+#: includes/classes/class-autolist-ajax.php:111
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:111
+msgid "Configuration unchanged (already saved)"
+msgstr "Walang pagbabago sa configuration (na-save na)"
+
+#: includes/classes/class-settings.php:265
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:282
+msgid "Configure Post Types"
+msgstr "I-configure ang mga Uri ng Post"
+
+#: templates/admin/footer.php:30
+#: dist/publishpress-shortlinks/templates/admin/footer.php:30
+msgid "Contact"
+msgstr "Makipag-ugnayan"
+
+#: includes/classes/class-settings.php:339
+msgid ""
+"Controls when a companion entry is created in the All Shortlinks table for "
+"revision shortlinks. The shortlink itself is always generated regardless of "
+"this setting."
+msgstr ""
+"Nagre-regulate kung kailan ang isang companion entry ay nilikha sa All "
+"Shortlinks table para sa mga shortlink ng revision. Ang shortlink mismo ay "
+"palaging nalikha kahit ano pa man ang setting na ito."
+
+#: includes/classes/class-functions.php:46
+#: dist/publishpress-shortlinks/includes/classes/class-functions.php:46
+msgid "Copied"
+msgstr "Nakopya"
+
+#: tinypress.php:259 dist/publishpress-shortlinks/tinypress.php:264
+msgid "Copied."
+msgstr "Nakopya."
+
 #. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
@@ -41,579 +355,657 @@ msgstr ""
 "maaaring i-brand, subaybayan, at maaaring magkaroon ng mga pasadyang "
 "pahintulot sa pagtingin."
 
-#: tinypress.php, fuzzy
-#. Author of the plugin
-msgid "PublishPress"
-msgstr "PublishPress"
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:36
+msgid "Create Short URL"
+msgstr "Gumawa ng Maikling URL"
+
+#: templates/admin-modal-new-link.php:36
+#, fuzzy
+msgid "Create Shortlink"
+msgstr "Gumawa ng Maikling URL"
 
-#: tinypress.php, fuzzy
-#. Author URI of the plugin
-msgid "https://publishpress.com/"
-msgstr "https://publishpress.com/"
-
-#: includes/classes/class-autolist-ajax.php:30
-#: includes/classes/class-autolist-ajax.php:180
-msgid "Permission denied"
-msgstr "Tinanggihan ang pahintulot"
-
-#: includes/classes/class-autolist-ajax.php:37
-msgid "Post type is required"
-msgstr "Kailangan ang uri ng post"
-
-#: includes/classes/class-autolist-ajax.php:42
-#, php-format
-msgid "\"%s\" is not a registered post type"
-msgstr "\"%s\" ay hindi isang nakarehistrong uri ng post"
-
-#: includes/classes/class-autolist-ajax.php:49
-#, php-format
-msgid "\"%s\" is not a public post type"
-msgstr "\"%s\" ay hindi isang pampublikong uri ng post"
-
-#: includes/classes/class-autolist-ajax.php:55
-#, php-format
-msgid "\"%s\" cannot be used for auto-listing"
-msgstr "\"%s\" ay hindi maaaring gamitin para sa auto-listing"
-
-#: includes/classes/class-autolist-ajax.php:64
-#, php-format
-msgid "\"%s\" is already configured"
-msgstr "\"%s\" ay nakakonfigura na"
-
-#: includes/classes/class-autolist-ajax.php:70
-#, php-format
-msgid "Valid: %s"
-msgstr "Bumubuo: %s"
-
-#: includes/classes/class-autolist-ajax.php:83
-msgid "Permission denied - you must be an administrator"
-msgstr "Tinanggihan ang pahintulot - kailangan mong maging administrator"
-
-#: includes/classes/class-autolist-ajax.php:90
-msgid "Invalid configuration format - expected array"
-msgstr "Hindi wastong format ng configuration - inaasahang array"
-
-#: includes/classes/class-autolist-ajax.php:111
-msgid "Configuration unchanged (already saved)"
-msgstr "Walang pagbabago sa configuration (na-save na)"
-
-#: includes/classes/class-autolist-ajax.php:115
-msgid "Failed to save configuration to database"
-msgstr "Bumagsak sa pag-save ng configuration sa database"
-
-#: includes/classes/class-autolist-ajax.php:120
-msgid "Configuration saved successfully"
-msgstr "Matagumpay na na-save ang configuration"
-
-#: includes/classes/class-autolist-ajax.php:127
-#, php-format
-msgid "Error: %s"
-msgstr "Mali: %s"
-
-#: includes/classes/class-autolist-ajax.php:261
-msgid "Validating..."
-msgstr "Nagsasagawa ng pag-verify..."
-
-#: includes/classes/class-autolist-ajax.php:262
-msgid "Saving..."
-msgstr "Nagsasave..."
-
-#: includes/classes/class-autolist-ajax.php:263
-msgid "Saved!"
-msgstr "Naka-save na!"
-
-#: includes/classes/class-autolist-ajax.php:264, fuzzy
-msgid "Error"
-msgstr "Error"
-
-#: includes/classes/class-autolist-ajax.php:265
-msgid "Are you sure you want to remove this post type?"
-msgstr "Sigurado ka bang nais mong tanggalin ang uri ng post na ito?"
-
-#: includes/classes/class-autolist-ajax.php:266
-msgid "Select a post type"
-msgstr "Pumili ng uri ng post"
-
-#: includes/classes/class-autolist-ajax.php:267
-#: includes/classes/class-settings.php:393
-msgid "Never"
-msgstr "Hindi kailanman"
-
-#: includes/classes/class-autolist-ajax.php:268
-#: includes/classes/class-settings.php:394
-msgid "On First Use"
-msgstr "Sa Unang Paggamit"
-
-#: includes/classes/class-autolist-ajax.php:269
-#: includes/classes/class-settings.php:395
-msgid "On Publish"
-msgstr "Sa Pag-publish"
-
-#: includes/classes/class-autolist.php:103
-msgid "Invalid post ID or post type."
-msgstr "Hindi wastong post ID o uri ng post."
-
-#: includes/classes/class-columns-link.php:38
-#: includes/classes/class-hooks.php:119
-#: includes/classes/class-meta-boxes.php:77
-msgid "Shortlinks"
-msgstr "Maikling link"
-
-#: includes/classes/class-columns-link.php:104
-#, php-format
-msgid "Auto: %s"
-msgstr "Awtomatik: %s"
-
-#: includes/classes/class-columns-link.php:120
-#, php-format
-msgid "Clicked %s times"
-msgstr "Na-click %s na beses"
-
-#: includes/classes/class-columns-link.php:127
-msgid "Edit"
-msgstr "I-edit"
-
-#: includes/classes/class-columns-link.php:128
-msgid "Delete"
-msgstr "Tanggalin"
-
-#: includes/classes/class-columns-link.php:148
-msgid "Link Title"
-msgstr "Pamagat ng Link"
-
-#: includes/classes/class-columns-link.php:149
-msgid "Shorten Link"
-msgstr "Pagiikliin ang Link"
-
-#: includes/classes/class-columns-link.php:150, fuzzy
-msgid "Stats"
-msgstr "Stats"
-
-#: includes/classes/class-columns-link.php:151
-msgid "Actions"
-msgstr "Mga Aksyon"
-
-#: includes/classes/class-functions.php:39
-msgid "Click to copy"
-msgstr "I-click upang kopyahin"
-
-#: includes/classes/class-functions.php:46
-msgid "Copied"
-msgstr "Nakopya"
-
-#: includes/classes/class-hooks.php:45
-msgid "Invalid or empty URL"
-msgstr "Hindi wastong o walang laman na URL"
-
-#: includes/classes/class-hooks.php:62
-msgid "Tinyurl created successfully."
-msgstr "Matagumpay na nalikha ang tinyurl."
-
-#: includes/classes/class-hooks.php:79
-msgid "Shorten"
-msgstr "Pagiikliin"
-
-#: includes/classes/class-hooks.php:116, fuzzy
-msgid "Link"
-msgstr "Link"
-
-#: includes/classes/class-hooks.php:117
-msgid "All Links"
-msgstr "Lahat ng Link"
-
-#: includes/classes/class-hooks.php:131
-msgid "Category"
-msgstr "Kategorya"
-
-#: includes/classes/class-hooks.php:132
-msgid "Categories"
-msgstr "Mga Kategorya"
-
-#: includes/classes/class-hooks.php:154
-msgid "Logs"
-msgstr "Mga Log"
-
-#: includes/classes/class-hooks.php:172
-msgid "All Logs"
-msgstr "Lahat ng Logs"
-
-#: includes/classes/class-meta-boxes.php:174
-#: includes/classes/class-settings.php:171
-msgid "General"
-msgstr "Pangkalahatan"
-
-#: includes/classes/class-meta-boxes.php:179, fuzzy
-msgid "Label *"
-msgstr "Label *"
-
-#: includes/classes/class-meta-boxes.php:181
-msgid "For admin purpose only."
-msgstr "Para sa layunin ng admin lamang."
-
-#: includes/classes/class-meta-boxes.php:190
-msgid "Target URL *"
-msgstr "URL para sa target *"
-
-#: includes/classes/class-meta-boxes.php:199
-msgid "Short String *"
-msgstr "Maikling String *"
-
-#: includes/classes/class-meta-boxes.php:200
-msgid "Short string of this URL."
-msgstr "Maikling string ng URL na ito."
-
-#: includes/classes/class-meta-boxes.php:206
-msgid "Status"
-msgstr "Katayuan"
-
-#: includes/classes/class-meta-boxes.php:207
-msgid "Disable the link instantly."
-msgstr "Agad na i-disable ang link."
-
-#: includes/classes/class-meta-boxes.php:208
-msgid "After disabling the link will not active but the settings will be reserved."
-msgstr ""
-"Matapos i-disable, ang link ay hindi magiging aktibo ngunit ang mga setting "
-"ay mananatili."
-
-#: includes/classes/class-meta-boxes.php:209
-msgid "Enable"
-msgstr "I-enable"
-
-#: includes/classes/class-meta-boxes.php:210
-msgid "Disable"
-msgstr "I-disable"
-
-#: includes/classes/class-meta-boxes.php:217
-msgid "Notes"
-msgstr "Mga Tala"
-
-#: includes/classes/class-meta-boxes.php:226
-msgid "Redirection"
-msgstr "Paglilipat ng URL"
-
-#: includes/classes/class-meta-boxes.php:231
-msgid "Redirection Method"
-msgstr "Paraan ng Redirection"
-
-#: includes/classes/class-meta-boxes.php:232
-msgid "Select redirection method"
-msgstr "Pumili ng paraan ng redirection"
-
-#: includes/classes/class-meta-boxes.php:235
-msgid "307 (Temporary)"
-msgstr "307 (Pansamantala)"
-
-#: includes/classes/class-meta-boxes.php:236
-msgid "302 (Temporary)"
-msgstr "302 (Pansamantala)"
-
-#: includes/classes/class-meta-boxes.php:237
-msgid "301 (Permanent)"
-msgstr "301 (Permanenteng)"
-
-#: includes/classes/class-meta-boxes.php:244
-msgid "Sponsored"
-msgstr "Sponsorado"
-
-#: includes/classes/class-meta-boxes.php:245
-msgid "Add sponsored attribute."
-msgstr "Magdagdag ng sponsored na katangian."
-
-#: includes/classes/class-meta-boxes.php:246
-msgid "Recommended for affiliate links."
-msgstr "Inirerekomenda para sa mga affiliate link."
-
-#: includes/classes/class-meta-boxes.php:251, fuzzy
-msgid "NoFollow"
-msgstr "NoFollow"
-
-#: includes/classes/class-meta-boxes.php:252
-msgid "Add nofollow attribute."
-msgstr "Magdagdag ng nofollow na katangian."
-
-#: includes/classes/class-meta-boxes.php:253
-msgid "We recommended to use this."
-msgstr "Inirerekomenda naming gamitin ito."
-
-#: includes/classes/class-meta-boxes.php:259
-msgid "Parameter Forwarding"
-msgstr "Pagpapasa ng Parameter"
-
-#: includes/classes/class-meta-boxes.php:260
-msgid "All the parameters will pass to the target link."
-msgstr "Lahat ng mga parameter ay ipapasa sa target na link."
-
-#: includes/classes/class-meta-boxes.php:269
-msgid "Security"
-msgstr "Seguridad"
-
-#: includes/classes/class-meta-boxes.php:274
-msgid "Password Protection"
-msgstr "Proteksyon ng Password"
-
-#: includes/classes/class-meta-boxes.php:275
-msgid "Secure your link."
-msgstr "I-secure ang iyong link."
-
-#: includes/classes/class-meta-boxes.php:276
-msgid "Users must enter the password to redirect to the target link."
-msgstr ""
-"Kailangang ilagay ng mga gumagamit ang password upang ma-redirect sa target "
-"na link."
-
-#: includes/classes/class-meta-boxes.php:281, fuzzy
-msgid "Password"
-msgstr "Password"
-
-#: includes/classes/class-meta-boxes.php:282
-msgid "Share this with users."
-msgstr "Ibahagi ito sa mga gumagamit."
-
-#: includes/classes/class-meta-boxes.php:283
-msgid "Passwords are case sensitive."
-msgstr "Ang mga password ay case sensitive."
-
-#: includes/classes/class-meta-boxes.php:284, fuzzy
-msgid "********"
-msgstr "********"
-
-#: includes/classes/class-meta-boxes.php:293
-msgid "Enable Expiration"
-msgstr "Paganahin ang Pagka-expire"
-
-#: includes/classes/class-meta-boxes.php:294
-msgid "Expire automatically."
-msgstr "Ma-expire nang awtomatiko."
-
-#: includes/classes/class-meta-boxes.php:295
-msgid "Users will not able to redirect to the target URL once expire."
-msgstr ""
-"Hindi makakapag-redirect ang mga gumagamit sa target na URL kapag "
-"nag-expire na."
-
-#: includes/classes/class-meta-boxes.php:300
-msgid "Expiration Date"
-msgstr "Petsa ng Pagka-expire"
-
-#: includes/classes/class-meta-boxes.php:301
-msgid "It will automatically expire."
-msgstr "Ito ay awtomatikong mag-e-expire."
-
-#: includes/classes/class-meta-boxes.php:319
-msgid "Analytics"
-msgstr "Analitika"
-
-#: includes/classes/class-redirection.php:87
-#, php-format
-msgid "This content is not publicly accessible. Post status: %s"
-msgstr "Ang nilalaman na ito ay hindi pampublikong naa-access. Katayuan ng post: %s"
-
-#: includes/classes/class-redirection.php:90
-msgid "Content Not Available"
-msgstr "Nilalaman na Hindi Magagamit"
-
-#: includes/classes/class-redirection.php:164
-msgid "Post not found."
-msgstr "Hindi natagpuan ang post."
-
-#: includes/classes/class-redirection.php:265
-msgid "This link is not active."
-msgstr "Hindi aktibo ang link na ito."
-
-#: includes/classes/class-redirection.php:273
-msgid "This link is expired."
-msgstr "Nag-expire na ang link na ito."
-
-#: includes/classes/class-redirection.php:353
-msgid "This link is not containing the right prefix slug."
-msgstr "Ang link na ito ay walang tamang prefix slug."
-
-#: includes/classes/class-settings.php:91
-msgid "Settings"
-msgstr "Mga Setting"
-
-#: includes/classes/class-settings.php:174
-msgid "Options"
-msgstr "Mga Opsyon"
-
-#: includes/classes/class-settings.php:179
-msgid "Link Prefix"
-msgstr "Prefix ng Link"
-
-#: includes/classes/class-settings.php:180
-msgid "Add custom prefix."
-msgstr "Magdagdag ng pasadyang prefix."
-
-#: includes/classes/class-settings.php:181
-msgid "Customize your tiny url in a better way."
-msgstr "I-customize ang iyong maliit na url sa mas magandang paraan."
-
-#: includes/classes/class-settings.php:187, fuzzy
-msgid "Prefix Slug"
-msgstr "Prefix Slug"
-
-#: includes/classes/class-settings.php:188
-msgid "Custom prefix slug."
-msgstr "Pasadyang prefix slug."
-
-#: includes/classes/class-settings.php:189
-#, php-format
-msgid "This prefix slug will be added this way - %s"
-msgstr "Idadagdag ang prefix slug na ito sa ganitong paraan - %s"
-
-#: includes/classes/class-settings.php:190
 #: includes/classes/class-settings.php:191
-msgid "go"
-msgstr "pumunta"
-
-#: includes/classes/class-settings.php:197
-msgid "Keyboard Shortcut"
-msgstr "Shortcut sa Keyboard"
-
-#: includes/classes/class-settings.php:198
-msgid "Configure your K/B"
-msgstr "I-configure ang iyong K/B"
-
-#: includes/classes/class-settings.php:199
-msgid ""
-"You can now short your large links from anywhere inside your WordPress "
-"dashboard."
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:197
+#, fuzzy
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr ""
 "Maaari mo nang paikliin ang iyong malalaking link mula sa kahit saan sa "
 "loob ng iyong WordPress dashboard."
 
-#: includes/classes/class-settings.php:200
-msgid "For now you have no option to set your own shortcut but this will come soon."
-msgstr ""
-"Sa ngayon, wala kang opsyon na itakda ang iyong sariling shortcut ngunit "
-"darating ito sa lalong madaling panahon."
+#: includes-core/ShortlinksCoreAdmin.php:215, fuzzy
+msgid "CSV Export"
+msgstr "CSV Export"
 
-#: includes/classes/class-settings.php:201
-#: includes/classes/class-settings.php:202
+#: includes-core/ShortlinksCoreAdmin.php:219, fuzzy
+msgid "CSV Import"
+msgstr "CSV Import"
+
+#: includes/classes/class-settings.php:192
+#: includes/classes/class-settings.php:193
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:198
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:199
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl o Cmd + /"
 
-#: includes/classes/class-settings.php:211
-msgid "Hide Modal Opener"
-msgstr "Itago ang Modal Opener"
+#: includes/classes/class-settings.php:181
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:187
+msgid "Custom prefix slug."
+msgstr "Pasadyang prefix slug."
 
-#: includes/classes/class-settings.php:212
-msgid "Remove from WP Admin Bar"
-msgstr "Tanggalin mula sa WP Admin Bar"
+#: includes/classes/class-settings.php:300
+msgid "Default Expired Redirect URL"
+msgstr "Default na Expired Redirect URL"
 
-#: includes/classes/class-settings.php:213
+#: includes/classes/class-columns-link.php:195, fuzzy
+msgid "Deferred"
+msgstr "Deferred"
+
+#: includes/classes/class-columns-link.php:223
+#: includes/classes/class-table-logs.php:163
+#: includes/classes/class-table-logs.php:183
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:128
+msgid "Delete"
+msgstr "Tanggalin"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:145
+#: templates/admin/settings/supports.php:54
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:26
+msgid "Detailed documentation is also available on the plugin website."
+msgstr "Ang detalyadong dokumentasyon ay available din sa website ng plugin."
+
+#: includes/classes/class-table-logs.php:152
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:81
+msgid "Details"
+msgstr "Mga Detalye"
+
+#: includes/classes/class-meta-boxes.php:227
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:227
+msgid "Disable"
+msgstr "I-disable"
+
+#: includes/classes/class-meta-boxes.php:224
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:224
+#, fuzzy
+msgid "Disable the shortlink instantly."
+msgstr "Agad na i-disable ang link."
+
+#: includes/classes/class-settings.php:312
+#: includes/classes/class-settings.php:321
+msgid ""
+"Display a brief notice before redirecting expired links (using a JavaScript "
+"redirect with a short delay)."
+msgstr ""
+"Ipakita ang isang maikling abiso bago i-redirect ang mga expired na link "
+"(gamit ang JavaScript redirect na may maikling pagkaantala)."
+
+#: includes/classes/class-settings.php:352
+msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
+msgstr ""
+"Ipakita ang column ng shortlink kapag tinitingnan ang mga revision sa "
+"PublishPress Revisions."
+
+#: templates/admin/footer.php:26
+#: dist/publishpress-shortlinks/templates/admin/footer.php:26
+msgid "Documentation"
+msgstr "Dokumentasyon"
+
+#: templates/admin/qr-code.php:15
+#: dist/publishpress-shortlinks/templates/admin/qr-code.php:9
+#, fuzzy
+msgid "Download QR Code"
+msgstr "I-download ang QR"
+
+#: templates/admin/settings/browsers.php:15
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:15
+msgid "Download the Extension"
+msgstr "I-download ang Extension"
+
+#: includes/classes/class-settings.php:285
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:302
+msgid "Draft"
+msgstr "Burador"
+
+#: includes/classes/class-settings.php:381
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:317, fuzzy
+msgid "Dummy"
+msgstr "Dummy"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:125
+msgid "Earth"
+msgstr "Daigdig"
+
+#: includes/classes/class-columns-link.php:222
+#: includes/classes/class-table-logs.php:181
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:127
+msgid "Edit"
+msgstr "I-edit"
+
+#: includes/functions.php:153
+#: dist/publishpress-shortlinks/includes/functions.php:153
+msgid "Edit shortlink settings"
+msgstr "I-edit ang mga setting ng shortlink"
+
+#: includes/classes/class-meta-boxes.php:226
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:226
+msgid "Enable"
+msgstr "I-enable"
+
+#: includes/classes/class-meta-boxes.php:308
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:310
+msgid "Enable Expiration"
+msgstr "Paganahin ang Pagka-expire"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:118
+#: templates/admin/settings/supports.php:22
+msgid "Enhance the power of PublishPress Shortlinks with the Pro version:"
+msgstr "Pahusayin ang kapangyarihan ng PublishPress Shortlinks sa Pro na bersyon:"
+
+#: templates/admin-modal-new-link.php:19
+#, fuzzy
+msgid "Enter a long URL and make a shortlink"
+msgstr "Ilagay ang mahabang URL at gawing maliit na bersyon"
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:19
+msgid "Enter a long url and make into a tiny version"
+msgstr "Ilagay ang mahabang URL at gawing maliit na bersyon"
+
+#: includes/classes/class-autolist-ajax.php:270
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:270, fuzzy
+msgid "Error"
+msgstr "Error"
+
+#: includes/classes/class-autolist-ajax.php:127
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:127
+#, php-format
+msgid "Error: %s"
+msgstr "Mali: %s"
+
+#: includes/classes/class-meta-boxes.php:315
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:317
+msgid "Expiration Date"
+msgstr "Petsa ng Pagka-expire"
+
+#: includes/classes/class-meta-boxes.php:309
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:311
+msgid "Expire automatically."
+msgstr "Ma-expire nang awtomatiko."
+
+#: includes/classes/class-settings.php:295
+msgid "Expired Links"
+msgstr "Nawawalang Mga Link"
+
+#: includes/classes/class-columns-link.php:170
+msgid "External"
+msgstr "Panlabas"
+
+#: includes/classes/class-hooks.php:122
+msgid "Failed to reset analytics."
+msgstr "Nabigong i-reset ang analytics."
+
+#: includes/classes/class-autolist-ajax.php:115
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:115
+msgid "Failed to save configuration to database"
+msgstr "Bumagsak sa pag-save ng configuration sa database"
+
+#: includes/classes/class-meta-boxes.php:198
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:198
+msgid "For admin purpose only."
+msgstr "Para sa layunin ng admin lamang."
+
+#: includes/classes/class-meta-boxes.php:191
+#: includes/classes/class-settings.php:165
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:191
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:171
+msgid "General"
+msgstr "Pangkalahatan"
+
+#: includes/classes/class-settings.php:183
+#: includes/classes/class-settings.php:184
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:189
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:190
+msgid "go"
+msgstr "pumunta"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:209
 msgid "Hide quick short link modal opener from WP Admin Bar."
 msgstr "Itago ang mabilis na modal opener ng maikling link mula sa WP Admin Bar."
 
-#: includes/classes/class-settings.php:219
-msgid "Role Management"
-msgstr "Pamamahala ng Papel"
+#: includes/classes/class-settings.php:203, fuzzy
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "Itago ang button na \"Pahabain\" mula sa WordPress admin bar."
 
-#: includes/classes/class-settings.php:224
-msgid "Who Can View Links"
-msgstr "Sino ang Maaaring Tingnan ang Mga Link"
+#. Author URI of the plugin
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
 
-#: includes/classes/class-settings.php:225
-#: includes/classes/class-settings.php:237
-#: includes/classes/class-settings.php:249
-#: includes/classes/class-settings.php:261
-msgid "Upcoming feature."
-msgstr "Paparating na tampok."
+#. URI of the plugin
+msgid "https://publishpress.com/shortlinks/"
+msgstr "https://publishpress.com/shortlinks/"
 
-#: includes/classes/class-settings.php:226
-msgid "Only selected user roles can view links."
+#: templates/admin/footer.php:14
+#: dist/publishpress-shortlinks/templates/admin/footer.php:14
+#, php-format
+msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
+msgstr "Kung gusto mo ang %1$s pakisuyong iwanan kami ng %2$s rating. Salamat!"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:139
+#: templates/admin/settings/supports.php:47
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:19
+msgid "If you need help or have a new feature request, let us know."
 msgstr ""
-"Tanging ang mga napiling tungkulin ng gumagamit ang maaaring tingnan ang "
-"mga link."
+"Kung kailangan mo ng tulong o may bagong kahilingan sa tampok, ipaalam sa "
+"amin."
 
-#: includes/classes/class-settings.php:236
-msgid "Who Can Create/Edit Links"
-msgstr "Sino ang Maaaring Lumikha/Mag-edit ng Mga Link"
+#: includes-core/ShortlinksCoreAdmin.php:189
+#: includes-core/ShortlinksCoreAdmin.php:190
+msgid "Import / Export"
+msgstr "Mag-import / Mag-export"
 
-#: includes/classes/class-settings.php:238
-msgid "Only selected user roles can create or edit links."
+#: includes-core/ShortlinksCoreAdmin.php:205
+msgid "Import / Export Shortlinks"
+msgstr "Mag-import / Mag-export ng Mga Maiikli"
+
+#: includes-core/ShortlinksCoreAdmin.php:211
+msgid ""
+"Import and export your shortlinks in bulk using CSV files. Migrate from "
+"other plugins or manage links across multiple sites."
 msgstr ""
-"Tanging ang mga napiling tungkulin ng gumagamit ang maaaring lumikha o "
-"mag-edit ng mga link."
+"Mag-import at mag-export ng iyong mga maiikli nang sabay-sabay gamit ang "
+"mga CSV file. Mag-migrate mula sa ibang plugins o pamahalaan ang mga link "
+"sa iba't ibang site."
 
-#: includes/classes/class-settings.php:248
-msgid "Who Can See Analytics"
-msgstr "Sino ang Maaaring Makita ang Analytics"
+#: includes/classes/class-columns-link.php:170
+msgid "Internal"
+msgstr "Panloob"
 
-#: includes/classes/class-settings.php:250
-msgid "Only selected user roles can see analytics."
+#: includes/classes/class-autolist-ajax.php:90
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:90
+msgid "Invalid configuration format - expected array"
+msgstr "Hindi wastong format ng configuration - inaasahang array"
+
+#: includes/classes/class-hooks.php:80
+msgid "Invalid nonce verification."
+msgstr "Hindi wastong pag-verify ng nonce."
+
+#: includes/classes/class-hooks.php:56
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:45
+msgid "Invalid or empty URL"
+msgstr "Hindi wastong o walang laman na URL"
+
+#: includes/classes/class-autolist.php:109
+#: dist/publishpress-shortlinks/includes/classes/class-autolist.php:103
+msgid "Invalid post ID or post type."
+msgstr "Hindi wastong post ID o uri ng post."
+
+#: includes/classes/class-hooks.php:91
+#, fuzzy
+msgid "Invalid post ID."
+msgstr "Hindi wastong post ID o uri ng post."
+
+#: includes/classes/class-revision.php:379
+msgid "Invalid revision ID."
+msgstr "Hindi wastong revision ID."
+
+#: includes/classes/class-meta-boxes.php:316
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:318
+msgid "It will automatically expire."
+msgstr "Ito ay awtomatikong mag-e-expire."
+
+#: includes/classes/class-settings.php:190
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:196
+msgid "Keyboard Shortcut"
+msgstr "Shortcut sa Keyboard"
+
+#: includes/classes/class-meta-boxes.php:196
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:196, fuzzy
+msgid "Label *"
+msgstr "Label *"
+
+#: includes/functions.php:220
+#: dist/publishpress-shortlinks/includes/functions.php:220
+#, fuzzy, php-format
+msgid "Link - %s"
+msgstr "Link - %s"
+
+#: includes/classes/class-redirection.php:246
+#, fuzzy
+msgid "Link Expired"
+msgstr "Pamagat ng Link"
+
+#: includes/classes/class-columns-link.php:268
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:148
+msgid "Link Title"
+msgstr "Pamagat ng Link"
+
+#: includes/classes/class-columns-link.php:270
+#, fuzzy
+msgid "Link Type"
+msgstr "Pamagat ng Link"
+
+#: includes/classes/class-table-logs.php:62
+#, fuzzy
+msgid "Log entry deleted successfully."
+msgstr "Matagumpay na nalikha ang tinyurl."
+
+#: includes/classes/class-hooks.php:221
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:154
+msgid "Logs"
+msgstr "Mga Log"
+
+#: templates/admin-modal-new-link.php:24
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:24
+msgid "Long URL"
+msgstr "Mahabang URL"
+
+#: includes/classes/class-meta-boxes.php:262
+msgid "Mark links as sponsored content."
+msgstr "Tandaan ang mga link bilang sponsored na nilalaman."
+
+#: templates/admin/settings/supports.php:42
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:14
+msgid "Need PublishPress Shortlinks Support?"
+msgstr "Kailangan ng Suporta para sa PublishPress Shortlinks?"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:134
+#, fuzzy
+msgid "Need Support?"
+msgstr "Humiling ng Suporta"
+
+#: includes/classes/class-columns-link.php:196
+msgid "Needs work"
+msgstr "Kailangan ng trabaho"
+
+#: includes/classes/class-autolist-ajax.php:273
+#: includes/classes/class-settings.php:344
+#: includes/classes/class-settings.php:439
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:273
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:390
+msgid "Never"
+msgstr "Hindi kailanman"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:124
+#: templates/admin/settings/supports.php:28
+msgid "No ads inside the plugin"
+msgstr "Walang ads sa loob ng plugin"
+
+#: includes/classes/class-settings.php:424
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:375
+msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
-"Tanging ang mga napiling tungkulin ng gumagamit ang maaaring makita ang "
-"analytics."
+"Walang mga uri ng post na na-configure pa. I-click ang \"Magdagdag ng Uri "
+"ng Post\" upang makapagsimula."
 
-#: includes/classes/class-settings.php:260
-msgid "Who Can Control Settings"
-msgstr "Sino ang Maaaring Kontrolin ang Mga Setting"
+#: includes/classes/class-columns-link.php:65
+#, fuzzy
+msgid "No shortlink"
+msgstr "Maikling link"
 
-#: includes/classes/class-settings.php:262
+#: includes/classes/class-meta-boxes.php:268
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:268, fuzzy
+msgid "NoFollow"
+msgstr "NoFollow"
+
+#: includes/classes/class-columns-link.php:192
+msgid "Not yet submitted"
+msgstr "Hindi pa isinusumite"
+
+#: includes/classes/class-meta-boxes.php:234
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:234
+msgid "Notes"
+msgstr "Mga Tala"
+
+#: includes/classes/class-autolist-ajax.php:274
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:274
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:391
+msgid "On First Use"
+msgstr "Sa Unang Paggamit"
+
+#: includes/classes/class-autolist-ajax.php:275
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:275
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:392
+msgid "On Publish"
+msgstr "Sa Pag-publish"
+
+#: includes/classes/class-settings.php:244
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:260
 msgid "Only selected user roles can control settings."
 msgstr ""
 "Tanging ang mga napiling tungkulin ng gumagamit ang maaaring kontrolin ang "
 "mga setting."
 
-#: includes/classes/class-settings.php:272
-msgid "Auto-List Links for Post Types"
-msgstr "Auto-List na mga Link para sa mga Uri ng Post"
-
-#: includes/classes/class-settings.php:277
-msgid "Enable Auto-Listing Links"
-msgstr "I-enable ang Auto-Listing ng Mga Link"
-
-#: includes/classes/class-settings.php:278
-msgid "Automatically list post type shortlinks in the \"All Links\" table"
+#: includes/classes/class-settings.php:224
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:236
+msgid "Only selected user roles can create or edit links."
 msgstr ""
-"Awtomatikong ilista ang mga maikling link ng uri ng post sa talahanayan ng "
-"\"Lahat ng Link\""
+"Tanging ang mga napiling tungkulin ng gumagamit ang maaaring lumikha o "
+"mag-edit ng mga link."
 
-#: includes/classes/class-settings.php:279
-msgid ""
-"When enabled, shortlinks for posts, pages, and other post types will appear "
-"in the \"All Links\" table based on the behavior you configure below."
+#: includes/classes/class-settings.php:234
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:248
+msgid "Only selected user roles can see analytics."
 msgstr ""
-"Kapag naka-enable, ang mga shortlink para sa mga post, pahina, at iba pang "
-"uri ng post ay lalabas sa \"Lahat ng Link\" na talahanayan batay sa "
-"pag-uugali na iyong i-configure sa ibaba."
+"Tanging ang mga napiling tungkulin ng gumagamit ang maaaring makita ang "
+"analytics."
 
-#: includes/classes/class-settings.php:285
-msgid "Configure Post Types"
-msgstr "I-configure ang mga Uri ng Post"
+#: includes/classes/class-settings.php:215
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:224
+msgid "Only selected user roles can view links."
+msgstr ""
+"Tanging ang mga napiling tungkulin ng gumagamit ang maaaring tingnan ang "
+"mga link."
+
+#: includes/classes/class-settings.php:168
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:174
+msgid "Options"
+msgstr "Mga Opsyon"
+
+#: includes/classes/class-meta-boxes.php:276
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:276
+msgid "Parameter Forwarding"
+msgstr "Pagpapasa ng Parameter"
+
+#: includes/classes/class-meta-boxes.php:277
+#, fuzzy
+msgid "Pass URL parameters to the target link."
+msgstr "Lahat ng mga parameter ay ipapasa sa target na link."
+
+#: includes/classes/class-meta-boxes.php:296
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:298, fuzzy
+msgid "Password"
+msgstr "Password"
+
+#: includes/classes/class-meta-boxes.php:289
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:291
+msgid "Password Protection"
+msgstr "Proteksyon ng Password"
+
+#: includes/classes/class-meta-boxes.php:298
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:300
+msgid "Passwords are case sensitive."
+msgstr "Ang mga password ay case sensitive."
 
 #: includes/classes/class-settings.php:286
-msgid "Set when links should be auto-listed for each post type"
-msgstr ""
-"Itakda kung kailan dapat awtomatikong ilista ang mga link para sa bawat uri "
-"ng post"
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:303
+msgid "Pending Review"
+msgstr "Naka-pending na Pagsusuri"
 
-#: includes/classes/class-settings.php:287
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr ""
-"Magdagdag ng mga uri ng post at i-configure kung kailan dapat lumitaw ang "
-"kanilang shortlinks sa talahanayan ng \"Lahat ng Link\". Ang mga pagbabago "
-"ay awtomatikong nasusulat."
+#: includes/classes/class-autolist-ajax.php:30
+#: includes/classes/class-autolist-ajax.php:180
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:30
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:180
+msgid "Permission denied"
+msgstr "Tinanggihan ang pahintulot"
 
-#: includes/classes/class-settings.php:294
+#: includes/classes/class-autolist-ajax.php:83
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:83
+msgid "Permission denied - you must be an administrator"
+msgstr "Tinanggihan ang pahintulot - kailangan mong maging administrator"
+
+#: includes/classes/class-redirection.php:211
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:168
+msgid "Post not found."
+msgstr "Hindi natagpuan ang post."
+
+#: includes/classes/class-settings.php:274
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:291
 msgid "Post Status Visibility"
 msgstr "Visibility ng Status ng Post"
 
-#: includes/classes/class-settings.php:299
-msgid "Allowed Post Statuses"
-msgstr "Pinapayagang Katayuan ng Post"
+#: includes/classes/class-autolist-ajax.php:37
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:37
+msgid "Post type is required"
+msgstr "Kailangan ang uri ng post"
 
-#: includes/classes/class-settings.php:300
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr ""
-"Pumili ng mga katayuan ng post na maaaring ma-access sa pamamagitan ng mga "
-"maikling link"
+#: includes/classes/class-settings.php:180
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:186, fuzzy
+msgid "Prefix Slug"
+msgstr "Prefix Slug"
 
-#: includes/classes/class-settings.php:301
+#: includes/classes/class-meta-boxes.php:269
+msgid "Prevent search engines from following this link."
+msgstr "Pigilan ang mga search engine na sundan ang link na ito."
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:123
+#: templates/admin/settings/supports.php:27
+msgid "Priority support"
+msgstr "Prayoridad na suporta"
+
+#: includes/classes/class-settings.php:287
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:304
+msgid "Private"
+msgstr "Pribado"
+
+#: includes-core/ShortlinksCoreAdmin.php:114
+#: includes-core/ShortlinksCoreAdmin.php:152
+msgid "Pro Feature"
+msgstr "Pro Tampok"
+
+#: includes/classes/class-settings.php:284
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:301, fuzzy
+msgid "Published"
+msgstr "Nai-publish"
+
+#. Author of the plugin
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#: tinypress.php:347 dist/publishpress-shortlinks/tinypress.php:341
+#: includes/classes/class-meta-boxes.php:179
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:179, fuzzy
+#. Name of the plugin
+msgid "PublishPress Shortlinks"
+msgstr "PublishPress Shortlinks"
+
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:263
+msgid "Recommended for affiliate links."
+msgstr "Inirerekomenda para sa mga affiliate link."
+
+#: includes/classes/class-meta-boxes.php:243
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:243
+msgid "Redirection"
+msgstr "Paglilipat ng URL"
+
+#: includes/classes/class-meta-boxes.php:248
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:248
+msgid "Redirection Method"
+msgstr "Paraan ng Redirection"
+
+#: includes/classes/class-columns-link.php:197
+msgid "Rejected"
+msgstr "Tinanggihan"
+
+#: includes/classes/class-settings.php:202
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:208
+#, fuzzy
+msgid "Remove from Admin Bar"
+msgstr "Tanggalin mula sa WP Admin Bar"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:141
+#: templates/admin/settings/supports.php:49
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:21
+msgid "Request Support"
+msgstr "Humiling ng Suporta"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:120
+#: templates/admin/settings/supports.php:24
+msgid "REST API for creating shortlinks"
+msgstr "REST API para sa paglikha ng mga maiikli"
+
+#: includes/classes/class-columns-link.php:157
+#: includes/classes/class-table-logs.php:197, fuzzy
+msgid "rev"
+msgstr "rev"
+
+#: includes/classes/class-columns-link.php:183
+msgid "Revision"
+msgstr "Rebisyon"
+
+#: includes/classes/class-settings.php:337
+msgid "Revision Link Visibility"
+msgstr "Pagpapakita ng Link ng Rebisyon"
+
+#: includes/classes/class-settings.php:358
+msgid "Revision Visibility for Visitors"
+msgstr "Pagpapakita ng Rebisyon para sa mga Bisita"
+
+#: includes/classes/class-columns-link.php:200
+#, php-format
+msgid "Revision: %s"
+msgstr "Rebisyon: %s"
+
+#: includes/classes/class-settings.php:332
+msgid "Revisions"
+msgstr "Mga Rebisyon"
+
+#: includes/classes/class-settings.php:209
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:217
+msgid "Role Management"
+msgstr "Pamamahala ng Papel"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:122
+#: templates/admin/settings/supports.php:26
+msgid "Role-based access control"
+msgstr "Kontrol ng access batay sa papel"
+
+#: includes/classes/class-autolist-ajax.php:269
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:269
+msgid "Saved!"
+msgstr "Naka-save na!"
+
+#: includes/classes/class-autolist-ajax.php:268
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:268
+msgid "Saving..."
+msgstr "Nagsasave..."
+
+#: includes/classes/class-columns-link.php:194
+#: includes/classes/class-settings.php:288
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:305
+msgid "Scheduled"
+msgstr "Naka-iskedyul"
+
+#: includes/classes/class-meta-boxes.php:290
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:292
+#, fuzzy
+msgid "Secure your shortlink."
+msgstr "I-secure ang iyong link."
+
+#: includes/classes/class-meta-boxes.php:331
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:286
+msgid "Security"
+msgstr "Seguridad"
+
+#: includes/classes/class-autolist-ajax.php:272
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:272
+msgid "Select a post type"
+msgstr "Pumili ng uri ng post"
+
+#: includes/classes/class-meta-boxes.php:249
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:249
+msgid "Select redirection method"
+msgstr "Pumili ng paraan ng redirection"
+
+#: includes/classes/class-settings.php:281
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:298
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -621,157 +1013,365 @@ msgstr ""
 "Pumili kung aling mga status ng post ang maa-access kapag bumibisita sa "
 "isang PublishPress shortlink."
 
-#: includes/classes/class-settings.php:304
-msgid "Published"
-msgstr "Nai-publish"
-
-#: includes/classes/class-settings.php:305
-msgid "Draft"
-msgstr "Burador"
-
-#: includes/classes/class-settings.php:306
-msgid "Pending Review"
-msgstr "Naka-pending na Pagsusuri"
-
-#: includes/classes/class-settings.php:307
-msgid "Private"
-msgstr "Pribado"
-
-#: includes/classes/class-settings.php:308
-msgid "Scheduled"
-msgstr "Naka-iskedyul"
-
-#: includes/classes/class-settings.php:320, fuzzy
-msgid "Dummy"
-msgstr "Dummy"
-
-#: includes/classes/class-settings.php:378
-msgid "No post types configured yet. Click \"Add Post Type\" to get started."
+#: includes/classes/class-settings.php:266
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:283
+msgid "Set when links should be auto-listed for each post type"
 msgstr ""
-"Walang mga uri ng post na na-configure pa. I-click ang \"Magdagdag ng Uri "
-"ng Post\" upang makapagsimula."
+"Itakda kung kailan dapat awtomatikong ilista ang mga link para sa bawat uri "
+"ng post"
 
-#: includes/classes/class-settings.php:408
-msgid "Add Post Type"
-msgstr "Magdagdag ng Uri ng Post"
+#: includes/classes/class-settings.php:91
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:91
+msgid "Settings"
+msgstr "Mga Setting"
 
-#: includes/classes/class-table-logs.php:79
-msgid "Title"
-msgstr "Pamagat"
+#: includes/classes/class-meta-boxes.php:297
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:299
+msgid "Share this with users."
+msgstr "Ibahagi ito sa mga gumagamit."
 
-#: includes/classes/class-table-logs.php:80
-msgid "Short Link"
-msgstr "Maikling Link"
+#: includes/classes/class-meta-boxes.php:216
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:216
+msgid "Short String *"
+msgstr "Maikling String *"
 
-#: includes/classes/class-table-logs.php:81
-msgid "Details"
-msgstr "Mga Detalye"
+#: includes/classes/class-meta-boxes.php:217
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:217
+msgid "Short string of this URL."
+msgstr "Maikling string ng URL na ito."
 
-#: includes/classes/class-table-logs.php:124
-msgid "Someone"
-msgstr "Isang tao"
-
-#: includes/classes/class-table-logs.php:125
-msgid "Earth"
-msgstr "Daigdig"
-
-#: includes/classes/class-table-logs.php:143
-#, php-format
-msgid "%s from %s visited at %s"
-msgstr "%s mula sa %s na bumisita sa %s"
-
-#: includes/functions.php:179
-msgid "Target url not found."
-msgstr "Hindi natagpuan ang target na url."
-
-#: includes/functions.php:183
-msgid "Tiny slug could not created."
-msgstr "Hindi makalikha ng maliit na slug."
-
-#: includes/functions.php:201
-#, fuzzy, php-format
-msgid "Link - %s"
-msgstr "Link - %s"
-
-#: templates/admin-modal-new-link.php:11
-msgid "Short url will come here"
-msgstr "Dito darating ang maikling url"
-
-#: templates/admin-modal-new-link.php:19
-msgid "Enter a long url and make into a tiny version"
-msgstr "Ilagay ang mahabang URL at gawing maliit na bersyon"
-
-#: templates/admin-modal-new-link.php:24
-msgid "Long URL"
-msgstr "Mahabang URL"
-
-#: templates/admin-modal-new-link.php:28
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:28
 msgid "Short URL"
 msgstr "Maikling URL"
 
-#: templates/admin-modal-new-link.php:35
-msgid "Close"
-msgstr "Isara"
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:11
+msgid "Short url will come here"
+msgstr "Dito darating ang maikling url"
 
-#: templates/admin-modal-new-link.php:36
-msgid "Create Short URL"
-msgstr "Gumawa ng Maikling URL"
+#: includes/classes/class-hooks.php:146
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:79
+msgid "Shorten"
+msgstr "Pagiikliin"
 
-#: templates/admin/footer.php:14
-#, php-format
-msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
-msgstr "Kung gusto mo ang %1$s pakisuyong iwanan kami ng %2$s rating. Salamat!"
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:149
+msgid "Shorten Link"
+msgstr "Pagiikliin ang Link"
 
-#: templates/admin/footer.php:21
-msgid "About"
-msgstr "Tungkol"
+#: templates/admin-modal-new-link.php:28
+#: includes/classes/class-columns-link.php:44
+#: includes/classes/class-columns-link.php:269
+#: includes/classes/class-table-logs.php:151
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:80
+#, fuzzy
+msgid "Shortlink"
+msgstr "Maikling link"
 
-#: templates/admin/footer.php:26
-msgid "Documentation"
-msgstr "Dokumentasyon"
+#: includes/classes/class-hooks.php:73
+#, fuzzy
+msgid "Shortlink created successfully."
+msgstr "Matagumpay na nalikha ang tinyurl."
 
-#: templates/admin/footer.php:30
-msgid "Contact"
-msgstr "Makipag-ugnayan"
+#: includes/classes/class-settings.php:173
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:179
+#, fuzzy
+msgid "Shortlink Prefix"
+msgstr "Prefix ng Link"
 
-#: templates/admin/qr-code.php:9
-msgid "Download QR"
-msgstr "I-download ang QR"
+#: templates/admin-modal-new-link.php:11
+#, fuzzy
+msgid "Shortlink will appear here"
+msgstr "Dito darating ang maikling url"
 
-#: templates/admin/settings/browsers.php:7
-msgid "We have developed extensions for the below browsers."
-msgstr "Nagawa namin ang mga extension para sa mga browser sa ibaba."
+#: includes/classes/class-columns-link.php:86
+#: includes/classes/class-hooks.php:183 includes/classes/class-hooks.php:186
+#: includes/classes/class-meta-boxes.php:88
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:38
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:116
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:119
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:88
+msgid "Shortlinks"
+msgstr "Maikling link"
 
-#: templates/admin/settings/browsers.php:8
-msgid "Click on your preferred one to Download the extension."
-msgstr "I-click ang iyong piniling isa upang I-download ang extension."
+#: includes/classes/class-settings.php:311
+#: includes/classes/class-settings.php:318
+#, fuzzy
+msgid "Show Expiration Notice"
+msgstr "Petsa ng Pagka-expire"
 
-#: templates/admin/settings/browsers.php:15
-msgid "Download the Extension"
-msgstr "I-download ang Extension"
+#: includes/classes/class-settings.php:351
+msgid "Show Shortlink in Revision Table"
+msgstr "Ipakita ang Maikling Link sa Talaan ng Rebisyon"
 
-#: templates/admin/settings/supports.php:14
-msgid "Need PublishPress Shortlinks Support?"
-msgstr "Kailangan ng Suporta para sa PublishPress Shortlinks?"
+#: includes/classes/class-meta-boxes.php:70
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:70
+msgid "Side"
+msgstr "Gilid"
 
-#: templates/admin/settings/supports.php:19
-msgid "If you need help or have a new feature request, let us know."
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:124
+msgid "Someone"
+msgstr "Isang tao"
+
+#: includes/classes/class-hooks.php:431
+msgid "Sorry, you are not allowed to access shortlinks."
+msgstr "Paumanhin, hindi ka pinapayagang ma-access ang mga maikling link."
+
+#: includes/classes/class-meta-boxes.php:261
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:261
+msgid "Sponsored"
+msgstr "Sponsorado"
+
+#: includes/classes/class-columns-link.php:271
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:150, fuzzy
+msgid "Stats"
+msgstr "Stats"
+
+#: includes/classes/class-meta-boxes.php:223
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:223
+msgid "Status"
+msgstr "Katayuan"
+
+#: includes/classes/class-columns-link.php:193
+msgid "Submitted for approval"
+msgstr "Isinumite para sa pag-apruba"
+
+#: includes/classes/class-meta-boxes.php:207
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:207
+msgid "Target URL *"
+msgstr "URL para sa target *"
+
+#: includes/functions.php:198
+#: dist/publishpress-shortlinks/includes/functions.php:198
+msgid "Target url not found."
+msgstr "Hindi natagpuan ang target na url."
+
+#: includes/classes/class-redirection.php:259
+#, fuzzy
+msgid "This link has expired"
+msgstr "Nag-expire na ang link na ito."
+
+#: includes/classes/class-redirection.php:388
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:292
+msgid "This link is expired."
+msgstr "Nag-expire na ang link na ito."
+
+#: includes/classes/class-redirection.php:365
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:284
+msgid "This link is not active."
+msgstr "Hindi aktibo ang link na ito."
+
+#: includes/classes/class-redirection.php:489
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:390
+msgid "This link is not containing the right prefix slug."
+msgstr "Ang link na ito ay walang tamang prefix slug."
+
+#: includes/classes/class-columns-link.php:184
+#, fuzzy
+msgid "This links to a revision"
+msgstr "Hindi aktibo ang link na ito."
+
+#: includes/classes/class-columns-link.php:171
+msgid "This links to an external website"
+msgstr "Ito ay nag-uugnay sa isang panlabas na website"
+
+#: includes/classes/class-columns-link.php:171
+msgid "This links to your post"
+msgstr "Ito ay nag-uugnay sa iyong post"
+
+#: tinypress.php:48 dist/publishpress-shortlinks/tinypress.php:52
+msgid "This plugin can be deleted."
+msgstr "Ang plugin na ito ay maaaring tanggalin."
+
+#: includes/classes/class-settings.php:182
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:188
+msgid "This text will be added between your domain name and shortlink."
 msgstr ""
-"Kung kailangan mo ng tulong o may bagong kahilingan sa tampok, ipaalam sa "
-"amin."
+"Ang tekstong ito ay idaragdag sa pagitan ng iyong pangalan ng domain at "
+"maikling link."
 
-#: templates/admin/settings/supports.php:21
-msgid "Request Support"
-msgstr "Humiling ng Suporta"
+#: includes/functions.php:202
+#: dist/publishpress-shortlinks/includes/functions.php:202
+msgid "Tiny slug could not created."
+msgstr "Hindi makalikha ng maliit na slug."
 
-#: templates/admin/settings/supports.php:26
-msgid "Detailed documentation is also available on the plugin website."
-msgstr "Ang detalyadong dokumentasyon ay available din sa website ng plugin."
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:62
+msgid "Tinyurl created successfully."
+msgstr "Matagumpay na nalikha ang tinyurl."
 
-#: templates/admin/settings/supports.php:28
+#: includes/classes/class-table-logs.php:150
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:79
+msgid "Title"
+msgstr "Pamagat"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:223
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:235
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:247
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:259
+msgid "Upcoming feature."
+msgstr "Paparating na tampok."
+
+#: includes-core/ShortlinksCoreAdmin.php:83
+#: includes-core/ShortlinksCoreAdmin.php:100
+#: includes-core/ShortlinksCoreAdmin.php:101
+#: includes-core/ShortlinksCoreAdmin.php:227
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:93
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:94
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:127
+#: templates/admin/settings/supports.php:31
+msgid "Upgrade to Pro"
+msgstr "Mag-upgrade sa Pro"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:113
+#: templates/admin/settings/supports.php:17
+#, fuzzy
+msgid "Upgrade to PublishPress Shortlinks Pro"
+msgstr "PublishPress Shortlinks"
+
+#: includes/classes/class-meta-boxes.php:291
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:293
+msgid "Users must enter the password to redirect to the target link."
+msgstr ""
+"Kailangang ilagay ng mga gumagamit ang password upang ma-redirect sa target "
+"na link."
+
+#: includes/classes/class-meta-boxes.php:310
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:312
+msgid "Users will not able to redirect to the target URL once expire."
+msgstr ""
+"Hindi makakapag-redirect ang mga gumagamit sa target na URL kapag "
+"nag-expire na."
+
+#: includes/classes/class-autolist-ajax.php:70
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:70
+#, php-format
+msgid "Valid: %s"
+msgstr "Bumubuo: %s"
+
+#: includes/classes/class-autolist-ajax.php:267
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:267
+msgid "Validating..."
+msgstr "Nagsasagawa ng pag-verify..."
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:147
+#: templates/admin/settings/supports.php:56
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:28
 msgid "View Knowledge Base"
 msgstr "Tingnan ang Kaalaman Base"
 
-#: tinypress.php:148
-msgid "Copied."
-msgstr "Nakopya."
+#: includes/classes/class-table-logs.php:254
+#, php-format
+msgid "Visited at %s"
+msgstr "%s mula sa %s na bumisita sa %s"
+
+#: templates/admin/settings/browsers.php:7
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:7
+msgid "We have developed extensions for the below browsers."
+msgstr "Nagawa namin ang mga extension para sa mga browser sa ibaba."
+
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:270
+msgid "We recommended to use this."
+msgstr "Inirerekomenda naming gamitin ito."
+
+#: includes/classes/class-settings.php:302
+msgid ""
+"When a shortlink expires, visitors will be redirected to this URL instead "
+"of seeing an error. Leave empty to show the default expiration message."
+msgstr ""
+"Kapag nag-expire ang isang maikling link, ang mga bisita ay ire-redirect sa "
+"URL na ito sa halip na makita ang isang error. Iwanang walang laman upang "
+"ipakita ang default na mensahe ng pag-expire."
+
+#: includes/classes/class-settings.php:259
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:276
+msgid ""
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
+msgstr ""
+"Kapag naka-enable, ang mga shortlink para sa mga post, pahina, at iba pang "
+"uri ng post ay lalabas sa \"Lahat ng Link\" na talahanayan batay sa "
+"pag-uugali na iyong i-configure sa ibaba."
+
+#: includes/classes/class-settings.php:342
+#: includes/classes/class-settings.php:441
+#, fuzzy
+msgid "When Link is First Used"
+msgstr "Sa Unang Paggamit"
+
+#: includes/classes/class-settings.php:440
+msgid "When Link is First Used or Post Created"
+msgstr "Kapag Unang Ginamit ang Link o Nalikha ang Post"
+
+#: includes/classes/class-settings.php:442
+msgid "When Post is Created"
+msgstr "Kapag Nalikha ang Post"
+
+#: includes/classes/class-settings.php:443
+msgid "When Post is Published"
+msgstr "Kapag Nailathala ang Post"
+
+#: includes/classes/class-settings.php:341
+msgid "When Revision is Created"
+msgstr "Kapag Nalikha ang Rebisyon"
+
+#: includes/classes/class-settings.php:343
+msgid "When Revision is Created or Link is First Used"
+msgstr "Kapag ang Rebisyon ay Nilikha o ang Link ay Unang Ginamit"
+
+#: includes/classes/class-settings.php:338
+msgid "When should revision shortlinks appear in the All Shortlinks table?"
+msgstr "Kailan dapat lumitaw ang mga shortlink ng rebisyon sa All Shortlinks table?"
+
+#: includes/classes/class-settings.php:301
+msgid "Where should expired shortlinks redirect?"
+msgstr "Saan dapat mag-redirect ang mga expired shortlink?"
+
+#: includes/classes/class-settings.php:243
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:258
+msgid "Who Can Control Settings"
+msgstr "Sino ang Maaaring Kontrolin ang Mga Setting"
+
+#: includes/classes/class-settings.php:223
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:234
+#, fuzzy
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "Sino ang Maaaring Lumikha/Mag-edit ng Mga Link"
+
+#: includes/classes/class-settings.php:233
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:246
+msgid "Who Can See Analytics"
+msgstr "Sino ang Maaaring Makita ang Analytics"
+
+#: includes/classes/class-settings.php:214
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:222
+#, fuzzy
+msgid "Who Can View Shortlinks"
+msgstr "Sino ang Maaaring Tingnan ang Mga Link"
+
+#: includes/classes/class-hooks.php:45
+msgid "You do not have permission to create shortlinks."
+msgstr "Wala kang pahintulot na lumikha ng mga shortlink."
+
+#: includes/classes/class-hooks.php:84
+msgid "You do not have permission to reset analytics."
+msgstr "Wala kang pahintulot na i-reset ang analytics."
+
+#: includes/classes/class-redirection.php:260
+msgid "You will be redirected shortly."
+msgstr "Ikaw ay ire-redirect sa lalong madaling panahon."
+
+#: includes-core/ShortlinksCoreAdmin.php:82
+msgid ""
+"You're using PublishPress Shortlinks Free. The Pro version has more "
+"features and support. "
+msgstr ""
+"Gumagamit ka ng PublishPress Shortlinks Free. Ang Pro na bersyon ay may mas "
+"maraming tampok at suporta. "
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:74
+#. %1$s: opening link tag, %2$s: closing link tag
+#, php-format
+msgid ""
+"You're using PublishPress Shortlinks Free. The Pro version has more "
+"features and support. %1$sUpgrade to Pro%2$s"
+msgstr ""
+"Gumagamit ka ng PublishPress Shortlinks Free. Ang Pro na bersyon ay may mas "
+"maraming tampok at suporta. %1$sMag-upgrade sa Pro%2$s"

@@ -1,4 +1,9 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access directly.
+<?php
+// phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
+
+if (! defined('ABSPATH')) {
+    die; 
+} // Cannot access directly.
 /**
  *
  * Field: subheading
@@ -7,18 +12,18 @@
  * @version 1.0.0
  *
  */
-if ( ! class_exists( 'WPDK_Settings_Field_subheading' ) ) {
-  class WPDK_Settings_Field_subheading extends WPDK_Settings_Fields {
+if (! class_exists('WPDK_Settings_Field_subheading')) {
+    class WPDK_Settings_Field_subheading extends WPDK_Settings_Fields
+    {
+        public function __construct($field, $value = '', $unique = '', $where = '', $parent = '')
+        {
+            parent::__construct($field, $value, $unique, $where, $parent);
+        }
 
-    public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-      parent::__construct( $field, $value, $unique, $where, $parent );
+        public function render()
+        {
+
+            echo ( ! empty($this->field['content']) ) ? $this->field['content'] : '';
+        }
     }
-
-    public function render() {
-
-      echo ( ! empty( $this->field['content'] ) ) ? $this->field['content'] : '';
-
-    }
-
-  }
 }

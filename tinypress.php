@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Plugin Name: PublishPress Shortlinks
  * Plugin URI:  https://publishpress.com/shortlinks/
  * Description: Create custom links for your posts. These links are brandable, trackable, and can have custom view permissions.
- * Version: 1.3.0
+ * Version: 1.4.0
  * Text Domain: tinypress
  * Author: PublishPress
  * Author URI: https://publishpress.com/
@@ -12,368 +13,519 @@
  */
 
 global $wpdb;
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-if (!defined('TINYPRESS_PLUGIN_VERSION')) {
-define('TINYPRESS_PLUGIN_VERSION', '1.3.0');
+$includeFileRelativePath = '/publishpress/instance-protection/include.php';
+
+if (file_exists(__DIR__ . '/lib/vendor' . $includeFileRelativePath)) {
+    require_once __DIR__ . '/lib/vendor' . $includeFileRelativePath;
+} elseif (defined('TINYPRESS_LIB_VENDOR_PATH') && file_exists(TINYPRESS_LIB_VENDOR_PATH . $includeFileRelativePath)) {
+    require_once TINYPRESS_LIB_VENDOR_PATH . $includeFileRelativePath;
 }
 
-defined( 'TINYPRESS_PLUGIN_URL' ) || define( 'TINYPRESS_PLUGIN_URL', WP_PLUGIN_URL . '/' . plugin_basename( dirname( __FILE__ ) ) . '/' );
-defined( 'TINYPRESS_PLUGIN_DIR' ) || define( 'TINYPRESS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-defined( 'TINYPRESS_PLUGIN_FILE' ) || define( 'TINYPRESS_PLUGIN_FILE', plugin_basename( __FILE__ ) );
-defined( 'TINYPRESS_TABLE_REPORTS' ) || define( 'TINYPRESS_TABLE_REPORTS', sprintf( '%stinypress_reports', $wpdb->prefix ) );
-defined( 'TINYPRESS_SERVER' ) || define( 'TINYPRESS_SERVER', esc_url_raw( 'https://endearing-lobster-8e2abe.instawp.xyz/' ) );
-defined( 'TINYPRESS_LINK_PRO' ) || define( 'TINYPRESS_LINK_PRO', esc_url_raw( 'https://pluginbazar.com/products/tinypress/?ref=' . site_url() ) );
-defined( 'TINYPRESS_LINK_DOC' ) || define( 'TINYPRESS_LINK_DOC', esc_url_raw( 'https://docs.pluginbazar.com/plugin/tinypress/' ) );
-defined( 'TINYPRESS_LINK_DOC' ) || define( 'TINYPRESS_LINK_DOC', esc_url_raw( 'https://docs.pluginbazar.com/plugin/tinypress/' ) );
-defined( 'TINYPRESS_LINK_SUPPORT' ) || define( 'TINYPRESS_LINK_SUPPORT', esc_url_raw( 'mailto:hello@tinypress.xyz' ) );
+if (class_exists('PublishPressInstanceProtection\\Config')) {
+    $pluginCheckerConfig = new PublishPressInstanceProtection\Config();
+    $pluginCheckerConfig->pluginSlug = 'publishpress-shortlinks';
+    $pluginCheckerConfig->pluginName = 'PublishPress Shortlinks';
 
-if ( ! class_exists( 'TINYPRESS_Main' ) ) {
-	/**
-	 * Class TINYPRESS_Main
-	 */
-	class TINYPRESS_Main {
+    $pluginChecker = new PublishPressInstanceProtection\InstanceChecker($pluginCheckerConfig);
+}
 
-		protected static $_instance = null;
+// Conflict detection with old plugin version
+// TODO: This is only for compatibility with transiting from >=1.3.0, so let's remove this in any version after 1.4.0. 
+// PublishPressInstanceProtection should handle situations like this for us
+$old_tinypress_active = false;
+foreach ((array) get_option('active_plugins') as $plugin_file) {
+    if (false !== strpos($plugin_file, 'tinypress/tinypress.php')) {
+        $old_tinypress_active = true;
+        break;
+    }
+}
+
+if (! $old_tinypress_active && is_multisite()) {
+    foreach (array_keys((array) get_site_option('active_sitewide_plugins')) as $plugin_file) {
+        if (false !== strpos($plugin_file, 'tinypress/tinypress.php')) {
+            $old_tinypress_active = true;
+            break;
+        }
+    }
+}
+
+if ($old_tinypress_active) {
+    add_action('admin_notices', function () {
+        echo '<div class="notice notice-error is-dismissible"><p><strong>PublishPress Shortlinks Error:</strong> Both old and new versions are active. Please deactivate and delete the old "tinypress" plugin folder, then reactivate PublishPress Shortlinks.</p></div>';
+    });
+    return;
+}
+
+if (! defined('TINYPRESS_LOADED')) {
+    define('TINYPRESS_LOADED', 1);
+
+    define('TINYPRESS_FILE', __DIR__ . '/tinypress.php');
+    define('TINYPRESS_PLUGIN_VERSION', '1.4.0');
+
+    if (! defined('TINYPRESS_LIB_VENDOR_PATH')) {
+        define('TINYPRESS_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
+    }
+
+    define('TINYPRESS_PLUGIN_URL', WP_PLUGIN_URL . '/' . plugin_basename(dirname(__FILE__)) . '/');
+    define('TINYPRESS_PLUGIN_DIR', plugin_dir_path(__FILE__));
+    define('TINYPRESS_PLUGIN_FILE', plugin_basename(__FILE__));
+    define('TINYPRESS_TABLE_REPORTS', sprintf('%stinypress_reports', $wpdb->prefix));
+    define('TINYPRESS_SERVER', 'https://publishpress.com/');
+    define('TINYPRESS_LINK_PRO', 'https://publishpress.com/shortlinks/');
+    define('TINYPRESS_LINK_DOC', 'https://publishpress.com/knowledge-base/shortlinks/');
+    define('TINYPRESS_LINK_SUPPORT', 'https://publishpress.com/contact/');
+    define('TINYPRESS_ABSPATH', __DIR__);
+
+    $pro_active = false;
+
+    foreach ((array) get_option('active_plugins') as $plugin_file) {
+        if (false !== strpos($plugin_file, 'publishpress-shortlinks-pro.php')) {
+            $pro_active = true;
+            break;
+        }
+    }
+
+    if (! $pro_active && is_multisite()) {
+        foreach (array_keys((array) get_site_option('active_sitewide_plugins')) as $plugin_file) {
+            if (false !== strpos($plugin_file, 'publishpress-shortlinks-pro.php')) {
+                $pro_active = true;
+                break;
+            }
+        }
+    }
+
+    if ($pro_active) {
+        add_filter(
+            'plugin_row_meta',
+            function ($links, $file) {
+                if ($file === plugin_basename(__FILE__)) {
+                    $links[] = '<strong>' . esc_html__('This plugin can be deleted.', 'tinypress') . '</strong>';
+                }
+                return $links;
+            },
+            10,
+            2
+        );
+    }
+
+    if (! class_exists('TINYPRESS_Main')) {
+        /**
+         * Class TINYPRESS_Main
+         */
+        // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore, Squiz.Scope.MethodScope.Missing -- WordPress naming conventions; legacy class
+        class TINYPRESS_Main
+        {
+            protected static $_instance = null;
 
 
-		protected static $_script_version = null;
+            protected static $_script_version = null;
 
 
-		/**
-		 * TINYPRESS_Main constructor.
-		 */
-		function __construct() {
+            /**
+             * TINYPRESS_Main constructor.
+             */
+            function __construct()
+            {
 
-			self::$_script_version = defined( 'WP_DEBUG' ) && WP_DEBUG ? current_time( 'U' ) : TINYPRESS_PLUGIN_VERSION;
+                self::$_script_version = defined('WP_DEBUG') && WP_DEBUG ? current_time('U') : TINYPRESS_PLUGIN_VERSION;
 
-			$this->define_scripts();
-			$this->define_classes_functions();
+                $this->define_scripts();
+                $this->define_classes_functions();
 
-			add_action( 'init', array( $this, 'create_data_table' ), 5 );
-			add_action( 'init', array( $this, 'load_text_domain' ), 0 );
-			add_action( 'init', array( $this, 'initialize_default_settings' ), 10 );
-			add_filter( 'admin_footer_text', array( $this, 'update_footer_admin' ) );
-			add_filter( 'tinypress_show_footer', array( $this, 'filter_display_footer' ), 10 );
+                add_action('init', array( $this, 'create_data_table' ), 5);
+                add_action('init', array( $this, 'load_text_domain' ), 0);
+                add_action('init', array( $this, 'initialize_default_settings' ), 10);
+                add_filter('admin_footer_text', array( $this, 'update_footer_admin' ));
+                add_filter('tinypress_show_footer', array( $this, 'filter_display_footer' ), 10);
 
-			register_activation_hook( __FILE__, array( $this, 'flush_rewrite_rules' ) );
-			register_activation_hook( __FILE__, array( $this, 'set_default_settings' ) );
-		}
-
-
-		/**
-		 * flush_rewrite_rules
-		 *
-		 * @return void
-		 */
-		function flush_rewrite_rules() {
-			global $wp_rewrite;
-			$wp_rewrite->flush_rules( true );
-		}
+                register_activation_hook(__FILE__, array( $this, 'flush_rewrite_rules' ));
+                register_activation_hook(__FILE__, array( $this, 'set_default_settings' ));
+                register_activation_hook(__FILE__, function () {
+                    set_transient('tinypress_activation_redirect', true, 30);
+                });
+            }
 
 
-		/**
-		 * Create data table
-		 *
-		 * @return void
-		 */
-		function create_data_table() {
+            /**
+             * flush_rewrite_rules
+             *
+             * @return void
+             */
+            function flush_rewrite_rules()
+            {
+                global $wp_rewrite;
+                $wp_rewrite->flush_rules(true); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.flush_rules_flush_rules -- Only called on plugin activation, not on every page load
+            }
 
-			if ( ! function_exists( 'maybe_create_table' ) ) {
-				require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-			}
 
-			$sql_create_table = "CREATE TABLE " . TINYPRESS_TABLE_REPORTS . " (
+            /**
+             * Create data table
+             *
+             * @return void
+             */
+            function create_data_table()
+            {
+
+                global $wpdb;
+                $table_name = TINYPRESS_TABLE_REPORTS;
+            
+                $db_version = get_option('tinypress_db_version', '0');
+
+                // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+                $table_exists = $wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $wpdb->esc_like($table_name))) === $table_name;
+            
+                if ($table_exists && version_compare($db_version, TINYPRESS_PLUGIN_VERSION, '>=')) {
+                    return;
+                }
+
+                if (! function_exists('dbDelta')) {
+                    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+                }
+
+                $sql_create_table = "CREATE TABLE " . TINYPRESS_TABLE_REPORTS . " (
 	            id int(50) NOT NULL AUTO_INCREMENT,
 	            user_id varchar(50) NOT NULL,
 	            post_id varchar(50) NOT NULL,
 			    user_ip varchar(255) NOT NULL,
 			    user_location varchar(1024) NOT NULL,
 	            datetime  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	            PRIMARY KEY (id)
-            );";
+            is_cleared TINYINT(1) NOT NULL DEFAULT 0,
+            PRIMARY KEY (id)
+        );";
 
-			maybe_create_table( TINYPRESS_TABLE_REPORTS, $sql_create_table );
-		}
+            // Use dbDelta for both table creation and schema updates
+                dbDelta($sql_create_table);
+        
+            // Update the database version
+                update_option('tinypress_db_version', TINYPRESS_PLUGIN_VERSION);
+            }
+            function set_default_settings()
+            {
+                $settings = get_option('tinypress_settings', array());
+            
+                if (! is_array($settings)) {
+                    $settings = array();
+                }
 
+                if (! isset($settings['tinypress_autolist_enabled'])) {
+                    $settings['tinypress_autolist_enabled'] = '1';
+                }
+            
+                if (! isset($settings['tinypress_autolist_post_types']) || empty($settings['tinypress_autolist_post_types'])) {
+                    $settings['tinypress_autolist_post_types'] = array(
+                    array(
+                        'post_type' => 'post',
+                        'behavior' => 'on_first_use_or_on_create'
+                    ),
+                    array(
+                        'post_type' => 'page',
+                        'behavior' => 'on_first_use_or_on_create'
+                    )
+                    );
+                }
+            
+                if (! isset($settings['tinypress_allowed_post_statuses'])) {
+                    $settings['tinypress_allowed_post_statuses'] = array( 'publish', 'draft', 'pending', 'private', 'future' );
+                }
 
-		/**
-		 * Set default settings on plugin activation
-		 *
-		 * @return void
-		 */
-		function set_default_settings() {
-			$settings = get_option( 'tinypress_settings', array() );
-			
-			if ( empty( $settings ) || ! isset( $settings['tinypress_autolist_enabled'] ) ) {
-				if ( ! is_array( $settings ) ) {
-					$settings = array();
-				}
+                if (! isset($settings['tinypress_role_view'])) {
+                    $settings['tinypress_role_view'] = array( 'administrator', 'editor', 'author', 'contributor', 'subscriber', 'revisor' );
+                }
 
-				if ( ! isset( $settings['tinypress_autolist_enabled'] ) ) {
-					$settings['tinypress_autolist_enabled'] = '1';
-				}
-				
-				if ( ! isset( $settings['tinypress_autolist_post_types'] ) || empty( $settings['tinypress_autolist_post_types'] ) ) {
-					$settings['tinypress_autolist_post_types'] = array(
-						array(
-							'post_type' => 'post',
-							'behavior' => 'on_first_use'
-						),
-						array(
-							'post_type' => 'page',
-							'behavior' => 'on_first_use'
-						)
-					);
-				}
-				
-				if ( ! isset( $settings['tinypress_allowed_post_statuses'] ) ) {
-					$settings['tinypress_allowed_post_statuses'] = array( 'publish', 'draft', 'pending', 'private', 'future' );
-				}
-				
-				update_option( 'tinypress_settings', $settings );
-			}
-		}
-		
-		/**
-		 * Initialize default settings on init (for upgrades from older versions)
-		 *
-		 * @return void
-		 */
-		function initialize_default_settings() {
-			// Check if we need to initialize defaults (for sites upgrading from older versions)
-			$settings = get_option( 'tinypress_settings', array() );
-			
-			// If settings exist but autolist settings are missing, initialize them
-			if ( is_array( $settings ) && ! empty( $settings ) && ! isset( $settings['tinypress_autolist_enabled'] ) ) {
-				$this->set_default_settings();
-			}
-		}
-
-
-		/**
-		 * Load Text Domain
-		 */
-		function load_text_domain() {
-			$locale = determine_locale();
-			if ( 'en_US' !== $locale ) {
-				load_plugin_textdomain( 'tinypress', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
-			}
-		}
+                if (! isset($settings['tinypress_revision_visitor_access'])) {
+                    $settings['tinypress_revision_visitor_access'] = '1';
+                }
+            
+                update_option('tinypress_settings', $settings);
+            }
+        
+            /**
+             * Initialize default settings on init (for upgrades from older versions)
+             *
+             * @return void
+             */
+            function initialize_default_settings()
+            {
+                $this->set_default_settings();
+            }
 
 
-		/**
-		 * Include Classes and Functions
-		 */
-		function define_classes_functions() {
-			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-hooks.php';
-			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-functions.php';
-			require_once TINYPRESS_PLUGIN_DIR . 'includes/functions.php';
-			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-meta-boxes.php';
-			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-columns-link.php';
-			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-settings.php';
-			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-redirection.php';
-			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-autolist.php';
-			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-autolist-ajax.php';
-			require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-reviews.php';
-
-			new TINYPRESS_Hooks();
-			new TINYPRESS_Settings();
-			new TINYPRESS_Redirection();
-			new TINYPRESS_AutoList();
-			TINYPRESS_Autolist_Ajax::instance();
-			TINYPRESS_Reviews::instance();
-			
-			// Initialize metaboxes early for proper registration
-			add_action( 'init', function() {
-				new TINYPRESS_Meta_boxes();
-			}, 1 );
-			
-			// Initialize columns late to catch all registered post types
-			add_action( 'init', function() {
-				new TINYPRESS_Column_link();
-			}, 999 );
-		}
+            /**
+             * Load Text Domain
+             */
+            function load_text_domain()
+            {
+                $locale = determine_locale();
+                if ('en_US' !== $locale) {
+                    load_plugin_textdomain('tinypress', false, plugin_basename(dirname(__FILE__)) . '/languages/');
+                }
+            }
 
 
-		/**
-		 * Localize Scripts
-		 *
-		 * @return mixed|void
-		 */
-		function localize_scripts() {
-			return apply_filters( 'tinypress/filters/localize_scripts', array(
-				'ajax_url'  => admin_url( 'admin-ajax.php' ),
-				'copy_text' => esc_html__( 'Copied.', 'tinypress' ),
-			) );
-		}
+            /**
+             * Include Classes and Functions
+             */
+            function define_classes_functions()
+            {
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-hooks.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-functions.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/functions.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-meta-boxes.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-columns-link.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-settings.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-redirection.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-autolist.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-autolist-ajax.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-reviews.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-revision.php';
+
+                new TINYPRESS_Hooks();
+                new TINYPRESS_Settings();
+                new TINYPRESS_Redirection();
+                new TINYPRESS_AutoList();
+                TINYPRESS_Autolist_Ajax::instance();
+                SHORTLINKS_Reviews::instance();
+            
+                // Initialize metaboxes early for proper registration
+                add_action('init', function () {
+                    new TINYPRESS_Meta_boxes();
+                }, 1);
+            
+                // Initialize columns late to catch all registered post types
+                add_action('init', function () {
+                    new TINYPRESS_Column_link();
+                }, 999);
+            }
 
 
-		/**
-		 * Load Admin Scripts
-		 */
-		function admin_scripts() {
-
-			wp_enqueue_script( 'apexcharts', plugins_url( '/assets/admin/js/apexcharts.js', __FILE__ ), array( 'jquery' ), self::$_script_version );
-
-			wp_enqueue_script( 'qrcode', plugins_url( '/assets/admin/js/qrcode.min.js', __FILE__ ), array( 'jquery' ), self::$_script_version );
-			wp_enqueue_script( 'tinypress', plugins_url( '/assets/admin/js/scripts.js', __FILE__ ), array( 'jquery' ), self::$_script_version );
-			wp_localize_script( 'tinypress', 'tinypress', $this->localize_scripts() );
-
-			wp_enqueue_style( 'tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/css/style.css', self::$_script_version );
-			wp_enqueue_style( 'tinypress-tool-tip', TINYPRESS_PLUGIN_URL . 'assets/hint.min.css' );
-		}
+            /**
+             * Localize Scripts
+             *
+             * @return mixed|void
+             */
+            function localize_scripts()
+            {
+                return apply_filters('tinypress/filters/localize_scripts', array(
+                'ajax_url'  => admin_url('admin-ajax.php'),
+                'copy_text' => esc_html__('Copied.', 'tinypress'),
+                ));
+            }
 
 
-		/**
-		 * Load Scripts
-		 */
-		function define_scripts() {
-			add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
-		}
+            /**
+             * Load Admin Scripts
+             */
+            function admin_scripts()
+            {
+                $screen = get_current_screen();
+
+                // Register all scripts
+                wp_register_script('apexcharts', TINYPRESS_PLUGIN_URL . 'assets/admin/js/apexcharts.js', array( 'jquery' ), self::$_script_version, true);
+                wp_register_script('qrcode', TINYPRESS_PLUGIN_URL . 'assets/admin/js/qrcode.min.js', array( 'jquery' ), self::$_script_version, true);
+                wp_register_script('tinypress-analytics', TINYPRESS_PLUGIN_URL . 'assets/admin/js/analytics.js', array( 'jquery', 'apexcharts' ), self::$_script_version, true);
+                wp_register_script('tinypress-qr-code', TINYPRESS_PLUGIN_URL . 'assets/admin/js/qr-code.js', array( 'jquery', 'qrcode' ), self::$_script_version, true);
+            
+                // Main scripts - always enqueue on shortlinks pages
+                wp_enqueue_script('tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/js/scripts.js', array( 'jquery' ), self::$_script_version, true);
+                wp_localize_script('tinypress', 'tinypress', $this->localize_scripts());
+
+                // Always enqueue styles
+                wp_enqueue_style('tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/css/style.css', self::$_script_version);
+                wp_enqueue_style('tinypress-tool-tip', TINYPRESS_PLUGIN_URL . 'assets/hint.min.css');
+                wp_enqueue_style('tinypress-tooltip-lib', TINYPRESS_PLUGIN_URL . 'assets/lib/tooltip/css/tooltip.min.css', array(), self::$_script_version);
+                wp_enqueue_script('tinypress-tooltip-lib', TINYPRESS_PLUGIN_URL . 'assets/lib/tooltip/js/tooltip.min.js', array( 'jquery' ), self::$_script_version, true);
+
+                do_action('tinypress_admin_class_before_assets_register');
+                do_action('tinypress_admin_class_after_styles_enqueue');
+            }
 
 
-		/**
-		 * Update admin footer with PublishPress footer
-		 *
-		 * @param string $footer
-		 * @return string
-		 */
-		public function update_footer_admin( $footer ) {
-			if ( $this->should_display_footer() ) {
-				$html = '<div class="pressshack-admin-wrapper">';
-				$html .= $this->print_default_footer( false );
-
-				// Add the wordpress footer
-				$html .= $footer;
-
-				if ( ! defined( 'TINYPRESS_FOOTER_DISPLAYED' ) ) {
-					define( 'TINYPRESS_FOOTER_DISPLAYED', true );
-				}
-
-				return $html;
-			}
-
-			return $footer;
-		}
+            /**
+             * Load Scripts
+             */
+            function define_scripts()
+            {
+                add_action('admin_enqueue_scripts', array( $this, 'admin_scripts' ));
+            }
 
 
-		/**
-		 * Check if footer should be displayed
-		 *
-		 * @return bool
-		 */
-		private function should_display_footer() {
-			return apply_filters( 'tinypress_show_footer', false );
-		}
+            /**
+             * Update admin footer with PublishPress footer
+             *
+             * @param string $footer
+             * @return string
+             */
+            public function update_footer_admin($footer)
+            {
+                if ($this->should_display_footer()) {
+                    $html = '<div class="pressshack-admin-wrapper">';
+                    $html .= $this->print_default_footer(false);
+
+                    // Add the wordpress footer
+                    $html .= $footer;
+
+                    if (! defined('TINYPRESS_FOOTER_DISPLAYED')) {
+                        define('TINYPRESS_FOOTER_DISPLAYED', true);
+                    }
+
+                    return $html;
+                }
+
+                return $footer;
+            }
 
 
-		/**
-		 * Echo or return the default footer
-		 *
-		 * @param bool $echo
-		 * @return string
-		 */
-		public function print_default_footer( $echo = true ) {
-			$html = '';
-			
-			$show_footer = apply_filters( 'tinypress_show_footer', true );
-
-			if ( $show_footer ) {
-				$context = array(
-					'plugin_name' => __( 'PublishPress Shortlinks', 'tinypress' ),
-					'plugin_slug' => 'tinypress',
-					'plugin_url'  => TINYPRESS_PLUGIN_URL,
-				);
-
-				ob_start();
-				include TINYPRESS_PLUGIN_DIR . 'templates/admin/footer.php';
-				$html = ob_get_clean();
-			}
-
-			if ( ! $echo ) {
-				return $html;
-			}
-
-			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			echo $html;
-
-			return '';
-		}
+            /**
+             * Check if footer should be displayed
+             *
+             * @return bool
+             */
+            private function should_display_footer()
+            {
+                return apply_filters('tinypress_show_footer', false);
+            }
 
 
-		/**
-		 * Filter to determine which pages should display the footer
-		 *
-		 * @param bool $should_display
-		 * @return bool
-		 */
-		public function filter_display_footer( $should_display = true ) {
-			global $current_screen;
+            /**
+             * Echo or return the default footer
+             *
+             * @param bool $echo
+             * @return string
+             */
+            public function print_default_footer($echo = true)
+            {
+                $html = '';
+            
+                $show_footer = apply_filters('tinypress_show_footer', true);
 
-			if ( defined( 'TINYPRESS_FOOTER_DISPLAYED' ) ) {
-				return false;
-			}
+                if ($show_footer) {
+                    $context = array(
+                    'plugin_name' => __('PublishPress Shortlinks', 'tinypress'),
+                    'plugin_slug' => 'tinypress',
+                    'plugin_url'  => TINYPRESS_PLUGIN_URL,
+                    );
 
-			if ( $current_screen->base === 'tinypress_link_page_settings' ) {
-				return true;
-			}
+                    ob_start();
+                    include TINYPRESS_PLUGIN_DIR . 'templates/admin/footer.php';
+                    $html = ob_get_clean();
+                }
 
-			if ( $current_screen->base === 'tinypress_link_page_tinypress-logs' ) {
-				return true;
-			}
+                if (! $echo) {
+                    return $html;
+                }
 
-			if ( $current_screen->base === 'edit' && $current_screen->post_type === 'tinypress_link' ) {
-				return true;
-			}
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                echo $html;
 
-			if ( $current_screen->base === 'edit-tags' && $current_screen->post_type === 'tinypress_link' ) {
-				return true;
-			}
-
-			if ( ( $current_screen->base === 'post' || $current_screen->base === 'post-new' ) && $current_screen->post_type === 'tinypress_link' ) {
-				return true;
-			}
-
-			return $should_display;
-		}
+                return '';
+            }
 
 
-		/**
-		 * @return TINYPRESS_Main
-		 */
-		public static function instance() {
-			if ( is_null( self::$_instance ) ) {
-				self::$_instance = new self();
-			}
+            /**
+             * Filter to determine which pages should display the footer
+             *
+             * @param bool $should_display
+             * @return bool
+             */
+            public function filter_display_footer($should_display = true)
+            {
+                global $current_screen;
 
-			return self::$_instance;
-		}
-	}
+                if (defined('TINYPRESS_FOOTER_DISPLAYED')) {
+                    return false;
+                }
+
+                if ($current_screen->base === 'tinypress_link_page_settings') {
+                    return true;
+                }
+
+                if ($current_screen->base === 'tinypress_link_page_tinypress-logs') {
+                    return true;
+                }
+
+                if ($current_screen->base === 'tinypress_link_page_tinypress-import-export') {
+                    return true;
+                }
+
+                if ($current_screen->base === 'edit' && $current_screen->post_type === 'tinypress_link') {
+                    return true;
+                }
+
+                if ($current_screen->base === 'edit-tags' && $current_screen->post_type === 'tinypress_link') {
+                    return true;
+                }
+
+                if (( $current_screen->base === 'post' || $current_screen->base === 'post-new' ) && $current_screen->post_type === 'tinypress_link') {
+                    return true;
+                }
+
+                return $should_display;
+            }
+
+
+            /**
+             * @return TINYPRESS_Main
+             */
+            public static function instance()
+            {
+                if (is_null(self::$_instance)) {
+                    self::$_instance = new self();
+                }
+
+                return self::$_instance;
+            }
+        }
+    }
+
+    $autoloadFilePath = TINYPRESS_LIB_VENDOR_PATH . '/autoload.php';
+    if (
+        ! class_exists('ComposerAutoloaderInitPublishPressShortlinks')
+        && is_file($autoloadFilePath)
+        && is_readable($autoloadFilePath)
+    ) {
+        require_once $autoloadFilePath;
+    }
+
+    if (! function_exists('pb_sdk_init_tinypress')) {
+        function pb_sdk_init_tinypress()
+        {
+
+            if (! function_exists('get_plugins')) {
+                include_once ABSPATH . '/wp-admin/includes/plugin.php';
+            }
+
+            if (! class_exists('WPDK\Client')) {
+                require_once(TINYPRESS_PLUGIN_DIR . 'includes/wp-dev-kit/classes/class-client.php');
+            }
+
+            global $tinypress_wpdk;
+
+            $tinypress_wpdk = new WPDK\Client(esc_html('PublishPress Shortlinks - Shorten and Track your links'), 'tinypress', 35, TINYPRESS_FILE);
+
+            do_action('pb_sdk_init_tinypress', $tinypress_wpdk);
+        }
+    }
+
+    /**
+     * @global \WPDK\Client $tinypress_wpdk
+     */
+    global $tinypress_wpdk;
+
+    pb_sdk_init_tinypress();
+
+    TINYPRESS_Main::instance();
+
+    // Init Free-only features
+    if (! function_exists('init_free_tinypress')) {
+        function init_free_tinypress()
+        {
+            if (is_admin() && ! defined('PUBLISHPRESS_SHORTLINKS_PRO_VERSION') && ! defined('PUBLISHPRESS_SHORTLINKS_SKIP_VERSION_NOTICES')) {
+                require_once(TINYPRESS_ABSPATH . '/includes-core/ShortlinksCoreAdmin.php');
+                new \PublishPress\Shortlinks\ShortlinksCoreAdmin();
+            }
+        }
+    }
+    add_action('init', 'init_free_tinypress', 0);
 }
-
-function pb_sdk_init_tinypress() {
-
-	if ( ! function_exists( 'get_plugins' ) ) {
-		include_once ABSPATH . '/wp-admin/includes/plugin.php';
-	}
-
-	if ( ! class_exists( 'WPDK\Client' ) ) {
-		require_once( plugin_dir_path( __FILE__ ) . 'includes/wp-dev-kit/classes/class-client.php' );
-	}
-
-	global $tinypress_wpdk;
-
-	$tinypress_wpdk = new WPDK\Client( esc_html( 'TinyPress - Shorten and Track your links' ), 'tinypress', 35, __FILE__ );
-
-	do_action( 'pb_sdk_init_tinypress', $tinypress_wpdk );
-}
-
-/**
- * @global \WPDK\Client $tinypress_wpdk
- */
-global $tinypress_wpdk;
-
-pb_sdk_init_tinypress();
-
-TINYPRESS_Main::instance();

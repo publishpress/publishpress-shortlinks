@@ -1,41 +1,38 @@
-*.log
-
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-.idea
-.vscode
-
-*.sublime-project
-*.sublime-workspace
-
-# Ignores the "dev" composer file
-/vendor
-/packages
-/downloads_cache
-
-.svn
+# Version Control
 .git
-wpcom-helper.php
+.svn
 
-/local.sh
-node_modules
+# IDE
+.idea
+.windsurfrules
 
-/.properties.ini
-
+# Build Artifacts
+/build
 /dist
-.env.testing
-builder.yml
-*.code-workspace
+/svn
 
+# Dependencies
+/node_modules
+/vendor
+
+# Cache
+/cache/*
+
+# Miscellaneous
+.DS_Store
+.properties.ini
+wpcom-helper.php
+CONTRIBUTING.md
+builder.yml
+.env.testing
+/bin
+/local.sh
+/packages
 /lib/**/.git
 
-/dev-workspace/.cache
+dev-workspace/.cache
 .env
-
-version.txt
 .phplint-cache
+/metrics
+/security-audit
+.vscode

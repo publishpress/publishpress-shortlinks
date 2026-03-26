@@ -1,4 +1,9 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access directly.
+<?php
+// phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
+
+if (! defined('ABSPATH')) {
+    die; 
+} // Cannot access directly.
 /**
  *
  * Field: fieldset
@@ -7,35 +12,33 @@
  * @version 1.0.0
  *
  */
-if ( ! class_exists( 'WPDK_Settings_Field_fieldset' ) ) {
-  class WPDK_Settings_Field_fieldset extends WPDK_Settings_Fields {
+if (! class_exists('WPDK_Settings_Field_fieldset')) {
+    class WPDK_Settings_Field_fieldset extends WPDK_Settings_Fields
+    {
+        public function __construct($field, $value = '', $unique = '', $where = '', $parent = '')
+        {
+            parent::__construct($field, $value, $unique, $where, $parent);
+        }
 
-    public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-      parent::__construct( $field, $value, $unique, $where, $parent );
+        public function render()
+        {
+
+            echo $this->field_before();
+
+            echo '<div class="wpdk_settings-fieldset-content" data-depend-id="' . esc_attr($this->field['id']) . '">';
+
+            foreach ($this->field['fields'] as $field) {
+                $field_id      = ( isset($field['id']) ) ? $field['id'] : '';
+                $field_default = ( isset($field['default']) ) ? $field['default'] : '';
+                $field_value   = ( isset($this->value[$field_id]) ) ? $this->value[$field_id] : $field_default;
+                $unique_id     = ( ! empty($this->unique) ) ? $this->unique . '[' . $this->field['id'] . ']' : $this->field['id'];
+
+                WPDK_Settings::field($field, $field_value, $unique_id, 'field/fieldset');
+            }
+
+            echo '</div>';
+
+            echo $this->field_after();
+        }
     }
-
-    public function render() {
-
-      echo $this->field_before();
-
-      echo '<div class="wpdk_settings-fieldset-content" data-depend-id="'. esc_attr( $this->field['id'] ) .'">';
-
-      foreach ( $this->field['fields'] as $field ) {
-
-        $field_id      = ( isset( $field['id'] ) ) ? $field['id'] : '';
-        $field_default = ( isset( $field['default'] ) ) ? $field['default'] : '';
-        $field_value   = ( isset( $this->value[$field_id] ) ) ? $this->value[$field_id] : $field_default;
-        $unique_id     = ( ! empty( $this->unique ) ) ? $this->unique .'['. $this->field['id'] .']' : $this->field['id'];
-
-        WPDK_Settings::field( $field, $field_value, $unique_id, 'field/fieldset' );
-
-      }
-
-      echo '</div>';
-
-      echo $this->field_after();
-
-    }
-
-  }
 }

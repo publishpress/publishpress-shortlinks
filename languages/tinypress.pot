@@ -10,177 +10,300 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-13 12:21+0000\n"
+"POT-Creation-Date: 2026-02-26 14:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: tinypress\n"
-"\n"
 "Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
 
 #: includes/classes/class-autolist-ajax.php:55
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:55
 #, php-format
 msgid "\"%s\" cannot be used for auto-listing"
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:64
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:64
 #, php-format
 msgid "\"%s\" is already configured"
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:49
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:49
 #, php-format
 msgid "\"%s\" is not a public post type"
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:42
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:42
 #, php-format
 msgid "\"%s\" is not a registered post type"
 msgstr ""
 
-#: includes/classes/class-table-logs.php:143
+#: includes/classes/class-table-logs.php:71
+msgid "%d log entries deleted successfully."
+msgstr ""
+
+#. %d: number of revision shortlinks migrated
+#: includes/classes/class-revision.php:212
+msgid ""
+"%d revision shortlink(s) were updated with unique links. Previously, these "
+"revisions shared the same shortlink as their parent post."
+msgstr ""
+
+#: includes/classes/class-table-logs.php:252
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:143
 #, php-format
 msgid "%s from %s visited at %s"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:295
+#: includes/classes/class-meta-boxes.php:299
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:301
 msgid "********"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:248
+#: includes/classes/class-meta-boxes.php:254
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:254
 msgid "301 (Permanent)"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:247
+#: includes/classes/class-meta-boxes.php:253
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:253
 msgid "302 (Temporary)"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:246
+#: includes/classes/class-meta-boxes.php:252
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:252
 msgid "307 (Temporary)"
 msgstr ""
 
 #: templates/admin/footer.php:21
+#: dist/publishpress-shortlinks/templates/admin/footer.php:21
 msgid "About"
 msgstr ""
 
-#: includes/classes/class-columns-link.php:151
+#: includes/classes/class-hooks.php:432
+msgid "Access Denied"
+msgstr ""
+
+#: includes/classes/class-columns-link.php:272
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:151
 msgid "Actions"
 msgstr ""
 
-#: includes/classes/class-settings.php:180
+#: includes/classes/class-settings.php:174
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:180
 msgid "Add a prefix between your domain name and shortlink."
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:263
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:269
 msgid "Add nofollow attribute."
 msgstr ""
 
-#: includes/classes/class-settings.php:403
+#: includes/classes/class-settings.php:456
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:405
 msgid "Add Post Type"
 msgstr ""
 
-#: includes/classes/class-settings.php:282
+#: includes/classes/class-settings.php:267
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:284
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:256
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:262
 msgid "Add sponsored attribute."
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:219
+#: includes/classes/class-meta-boxes.php:270
+msgid ""
+"Adds rel=\"nofollow\" attribute. Recommended for external links and "
+"untrusted sources."
+msgstr ""
+
+#: includes/classes/class-meta-boxes.php:263
+msgid ""
+"Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
+"promotions."
+msgstr ""
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:121
+#: templates/admin/settings/supports.php:25
+msgid "Advanced click analytics"
+msgstr ""
+
+#: includes/classes/class-meta-boxes.php:225
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:225
 msgid ""
 "After disabling the link will not active but the settings will be reserved."
 msgstr ""
 
-#: includes/classes/class-hooks.php:172
+#: includes/classes/class-hooks.php:246
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:172
 msgid "All Logs"
 msgstr ""
 
-#: includes/classes/class-hooks.php:117
+#: includes/classes/class-table-logs.php:75
+msgid "All logs have been cleared."
+msgstr ""
+
+#: includes/classes/class-hooks.php:184
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:117
 msgid "All Shortlinks"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:271
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:277
 msgid "All the parameters will pass to the target link."
 msgstr ""
 
-#: includes/classes/class-settings.php:294
+#: includes/classes/class-settings.php:359
+msgid "Allow logged-out visitors to view revision content via shortlinks."
+msgstr ""
+
+#: includes/classes/class-settings.php:279
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:296
 msgid "Allowed Post Statuses"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:330
+#: includes/classes/class-meta-boxes.php:341
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:336
 msgid "Analytics"
 msgstr ""
 
+#: includes/classes/class-hooks.php:120
+msgid "Analytics reset successfully."
+msgstr ""
+
+#: includes/classes/class-meta-boxes.php:278
+msgid ""
+"Any parameters added to the short URL (e.g., ?utm_source=email) will be "
+"forwarded to the target URL."
+msgstr ""
+
+#: includes/classes/class-hooks.php:246
+msgid "Are you sure you want to clear all logs?"
+msgstr ""
+
+#: includes/classes/class-table-logs.php:183
+msgid "Are you sure you want to delete this log entry?"
+msgstr ""
+
 #: includes/classes/class-autolist-ajax.php:271
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:271
 msgid "Are you sure you want to remove this post type?"
 msgstr ""
 
-#: includes/classes/class-settings.php:268
+#: includes/classes/class-settings.php:253
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:270
 msgid "Auto-List Links"
 msgstr ""
 
-#: includes/classes/class-settings.php:273
+#: includes/classes/class-settings.php:258
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:275
 msgid "Auto-List Shortlinks"
 msgstr ""
 
-#: includes/classes/class-columns-link.php:104
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:104
 #, php-format
 msgid "Auto: %s"
 msgstr ""
 
-#: includes/classes/class-hooks.php:132
+#: includes-core/ShortlinksCoreAdmin.php:210
+msgid "Bulk Import & Export"
+msgstr ""
+
+#: includes-core/ShortlinksCoreAdmin.php:223
+msgid "Bulk Management"
+msgstr ""
+
+#: includes/classes/class-settings.php:360
+msgid ""
+"By default, PublishPress Revisions blocks visitors from viewing revision "
+"previews. When enabled, revision shortlinks will render the revision content "
+"directly for logged-out visitors instead of redirecting to the preview URL. "
+"This applies to all existing revision shortlinks regardless of the setting "
+"above."
+msgstr ""
+
+#: includes/classes/class-hooks.php:199
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:132
 msgid "Categories"
 msgstr ""
 
-#: includes/classes/class-hooks.php:131
+#: includes/classes/class-hooks.php:198
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:131
 msgid "Category"
 msgstr ""
 
-#: includes/classes/class-settings.php:295
+#: includes/classes/class-settings.php:280
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:297
 msgid "Choose which post statuses can be accessed via shortlinks"
 msgstr ""
 
+#: includes/classes/class-hooks.php:246
+msgid "Clear Logs"
+msgstr ""
+
+#: includes/classes/class-redirection.php:261
+msgid "Click here if you are not redirected"
+msgstr ""
+
 #: templates/admin/settings/browsers.php:8
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:8
 msgid "Click on your preferred one to Download the extension."
 msgstr ""
 
 #: includes/classes/class-functions.php:39
+#: dist/publishpress-shortlinks/includes/classes/class-functions.php:39
 msgid "Click to copy"
 msgstr ""
 
-#: includes/classes/class-columns-link.php:120
+#: includes/classes/class-columns-link.php:215
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:120
 #, php-format
 msgid "Clicked %s times"
 msgstr ""
 
 #: templates/admin-modal-new-link.php:35
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:35
 msgid "Close"
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:120
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:120
 msgid "Configuration saved successfully"
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:111
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:111
 msgid "Configuration unchanged (already saved)"
 msgstr ""
 
-#: includes/classes/class-settings.php:280
+#: includes/classes/class-settings.php:265
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:282
 msgid "Configure Post Types"
 msgstr ""
 
 #: templates/admin/footer.php:30
+#: dist/publishpress-shortlinks/templates/admin/footer.php:30
 msgid "Contact"
 msgstr ""
 
+#: includes/classes/class-settings.php:339
+msgid ""
+"Controls when a companion entry is created in the All Shortlinks table for "
+"revision shortlinks. The shortlink itself is always generated regardless of "
+"this setting."
+msgstr ""
+
 #: includes/classes/class-functions.php:46
+#: dist/publishpress-shortlinks/includes/classes/class-functions.php:46
 msgid "Copied"
 msgstr ""
 
-#: tinypress.php:207
+#: tinypress.php:259 dist/publishpress-shortlinks/tinypress.php:264
 msgid "Copied."
 msgstr ""
 
@@ -190,124 +313,213 @@ msgid ""
 "and can have custom view permissions."
 msgstr ""
 
-#: templates/admin-modal-new-link.php:36
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:36
 msgid "Create Short URL"
 msgstr ""
 
-#: includes/classes/class-settings.php:197
+#: templates/admin-modal-new-link.php:36
+msgid "Create Shortlink"
+msgstr ""
+
+#: includes/classes/class-settings.php:191
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:197
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr ""
 
-#: includes/classes/class-settings.php:198
-#: includes/classes/class-settings.php:199
+#: includes-core/ShortlinksCoreAdmin.php:215
+msgid "CSV Export"
+msgstr ""
+
+#: includes-core/ShortlinksCoreAdmin.php:219
+msgid "CSV Import"
+msgstr ""
+
+#: includes/classes/class-settings.php:192
+#: includes/classes/class-settings.php:193
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:198
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:199
 msgid "Ctrl or Cmd + /"
 msgstr ""
 
-#: includes/classes/class-settings.php:187
+#: includes/classes/class-settings.php:181
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:187
 msgid "Custom prefix slug."
 msgstr ""
 
-#: includes/classes/class-columns-link.php:128
+#: includes/classes/class-settings.php:300
+msgid "Default Expired Redirect URL"
+msgstr ""
+
+#: includes/classes/class-columns-link.php:195
+msgid "Deferred"
+msgstr ""
+
+#: includes/classes/class-columns-link.php:223
+#: includes/classes/class-table-logs.php:163
+#: includes/classes/class-table-logs.php:183
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:128
 msgid "Delete"
 msgstr ""
 
-#: templates/admin/settings/supports.php:26
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:145
+#: templates/admin/settings/supports.php:54
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:26
 msgid "Detailed documentation is also available on the plugin website."
 msgstr ""
 
-#: includes/classes/class-table-logs.php:81
+#: includes/classes/class-table-logs.php:152
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:81
 msgid "Details"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:221
+#: includes/classes/class-meta-boxes.php:227
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:227
 msgid "Disable"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:218
+#: includes/classes/class-meta-boxes.php:224
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:224
 msgid "Disable the shortlink instantly."
 msgstr ""
 
+#: includes/classes/class-settings.php:312
+#: includes/classes/class-settings.php:321
+msgid ""
+"Display a brief notice before redirecting expired links (using a JavaScript "
+"redirect with a short delay)."
+msgstr ""
+
+#: includes/classes/class-settings.php:352
+msgid ""
+"Display shortlink column when viewing revisions in PublishPress Revisions."
+msgstr ""
+
 #: templates/admin/footer.php:26
+#: dist/publishpress-shortlinks/templates/admin/footer.php:26
 msgid "Documentation"
 msgstr ""
 
-#: templates/admin/qr-code.php:9
+#: templates/admin/qr-code.php:15
+#: dist/publishpress-shortlinks/templates/admin/qr-code.php:9
 msgid "Download QR Code"
 msgstr ""
 
 #: templates/admin/settings/browsers.php:15
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:15
 msgid "Download the Extension"
 msgstr ""
 
-#: includes/classes/class-settings.php:300
+#: includes/classes/class-settings.php:285
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:302
 msgid "Draft"
 msgstr ""
 
-#: includes/classes/class-settings.php:315
+#: includes/classes/class-settings.php:381
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:317
 msgid "Dummy"
 msgstr ""
 
-#: includes/classes/class-table-logs.php:125
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:125
 msgid "Earth"
 msgstr ""
 
-#: includes/classes/class-columns-link.php:127
+#: includes/classes/class-columns-link.php:222
+#: includes/classes/class-table-logs.php:181
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:127
 msgid "Edit"
 msgstr ""
 
 #: includes/functions.php:153
+#: dist/publishpress-shortlinks/includes/functions.php:153
 msgid "Edit shortlink settings"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:220
+#: includes/classes/class-meta-boxes.php:226
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:226
 msgid "Enable"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:304
+#: includes/classes/class-meta-boxes.php:308
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:310
 msgid "Enable Expiration"
 msgstr ""
 
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:118
+#: templates/admin/settings/supports.php:22
+msgid "Enhance the power of PublishPress Shortlinks with the Pro version:"
+msgstr ""
+
 #: templates/admin-modal-new-link.php:19
+msgid "Enter a long URL and make a shortlink"
+msgstr ""
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:19
 msgid "Enter a long url and make into a tiny version"
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:270
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:270
 msgid "Error"
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:127
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:127
 #, php-format
 msgid "Error: %s"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:311
+#: includes/classes/class-meta-boxes.php:315
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:317
 msgid "Expiration Date"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:305
+#: includes/classes/class-meta-boxes.php:309
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:311
 msgid "Expire automatically."
 msgstr ""
 
+#: includes/classes/class-settings.php:295
+msgid "Expired Links"
+msgstr ""
+
+#: includes/classes/class-columns-link.php:170
+msgid "External"
+msgstr ""
+
+#: includes/classes/class-hooks.php:122
+msgid "Failed to reset analytics."
+msgstr ""
+
 #: includes/classes/class-autolist-ajax.php:115
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:115
 msgid "Failed to save configuration to database"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:192
+#: includes/classes/class-meta-boxes.php:198
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:198
 msgid "For admin purpose only."
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:185
-#: includes/classes/class-settings.php:171
+#: includes/classes/class-meta-boxes.php:191
+#: includes/classes/class-settings.php:165
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:191
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:171
 msgid "General"
 msgstr ""
 
-#: includes/classes/class-settings.php:189
-#: includes/classes/class-settings.php:190
+#: includes/classes/class-settings.php:183
+#: includes/classes/class-settings.php:184
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:189
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:190
 msgid "go"
 msgstr ""
 
-#: includes/classes/class-settings.php:209
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:209
 msgid "Hide quick short link modal opener from WP Admin Bar."
+msgstr ""
+
+#: includes/classes/class-settings.php:203
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr ""
 
 #. Author URI of the plugin
@@ -319,156 +531,284 @@ msgid "https://publishpress.com/shortlinks/"
 msgstr ""
 
 #: templates/admin/footer.php:14
+#: dist/publishpress-shortlinks/templates/admin/footer.php:14
 #, php-format
 msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
 msgstr ""
 
-#: templates/admin/settings/supports.php:19
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:139
+#: templates/admin/settings/supports.php:47
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:19
 msgid "If you need help or have a new feature request, let us know."
 msgstr ""
 
+#: includes-core/ShortlinksCoreAdmin.php:189
+#: includes-core/ShortlinksCoreAdmin.php:190
+msgid "Import / Export"
+msgstr ""
+
+#: includes-core/ShortlinksCoreAdmin.php:205
+msgid "Import / Export Shortlinks"
+msgstr ""
+
+#: includes-core/ShortlinksCoreAdmin.php:211
+msgid ""
+"Import and export your shortlinks in bulk using CSV files. Migrate from "
+"other plugins or manage links across multiple sites."
+msgstr ""
+
+#: includes/classes/class-columns-link.php:170
+msgid "Internal"
+msgstr ""
+
 #: includes/classes/class-autolist-ajax.php:90
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:90
 msgid "Invalid configuration format - expected array"
 msgstr ""
 
-#: includes/classes/class-hooks.php:45
+#: includes/classes/class-hooks.php:80
+msgid "Invalid nonce verification."
+msgstr ""
+
+#: includes/classes/class-hooks.php:56
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:45
 msgid "Invalid or empty URL"
 msgstr ""
 
-#: includes/classes/class-autolist.php:103
+#: includes/classes/class-autolist.php:109
+#: dist/publishpress-shortlinks/includes/classes/class-autolist.php:103
 msgid "Invalid post ID or post type."
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:312
+#: includes/classes/class-hooks.php:91
+msgid "Invalid post ID."
+msgstr ""
+
+#: includes/classes/class-revision.php:379
+msgid "Invalid revision ID."
+msgstr ""
+
+#: includes/classes/class-meta-boxes.php:316
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:318
 msgid "It will automatically expire."
 msgstr ""
 
-#: includes/classes/class-settings.php:196
+#: includes/classes/class-settings.php:190
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:196
 msgid "Keyboard Shortcut"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:190
+#: includes/classes/class-meta-boxes.php:196
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:196
 msgid "Label *"
 msgstr ""
 
 #: includes/functions.php:220
+#: dist/publishpress-shortlinks/includes/functions.php:220
 #, php-format
 msgid "Link - %s"
 msgstr ""
 
-#: includes/classes/class-columns-link.php:148
+#: includes/classes/class-redirection.php:246
+msgid "Link Expired"
+msgstr ""
+
+#: includes/classes/class-columns-link.php:268
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:148
 msgid "Link Title"
 msgstr ""
 
-#: includes/classes/class-hooks.php:154
+#: includes/classes/class-columns-link.php:270
+msgid "Link Type"
+msgstr ""
+
+#: includes/classes/class-table-logs.php:62
+msgid "Log entry deleted successfully."
+msgstr ""
+
+#: includes/classes/class-hooks.php:221
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:154
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:154
 msgid "Logs"
 msgstr ""
 
 #: templates/admin-modal-new-link.php:24
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:24
 msgid "Long URL"
 msgstr ""
 
-#: templates/admin/settings/supports.php:14
+#: includes/classes/class-meta-boxes.php:262
+msgid "Mark links as sponsored content."
+msgstr ""
+
+#: templates/admin/settings/supports.php:42
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:14
 msgid "Need PublishPress Shortlinks Support?"
 msgstr ""
 
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:134
+msgid "Need Support?"
+msgstr ""
+
+#: includes/classes/class-columns-link.php:196
+msgid "Needs work"
+msgstr ""
+
 #: includes/classes/class-autolist-ajax.php:273
-#: includes/classes/class-settings.php:388
+#: includes/classes/class-settings.php:344
+#: includes/classes/class-settings.php:439
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:273
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:390
 msgid "Never"
 msgstr ""
 
-#: includes/classes/class-settings.php:373
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:124
+#: templates/admin/settings/supports.php:28
+msgid "No ads inside the plugin"
+msgstr ""
+
+#: includes/classes/class-settings.php:424
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:375
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:262
+#: includes/classes/class-columns-link.php:65
+msgid "No shortlink"
+msgstr ""
+
+#: includes/classes/class-meta-boxes.php:268
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:268
 msgid "NoFollow"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:228
+#: includes/classes/class-columns-link.php:192
+msgid "Not yet submitted"
+msgstr ""
+
+#: includes/classes/class-meta-boxes.php:234
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:234
 msgid "Notes"
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:274
-#: includes/classes/class-settings.php:389
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:274
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:391
 msgid "On First Use"
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:275
-#: includes/classes/class-settings.php:390
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:275
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:392
 msgid "On Publish"
 msgstr ""
 
-#: includes/classes/class-settings.php:258
+#: includes/classes/class-settings.php:244
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:260
 msgid "Only selected user roles can control settings."
 msgstr ""
 
-#: includes/classes/class-settings.php:234
+#: includes/classes/class-settings.php:224
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:236
 msgid "Only selected user roles can create or edit links."
 msgstr ""
 
-#: includes/classes/class-settings.php:246
+#: includes/classes/class-settings.php:234
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:248
 msgid "Only selected user roles can see analytics."
 msgstr ""
 
-#: includes/classes/class-settings.php:222
+#: includes/classes/class-settings.php:215
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:224
 msgid "Only selected user roles can view links."
 msgstr ""
 
-#: includes/classes/class-settings.php:174
+#: includes/classes/class-settings.php:168
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:174
 msgid "Options"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:270
+#: includes/classes/class-meta-boxes.php:276
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:276
 msgid "Parameter Forwarding"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:292
+#: includes/classes/class-meta-boxes.php:277
+msgid "Pass URL parameters to the target link."
+msgstr ""
+
+#: includes/classes/class-meta-boxes.php:296
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:298
 msgid "Password"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:285
+#: includes/classes/class-meta-boxes.php:289
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:291
 msgid "Password Protection"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:294
+#: includes/classes/class-meta-boxes.php:298
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:300
 msgid "Passwords are case sensitive."
 msgstr ""
 
-#: includes/classes/class-settings.php:301
+#: includes/classes/class-settings.php:286
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:303
 msgid "Pending Review"
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:30
 #: includes/classes/class-autolist-ajax.php:180
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:30
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:180
 msgid "Permission denied"
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:83
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:83
 msgid "Permission denied - you must be an administrator"
 msgstr ""
 
-#: includes/classes/class-redirection.php:162
+#: includes/classes/class-redirection.php:211
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:168
 msgid "Post not found."
 msgstr ""
 
-#: includes/classes/class-settings.php:289
+#: includes/classes/class-settings.php:274
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:291
 msgid "Post Status Visibility"
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:37
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:37
 msgid "Post type is required"
 msgstr ""
 
-#: includes/classes/class-settings.php:186
+#: includes/classes/class-settings.php:180
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:186
 msgid "Prefix Slug"
 msgstr ""
 
-#: includes/classes/class-settings.php:302
+#: includes/classes/class-meta-boxes.php:269
+msgid "Prevent search engines from following this link."
+msgstr ""
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:123
+#: templates/admin/settings/supports.php:27
+msgid "Priority support"
+msgstr ""
+
+#: includes/classes/class-settings.php:287
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:304
 msgid "Private"
 msgstr ""
 
-#: includes/classes/class-settings.php:299
+#: includes-core/ShortlinksCoreAdmin.php:114
+#: includes-core/ShortlinksCoreAdmin.php:152
+msgid "Pro Feature"
+msgstr ""
+
+#: includes/classes/class-settings.php:284
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:301
 msgid "Published"
 msgstr ""
 
@@ -477,228 +817,455 @@ msgid "PublishPress"
 msgstr ""
 
 #. Name of the plugin
-#: tinypress.php:284 includes/classes/class-meta-boxes.php:173
+#: tinypress.php:347 dist/publishpress-shortlinks/tinypress.php:341
+#: includes/classes/class-meta-boxes.php:179
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:179
 msgid "PublishPress Shortlinks"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:257
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:263
 msgid "Recommended for affiliate links."
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:237
+#: includes/classes/class-meta-boxes.php:243
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:243
 msgid "Redirection"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:242
+#: includes/classes/class-meta-boxes.php:248
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:248
 msgid "Redirection Method"
 msgstr ""
 
-#: includes/classes/class-settings.php:208
+#: includes/classes/class-columns-link.php:197
+msgid "Rejected"
+msgstr ""
+
+#: includes/classes/class-settings.php:202
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:208
 msgid "Remove from Admin Bar"
 msgstr ""
 
-#: templates/admin/settings/supports.php:21
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:141
+#: templates/admin/settings/supports.php:49
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:21
 msgid "Request Support"
 msgstr ""
 
-#: includes/classes/class-settings.php:215
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:120
+#: templates/admin/settings/supports.php:24
+msgid "REST API for creating shortlinks"
+msgstr ""
+
+#: includes/classes/class-columns-link.php:157
+#: includes/classes/class-table-logs.php:197
+msgid "rev"
+msgstr ""
+
+#: includes/classes/class-columns-link.php:183
+msgid "Revision"
+msgstr ""
+
+#: includes/classes/class-settings.php:337
+msgid "Revision Link Visibility"
+msgstr ""
+
+#: includes/classes/class-settings.php:358
+msgid "Revision Visibility for Visitors"
+msgstr ""
+
+#: includes/classes/class-columns-link.php:200
+#, php-format
+msgid "Revision: %s"
+msgstr ""
+
+#: includes/classes/class-settings.php:332
+msgid "Revisions"
+msgstr ""
+
+#: includes/classes/class-settings.php:209
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:217
 msgid "Role Management"
 msgstr ""
 
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:122
+#: templates/admin/settings/supports.php:26
+msgid "Role-based access control"
+msgstr ""
+
 #: includes/classes/class-autolist-ajax.php:269
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:269
 msgid "Saved!"
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:268
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:268
 msgid "Saving..."
 msgstr ""
 
-#: includes/classes/class-settings.php:303
+#: includes/classes/class-columns-link.php:194
+#: includes/classes/class-settings.php:288
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:305
 msgid "Scheduled"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:286
+#: includes/classes/class-meta-boxes.php:290
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:292
 msgid "Secure your shortlink."
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:280
+#: includes/classes/class-meta-boxes.php:331
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:286
 msgid "Security"
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:272
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:272
 msgid "Select a post type"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:243
+#: includes/classes/class-meta-boxes.php:249
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:249
 msgid "Select redirection method"
 msgstr ""
 
-#: includes/classes/class-settings.php:296
+#: includes/classes/class-settings.php:281
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:298
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
 msgstr ""
 
-#: includes/classes/class-settings.php:281
+#: includes/classes/class-settings.php:266
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:283
 msgid "Set when links should be auto-listed for each post type"
 msgstr ""
 
 #: includes/classes/class-settings.php:91
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:91
 msgid "Settings"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:293
+#: includes/classes/class-meta-boxes.php:297
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:299
 msgid "Share this with users."
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:210
+#: includes/classes/class-meta-boxes.php:216
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:216
 msgid "Short String *"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:211
+#: includes/classes/class-meta-boxes.php:217
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:217
 msgid "Short string of this URL."
 msgstr ""
 
-#: templates/admin-modal-new-link.php:28
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:28
 msgid "Short URL"
 msgstr ""
 
-#: templates/admin-modal-new-link.php:11
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:11
 msgid "Short url will come here"
 msgstr ""
 
-#: includes/classes/class-hooks.php:79
+#: includes/classes/class-hooks.php:146
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:79
 msgid "Shorten"
 msgstr ""
 
-#: includes/classes/class-columns-link.php:149
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:149
 msgid "Shorten Link"
 msgstr ""
 
-#: includes/classes/class-table-logs.php:80
+#: templates/admin-modal-new-link.php:28
+#: includes/classes/class-columns-link.php:44
+#: includes/classes/class-columns-link.php:269
+#: includes/classes/class-table-logs.php:151
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:80
 msgid "Shortlink"
 msgstr ""
 
-#: includes/classes/class-settings.php:179
+#: includes/classes/class-hooks.php:73
+msgid "Shortlink created successfully."
+msgstr ""
+
+#: includes/classes/class-settings.php:173
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:179
 msgid "Shortlink Prefix"
 msgstr ""
 
-#: includes/classes/class-columns-link.php:38
-#: includes/classes/class-hooks.php:116 includes/classes/class-hooks.php:119
+#: templates/admin-modal-new-link.php:11
+msgid "Shortlink will appear here"
+msgstr ""
+
+#: includes/classes/class-columns-link.php:86
+#: includes/classes/class-hooks.php:183 includes/classes/class-hooks.php:186
 #: includes/classes/class-meta-boxes.php:88
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:38
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:116
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:119
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:88
 msgid "Shortlinks"
 msgstr ""
 
+#: includes/classes/class-settings.php:311
+#: includes/classes/class-settings.php:318
+msgid "Show Expiration Notice"
+msgstr ""
+
+#: includes/classes/class-settings.php:351
+msgid "Show Shortlink in Revision Table"
+msgstr ""
+
 #: includes/classes/class-meta-boxes.php:70
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:70
 msgid "Side"
 msgstr ""
 
-#: includes/classes/class-table-logs.php:124
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:124
 msgid "Someone"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:255
+#: includes/classes/class-hooks.php:431
+msgid "Sorry, you are not allowed to access shortlinks."
+msgstr ""
+
+#: includes/classes/class-meta-boxes.php:261
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:261
 msgid "Sponsored"
 msgstr ""
 
-#: includes/classes/class-columns-link.php:150
+#: includes/classes/class-columns-link.php:271
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:150
 msgid "Stats"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:217
+#: includes/classes/class-meta-boxes.php:223
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:223
 msgid "Status"
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:201
+#: includes/classes/class-columns-link.php:193
+msgid "Submitted for approval"
+msgstr ""
+
+#: includes/classes/class-meta-boxes.php:207
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:207
 msgid "Target URL *"
 msgstr ""
 
 #: includes/functions.php:198
+#: dist/publishpress-shortlinks/includes/functions.php:198
 msgid "Target url not found."
 msgstr ""
 
-#: includes/classes/class-redirection.php:286
+#: includes/classes/class-redirection.php:259
+msgid "This link has expired"
+msgstr ""
+
+#: includes/classes/class-redirection.php:388
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:292
 msgid "This link is expired."
 msgstr ""
 
-#: includes/classes/class-redirection.php:278
+#: includes/classes/class-redirection.php:365
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:284
 msgid "This link is not active."
 msgstr ""
 
-#: includes/classes/class-redirection.php:384
+#: includes/classes/class-redirection.php:489
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:390
 msgid "This link is not containing the right prefix slug."
 msgstr ""
 
-#: includes/classes/class-settings.php:188
+#: includes/classes/class-columns-link.php:184
+msgid "This links to a revision"
+msgstr ""
+
+#: includes/classes/class-columns-link.php:171
+msgid "This links to an external website"
+msgstr ""
+
+#: includes/classes/class-columns-link.php:171
+msgid "This links to your post"
+msgstr ""
+
+#: tinypress.php:48 dist/publishpress-shortlinks/tinypress.php:52
+msgid "This plugin can be deleted."
+msgstr ""
+
+#: includes/classes/class-settings.php:182
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:188
 msgid "This text will be added between your domain name and shortlink."
 msgstr ""
 
 #: includes/functions.php:202
+#: dist/publishpress-shortlinks/includes/functions.php:202
 msgid "Tiny slug could not created."
 msgstr ""
 
-#: includes/classes/class-hooks.php:62
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:62
 msgid "Tinyurl created successfully."
 msgstr ""
 
-#: includes/classes/class-table-logs.php:79
+#: includes/classes/class-table-logs.php:150
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:79
 msgid "Title"
 msgstr ""
 
-#: includes/classes/class-settings.php:221
-#: includes/classes/class-settings.php:233
-#: includes/classes/class-settings.php:245
-#: includes/classes/class-settings.php:257
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:223
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:235
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:247
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:259
 msgid "Upcoming feature."
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:287
+#: includes-core/ShortlinksCoreAdmin.php:83
+#: includes-core/ShortlinksCoreAdmin.php:100
+#: includes-core/ShortlinksCoreAdmin.php:101
+#: includes-core/ShortlinksCoreAdmin.php:227
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:93
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:94
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:127
+#: templates/admin/settings/supports.php:31
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:113
+#: templates/admin/settings/supports.php:17
+msgid "Upgrade to PublishPress Shortlinks Pro"
+msgstr ""
+
+#: includes/classes/class-meta-boxes.php:291
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:293
 msgid "Users must enter the password to redirect to the target link."
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:306
+#: includes/classes/class-meta-boxes.php:310
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:312
 msgid "Users will not able to redirect to the target URL once expire."
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:70
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:70
 #, php-format
 msgid "Valid: %s"
 msgstr ""
 
 #: includes/classes/class-autolist-ajax.php:267
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:267
 msgid "Validating..."
 msgstr ""
 
-#: templates/admin/settings/supports.php:28
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:147
+#: templates/admin/settings/supports.php:56
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:28
 msgid "View Knowledge Base"
 msgstr ""
 
+#: includes/classes/class-table-logs.php:254
+#, php-format
+msgid "Visited at %s"
+msgstr ""
+
 #: templates/admin/settings/browsers.php:7
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:7
 msgid "We have developed extensions for the below browsers."
 msgstr ""
 
-#: includes/classes/class-meta-boxes.php:264
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:270
 msgid "We recommended to use this."
 msgstr ""
 
-#: includes/classes/class-settings.php:274
+#: includes/classes/class-settings.php:302
+msgid ""
+"When a shortlink expires, visitors will be redirected to this URL instead of "
+"seeing an error. Leave empty to show the default expiration message."
+msgstr ""
+
+#: includes/classes/class-settings.php:259
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:276
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on the "
 "behavior you configure below."
 msgstr ""
 
-#: includes/classes/class-settings.php:256
+#: includes/classes/class-settings.php:342
+#: includes/classes/class-settings.php:441
+msgid "When Link is First Used"
+msgstr ""
+
+#: includes/classes/class-settings.php:440
+msgid "When Link is First Used or Post Created"
+msgstr ""
+
+#: includes/classes/class-settings.php:442
+msgid "When Post is Created"
+msgstr ""
+
+#: includes/classes/class-settings.php:443
+msgid "When Post is Published"
+msgstr ""
+
+#: includes/classes/class-settings.php:341
+msgid "When Revision is Created"
+msgstr ""
+
+#: includes/classes/class-settings.php:343
+msgid "When Revision is Created or Link is First Used"
+msgstr ""
+
+#: includes/classes/class-settings.php:338
+msgid "When should revision shortlinks appear in the All Shortlinks table?"
+msgstr ""
+
+#: includes/classes/class-settings.php:301
+msgid "Where should expired shortlinks redirect?"
+msgstr ""
+
+#: includes/classes/class-settings.php:243
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:258
 msgid "Who Can Control Settings"
 msgstr ""
 
-#: includes/classes/class-settings.php:232
+#: includes/classes/class-settings.php:223
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:234
 msgid "Who Can Create/Edit Shortlinks"
 msgstr ""
 
-#: includes/classes/class-settings.php:244
+#: includes/classes/class-settings.php:233
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:246
 msgid "Who Can See Analytics"
 msgstr ""
 
-#: includes/classes/class-settings.php:220
+#: includes/classes/class-settings.php:214
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:222
 msgid "Who Can View Shortlinks"
+msgstr ""
+
+#: includes/classes/class-hooks.php:45
+msgid "You do not have permission to create shortlinks."
+msgstr ""
+
+#: includes/classes/class-hooks.php:84
+msgid "You do not have permission to reset analytics."
+msgstr ""
+
+#: includes/classes/class-redirection.php:260
+msgid "You will be redirected shortly."
+msgstr ""
+
+#: includes-core/ShortlinksCoreAdmin.php:82
+msgid ""
+"You're using PublishPress Shortlinks Free. The Pro version has more features "
+"and support. "
+msgstr ""
+
+#. %1$s: opening link tag, %2$s: closing link tag
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:74
+#, php-format
+msgid ""
+"You're using PublishPress Shortlinks Free. The Pro version has more features "
+"and support. %1$sUpgrade to Pro%2$s"
 msgstr ""

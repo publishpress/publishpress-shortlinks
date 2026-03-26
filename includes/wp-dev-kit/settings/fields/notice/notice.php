@@ -1,4 +1,9 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access directly.
+<?php
+// phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
+
+if (! defined('ABSPATH')) {
+    die; 
+} // Cannot access directly.
 /**
  *
  * Field: notice
@@ -7,20 +12,20 @@
  * @version 1.0.0
  *
  */
-if ( ! class_exists( 'WPDK_Settings_Field_notice' ) ) {
-  class WPDK_Settings_Field_notice extends WPDK_Settings_Fields {
+if (! class_exists('WPDK_Settings_Field_notice')) {
+    class WPDK_Settings_Field_notice extends WPDK_Settings_Fields
+    {
+        public function __construct($field, $value = '', $unique = '', $where = '', $parent = '')
+        {
+            parent::__construct($field, $value, $unique, $where, $parent);
+        }
 
-    public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-      parent::__construct( $field, $value, $unique, $where, $parent );
+        public function render()
+        {
+
+            $style = ( ! empty($this->field['style']) ) ? $this->field['style'] : 'normal';
+
+            echo ( ! empty($this->field['content']) ) ? '<div class="wpdk_settings-notice wpdk_settings-notice-' . esc_attr($style) . '">' . $this->field['content'] . '</div>' : '';
+        }
     }
-
-    public function render() {
-
-      $style = ( ! empty( $this->field['style'] ) ) ? $this->field['style'] : 'normal';
-
-      echo ( ! empty( $this->field['content'] ) ) ? '<div class="wpdk_settings-notice wpdk_settings-notice-'. esc_attr( $style ) .'">'. $this->field['content'] .'</div>' : '';
-
-    }
-
-  }
 }

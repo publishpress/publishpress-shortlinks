@@ -184,7 +184,9 @@
                     <div class="tinypress-autolist-field">
                         <select class="tinypress-autolist-behavior">
                             <option value="never">${tinypressAutolist.i18n.never}</option>
-                            <option value="on_first_use" selected>${tinypressAutolist.i18n.onFirstUse}</option>
+                            <option value="on_first_use_or_on_create" selected>${tinypressAutolist.i18n.onFirstUseOrOnCreate}</option>
+                            <option value="on_first_use">${tinypressAutolist.i18n.onFirstUse}</option>
+                            <option value="on_create">${tinypressAutolist.i18n.onCreate}</option>
                             <option value="on_publish">${tinypressAutolist.i18n.onPublish}</option>
                         </select>
                     </div>

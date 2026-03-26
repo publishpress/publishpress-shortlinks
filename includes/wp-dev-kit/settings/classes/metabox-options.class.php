@@ -1,5 +1,8 @@
-<?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
+<?php
+// phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
+
+if (! defined('ABSPATH')) {
+    die;
 } // Cannot access directly.
 /**
  *
@@ -9,430 +12,391 @@
  * @version 1.0.0
  *
  */
-if ( ! class_exists( 'WPDK_Settings_Metabox' ) ) {
-	class WPDK_Settings_Metabox extends WPDK_Settings_Abstract {
-
-		// constans
-		public $unique = '';
-		public $abstract = 'metabox';
-		public $pre_fields = array();
-		public $sections = array();
-		public $post_type = array();
-		public $post_formats = array();
-		public $page_templates = array();
-		public $args = array(
-			'title'              => '',
-			'post_type'          => 'post',
-			'data_type'          => 'serialize',
-			'context'            => 'advanced',
-			'priority'           => 'default',
-			'exclude_post_types' => array(),
-			'page_templates'     => '',
-			'post_formats'       => '',
-			'show_reset'         => false,
-			'show_restore'       => false,
-			'enqueue_webfont'    => true,
-			'async_webfont'      => false,
-			'output_css'         => true,
-			'nav'                => 'normal',
-			'theme'              => 'dark',
-			'class'              => '',
-			'defaults'           => array(),
-		);
-
-		// run metabox construct
-		public function __construct( $key, $params = array() ) {
-
-			$this->unique         = $key;
-			$this->args           = apply_filters( "pb_settings_{$this->unique}_args", wp_parse_args( $params['args'], $this->args ), $this );
-			$this->sections       = apply_filters( "pb_settings_{$this->unique}_sections", $params['sections'], $this );
-			$this->post_type      = ( is_array( $this->args['post_type'] ) ) ? $this->args['post_type'] : array_filter( (array) $this->args['post_type'] );
-			$this->post_formats   = ( is_array( $this->args['post_formats'] ) ) ? $this->args['post_formats'] : array_filter( (array) $this->args['post_formats'] );
-			$this->page_templates = ( is_array( $this->args['page_templates'] ) ) ? $this->args['page_templates'] : array_filter( (array) $this->args['page_templates'] );
-			$this->pre_fields     = $this->pre_fields( $this->sections );
-
-			add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );
-			add_action( 'save_post', array( $this, 'save_meta_box' ) );
-			add_action( 'edit_attachment', array( $this, 'save_meta_box' ) );
-
-			if ( ! empty( $this->page_templates ) || ! empty( $this->post_formats ) || ! empty( $this->args['class'] ) ) {
-				foreach ( $this->post_type as $post_type ) {
-					add_filter( 'postbox_classes_' . $post_type . '_' . $this->unique, array( $this, 'add_metabox_classes' ) );
-				}
-			}
+if (! class_exists('WPDK_Settings_Metabox')) {
+    class WPDK_Settings_Metabox extends WPDK_Settings_Abstract
+    {
+        // constans
+        public $unique = '';
+        public $abstract = 'metabox';
+        public $pre_fields = array();
+        public $sections = array();
+        public $post_type = array();
+        public $post_formats = array();
+        public $page_templates = array();
+        public $args = array(
+            'title'              => '',
+            'post_type'          => 'post',
+            'data_type'          => 'serialize',
+            'context'            => 'advanced',
+            'priority'           => 'default',
+            'exclude_post_types' => array(),
+            'page_templates'     => '',
+            'post_formats'       => '',
+            'show_reset'         => false,
+            'show_restore'       => false,
+            'enqueue_webfont'    => true,
+            'async_webfont'      => false,
+            'output_css'         => true,
+            'nav'                => 'normal',
+            'theme'              => 'dark',
+            'class'              => '',
+            'defaults'           => array(),
+        );
+
+        // run metabox construct
+        public function __construct($key, $params = array())
+        {
+
+            $this->unique         = $key;
+            $this->args           = apply_filters("pb_settings_{$this->unique}_args", wp_parse_args($params['args'], $this->args), $this);
+            $this->sections       = apply_filters("pb_settings_{$this->unique}_sections", $params['sections'], $this);
+            $this->post_type      = ( is_array($this->args['post_type']) ) ? $this->args['post_type'] : array_filter((array) $this->args['post_type']);
+            $this->post_formats   = ( is_array($this->args['post_formats']) ) ? $this->args['post_formats'] : array_filter((array) $this->args['post_formats']);
+            $this->page_templates = ( is_array($this->args['page_templates']) ) ? $this->args['page_templates'] : array_filter((array) $this->args['page_templates']);
+            $this->pre_fields     = $this->pre_fields($this->sections);
+
+            add_action('add_meta_boxes', array( $this, 'add_meta_box' ));
+            add_action('save_post', array( $this, 'save_meta_box' ));
+            add_action('edit_attachment', array( $this, 'save_meta_box' ));
+
+            if (! empty($this->page_templates) || ! empty($this->post_formats) || ! empty($this->args['class'])) {
+                foreach ($this->post_type as $post_type) {
+                    add_filter('postbox_classes_' . $post_type . '_' . $this->unique, array( $this, 'add_metabox_classes' ));
+                }
+            }
+
+            // wp enqeueu for typography and output css
+            parent::__construct();
+        }
+
+        // instance
+        public static function instance($key, $params = array())
+        {
+            return new self($key, $params);
+        }
+
+        public function pre_fields($sections)
+        {
+
+            $result = array();
+
+            foreach ($sections as $key => $section) {
+                if (! empty($section['fields'])) {
+                    foreach ($section['fields'] as $field) {
+                        $result[] = $field;
+                    }
+                }
+            }
+
+            return $result;
+        }
+
+        public function add_metabox_classes($classes)
+        {
+
+            global $post;
+
+            if (! empty($this->post_formats)) {
+                $saved_post_format = ( is_object($post) ) ? get_post_format($post) : false;
+                $saved_post_format = ( ! empty($saved_post_format) ) ? $saved_post_format : 'default';
+
+                $classes[] = 'wpdk_settings-post-formats';
+
+                // Sanitize post format for standard to default
+                if (( $key = array_search('standard', $this->post_formats) ) !== false) {
+                    $this->post_formats[ $key ] = 'default';
+                }
+
+                foreach ($this->post_formats as $format) {
+                    $classes[] = 'wpdk_settings-post-format-' . $format;
+                }
+
+                if (! in_array($saved_post_format, $this->post_formats)) {
+                    $classes[] = 'wpdk_settings-metabox-hide';
+                } else {
+                    $classes[] = 'wpdk_settings-metabox-show';
+                }
+            }
 
-			// wp enqeueu for typography and output css
-			parent::__construct();
+            if (! empty($this->page_templates)) {
+                $saved_template = ( is_object($post) && ! empty($post->page_template) ) ? $post->page_template : 'default';
 
-		}
+                $classes[] = 'wpdk_settings-page-templates';
 
-		// instance
-		public static function instance( $key, $params = array() ) {
-			return new self( $key, $params );
-		}
+                foreach ($this->page_templates as $template) {
+                    $classes[] = 'wpdk_settings-page-' . preg_replace('/[^a-zA-Z0-9]+/', '-', strtolower($template));
+                }
 
-		public function pre_fields( $sections ) {
+                if (! in_array($saved_template, $this->page_templates)) {
+                    $classes[] = 'wpdk_settings-metabox-hide';
+                } else {
+                    $classes[] = 'wpdk_settings-metabox-show';
+                }
+            }
 
-			$result = array();
+            if (! empty($this->args['class'])) {
+                $classes[] = $this->args['class'];
+            }
 
-			foreach ( $sections as $key => $section ) {
-				if ( ! empty( $section['fields'] ) ) {
-					foreach ( $section['fields'] as $field ) {
-						$result[] = $field;
-					}
-				}
-			}
+            return $classes;
+        }
 
-			return $result;
+        // add metabox
+        public function add_meta_box($post_type)
+        {
 
-		}
+            if (! in_array($post_type, $this->args['exclude_post_types'])) {
+                add_meta_box($this->unique, $this->args['title'], array( $this, 'add_meta_box_content' ), $this->post_type, $this->args['context'], $this->args['priority'], $this->args);
+            }
+        }
 
-		public function add_metabox_classes( $classes ) {
+        // get default value
+        public function get_default($field)
+        {
 
-			global $post;
+            $default = ( isset($field['default']) ) ? $field['default'] : '';
+            $default = ( isset($this->args['defaults'][ $field['id'] ]) ) ? $this->args['defaults'][ $field['id'] ] : $default;
 
-			if ( ! empty( $this->post_formats ) ) {
+            return $default;
+        }
 
-				$saved_post_format = ( is_object( $post ) ) ? get_post_format( $post ) : false;
-				$saved_post_format = ( ! empty( $saved_post_format ) ) ? $saved_post_format : 'default';
+        // get meta value
+        public function get_meta_value($field)
+        {
 
-				$classes[] = 'wpdk_settings-post-formats';
+            global $post;
 
-				// Sanitize post format for standard to default
-				if ( ( $key = array_search( 'standard', $this->post_formats ) ) !== false ) {
-					$this->post_formats[ $key ] = 'default';
-				}
+            $value = null;
 
-				foreach ( $this->post_formats as $format ) {
-					$classes[] = 'wpdk_settings-post-format-' . $format;
-				}
+            if (is_object($post) && ! empty($field['id'])) {
+                if ($this->args['data_type'] !== 'serialize') {
+                    $meta  = get_post_meta($post->ID, $field['id']);
+                    $value = ( isset($meta[0]) ) ? $meta[0] : null;
+                } else {
+                    $meta  = get_post_meta($post->ID, $this->unique, true);
+                    $value = ( isset($meta[ $field['id'] ]) ) ? $meta[ $field['id'] ] : null;
+                }
+            }
 
-				if ( ! in_array( $saved_post_format, $this->post_formats ) ) {
-					$classes[] = 'wpdk_settings-metabox-hide';
-				} else {
-					$classes[] = 'wpdk_settings-metabox-show';
-				}
+            $default = ( isset($field['id']) ) ? $this->get_default($field) : '';
+            $value   = ( isset($value) ) ? $value : $default;
 
-			}
+            return $value;
+        }
 
-			if ( ! empty( $this->page_templates ) ) {
+        // add metabox content
+        public function add_meta_box_content($post, $callback)
+        {
 
-				$saved_template = ( is_object( $post ) && ! empty( $post->page_template ) ) ? $post->page_template : 'default';
+            global $post;
 
-				$classes[] = 'wpdk_settings-page-templates';
+            $has_nav   = ( count($this->sections) > 1 && $this->args['context'] !== 'side' ) ? true : false;
+            $show_all  = ( ! $has_nav ) ? ' wpdk_settings-show-all' : '';
+            $post_type = ( is_object($post) ) ? $post->post_type : '';
+            $errors    = ( is_object($post) ) ? get_post_meta($post->ID, '_pb_settings_errors_' . $this->unique, true) : array();
+            $errors    = ( ! empty($errors) ) ? $errors : array();
+            $theme     = ( $this->args['theme'] ) ? ' wpdk_settings-theme-' . $this->args['theme'] : '';
+            $nav_type  = ( $this->args['nav'] === 'inline' ) ? 'inline' : 'normal';
 
-				foreach ( $this->page_templates as $template ) {
-					$classes[] = 'wpdk_settings-page-' . preg_replace( '/[^a-zA-Z0-9]+/', '-', strtolower( $template ) );
-				}
+            if (is_object($post) && ! empty($errors)) {
+                delete_post_meta($post->ID, '_pb_settings_errors_' . $this->unique);
+            }
 
-				if ( ! in_array( $saved_template, $this->page_templates ) ) {
-					$classes[] = 'wpdk_settings-metabox-hide';
-				} else {
-					$classes[] = 'wpdk_settings-metabox-show';
-				}
+            wp_nonce_field('pb_settings_metabox_nonce', 'pb_settings_metabox_nonce' . $this->unique);
 
-			}
+            echo '<div class="pb_settings wpdk_settings-metabox' . esc_attr($theme) . '">';
 
-			if ( ! empty( $this->args['class'] ) ) {
-				$classes[] = $this->args['class'];
-			}
+            echo '<div class="wpdk_settings-wrapper' . esc_attr($show_all) . '">';
 
-			return $classes;
+            if ($has_nav) {
+                echo '<div class="wpdk_settings-nav wpdk_settings-nav-' . esc_attr($nav_type) . ' wpdk_settings-nav-metabox">';
 
-		}
+                echo '<ul>';
 
-		// add metabox
-		public function add_meta_box( $post_type ) {
+                $tab_key = 0;
 
-			if ( ! in_array( $post_type, $this->args['exclude_post_types'] ) ) {
-				add_meta_box( $this->unique, $this->args['title'], array( $this, 'add_meta_box_content' ), $this->post_type, $this->args['context'], $this->args['priority'], $this->args );
-			}
+                foreach ($this->sections as $section) {
+                    if (! empty($section['post_type']) && ! in_array($post_type, array_filter((array) $section['post_type']))) {
+                        continue;
+                    }
 
-		}
+                    $tab_error = ( ! empty($errors['sections'][ $tab_key ]) ) ? '<i class="wpdk_settings-label-error wpdk_settings-error">!</i>' : '';
+                    $tab_icon  = ( ! empty($section['icon']) ) ? '<i class="wpdk_settings-tab-icon ' . esc_attr($section['icon']) . '"></i>' : '';
 
-		// get default value
-		public function get_default( $field ) {
+                    printf('<li><a href="#" data-section="%s">%s%s%s</a></li>', ( $this->unique . '_' . $tab_key ), $tab_icon, $section['title'], $tab_error);
 
-			$default = ( isset( $field['default'] ) ) ? $field['default'] : '';
-			$default = ( isset( $this->args['defaults'][ $field['id'] ] ) ) ? $this->args['defaults'][ $field['id'] ] : $default;
+                    $tab_key++;
+                }
 
-			return $default;
+                do_action('wpdk_settings_after_meta_navs');
 
-		}
+                echo '</ul>';
 
-		// get meta value
-		public function get_meta_value( $field ) {
+                echo '</div>';
+            }
 
-			global $post;
+            echo '<div class="wpdk_settings-content">';
 
-			$value = null;
+            echo '<div class="wpdk_settings-sections">';
 
-			if ( is_object( $post ) && ! empty( $field['id'] ) ) {
+            $section_key = 0;
 
-				if ( $this->args['data_type'] !== 'serialize' ) {
-					$meta  = get_post_meta( $post->ID, $field['id'] );
-					$value = ( isset( $meta[0] ) ) ? $meta[0] : null;
-				} else {
-					$meta  = get_post_meta( $post->ID, $this->unique, true );
-					$value = ( isset( $meta[ $field['id'] ] ) ) ? $meta[ $field['id'] ] : null;
-				}
+            foreach ($this->sections as $section) {
+                if (! empty($section['post_type']) && ! in_array($post_type, array_filter((array) $section['post_type']))) {
+                    continue;
+                }
 
-			}
+                $section_onload = ( ! $has_nav ) ? ' wpdk_settings-onload' : '';
+                $section_class  = ( ! empty($section['class']) ) ? ' ' . $section['class'] : '';
+                $section_title  = ( ! empty($section['title']) ) ? $section['title'] : '';
+                $section_icon   = ( ! empty($section['icon']) ) ? '<i class="wpdk_settings-section-icon ' . esc_attr($section['icon']) . '"></i>' : '';
 
-			$default = ( isset( $field['id'] ) ) ? $this->get_default( $field ) : '';
-			$value   = ( isset( $value ) ) ? $value : $default;
+                echo '<div class="wpdk_settings-section hidden' . esc_attr($section_onload . $section_class) . '">';
 
-			return $value;
+                echo ( $section_title || $section_icon ) ? '<div class="wpdk_settings-section-title"><h3>' . esc_html($section_icon . $section_title) . '</h3></div>' : '';
+                echo ( ! empty($section['description']) ) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . esc_html($section['description']) . '</div>' : '';
 
-		}
+                if (! empty($section['fields'])) {
+                    foreach ($section['fields'] as $field) {
+                        if (! empty($field['id']) && ! empty($errors['fields'][ $field['id'] ])) {
+                            $field['_error'] = $errors['fields'][ $field['id'] ];
+                        }
 
-		// add metabox content
-		public function add_meta_box_content( $post, $callback ) {
+                        if (! empty($field['id'])) {
+                            $field['default'] = $this->get_default($field);
+                        }
 
-			global $post;
+                        WPDK_Settings::field($field, $this->get_meta_value($field), $this->unique, 'metabox');
+                    }
+                } elseif ($section['external'] && isset($section['id'])) {
+                    do_action('WPDK_Settings/meta_section/' . $section['id'], $section);
+                } else {
+                    echo '<div class="wpdk_settings-no-option">' . esc_html__('No data available.') . '</div>';
+                }
 
-			$has_nav   = ( count( $this->sections ) > 1 && $this->args['context'] !== 'side' ) ? true : false;
-			$show_all  = ( ! $has_nav ) ? ' wpdk_settings-show-all' : '';
-			$post_type = ( is_object( $post ) ) ? $post->post_type : '';
-			$errors    = ( is_object( $post ) ) ? get_post_meta( $post->ID, '_pb_settings_errors_' . $this->unique, true ) : array();
-			$errors    = ( ! empty( $errors ) ) ? $errors : array();
-			$theme     = ( $this->args['theme'] ) ? ' wpdk_settings-theme-' . $this->args['theme'] : '';
-			$nav_type  = ( $this->args['nav'] === 'inline' ) ? 'inline' : 'normal';
+                echo '</div>';
 
-			if ( is_object( $post ) && ! empty( $errors ) ) {
-				delete_post_meta( $post->ID, '_pb_settings_errors_' . $this->unique );
-			}
+                $section_key++;
+            }
 
-			wp_nonce_field( 'pb_settings_metabox_nonce', 'pb_settings_metabox_nonce' . $this->unique );
+            echo '</div>';
 
-			echo '<div class="pb_settings wpdk_settings-metabox' . esc_attr( $theme ) . '">';
+            if (! empty($this->args['show_restore']) || ! empty($this->args['show_reset'])) {
+                echo '<div class="wpdk_settings-sections-reset">';
+                echo '<label>';
+                echo '<input type="checkbox" name="' . esc_attr($this->unique) . '[_reset]" />';
+                echo '<span class="button wpdk_settings-button-reset">' . esc_html__('Reset') . '</span>';
+                echo '<span class="button wpdk_settings-button-cancel">' . sprintf('<small>( %s )</small> %s', esc_html__('update post'), esc_html__('Cancel')) . '</span>';
+                echo '</label>';
+                echo '</div>';
+            }
 
-			echo '<div class="wpdk_settings-wrapper' . esc_attr( $show_all ) . '">';
+            echo '</div>';
 
-			if ( $has_nav ) {
+            echo ( $has_nav && $nav_type === 'normal' ) ? '<div class="wpdk_settings-nav-background"></div>' : '';
 
-				echo '<div class="wpdk_settings-nav wpdk_settings-nav-' . esc_attr( $nav_type ) . ' wpdk_settings-nav-metabox">';
+            echo '<div class="clear"></div>';
 
-				echo '<ul>';
+            echo '</div>';
 
-				$tab_key = 0;
+            echo '</div>';
+        }
 
-				foreach ( $this->sections as $section ) {
+        // save metabox
+        public function save_meta_box($post_id)
+        {
 
-					if ( ! empty( $section['post_type'] ) && ! in_array( $post_type, array_filter( (array) $section['post_type'] ) ) ) {
-						continue;
-					}
+            $count    = 1;
+            $data     = array();
+            $errors   = array();
+            $noncekey = 'pb_settings_metabox_nonce' . $this->unique;
+            $nonce    = ( ! empty($_POST[ $noncekey ]) ) ? sanitize_text_field(wp_unslash($_POST[ $noncekey ])) : '';
 
-					$tab_error = ( ! empty( $errors['sections'][ $tab_key ] ) ) ? '<i class="wpdk_settings-label-error wpdk_settings-error">!</i>' : '';
-					$tab_icon  = ( ! empty( $section['icon'] ) ) ? '<i class="wpdk_settings-tab-icon ' . esc_attr( $section['icon'] ) . '"></i>' : '';
+            if (( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) || ! wp_verify_nonce($nonce, 'pb_settings_metabox_nonce')) {
+                return $post_id;
+            }
 
-					printf( '<li><a href="#" data-section="%s">%s%s%s</a></li>', ( $this->unique . '_' . $tab_key ), $tab_icon, $section['title'], $tab_error );
+            // XSS ok.
+            // No worries, This "POST" requests is sanitizing in the below foreach.
+            $request = ( ! empty($_POST[ $this->unique ]) ) ? wp_unslash($_POST[ $this->unique ]) : array();
 
-					$tab_key ++;
-				}
+            if (! empty($request)) {
+                foreach ($this->sections as $section) {
+                    if (! empty($section['fields'])) {
+                        foreach ($section['fields'] as $field) {
+                            if (! empty($field['id'])) {
+                                $field_id    = $field['id'];
+                                $field_value = isset($request[ $field_id ]) ? $request[ $field_id ] : '';
 
-				do_action( 'wpdk_settings_after_meta_navs' );
+                                // Sanitize "post" request of field.
+                                if (! isset($field['sanitize'])) {
+                                    if (is_array($field_value)) {
+                                        $data[ $field_id ] = wp_kses_post_deep($field_value);
+                                    } else {
+                                        $data[ $field_id ] = wp_kses_post($field_value);
+                                    }
+                                } elseif (isset($field['sanitize']) && is_callable($field['sanitize'])) {
+                                    $data[ $field_id ] = call_user_func($field['sanitize'], $field_value);
+                                } else {
+                                    $data[ $field_id ] = $field_value;
+                                }
 
-				echo '</ul>';
-
-				echo '</div>';
-
-			}
-
-			echo '<div class="wpdk_settings-content">';
-
-			echo '<div class="wpdk_settings-sections">';
-
-			$section_key = 0;
-
-			foreach ( $this->sections as $section ) {
-
-				if ( ! empty( $section['post_type'] ) && ! in_array( $post_type, array_filter( (array) $section['post_type'] ) ) ) {
-					continue;
-				}
-
-				$section_onload = ( ! $has_nav ) ? ' wpdk_settings-onload' : '';
-				$section_class  = ( ! empty( $section['class'] ) ) ? ' ' . $section['class'] : '';
-				$section_title  = ( ! empty( $section['title'] ) ) ? $section['title'] : '';
-				$section_icon   = ( ! empty( $section['icon'] ) ) ? '<i class="wpdk_settings-section-icon ' . esc_attr( $section['icon'] ) . '"></i>' : '';
-
-				echo '<div class="wpdk_settings-section hidden' . esc_attr( $section_onload . $section_class ) . '">';
-
-				echo ( $section_title || $section_icon ) ? '<div class="wpdk_settings-section-title"><h3>' . esc_html( $section_icon . $section_title ) . '</h3></div>' : '';
-				echo ( ! empty( $section['description'] ) ) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . esc_html( $section['description'] ) . '</div>' : '';
-
-				if ( ! empty( $section['fields'] ) ) {
-
-					foreach ( $section['fields'] as $field ) {
-
-						if ( ! empty( $field['id'] ) && ! empty( $errors['fields'][ $field['id'] ] ) ) {
-							$field['_error'] = $errors['fields'][ $field['id'] ];
-						}
-
-						if ( ! empty( $field['id'] ) ) {
-							$field['default'] = $this->get_default( $field );
-						}
-
-						WPDK_Settings::field( $field, $this->get_meta_value( $field ), $this->unique, 'metabox' );
-					}
-				} elseif ( $section['external'] && isset( $section['id'] ) ) {
-					do_action( 'WPDK_Settings/meta_section/' . $section['id'], $section );
-
-				} else {
-					echo '<div class="wpdk_settings-no-option">' . esc_html__( 'No data available.' ) . '</div>';
-				}
-
-				echo '</div>';
-
-				$section_key ++;
-
-			}
-
-			echo '</div>';
-
-			if ( ! empty( $this->args['show_restore'] ) || ! empty( $this->args['show_reset'] ) ) {
-
-				echo '<div class="wpdk_settings-sections-reset">';
-				echo '<label>';
-				echo '<input type="checkbox" name="' . esc_attr( $this->unique ) . '[_reset]" />';
-				echo '<span class="button wpdk_settings-button-reset">' . esc_html__( 'Reset' ) . '</span>';
-				echo '<span class="button wpdk_settings-button-cancel">' . sprintf( '<small>( %s )</small> %s', esc_html__( 'update post' ), esc_html__( 'Cancel' ) ) . '</span>';
-				echo '</label>';
-				echo '</div>';
-
-			}
-
-			echo '</div>';
-
-			echo ( $has_nav && $nav_type === 'normal' ) ? '<div class="wpdk_settings-nav-background"></div>' : '';
-
-			echo '<div class="clear"></div>';
-
-			echo '</div>';
-
-			echo '</div>';
-
-		}
-
-		// save metabox
-		public function save_meta_box( $post_id ) {
-
-			$count    = 1;
-			$data     = array();
-			$errors   = array();
-			$noncekey = 'pb_settings_metabox_nonce' . $this->unique;
-			$nonce    = ( ! empty( $_POST[ $noncekey ] ) ) ? sanitize_text_field( wp_unslash( $_POST[ $noncekey ] ) ) : '';
-
-			if ( ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) || ! wp_verify_nonce( $nonce, 'pb_settings_metabox_nonce' ) ) {
-				return $post_id;
-			}
-
-			// XSS ok.
-			// No worries, This "POST" requests is sanitizing in the below foreach.
-			$request = ( ! empty( $_POST[ $this->unique ] ) ) ? wp_unslash( $_POST[ $this->unique ] ) : array();
-
-			if ( ! empty( $request ) ) {
-
-				foreach ( $this->sections as $section ) {
-
-					if ( ! empty( $section['fields'] ) ) {
-
-						foreach ( $section['fields'] as $field ) {
-
-							if ( ! empty( $field['id'] ) ) {
-
-								$field_id    = $field['id'];
-								$field_value = isset( $request[ $field_id ] ) ? $request[ $field_id ] : '';
-
-								// Sanitize "post" request of field.
-								if ( ! isset( $field['sanitize'] ) ) {
-
-									if ( is_array( $field_value ) ) {
-										$data[ $field_id ] = wp_kses_post_deep( $field_value );
-									} else {
-										$data[ $field_id ] = wp_kses_post( $field_value );
-									}
-
-								} else if ( isset( $field['sanitize'] ) && is_callable( $field['sanitize'] ) ) {
-
-									$data[ $field_id ] = call_user_func( $field['sanitize'], $field_value );
-
-								} else {
-
-									$data[ $field_id ] = $field_value;
-
-								}
-
-//								if( $field_id == 'poll_form_content' ) {
+//                              if( $field_id == 'poll_form_content' ) {
 //
-//									echo "<pre>";
-//									print_r( $request );
-//									echo "</pre>";
+//                                  echo "<pre>";
+//                                  print_r( $request );
+//                                  echo "</pre>";
 //
-//									die();
-//								}
+//                                  die();
+//                              }
 
-								// Validate "post" request of field.
-								if ( isset( $field['validate'] ) && is_callable( $field['validate'] ) ) {
+                                // Validate "post" request of field.
+                                if (isset($field['validate']) && is_callable($field['validate'])) {
+                                    $has_validated = call_user_func($field['validate'], $field_value);
 
-									$has_validated = call_user_func( $field['validate'], $field_value );
+                                    if (! empty($has_validated)) {
+                                        $errors['sections'][ $count ]  = true;
+                                        $errors['fields'][ $field_id ] = $has_validated;
+                                        $data[ $field_id ]             = $this->get_meta_value($field);
+                                    }
+                                }
+                            }
+                        }
+                    }
 
-									if ( ! empty( $has_validated ) ) {
+                    $count++;
+                }
+            }
 
-										$errors['sections'][ $count ]  = true;
-										$errors['fields'][ $field_id ] = $has_validated;
-										$data[ $field_id ]             = $this->get_meta_value( $field );
+            $data = apply_filters("pb_settings_{$this->unique}_save", $data, $post_id, $this);
 
-									}
+            do_action("pb_settings_{$this->unique}_save_before", $data, $post_id, $this);
 
-								}
+            if (empty($data) || ! empty($request['_reset'])) {
+                if ($this->args['data_type'] !== 'serialize') {
+                    foreach ($data as $key => $value) {
+                        delete_post_meta($post_id, $key);
+                    }
+                } else {
+                    delete_post_meta($post_id, $this->unique);
+                }
+            } else {
+                if ($this->args['data_type'] !== 'serialize') {
+                    foreach ($data as $key => $value) {
+                        update_post_meta($post_id, $key, $value);
+                    }
+                } else {
+                    update_post_meta($post_id, $this->unique, $data);
+                }
 
-							}
+                if (! empty($errors)) {
+                    update_post_meta($post_id, '_pb_settings_errors_' . $this->unique, $errors);
+                }
+            }
 
-						}
+            do_action("pb_settings_{$this->unique}_saved", $data, $post_id, $this);
 
-					}
-
-					$count ++;
-
-				}
-
-			}
-
-			$data = apply_filters( "pb_settings_{$this->unique}_save", $data, $post_id, $this );
-
-			do_action( "pb_settings_{$this->unique}_save_before", $data, $post_id, $this );
-
-			if ( empty( $data ) || ! empty( $request['_reset'] ) ) {
-
-				if ( $this->args['data_type'] !== 'serialize' ) {
-					foreach ( $data as $key => $value ) {
-						delete_post_meta( $post_id, $key );
-					}
-				} else {
-					delete_post_meta( $post_id, $this->unique );
-				}
-
-			} else {
-
-				if ( $this->args['data_type'] !== 'serialize' ) {
-					foreach ( $data as $key => $value ) {
-						update_post_meta( $post_id, $key, $value );
-					}
-				} else {
-					update_post_meta( $post_id, $this->unique, $data );
-				}
-
-				if ( ! empty( $errors ) ) {
-					update_post_meta( $post_id, '_pb_settings_errors_' . $this->unique, $errors );
-				}
-
-			}
-
-			do_action( "pb_settings_{$this->unique}_saved", $data, $post_id, $this );
-
-			do_action( "pb_settings_{$this->unique}_save_after", $data, $post_id, $this );
-
-		}
-	}
+            do_action("pb_settings_{$this->unique}_save_after", $data, $post_id, $this);
+        }
+    }
 }

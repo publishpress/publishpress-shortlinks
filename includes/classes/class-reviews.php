@@ -1,24 +1,25 @@
 <?php
+
 /**
- * @package TinyPress
+ * @package PublishPress Shortlinks
  * @author  PublishPress
  *
  * Copyright (C) 2024 PublishPress
  *
- * This file is part of TinyPress
+ * This file is part of PublishPress Shortlinks
  *
- * TinyPress is free software: you can redistribute it
+ * PublishPress Shortlinks is free software: you can redistribute it
  * and/or modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, either version 3 of the License,
  * or (at your option) any later version.
  *
- * TinyPress is distributed in the hope that it will be useful,
+ * PublishPress Shortlinks is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with TinyPress.  If not, see <http://www.gnu.org/licenses/>.
+ * along with PublishPress Shortlinks.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 use PublishPress\WordPressReviews\ReviewsController;
@@ -28,11 +29,12 @@ if (! defined('ABSPATH')) {
 }
 
 /**
- * Class TINYPRESS_Reviews
+ * Class SHORTLINKS_Reviews
  *
- * This class adds a review request system for the TinyPress plugin.
+ * This class adds a review request system for the PublishPress Shortlinks plugin.
  */
-class TINYPRESS_Reviews
+// phpcs:ignore PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps -- WordPress naming convention; legacy class name
+class SHORTLINKS_Reviews
 {
     /**
      * @var ReviewsController
@@ -40,7 +42,7 @@ class TINYPRESS_Reviews
     private $reviewController;
 
     /**
-     * @var TINYPRESS_Reviews
+     * @var SHORTLINKS_Reviews
      */
     private static $instance = null;
 
@@ -58,13 +60,13 @@ class TINYPRESS_Reviews
     public function initReviews()
     {
         if (!class_exists('PublishPress\\WordPressReviews\\ReviewsController')) {
-            require_once TINYPRESS_PLUGIN_DIR . 'lib/vendor/autoload.php';
+            return;
         }
 
         $this->reviewController = new ReviewsController(
             'tinypress',
             'PublishPress Shortlinks',
-            TINYPRESS_PLUGIN_URL . 'assets/admin/img/publishpress-logo.png'
+            TINYPRESS_PLUGIN_URL . 'assets/admin/img/Shortlinks-logo.png'
         );
 
         $this->reviewController->init();
@@ -73,7 +75,7 @@ class TINYPRESS_Reviews
     /**
      * Get instance
      *
-     * @return TINYPRESS_Reviews
+     * @return SHORTLINKS_Reviews
      */
     public static function instance()
     {

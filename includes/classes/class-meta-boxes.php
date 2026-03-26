@@ -1,335 +1,419 @@
 <?php
+
 /*
-* @Author 		pluginbazar
-* Copyright: 	2022 pluginbazar
+* @Author        pluginbazar
+* Copyright:    2022 pluginbazar
 */
 
 use WPDK\Utils;
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-if ( ! class_exists( 'TINYPRESS_Meta_boxes' ) ) {
-	/**
-	 * Class TINYPRESS_Meta_boxes
-	 */
-	class TINYPRESS_Meta_boxes {
-
-		private $tinypress_metabox_main = 'tinypress_meta_main';
-		private $tinypress_metabox_side = 'tinypress_meta_side';
-		private $tinypress_default_slug;
-
-
-		/**
-		 * TINYPRESS_Meta_boxes constructor.
-		 */
-		function __construct() {
-			$this->tinypress_default_slug = tinypress_create_url_slug();
-
-			$this->generate_tinypress_meta_box();
-
-			foreach ( get_post_types( array( 'public' => true ) ) as $post_type ) {
-				if ( ! in_array( $post_type, array( 'attachment', 'tinypress_link' ) ) ) {
-					add_action( 'add_meta_boxes_' . $post_type, array( $this, 'add_shortlinks_metabox' ) );
-					add_action( 'save_post_' . $post_type, array( $this, 'save_native_shortlinks_metabox' ), 10, 2 );
-				}
-			}
-
-			add_action( 'add_meta_boxes', array( $this, 'add_side_meta_box' ), 0 );
-			add_action( 'WPDK_Settings/meta_section/analytics', array( $this, 'render_analytics' ) );
-		}
+if (! class_exists('TINYPRESS_Meta_boxes')) {
+    /**
+     * Class TINYPRESS_Meta_boxes
+     * 
+     * Note: This class uses WordPress naming conventions instead of strict PSR-1/PSR-2 standards.
+     */
+    // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
+    class TINYPRESS_Meta_boxes
+    {
+        private $tinypress_metabox_main = 'tinypress_meta_main';
+        private $tinypress_metabox_side = 'tinypress_meta_side';
+        private $tinypress_default_slug;
 
 
-		/**
-		 * Render analytics section
-		 *
-		 * @return void
-		 */
-		function render_analytics() {
-			include TINYPRESS_PLUGIN_DIR . 'templates/admin/analytics.php';
-		}
+        /**
+         * TINYPRESS_Meta_boxes constructor.
+         */
+        public function __construct()
+        {
+            $this->tinypress_default_slug = tinypress_create_url_slug();
+            $this->generate_tinypress_meta_box();
+            foreach (get_post_types(array( 'public' => true )) as $post_type) {
+                if (! in_array($post_type, array( 'attachment', 'tinypress_link' ))) {
+                    add_action('add_meta_boxes_' . $post_type, array( $this, 'add_shortlinks_metabox' ));
+                    add_action('save_post_' . $post_type, array( $this, 'save_native_shortlinks_metabox' ), 10, 2);
+                }
+            }
+
+            add_action('add_meta_boxes', array( $this, 'add_side_meta_box' ), 0);
+            add_action('WPDK_Settings/meta_section/analytics', array( $this, 'render_analytics' ));
+        }
 
 
-		/**
-		 * Render Side Meta Box
-		 *
-		 * @return void
-		 */
-		function render_side_box() {
-			echo '<div class="tinypress-meta-side">';
-			include TINYPRESS_PLUGIN_DIR . 'templates/admin/qr-code.php';
-			echo '</div>';
-		}
+        /**
+         * Render analytics section
+         *
+         * @return void
+         */
+        public function render_analytics()
+        {
+            include TINYPRESS_PLUGIN_DIR . 'templates/admin/analytics.php';
+        }
 
 
-		/**
-		 * Add Side Meta Box
-		 *
-		 * @return void
-		 */
-		function add_side_meta_box() {
-			add_meta_box( 'tinypress-meta-side', esc_html__( 'Side', 'tinypress' ), array( $this, 'render_side_box' ), 'tinypress_link', 'side', 'core' );
-		}
+        /**
+         * Render Side Meta Box
+         *
+         * @return void
+         */
+        public function render_side_box()
+        {
+            echo '<div class="tinypress-meta-side">';
+            include TINYPRESS_PLUGIN_DIR . 'templates/admin/qr-code.php';
+            echo '</div>';
+        }
 
 
-		/**
-		 * Add shortlinks metabox to post edit screen
-		 *
-		 * @return void
-		 */
-		function add_shortlinks_metabox() {
-			global $post;
-			
-			if ( ! $post ) {
-				return;
-			}
-			
-			add_meta_box(
-				'tinypress_shortlinks_' . $post->post_type,
-				esc_html__( 'Shortlinks', 'tinypress' ),
-				array( $this, 'render_native_shortlinks_metabox' ),
-				$post->post_type,
-				'side',
-				'high'
-			);
-		}
+        /**
+         * Add Side Meta Box
+         *
+         * @return void
+         */
+        public function add_side_meta_box()
+        {
+            add_meta_box('tinypress-meta-side', esc_html__('Side', 'tinypress'), array( $this, 'render_side_box' ), 'tinypress_link', 'side', 'core');
+        }
 
 
-		/**
-		 * Render native shortlinks metabox content
-		 *
-		 * @param $post
-		 * @return void
-		 */
-		function render_native_shortlinks_metabox( $post ) {
-			wp_nonce_field( 'tinypress_shortlinks_nonce', 'tinypress_shortlinks_nonce_' . $post->post_type );
-			
-			$args = array(
-				'default' => $this->tinypress_default_slug,
-			);
-			
-			echo tinypress_get_tiny_slug_copier( $post->ID, true, $args );
-		}
-		
-		/**
-		 * Save native shortlinks metabox data
-		 *
-		 * @param $post_id
-		 * @param $post
-		 * @return void
-		 */
-		function save_native_shortlinks_metabox( $post_id, $post ) {
-			if ( ! isset( $_POST['tinypress_shortlinks_nonce_' . $post->post_type] ) || 
-			     ! wp_verify_nonce( $_POST['tinypress_shortlinks_nonce_' . $post->post_type], 'tinypress_shortlinks_nonce' ) ) {
-				return;
-			}
-
-			if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-				return;
-			}
-
-			if ( ! current_user_can( 'edit_post', $post_id ) ) {
-				return;
-			}
-
-			$meta_key = 'tinypress_meta_side_' . $post->post_type;
-			if ( isset( $_POST[ $meta_key ]['tiny_slug'] ) ) {
-				$tiny_slug = sanitize_text_field( $_POST[ $meta_key ]['tiny_slug'] );
-				
-				// Save directly as 'tiny_slug' meta key for compatibility with the rest of the plugin
-				update_post_meta( $post_id, 'tiny_slug', $tiny_slug );
-				
-				// Also save in the nested format for backward compatibility with WPDK
-				$meta_data = get_post_meta( $post_id, $meta_key, true );
-				if ( ! is_array( $meta_data ) ) {
-					$meta_data = array();
-				}
-				$meta_data['tiny_slug'] = $tiny_slug;
-				update_post_meta( $post_id, $meta_key, $meta_data );
-			}
-		}
+        /**
+         * Add shortlinks metabox to post edit screen
+         *
+         * @return void
+         */
+        public function add_shortlinks_metabox()
+        {
+            global $post;
+            
+            if (! $post) {
+                return;
+            }
+          
+            add_meta_box('tinypress_shortlinks_' . $post->post_type, esc_html__('Shortlinks', 'tinypress'), array( $this, 'render_native_shortlinks_metabox' ), $post->post_type, 'side', 'high');
+        }
 
 
-		/**
-		 * Render short URL field
-		 *
-		 * @param $args
-		 *
-		 * @return void
-		 */
-		function render_field_tinypress_link( $args ) {
-			global $post;
+        /**
+         * Render native shortlinks metabox content
+         *
+         * @param $post
+         * @return void
+         */
+        public function render_native_shortlinks_metabox($post)
+        {
+            wp_nonce_field('tinypress_shortlinks_nonce', 'tinypress_shortlinks_nonce_' . $post->post_type);
+          
+            $args = array(
+                'default' => $this->tinypress_default_slug,
+            );
+         
+            // Hook for Pro to add content before shortlink field
+            do_action('tinypress_metabox_before_shortlink_field', $post);
+           
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tinypress_get_tiny_slug_copier() returns properly escaped HTML
+            echo tinypress_get_tiny_slug_copier($post->ID, true, $args);
+          
+            // Hook for Pro to add content after shortlink field
+            do_action('tinypress_metabox_after_shortlink_field', $post);
+        }
+       
+        /**
+         * Save native shortlinks metabox data
+         *
+         * @param $post_id
+         * @param $post
+         * @return void
+         */
+        public function save_native_shortlinks_metabox($post_id, $post)
+        {
+            if (
+                ! isset($_POST['tinypress_shortlinks_nonce_' . $post->post_type]) || 
+                 ! wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['tinypress_shortlinks_nonce_' . $post->post_type])), 'tinypress_shortlinks_nonce') 
+            ) {
+                return;
+            }
 
-			echo tinypress_get_tiny_slug_copier( $post->ID, true, $args );
-		}
+            if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+                return;
+            }
+
+            if (! current_user_can('edit_post', $post_id)) {
+                return;
+            }
+
+            $meta_key = 'tinypress_meta_side_' . $post->post_type;
+            if (isset($_POST[ $meta_key ]['tiny_slug'])) {
+                $tiny_slug = sanitize_text_field($_POST[ $meta_key ]['tiny_slug']);
+             
+                // Save directly as 'tiny_slug' meta key for compatibility with the rest of the plugin
+                update_post_meta($post_id, 'tiny_slug', $tiny_slug);
+               
+                // Also save in the nested format for backward compatibility with WPDK
+                $meta_data = get_post_meta($post_id, $meta_key, true);
+                if (! is_array($meta_data)) {
+                    $meta_data = array();
+                }
+                $meta_data['tiny_slug'] = $tiny_slug;
+                update_post_meta($post_id, $meta_key, $meta_data);
+            }
+        }
 
 
-		/**
-		 * Generate meta box for slider data
-		 */
-		function generate_tinypress_meta_box() {
-			// Create a metabox for tinypress.
-			WPDK_Settings::createMetabox( $this->tinypress_metabox_main,
-				array(
-					'title'     => esc_html__( 'PublishPress Shortlinks', 'tinypress' ),
-					'post_type' => 'tinypress_link',
-					'data_type' => 'unserialize',
-					'context'   => 'normal',
-					'nav'       => 'inline',
-					'preview'   => true,
-				)
-			);
+        /**
+         * Render short URL field
+         *
+         * @param $args
+         *
+         * @return void
+         */
+        public function render_field_tinypress_link($args)
+        {
+            global $post;
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tinypress_get_tiny_slug_copier() returns escaped HTML
+            echo tinypress_get_tiny_slug_copier($post->ID, true, $args);
+        }
 
-			// General Settings section.
-			WPDK_Settings::createSection( $this->tinypress_metabox_main,
-				array(
-					'title'  => esc_html__( 'General', 'tinypress' ),
-					'fields' => array(
-						array(
-							'id'         => 'post_title',
-							'type'       => 'text',
-							'title'      => esc_html__( 'Label *', 'tinypress' ),
-							'wp_type'    => 'post_title',
-							'subtitle'   => esc_html__( 'For admin purpose only.', 'tinypress' ),
-							'attributes' => array(
-								'autocomplete' => 'off',
-								'class'        => 'tinypress_tiny_label',
-							),
-						),
-						array(
-							'id'         => 'target_url',
-							'type'       => 'text',
-							'title'      => esc_html__( 'Target URL *', 'tinypress' ),
-							'attributes' => array(
-								'class' => 'tinypress_tiny_url',
-							),
-						),
-						array(
-							'id'       => 'tiny_slug',
-							'type'     => 'callback',
-							'function' => array( $this, 'render_field_tinypress_link' ),
-							'title'    => esc_html__( 'Short String *', 'tinypress' ),
-							'subtitle' => esc_html__( 'Short string of this URL.', 'tinypress' ),
-							'default'  => $this->tinypress_default_slug,
-						),
-						array(
-							'id'         => 'link_status',
-							'type'       => 'switcher',
-							'title'      => esc_html__( 'Status', 'tinypress' ),
-							'subtitle'   => esc_html__( 'Disable the shortlink instantly.', 'tinypress' ),
-							'label'      => esc_html__( 'After disabling the link will not active but the settings will be reserved.', 'tinypress' ),
-							'text_on'    => esc_html__( 'Enable', 'tinypress' ),
-							'text_off'   => esc_html__( 'Disable', 'tinypress' ),
-							'default'    => true,
-							'text_width' => 100,
-						),
-						array(
-							'id'    => 'tiny_notes',
-							'type'  => 'textarea',
-							'title' => esc_html__( 'Notes', 'tinypress' ),
-						),
-					),
-				)
-			);
 
-			// Redirection Settings section.
-			WPDK_Settings::createSection( $this->tinypress_metabox_main,
-				array(
-					'title'  => esc_html__( 'Redirection', 'tinypress' ),
-					'fields' => array(
-						array(
-							'id'          => 'redirection_method',
-							'type'        => 'select',
-							'title'       => esc_html__( 'Redirection Method', 'tinypress' ),
-							'subtitle'    => esc_html__( 'Select redirection method', 'tinypress' ),
-							'placeholder' => 'Select a method',
-							'options'     => array(
-								307 => esc_html__( '307 (Temporary)', 'tinypress' ),
-								302 => esc_html__( '302 (Temporary)', 'tinypress' ),
-								301 => esc_html__( '301 (Permanent)', 'tinypress' ),
-							),
-							'default'     => 302,
-						),
-						array(
-							'id'       => 'redirection_sponsored',
-							'type'     => 'switcher',
-							'title'    => esc_html__( 'Sponsored', 'tinypress' ),
-							'subtitle' => esc_html__( 'Add sponsored attribute.', 'tinypress' ),
-							'label'    => esc_html__( 'Recommended for affiliate links.', 'tinypress' ),
-						),
-						array(
-							'id'       => 'redirection_no_follow',
-							'type'     => 'switcher',
-							'title'    => esc_html__( 'NoFollow', 'tinypress' ),
-							'subtitle' => esc_html__( 'Add nofollow attribute.', 'tinypress' ),
-							'label'    => esc_html__( 'We recommended to use this.', 'tinypress' ),
-							'default'  => true,
-						),
-						array(
-							'id'           => 'redirection_parameter_forwarding',
-							'type'         => 'switcher',
-							'title'        => esc_html__( 'Parameter Forwarding', 'tinypress' ),
-							'label'        => esc_html__( 'All the parameters will pass to the target link.', 'tinypress' ),
-						),
-					),
-				)
-			);
+        /**
+         * Generate meta box for slider data
+         */
+        private function generate_tinypress_meta_box()
+        {
+            // Create a metabox for tinypress.
+            WPDK_Settings::createMetabox(
+                $this->tinypress_metabox_main,
+                array(
+                    'title'     => esc_html__('PublishPress Shortlinks', 'tinypress'),
+                    'post_type' => 'tinypress_link',
+                    'data_type' => 'unserialize',
+                    'context'   => 'normal',
+                    'nav'       => 'inline',
+                    'preview'   => true,
+                )
+            );
 
-			// Security Settings section.
-			WPDK_Settings::createSection( $this->tinypress_metabox_main,
-				array(
-					'title'  => esc_html__( 'Security', 'tinypress' ),
-					'fields' => array(
-						array(
-							'id'           => 'password_protection',
-							'type'         => 'switcher',
-							'title'        => esc_html__( 'Password Protection', 'tinypress' ),
-							'subtitle'     => esc_html__( 'Secure your shortlink.', 'tinypress' ),
-							'label'        => esc_html__( 'Users must enter the password to redirect to the target link.', 'tinypress' ),
-						),
-						array(
-							'id'           => 'link_password',
-							'type'         => 'text',
-							'title'        => esc_html__( 'Password', 'tinypress' ),
-							'subtitle'     => esc_html__( 'Share this with users.', 'tinypress' ),
-							'desc'         => esc_html__( 'Passwords are case sensitive.', 'tinypress' ),
-							'placeholder'  => esc_html__( '********', 'tinypress' ),
-							'attributes'   => array(
-								'minlength' => 6,
-							),
-							'dependency'   => array( 'password_protection', '==', '1' ),
-						),
-						array(
-							'id'           => 'enable_expiration',
-							'type'         => 'switcher',
-							'title'        => esc_html__( 'Enable Expiration', 'tinypress' ),
-							'subtitle'     => esc_html__( 'Expire automatically.', 'tinypress' ),
-							'label'        => esc_html__( 'Users will not able to redirect to the target URL once expire.', 'tinypress' ),
-						),
-						array(
-							'id'           => 'expiration_date',
-							'type'         => 'datetime',
-							'title'        => esc_html__( 'Expiration Date', 'tinypress' ),
-							'subtitle'     => esc_html__( 'It will automatically expire.', 'tinypress' ),
-							'settings'     => array(
-								'dateFormat'      => 'd-m-Y',
-								'allowInput'      => false,
-								'minuteIncrement' => 1,
-								'minDate'         => 'today',
-							),
-							'dependency'   => array( 'enable_expiration', '==', '1' ),
-						),
-					),
-				)
-			);
+            // General Settings section.
+            WPDK_Settings::createSection(
+                $this->tinypress_metabox_main,
+                array(
+                    'title'  => esc_html__('General', 'tinypress'),
+                    'fields' => array(
+                        array(
+                            'id'         => 'post_title',
+                            'type'       => 'text',
+                            'title'      => esc_html__('Label *', 'tinypress'),
+                            'wp_type'    => 'post_title',
+                            'subtitle'   => esc_html__('For admin purpose only.', 'tinypress'),
+                            'attributes' => array(
+                                'autocomplete' => 'off',
+                                'class'        => 'tinypress_tiny_label',
+                            ),
+                        ),
+                        array(
+                            'id'         => 'target_url',
+                            'type'       => 'text',
+                            'title'      => esc_html__('Target URL *', 'tinypress'),
+                            'attributes' => array(
+                                'class' => 'tinypress_tiny_url',
+                            ),
+                        ),
+                        array(
+                            'id'       => 'tiny_slug',
+                            'type'     => 'callback',
+                            'function' => array( $this, 'render_field_tinypress_link' ),
+                            'title'    => esc_html__('Short String *', 'tinypress'),
+                            'subtitle' => esc_html__('Short string of this URL.', 'tinypress'),
+                            'default'  => $this->tinypress_default_slug,
+                        ),
+                        array(
+                            'id'         => 'link_status',
+                            'type'       => 'switcher',
+                            'title'      => esc_html__('Status', 'tinypress'),
+                            'subtitle'   => esc_html__('Disable the shortlink instantly.', 'tinypress'),
+                            'label'      => esc_html__('After disabling the link will not active but the settings will be reserved.', 'tinypress'),
+                            'text_on'    => esc_html__('Enable', 'tinypress'),
+                            'text_off'   => esc_html__('Disable', 'tinypress'),
+                            'default'    => true,
+                            'text_width' => 100,
+                        ),
+                        array(
+                            'id'    => 'tiny_notes',
+                            'type'  => 'textarea',
+                            'title' => esc_html__('Notes', 'tinypress'),
+                        ),
+                    ),
+                )
+            );
 
-			// Analytics section.
-			WPDK_Settings::createSection( $this->tinypress_metabox_main,
-				array(
-					'id'       => 'analytics',
-					'external' => true,
-					'title'    => esc_html__( 'Analytics', 'tinypress' ),
-				)
-			);
-		}
-	}
+            // Redirection Settings section.
+            WPDK_Settings::createSection(
+                $this->tinypress_metabox_main,
+                array(
+                    'title'  => esc_html__('Redirection', 'tinypress'),
+                    'fields' => array(
+                        array(
+                            'id'          => 'redirection_method',
+                            'type'        => 'select',
+                            'title'       => esc_html__('Redirection Method', 'tinypress'),
+                            'subtitle'    => esc_html__('Select redirection method', 'tinypress'),
+                            'placeholder' => esc_html__('Select a method', 'tinypress'),
+                            'options'     => array(
+                                307 => esc_html__('307 (Temporary)', 'tinypress'),
+                                302 => esc_html__('302 (Temporary)', 'tinypress'),
+                                301 => esc_html__('301 (Permanent)', 'tinypress'),
+                            ),
+                            'default'     => 302,
+                        ),
+                        array(
+                            'id'       => 'redirection_sponsored',
+                            'type'     => 'switcher',
+                            'title'    => esc_html__('Sponsored', 'tinypress'),
+                            'subtitle' => esc_html__('Mark links as sponsored content.', 'tinypress'),
+                            'label'    => esc_html__('Adds rel="sponsored" attribute. Recommended for affiliate links and paid promotions.', 'tinypress'),
+                        ),
+                        array(
+                            'id'       => 'redirection_no_follow',
+                            'type'     => 'switcher',
+                            'title'    => esc_html__('NoFollow', 'tinypress'),
+                            'subtitle' => esc_html__('Prevent search engines from following this link.', 'tinypress'),
+                            'label'    => esc_html__('Adds rel="nofollow" attribute. Recommended for external links and untrusted sources.', 'tinypress'),
+                            'default'  => true,
+                        ),
+                        array(
+                            'id'           => 'redirection_parameter_forwarding',
+                            'type'         => 'switcher',
+                            'title'        => esc_html__('Parameter Forwarding', 'tinypress'),
+                            'subtitle'     => esc_html__('Pass URL parameters to the target link.', 'tinypress'),
+                            'label'        => esc_html__('Any parameters added to the short URL (e.g., ?utm_source=email) will be forwarded to the target URL.', 'tinypress'),
+                        ),
+                    ),
+                )
+            );
+// Security Settings section.
+            $security_fields = array(
+                array(
+                    'id'           => 'password_protection',
+                    'type'         => 'switcher',
+                    'title'        => esc_html__('Password Protection', 'tinypress'),
+                    'subtitle'     => esc_html__('Secure your shortlink.', 'tinypress'),
+                    'label'        => esc_html__('Users must enter the password to redirect to the target link.', 'tinypress'),
+                ),
+                array(
+                    'id'           => 'link_password',
+                    'type'         => 'text',
+                    'title'        => esc_html__('Password', 'tinypress'),
+                    'subtitle'     => esc_html__('Share this with users.', 'tinypress'),
+                    'desc'         => esc_html__('Passwords are case sensitive.', 'tinypress'),
+                    'placeholder'  => esc_html__('********', 'tinypress'),
+                    'attributes'   => array(
+                        'minlength' => 6,
+                    ),
+                    'dependency'   => array( 'password_protection', '==', '1' ),
+                ),
+                array(
+                    'id'           => 'enable_expiration',
+                    'type'         => 'switcher',
+                    'title'        => esc_html__('Enable Expiration', 'tinypress'),
+                    'subtitle'     => esc_html__('Expire automatically.', 'tinypress'),
+                    'label'        => esc_html__('Users will not able to redirect to the target URL once expire.', 'tinypress'),
+                ),
+                array(
+                    'id'           => 'expiration_date',
+                    'type'         => 'datetime',
+                    'title'        => esc_html__('Expiration Date', 'tinypress'),
+                    'subtitle'     => esc_html__('Choose the date this link should expire.', 'tinypress'),
+                    'settings'     => array(
+                        'dateFormat'      => 'd-m-Y',
+                        'enableTime'      => false,
+                        'allowInput'      => false,
+                        'minDate'         => 'today',
+                    ),
+                    'dependency'   => array( 'enable_expiration', '==', '1' ),
+                ),
+                array(
+                    'id'           => 'expiration_time',
+                    'type'         => 'datetime',
+                    'title'        => esc_html__('Expiration Time', 'tinypress'),
+                    'subtitle'     => esc_html__('Choose the time this link should expire.', 'tinypress'),
+                    'desc'         => esc_html__('Must be at least 1 minute in the future.', 'tinypress'),
+                    'settings'     => array(
+                        'noCalendar'      => true,
+                        'enableTime'      => true,
+                        'time_24hr'       => false,
+                        'dateFormat'      => 'h:i K',
+                        'allowInput'      => false,
+                        'minuteIncrement' => 1,
+                    ),
+                    'dependency'   => array( 'enable_expiration', '==', '1' ),
+                ),
+            );
+            if (defined('PUBLISHPRESS_SHORTLINKS_PRO_VERSION')) {
+                $security_fields[] = array(
+                    'id'          => 'expired_redirect_url',
+                    'type'        => 'text',
+                    'title'       => esc_html__('Expired Redirect URL', 'tinypress'),
+                    'subtitle'    => esc_html__('Override the global expired redirect for this link.', 'tinypress'),
+                    'desc'        => esc_html__('Leave empty to use the global setting.', 'tinypress'),
+                    'placeholder' => esc_html(home_url('/')),
+                    'dependency'  => array( 'enable_expiration', '==', '1' ),
+                );
+                $security_fields[] = array(
+                    'id'         => 'expired_show_notice',
+                    'type'       => 'switcher',
+                    'title'      => esc_html__('Show Expiration Notice', 'tinypress'),
+                    'label'      => esc_html__('Display a brief notice before redirecting.', 'tinypress'),
+                    'desc'       => esc_html__('Leave off to use the global setting.', 'tinypress'),
+                    'default'    => false,
+                    'dependency' => array( 'enable_expiration', '==', '1' ),
+                );
+            } else {
+                $security_fields[] = array(
+                    'id'         => 'expired_redirect_pro_teaser',
+                    'type'       => 'content',
+                    'title'      => esc_html__('Expired Redirect Settings', 'tinypress'),
+                    'dependency' => array( 'enable_expiration', '==', '1' ),
+                    'content'    => '<div style="opacity:0.5;pointer-events:none;">'
+                        . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Expired Redirect URL', 'tinypress') . '</strong></p>'
+                        . '<input type="text" disabled placeholder="' . esc_attr(home_url('/')) . '" style="width:100%;max-width:400px;" />'
+                        . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Show Expiration Notice', 'tinypress') . '</strong></p>'
+                        . '<label style="display:inline-flex;align-items:center;gap:8px;">'
+                        . '<input type="checkbox" disabled />'
+                        . esc_html__('Display a brief notice before redirecting.', 'tinypress')
+                        . '</label>'
+                        . '</div>'
+                        . '<div class="tinypress-pro-nudge-wrapper" style="margin-top:10px;">'
+                        . '<span class="pp-tooltips-library" data-toggle="tooltip">'
+                        . '<button type="button" class="tinypress-pro-nudge-btn" tabindex="-1">'
+                        . '<span class="dashicons dashicons-lock tinypress-pro-nudge-lock"></span>'
+                        . esc_html__('Pro Feature', 'tinypress')
+                        . '</button>'
+                        . '<span class="tinypress tooltip-text">'
+                        . esc_html__('This feature is available in PublishPress Shortlinks Pro.', 'tinypress')
+                        . '</span></span></div>',
+                );
+            }
+
+            $security_fields = apply_filters('tinypress_security_metabox_fields', $security_fields);
+
+            WPDK_Settings::createSection(
+                $this->tinypress_metabox_main,
+                array(
+                    'title'  => esc_html__('Security', 'tinypress'),
+                    'fields' => $security_fields,
+                )
+            );
+
+            // Analytics section.
+            WPDK_Settings::createSection(
+                $this->tinypress_metabox_main,
+                array(
+                    'id'       => 'analytics',
+                    'external' => true,
+                    'title'    => esc_html__('Analytics', 'tinypress'),
+                )
+            );
+        }
+    }
+
 }

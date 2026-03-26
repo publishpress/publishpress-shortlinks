@@ -1,41 +1,42 @@
 <?php
+
 /**
  * Admin Template: Browsers
  */
 
 echo '<div class="tinypress-extensions-message">';
-echo '<p>' . esc_html__( 'We have developed extensions for the below browsers.', 'tinypress' ) . '</p>';
-echo '<p>' . esc_html__( 'Click on your preferred one to Download the extension.', 'tinypress' ) . '</p>';
+echo '<p>' . esc_html__('We have developed extensions for the below browsers.', 'tinypress') . '</p>';
+echo '<p>' . esc_html__('Click on your preferred one to Download the extension.', 'tinypress') . '</p>';
 echo '</div>';
 
 
 echo '<ul class="tinypress-extensions-list">';
 
 echo '<li class="active">';
-echo '<a class="hint--top" aria-label="' . esc_html__( 'Download the Extension', 'tinypress' ) . '" href="https://tinypress.xyz/go/download-ext">';
+echo '<a class="hint--top" aria-label="' . esc_attr__('Download the Extension', 'tinypress') . '" href="https://tinypress.xyz/go/download-ext">';
 echo '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M0 256C0 209.4 12.47 165.6 34.27 127.1L144.1 318.3C166 357.5 207.9 384 256 384C270.3 384 283.1 381.7 296.8 377.4L220.5 509.6C95.9 492.3 0 385.3 0 256zM365.1 321.6C377.4 302.4 384 279.1 384 256C384 217.8 367.2 183.5 340.7 160H493.4C505.4 189.6 512 222.1 512 256C512 397.4 397.4 511.1 256 512L365.1 321.6zM477.8 128H256C193.1 128 142.3 172.1 130.5 230.7L54.19 98.47C101 38.53 174 0 256 0C350.8 0 433.5 51.48 477.8 128V128zM168 256C168 207.4 207.4 168 256 168C304.6 168 344 207.4 344 256C344 304.6 304.6 344 256 344C207.4 344 168 304.6 168 256z"/></svg>';
-echo '<span class="name">' . esc_html( 'Google Chrome' ) . '</span>';
+echo '<span class="name">' . esc_html('Google Chrome') . '</span>';
 echo '</a>';
 echo '</li>';
 
 echo '<li>';
-echo '<a href="' . esc_url( site_url( 'wp-admin/edit.php?post_type=tinypress_link&page=settings#tab=general/browser-extensions' ) ) . '">';
+echo '<a href="' . esc_url(site_url('wp-admin/edit.php?post_type=tinypress_link&page=settings#tab=general/browser-extensions')) . '">';
 echo '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M130.22 127.548C130.38 127.558 130.3 127.558 130.22 127.548V127.548ZM481.64 172.898C471.03 147.398 449.56 119.898 432.7 111.168C446.42 138.058 454.37 165.048 457.4 185.168C457.405 185.306 457.422 185.443 457.45 185.578C429.87 116.828 383.098 89.1089 344.9 28.7479C329.908 5.05792 333.976 3.51792 331.82 4.08792L331.7 4.15792C284.99 30.1109 256.365 82.5289 249.12 126.898C232.503 127.771 216.219 131.895 201.19 139.035C199.838 139.649 198.736 140.706 198.066 142.031C197.396 143.356 197.199 144.87 197.506 146.323C197.7 147.162 198.068 147.951 198.586 148.639C199.103 149.327 199.76 149.899 200.512 150.318C201.264 150.737 202.096 150.993 202.954 151.071C203.811 151.148 204.676 151.045 205.491 150.768L206.011 150.558C221.511 143.255 238.408 139.393 255.541 139.238C318.369 138.669 352.698 183.262 363.161 201.528C350.161 192.378 326.811 183.338 304.341 187.248C392.081 231.108 368.541 381.784 246.951 376.448C187.487 373.838 149.881 325.467 146.421 285.648C146.421 285.648 157.671 243.698 227.041 243.698C234.541 243.698 255.971 222.778 256.371 216.698C256.281 214.698 213.836 197.822 197.281 181.518C188.434 172.805 184.229 168.611 180.511 165.458C178.499 163.75 176.392 162.158 174.201 160.688C168.638 141.231 168.399 120.638 173.51 101.058C148.45 112.468 128.96 130.508 114.8 146.428H114.68C105.01 134.178 105.68 93.7779 106.25 85.3479C106.13 84.8179 99.022 89.0159 98.1 89.6579C89.5342 95.7103 81.5528 102.55 74.26 110.088C57.969 126.688 30.128 160.242 18.76 211.318C14.224 231.701 12 255.739 12 263.618C12 398.318 121.21 507.508 255.92 507.508C376.56 507.508 478.939 420.281 496.35 304.888C507.922 228.192 481.64 173.82 481.64 172.898Z"/></svg>';
-echo '<span class="name">' . esc_html( 'Mozilla Firefox - Upcoming' ) . '</span>';
+echo '<span class="name">' . esc_html('Mozilla Firefox - Upcoming') . '</span>';
 echo '</a>';
 echo '</li>';
 
 echo '<li>';
-echo '<a href="' . esc_url( site_url( 'wp-admin/edit.php?post_type=tinypress_link&page=settings#tab=general/browser-extensions' ) ) . '">';
+echo '<a href="' . esc_url(site_url('wp-admin/edit.php?post_type=tinypress_link&page=settings#tab=general/browser-extensions')) . '">';
 echo '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M274.69,274.69l-37.38-37.38L166,346ZM256,8C119,8,8,119,8,256S119,504,256,504,504,393,504,256,393,8,256,8ZM411.85,182.79l14.78-6.13A8,8,0,0,1,437.08,181h0a8,8,0,0,1-4.33,10.46L418,197.57a8,8,0,0,1-10.45-4.33h0A8,8,0,0,1,411.85,182.79ZM314.43,94l6.12-14.78A8,8,0,0,1,331,74.92h0a8,8,0,0,1,4.33,10.45l-6.13,14.78a8,8,0,0,1-10.45,4.33h0A8,8,0,0,1,314.43,94ZM256,60h0a8,8,0,0,1,8,8V84a8,8,0,0,1-8,8h0a8,8,0,0,1-8-8V68A8,8,0,0,1,256,60ZM181,74.92a8,8,0,0,1,10.46,4.33L197.57,94a8,8,0,1,1-14.78,6.12l-6.13-14.78A8,8,0,0,1,181,74.92Zm-63.58,42.49h0a8,8,0,0,1,11.31,0L140,128.72A8,8,0,0,1,140,140h0a8,8,0,0,1-11.31,0l-11.31-11.31A8,8,0,0,1,117.41,117.41ZM60,256h0a8,8,0,0,1,8-8H84a8,8,0,0,1,8,8h0a8,8,0,0,1-8,8H68A8,8,0,0,1,60,256Zm40.15,73.21-14.78,6.13A8,8,0,0,1,74.92,331h0a8,8,0,0,1,4.33-10.46L94,314.43a8,8,0,0,1,10.45,4.33h0A8,8,0,0,1,100.15,329.21Zm4.33-136h0A8,8,0,0,1,94,197.57l-14.78-6.12A8,8,0,0,1,74.92,181h0a8,8,0,0,1,10.45-4.33l14.78,6.13A8,8,0,0,1,104.48,193.24ZM197.57,418l-6.12,14.78a8,8,0,0,1-14.79-6.12l6.13-14.78A8,8,0,1,1,197.57,418ZM264,444a8,8,0,0,1-8,8h0a8,8,0,0,1-8-8V428a8,8,0,0,1,8-8h0a8,8,0,0,1,8,8Zm67-6.92h0a8,8,0,0,1-10.46-4.33L314.43,418a8,8,0,0,1,4.33-10.45h0a8,8,0,0,1,10.45,4.33l6.13,14.78A8,8,0,0,1,331,437.08Zm63.58-42.49h0a8,8,0,0,1-11.31,0L372,383.28A8,8,0,0,1,372,372h0a8,8,0,0,1,11.31,0l11.31,11.31A8,8,0,0,1,394.59,394.59ZM286.25,286.25,110.34,401.66,225.75,225.75,401.66,110.34ZM437.08,331h0a8,8,0,0,1-10.45,4.33l-14.78-6.13a8,8,0,0,1-4.33-10.45h0A8,8,0,0,1,418,314.43l14.78,6.12A8,8,0,0,1,437.08,331ZM444,264H428a8,8,0,0,1-8-8h0a8,8,0,0,1,8-8h16a8,8,0,0,1,8,8h0A8,8,0,0,1,444,264Z"/></svg>';
-echo '<span class="name">' . esc_html( 'Safari - Upcoming' ) . '</span>';
+echo '<span class="name">' . esc_html('Safari - Upcoming') . '</span>';
 echo '</a>';
 echo '</li>';
 
 echo '<li>';
-echo '<a href="' . esc_url( site_url( 'wp-admin/edit.php?post_type=tinypress_link&page=settings#tab=general/browser-extensions' ) ) . '">';
+echo '<a href="' . esc_url(site_url('wp-admin/edit.php?post_type=tinypress_link&page=settings#tab=general/browser-extensions')) . '">';
 echo '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M120.1 37.44C161.1 12.23 207.7-.7753 255 .0016C423 .0016 512 123.8 512 219.5C511.9 252.2 499 283.4 476.1 306.7C453.2 329.9 422.1 343.2 389.4 343.7C314.2 343.7 297.9 320.6 297.9 311.7C297.9 307.9 299.1 305.5 302.7 302.3L303.7 301.1L304.1 299.5C314.6 288 320 273.3 320 257.9C320 179.2 237.8 115.2 136 115.2C98.46 114.9 61.46 124.1 28.48 142.1C55.48 84.58 111.2 44.5 119.8 38.28C120.6 37.73 120.1 37.44 120.1 37.44V37.44zM135.7 355.5C134.3 385.5 140.3 415.5 152.1 442.7C165.7 469.1 184.8 493.7 208.6 512C149.1 500.5 97.11 468.1 59.2 422.7C21.12 376.3 0 318.4 0 257.9C0 206.7 62.4 163.5 136 163.5C172.6 162.9 208.4 174.4 237.8 196.2L234.2 197.4C182.7 215 135.7 288.1 135.7 355.5V355.5zM469.8 400L469.1 400.1C457.3 418.9 443.2 435.2 426.9 449.6C396.1 477.6 358.8 495.1 318.1 499.5C299.5 499.8 281.3 496.3 264.3 488.1C238.7 477.8 217.2 458.1 202.7 435.1C188.3 411.2 181.6 383.4 183.7 355.5C183.1 335.4 189.1 315.2 198.7 297.3C212.6 330.4 236.2 358.6 266.3 378.1C296.4 397.6 331.8 407.6 367.7 406.7C398.7 407 429.8 400 457.9 386.2L459.8 385.3C463.7 383 467.5 381.4 471.4 385.3C475.9 390.2 473.2 394.5 470.2 399.3C470 399.5 469.9 399.8 469.8 400V400z"/></svg>';
-echo '<span class="name">' . esc_html( 'Microsoft Edge - Upcoming' ) . '</span>';
+echo '<span class="name">' . esc_html('Microsoft Edge - Upcoming') . '</span>';
 echo '</a>';
 echo '</li>';
 
@@ -43,8 +44,8 @@ echo '</ul>';
 
 
 echo '<div class="tinypress-extensions-message">';
+// phpcs:disable Squiz.PHP.CommentedOutCode.Found -- Intentionally kept for potential future video embed
 //echo '<p>' . esc_html__( 'Here is a video of how to configure the extension.', 'tinypress' ) . '</p>';
 //echo '<iframe src="https://player.vimeo.com/video/772595268?h=787e6e12bc&title=0&byline=0&portrait=0&controls=1&pip=0&playsinline=0&transparent=0" width="600" height="338"></iframe>';
+// phpcs:enable Squiz.PHP.CommentedOutCode.Found
 echo '</div>';
-
-
