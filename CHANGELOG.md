@@ -1,10 +1,6 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[1.4.1] - 27 March, 2026
-- FIX: Unable to activate 1.4.0 #171
-- UPDATE: Add "Free" to name of the Free plugin in the "Plugins" area #139
-
 [1.4.0] - 26 March, 2026 
 - FIX: Analytics subtabs aren't clickable, #74
 - FIX: Custom URL doesn't update, #96

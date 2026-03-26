@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Plugin Name: PublishPress Shortlinks Free
+ * Plugin Name: PublishPress Shortlinks
  * Plugin URI:  https://publishpress.com/shortlinks/
  * Description: Create custom links for your posts. These links are brandable, trackable, and can have custom view permissions.
- * Version: 1.4.1
+ * Version: 1.4.0
  * Text Domain: tinypress
  * Author: PublishPress
  * Author URI: https://publishpress.com/
@@ -32,14 +32,11 @@ if (class_exists('PublishPressInstanceProtection\\Config')) {
 }
 
 // Conflict detection with old plugin version
-// TODO: This is only for compatibility with transiting from >=1.3.0, so let's remove this in any version after 1.4.0.
+// TODO: This is only for compatibility with transiting from >=1.3.0, so let's remove this in any version after 1.4.0. 
 // PublishPressInstanceProtection should handle situations like this for us
 $old_tinypress_active = false;
-$current_plugin_file = function_exists('plugin_basename') ? plugin_basename(__FILE__) : '';
-$old_plugin_file = 'tinypress/tinypress.php';
-
 foreach ((array) get_option('active_plugins') as $plugin_file) {
-    if ($plugin_file === $old_plugin_file && $current_plugin_file !== $old_plugin_file) {
+    if (false !== strpos($plugin_file, 'tinypress/tinypress.php')) {
         $old_tinypress_active = true;
         break;
     }
@@ -47,7 +44,7 @@ foreach ((array) get_option('active_plugins') as $plugin_file) {
 
 if (! $old_tinypress_active && is_multisite()) {
     foreach (array_keys((array) get_site_option('active_sitewide_plugins')) as $plugin_file) {
-        if ($plugin_file === $old_plugin_file && $current_plugin_file !== $old_plugin_file) {
+        if (false !== strpos($plugin_file, 'tinypress/tinypress.php')) {
             $old_tinypress_active = true;
             break;
         }
@@ -65,7 +62,7 @@ if (! defined('TINYPRESS_LOADED')) {
     define('TINYPRESS_LOADED', 1);
 
     define('TINYPRESS_FILE', __DIR__ . '/tinypress.php');
-    define('TINYPRESS_PLUGIN_VERSION', '1.4.1');
+    define('TINYPRESS_PLUGIN_VERSION', '1.4.0');
 
     if (! defined('TINYPRESS_LIB_VENDOR_PATH')) {
         define('TINYPRESS_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
