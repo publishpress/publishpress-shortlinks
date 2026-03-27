@@ -32,11 +32,14 @@ if (class_exists('PublishPressInstanceProtection\\Config')) {
 }
 
 // Conflict detection with old plugin version
-// TODO: This is only for compatibility with transiting from >=1.3.0, so let's remove this in any version after 1.4.0. 
+// TODO: This is only for compatibility with transiting from >=1.3.0, so let's remove this in any version after 1.4.0.
 // PublishPressInstanceProtection should handle situations like this for us
 $old_tinypress_active = false;
+$current_plugin_file = function_exists('plugin_basename') ? plugin_basename(__FILE__) : '';
+$old_plugin_file = 'tinypress/tinypress.php';
+
 foreach ((array) get_option('active_plugins') as $plugin_file) {
-    if (false !== strpos($plugin_file, 'tinypress/tinypress.php')) {
+    if ($plugin_file === $old_plugin_file && $current_plugin_file !== $old_plugin_file) {
         $old_tinypress_active = true;
         break;
     }
@@ -44,7 +47,7 @@ foreach ((array) get_option('active_plugins') as $plugin_file) {
 
 if (! $old_tinypress_active && is_multisite()) {
     foreach (array_keys((array) get_site_option('active_sitewide_plugins')) as $plugin_file) {
-        if (false !== strpos($plugin_file, 'tinypress/tinypress.php')) {
+        if ($plugin_file === $old_plugin_file && $current_plugin_file !== $old_plugin_file) {
             $old_tinypress_active = true;
             break;
         }
