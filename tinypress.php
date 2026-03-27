@@ -32,8 +32,6 @@ if (class_exists('PublishPressInstanceProtection\\Config')) {
 }
 
 // Conflict detection with old plugin version
-// TODO: This is only for compatibility with transiting from >=1.3.0, so let's remove this in any version after 1.4.0.
-// PublishPressInstanceProtection should handle situations like this for us
 $old_tinypress_active = false;
 $current_plugin_file = function_exists('plugin_basename') ? plugin_basename(__FILE__) : '';
 $old_plugin_file = 'tinypress/tinypress.php';
