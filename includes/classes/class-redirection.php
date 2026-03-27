@@ -131,14 +131,16 @@ if (! class_exists('TINYPRESS_Redirection')) {
             if (defined('WP_DEBUG') && WP_DEBUG) {
                 $log_message = '[TinyPress Shortlinks] ' . $message;
                 if (!empty($data)) {
-                    $log_message .= ' | ' . json_encode($data);
+                    $log_message .= ' | ' . wp_json_encode($data);
                 }
+                // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- Debug logging only when WP_DEBUG is enabled.
                 error_log($log_message);
             }
         }
 
         public function prevent_elementor_homepage_redirect()
         {
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only query flag used for visitor previews.
             if (empty($_GET['tinypress_visitor'])) {
                 return;
             }
@@ -178,6 +180,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
          */
         public function bust_cache_for_visitor_preview()
         {
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only query flag used for visitor previews.
             if (empty($_GET['tinypress_visitor'])) {
                 return;
             }
@@ -215,6 +218,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
          */
         public function enable_private_type_frontend_preview($use_preview_url, $revision)
         {
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only query flag used for visitor previews.
             if (!empty($_GET['tinypress_visitor'])) {
                 return true;
             }
@@ -786,8 +790,10 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
                 
                 $resolved_post_type = get_post_type($post->ID);
-                if ('tinypress_link' !== $resolved_post_type && 
-                    (!function_exists('rvy_in_revision_workflow') || !rvy_in_revision_workflow($post->ID))) {
+                if (
+                    'tinypress_link' !== $resolved_post_type
+                    && (!function_exists('rvy_in_revision_workflow') || !rvy_in_revision_workflow($post->ID))
+                ) {
                     return;
                 }
             }
@@ -1188,10 +1194,11 @@ if (! class_exists('TINYPRESS_Redirection')) {
             }
 
             global $wpdb;
-            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+            // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Direct fetch to prevent main query 404; caching not reliable for this request-scoped preview.
             $post = $wpdb->get_row(
                 $wpdb->prepare("SELECT * FROM $wpdb->posts WHERE ID = %d", $revision_id)
             );
+            // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 
             if (! $post) {
                 return $posts;
@@ -1215,7 +1222,6 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
             status_header(200);
 
-            global $post;
             $post = $query->post;
             setup_postdata($post);
 
