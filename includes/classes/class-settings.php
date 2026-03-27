@@ -163,6 +163,7 @@ if (! class_exists('TINYPRESS_Settings')) {
          */
         public function shortlinks_elementor_prefix_notice()
         {
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin page detection; no state is changed.
             if (!is_admin() || empty($_GET['page']) || 'tinypress-settings' !== $_GET['page']) {
                 return;
             }
