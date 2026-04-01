@@ -35,7 +35,7 @@ wp_localize_script('tinypress-analytics', 'tinypressAnalytics', array(
     <div id="chart">
         <div class="toolbar">
             <div class="filter-buttons">
-                <span class="btn date-filter today active" data-filter="today"><?php esc_html_e('Today', 'tinypress'); ?></span>
+                <span class="btn date-filter today" data-filter="today"><?php esc_html_e('Today', 'tinypress'); ?></span>
                 <span class="btn date-filter last_7_days" data-filter="last_7_days"><?php esc_html_e('Last 7 Days', 'tinypress'); ?></span>
                 <span class="btn date-filter last_1_month" data-filter="last_1_month"><?php esc_html_e('Last 1 Month', 'tinypress'); ?></span>
                 <span class="btn date-filter last_1_year" data-filter="last_1_year"><?php esc_html_e('Last 1 Year', 'tinypress'); ?></span>

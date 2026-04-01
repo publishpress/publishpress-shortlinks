@@ -7,6 +7,7 @@
 
     let options = {
         series: [{
+            name: 'Clicks',
             data: tinypressAnalytics.chartData
         }],
         chart: {
@@ -20,33 +21,6 @@
                 enabled: false
             }
         },
-        annotations: {
-            yaxis: [{
-                y: 30,
-                borderColor: '#999',
-                label: {
-                    show: true,
-                    text: 'Support',
-                    style: {
-                        color: "#fff",
-                        background: '#00E396'
-                    }
-                }
-            }],
-            xaxis: [{
-                x: new Date('14 Nov 2012').getTime(),
-                borderColor: '#999',
-                yAxisIndex: 0,
-                label: {
-                    show: true,
-                    text: 'Rally',
-                    style: {
-                        color: "#fff",
-                        background: '#775DD0'
-                    }
-                }
-            }]
-        },
         dataLabels: {
             enabled: false
         },
@@ -56,6 +30,10 @@
         },
         xaxis: {
             type: 'datetime',
+        },
+        yaxis: {
+            min: 0,
+            forceNiceScale: true,
         },
         tooltip: {
             x: {
@@ -74,93 +52,73 @@
     };
 
     let chart = new ApexCharts(document.querySelector("#chart-timeline"), options);
-    let today_date = new Date();
-    
-    let reset_css_classes = function (activeEl) {
+
+    let applyFilter = function (filterName) {
+        let endDate = new Date();
+        endDate.setHours(23, 59, 59, 999);
+        let startDate = new Date();
+        startDate.setHours(0, 0, 0, 0);
+        let resetText = "Reset Today's Analytics";
+
+        switch (filterName) {
+            case 'last_7_days':
+                startDate.setDate(startDate.getDate() - 6);
+                resetText = "Reset Week's Analytics";
+                break;
+            case 'last_1_month':
+                startDate.setMonth(startDate.getMonth() - 1);
+                resetText = "Reset Month's Analytics";
+                break;
+            case 'last_1_year':
+                startDate.setFullYear(startDate.getFullYear() - 1);
+                resetText = "Reset Year's Analytics";
+                break;
+            default:
+                filterName = 'today';
+                break;
+        }
+
+        document.querySelector('.reset-text').textContent = resetText;
+
         let els = document.querySelectorAll('.date-filter');
         Array.prototype.forEach.call(els, function (el) {
             el.classList.remove('active');
         });
-        activeEl.target.classList.add('active');
+        let activeBtn = document.querySelector('.date-filter.' + filterName.replace(/ /g, '_'));
+        if (activeBtn) {
+            activeBtn.classList.add('active');
+        }
+
+        chart.updateOptions({
+            xaxis: {
+                min: startDate.getTime(),
+                max: endDate.getTime()
+            }
+        });
+
+        try {
+            localStorage.setItem('tinypress_analytics_filter_' + tinypressAnalytics.postId, filterName);
+        } catch (e) {}
     };
 
     chart.render();
 
-    // Set default view to Today
-    let defaultEndDate = new Date();
-    defaultEndDate.setHours(23, 59, 59, 999);
-    let defaultStartDate = new Date();
-    defaultStartDate.setHours(0, 0, 0, 0);
-    chart.zoomX(
-        defaultStartDate.getTime(),
-        defaultEndDate.getTime()
-    );
+    // Restore saved filter or default to Last 1 Month
+    let savedFilter = 'last_1_month';
+    try {
+        let stored = localStorage.getItem('tinypress_analytics_filter_' + tinypressAnalytics.postId);
+        if (stored) {
+            savedFilter = stored;
+        }
+    } catch (e) {}
+    applyFilter(savedFilter);
 
-    // Today filter
-    document.querySelector('.today').addEventListener('click', function (e) {
-        reset_css_classes(e);
-        document.querySelector('.reset-text').textContent = "Reset Today's Analytics";
-        
-        let endDate = new Date();
-        endDate.setHours(23, 59, 59, 999);
-        let startDate = new Date();
-        startDate.setHours(0, 0, 0, 0);
-
-        chart.zoomX(
-            startDate.getTime(),
-            endDate.getTime()
-        );
-    });
-
-    // Last 7 Days filter
-    document.querySelector('.last_7_days').addEventListener('click', function (e) {
-        reset_css_classes(e);
-        document.querySelector('.reset-text').textContent = "Reset Week's Analytics";
-        
-        let endDate = new Date();
-        endDate.setHours(23, 59, 59, 999);
-        let startDate = new Date();
-        startDate.setDate(startDate.getDate() - 6);
-        startDate.setHours(0, 0, 0, 0);
-
-        chart.zoomX(
-            startDate.getTime(),
-            endDate.getTime()
-        );
-    });
-
-    // Last 1 Month filter
-    document.querySelector('.last_1_month').addEventListener('click', function (e) {
-        reset_css_classes(e);
-        document.querySelector('.reset-text').textContent = "Reset Month's Analytics";
-        
-        let endDate = new Date();
-        endDate.setHours(23, 59, 59, 999);
-        let startDate = new Date();
-        startDate.setMonth(startDate.getMonth() - 1);
-        startDate.setHours(0, 0, 0, 0);
-
-        chart.zoomX(
-            startDate.getTime(),
-            endDate.getTime()
-        );
-    });
-
-    // Last 1 Year filter
-    document.querySelector('.last_1_year').addEventListener('click', function (e) {
-        reset_css_classes(e);
-        document.querySelector('.reset-text').textContent = "Reset Year's Analytics";
-        
-        let endDate = new Date();
-        endDate.setHours(23, 59, 59, 999);
-        let startDate = new Date();
-        startDate.setFullYear(startDate.getFullYear() - 1);
-        startDate.setHours(0, 0, 0, 0);
-
-        chart.zoomX(
-            startDate.getTime(),
-            endDate.getTime()
-        );
+    // Filter button click handlers
+    document.querySelectorAll('.date-filter').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            let filterName = this.getAttribute('data-filter');
+            applyFilter(filterName);
+        });
     });
 
     // Reset analytics functionality
