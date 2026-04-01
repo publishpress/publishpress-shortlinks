@@ -22,6 +22,13 @@ if (! class_exists('TINYPRESS_Redirection')) {
         protected static $_instance = null;
 
         /**
+         * Flag to prevent redirection_controller from running twice
+         *
+         * @var bool
+         */
+        private $redirection_done = false;
+
+        /**
          * TINYPRESS_Redirection constructor.
          */
         public function __construct()
@@ -30,7 +37,9 @@ if (! class_exists('TINYPRESS_Redirection')) {
             add_filter('pre_handle_404', array( $this, 'prevent_shortlink_404' ), 10, 2);
 
             // RankMath compatibility
+            add_filter('rank_math/redirection/pre_search', array( $this, 'rankmath_pre_search_bypass' ), 10, 3);
             add_filter('rank_math/redirection/fallback_exclude_locations', array( $this, 'rankmath_exclude_shortlinks' ), 10, 1);
+            add_action('wp', array( $this, 'redirection_controller' ), 5);
             // Yoast SEO compatibility
             add_filter('wpseo_redirect_bypass_redirect', array( $this, 'yoast_bypass_shortlink_redirect' ), 10, 1);
             // Redirection plugin compatibility
@@ -661,6 +670,9 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
             }
 
+            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- sanitized with sanitize_text_field below
+            $location_info['user_agent'] = isset($_SERVER['HTTP_USER_AGENT']) ? sanitize_text_field(wp_unslash($_SERVER['HTTP_USER_AGENT'])) : '';
+
             // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery -- Custom table insert for tracking; no caching needed for write operations
             $wpdb->insert(
                 TINYPRESS_TABLE_REPORTS,
@@ -841,6 +853,14 @@ if (! class_exists('TINYPRESS_Redirection')) {
          */
         public function redirection_controller()
         {
+            // Guard: only run once
+            if ($this->redirection_done) {
+                return;
+            }
+
+            if (is_admin()) {
+                return;
+            }
 
             $link_prefix      = Utils::get_option('tinypress_link_prefix');
             $link_prefix_slug = Utils::get_option('tinypress_link_prefix_slug', 'go');
@@ -854,15 +874,15 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
                 
                 global $post;
-                if (!$post) {
-                    return;
+                if ($post) {
+                    $resolved_post_type = get_post_type($post->ID);
+                    if ('tinypress_link' !== $resolved_post_type && 
+                        (!function_exists('rvy_in_revision_workflow') || !rvy_in_revision_workflow($post->ID))) {
+                        return;
+                    }
                 }
-                
-                $resolved_post_type = get_post_type($post->ID);
-                if ('tinypress_link' !== $resolved_post_type && 
-                    (!function_exists('rvy_in_revision_workflow') || !rvy_in_revision_workflow($post->ID))) {
-                    return;
-                }
+                // If $post is null, continue — this is likely a shortlink where
+                // prevent_shortlink_404 cleared the 404 but WP has no real post object.
             }
 
             $tiny_slug_2 = ( '1' == $link_prefix ) ? str_replace($link_prefix_slug . '/', '', $tiny_slug_1) : $tiny_slug_1;
@@ -886,7 +906,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                         $is_shortlink_request = true;
                         $is_definite_shortlink = true;
                     } else {
-                        $is_shortlink_request = is_404();
+                        $is_shortlink_request = is_404() || $this->is_shortlink_request();
                     }
                 }
                 
@@ -895,6 +915,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                         wp_die(esc_html__('This link is not containing the right prefix slug.', 'tinypress'));
                     }
 
+                    $this->redirection_done = true;
                     $this->check_protection($link_id);
                 }
             }
@@ -1031,6 +1052,31 @@ if (! class_exists('TINYPRESS_Redirection')) {
         }
 
         /**
+         * RankMath compatibility: Prevent RankMath's Redirector from matching
+         * shortlink URLs in its redirection database.
+         *
+         * Hooked to 'rank_math/redirection/pre_search'. If the current URI is
+         * a valid shortlink, we return false to signal "no match". RankMath's
+         * pre_filter() treats non-null non-array returns as "no match found",
+         * but from_cache/everything may still match. The primary defense is
+         * running redirection_controller on 'wp' priority 5 (before RankMath's
+         * priority 11), so our wp_redirect+exit fires first.
+         *
+         * @param mixed  $pre      Default null.
+         * @param string $uri      The request URI.
+         * @param string $full_uri The full request URI with query string.
+         * @return mixed
+         */
+        public function rankmath_pre_search_bypass($pre, $uri, $full_uri)
+        {
+            if ($this->is_shortlink_request()) {
+                return false;
+            }
+
+            return $pre;
+        }
+
+        /**
          * RankMath compatibility: Add current shortlink to RankMath's fallback exclusion list.
          * This prevents RankMath from redirecting valid shortlinks to homepage.
          *
@@ -1057,8 +1103,8 @@ if (! class_exists('TINYPRESS_Redirection')) {
          */
         public function prevent_shortlink_404($preempt, $wp_query)
         {
-            if ($this->is_dedicated_shortlink_request()) {
-                // Tell WordPress this is NOT a 404 — we will handle it in template_redirect
+            if ($this->is_shortlink_request()) {
+                // Tell WordPress this is NOT a 404 — we will handle it via redirection_controller
                 $wp_query->is_404 = false;
                 status_header(200);
                 return true;

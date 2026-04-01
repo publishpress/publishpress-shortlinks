@@ -305,7 +305,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                                 'inline'       => true,
                                 'options'      => $user_roles,
                                 'default'      => array( 'administrator', 'editor' ),
-                                'attributes'   => ! defined('PUBLISHPRESS_SHORTLINKS_PRO_VERSION') ? array( 'disabled' => true ) : array(),
+                                'attributes'   => array( 'disabled' => true ),
                             ),
                             array(
                                 'id'           => 'tinypress_role_analytics',
@@ -315,7 +315,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                                 'inline'       => true,
                                 'options'      => $user_roles,
                                 'default'      => array( 'administrator', 'editor' ),
-                                'attributes'   => ! defined('PUBLISHPRESS_SHORTLINKS_PRO_VERSION') ? array( 'disabled' => true ) : array(),
+                                'attributes'   => array( 'disabled' => true ),
                             ),
                             array(
                                 'id'           => 'tinypress_role_edit',
@@ -325,7 +325,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                                 'inline'       => true,
                                 'options'      => $user_roles,
                                 'default'      => array( 'administrator', 'editor' ),
-                                'attributes'   => ! defined('PUBLISHPRESS_SHORTLINKS_PRO_VERSION') ? array( 'disabled' => true ) : array(),
+                                'attributes'   => array( 'disabled' => true ),
                             ),
                         ), $user_roles),
                     ),
@@ -373,7 +373,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                     ),
                     array(
                         'title'  => esc_html__('Expired Links', 'tinypress'),
-                        'fields' => array(
+                        'fields' => apply_filters('tinypress_expired_links_fields', array(
                             array(
                                 'id'          => 'tinypress_expired_redirect_url',
                                 'type'        => 'text',
@@ -382,27 +382,9 @@ if (! class_exists('TINYPRESS_Settings')) {
                                 'desc'        => esc_html__('When a shortlink expires, visitors will be redirected to this URL instead of seeing an error. Leave empty to show the default expiration message.', 'tinypress'),
                                 'placeholder' => esc_html(home_url('/')),
                                 'default'     => '',
-                                'attributes'  => ! defined('PUBLISHPRESS_SHORTLINKS_PRO_VERSION') ? array( 'disabled' => true ) : array(),
+                                'attributes'  => array( 'disabled' => true ),
                             ),
-                            ( defined('PUBLISHPRESS_SHORTLINKS_PRO_VERSION') ?
-                            array(
-                                'id'         => 'tinypress_expired_show_notice',
-                                'type'       => 'switcher',
-                                'title'      => esc_html__('Show Expiration Notice', 'tinypress'),
-                                'label'      => esc_html__('Display a brief notice before redirecting expired links.', 'tinypress'),
-                                'default'    => false,
-                            ) :
-                            array(
-                                'id'      => 'tinypress_expired_show_notice',
-                                'type'    => 'content',
-                                'title'   => esc_html__('Show Expiration Notice', 'tinypress'),
-                                'content' => '<label style="opacity:0.5;pointer-events:none;display:inline-flex;align-items:center;gap:8px;">'
-                                    . '<input type="checkbox" disabled />'
-                                    . esc_html__('Display a brief notice before redirecting expired links.', 'tinypress')
-                                    . '</label>',
-                            )
-                        ),
-                        ),
+                        )),
                     ),
                 ),
             );
