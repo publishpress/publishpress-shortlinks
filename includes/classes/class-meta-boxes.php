@@ -348,52 +348,6 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                     'dependency'   => array( 'enable_expiration', '==', '1' ),
                 ),
             );
-            if (defined('PUBLISHPRESS_SHORTLINKS_PRO_VERSION')) {
-                $security_fields[] = array(
-                    'id'          => 'expired_redirect_url',
-                    'type'        => 'text',
-                    'title'       => esc_html__('Expired Redirect URL', 'tinypress'),
-                    'subtitle'    => esc_html__('Override the global expired redirect for this link.', 'tinypress'),
-                    'desc'        => esc_html__('Leave empty to use the global setting.', 'tinypress'),
-                    'placeholder' => esc_html(home_url('/')),
-                    'dependency'  => array( 'enable_expiration', '==', '1' ),
-                );
-                $security_fields[] = array(
-                    'id'         => 'expired_show_notice',
-                    'type'       => 'switcher',
-                    'title'      => esc_html__('Show Expiration Notice', 'tinypress'),
-                    'label'      => esc_html__('Display a brief notice before redirecting.', 'tinypress'),
-                    'desc'       => esc_html__('Leave off to use the global setting.', 'tinypress'),
-                    'default'    => false,
-                    'dependency' => array( 'enable_expiration', '==', '1' ),
-                );
-            } else {
-                $security_fields[] = array(
-                    'id'         => 'expired_redirect_pro_teaser',
-                    'type'       => 'content',
-                    'title'      => esc_html__('Expired Redirect Settings', 'tinypress'),
-                    'dependency' => array( 'enable_expiration', '==', '1' ),
-                    'content'    => '<div style="opacity:0.5;pointer-events:none;">'
-                        . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Expired Redirect URL', 'tinypress') . '</strong></p>'
-                        . '<input type="text" disabled placeholder="' . esc_attr(home_url('/')) . '" style="width:100%;max-width:400px;" />'
-                        . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Show Expiration Notice', 'tinypress') . '</strong></p>'
-                        . '<label style="display:inline-flex;align-items:center;gap:8px;">'
-                        . '<input type="checkbox" disabled />'
-                        . esc_html__('Display a brief notice before redirecting.', 'tinypress')
-                        . '</label>'
-                        . '</div>'
-                        . '<div class="tinypress-pro-nudge-wrapper" style="margin-top:10px;">'
-                        . '<span class="pp-tooltips-library" data-toggle="tooltip">'
-                        . '<button type="button" class="tinypress-pro-nudge-btn" tabindex="-1">'
-                        . '<span class="dashicons dashicons-lock tinypress-pro-nudge-lock"></span>'
-                        . esc_html__('Pro Feature', 'tinypress')
-                        . '</button>'
-                        . '<span class="tinypress tooltip-text">'
-                        . esc_html__('This feature is available in PublishPress Shortlinks Pro.', 'tinypress')
-                        . '</span></span></div>',
-                );
-            }
-
             $security_fields = apply_filters('tinypress_security_metabox_fields', $security_fields);
 
             WPDK_Settings::createSection(

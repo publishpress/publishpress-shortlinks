@@ -22,6 +22,9 @@ class ShortlinksCoreAdmin
 
             add_action('WPDK_Settings/after_field/field_tinypress_expired_show_notice', [$this, 'render_pro_nudge_expired_links']);
 
+            add_filter('tinypress_expired_links_fields', [$this, 'add_expired_links_teaser_fields']);
+            add_filter('tinypress_security_metabox_fields', [$this, 'add_security_expired_teaser_fields']);
+
             add_action('tinypress_admin_class_before_assets_register', [$this, 'tinypress_load_admin_core_assets']);
             add_action('tinypress_admin_class_after_styles_enqueue', [$this, 'tinypress_load_admin_core_styles']);
 
@@ -54,7 +57,7 @@ class ShortlinksCoreAdmin
     {
         $screen = get_current_screen();
 
-        if (!$screen) {
+        if (! $screen) {
             return;
         }
 
@@ -75,7 +78,7 @@ class ShortlinksCoreAdmin
             }
         }
 
-        if (!$show) {
+        if (! $show) {
             return;
         }
 
@@ -105,21 +108,63 @@ class ShortlinksCoreAdmin
         );
     }
 
+    private function get_pro_nudge_html()
+    {
+        return '<div class="tinypress-pro-nudge-wrapper" style="margin-top:10px;">'
+            . '<span class="pp-tooltips-library" data-toggle="tooltip">'
+            . '<button type="button" class="tinypress-pro-nudge-btn" tabindex="-1">'
+            . '<span class="dashicons dashicons-lock tinypress-pro-nudge-lock"></span>'
+            . esc_html__('Pro Feature', 'tinypress')
+            . '</button>'
+            . '<span class="tinypress tooltip-text">'
+            . esc_html__('This feature is available in PublishPress Shortlinks Pro.', 'tinypress')
+            . '</span></span></div>';
+    }
+
     private function render_pro_nudge()
     {
-        ?>
-        <div class="tinypress-pro-nudge-wrapper">
-            <span class="pp-tooltips-library" data-toggle="tooltip">
-                <button type="button" class="tinypress-pro-nudge-btn" tabindex="-1">
-                    <span class="dashicons dashicons-lock tinypress-pro-nudge-lock"></span>
-                    <?php echo esc_html__('Pro Feature', 'tinypress'); ?>
-                </button>
-                <span class="tinypress tooltip-text">
-                    <?php echo esc_html('This feature is available in PublishPress Shortlinks Pro.', 'tinypress'); ?>
-                </span>
-            </span>
-        </div>
-        <?php
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- HTML built with esc_html__ calls in get_pro_nudge_html
+        echo $this->get_pro_nudge_html();
+    }
+
+    public function add_expired_links_teaser_fields($fields)
+    {
+        $nudge = $this->get_pro_nudge_html();
+
+        $fields[] = array(
+            'id'      => 'tinypress_expired_show_notice',
+            'type'    => 'content',
+            'title'   => esc_html__('Show Expiration Notice', 'tinypress'),
+            'content' => '<div style="opacity:0.5;pointer-events:none;">'
+                . '<label style="display:inline-flex;align-items:center;gap:8px;">'
+                . '<input type="checkbox" disabled />'
+                . esc_html__('Display a brief notice before redirecting expired links.', 'tinypress')
+                . '</label></div>' . $nudge,
+        );
+
+        return $fields;
+    }
+
+    public function add_security_expired_teaser_fields($fields)
+    {
+        $nudge = $this->get_pro_nudge_html();
+
+        $fields[] = array(
+            'id'         => 'expired_redirect_pro_teaser',
+            'type'       => 'content',
+            'title'      => esc_html__('Expired Redirect Settings', 'tinypress'),
+            'dependency' => array( 'enable_expiration', '==', '1' ),
+            'content'    => '<div style="opacity:0.5;pointer-events:none;">'
+                . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Expired Redirect URL', 'tinypress') . '</strong></p>'
+                . '<input type="text" disabled placeholder="' . esc_attr(home_url('/')) . '" style="width:100%;max-width:400px;" />'
+                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Show Expiration Notice', 'tinypress') . '</strong></p>'
+                . '<label style="display:inline-flex;align-items:center;gap:8px;">'
+                . '<input type="checkbox" disabled />'
+                . esc_html__('Display a brief notice before redirecting.', 'tinypress')
+                . '</label></div>' . $nudge,
+        );
+
+        return $fields;
     }
 
     public function render_pro_nudge_create()
@@ -153,7 +198,7 @@ class ShortlinksCoreAdmin
                     <?php echo esc_html__('Pro Feature', 'tinypress'); ?>
                 </button>
                 <span class="tinypress tooltip-text">
-                    <?php echo esc_html('This feature is available in PublishPress Shortlinks Pro.', 'tinypress'); ?>
+                    <?php echo esc_html__('This feature is available in PublishPress Shortlinks Pro.', 'tinypress'); ?>
                 </span>
             </span>
         </div>
@@ -166,7 +211,7 @@ class ShortlinksCoreAdmin
     public function enqueue_teaser_assets()
     {
         $screen = get_current_screen();
-        if (!$screen) {
+        if (! $screen) {
             return;
         }
 

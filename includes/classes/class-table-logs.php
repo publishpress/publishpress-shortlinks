@@ -234,19 +234,58 @@ class WP_List_Table_Logs extends WP_List_Table
 
 
     /**
+     * Parse a user agent string into device type and browser name.
+     *
+     * @param string $user_agent Raw HTTP_USER_AGENT string.
+     * @return array{device: string, browser: string}
+     */
+    private function parse_user_agent($user_agent)
+    {
+        if (empty($user_agent)) {
+            return array( 'device' => '', 'browser' => '' );
+        }
+
+        if (preg_match('/iPad/i', $user_agent)) {
+            $device = esc_html__('Tablet', 'tinypress');
+        } elseif (preg_match('/Mobile|Android|iPhone|Windows Phone/i', $user_agent)) {
+            $device = esc_html__('Mobile', 'tinypress');
+        } else {
+            $device = esc_html__('Desktop', 'tinypress');
+        }
+
+        if (preg_match('/Edg\//i', $user_agent)) {
+            $browser = 'Edge';
+        } elseif (preg_match('/OPR\//i', $user_agent)) {
+            $browser = 'Opera';
+        } elseif (preg_match('/Chrome\//i', $user_agent) && ! preg_match('/Chromium/i', $user_agent)) {
+            $browser = 'Chrome';
+        } elseif (preg_match('/Firefox\//i', $user_agent)) {
+            $browser = 'Firefox';
+        } elseif (preg_match('/Safari\//i', $user_agent)) {
+            $browser = 'Safari';
+        } elseif (preg_match('/MSIE|Trident/i', $user_agent)) {
+            $browser = 'Internet Explorer';
+        } else {
+            $browser = '';
+        }
+
+        return array( 'device' => $device, 'browser' => $browser );
+    }
+
+
+    /**
      * @param $item
      *
      * @return string
      */
     public function column_details($item)
     {
-
-        $user_id            = Utils::get_args_option('user_id', $item);
-        $user_location      = Utils::get_args_option('user_location', $item);
-        $user_location      = json_decode($user_location, true);
-        $user_display_name  = '';
-        $user_visited_time  = Utils::get_args_option('datetime', $item);
-        $user_visited_time  = mysql2date(get_option('date_format') . ', ' . get_option('time_format'), $user_visited_time);
+        $user_id           = Utils::get_args_option('user_id', $item);
+        $user_location     = Utils::get_args_option('user_location', $item);
+        $user_location     = json_decode($user_location, true);
+        $user_display_name = '';
+        $user_visited_time = Utils::get_args_option('datetime', $item);
+        $user_visited_time = mysql2date(get_option('date_format') . ', ' . get_option('time_format'), $user_visited_time);
 
         if (0 != $user_id) {
             $user_obj          = get_user_by('ID', $user_id);
@@ -262,13 +301,36 @@ class WP_List_Table_Logs extends WP_List_Table
             $user_location_name = $geoplugin_continent_name;
         }
 
-        $details_text = '';
-        if (! empty($user_display_name) && ! empty($user_location_name)) {
-            $details_text = sprintf(__('%s from %s visited at %s', 'tinypress'), $user_display_name, $user_location_name, $user_visited_time);
+        if (! empty($user_display_name)) {
+            if (! empty($user_location_name)) {
+                /* translators: 1: user display name, 2: location name, 3: visit date/time */
+                $details_text = sprintf(__('%1$s from %2$s visited at %3$s', 'tinypress'), $user_display_name, $user_location_name, $user_visited_time);
+            } else {
+                /* translators: 1: user display name, 2: visit date/time */
+                $details_text = sprintf(__('%1$s visited at %2$s', 'tinypress'), $user_display_name, $user_visited_time);
+            }
+        } elseif (! empty($user_location_name)) {
+            /* translators: 1: location name, 2: visit date/time */
+            $details_text = sprintf(__('From %1$s, visited at %2$s', 'tinypress'), $user_location_name, $user_visited_time);
         } else {
+            /* translators: %s: visit date/time */
             $details_text = sprintf(__('Visited at %s', 'tinypress'), $user_visited_time);
         }
 
-        return sprintf('<div class="report-details">%s</div>', esc_html($details_text));
+        // Device + browser from stored user agent
+        $device_html = '';
+        $user_agent_str = Utils::get_args_option('user_agent', $user_location);
+        if (! empty($user_agent_str)) {
+            $ua = $this->parse_user_agent($user_agent_str);
+            $ua_label = trim(implode(' ', array_filter( array( $ua['device'], $ua['browser'] ) )));
+            if (! empty($ua_label)) {
+                $device_html = '<span style="display:block;margin-top:3px;font-size:11px;color:#888;">' .
+                    /* translators: %s: device type and browser name, e.g. "Mobile Chrome" */
+                    esc_html(sprintf(__('via %s', 'tinypress'), $ua_label)) .
+                    '</span>';
+            }
+        }
+
+        return sprintf('<div class="report-details">%s%s</div>', esc_html($details_text), $device_html);
     }
 }
