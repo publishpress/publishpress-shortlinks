@@ -107,7 +107,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                 'database'        => 'option',
                 'theme'           => 'light',
                 'show_search'     => false,
-                'pro_url'         => TINYPRESS_LINK_PRO,
+                'pro_url'         => TINYPRESS_LINK_PRO_MENU,
             );
 
             WPDK_Settings::createSettingsPage($tinypress_wpdk->plugin_unique_id, $settings_args, $this->get_settings_pages());

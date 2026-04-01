@@ -74,7 +74,8 @@ if (! defined('TINYPRESS_LOADED')) {
     define('TINYPRESS_PLUGIN_FILE', plugin_basename(__FILE__));
     define('TINYPRESS_TABLE_REPORTS', sprintf('%stinypress_reports', $wpdb->prefix));
     define('TINYPRESS_SERVER', 'https://publishpress.com/');
-    define('TINYPRESS_LINK_PRO', 'https://publishpress.com/shortlinks/');
+    define('TINYPRESS_LINK_PRO_BANNER', 'https://publishpress.com/links/shortlinks-banner');
+    define('TINYPRESS_LINK_PRO_MENU', 'https://publishpress.com/links/shortlinks-menu');
     define('TINYPRESS_LINK_DOC', 'https://publishpress.com/knowledge-base/shortlinks/');
     define('TINYPRESS_LINK_SUPPORT', 'https://publishpress.com/contact/');
     define('TINYPRESS_ABSPATH', __DIR__);
