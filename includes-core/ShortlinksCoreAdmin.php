@@ -82,7 +82,7 @@ class ShortlinksCoreAdmin
             return;
         }
 
-        $upgrade_url = defined('TINYPRESS_LINK_PRO') ? TINYPRESS_LINK_PRO : 'https://publishpress.com/shortlinks/';
+        $upgrade_url = defined('TINYPRESS_LINK_PRO_BANNER') ? TINYPRESS_LINK_PRO_BANNER : 'https://publishpress.com/links/shortlinks-banner';
         $message = esc_html__("You're using PublishPress Shortlinks Free. The Pro version has more features and support. ", 'tinypress');
         $button_text = esc_html__('Upgrade to Pro', 'tinypress');
         ?>
@@ -97,7 +97,7 @@ class ShortlinksCoreAdmin
 
     public function tinypress_add_upgrade_menu_link()
     {
-        $upgrade_url = defined('TINYPRESS_LINK_PRO') ? TINYPRESS_LINK_PRO : 'https://publishpress.com/shortlinks/';
+        $upgrade_url = defined('TINYPRESS_LINK_PRO_MENU') ? TINYPRESS_LINK_PRO_MENU : 'https://publishpress.com/links/shortlinks-menu';
 
         add_submenu_page(
             'edit.php?post_type=tinypress_link',
@@ -245,7 +245,7 @@ class ShortlinksCoreAdmin
      */
     public function render_import_export_teaser()
     {
-        $upgrade_url = defined('TINYPRESS_LINK_PRO') ? TINYPRESS_LINK_PRO : 'https://publishpress.com/shortlinks/';
+        $upgrade_url = defined('TINYPRESS_LINK_PRO_BANNER') ? TINYPRESS_LINK_PRO_BANNER : 'https://publishpress.com/links/shortlinks-banner';
         ?>
         <div class="wrap tinypress-pro-teaser-wrap">
             <h1><?php esc_html_e('Import / Export Shortlinks', 'tinypress'); ?></h1>
