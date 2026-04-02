@@ -48,7 +48,7 @@ class ShortlinksCoreAdmin
 
         wp_add_inline_script('jquery', "
             jQuery(document).ready(function($) {
-                $('#adminmenu a[href*=\"publishpress.com/shortlinks\"]').addClass('tinypress-upgrade-link');
+                $('#adminmenu a[href*=\"publishpress.com/links/shortlinks-menu\"]').addClass('tinypress-upgrade-link');
             });
         ");
     }
