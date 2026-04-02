@@ -1,6 +1,18 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+= [1.5.0] - 06 April, 2026 =
+
+* Fixed: Issue with Target URL characters, #193
+* Fixed: Changelog lacks formatting, #187
+* Fixed: Tooltip on the analytics charts is unclear, #165
+* Fixed: Last 7 Days includes tomorrow, #164
+* Fixed: Primary key for tinypress_reports table?, #163
+* Removed: Remove support box from Pro version, #188
+* Update: Save the analytics tab in memory, #166
+* Update: Make "Last 1 Month" the default in Analytics charts, #153
+* Update: Add tracking to our Pro links #147
+
 = [1.4.1] - 27 March, 2026 =
 
 * Fixed: Unable to activate 1.4.0, #171
