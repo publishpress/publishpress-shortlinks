@@ -31,34 +31,6 @@ if (class_exists('PublishPressInstanceProtection\\Config')) {
     $pluginChecker = new PublishPressInstanceProtection\InstanceChecker($pluginCheckerConfig);
 }
 
-// Conflict detection with old plugin version
-$old_tinypress_active = false;
-$current_plugin_file = function_exists('plugin_basename') ? plugin_basename(__FILE__) : '';
-$old_plugin_file = 'tinypress/tinypress.php';
-
-foreach ((array) get_option('active_plugins') as $plugin_file) {
-    if ($plugin_file === $old_plugin_file && $current_plugin_file !== $old_plugin_file) {
-        $old_tinypress_active = true;
-        break;
-    }
-}
-
-if (! $old_tinypress_active && is_multisite()) {
-    foreach (array_keys((array) get_site_option('active_sitewide_plugins')) as $plugin_file) {
-        if ($plugin_file === $old_plugin_file && $current_plugin_file !== $old_plugin_file) {
-            $old_tinypress_active = true;
-            break;
-        }
-    }
-}
-
-if ($old_tinypress_active) {
-    add_action('admin_notices', function () {
-        echo '<div class="notice notice-error is-dismissible"><p><strong>PublishPress Shortlinks Error:</strong> Both old and new versions are active. Please deactivate and delete the old "tinypress" plugin folder, then reactivate PublishPress Shortlinks.</p></div>';
-    });
-    return;
-}
-
 if (! defined('TINYPRESS_LOADED')) {
     define('TINYPRESS_LOADED', 1);
 
