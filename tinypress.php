@@ -188,15 +188,15 @@ if (! defined('TINYPRESS_LOADED')) {
                 }
 
                 $sql_create_table = "CREATE TABLE " . TINYPRESS_TABLE_REPORTS . " (
-	            id int(50) NOT NULL AUTO_INCREMENT,
-	            user_id varchar(50) NOT NULL,
-	            post_id varchar(50) NOT NULL,
-			    user_ip varchar(255) NOT NULL,
-			    user_location varchar(1024) NOT NULL,
-	            datetime  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            is_cleared TINYINT(1) NOT NULL DEFAULT 0,
-            PRIMARY KEY (id)
-        );";
+  id int(50) NOT NULL AUTO_INCREMENT,
+  user_id varchar(50) NOT NULL,
+  post_id varchar(50) NOT NULL,
+  user_ip varchar(255) NOT NULL,
+  user_location varchar(1024) NOT NULL,
+  datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  is_cleared TINYINT(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY  (id)
+) " . $wpdb->get_charset_collate() . ";";
 
             // Use dbDelta for both table creation and schema updates
                 dbDelta($sql_create_table);
