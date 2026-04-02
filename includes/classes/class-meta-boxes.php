@@ -214,6 +214,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                             'id'         => 'target_url',
                             'type'       => 'text',
                             'title'      => esc_html__('Target URL *', 'tinypress'),
+                            'sanitize'   => 'esc_url_raw',
                             'attributes' => array(
                                 'class' => 'tinypress_tiny_url',
                             ),
