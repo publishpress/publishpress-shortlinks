@@ -275,7 +275,9 @@ class ShortlinksCoreAdmin
                     </div>
                 </div>
                 <div class="tinypress-teaser-sidebar">
-                    <?php include TINYPRESS_PLUGIN_DIR . 'templates/admin/settings/supports.php'; ?>
+                    <?php if (! class_exists('PublishPress_Shortlinks_Pro_Init')) {
+                        include TINYPRESS_PLUGIN_DIR . 'templates/admin/settings/supports.php';
+                    } ?>
                 </div>
             </div>
         </div>
