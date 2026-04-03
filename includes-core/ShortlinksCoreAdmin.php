@@ -129,8 +129,6 @@ class ShortlinksCoreAdmin
 
     public function add_expired_links_teaser_fields($fields)
     {
-        $nudge = $this->get_pro_nudge_html();
-
         $fields[] = array(
             'id'      => 'tinypress_expired_show_notice',
             'type'    => 'content',
@@ -139,7 +137,7 @@ class ShortlinksCoreAdmin
                 . '<label style="display:inline-flex;align-items:center;gap:8px;">'
                 . '<input type="checkbox" disabled />'
                 . esc_html__('Display a brief notice before redirecting expired links.', 'tinypress')
-                . '</label></div>' . $nudge,
+                . '</label></div>',
         );
 
         return $fields;
