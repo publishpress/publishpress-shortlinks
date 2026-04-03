@@ -47,5 +47,6 @@ jobs:
 
       - name: Run Lint check
         run: |
-          composer check:lint
+          composer lint:php
+          composer lint:phpcs
 
