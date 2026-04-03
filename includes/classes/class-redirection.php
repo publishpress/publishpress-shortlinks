@@ -381,12 +381,11 @@ if (! class_exists('TINYPRESS_Redirection')) {
                                     ));
                                 }
                             }
-                                if (! empty($preview_url)) {
-                                    $target_url = add_query_arg('tinypress_visitor', '1', $preview_url);
-                                    $is_revision_redirect = true;
-                                }
+                            if (! empty($preview_url)) {
+                                $target_url = add_query_arg('tinypress_visitor', '1', $preview_url);
+                                $is_revision_redirect = true;
                             }
-                        else {
+                        } else {
                             global $wp_query;
                             $wp_query->set_404();
                             status_header(404);
@@ -670,8 +669,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
             }
 
-            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- sanitized with sanitize_text_field below
-            $location_info['user_agent'] = isset($_SERVER['HTTP_USER_AGENT']) ? sanitize_text_field(wp_unslash($_SERVER['HTTP_USER_AGENT'])) : '';
+            $location_info['user_agent'] = function_exists('wp_get_user_agent') ? sanitize_text_field(wp_get_user_agent()) : '';
 
             // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery -- Custom table insert for tracking; no caching needed for write operations
             $wpdb->insert(
@@ -876,8 +874,10 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 global $post;
                 if ($post) {
                     $resolved_post_type = get_post_type($post->ID);
-                    if ('tinypress_link' !== $resolved_post_type && 
-                        (!function_exists('rvy_in_revision_workflow') || !rvy_in_revision_workflow($post->ID))) {
+                    if (
+                        'tinypress_link' !== $resolved_post_type && 
+                        (!function_exists('rvy_in_revision_workflow') || !rvy_in_revision_workflow($post->ID))
+                    ) {
                         return;
                     }
                 }

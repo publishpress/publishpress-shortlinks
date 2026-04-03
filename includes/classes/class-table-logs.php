@@ -322,7 +322,7 @@ class WP_List_Table_Logs extends WP_List_Table
         $user_agent_str = Utils::get_args_option('user_agent', $user_location);
         if (! empty($user_agent_str)) {
             $ua = $this->parse_user_agent($user_agent_str);
-            $ua_label = trim(implode(' ', array_filter( array( $ua['device'], $ua['browser'] ) )));
+            $ua_label = trim(implode(' ', array_filter(array( $ua['device'], $ua['browser'] ))));
             if (! empty($ua_label)) {
                 $device_html = '<span style="display:block;margin-top:3px;font-size:11px;color:#888;">' .
                     /* translators: %s: device type and browser name, e.g. "Mobile Chrome" */
