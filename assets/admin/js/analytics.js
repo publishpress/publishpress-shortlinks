@@ -34,10 +34,16 @@
         yaxis: {
             min: 0,
             forceNiceScale: true,
+            decimalsInFloat: 0,
         },
         tooltip: {
             x: {
                 format: 'dd MMM yyyy'
+            },
+            y: {
+                formatter: function(value) {
+                    return Math.floor(value);
+                }
             }
         },
         fill: {
