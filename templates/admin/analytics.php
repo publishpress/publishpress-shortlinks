@@ -15,11 +15,26 @@ $reports = $wpdb->get_results($wpdb->prepare("SELECT DATE(datetime) AS DateOnly,
 
 $data  = array();
 
-foreach ($reports as $report) {
-    // Create DateTime object in UTC to avoid timezone issues
-    $date = new DateTime($report['DateOnly'] . ' 12:00:00', new DateTimeZone('UTC'));
-    $timestamp = $date->getTimestamp();
-    $data[] = array( (int) $timestamp * 1000, (int) $report['ClickCount'] );
+if (!empty($reports)) {
+    // Create a map of dates to click counts
+    $clicks_by_date = array();
+    foreach ($reports as $report) {
+        $clicks_by_date[$report['DateOnly']] = (int) $report['ClickCount'];
+    }
+    
+    // Get the first and last dates
+    $first_date = new DateTime($reports[0]['DateOnly'] . ' 12:00:00', new DateTimeZone('UTC'));
+    $last_date = new DateTime($reports[count($reports) - 1]['DateOnly'] . ' 12:00:00', new DateTimeZone('UTC'));
+    
+    // Fill in all dates between first and last with 0 for missing dates
+    $current_date = clone $first_date;
+    while ($current_date <= $last_date) {
+        $date_string = $current_date->format('Y-m-d');
+        $timestamp = $current_date->getTimestamp();
+        $click_count = isset($clicks_by_date[$date_string]) ? $clicks_by_date[$date_string] : 0;
+        $data[] = array( (int) $timestamp * 1000, $click_count );
+        $current_date->modify('+1 day');
+    }
 }
 
 // Enqueue analytics script and pass data
