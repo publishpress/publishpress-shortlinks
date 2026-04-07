@@ -203,6 +203,7 @@ class TINYPRESS_Column_link
                                 'revision-rejected'    => __('Rejected', 'tinypress'),
                             );
                             if (isset($status_labels[ $revision_status ])) {
+                                /* translators: %s: revision status label */
                                 $tooltip_text = esc_html(sprintf(__('Revision: %s', 'tinypress'), $status_labels[ $revision_status ]));
                             }
                         }
@@ -219,6 +220,7 @@ class TINYPRESS_Column_link
                 // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table query; TINYPRESS_TABLE_REPORTS is a safe constant; result varies per post and is not reused
                 $click_count = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id = %d", $post_id));
 
+                /* translators: %s: number of clicks */
                 echo '<div class="click-count">' . esc_html(sprintf(__('Clicked %s times', 'tinypress'), $click_count)) . '</div>';
                 break;
 

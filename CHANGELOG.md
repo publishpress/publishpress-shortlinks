@@ -1,7 +1,7 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-= [1.5.0] - 06 April, 2026 =
+= [1.5.0] - 07 April, 2026 =
 
 * Fixed: Issue with Target URL characters, #193
 * Fixed: Changelog lacks formatting, #187

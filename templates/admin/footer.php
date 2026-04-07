@@ -11,7 +11,10 @@ $rating_star .= '<span class="dashicons dashicons-star-filled"></span>';
             href="//wordpress.org/support/plugin/<?php echo esc_attr($context['plugin_slug']); ?>/reviews/#new-post"
             target="_blank"
             rel="noopener noreferrer">
-            <?php printf(esc_html__('If you like %1$s please leave us a %2$s rating. Thank you!', 'tinypress'), '<strong>' . esc_html($context['plugin_name']) . '</strong>', $rating_star); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $rating_star contains trusted dashicon HTML markup ?>
+            <?php
+            /* translators: %1$s: plugin name, %2$s: star rating icon */
+            printf(esc_html__('If you like %1$s please leave us a %2$s rating. Thank you!', 'tinypress'), '<strong>' . esc_html($context['plugin_name']) . '</strong>', $rating_star); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $rating_star contains trusted dashicon HTML markup
+            ?>
         </a>
     </div>
     <hr>

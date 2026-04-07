@@ -76,6 +76,7 @@ class WP_List_Table_Logs extends WP_List_Table
             $ids = isset($_POST['log']) ? array_map('absint', (array) $_POST['log']) : array();
             $count = count($ids);
             $this->delete_logs_by_ids($ids);
+            /* translators: %d: number of log entries deleted */
             set_transient('tinypress_log_message', array( 'type' => 'error', 'message' => sprintf(__('%d log entries deleted successfully.', 'tinypress'), $count) ), 30);
         } elseif ($action === 'clear_logs') {
             check_admin_referer('tinypress_clear_logs');

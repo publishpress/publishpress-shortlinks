@@ -15,19 +15,38 @@ $reports = $wpdb->get_results($wpdb->prepare("SELECT DATE(datetime) AS DateOnly,
 
 $data  = array();
 
+// Index click counts by date string for gap-filling
+$click_map = array();
 foreach ($reports as $report) {
-    // Create DateTime object in UTC to avoid timezone issues
-    $date = new DateTime($report['DateOnly'] . ' 12:00:00', new DateTimeZone('UTC'));
-    $timestamp = $date->getTimestamp();
-    $data[] = array( (int) $timestamp * 1000, (int) $report['ClickCount'] );
+    $click_map[$report['DateOnly']] = (int) $report['ClickCount'];
+}
+
+// Fill in zero-click days between first click and today
+if (!empty($click_map)) {
+    $start = new DateTime(array_key_first($click_map), new DateTimeZone('UTC'));
+    $end   = new DateTime('now', new DateTimeZone('UTC'));
+
+    $current = clone $start;
+    while ($current <= $end) {
+        $key       = $current->format('Y-m-d');
+        $count     = isset($click_map[$key]) ? $click_map[$key] : 0;
+        $ts        = (new DateTime($key . ' 12:00:00', new DateTimeZone('UTC')))->getTimestamp();
+        $data[]    = array( (int) $ts * 1000, $count );
+        $current->modify('+1 day');
+    }
 }
 
 // Enqueue analytics script and pass data
 wp_enqueue_script('tinypress-analytics');
 wp_localize_script('tinypress-analytics', 'tinypressAnalytics', array(
-    'chartData' => $data,
-    'postId'    => $post_id,
-    'nonce'     => wp_create_nonce('tinypress_reset_analytics_nonce')
+    'chartData'          => $data,
+    'postId'             => $post_id,
+    'nonce'              => wp_create_nonce('tinypress_reset_analytics_nonce'),
+    'resetTodayText'     => esc_html__("Reset Today's Analytics", 'tinypress'),
+    'resetWeekText'      => esc_html__("Reset Week's Analytics", 'tinypress'),
+    'resetMonthText'     => esc_html__("Reset Month's Analytics", 'tinypress'),
+    'resetYearText'      => esc_html__("Reset Year's Analytics", 'tinypress'),
+    'resetConfirmText'  => esc_html__("Are you sure you want to reset the analytics for this period? This action cannot be undone.", 'tinypress'),
 ));
 
 ?>

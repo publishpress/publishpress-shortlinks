@@ -11,336 +11,28 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-26 14:40+0000\n"
-"PO-Revision-Date: 2026-04-02 11:38+0000\n"
+"POT-Creation-Date: 2026-04-03T02:40:43+00:00\n"
+"PO-Revision-Date: 2026-04-07 08:45+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: tinypress\n"
-"Language: ru_RU\n"
 ">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
+"Language: ru_RU\n"
 ">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1: 2);\n"
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1: 2;\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
 
-#: includes/classes/class-autolist-ajax.php:55
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:55
-#, php-format
-msgid "\"%s\" cannot be used for auto-listing"
-msgstr "\"%s\" не может быть использован для автопубликации"
+#: tinypress.php
+#: tinypress.php, fuzzy
+#. Plugin Name of the plugin
+msgid "PublishPress Shortlinks Free"
+msgstr "PublishPress Shortlinks Free"
 
-#: includes/classes/class-autolist-ajax.php:64
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:64
-#, php-format
-msgid "\"%s\" is already configured"
-msgstr "\"%s\" уже настроен"
+#: tinypress.php, fuzzy
+#. Plugin URI of the plugin
+msgid "https://publishpress.com/shortlinks/"
+msgstr "https://publishpress.com/shortlinks/"
 
-#: includes/classes/class-autolist-ajax.php:49
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:49
-#, php-format
-msgid "\"%s\" is not a public post type"
-msgstr "\"%s\" не является публичным типом поста"
-
-#: includes/classes/class-autolist-ajax.php:42
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:42
-#, php-format
-msgid "\"%s\" is not a registered post type"
-msgstr "\"%s\" не зарегистрирован как тип поста"
-
-#: includes/classes/class-table-logs.php:71
-#, fuzzy
-msgid "%d log entries deleted successfully."
-msgstr "Tinyurl успешно создан."
-
-#: includes/classes/class-revision.php:212
-#. %d: number of revision shortlinks migrated
-msgid ""
-"%d revision shortlink(s) were updated with unique links. Previously, these "
-"revisions shared the same shortlink as their parent post."
-msgstr ""
-"%d краткие ссылки на ревизии были обновлены уникальными ссылками. Ранее эти "
-"ревизии использовали ту же краткую ссылку, что и их родительский пост."
-
-#: includes/classes/class-table-logs.php:252
-#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:143
-#, php-format
-msgid "%s from %s visited at %s"
-msgstr "%s от %s посещен в %s"
-
-#: includes/classes/class-meta-boxes.php:299
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:301, fuzzy
-msgid "********"
-msgstr "********"
-
-#: includes/classes/class-meta-boxes.php:254
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:254
-msgid "301 (Permanent)"
-msgstr "301 (Постоянный)"
-
-#: includes/classes/class-meta-boxes.php:253
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:253
-msgid "302 (Temporary)"
-msgstr "302 (Временный)"
-
-#: includes/classes/class-meta-boxes.php:252
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:252
-msgid "307 (Temporary)"
-msgstr "307 (Временный)"
-
-#: templates/admin/footer.php:21
-#: dist/publishpress-shortlinks/templates/admin/footer.php:21
-msgid "About"
-msgstr "О программе"
-
-#: includes/classes/class-hooks.php:432
-#, fuzzy
-msgid "Access Denied"
-msgstr "Доступ запрещён"
-
-#: includes/classes/class-columns-link.php:272
-#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:151
-msgid "Actions"
-msgstr "Действия"
-
-#: includes/classes/class-settings.php:174
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:180
-msgid "Add a prefix between your domain name and shortlink."
-msgstr "Добавьте префикс между вашим доменным именем и краткой ссылкой."
-
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:269
-msgid "Add nofollow attribute."
-msgstr "Добавить атрибут nofollow."
-
-#: includes/classes/class-settings.php:456
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:405
-msgid "Add Post Type"
-msgstr "Добавить тип поста"
-
-#: includes/classes/class-settings.php:267
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:284
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr ""
-"Добавьте типы постов и настройте, когда их короткие ссылки должны "
-"появляться в таблице \"Все ссылки\". Изменения сохраняются автоматически."
-
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:262
-msgid "Add sponsored attribute."
-msgstr "Добавить атрибут спонсорства."
-
-#: includes/classes/class-meta-boxes.php:270
-msgid ""
-"Adds rel=\"nofollow\" attribute. Recommended for external links and "
-"untrusted sources."
-msgstr ""
-"Добавляет атрибут rel=\"nofollow\". Рекомендуется для внешних ссылок и "
-"ненадежных источников."
-
-#: includes/classes/class-meta-boxes.php:263
-msgid ""
-"Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
-"promotions."
-msgstr ""
-"Добавляет атрибут rel=\"sponsored\". Рекомендуется для партнерских ссылок и "
-"платных реклам."
-
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:121
-#: templates/admin/settings/supports.php:25
-msgid "Advanced click analytics"
-msgstr "Расширенная аналитика кликов"
-
-#: includes/classes/class-meta-boxes.php:225
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:225
-msgid "After disabling the link will not active but the settings will be reserved."
-msgstr "После отключения ссылка не будет активной, но настройки будут сохранены."
-
-#: includes/classes/class-hooks.php:246
-#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:172
-msgid "All Logs"
-msgstr "Все журналы"
-
-#: includes/classes/class-table-logs.php:75
-msgid "All logs have been cleared."
-msgstr "Все журналы были очищены."
-
-#: includes/classes/class-hooks.php:184
-#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:117
-#, fuzzy
-msgid "All Shortlinks"
-msgstr "Короткие ссылки"
-
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:277
-msgid "All the parameters will pass to the target link."
-msgstr "Все параметры будут переданы целевой ссылке."
-
-#: includes/classes/class-settings.php:359
-msgid "Allow logged-out visitors to view revision content via shortlinks."
-msgstr ""
-"Разрешить незарегистрированным посетителям просматривать содержимое ревизий "
-"через краткие ссылки."
-
-#: includes/classes/class-settings.php:279
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:296
-msgid "Allowed Post Statuses"
-msgstr "Разрешенные статусы постов"
-
-#: includes/classes/class-meta-boxes.php:341
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:336
-msgid "Analytics"
-msgstr "Аналитика"
-
-#: includes/classes/class-hooks.php:120
-#, fuzzy
-msgid "Analytics reset successfully."
-msgstr "Tinyurl успешно создан."
-
-#: includes/classes/class-meta-boxes.php:278
-msgid ""
-"Any parameters added to the short URL (e.g., ?utm_source=email) will be "
-"forwarded to the target URL."
-msgstr ""
-"Любые параметры, добавленные к короткому URL (например, ?utm_source=email), "
-"будут перенаправлены на целевой URL."
-
-#: includes/classes/class-hooks.php:246
-#, fuzzy
-msgid "Are you sure you want to clear all logs?"
-msgstr "Вы уверены, что хотите удалить этот тип поста?"
-
-#: includes/classes/class-table-logs.php:183
-#, fuzzy
-msgid "Are you sure you want to delete this log entry?"
-msgstr "Вы уверены, что хотите удалить этот тип поста?"
-
-#: includes/classes/class-autolist-ajax.php:271
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:271
-msgid "Are you sure you want to remove this post type?"
-msgstr "Вы уверены, что хотите удалить этот тип поста?"
-
-#: includes/classes/class-settings.php:253
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:270
-#, fuzzy
-msgid "Auto-List Links"
-msgstr "Включить автоматическую расстановку ссылок"
-
-#: includes/classes/class-settings.php:258
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:275
-#, fuzzy
-msgid "Auto-List Shortlinks"
-msgstr "Короткие ссылки"
-
-#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:104
-#, php-format
-msgid "Auto: %s"
-msgstr "Авто: %s"
-
-#: includes-core/ShortlinksCoreAdmin.php:210
-msgid "Bulk Import & Export"
-msgstr "Массовый импорт и экспорт"
-
-#: includes-core/ShortlinksCoreAdmin.php:223
-#, fuzzy
-msgid "Bulk Management"
-msgstr "Управление ролями"
-
-#: includes/classes/class-settings.php:360
-msgid ""
-"By default, PublishPress Revisions blocks visitors from viewing revision "
-"previews. When enabled, revision shortlinks will render the revision "
-"content directly for logged-out visitors instead of redirecting to the "
-"preview URL. This applies to all existing revision shortlinks regardless of "
-"the setting above."
-msgstr ""
-"По умолчанию, PublishPress Revisions блокирует посетителей от просмотра "
-"предварительных версий ревизий. При включении краткие ссылки на ревизии "
-"будут отображать содержимое ревизии напрямую для незарегистрированных "
-"посетителей, вместо перенаправления на URL предварительного просмотра. Это "
-"касается всех существующих кратких ссылок на ревизии, независимо от "
-"вышеуказанной настройки."
-
-#: includes/classes/class-hooks.php:199
-#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:132
-msgid "Categories"
-msgstr "Категории"
-
-#: includes/classes/class-hooks.php:198
-#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:131
-msgid "Category"
-msgstr "Категория"
-
-#: includes/classes/class-settings.php:280
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:297
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Выберите, какие статусы постов могут быть доступны через короткие ссылки"
-
-#: includes/classes/class-hooks.php:246
-#, fuzzy
-msgid "Clear Logs"
-msgstr "Все журналы"
-
-#: includes/classes/class-redirection.php:261
-msgid "Click here if you are not redirected"
-msgstr "Нажмите здесь, если вы не были перенаправлены"
-
-#: templates/admin/settings/browsers.php:8
-#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:8
-msgid "Click on your preferred one to Download the extension."
-msgstr "Нажмите на предпочитаемую, чтобы скачать расширение."
-
-#: includes/classes/class-functions.php:39
-#: dist/publishpress-shortlinks/includes/classes/class-functions.php:39
-msgid "Click to copy"
-msgstr "Нажмите, чтобы скопировать"
-
-#: includes/classes/class-columns-link.php:215
-#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:120
-#, php-format
-msgid "Clicked %s times"
-msgstr "Нажато %s раз"
-
-#: templates/admin-modal-new-link.php:35
-#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:35
-msgid "Close"
-msgstr "Закрыть"
-
-#: includes/classes/class-autolist-ajax.php:120
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:120
-msgid "Configuration saved successfully"
-msgstr "Конфигурация успешно сохранена"
-
-#: includes/classes/class-autolist-ajax.php:111
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:111
-msgid "Configuration unchanged (already saved)"
-msgstr "Конфигурация не изменена (уже сохранена)"
-
-#: includes/classes/class-settings.php:265
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:282
-msgid "Configure Post Types"
-msgstr "Настроить типы постов"
-
-#: templates/admin/footer.php:30
-#: dist/publishpress-shortlinks/templates/admin/footer.php:30
-msgid "Contact"
-msgstr "Контакт"
-
-#: includes/classes/class-settings.php:339
-msgid ""
-"Controls when a companion entry is created in the All Shortlinks table for "
-"revision shortlinks. The shortlink itself is always generated regardless of "
-"this setting."
-msgstr ""
-"Управляет тем, когда создается сопроводительная запись в таблице «Все "
-"краткие ссылки» для кратких ссылок на ревизии. Сама краткая ссылка всегда "
-"генерируется независимо от этой настройки."
-
-#: includes/classes/class-functions.php:46
-#: dist/publishpress-shortlinks/includes/classes/class-functions.php:46
-msgid "Copied"
-msgstr "Скопировано"
-
-#: tinypress.php:259 dist/publishpress-shortlinks/tinypress.php:264
-msgid "Copied."
-msgstr "Скопировано."
-
+#: tinypress.php
 #. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
@@ -350,257 +42,77 @@ msgstr ""
 "брендинговать, отслеживать и устанавливать индивидуальные разрешения на "
 "просмотр."
 
-#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:36
-msgid "Create Short URL"
-msgstr "Создать короткую URL"
+#: tinypress.php, fuzzy
+#. Author of the plugin
+msgid "PublishPress"
+msgstr "PublishPress"
 
-#: templates/admin-modal-new-link.php:36
-#, fuzzy
-msgid "Create Shortlink"
-msgstr "Создать короткую URL"
-
-#: includes/classes/class-settings.php:191
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:197
-#, fuzzy
-msgid "Create shortlinks from anywhere inside your WordPress dashboard."
-msgstr ""
-"Теперь вы можете сокращать ваши длинные ссылки из любого места внутри вашей "
-"панели управления WordPress."
-
-#: includes-core/ShortlinksCoreAdmin.php:215
-msgid "CSV Export"
-msgstr "Экспорт CSV"
-
-#: includes-core/ShortlinksCoreAdmin.php:219
-msgid "CSV Import"
-msgstr "Импорт CSV"
-
-#: includes/classes/class-settings.php:192
-#: includes/classes/class-settings.php:193
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:198
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:199
-msgid "Ctrl or Cmd + /"
-msgstr "Ctrl или Cmd + /"
-
-#: includes/classes/class-settings.php:181
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:187
-msgid "Custom prefix slug."
-msgstr "Пользовательский префикс slug."
-
-#: includes/classes/class-settings.php:300
-msgid "Default Expired Redirect URL"
-msgstr "URL для перенаправления по умолчанию при истечении срока действия"
-
-#: includes/classes/class-columns-link.php:195
-msgid "Deferred"
-msgstr "Отложенный"
-
-#: includes/classes/class-columns-link.php:223
-#: includes/classes/class-table-logs.php:163
-#: includes/classes/class-table-logs.php:183
-#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:128
-msgid "Delete"
-msgstr "Удалить"
-
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:145
-#: templates/admin/settings/supports.php:54
-#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:26
-msgid "Detailed documentation is also available on the plugin website."
-msgstr "Подробная документация также доступна на сайте плагина."
-
-#: includes/classes/class-table-logs.php:152
-#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:81
-msgid "Details"
-msgstr "Детали"
-
-#: includes/classes/class-meta-boxes.php:227
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:227
-msgid "Disable"
-msgstr "Отключить"
-
-#: includes/classes/class-meta-boxes.php:224
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:224
-#, fuzzy
-msgid "Disable the shortlink instantly."
-msgstr "Отключить ссылку мгновенно."
-
-#: includes/classes/class-settings.php:312
-#: includes/classes/class-settings.php:321
-msgid ""
-"Display a brief notice before redirecting expired links (using a JavaScript "
-"redirect with a short delay)."
-msgstr ""
-"Отображать краткое уведомление перед перенаправлением истекших ссылок "
-"(используя JavaScript перенаправление с небольшой задержкой)."
-
-#: includes/classes/class-settings.php:352
-msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
-msgstr ""
-"Отображать столбец кратких ссылок при просмотре ревизий в PublishPress "
-"Revisions."
-
-#: templates/admin/footer.php:26
-#: dist/publishpress-shortlinks/templates/admin/footer.php:26
-msgid "Documentation"
-msgstr "Документация"
-
-#: templates/admin/qr-code.php:15
-#: dist/publishpress-shortlinks/templates/admin/qr-code.php:9
-#, fuzzy
-msgid "Download QR Code"
-msgstr "Скачать QR"
-
-#: templates/admin/settings/browsers.php:15
-#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:15
-msgid "Download the Extension"
-msgstr "Скачать расширение"
-
-#: includes/classes/class-settings.php:285
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:302
-msgid "Draft"
-msgstr "Черновик"
-
-#: includes/classes/class-settings.php:381
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:317
-msgid "Dummy"
-msgstr "Тестовый"
-
-#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:125
-msgid "Earth"
-msgstr "Земля"
-
-#: includes/classes/class-columns-link.php:222
-#: includes/classes/class-table-logs.php:181
-#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:127
-msgid "Edit"
-msgstr "Редактировать"
-
-#: includes/functions.php:153
-#: dist/publishpress-shortlinks/includes/functions.php:153
-msgid "Edit shortlink settings"
-msgstr "Редактировать настройки кратких ссылок"
-
-#: includes/classes/class-meta-boxes.php:226
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:226
-msgid "Enable"
-msgstr "Включить"
-
-#: includes/classes/class-meta-boxes.php:308
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:310
-msgid "Enable Expiration"
-msgstr "Включить истечение срока"
-
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:118
-#: templates/admin/settings/supports.php:22
-msgid "Enhance the power of PublishPress Shortlinks with the Pro version:"
-msgstr "Увеличьте возможности PublishPress Shortlinks с помощью версии Pro:"
-
-#: templates/admin-modal-new-link.php:19
-#, fuzzy
-msgid "Enter a long URL and make a shortlink"
-msgstr "Введите длинный URL и преобразуйте его в короткую версию"
-
-#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:19
-msgid "Enter a long url and make into a tiny version"
-msgstr "Введите длинный URL и преобразуйте его в короткую версию"
-
-#: includes/classes/class-autolist-ajax.php:270
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:270
-msgid "Error"
-msgstr "Ошибка"
-
-#: includes/classes/class-autolist-ajax.php:127
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:127
-#, php-format
-msgid "Error: %s"
-msgstr "Ошибка: %s"
-
-#: includes/classes/class-meta-boxes.php:315
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:317
-msgid "Expiration Date"
-msgstr "Дата истечения срока"
-
-#: includes/classes/class-meta-boxes.php:309
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:311
-msgid "Expire automatically."
-msgstr "Истекать автоматически."
-
-#: includes/classes/class-settings.php:295
-msgid "Expired Links"
-msgstr "Истекшие ссылки"
-
-#: includes/classes/class-columns-link.php:170
-msgid "External"
-msgstr "Внешний"
-
-#: includes/classes/class-hooks.php:122
-msgid "Failed to reset analytics."
-msgstr "Не удалось сбросить аналитику."
-
-#: includes/classes/class-autolist-ajax.php:115
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:115
-msgid "Failed to save configuration to database"
-msgstr "Не удалось сохранить конфигурацию в базе данных"
-
-#: includes/classes/class-meta-boxes.php:198
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:198
-msgid "For admin purpose only."
-msgstr "Только для администраторов."
-
-#: includes/classes/class-meta-boxes.php:191
-#: includes/classes/class-settings.php:165
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:191
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:171
-msgid "General"
-msgstr "Общее"
-
-#: includes/classes/class-settings.php:183
-#: includes/classes/class-settings.php:184
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:189
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:190
-msgid "go"
-msgstr "перейти"
-
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:209
-msgid "Hide quick short link modal opener from WP Admin Bar."
-msgstr "Скрыть модальное окно быстрого короткого ссылки из панели администратора WP."
-
-#: includes/classes/class-settings.php:203, fuzzy
-msgid "Hide the \"Shorten\" button from the WordPress admin bar."
-msgstr "Скрыть кнопку \"Сократить\" в панели администратора WordPress."
-
+#: tinypress.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#. URI of the plugin
-msgid "https://publishpress.com/shortlinks/"
-msgstr "https://publishpress.com/shortlinks/"
-
-#: templates/admin/footer.php:14
-#: dist/publishpress-shortlinks/templates/admin/footer.php:14
-#, php-format
-msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
-msgstr "Если вам нравится %1$s, пожалуйста, оставьте нам оценку %2$s. Спасибо!"
-
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:139
-#: templates/admin/settings/supports.php:47
-#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:19
-msgid "If you need help or have a new feature request, let us know."
+#: includes-core/ShortlinksCoreAdmin.php:86
+msgid ""
+"You're using PublishPress Shortlinks Free. The Pro version has more "
+"features and support. "
 msgstr ""
-"Если вам нужна помощь или у вас есть запрос на новую функцию, дайте нам "
-"знать."
+"Вы используете PublishPress Shortlinks Free. В версии Pro больше функций и "
+"поддержки. "
 
-#: includes-core/ShortlinksCoreAdmin.php:189
-#: includes-core/ShortlinksCoreAdmin.php:190
+#: includes-core/ShortlinksCoreAdmin.php:87
+#: includes-core/ShortlinksCoreAdmin.php:104
+#: includes-core/ShortlinksCoreAdmin.php:105
+#: includes-core/ShortlinksCoreAdmin.php:271
+msgid "Upgrade to Pro"
+msgstr "Обновить до Pro"
+
+#: includes-core/ShortlinksCoreAdmin.php:117
+#: includes-core/ShortlinksCoreAdmin.php:196
+msgid "Pro Feature"
+msgstr "Профессиональная функция"
+
+#: includes-core/ShortlinksCoreAdmin.php:120
+#: includes-core/ShortlinksCoreAdmin.php:199
+msgid "This feature is available in PublishPress Shortlinks Pro."
+msgstr "Эта функция доступна в PublishPress Shortlinks Pro."
+
+#: includes-core/ShortlinksCoreAdmin.php:135
+#: includes-core/ShortlinksCoreAdmin.php:158
+#, fuzzy
+msgid "Show Expiration Notice"
+msgstr "Дата истечения срока"
+
+#: includes-core/ShortlinksCoreAdmin.php:139
+msgid "Display a brief notice before redirecting expired links."
+msgstr "Показать краткое уведомление перед переадресацией истекших ссылок."
+
+#: includes-core/ShortlinksCoreAdmin.php:153
+msgid "Expired Redirect Settings"
+msgstr "Настройки истекшей переадресации"
+
+#: includes-core/ShortlinksCoreAdmin.php:156
+msgid "Expired Redirect URL"
+msgstr "URL истекшей переадресации"
+
+#: includes-core/ShortlinksCoreAdmin.php:161
+msgid "Display a brief notice before redirecting."
+msgstr "Показать краткое уведомление перед переадресацией."
+
+#: includes-core/ShortlinksCoreAdmin.php:233
+#: includes-core/ShortlinksCoreAdmin.php:234
 msgid "Import / Export"
 msgstr "Импорт / Экспорт"
 
-#: includes-core/ShortlinksCoreAdmin.php:205
+#: includes-core/ShortlinksCoreAdmin.php:249
 msgid "Import / Export Shortlinks"
 msgstr "Импорт / Экспорт коротких ссылок"
 
-#: includes-core/ShortlinksCoreAdmin.php:211
+#: includes-core/ShortlinksCoreAdmin.php:254
+msgid "Bulk Import & Export"
+msgstr "Массовый импорт и экспорт"
+
+#: includes-core/ShortlinksCoreAdmin.php:255
 msgid ""
 "Import and export your shortlinks in bulk using CSV files. Migrate from "
 "other plugins or manage links across multiple sites."
@@ -609,662 +121,744 @@ msgstr ""
 "CSV. Переносите данные из других плагинов или управляйте ссылками на "
 "нескольких сайтах."
 
-#: includes/classes/class-columns-link.php:170
-msgid "Internal"
-msgstr "Внутренний"
+#: includes-core/ShortlinksCoreAdmin.php:259
+msgid "CSV Export"
+msgstr "Экспорт CSV"
 
-#: includes/classes/class-autolist-ajax.php:90
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:90
+#: includes-core/ShortlinksCoreAdmin.php:263
+msgid "CSV Import"
+msgstr "Импорт CSV"
+
+#: includes-core/ShortlinksCoreAdmin.php:267
+#, fuzzy
+msgid "Bulk Management"
+msgstr "Управление ролями"
+
+#: includes/classes/class-autolist-ajax.php:39
+#: includes/classes/class-autolist-ajax.php:194
+msgid "Permission denied"
+msgstr "Доступ запрещён"
+
+#: includes/classes/class-autolist-ajax.php:47
+msgid "Post type is required"
+msgstr "Тип сообщения обязателен"
+
+#: includes/classes/class-autolist-ajax.php:52
+#, php-format
+msgid "\"%s\" is not a registered post type"
+msgstr "\"%s\" не зарегистрирован как тип поста"
+
+#: includes/classes/class-autolist-ajax.php:59
+#, php-format
+msgid "\"%s\" is not a public post type"
+msgstr "\"%s\" не является публичным типом поста"
+
+#: includes/classes/class-autolist-ajax.php:65
+#, php-format
+msgid "\"%s\" cannot be used for auto-listing"
+msgstr "\"%s\" не может быть использован для автопубликации"
+
+#: includes/classes/class-autolist-ajax.php:74
+#, php-format
+msgid "\"%s\" is already configured"
+msgstr "\"%s\" уже настроен"
+
+#: includes/classes/class-autolist-ajax.php:80
+#, php-format
+msgid "Valid: %s"
+msgstr "Действительно: %s"
+
+#: includes/classes/class-autolist-ajax.php:94
+msgid "Permission denied - you must be an administrator"
+msgstr "Доступ запрещён - вы должны быть администратором"
+
+#: includes/classes/class-autolist-ajax.php:102
 msgid "Invalid configuration format - expected array"
 msgstr "Неверный формат конфигурации - ожидался массив"
 
-#: includes/classes/class-hooks.php:80
-msgid "Invalid nonce verification."
-msgstr "Неверная проверка nonce."
+#: includes/classes/class-autolist-ajax.php:123
+msgid "Configuration unchanged (already saved)"
+msgstr "Конфигурация не изменена (уже сохранена)"
 
-#: includes/classes/class-hooks.php:56
-#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:45
-msgid "Invalid or empty URL"
-msgstr "Неверный или пустой URL"
+#: includes/classes/class-autolist-ajax.php:127
+msgid "Failed to save configuration to database"
+msgstr "Не удалось сохранить конфигурацию в базе данных"
 
-#: includes/classes/class-autolist.php:109
-#: dist/publishpress-shortlinks/includes/classes/class-autolist.php:103
-msgid "Invalid post ID or post type."
-msgstr "Неверный ID поста или тип поста."
+#: includes/classes/class-autolist-ajax.php:132
+msgid "Configuration saved successfully"
+msgstr "Конфигурация успешно сохранена"
 
-#: includes/classes/class-hooks.php:91
-#, fuzzy
-msgid "Invalid post ID."
-msgstr "Неверный ID поста или тип поста."
-
-#: includes/classes/class-revision.php:379
-msgid "Invalid revision ID."
-msgstr "Неверный ID ревизии."
-
-#: includes/classes/class-meta-boxes.php:316
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:318
-msgid "It will automatically expire."
-msgstr "Он автоматически истечет."
-
-#: includes/classes/class-settings.php:190
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:196
-msgid "Keyboard Shortcut"
-msgstr "Сочетание клавиш"
-
-#: includes/classes/class-meta-boxes.php:196
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:196
-msgid "Label *"
-msgstr "Ярлык *"
-
-#: includes/functions.php:220
-#: dist/publishpress-shortlinks/includes/functions.php:220
+#: includes/classes/class-autolist-ajax.php:138
 #, php-format
-msgid "Link - %s"
-msgstr "Ссылка - %s"
+msgid "Error: %s"
+msgstr "Ошибка: %s"
 
-#: includes/classes/class-redirection.php:246
-#, fuzzy
-msgid "Link Expired"
-msgstr "Заголовок ссылки"
+#: includes/classes/class-autolist-ajax.php:283
+msgid "Validating..."
+msgstr "Валидация..."
 
-#: includes/classes/class-columns-link.php:268
-#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:148
-msgid "Link Title"
-msgstr "Заголовок ссылки"
+#: includes/classes/class-autolist-ajax.php:284
+msgid "Saving..."
+msgstr "Сохранение..."
 
-#: includes/classes/class-columns-link.php:270
-#, fuzzy
-msgid "Link Type"
-msgstr "Заголовок ссылки"
+#: includes/classes/class-autolist-ajax.php:285
+msgid "Saved!"
+msgstr "Сохранено!"
 
-#: includes/classes/class-table-logs.php:62
-#, fuzzy
-msgid "Log entry deleted successfully."
-msgstr "Tinyurl успешно создан."
+#: includes/classes/class-autolist-ajax.php:286
+msgid "Error"
+msgstr "Ошибка"
 
-#: includes/classes/class-hooks.php:221
-#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:154
-msgid "Logs"
-msgstr "Журналы"
+#: includes/classes/class-autolist-ajax.php:287
+msgid "Are you sure you want to remove this post type?"
+msgstr "Вы уверены, что хотите удалить этот тип поста?"
 
-#: templates/admin-modal-new-link.php:24
-#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:24
-msgid "Long URL"
-msgstr "Длинный URL"
+#: includes/classes/class-autolist-ajax.php:288
+msgid "Select a post type"
+msgstr "Выберите тип поста"
 
-#: includes/classes/class-meta-boxes.php:262
-msgid "Mark links as sponsored content."
-msgstr "Пометить ссылки как спонсорский контент."
-
-#: templates/admin/settings/supports.php:42
-#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:14
-msgid "Need PublishPress Shortlinks Support?"
-msgstr "Нужна поддержка PublishPress Shortlinks?"
-
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:134
-#, fuzzy
-msgid "Need Support?"
-msgstr "Запросить поддержку"
-
-#: includes/classes/class-columns-link.php:196
-msgid "Needs work"
-msgstr "Требуется доработка"
-
-#: includes/classes/class-autolist-ajax.php:273
-#: includes/classes/class-settings.php:344
-#: includes/classes/class-settings.php:439
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:273
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:390
+#: includes/classes/class-autolist-ajax.php:289
+#: includes/classes/class-settings.php:407
+#: includes/classes/class-settings.php:503
 msgid "Never"
 msgstr "Никогда"
 
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:124
-#: templates/admin/settings/supports.php:28
-msgid "No ads inside the plugin"
-msgstr "Нет рекламы внутри плагина"
+#: includes/classes/class-autolist-ajax.php:290
+#: includes/classes/class-settings.php:405
+#: includes/classes/class-settings.php:505
+#, fuzzy
+msgid "When Link is First Used"
+msgstr "При первом использовании"
 
-#: includes/classes/class-settings.php:424
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:375
-msgid "No post types configured yet. Click \"Add Post Type\" to get started."
-msgstr ""
-"Пока не настроены типы записей. Нажмите \"Добавить тип записи\", чтобы "
-"начать."
+#: includes/classes/class-autolist-ajax.php:291
+#: includes/classes/class-settings.php:507
+msgid "When Post is Published"
+msgstr "Когда пост опубликован"
 
-#: includes/classes/class-columns-link.php:65
+#: includes/classes/class-autolist-ajax.php:292
+#: includes/classes/class-settings.php:506
+msgid "When Post is Created"
+msgstr "Когда пост создан"
+
+#: includes/classes/class-autolist-ajax.php:293
+#: includes/classes/class-settings.php:504
+msgid "When Link is First Used or Post Created"
+msgstr "Когда ссылка используется впервые или пост создан"
+
+#: includes/classes/class-autolist.php:119
+msgid "Invalid post ID or post type."
+msgstr "Неверный ID поста или тип поста."
+
+#: includes/classes/class-columns-link.php:49
+#: includes/classes/class-columns-link.php:277
+#: includes/classes/class-hooks.php:207
+#: includes/classes/class-table-logs.php:163
+#: templates/admin-modal-new-link.php:29
+#, fuzzy
+msgid "Shortlink"
+msgstr "Короткие ссылки"
+
+#: includes/classes/class-columns-link.php:71
 #, fuzzy
 msgid "No shortlink"
 msgstr "Короткие ссылки"
 
-#: includes/classes/class-meta-boxes.php:268
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:268, fuzzy
-msgid "NoFollow"
-msgstr "NoFollow"
+#: includes/classes/class-columns-link.php:92
+#: includes/classes/class-hooks.php:208
+#: includes/classes/class-hooks.php:210
+#: includes/classes/class-meta-boxes.php:93
+msgid "Shortlinks"
+msgstr "Короткие ссылки"
 
-#: includes/classes/class-columns-link.php:192
+#: includes/classes/class-columns-link.php:176
+msgid "Internal"
+msgstr "Внутренний"
+
+#: includes/classes/class-columns-link.php:176
+msgid "External"
+msgstr "Внешний"
+
+#: includes/classes/class-columns-link.php:177
+msgid "This links to your post"
+msgstr "Эта ссылка ведет на ваш пост"
+
+#: includes/classes/class-columns-link.php:177
+msgid "This links to an external website"
+msgstr "Эта ссылка ведет на внешний веб-сайт"
+
+#: includes/classes/class-columns-link.php:189
+msgid "Revision"
+msgstr "Ревизия"
+
+#: includes/classes/class-columns-link.php:190
+#, fuzzy
+msgid "This links to a revision"
+msgstr "Эта ссылка не активна."
+
+#: includes/classes/class-columns-link.php:198
 msgid "Not yet submitted"
 msgstr "Еще не отправлено"
 
+#: includes/classes/class-columns-link.php:199
+msgid "Submitted for approval"
+msgstr "Отправлено на одобрение"
+
+#: includes/classes/class-columns-link.php:200
+#: includes/classes/class-settings.php:370
+msgid "Scheduled"
+msgstr "Запланировано"
+
+#: includes/classes/class-columns-link.php:201
+msgid "Deferred"
+msgstr "Отложенный"
+
+#: includes/classes/class-columns-link.php:202
+msgid "Needs work"
+msgstr "Требуется доработка"
+
+#: includes/classes/class-columns-link.php:203
+msgid "Rejected"
+msgstr "Отклонено"
+
+#: includes/classes/class-columns-link.php:206
+#, php-format
+msgid "Revision: %s"
+msgstr "Ревизия: %s"
+
+#: includes/classes/class-columns-link.php:222
+#, php-format
+msgid "Clicked %s times"
+msgstr "Нажато %s раз"
+
+#: includes/classes/class-columns-link.php:228
+#: includes/classes/class-table-logs.php:196
+msgid "Edit"
+msgstr "Редактировать"
+
+#: includes/classes/class-columns-link.php:229
+#: includes/classes/class-table-logs.php:177
+#: includes/classes/class-table-logs.php:198
+msgid "Delete"
+msgstr "Удалить"
+
+#: includes/classes/class-columns-link.php:276
+msgid "Link Title"
+msgstr "Заголовок ссылки"
+
+#: includes/classes/class-columns-link.php:278
+#, fuzzy
+msgid "Link Type"
+msgstr "Заголовок ссылки"
+
+#: includes/classes/class-columns-link.php:279
+msgid "Stats"
+msgstr "Статистика"
+
+#: includes/classes/class-columns-link.php:280
+msgid "Actions"
+msgstr "Действия"
+
+#: includes/classes/class-functions.php:43
+msgid "Click to copy"
+msgstr "Нажмите, чтобы скопировать"
+
+#: includes/classes/class-functions.php:51
+msgid "Copied"
+msgstr "Скопировано"
+
+#: includes/classes/class-hooks.php:61
+msgid "Security check failed."
+msgstr "Проверка безопасности не удалась."
+
+#: includes/classes/class-hooks.php:65
+msgid "You do not have permission to create shortlinks."
+msgstr "У вас нет разрешения на создание коротких ссылок."
+
+#: includes/classes/class-hooks.php:72
+msgid "Invalid or empty URL"
+msgstr "Неверный или пустой URL"
+
+#: includes/classes/class-hooks.php:89
+#, fuzzy
+msgid "Shortlink created successfully."
+msgstr "Tinyurl успешно создан."
+
+#: includes/classes/class-hooks.php:98
+msgid "Invalid nonce verification."
+msgstr "Неверная проверка nonce."
+
+#: includes/classes/class-hooks.php:102
+msgid "You do not have permission to reset analytics."
+msgstr "У вас нет разрешения на сброс аналитики."
+
+#: includes/classes/class-hooks.php:109
+#, fuzzy
+msgid "Invalid post ID."
+msgstr "Неверный ID поста или тип поста."
+
+#: includes/classes/class-hooks.php:140
+#, fuzzy
+msgid "Analytics reset successfully."
+msgstr "Tinyurl успешно создан."
+
+#: includes/classes/class-hooks.php:142
+msgid "Failed to reset analytics."
+msgstr "Не удалось сбросить аналитику."
+
+#: includes/classes/class-hooks.php:168
+msgid "Shorten"
+msgstr "Сократить"
+
+#: includes/classes/class-hooks.php:211
+#, fuzzy
+msgid "All Shortlinks"
+msgstr "Короткие ссылки"
+
+#: includes/classes/class-hooks.php:226
+msgid "Category"
+msgstr "Категория"
+
+#: includes/classes/class-hooks.php:227
+msgid "Categories"
+msgstr "Категории"
+
+#: includes/classes/class-hooks.php:253
+#: includes/classes/class-hooks.php:254
+msgid "Logs"
+msgstr "Журналы"
+
+#: includes/classes/class-hooks.php:282
+msgid "All Logs"
+msgstr "Все журналы"
+
+#: includes/classes/class-hooks.php:282
+#, fuzzy
+msgid "Are you sure you want to clear all logs?"
+msgstr "Вы уверены, что хотите удалить этот тип поста?"
+
+#: includes/classes/class-hooks.php:282
+#, fuzzy
+msgid "Clear Logs"
+msgstr "Все журналы"
+
+#: includes/classes/class-hooks.php:503
+msgid "Sorry, you are not allowed to access shortlinks."
+msgstr "Извините, вам не разрешен доступ к коротким ссылкам."
+
+#: includes/classes/class-hooks.php:504
+#: includes/classes/class-hooks.php:525
+#: includes/classes/class-hooks.php:536
+#: includes/classes/class-hooks.php:557
+#, fuzzy
+msgid "Access Denied"
+msgstr "Доступ запрещён"
+
+#: includes/classes/class-hooks.php:524
+msgid "Sorry, you are not allowed to create shortlinks."
+msgstr "Извините, вам не разрешено создавать короткие ссылки."
+
+#: includes/classes/class-hooks.php:535
+msgid "Sorry, you are not allowed to edit shortlinks."
+msgstr "Извините, вам не разрешено редактировать короткие ссылки."
+
+#: includes/classes/class-hooks.php:556
+msgid "Sorry, you are not allowed to access shortlink settings."
+msgstr "Извините, вам не разрешено получать доступ к настройкам коротких ссылок."
+
+#: includes/classes/class-meta-boxes.php:76
+msgid "Side"
+msgstr "Сторона"
+
+#: includes/classes/class-meta-boxes.php:187
+#: tinypress.php:380, fuzzy
+msgid "PublishPress Shortlinks"
+msgstr "PublishPress Shortlinks"
+
+#: includes/classes/class-meta-boxes.php:200
+#: includes/classes/class-settings.php:246
+msgid "General"
+msgstr "Общее"
+
+#: includes/classes/class-meta-boxes.php:205
+msgid "Label *"
+msgstr "Ярлык *"
+
+#: includes/classes/class-meta-boxes.php:207
+msgid "For admin purpose only."
+msgstr "Только для администраторов."
+
+#: includes/classes/class-meta-boxes.php:216
+msgid "Target URL *"
+msgstr "Целевой URL *"
+
+#: includes/classes/class-meta-boxes.php:226
+msgid "Short String *"
+msgstr "Короткая строка *"
+
+#: includes/classes/class-meta-boxes.php:227
+msgid "Short string of this URL."
+msgstr "Короткая строка этого URL."
+
+#: includes/classes/class-meta-boxes.php:233
+msgid "Status"
+msgstr "Статус"
+
 #: includes/classes/class-meta-boxes.php:234
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:234
+#, fuzzy
+msgid "Disable the shortlink instantly."
+msgstr "Отключить ссылку мгновенно."
+
+#: includes/classes/class-meta-boxes.php:235
+msgid "After disabling the link will not active but the settings will be reserved."
+msgstr "После отключения ссылка не будет активной, но настройки будут сохранены."
+
+#: includes/classes/class-meta-boxes.php:236
+msgid "Enable"
+msgstr "Включить"
+
+#: includes/classes/class-meta-boxes.php:237
+msgid "Disable"
+msgstr "Отключить"
+
+#: includes/classes/class-meta-boxes.php:244
 msgid "Notes"
 msgstr "Заметки"
 
-#: includes/classes/class-autolist-ajax.php:274
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:274
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:391
-msgid "On First Use"
-msgstr "При первом использовании"
+#: includes/classes/class-meta-boxes.php:254
+msgid "Redirection"
+msgstr "Перенаправление"
 
-#: includes/classes/class-autolist-ajax.php:275
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:275
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:392
-msgid "On Publish"
-msgstr "При публикации"
+#: includes/classes/class-meta-boxes.php:259
+msgid "Redirection Method"
+msgstr "Метод перенаправления"
 
-#: includes/classes/class-settings.php:244
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:260
-msgid "Only selected user roles can control settings."
-msgstr "Только выбранные роли пользователей могут управлять настройками."
+#: includes/classes/class-meta-boxes.php:260
+msgid "Select redirection method"
+msgstr "Выберите метод перенаправления"
 
-#: includes/classes/class-settings.php:224
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:236
+#: includes/classes/class-meta-boxes.php:261
+msgid "Select a method"
+msgstr "Выберите метод"
+
+#: includes/classes/class-meta-boxes.php:263
+msgid "307 (Temporary)"
+msgstr "307 (Временный)"
+
+#: includes/classes/class-meta-boxes.php:264
+msgid "302 (Temporary)"
+msgstr "302 (Временный)"
+
+#: includes/classes/class-meta-boxes.php:265
+msgid "301 (Permanent)"
+msgstr "301 (Постоянный)"
+
+#: includes/classes/class-meta-boxes.php:272
+msgid "Sponsored"
+msgstr "Спонсируемый"
+
+#: includes/classes/class-meta-boxes.php:273
+msgid "Mark links as sponsored content."
+msgstr "Пометить ссылки как спонсорский контент."
+
+#: includes/classes/class-meta-boxes.php:274
+msgid ""
+"Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
+"promotions."
+msgstr ""
+"Добавляет атрибут rel=\"sponsored\". Рекомендуется для партнерских ссылок и "
+"платных реклам."
+
+#: includes/classes/class-meta-boxes.php:279, fuzzy
+msgid "NoFollow"
+msgstr "NoFollow"
+
+#: includes/classes/class-meta-boxes.php:280
+msgid "Prevent search engines from following this link."
+msgstr "Предотвратить индексацию этой ссылки поисковыми системами."
+
+#: includes/classes/class-meta-boxes.php:281
+msgid ""
+"Adds rel=\"nofollow\" attribute. Recommended for external links and "
+"untrusted sources."
+msgstr ""
+"Добавляет атрибут rel=\"nofollow\". Рекомендуется для внешних ссылок и "
+"ненадежных источников."
+
+#: includes/classes/class-meta-boxes.php:287
+msgid "Parameter Forwarding"
+msgstr "Перенаправление параметров"
+
+#: includes/classes/class-meta-boxes.php:288
+#, fuzzy
+msgid "Pass URL parameters to the target link."
+msgstr "Все параметры будут переданы целевой ссылке."
+
+#: includes/classes/class-meta-boxes.php:289
+msgid ""
+"Any parameters added to the short URL (e.g., ?utm_source=email) will be "
+"forwarded to the target URL."
+msgstr ""
+"Любые параметры, добавленные к короткому URL (например, ?utm_source=email), "
+"будут перенаправлены на целевой URL."
+
+#: includes/classes/class-meta-boxes.php:299
+msgid "Password Protection"
+msgstr "Защита паролем"
+
+#: includes/classes/class-meta-boxes.php:300
+#, fuzzy
+msgid "Secure your shortlink."
+msgstr "Обеспечьте безопасность вашей ссылки."
+
+#: includes/classes/class-meta-boxes.php:301
+msgid "Users must enter the password to redirect to the target link."
+msgstr "Пользователи должны ввести пароль, чтобы перейти по целевой ссылке."
+
+#: includes/classes/class-meta-boxes.php:306
+msgid "Password"
+msgstr "Пароль"
+
+#: includes/classes/class-meta-boxes.php:307
+msgid "Share this with users."
+msgstr "Поделитесь этим с пользователями."
+
+#: includes/classes/class-meta-boxes.php:308
+msgid "Passwords are case sensitive."
+msgstr "Пароли чувствительны к регистру."
+
+#: includes/classes/class-meta-boxes.php:309, fuzzy
+msgid "********"
+msgstr "********"
+
+#: includes/classes/class-meta-boxes.php:318
+msgid "Enable Expiration"
+msgstr "Включить истечение срока"
+
+#: includes/classes/class-meta-boxes.php:319
+msgid "Expire automatically."
+msgstr "Истекать автоматически."
+
+#: includes/classes/class-meta-boxes.php:320
+msgid "Users will not able to redirect to the target URL once expire."
+msgstr "Пользователи не смогут перейти по целевому URL после его истечения."
+
+#: includes/classes/class-meta-boxes.php:325
+msgid "Expiration Date"
+msgstr "Дата истечения срока"
+
+#: includes/classes/class-meta-boxes.php:326
+msgid "Choose the date this link should expire."
+msgstr "Выберите дату, когда эта ссылка должна истечь."
+
+#: includes/classes/class-meta-boxes.php:338
+msgid "Expiration Time"
+msgstr "Время истечения"
+
+#: includes/classes/class-meta-boxes.php:339
+msgid "Choose the time this link should expire."
+msgstr "Выберите время, когда эта ссылка должна истечь."
+
+#: includes/classes/class-meta-boxes.php:340
+msgid "Must be at least 1 minute in the future."
+msgstr "Должно быть как минимум 1 минута в будущем."
+
+#: includes/classes/class-meta-boxes.php:357
+msgid "Security"
+msgstr "Безопасность"
+
+#: includes/classes/class-meta-boxes.php:368
+msgid "Analytics"
+msgstr "Аналитика"
+
+#: includes/classes/class-redirection.php:543
+msgid "Post not found."
+msgstr "Сообщение не найдено."
+
+#: includes/classes/class-redirection.php:585
+#, fuzzy
+msgid "Link Expired"
+msgstr "Заголовок ссылки"
+
+#: includes/classes/class-redirection.php:598
+#, fuzzy
+msgid "This link has expired"
+msgstr "Эта ссылка истекла."
+
+#: includes/classes/class-redirection.php:599
+msgid "You will be redirected shortly."
+msgstr "Вас скоро перенаправят."
+
+#: includes/classes/class-redirection.php:600
+msgid "Click here if you are not redirected"
+msgstr "Нажмите здесь, если вы не были перенаправлены"
+
+#: includes/classes/class-redirection.php:716
+msgid "This link is not active."
+msgstr "Эта ссылка не активна."
+
+#: includes/classes/class-redirection.php:750
+msgid "This link is expired."
+msgstr "Эта ссылка истекла."
+
+#: includes/classes/class-redirection.php:769
+msgid "Incorrect password. Please try again."
+msgstr "Неправильный пароль. Пожалуйста, попробуйте снова."
+
+#: includes/classes/class-redirection.php:784
+#: includes/classes/class-redirection.php:789
+msgid "Password Protected Link"
+msgstr "Пароль защищенная ссылка"
+
+#: includes/classes/class-redirection.php:795
+msgid "Enter password to continue:"
+msgstr "Введите пароль для продолжения:"
+
+#: includes/classes/class-redirection.php:797
+msgid "Submit"
+msgstr "Отправить"
+
+#: includes/classes/class-redirection.php:915
+msgid "This link is not containing the right prefix slug."
+msgstr "Эта ссылка не содержит правильный префикс."
+
+#: includes/classes/class-revision.php:395
+msgid "Invalid revision ID."
+msgstr "Неверный ID ревизии."
+
+#: includes/classes/class-settings.php:102
+msgid "Settings"
+msgstr "Настройки"
+
+#: includes/classes/class-settings.php:152
+msgid "Elementor Detected:"
+msgstr "Обнаружен Elementor:"
+
+#: includes/classes/class-settings.php:153
+msgid ""
+"Shortlink prefix is required for proper rendering of Elementor revisions. "
+"It is advisable to keep it enabled."
+msgstr ""
+"Префикс короткой ссылки необходим для правильного отображения версий "
+"Elementor. Рекомендуется оставить его включенным."
+
+#: includes/classes/class-settings.php:185
+msgid "TinyPress Shortlinks Notice:"
+msgstr "Уведомление о коротких ссылках TinyPress:"
+
+#: includes/classes/class-settings.php:186
+msgid ""
+"Elementor is active. Shortlink prefix has been automatically disabled, it "
+"is required for optimal compatibility with Elementor revisions."
+msgstr ""
+"Elementor активен. Префикс короткой ссылки был автоматически отключен, он "
+"необходим для оптимальной совместимости с версиями Elementor."
+
+#: includes/classes/class-settings.php:249
+msgid "Options"
+msgstr "Настройки"
+
+#: includes/classes/class-settings.php:254
+#, fuzzy
+msgid "Shortlink Prefix"
+msgstr "Префикс ссылки"
+
+#: includes/classes/class-settings.php:255
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "Добавьте префикс между вашим доменным именем и краткой ссылкой."
+
+#: includes/classes/class-settings.php:262
+msgid "Prefix Slug"
+msgstr "Префикс слага"
+
+#: includes/classes/class-settings.php:263
+msgid "Custom prefix slug."
+msgstr "Пользовательский префикс slug."
+
+#: includes/classes/class-settings.php:264
+msgid "This text will be added between your domain name and shortlink."
+msgstr "Этот текст будет добавлен между вашим доменным именем и короткой ссылкой."
+
+#: includes/classes/class-settings.php:265
+#: includes/classes/class-settings.php:266
+msgid "go"
+msgstr "перейти"
+
+#: includes/classes/class-settings.php:272
+msgid "Keyboard Shortcut"
+msgstr "Сочетание клавиш"
+
+#: includes/classes/class-settings.php:273
+#, fuzzy
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
+msgstr ""
+"Теперь вы можете сокращать ваши длинные ссылки из любого места внутри вашей "
+"панели управления WordPress."
+
+#: includes/classes/class-settings.php:274
+#: includes/classes/class-settings.php:275
+msgid "Ctrl or Cmd + /"
+msgstr "Ctrl или Cmd + /"
+
+#: includes/classes/class-settings.php:284
+#, fuzzy
+msgid "Remove from Admin Bar"
+msgstr "Удалить из панели администратора WP"
+
+#: includes/classes/class-settings.php:285
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "Скрыть кнопку \"Сократить\" в панели администратора WordPress."
+
+#: includes/classes/class-settings.php:291
+msgid "Role Management"
+msgstr "Управление ролями"
+
+#: includes/classes/class-settings.php:296
+#, fuzzy
+msgid "Who Can View Shortlinks"
+msgstr "Кто может просматривать ссылки"
+
+#: includes/classes/class-settings.php:297
+msgid "Only selected user roles can view links."
+msgstr "Только выбранные роли пользователей могут просматривать ссылки."
+
+#: includes/classes/class-settings.php:305
+#, fuzzy
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "Кто может создавать/редактировать ссылки"
+
+#: includes/classes/class-settings.php:306
 msgid "Only selected user roles can create or edit links."
 msgstr ""
 "Только выбранные роли пользователей могут создавать или редактировать "
 "ссылки."
 
-#: includes/classes/class-settings.php:234
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:248
+#: includes/classes/class-settings.php:315
+msgid "Who Can See Analytics"
+msgstr "Кто может видеть аналитику"
+
+#: includes/classes/class-settings.php:316
 msgid "Only selected user roles can see analytics."
 msgstr "Только выбранные роли пользователей могут видеть аналитику."
 
-#: includes/classes/class-settings.php:215
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:224
-msgid "Only selected user roles can view links."
-msgstr "Только выбранные роли пользователей могут просматривать ссылки."
+#: includes/classes/class-settings.php:325
+msgid "Who Can Control Settings"
+msgstr "Кто может контролировать настройки"
 
-#: includes/classes/class-settings.php:168
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:174
-msgid "Options"
-msgstr "Настройки"
+#: includes/classes/class-settings.php:326
+msgid "Only selected user roles can control settings."
+msgstr "Только выбранные роли пользователей могут управлять настройками."
 
-#: includes/classes/class-meta-boxes.php:276
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:276
-msgid "Parameter Forwarding"
-msgstr "Перенаправление параметров"
-
-#: includes/classes/class-meta-boxes.php:277
+#: includes/classes/class-settings.php:335
 #, fuzzy
-msgid "Pass URL parameters to the target link."
-msgstr "Все параметры будут переданы целевой ссылке."
+msgid "Auto-List Links"
+msgstr "Включить автоматическую расстановку ссылок"
 
-#: includes/classes/class-meta-boxes.php:296
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:298
-msgid "Password"
-msgstr "Пароль"
-
-#: includes/classes/class-meta-boxes.php:289
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:291
-msgid "Password Protection"
-msgstr "Защита паролем"
-
-#: includes/classes/class-meta-boxes.php:298
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:300
-msgid "Passwords are case sensitive."
-msgstr "Пароли чувствительны к регистру."
-
-#: includes/classes/class-settings.php:286
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:303
-msgid "Pending Review"
-msgstr "Ожидает проверки"
-
-#: includes/classes/class-autolist-ajax.php:30
-#: includes/classes/class-autolist-ajax.php:180
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:30
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:180
-msgid "Permission denied"
-msgstr "Доступ запрещён"
-
-#: includes/classes/class-autolist-ajax.php:83
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:83
-msgid "Permission denied - you must be an administrator"
-msgstr "Доступ запрещён - вы должны быть администратором"
-
-#: includes/classes/class-redirection.php:211
-#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:168
-msgid "Post not found."
-msgstr "Сообщение не найдено."
-
-#: includes/classes/class-settings.php:274
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:291
-msgid "Post Status Visibility"
-msgstr "Видимость статуса сообщения"
-
-#: includes/classes/class-autolist-ajax.php:37
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:37
-msgid "Post type is required"
-msgstr "Тип сообщения обязателен"
-
-#: includes/classes/class-settings.php:180
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:186
-msgid "Prefix Slug"
-msgstr "Префикс слага"
-
-#: includes/classes/class-meta-boxes.php:269
-msgid "Prevent search engines from following this link."
-msgstr "Предотвратить индексацию этой ссылки поисковыми системами."
-
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:123
-#: templates/admin/settings/supports.php:27
-msgid "Priority support"
-msgstr "Приоритетная поддержка"
-
-#: includes/classes/class-settings.php:287
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:304
-msgid "Private"
-msgstr "Частный"
-
-#: includes-core/ShortlinksCoreAdmin.php:114
-#: includes-core/ShortlinksCoreAdmin.php:152
-msgid "Pro Feature"
-msgstr "Профессиональная функция"
-
-#: includes/classes/class-settings.php:284
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:301, fuzzy
-msgid "Published"
-msgstr "Опубликовано"
-
-#. Author of the plugin
-msgid "PublishPress"
-msgstr "PublishPress"
-
-#: tinypress.php:347 dist/publishpress-shortlinks/tinypress.php:341
-#: includes/classes/class-meta-boxes.php:179
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:179, fuzzy
-#. Name of the plugin
-msgid "PublishPress Shortlinks"
-msgstr "PublishPress Shortlinks"
-
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:263
-msgid "Recommended for affiliate links."
-msgstr "Рекомендуется для партнерских ссылок."
-
-#: includes/classes/class-meta-boxes.php:243
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:243
-msgid "Redirection"
-msgstr "Перенаправление"
-
-#: includes/classes/class-meta-boxes.php:248
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:248
-msgid "Redirection Method"
-msgstr "Метод перенаправления"
-
-#: includes/classes/class-columns-link.php:197
-msgid "Rejected"
-msgstr "Отклонено"
-
-#: includes/classes/class-settings.php:202
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:208
+#: includes/classes/class-settings.php:340
 #, fuzzy
-msgid "Remove from Admin Bar"
-msgstr "Удалить из панели администратора WP"
-
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:141
-#: templates/admin/settings/supports.php:49
-#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:21
-msgid "Request Support"
-msgstr "Запросить поддержку"
-
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:120
-#: templates/admin/settings/supports.php:24
-msgid "REST API for creating shortlinks"
-msgstr "REST API для создания коротких ссылок"
-
-#: includes/classes/class-columns-link.php:157
-#: includes/classes/class-table-logs.php:197
-msgid "rev"
-msgstr "рев"
-
-#: includes/classes/class-columns-link.php:183
-msgid "Revision"
-msgstr "Ревизия"
-
-#: includes/classes/class-settings.php:337
-msgid "Revision Link Visibility"
-msgstr "Видимость ссылки на ревизию"
-
-#: includes/classes/class-settings.php:358
-msgid "Revision Visibility for Visitors"
-msgstr "Видимость ревизии для посетителей"
-
-#: includes/classes/class-columns-link.php:200
-#, php-format
-msgid "Revision: %s"
-msgstr "Ревизия: %s"
-
-#: includes/classes/class-settings.php:332
-msgid "Revisions"
-msgstr "Ревизии"
-
-#: includes/classes/class-settings.php:209
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:217
-msgid "Role Management"
-msgstr "Управление ролями"
-
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:122
-#: templates/admin/settings/supports.php:26
-msgid "Role-based access control"
-msgstr "Контроль доступа на основе ролей"
-
-#: includes/classes/class-autolist-ajax.php:269
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:269
-msgid "Saved!"
-msgstr "Сохранено!"
-
-#: includes/classes/class-autolist-ajax.php:268
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:268
-msgid "Saving..."
-msgstr "Сохранение..."
-
-#: includes/classes/class-columns-link.php:194
-#: includes/classes/class-settings.php:288
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:305
-msgid "Scheduled"
-msgstr "Запланировано"
-
-#: includes/classes/class-meta-boxes.php:290
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:292
-#, fuzzy
-msgid "Secure your shortlink."
-msgstr "Обеспечьте безопасность вашей ссылки."
-
-#: includes/classes/class-meta-boxes.php:331
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:286
-msgid "Security"
-msgstr "Безопасность"
-
-#: includes/classes/class-autolist-ajax.php:272
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:272
-msgid "Select a post type"
-msgstr "Выберите тип поста"
-
-#: includes/classes/class-meta-boxes.php:249
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:249
-msgid "Select redirection method"
-msgstr "Выберите метод перенаправления"
-
-#: includes/classes/class-settings.php:281
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:298
-msgid ""
-"Select which post statuses are accessible when visiting a PublishPress "
-"shortlink."
-msgstr ""
-"Выберите, какие статусы постов доступны при посещении короткой ссылки "
-"PublishPress."
-
-#: includes/classes/class-settings.php:266
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:283
-msgid "Set when links should be auto-listed for each post type"
-msgstr ""
-"Установите, когда ссылки должны автоматически отображаться для каждого типа "
-"поста"
-
-#: includes/classes/class-settings.php:91
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:91
-msgid "Settings"
-msgstr "Настройки"
-
-#: includes/classes/class-meta-boxes.php:297
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:299
-msgid "Share this with users."
-msgstr "Поделитесь этим с пользователями."
-
-#: includes/classes/class-meta-boxes.php:216
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:216
-msgid "Short String *"
-msgstr "Короткая строка *"
-
-#: includes/classes/class-meta-boxes.php:217
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:217
-msgid "Short string of this URL."
-msgstr "Короткая строка этого URL."
-
-#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:28
-msgid "Short URL"
-msgstr "Короткий URL"
-
-#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:11
-msgid "Short url will come here"
-msgstr "Короткий url будет здесь"
-
-#: includes/classes/class-hooks.php:146
-#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:79
-msgid "Shorten"
-msgstr "Сократить"
-
-#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:149
-msgid "Shorten Link"
-msgstr "Сократить ссылку"
-
-#: templates/admin-modal-new-link.php:28
-#: includes/classes/class-columns-link.php:44
-#: includes/classes/class-columns-link.php:269
-#: includes/classes/class-table-logs.php:151
-#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:80
-#, fuzzy
-msgid "Shortlink"
+msgid "Auto-List Shortlinks"
 msgstr "Короткие ссылки"
 
-#: includes/classes/class-hooks.php:73
-#, fuzzy
-msgid "Shortlink created successfully."
-msgstr "Tinyurl успешно создан."
-
-#: includes/classes/class-settings.php:173
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:179
-#, fuzzy
-msgid "Shortlink Prefix"
-msgstr "Префикс ссылки"
-
-#: templates/admin-modal-new-link.php:11
-#, fuzzy
-msgid "Shortlink will appear here"
-msgstr "Короткий url будет здесь"
-
-#: includes/classes/class-columns-link.php:86
-#: includes/classes/class-hooks.php:183 includes/classes/class-hooks.php:186
-#: includes/classes/class-meta-boxes.php:88
-#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:38
-#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:116
-#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:119
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:88
-msgid "Shortlinks"
-msgstr "Короткие ссылки"
-
-#: includes/classes/class-settings.php:311
-#: includes/classes/class-settings.php:318
-#, fuzzy
-msgid "Show Expiration Notice"
-msgstr "Дата истечения срока"
-
-#: includes/classes/class-settings.php:351
-msgid "Show Shortlink in Revision Table"
-msgstr "Показать короткую ссылку в таблице ревизий"
-
-#: includes/classes/class-meta-boxes.php:70
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:70
-msgid "Side"
-msgstr "Сторона"
-
-#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:124
-msgid "Someone"
-msgstr "Кто-то"
-
-#: includes/classes/class-hooks.php:431
-msgid "Sorry, you are not allowed to access shortlinks."
-msgstr "Извините, вам не разрешен доступ к коротким ссылкам."
-
-#: includes/classes/class-meta-boxes.php:261
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:261
-msgid "Sponsored"
-msgstr "Спонсируемый"
-
-#: includes/classes/class-columns-link.php:271
-#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:150
-msgid "Stats"
-msgstr "Статистика"
-
-#: includes/classes/class-meta-boxes.php:223
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:223
-msgid "Status"
-msgstr "Статус"
-
-#: includes/classes/class-columns-link.php:193
-msgid "Submitted for approval"
-msgstr "Отправлено на одобрение"
-
-#: includes/classes/class-meta-boxes.php:207
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:207
-msgid "Target URL *"
-msgstr "Целевой URL *"
-
-#: includes/functions.php:198
-#: dist/publishpress-shortlinks/includes/functions.php:198
-msgid "Target url not found."
-msgstr "Целевой URL не найден."
-
-#: includes/classes/class-redirection.php:259
-#, fuzzy
-msgid "This link has expired"
-msgstr "Эта ссылка истекла."
-
-#: includes/classes/class-redirection.php:388
-#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:292
-msgid "This link is expired."
-msgstr "Эта ссылка истекла."
-
-#: includes/classes/class-redirection.php:365
-#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:284
-msgid "This link is not active."
-msgstr "Эта ссылка не активна."
-
-#: includes/classes/class-redirection.php:489
-#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:390
-msgid "This link is not containing the right prefix slug."
-msgstr "Эта ссылка не содержит правильный префикс."
-
-#: includes/classes/class-columns-link.php:184
-#, fuzzy
-msgid "This links to a revision"
-msgstr "Эта ссылка не активна."
-
-#: includes/classes/class-columns-link.php:171
-msgid "This links to an external website"
-msgstr "Эта ссылка ведет на внешний веб-сайт"
-
-#: includes/classes/class-columns-link.php:171
-msgid "This links to your post"
-msgstr "Эта ссылка ведет на ваш пост"
-
-#: tinypress.php:48 dist/publishpress-shortlinks/tinypress.php:52
-msgid "This plugin can be deleted."
-msgstr "Этот плагин можно удалить."
-
-#: includes/classes/class-settings.php:182
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:188
-msgid "This text will be added between your domain name and shortlink."
-msgstr "Этот текст будет добавлен между вашим доменным именем и короткой ссылкой."
-
-#: includes/functions.php:202
-#: dist/publishpress-shortlinks/includes/functions.php:202
-msgid "Tiny slug could not created."
-msgstr "Маленькая ссылка не могла быть создана."
-
-#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:62
-msgid "Tinyurl created successfully."
-msgstr "Tinyurl успешно создан."
-
-#: includes/classes/class-table-logs.php:150
-#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:79
-msgid "Title"
-msgstr "Название"
-
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:223
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:235
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:247
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:259
-msgid "Upcoming feature."
-msgstr "Предстоящая функция."
-
-#: includes-core/ShortlinksCoreAdmin.php:83
-#: includes-core/ShortlinksCoreAdmin.php:100
-#: includes-core/ShortlinksCoreAdmin.php:101
-#: includes-core/ShortlinksCoreAdmin.php:227
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:93
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:94
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:127
-#: templates/admin/settings/supports.php:31
-msgid "Upgrade to Pro"
-msgstr "Обновить до Pro"
-
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:113
-#: templates/admin/settings/supports.php:17
-#, fuzzy
-msgid "Upgrade to PublishPress Shortlinks Pro"
-msgstr "PublishPress Shortlinks"
-
-#: includes/classes/class-meta-boxes.php:291
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:293
-msgid "Users must enter the password to redirect to the target link."
-msgstr "Пользователи должны ввести пароль, чтобы перейти по целевой ссылке."
-
-#: includes/classes/class-meta-boxes.php:310
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:312
-msgid "Users will not able to redirect to the target URL once expire."
-msgstr "Пользователи не смогут перейти по целевому URL после его истечения."
-
-#: includes/classes/class-autolist-ajax.php:70
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:70
-#, php-format
-msgid "Valid: %s"
-msgstr "Действительно: %s"
-
-#: includes/classes/class-autolist-ajax.php:267
-#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:267
-msgid "Validating..."
-msgstr "Валидация..."
-
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:147
-#: templates/admin/settings/supports.php:56
-#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:28
-msgid "View Knowledge Base"
-msgstr "Просмотр базы знаний"
-
-#: includes/classes/class-table-logs.php:254
-#, php-format
-msgid "Visited at %s"
-msgstr "%s от %s посещен в %s"
-
-#: templates/admin/settings/browsers.php:7
-#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:7
-msgid "We have developed extensions for the below browsers."
-msgstr "Мы разработали расширения для указанных ниже браузеров."
-
-#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:270
-msgid "We recommended to use this."
-msgstr "Мы рекомендуем использовать это."
-
-#: includes/classes/class-settings.php:302
-msgid ""
-"When a shortlink expires, visitors will be redirected to this URL instead "
-"of seeing an error. Leave empty to show the default expiration message."
-msgstr ""
-"Когда короткая ссылка истекает, посетители будут перенаправлены на этот URL "
-"вместо того, чтобы увидеть ошибку. Оставьте пустым, чтобы показать "
-"сообщение об истечении по умолчанию."
-
-#: includes/classes/class-settings.php:259
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:276
+#: includes/classes/class-settings.php:341
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
@@ -1273,90 +867,410 @@ msgstr ""
 "появятся в таблице \"Все ссылки\" на основе поведения, которое вы настроите "
 "ниже."
 
-#: includes/classes/class-settings.php:342
-#: includes/classes/class-settings.php:441
-#, fuzzy
-msgid "When Link is First Used"
-msgstr "При первом использовании"
+#: includes/classes/class-settings.php:347
+msgid "Configure Post Types"
+msgstr "Настроить типы постов"
 
-#: includes/classes/class-settings.php:440
-msgid "When Link is First Used or Post Created"
-msgstr "Когда ссылка используется впервые или пост создан"
-
-#: includes/classes/class-settings.php:442
-msgid "When Post is Created"
-msgstr "Когда пост создан"
-
-#: includes/classes/class-settings.php:443
-msgid "When Post is Published"
-msgstr "Когда пост опубликован"
-
-#: includes/classes/class-settings.php:341
-msgid "When Revision is Created"
-msgstr "Когда ревизия создана"
-
-#: includes/classes/class-settings.php:343
-msgid "When Revision is Created or Link is First Used"
-msgstr "Когда создана ревизия или первый раз используется ссылка"
-
-#: includes/classes/class-settings.php:338
-msgid "When should revision shortlinks appear in the All Shortlinks table?"
+#: includes/classes/class-settings.php:348
+msgid "Set when links should be auto-listed for each post type"
 msgstr ""
-"Когда должны появляться короткие ссылки ревизий в таблице всех коротких "
-"ссылок?"
+"Установите, когда ссылки должны автоматически отображаться для каждого типа "
+"поста"
 
-#: includes/classes/class-settings.php:301
+#: includes/classes/class-settings.php:349
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr ""
+"Добавьте типы постов и настройте, когда их короткие ссылки должны "
+"появляться в таблице \"Все ссылки\". Изменения сохраняются автоматически."
+
+#: includes/classes/class-settings.php:356
+msgid "Post Status Visibility"
+msgstr "Видимость статуса сообщения"
+
+#: includes/classes/class-settings.php:361
+msgid "Allowed Post Statuses"
+msgstr "Разрешенные статусы постов"
+
+#: includes/classes/class-settings.php:362
+msgid "Choose which post statuses can be accessed via shortlinks"
+msgstr "Выберите, какие статусы постов могут быть доступны через короткие ссылки"
+
+#: includes/classes/class-settings.php:363
+msgid ""
+"Select which post statuses are accessible when visiting a PublishPress "
+"shortlink."
+msgstr ""
+"Выберите, какие статусы постов доступны при посещении короткой ссылки "
+"PublishPress."
+
+#: includes/classes/class-settings.php:366
+msgid "Published"
+msgstr "Опубликовано"
+
+#: includes/classes/class-settings.php:367
+msgid "Draft"
+msgstr "Черновик"
+
+#: includes/classes/class-settings.php:368
+msgid "Pending Review"
+msgstr "Ожидает проверки"
+
+#: includes/classes/class-settings.php:369
+msgid "Private"
+msgstr "Частный"
+
+#: includes/classes/class-settings.php:377
+msgid "Expired Links"
+msgstr "Истекшие ссылки"
+
+#: includes/classes/class-settings.php:382
+msgid "Default Expired Redirect URL"
+msgstr "URL для перенаправления по умолчанию при истечении срока действия"
+
+#: includes/classes/class-settings.php:383
 msgid "Where should expired shortlinks redirect?"
 msgstr "Куда должны перенаправляться истекшие короткие ссылки?"
 
-#: includes/classes/class-settings.php:243
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:258
-msgid "Who Can Control Settings"
-msgstr "Кто может контролировать настройки"
-
-#: includes/classes/class-settings.php:223
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:234
-#, fuzzy
-msgid "Who Can Create/Edit Shortlinks"
-msgstr "Кто может создавать/редактировать ссылки"
-
-#: includes/classes/class-settings.php:233
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:246
-msgid "Who Can See Analytics"
-msgstr "Кто может видеть аналитику"
-
-#: includes/classes/class-settings.php:214
-#: dist/publishpress-shortlinks/includes/classes/class-settings.php:222
-#, fuzzy
-msgid "Who Can View Shortlinks"
-msgstr "Кто может просматривать ссылки"
-
-#: includes/classes/class-hooks.php:45
-msgid "You do not have permission to create shortlinks."
-msgstr "У вас нет разрешения на создание коротких ссылок."
-
-#: includes/classes/class-hooks.php:84
-msgid "You do not have permission to reset analytics."
-msgstr "У вас нет разрешения на сброс аналитики."
-
-#: includes/classes/class-redirection.php:260
-msgid "You will be redirected shortly."
-msgstr "Вас скоро перенаправят."
-
-#: includes-core/ShortlinksCoreAdmin.php:82
+#: includes/classes/class-settings.php:384
 msgid ""
-"You're using PublishPress Shortlinks Free. The Pro version has more "
-"features and support. "
+"When a shortlink expires, visitors will be redirected to this URL instead "
+"of seeing an error. Leave empty to show the default expiration message."
 msgstr ""
-"Вы используете PublishPress Shortlinks Free. В версии Pro больше функций и "
-"поддержки. "
+"Когда короткая ссылка истекает, посетители будут перенаправлены на этот URL "
+"вместо того, чтобы увидеть ошибку. Оставьте пустым, чтобы показать "
+"сообщение об истечении по умолчанию."
 
-#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:74
-#. %1$s: opening link tag, %2$s: closing link tag
+#: includes/classes/class-settings.php:396
+msgid "Revisions"
+msgstr "Ревизии"
+
+#: includes/classes/class-settings.php:401
+msgid "Revision Link Visibility"
+msgstr "Видимость ссылки на ревизию"
+
+#: includes/classes/class-settings.php:402
+msgid ""
+"When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
+"table based on the behavior you configure below."
+msgstr ""
+"При включении короткие ссылки для версий появятся в таблице \"Все короткие "
+"ссылки\" в зависимости от поведения, которое вы настроите ниже."
+
+#: includes/classes/class-settings.php:404
+msgid "When Revision is Created"
+msgstr "Когда ревизия создана"
+
+#: includes/classes/class-settings.php:406
+msgid "When Revision is Created or Link is First Used"
+msgstr "Когда создана ревизия или первый раз используется ссылка"
+
+#: includes/classes/class-settings.php:414
+msgid "Show Shortlink in Revision Table"
+msgstr "Показать короткую ссылку в таблице ревизий"
+
+#: includes/classes/class-settings.php:415
+msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
+msgstr ""
+"Отображать столбец кратких ссылок при просмотре ревизий в PublishPress "
+"Revisions."
+
+#: includes/classes/class-settings.php:421
+msgid "Revision Visibility for Visitors"
+msgstr "Видимость ревизии для посетителей"
+
+#: includes/classes/class-settings.php:422
+msgid "Allow logged-out visitors to view revision content via shortlinks."
+msgstr ""
+"Разрешить незарегистрированным посетителям просматривать содержимое ревизий "
+"через краткие ссылки."
+
+#: includes/classes/class-settings.php:423
+msgid ""
+"By default, PublishPress Revisions blocks visitors from viewing revision "
+"previews. When enabled, revision shortlinks will render the revision "
+"content directly for logged-out visitors instead of redirecting to the "
+"preview URL."
+msgstr ""
+"По умолчанию PublishPress Revisions блокирует посетителей от просмотра "
+"предварительных версий. При включении короткие ссылки для версий будут "
+"отображать содержимое версии напрямую для незалогиненных посетителей, "
+"вместо перенаправления на URL предварительного просмотра."
+
+#: includes/classes/class-settings.php:444
+msgid "Dummy"
+msgstr "Тестовый"
+
+#: includes/classes/class-settings.php:488
+msgid "No post types configured yet. Click \"Add Post Type\" to get started."
+msgstr ""
+"Пока не настроены типы записей. Нажмите \"Добавить тип записи\", чтобы "
+"начать."
+
+#: includes/classes/class-settings.php:520
+msgid "Add Post Type"
+msgstr "Добавить тип поста"
+
+#: includes/classes/class-table-logs.php:70
+#, fuzzy
+msgid "Log entry deleted successfully."
+msgstr "Tinyurl успешно создан."
+
+#: includes/classes/class-table-logs.php:79
 #, php-format
-msgid ""
-"You're using PublishPress Shortlinks Free. The Pro version has more "
-"features and support. %1$sUpgrade to Pro%2$s"
+msgid "%d log entries deleted successfully."
+msgstr "Tinyurl успешно создан."
+
+#: includes/classes/class-table-logs.php:83
+msgid "All logs have been cleared."
+msgstr "Все журналы были очищены."
+
+#: includes/classes/class-table-logs.php:162
+msgid "Title"
+msgstr "Название"
+
+#: includes/classes/class-table-logs.php:164
+msgid "Details"
+msgstr "Детали"
+
+#: includes/classes/class-table-logs.php:198
+#, fuzzy
+msgid "Are you sure you want to delete this log entry?"
+msgstr "Вы уверены, что хотите удалить этот тип поста?"
+
+#: includes/classes/class-table-logs.php:249
+msgid "Tablet"
+msgstr "Планшет"
+
+#: includes/classes/class-table-logs.php:251
+msgid "Mobile"
+msgstr "Мобильный"
+
+#: includes/classes/class-table-logs.php:253
+msgid "Desktop"
+msgstr "Настольный"
+
+#: includes/classes/class-table-logs.php:307
+#. translators: 1: user display name, 2: location name, 3: visit date/time
+#, php-format
+msgid "%1$s from %2$s visited at %3$s"
+msgstr "%1$s из %2$s посетил в %3$s"
+
+#: includes/classes/class-table-logs.php:310
+#. translators: 1: user display name, 2: visit date/time
+#, php-format
+msgid "%1$s visited at %2$s"
+msgstr "%1$s посетил в %2$s"
+
+#: includes/classes/class-table-logs.php:314
+#. translators: 1: location name, 2: visit date/time
+#, php-format
+msgid "From %1$s, visited at %2$s"
+msgstr "Из %1$s, посетил в %2$s"
+
+#: includes/classes/class-table-logs.php:317
+#. translators: %s: visit date/time
+#, php-format
+msgid "Visited at %s"
+msgstr "%s от %s посещен в %s"
+
+#: includes/classes/class-table-logs.php:329
+#. translators: %s: device type and browser name, e.g. "Mobile Chrome"
+#, php-format
+msgid "via %s"
+msgstr "через %s"
+
+#: includes/functions.php:169
+msgid "Edit shortlink settings"
+msgstr "Редактировать настройки кратких ссылок"
+
+#: includes/functions.php:216
+msgid "Target url not found."
+msgstr "Целевой URL не найден."
+
+#: includes/functions.php:223
+msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
+msgstr "Недопустимая схема URL. Допускаются только http, https, ftp, ftps и mailto."
+
+#: includes/functions.php:229
+msgid "Invalid URL."
+msgstr "Недопустимый URL."
+
+#: includes/functions.php:233
+msgid "Tiny slug could not created."
+msgstr "Маленькая ссылка не могла быть создана."
+
+#: includes/functions.php:251
+#, php-format
+msgid "Link - %s"
+msgstr "Ссылка - %s"
+
+#: templates/admin-modal-new-link.php:12
+#, fuzzy
+msgid "Shortlink will appear here"
+msgstr "Короткий url будет здесь"
+
+#: templates/admin-modal-new-link.php:20
+#, fuzzy
+msgid "Enter a long URL and make a shortlink"
+msgstr "Введите длинный URL и преобразуйте его в короткую версию"
+
+#: templates/admin-modal-new-link.php:25
+msgid "Long URL"
+msgstr "Длинный URL"
+
+#: templates/admin-modal-new-link.php:37
+msgid "Close"
+msgstr "Закрыть"
+
+#: templates/admin-modal-new-link.php:38
+#, fuzzy
+msgid "Create Shortlink"
+msgstr "Создать короткую URL"
+
+#: templates/admin/analytics.php:38
+msgid "Today"
+msgstr "Сегодня"
+
+#: templates/admin/analytics.php:39
+msgid "Last 7 Days"
+msgstr "Последние 7 дней"
+
+#: templates/admin/analytics.php:40
+msgid "Last 1 Month"
+msgstr "Последний 1 месяц"
+
+#: templates/admin/analytics.php:41
+msgid "Last 1 Year"
+msgstr "Последний 1 год"
+
+#: templates/admin/analytics.php:45
+msgid "Reset Today's Analytics"
+msgstr "Сброс аналитики за сегодня"
+
+#: templates/admin/footer.php:14
+#, php-format
+msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
+msgstr "Если вам нравится %1$s, пожалуйста, оставьте нам оценку %2$s. Спасибо!"
+
+#: templates/admin/footer.php:21
+msgid "About"
+msgstr "О программе"
+
+#: templates/admin/footer.php:26
+msgid "Documentation"
+msgstr "Документация"
+
+#: templates/admin/footer.php:30
+msgid "Contact"
+msgstr "Контакт"
+
+#: templates/admin/qr-code.php:16
+#, fuzzy
+msgid "Download QR Code"
+msgstr "Скачать QR"
+
+#: templates/admin/settings/browsers.php:8
+msgid "We have developed extensions for the below browsers."
+msgstr "Мы разработали расширения для указанных ниже браузеров."
+
+#: templates/admin/settings/browsers.php:9
+msgid "Click on your preferred one to Download the extension."
+msgstr "Нажмите на предпочитаемую, чтобы скачать расширение."
+
+#: templates/admin/settings/browsers.php:16
+msgid "Download the Extension"
+msgstr "Скачать расширение"
+
+#: templates/admin/settings/supports.php:17
+msgid "Need PublishPress Shortlinks Support?"
+msgstr "Нужна поддержка PublishPress Shortlinks?"
+
+#: templates/admin/settings/supports.php:22
+msgid "If you need help or have a new feature request, let us know."
 msgstr ""
-"Вы используете PublishPress Shortlinks Free. В версии Pro больше функций и "
-"поддержки. %1$sОбновитесь до Pro%2$s"
+"Если вам нужна помощь или у вас есть запрос на новую функцию, дайте нам "
+"знать."
+
+#: templates/admin/settings/supports.php:24
+msgid "Request Support"
+msgstr "Запросить поддержку"
+
+#: templates/admin/settings/supports.php:29
+msgid "Detailed documentation is also available on the plugin website."
+msgstr "Подробная документация также доступна на сайте плагина."
+
+#: templates/admin/settings/supports.php:31
+msgid "View Knowledge Base"
+msgstr "Просмотр базы знаний"
+
+#: tinypress.php:79
+msgid "This plugin can be deleted."
+msgstr "Этот плагин можно удалить."
+
+#: tinypress.php:287
+msgid "Copied."
+msgstr "Скопировано."
+
+#: includes/wp-dev-kit/classes/class-utils.php
+#, php-format
+msgid "Add %s"
+msgstr "Добавить %s"
+
+#: includes/wp-dev-kit/classes/class-utils.php
+#, php-format
+msgid "Edit %s"
+msgstr "Редактировать %s"
+
+#: includes/wp-dev-kit/classes/class-utils.php
+#, php-format
+msgid "New %s"
+msgstr "Новый %s"
+
+#: includes/wp-dev-kit/classes/class-utils.php
+#, php-format
+msgid "View %s"
+msgstr "Просмотреть %s"
+
+#: includes/wp-dev-kit/classes/class-utils.php
+#, php-format
+msgid "Search %s"
+msgstr "Поиск %s"
+
+#: includes/wp-dev-kit/classes/class-utils.php
+#, php-format
+msgid "No %s found"
+msgstr "Ничего не найдено %s"
+
+#: includes/wp-dev-kit/classes/class-utils.php
+#, php-format
+msgid "No %s found in trash"
+msgstr "Ничего не найдено %s в корзине"
+
+#: includes/wp-dev-kit/classes/class-utils.php
+#, php-format
+msgid "Parent %s"
+msgstr "Родитель %s"
+
+#: includes/wp-dev-kit/classes/class-utils.php
+#, php-format
+msgid "%s Details"
+msgstr "%s Подробности"
+
+#: includes/wp-dev-kit/classes/class-utils.php
+#, php-format
+msgid "This is where you can create and manage %s."
+msgstr "Здесь вы можете создавать и управлять %s."
+
+#: templates/admin/analytics.php
+msgid "Reset Week's Analytics"
+msgstr "Сбросить аналитику недели"
+
+#: templates/admin/analytics.php
+msgid "Reset Month's Analytics"
+msgstr "Сбросить аналитику месяца"
+
+#: templates/admin/analytics.php
+msgid "Reset Year's Analytics"
+msgstr "Сбросить аналитику года"

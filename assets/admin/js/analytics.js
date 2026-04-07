@@ -34,10 +34,21 @@
         yaxis: {
             min: 0,
             forceNiceScale: true,
+            decimalsInFloat: 0,
+            labels: {
+                formatter: function(val) {
+                    return Math.floor(val);
+                }
+            }
         },
         tooltip: {
             x: {
                 format: 'dd MMM yyyy'
+            },
+            y: {
+                formatter: function(value) {
+                    return Math.floor(value);
+                }
             }
         },
         fill: {
@@ -55,25 +66,28 @@
 
     let applyFilter = function (filterName) {
         let endDate = new Date();
-        endDate.setHours(23, 59, 59, 999);
         let startDate = new Date();
         startDate.setHours(0, 0, 0, 0);
-        let resetText = "Reset Today's Analytics";
+        let resetText = tinypressAnalytics.resetTodayText;
 
         switch (filterName) {
             case 'last_7_days':
+                endDate.setHours(23, 59, 59, 999);
                 startDate.setDate(startDate.getDate() - 6);
-                resetText = "Reset Week's Analytics";
+                resetText = tinypressAnalytics.resetWeekText;
                 break;
             case 'last_1_month':
+                endDate.setHours(23, 59, 59, 999);
                 startDate.setMonth(startDate.getMonth() - 1);
-                resetText = "Reset Month's Analytics";
+                resetText = tinypressAnalytics.resetMonthText;
                 break;
             case 'last_1_year':
+                endDate.setHours(23, 59, 59, 999);
                 startDate.setFullYear(startDate.getFullYear() - 1);
-                resetText = "Reset Year's Analytics";
+                resetText = tinypressAnalytics.resetYearText;
                 break;
             default:
+                endDate.setHours(23, 59, 59, 999);
                 filterName = 'today';
                 break;
         }
@@ -125,7 +139,7 @@
     document.querySelector('#reset-analytics').addEventListener('click', function (e) {
         e.preventDefault();
         
-        if (!confirm('Are you sure you want to reset the analytics for this period? This action cannot be undone.')) {
+        if (!confirm(tinypressAnalytics.resetConfirmText)) {
             return;
         }
         

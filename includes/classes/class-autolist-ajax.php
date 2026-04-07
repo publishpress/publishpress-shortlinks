@@ -49,20 +49,23 @@ if (! class_exists('TINYPRESS_Autolist_Ajax')) {
 
             if (! post_type_exists($post_type)) {
                 wp_send_json_error(array( 
-                    'message' => sprintf(__('"%s" is not a registered post type', 'tinypress'), $post_type)
+                    /* translators: %s: post type name */
+                    'message' => sprintf(__('"%%s" is not a registered post type', 'tinypress'), $post_type)
                 ));
             }
 
             $post_type_obj = get_post_type_object($post_type);
             if (! $post_type_obj || ! $post_type_obj->public) {
                 wp_send_json_error(array( 
-                    'message' => sprintf(__('"%s" is not a public post type', 'tinypress'), $post_type)
+                    /* translators: %s: post type name */
+                    'message' => sprintf(__('"%%s" is not a public post type', 'tinypress'), $post_type)
                 ));
             }
 
             if (in_array($post_type, array( 'attachment', 'tinypress_link' ))) {
                 wp_send_json_error(array( 
-                    'message' => sprintf(__('"%s" cannot be used for auto-listing', 'tinypress'), $post_type)
+                    /* translators: %s: post type name */
+                    'message' => sprintf(__('"%%s" cannot be used for auto-listing', 'tinypress'), $post_type)
                 ));
             }
             
@@ -71,13 +74,15 @@ if (! class_exists('TINYPRESS_Autolist_Ajax')) {
             foreach ($existing_config as $index => $config) {
                 if ($index !== $current_index && isset($config['post_type']) && $config['post_type'] === $post_type) {
                     wp_send_json_error(array( 
-                        'message' => sprintf(__('"%s" is already configured', 'tinypress'), $post_type)
+                        /* translators: %s: post type name */
+                        'message' => sprintf(__('"%%s" is already configured', 'tinypress'), $post_type)
                     ));
                 }
             }
             
             wp_send_json_success(array( 
-                'message' => sprintf(__('Valid: %s', 'tinypress'), $post_type_obj->labels->singular_name),
+                /* translators: %s: post type label */
+                'message' => sprintf(__('Valid: %%s', 'tinypress'), $post_type_obj->labels->singular_name),
                 'label' => $post_type_obj->labels->singular_name
             ));
         }
@@ -135,6 +140,7 @@ if (! class_exists('TINYPRESS_Autolist_Ajax')) {
                 ));
             } catch (Exception $e) {
                 wp_send_json_error(array( 
+                    /* translators: %s: error message */
                     'message' => sprintf(__('Error: %s', 'tinypress'), $e->getMessage()),
                     'trace' => $e->getTraceAsString()
                 ));
