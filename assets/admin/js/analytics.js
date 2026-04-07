@@ -61,21 +61,23 @@
 
     let applyFilter = function (filterName) {
         let endDate = new Date();
-        endDate.setHours(23, 59, 59, 999);
         let startDate = new Date();
         startDate.setHours(0, 0, 0, 0);
         let resetText = tinypressAnalytics.resetTodayText;
 
         switch (filterName) {
             case 'last_7_days':
+                endDate.setHours(23, 59, 59, 999);
                 startDate.setDate(startDate.getDate() - 6);
                 resetText = tinypressAnalytics.resetWeekText;
                 break;
             case 'last_1_month':
+                endDate.setHours(23, 59, 59, 999);
                 startDate.setMonth(startDate.getMonth() - 1);
                 resetText = tinypressAnalytics.resetMonthText;
                 break;
             case 'last_1_year':
+                endDate.setHours(23, 59, 59, 999);
                 startDate.setFullYear(startDate.getFullYear() - 1);
                 resetText = tinypressAnalytics.resetYearText;
                 break;
@@ -131,7 +133,7 @@
     document.querySelector('#reset-analytics').addEventListener('click', function (e) {
         e.preventDefault();
         
-        if (!confirm('Are you sure you want to reset the analytics for this period? This action cannot be undone.')) {
+        if (!confirm(tinypressAnalytics.resetConfirmText)) {
             return;
         }
         
