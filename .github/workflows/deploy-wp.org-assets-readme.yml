@@ -27,6 +27,11 @@ jobs:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
 
+      - name: Remove assets from deployment, we can add directly if we need new ones (avoid permission issues)
+        run: |
+          rm -rf $GITHUB_WORKSPACE/.wordpress-org/assets
+          echo "Removed .wordpress-org/assets from deployment"
+
       - name: WordPress.org plugin asset/readme update
         uses: 10up/action-wordpress-plugin-asset-update@stable
         env:
