@@ -602,10 +602,31 @@ if (! class_exists('TINYPRESS_Redirection')) {
          * @param string $redirect_url The URL to redirect to.
          * @return void
          */
-        protected function display_expired_notice_page($redirect_url)
+        protected function display_expired_notice_page($redirect_url, $notice_title = '', $notice_message = '', $cta_text = '')
         {
             status_header(200);
             $safe_url = esc_url($redirect_url);
+
+            if ($notice_title === '') {
+                $notice_title = esc_html__('This link has expired', 'tinypress');
+            }
+
+            if ($notice_message === '') {
+                $notice_message = esc_html__('You will be redirected shortly.', 'tinypress');
+            }
+
+            if ($cta_text === '') {
+                $cta_text = esc_html__('Click here if you are not redirected', 'tinypress');
+            }
+
+            $allowed_html = wp_kses_allowed_html('post');
+            foreach ($allowed_html as $tag => $attrs) {
+                if (! is_array($attrs)) {
+                    $attrs = array();
+                }
+                $attrs['style'] = true;
+                $allowed_html[$tag] = $attrs;
+            }
             ?>
             <!DOCTYPE html>
             <html>
@@ -625,9 +646,9 @@ if (! class_exists('TINYPRESS_Redirection')) {
             </head>
             <body>
                 <div class="notice-box">
-                    <h1><?php esc_html_e('This link has expired', 'tinypress'); ?></h1>
-                    <p><?php esc_html_e('You will be redirected shortly.', 'tinypress'); ?></p>
-                    <a href="<?php echo esc_url($safe_url); ?>"><?php esc_html_e('Click here if you are not redirected', 'tinypress'); ?></a>
+                    <div class="notice-title"><?php echo wp_kses($notice_title, $allowed_html); ?></div>
+                    <div class="notice-message"><?php echo wp_kses($notice_message, $allowed_html); ?></div>
+                    <a href="<?php echo esc_url($safe_url); ?>"><?php echo esc_html($cta_text); ?></a>
                 </div>
             </body>
             </html>
@@ -765,10 +786,21 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
                         if (! empty($expired_redirect_url)) {
                             $per_link_notice = Utils::get_meta('expired_show_notice', $link_id);
-                            $show_notice = ! empty($per_link_notice) ? $per_link_notice : Utils::get_option('tinypress_expired_show_notice', false);
+                            $show_notice = $per_link_notice !== '' ? (bool) $per_link_notice : (bool) Utils::get_option('tinypress_expired_show_notice', false);
 
                             if ($show_notice) {
-                                $this->display_expired_notice_page($expired_redirect_url);
+                                $per_link_message = Utils::get_meta('expired_notice_message', $link_id);
+                                $per_link_title = Utils::get_meta('expired_notice_title', $link_id);
+                                $per_link_cta = Utils::get_meta('expired_notice_cta_text', $link_id);
+                                $global_message = Utils::get_option('tinypress_expired_notice_message', '');
+                                $global_title = Utils::get_option('tinypress_expired_notice_title', '');
+                                $global_cta = Utils::get_option('tinypress_expired_notice_cta_text', '');
+
+                                $notice_message = $per_link_message !== '' ? $per_link_message : $global_message;
+                                $notice_title = $per_link_title !== '' ? $per_link_title : $global_title;
+                                $cta_text = $per_link_cta !== '' ? $per_link_cta : $global_cta;
+
+                                $this->display_expired_notice_page($expired_redirect_url, $notice_title, $notice_message, $cta_text);
                                 die();
                             }
 
