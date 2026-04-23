@@ -7,20 +7,27 @@
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-    Create custom links for your posts. These links are brandable, trackable, and can have custom view permissions.
+    The best link manager . These links are brandable, trackable, and can have custom view permissions.
 
 == Description ==
 
-With PublishPress Shortlinks you can create custom links for your posts and external links. These are not ordinary links! 
+PublishPress Shortlinks is the best link manager available for WordPress. You can create custom links for your posts and external links. These links can have many extra features: 
 
-- Make your links short and memorable.
+- Make your URLs short and memorable.
 - Track who clicks on your links with detailed analytics.
+- Share posts in any status, even unpublished posts in Draft or Pending Review.
 - Control who can visit your links with passwords, expiry dates, and access control.
+- Generate QR codes to easily share your links.
 
 ## How to use PublishPress Shortlinks ##
 
 - **Custom URLs for your posts**. Imagine you're hosting a big event and have a page on your website with all the details. PublishPress Shortlinks allows to create a short, memorable link for the event, for example: https://publishpress.com/go/cool-party. You can track how many people click the link. You can set the link to expire after the event finishes. You can even download a QR code to share on brochures. Oh, because of the next feature, you can do all of this even if you're selling event tickets on another website.
 - **Custom URLs for external links**. Imagine you run a website with toy reviews. You join affiliate programs and make money when people click on your links and buy tools. PublishPress Shortlinks allows to create a short, memorable link for each toy, for example: https://publishpress.com/go/cool-toy. You can track how many people click the link and get a full analytics report on those clicks.
+
+## PublishPress Shortlinks Pro ##
+
+> <strong>Upgrade to Shortlinks Pro</strong><br />
+> This plugin is the free version of the Shortlinks Pro plugin. The Pro version of PublishPress Revisions allows you to control access to editing shortlinks and viewing the click analytics. You can also show a custom message when someone is blocked from accessing a link. And you can import and export links. <a href="https://publishpress.com/shortlinks" title="Shorelines Pro">Click here to purchase the best WordPress link manager now!</a>
 
 
 ## Key Features in PublishPress Shortlinks ##
@@ -93,6 +100,28 @@ PublishPress Shortlinks is ideal for websites that have affiliate links in posts
 
 Click `Ctrl/Cmd + /` anywhere in the WordPress admin area to instantly create shortlinks.
 
+## Join PublishPress and get the Pro plugins ##
+
+The Pro versions of the PublishPress plugins are well worth your investment. The Pro versions have extra features and faster support. [Click here to join PublishPress](https://publishpress.com/pricing/).
+
+Join PublishPress and you'll get access to these Pro plugins:
+
+* [PublishPress Authors Pro](https://publishpress.com/authors) allows you to add multiple authors and guest authors to WordPress posts.
+* [PublishPress Blocks Pro](https://publishpress.com/blocks) has everything you need to build professional websites with the WordPress block editor.
+* [PublishPress Capabilities Pro](https://publishpress.com/capabilities) is the plugin to manage your WordPress user roles, permissions, and capabilities.
+* [PublishPress Checklists Pro](https://publishpress.com/checklists) enables you to define tasks that must be completed before content is published.
+* [PublishPress Future Pro](https://publishpress.com/future)  is the plugin for scheduling changes to your posts.
+* [PublishPress Permissions Pro](https://publishpress.com/permissions)  is the plugin for restricted content and advanced WordPress permissions.
+* [PublishPress Planner Pro](https://publishpress.com/publishpress) is the plugin for managing and scheduling WordPress content.
+* [PublishPress Revisions Pro](https://publishpress.com/revisions) allows you to update your published pages with teamwork and precision.
+* [PublishPress Series Pro](https://publishpress.com/series) enables you to group content together into a series.
+* [PublishPress Shortlinks Pro](https://publishpress.com/shortlinks) allows you to create custom URLs for your posts and external links. 
+* [PublishPress Statuses Pro](https://publishpress.com/statuses) enables you to create additional publishing steps for your posts.
+
+Together, these plugins are a suite of powerful publishing tools for WordPress. If you need to create a professional workflow in WordPress, with moderation, revisions, permissions and more, then you should try PublishPress.
+
+## Bug Reports ## 
+Bug reports for PublishPress Shortlinks are welcomed in our [repository on GitHub](https://github.com/publishpress/publishpress-shortlinks). Please note that GitHub is not a support forum, and that issues that aren't properly qualified as bugs will be closed.
 
 
 == Frequently Asked Questions ==
