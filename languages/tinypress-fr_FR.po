@@ -4,9 +4,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PublishPress Shortlinks 1.2.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
-"POT-Creation-Date: 2026-04-03T02:40:43+00:00\n"
-"PO-Revision-Date: 2026-04-06 19:59+0200\n"
-"Last-Translator: Adesina Adedeji <deji@publishpress.com>\n"
+"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
+"PO-Revision-Date: 2026-04-08 17:08+0000\n"
+"Last-Translator: Angelo Giammarresi <info@wocmultimedia.biz>\n"
 "Language-Team: French <https://weblate.publishpress.com/projects/"
 "publishpress-shortlinks/tinypress/fr/>\n"
 "Language: fr\n"
@@ -14,21 +14,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Weblate 5.14.3\n"
 "X-Domain: tinypress\n"
 
 #. Plugin Name of the plugin
-#. Plugin Name of the plugin
-#. Plugin Name of the plugin
-#. Plugin Name of the plugin
-#. Plugin Name of the plugin
-#. Plugin Name of the plugin
-#: tinypress.php, fuzzy
+#: tinypress.php
 msgid "PublishPress Shortlinks Free"
 msgstr "PublishPress Shortlinks Free"
 
 #. Plugin URI of the plugin
-#: tinypress.php, fuzzy
+#: tinypress.php
 msgid "https://publishpress.com/shortlinks/"
 msgstr "https://publishpress.com/shortlinks/"
 
@@ -43,12 +38,12 @@ msgstr ""
 "visualisation personnalisés."
 
 #. Author of the plugin
-#: tinypress.php, fuzzy
+#: tinypress.php
 msgid "PublishPress"
 msgstr "PublishPress"
 
 #. Author URI of the plugin
-#: tinypress.php, fuzzy
+#: tinypress.php
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
@@ -259,7 +254,7 @@ msgid "No shortlink"
 msgstr "Aucun lien court"
 
 #: includes/classes/class-columns-link.php:92
-#: includes/classes/class-hooks.php:208
+#: includes/classes/class-hooks.php:208 includes/classes/class-hooks.php:210
 #: includes/classes/class-meta-boxes.php:93
 msgid "Shortlinks"
 msgstr "Liens courts"
@@ -346,7 +341,7 @@ msgstr "Type de lien"
 msgid "Stats"
 msgstr "Statistiques"
 
-#: includes/classes/class-columns-link.php:280, fuzzy
+#: includes/classes/class-columns-link.php:280
 msgid "Actions"
 msgstr "Actions"
 
@@ -410,7 +405,7 @@ msgstr "Catégorie"
 msgid "Categories"
 msgstr "Catégories"
 
-#: includes/classes/class-hooks.php:253
+#: includes/classes/class-hooks.php:253 includes/classes/class-hooks.php:254
 msgid "Logs"
 msgstr "Journaux"
 
@@ -430,7 +425,8 @@ msgstr "Effacer les journaux"
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Désolé, vous n’êtes pas autorisé à accéder aux liens courts."
 
-#: includes/classes/class-hooks.php:504 includes/classes/class-hooks.php:536
+#: includes/classes/class-hooks.php:504 includes/classes/class-hooks.php:525
+#: includes/classes/class-hooks.php:536 includes/classes/class-hooks.php:557
 msgid "Access Denied"
 msgstr "Accès refusé"
 
@@ -451,7 +447,7 @@ msgstr ""
 msgid "Side"
 msgstr "Côté"
 
-#: includes/classes/class-meta-boxes.php:187, fuzzy
+#: includes/classes/class-meta-boxes.php:187 tinypress.php:380
 msgid "PublishPress Shortlinks"
 msgstr "PublishPress Shortlinks"
 
@@ -503,11 +499,11 @@ msgstr "Activer"
 msgid "Disable"
 msgstr "Désactiver"
 
-#: includes/classes/class-meta-boxes.php:244, fuzzy
+#: includes/classes/class-meta-boxes.php:244
 msgid "Notes"
 msgstr "Notes"
 
-#: includes/classes/class-meta-boxes.php:254, fuzzy
+#: includes/classes/class-meta-boxes.php:254
 msgid "Redirection"
 msgstr "Redirection"
 
@@ -531,7 +527,7 @@ msgstr "307 (Temporaire)"
 msgid "302 (Temporary)"
 msgstr "302 (Temporaire)"
 
-#: includes/classes/class-meta-boxes.php:265, fuzzy
+#: includes/classes/class-meta-boxes.php:265
 msgid "301 (Permanent)"
 msgstr "301 (Permanent)"
 
@@ -609,7 +605,7 @@ msgstr "Partager ceci avec les utilisateurs/utilisatrices."
 msgid "Passwords are case sensitive."
 msgstr "Les mots de passe sont sensibles à la casse."
 
-#: includes/classes/class-meta-boxes.php:309, fuzzy
+#: includes/classes/class-meta-boxes.php:309
 msgid "********"
 msgstr "********"
 
@@ -737,7 +733,7 @@ msgstr ""
 "désactivé ; il est obligatoire pour une prise en charge optimale des "
 "révisions d’Elementor."
 
-#: includes/classes/class-settings.php:249, fuzzy
+#: includes/classes/class-settings.php:249
 msgid "Options"
 msgstr "Options"
 
@@ -1027,7 +1023,7 @@ msgstr "Confirmez-vous de vouloir supprimer cette entrée de journal ?"
 msgid "Tablet"
 msgstr "Tablette"
 
-#: includes/classes/class-table-logs.php:251, fuzzy
+#: includes/classes/class-table-logs.php:251
 msgid "Mobile"
 msgstr "Mobile"
 
@@ -1039,19 +1035,19 @@ msgstr "Ordinateur"
 #: includes/classes/class-table-logs.php:307
 #, php-format
 msgid "%1$s from %2$s visited at %3$s"
-msgstr "%1$s de %2$s a visité à las %3$s"
+msgstr "%1$s de %2$s a visité à %3$s"
 
 #. translators: 1: user display name, 2: visit date/time
 #: includes/classes/class-table-logs.php:310
 #, php-format
 msgid "%1$s visited at %2$s"
-msgstr "%1$s visité à las %2$s"
+msgstr "%1$s visité à %2$s"
 
 #. translators: 1: location name, 2: visit date/time
 #: includes/classes/class-table-logs.php:314
 #, php-format
 msgid "From %1$s, visited at %2$s"
-msgstr "De %1$s, visité à las %2$s"
+msgstr "Depuis %1$s, visité à %2$s"
 
 #. translators: %s: visit date/time
 #: includes/classes/class-table-logs.php:317
@@ -1061,7 +1057,7 @@ msgstr "Visité à %s"
 
 #. translators: %s: device type and browser name, e.g. "Mobile Chrome"
 #: includes/classes/class-table-logs.php:329
-#, fuzzy, php-format
+#, php-format
 msgid "via %s"
 msgstr "via %s"
 
@@ -1113,25 +1109,45 @@ msgstr "Fermer"
 msgid "Create Shortlink"
 msgstr "Créer le lien court"
 
-#: templates/admin/analytics.php:38
+#: templates/admin/analytics.php:45 templates/admin/analytics.php:64
+msgid "Reset Today's Analytics"
+msgstr "Réinitialiser les statistiques d’aujourd’hui"
+
+#: templates/admin/analytics.php:46
+msgid "Reset Week's Analytics"
+msgstr "Réinitialiser les statistiques de la semaine"
+
+#: templates/admin/analytics.php:47
+msgid "Reset Month's Analytics"
+msgstr "Réinitialiser les statistiques du mois"
+
+#: templates/admin/analytics.php:48
+msgid "Reset Year's Analytics"
+msgstr "Réinitialiser les statistiques de l'année"
+
+#: templates/admin/analytics.php:49
+msgid ""
+"Are you sure you want to reset the analytics for this period? This action "
+"cannot be undone."
+msgstr ""
+"Confirmez-vous de vouloir réinitialiser les statistiques de cette période ? "
+"Cette action ne peut pas être annulée."
+
+#: templates/admin/analytics.php:57
 msgid "Today"
 msgstr "Aujourd’hui"
 
-#: templates/admin/analytics.php:39
+#: templates/admin/analytics.php:58
 msgid "Last 7 Days"
 msgstr "Les 7 derniers jours"
 
-#: templates/admin/analytics.php:40
+#: templates/admin/analytics.php:59
 msgid "Last 1 Month"
 msgstr "Dernier mois"
 
-#: templates/admin/analytics.php:41
+#: templates/admin/analytics.php:60
 msgid "Last 1 Year"
 msgstr "Dernière année"
-
-#: templates/admin/analytics.php:45
-msgid "Reset Today's Analytics"
-msgstr "Réinitialiser les statistiques d’aujourd’hui"
 
 #: templates/admin/footer.php:14
 #, php-format
@@ -1142,7 +1158,7 @@ msgstr "Si vous aimez %1$s veuillez laisser un avis %2$s. Merci !"
 msgid "About"
 msgstr "À propos"
 
-#: templates/admin/footer.php:26, fuzzy
+#: templates/admin/footer.php:26
 msgid "Documentation"
 msgstr "Documentation"
 
@@ -1198,68 +1214,46 @@ msgstr "Cette extension peut être supprimée."
 msgid "Copied."
 msgstr "Copiée."
 
-#: includes/wp-dev-kit/classes/class-utils.php
 #, php-format
-msgid "Add %s"
-msgstr "Ajouter %s"
+#~ msgid "Add %s"
+#~ msgstr "Ajouter %s"
 
-#: includes/wp-dev-kit/classes/class-utils.php
 #, php-format
-msgid "Edit %s"
-msgstr "Modifier %s"
+#~ msgid "Edit %s"
+#~ msgstr "Modifier %s"
 
-#: includes/wp-dev-kit/classes/class-utils.php
 #, php-format
-msgid "New %s"
-msgstr "Nouveau %s"
+#~ msgid "New %s"
+#~ msgstr "Nouveau %s"
 
-#: includes/wp-dev-kit/classes/class-utils.php
 #, php-format
-msgid "View %s"
-msgstr "Afficher %s"
+#~ msgid "View %s"
+#~ msgstr "Afficher %s"
 
-#: includes/wp-dev-kit/classes/class-utils.php
 #, php-format
-msgid "Search %s"
-msgstr "Rechercher %s"
+#~ msgid "Search %s"
+#~ msgstr "Rechercher %s"
 
-#: includes/wp-dev-kit/classes/class-utils.php
 #, php-format
-#| msgid "Post not found."
-msgid "No %s found"
-msgstr "Aucune %s trouvée"
+#~| msgid "Post not found."
+#~ msgid "No %s found"
+#~ msgstr "Aucune %s trouvée"
 
-#: includes/wp-dev-kit/classes/class-utils.php
 #, php-format
-msgid "No %s found in trash"
-msgstr "Aucune %s trouvée dans la corbeille"
+#~ msgid "No %s found in trash"
+#~ msgstr "Aucune %s trouvée dans la corbeille"
 
-#: includes/wp-dev-kit/classes/class-utils.php
 #, fuzzy, php-format
-msgid "Parent %s"
-msgstr "Parent %s"
+#~ msgid "Parent %s"
+#~ msgstr "Parent %s"
 
-#: includes/wp-dev-kit/classes/class-utils.php
 #, php-format
-msgid "%s Details"
-msgstr "Détails de %s"
+#~ msgid "%s Details"
+#~ msgstr "Détails de %s"
 
-#: includes/wp-dev-kit/classes/class-utils.php
 #, php-format
-msgid "This is where you can create and manage %s."
-msgstr "Ici vous pouvez créer e gérer %s."
-
-#: templates/admin/analytics.php
-msgid "Reset Week's Analytics"
-msgstr "Réinitialiser les statistiques de la semaine"
-
-#: templates/admin/analytics.php
-msgid "Reset Month's Analytics"
-msgstr "Réinitialiser les statistiques du mois"
-
-#: templates/admin/analytics.php
-msgid "Reset Year's Analytics"
-msgstr "Réinitialiser les statistiques de l'année"
+#~ msgid "This is where you can create and manage %s."
+#~ msgstr "Ici vous pouvez créer e gérer %s."
 
 #~ msgid ""
 #~ "%d revision shortlink(s) were updated with unique links. Previously, "

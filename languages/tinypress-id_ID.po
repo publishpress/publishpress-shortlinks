@@ -2,26 +2,24 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: PublishPress Shortlinks 1.2.6\n"
+"Project-Id-Version: PublishPress Shortlinks Free 1.5.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Indonesian "
-"<https://weblate.publishpress.com/projects/publishpress-shortlinks/"
-"tinypress/id/>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-03T02:40:43+00:00\n"
-"PO-Revision-Date: 2026-04-07 08:45+0000\n"
-"X-Generator: Weblate 5.14.3\n"
+"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
+"PO-Revision-Date: 2026-04-08 17:09+0000\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Language: id-ID\n"
 
-#: tinypress.php
+#: tinypress.php, fuzzy
 #. Plugin Name of the plugin
 msgid "PublishPress Shortlinks Free"
-msgstr "PublishPress Shortlinks Gratis"
+msgstr "PublishPress Shortlinks Free"
 
 #: tinypress.php, fuzzy
 #. Plugin URI of the plugin
@@ -34,7 +32,7 @@ msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
 "and can have custom view permissions."
 msgstr ""
-"Buat tautan kustom untuk pos Anda. Tautan ini dapat dipersonalisasi, "
+"Buat tautan kustom untuk pos Anda. Tautan ini dapat dipersonalisasi, dapat "
 "dilacak, dan dapat memiliki izin tampilan kustom."
 
 #: tinypress.php, fuzzy
@@ -52,7 +50,7 @@ msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
 msgstr ""
-"Anda menggunakan PublishPress Shortlinks Gratis. Versi Pro memiliki lebih "
+"Anda menggunakan PublishPress Shortlinks Free. Versi Pro memiliki lebih "
 "banyak fitur dan dukungan. "
 
 #: includes-core/ShortlinksCoreAdmin.php:87
@@ -74,21 +72,22 @@ msgstr "Fitur ini tersedia di PublishPress Shortlinks Pro."
 
 #: includes-core/ShortlinksCoreAdmin.php:135
 #: includes-core/ShortlinksCoreAdmin.php:158
-#, fuzzy
 msgid "Show Expiration Notice"
-msgstr "Tanggal Kedaluwarsa"
+msgstr "Tampilkan Pemberitahuan Kadaluarsa"
 
 #: includes-core/ShortlinksCoreAdmin.php:139
 msgid "Display a brief notice before redirecting expired links."
-msgstr "Tampilkan pemberitahuan singkat sebelum mengalihkan tautan yang kedaluwarsa."
+msgstr ""
+"Tampilkan pemberitahuan singkat sebelum mengalihkan tautan yang sudah "
+"kedaluwarsa."
 
 #: includes-core/ShortlinksCoreAdmin.php:153
 msgid "Expired Redirect Settings"
-msgstr "Pengaturan Pengalihan Kedaluwarsa"
+msgstr "Pengaturan Pengalihan Kadaluarsa"
 
 #: includes-core/ShortlinksCoreAdmin.php:156
 msgid "Expired Redirect URL"
-msgstr "URL Pengalihan Kedaluwarsa"
+msgstr "URL Pengalihan Kadaluarsa"
 
 #: includes-core/ShortlinksCoreAdmin.php:161
 msgid "Display a brief notice before redirecting."
@@ -101,7 +100,7 @@ msgstr "Impor / Ekspor"
 
 #: includes-core/ShortlinksCoreAdmin.php:249
 msgid "Import / Export Shortlinks"
-msgstr "Impor / Ekspor Tautan Pendek"
+msgstr "Impor / Ekspor Shortlinks"
 
 #: includes-core/ShortlinksCoreAdmin.php:254
 msgid "Bulk Import & Export"
@@ -112,8 +111,8 @@ msgid ""
 "Import and export your shortlinks in bulk using CSV files. Migrate from "
 "other plugins or manage links across multiple sites."
 msgstr ""
-"Impor dan ekspor tautan pendek Anda secara massal menggunakan file CSV. "
-"Migrasi dari plugin lain atau kelola tautan di beberapa situs."
+"Impor dan ekspor shortlinks Anda secara massal menggunakan file CSV. "
+"Migrasi dari plugin lain atau kelola tautan di berbagai situs."
 
 #: includes-core/ShortlinksCoreAdmin.php:259
 msgid "CSV Export"
@@ -124,9 +123,8 @@ msgid "CSV Import"
 msgstr "Impor CSV"
 
 #: includes-core/ShortlinksCoreAdmin.php:267
-#, fuzzy
 msgid "Bulk Management"
-msgstr "Manajemen Peran"
+msgstr "Manajemen Massal"
 
 #: includes/classes/class-autolist-ajax.php:39
 #: includes/classes/class-autolist-ajax.php:194
@@ -135,22 +133,22 @@ msgstr "Izin ditolak"
 
 #: includes/classes/class-autolist-ajax.php:47
 msgid "Post type is required"
-msgstr "Tipe pos diperlukan"
+msgstr "post type diperlukan"
 
 #: includes/classes/class-autolist-ajax.php:52
 #, php-format
 msgid "\"%s\" is not a registered post type"
-msgstr "\"%s\" bukan tipe pos yang terdaftar"
+msgstr "\"%s\" bukan post type yang terdaftar"
 
 #: includes/classes/class-autolist-ajax.php:59
 #, php-format
 msgid "\"%s\" is not a public post type"
-msgstr "\"%s\" bukan tipe pos publik"
+msgstr "\"%s\" bukan post type publik"
 
 #: includes/classes/class-autolist-ajax.php:65
 #, php-format
 msgid "\"%s\" cannot be used for auto-listing"
-msgstr "\"%s\" tidak dapat digunakan untuk daftar otomatis"
+msgstr "\"%s\" tidak dapat digunakan untuk auto-listing"
 
 #: includes/classes/class-autolist-ajax.php:74
 #, php-format
@@ -158,9 +156,9 @@ msgid "\"%s\" is already configured"
 msgstr "\"%s\" sudah dikonfigurasi"
 
 #: includes/classes/class-autolist-ajax.php:80
-#, php-format
+#, fuzzy, php-format
 msgid "Valid: %s"
-msgstr "Sah: %s"
+msgstr "Valid: %s"
 
 #: includes/classes/class-autolist-ajax.php:94
 msgid "Permission denied - you must be an administrator"
@@ -168,7 +166,7 @@ msgstr "Izin ditolak - Anda harus menjadi administrator"
 
 #: includes/classes/class-autolist-ajax.php:102
 msgid "Invalid configuration format - expected array"
-msgstr "Format konfigurasi tidak valid - diharapkan array"
+msgstr "Format konfigurasi tidak valid - array yang diharapkan"
 
 #: includes/classes/class-autolist-ajax.php:123
 msgid "Configuration unchanged (already saved)"
@@ -197,7 +195,7 @@ msgstr "Menyimpan..."
 
 #: includes/classes/class-autolist-ajax.php:285
 msgid "Saved!"
-msgstr "Tersimpan!"
+msgstr "Disimpan!"
 
 #: includes/classes/class-autolist-ajax.php:286
 msgid "Error"
@@ -205,11 +203,11 @@ msgstr "Kesalahan"
 
 #: includes/classes/class-autolist-ajax.php:287
 msgid "Are you sure you want to remove this post type?"
-msgstr "Apakah Anda yakin ingin menghapus tipe pos ini?"
+msgstr "Apakah Anda yakin ingin menghapus post type ini?"
 
 #: includes/classes/class-autolist-ajax.php:288
 msgid "Select a post type"
-msgstr "Pilih jenis pos"
+msgstr "Pilih sebuah post type"
 
 #: includes/classes/class-autolist-ajax.php:289
 #: includes/classes/class-settings.php:407
@@ -220,49 +218,46 @@ msgstr "Tidak Pernah"
 #: includes/classes/class-autolist-ajax.php:290
 #: includes/classes/class-settings.php:405
 #: includes/classes/class-settings.php:505
-#, fuzzy
 msgid "When Link is First Used"
-msgstr "Saat Penggunaan Pertama"
+msgstr "Ketika Tautan Pertama Kali Digunakan"
 
 #: includes/classes/class-autolist-ajax.php:291
 #: includes/classes/class-settings.php:507
 msgid "When Post is Published"
-msgstr "Ketika Pos Diterbitkan"
+msgstr "Ketika Post Dipublikasikan"
 
 #: includes/classes/class-autolist-ajax.php:292
 #: includes/classes/class-settings.php:506
 msgid "When Post is Created"
-msgstr "Ketika Pos Dibuat"
+msgstr "Ketika Post Dibuat"
 
 #: includes/classes/class-autolist-ajax.php:293
 #: includes/classes/class-settings.php:504
 msgid "When Link is First Used or Post Created"
-msgstr "Ketika Tautan Pertama Kali Digunakan atau Pos Dibuat"
+msgstr "Ketika Tautan Pertama Kali Digunakan atau Post Dibuat"
 
 #: includes/classes/class-autolist.php:119
 msgid "Invalid post ID or post type."
-msgstr "ID pos atau jenis pos tidak valid."
+msgstr "ID post atau jenis post tidak valid."
 
 #: includes/classes/class-columns-link.php:49
 #: includes/classes/class-columns-link.php:277
 #: includes/classes/class-hooks.php:207
 #: includes/classes/class-table-logs.php:163
-#: templates/admin-modal-new-link.php:29
-#, fuzzy
+#: templates/admin-modal-new-link.php:29, fuzzy
 msgid "Shortlink"
-msgstr "Tautan Pendek"
+msgstr "Shortlink"
 
 #: includes/classes/class-columns-link.php:71
-#, fuzzy
 msgid "No shortlink"
-msgstr "Tautan Pendek"
+msgstr "Tidak ada shortlink"
 
 #: includes/classes/class-columns-link.php:92
 #: includes/classes/class-hooks.php:208
 #: includes/classes/class-hooks.php:210
-#: includes/classes/class-meta-boxes.php:93
+#: includes/classes/class-meta-boxes.php:93, fuzzy
 msgid "Shortlinks"
-msgstr "Tautan Pendek"
+msgstr "Shortlinks"
 
 #: includes/classes/class-columns-link.php:176, fuzzy
 msgid "Internal"
@@ -274,7 +269,7 @@ msgstr "Eksternal"
 
 #: includes/classes/class-columns-link.php:177
 msgid "This links to your post"
-msgstr "Ini mengarah ke pos Anda"
+msgstr "Ini mengarah ke post Anda"
 
 #: includes/classes/class-columns-link.php:177
 msgid "This links to an external website"
@@ -285,22 +280,21 @@ msgid "Revision"
 msgstr "Revisi"
 
 #: includes/classes/class-columns-link.php:190
-#, fuzzy
 msgid "This links to a revision"
-msgstr "Tautan ini tidak aktif."
+msgstr "Ini mengarah ke sebuah revisi"
 
 #: includes/classes/class-columns-link.php:198
 msgid "Not yet submitted"
-msgstr "Belum diajukan"
+msgstr "Belum dikirim"
 
 #: includes/classes/class-columns-link.php:199
 msgid "Submitted for approval"
-msgstr "Diajukan untuk persetujuan"
+msgstr "Dikirim untuk persetujuan"
 
 #: includes/classes/class-columns-link.php:200
 #: includes/classes/class-settings.php:370
 msgid "Scheduled"
-msgstr "Dijadwalkan"
+msgstr "Jadwal"
 
 #: includes/classes/class-columns-link.php:201
 msgid "Deferred"
@@ -308,7 +302,7 @@ msgstr "Ditunda"
 
 #: includes/classes/class-columns-link.php:202
 msgid "Needs work"
-msgstr "Perlu perbaikan"
+msgstr "Perlu pekerjaan"
 
 #: includes/classes/class-columns-link.php:203
 msgid "Rejected"
@@ -325,9 +319,9 @@ msgid "Clicked %s times"
 msgstr "Diklik %s kali"
 
 #: includes/classes/class-columns-link.php:228
-#: includes/classes/class-table-logs.php:196
+#: includes/classes/class-table-logs.php:196, fuzzy
 msgid "Edit"
-msgstr "Sunting"
+msgstr "Edit"
 
 #: includes/classes/class-columns-link.php:229
 #: includes/classes/class-table-logs.php:177
@@ -340,9 +334,8 @@ msgid "Link Title"
 msgstr "Judul Tautan"
 
 #: includes/classes/class-columns-link.php:278
-#, fuzzy
 msgid "Link Type"
-msgstr "Judul Tautan"
+msgstr "Jenis Tautan"
 
 #: includes/classes/class-columns-link.php:279
 msgid "Stats"
@@ -373,9 +366,8 @@ msgid "Invalid or empty URL"
 msgstr "URL tidak valid atau kosong"
 
 #: includes/classes/class-hooks.php:89
-#, fuzzy
 msgid "Shortlink created successfully."
-msgstr "Tinyurl berhasil dibuat."
+msgstr "Tautan pendek berhasil dibuat."
 
 #: includes/classes/class-hooks.php:98
 msgid "Invalid nonce verification."
@@ -386,14 +378,12 @@ msgid "You do not have permission to reset analytics."
 msgstr "Anda tidak memiliki izin untuk mereset analitik."
 
 #: includes/classes/class-hooks.php:109
-#, fuzzy
 msgid "Invalid post ID."
-msgstr "ID pos atau jenis pos tidak valid."
+msgstr "ID pos tidak valid."
 
 #: includes/classes/class-hooks.php:140
-#, fuzzy
 msgid "Analytics reset successfully."
-msgstr "Tinyurl berhasil dibuat."
+msgstr "Analitik berhasil direset."
 
 #: includes/classes/class-hooks.php:142
 msgid "Failed to reset analytics."
@@ -401,12 +391,11 @@ msgstr "Gagal mereset analitik."
 
 #: includes/classes/class-hooks.php:168
 msgid "Shorten"
-msgstr "Perpendek"
+msgstr "Pendekkan"
 
 #: includes/classes/class-hooks.php:211
-#, fuzzy
 msgid "All Shortlinks"
-msgstr "Tautan Pendek"
+msgstr "Semua Shortlink"
 
 #: includes/classes/class-hooks.php:226
 msgid "Category"
@@ -426,38 +415,35 @@ msgid "All Logs"
 msgstr "Semua Log"
 
 #: includes/classes/class-hooks.php:282
-#, fuzzy
 msgid "Are you sure you want to clear all logs?"
-msgstr "Apakah Anda yakin ingin menghapus tipe pos ini?"
+msgstr "Apakah Anda yakin ingin menghapus semua log?"
 
 #: includes/classes/class-hooks.php:282
-#, fuzzy
 msgid "Clear Logs"
-msgstr "Semua Log"
+msgstr "Hapus Log"
 
 #: includes/classes/class-hooks.php:503
 msgid "Sorry, you are not allowed to access shortlinks."
-msgstr "Maaf, Anda tidak diizinkan mengakses tautan pendek."
+msgstr "Maaf, Anda tidak diizinkan mengakses shortlink."
 
 #: includes/classes/class-hooks.php:504
 #: includes/classes/class-hooks.php:525
 #: includes/classes/class-hooks.php:536
 #: includes/classes/class-hooks.php:557
-#, fuzzy
 msgid "Access Denied"
-msgstr "Izin ditolak"
+msgstr "Akses Ditolak"
 
 #: includes/classes/class-hooks.php:524
 msgid "Sorry, you are not allowed to create shortlinks."
-msgstr "Maaf, Anda tidak diizinkan untuk membuat shortlink."
+msgstr "Maaf, Anda tidak diizinkan membuat shortlink."
 
 #: includes/classes/class-hooks.php:535
 msgid "Sorry, you are not allowed to edit shortlinks."
-msgstr "Maaf, Anda tidak diizinkan untuk mengedit shortlink."
+msgstr "Maaf, Anda tidak diizinkan mengedit shortlink."
 
 #: includes/classes/class-hooks.php:556
 msgid "Sorry, you are not allowed to access shortlink settings."
-msgstr "Maaf, Anda tidak diizinkan untuk mengakses pengaturan shortlink."
+msgstr "Maaf, Anda tidak diizinkan mengakses pengaturan shortlink."
 
 #: includes/classes/class-meta-boxes.php:76
 msgid "Side"
@@ -498,14 +484,13 @@ msgid "Status"
 msgstr "Status"
 
 #: includes/classes/class-meta-boxes.php:234
-#, fuzzy
 msgid "Disable the shortlink instantly."
-msgstr "Nonaktifkan tautan secara instan."
+msgstr "Nonaktifkan shortlink segera."
 
 #: includes/classes/class-meta-boxes.php:235
 msgid "After disabling the link will not active but the settings will be reserved."
 msgstr ""
-"Setelah dinonaktifkan, tautan tidak akan aktif tetapi pengaturannya akan "
+"Setelah dinonaktifkan, tautan tidak akan aktif tetapi pengaturan akan tetap "
 "disimpan."
 
 #: includes/classes/class-meta-boxes.php:236
@@ -570,7 +555,7 @@ msgstr "NoFollow"
 
 #: includes/classes/class-meta-boxes.php:280
 msgid "Prevent search engines from following this link."
-msgstr "Cegah mesin pencari mengikuti tautan ini."
+msgstr "Mencegah mesin pencari mengikuti tautan ini."
 
 #: includes/classes/class-meta-boxes.php:281
 msgid ""
@@ -582,12 +567,11 @@ msgstr ""
 
 #: includes/classes/class-meta-boxes.php:287
 msgid "Parameter Forwarding"
-msgstr "Penerusan Parameter"
+msgstr "Parameter Pengalihan"
 
 #: includes/classes/class-meta-boxes.php:288
-#, fuzzy
 msgid "Pass URL parameters to the target link."
-msgstr "Semua parameter akan diteruskan ke tautan target."
+msgstr "Kirim parameter URL ke tautan target."
 
 #: includes/classes/class-meta-boxes.php:289
 msgid ""
@@ -602,9 +586,8 @@ msgid "Password Protection"
 msgstr "Perlindungan Kata Sandi"
 
 #: includes/classes/class-meta-boxes.php:300
-#, fuzzy
 msgid "Secure your shortlink."
-msgstr "Amankan tautan Anda."
+msgstr "Amankan tautan pendek Anda."
 
 #: includes/classes/class-meta-boxes.php:301
 msgid "Users must enter the password to redirect to the target link."
@@ -620,7 +603,7 @@ msgstr "Bagikan ini dengan pengguna."
 
 #: includes/classes/class-meta-boxes.php:308
 msgid "Passwords are case sensitive."
-msgstr "Kata sandi bersifat sensitif terhadap huruf kapital."
+msgstr "Kata sandi bersifat sensitif terhadap huruf besar dan kecil."
 
 #: includes/classes/class-meta-boxes.php:309, fuzzy
 msgid "********"
@@ -644,7 +627,7 @@ msgstr "Tanggal Kedaluwarsa"
 
 #: includes/classes/class-meta-boxes.php:326
 msgid "Choose the date this link should expire."
-msgstr "Pilih tanggal kapan tautan ini harus kedaluwarsa."
+msgstr "Pilih tanggal tautan ini harus kedaluwarsa."
 
 #: includes/classes/class-meta-boxes.php:338
 msgid "Expiration Time"
@@ -652,11 +635,11 @@ msgstr "Waktu Kedaluwarsa"
 
 #: includes/classes/class-meta-boxes.php:339
 msgid "Choose the time this link should expire."
-msgstr "Pilih waktu kapan tautan ini harus kedaluwarsa."
+msgstr "Pilih waktu tautan ini harus kedaluwarsa."
 
 #: includes/classes/class-meta-boxes.php:340
 msgid "Must be at least 1 minute in the future."
-msgstr "Harus setidaknya 1 menit ke depan."
+msgstr "Harus setidaknya 1 menit di masa depan."
 
 #: includes/classes/class-meta-boxes.php:357
 msgid "Security"
@@ -671,18 +654,16 @@ msgid "Post not found."
 msgstr "Pos tidak ditemukan."
 
 #: includes/classes/class-redirection.php:585
-#, fuzzy
 msgid "Link Expired"
-msgstr "Judul Tautan"
+msgstr "Tautan Kedaluwarsa"
 
 #: includes/classes/class-redirection.php:598
-#, fuzzy
 msgid "This link has expired"
-msgstr "Tautan ini telah kedaluwarsa."
+msgstr "Tautan ini telah kedaluwarsa"
 
 #: includes/classes/class-redirection.php:599
 msgid "You will be redirected shortly."
-msgstr "Anda akan diarahkan dalam waktu dekat."
+msgstr "Anda akan diarahkan sebentar lagi."
 
 #: includes/classes/class-redirection.php:600
 msgid "Click here if you are not redirected"
@@ -715,7 +696,7 @@ msgstr "Kirim"
 
 #: includes/classes/class-redirection.php:915
 msgid "This link is not containing the right prefix slug."
-msgstr "Tautan ini tidak mengandung slug awalan yang benar."
+msgstr "Tautan ini tidak mengandung slug prefiks yang benar."
 
 #: includes/classes/class-revision.php:395
 msgid "Invalid revision ID."
@@ -735,7 +716,7 @@ msgid ""
 "It is advisable to keep it enabled."
 msgstr ""
 "Prefiks shortlink diperlukan untuk rendering yang tepat dari revisi "
-"Elementor. Disarankan untuk tetap diaktifkan."
+"Elementor. Disarankan untuk tetap mengaktifkannya."
 
 #: includes/classes/class-settings.php:185
 msgid "TinyPress Shortlinks Notice:"
@@ -746,7 +727,7 @@ msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
 msgstr ""
-"Elementor aktif. Prefiks shortlink telah dinonaktifkan secara otomatis, itu "
+"Elementor aktif. Prefiks shortlink telah dinonaktifkan secara otomatis, ini "
 "diperlukan untuk kompatibilitas optimal dengan revisi Elementor."
 
 #: includes/classes/class-settings.php:249
@@ -754,17 +735,16 @@ msgid "Options"
 msgstr "Opsi"
 
 #: includes/classes/class-settings.php:254
-#, fuzzy
 msgid "Shortlink Prefix"
-msgstr "Awalan Tautan"
+msgstr "Prefiks Shortlink"
 
 #: includes/classes/class-settings.php:255
 msgid "Add a prefix between your domain name and shortlink."
-msgstr "Tambahkan awalan antara nama domain Anda dan shortlink."
+msgstr "Tambahkan awalan antara nama domain Anda dan tautan pendek."
 
 #: includes/classes/class-settings.php:262
 msgid "Prefix Slug"
-msgstr "Slug Awalan"
+msgstr "Awalan Slug"
 
 #: includes/classes/class-settings.php:263
 msgid "Custom prefix slug."
@@ -777,18 +757,15 @@ msgstr "Teks ini akan ditambahkan antara nama domain Anda dan tautan pendek."
 #: includes/classes/class-settings.php:265
 #: includes/classes/class-settings.php:266
 msgid "go"
-msgstr "lanjutkan"
+msgstr "pergi"
 
 #: includes/classes/class-settings.php:272
 msgid "Keyboard Shortcut"
 msgstr "Pintasan Keyboard"
 
 #: includes/classes/class-settings.php:273
-#, fuzzy
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
-msgstr ""
-"Anda sekarang dapat memperpendek tautan besar Anda dari mana saja di dalam "
-"dasbor WordPress Anda."
+msgstr "Buat tautan pendek dari mana saja di dalam dashboard WordPress Anda."
 
 #: includes/classes/class-settings.php:274
 #: includes/classes/class-settings.php:275
@@ -796,31 +773,28 @@ msgid "Ctrl or Cmd + /"
 msgstr "Ctrl atau Cmd + /"
 
 #: includes/classes/class-settings.php:284
-#, fuzzy
 msgid "Remove from Admin Bar"
-msgstr "Hapus dari Bilah Admin WP"
+msgstr "Hapus dari Bilah Admin"
 
 #: includes/classes/class-settings.php:285
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
-msgstr "Sembunyikan tombol \"Perpendek\" dari bilah admin WordPress."
+msgstr "Sembunyikan tombol \"Pendekan\" dari bilah admin WordPress."
 
 #: includes/classes/class-settings.php:291
 msgid "Role Management"
 msgstr "Manajemen Peran"
 
 #: includes/classes/class-settings.php:296
-#, fuzzy
 msgid "Who Can View Shortlinks"
-msgstr "Siapa yang Dapat Melihat Tautan"
+msgstr "Siapa yang Dapat Melihat Tautan Pendek"
 
 #: includes/classes/class-settings.php:297
 msgid "Only selected user roles can view links."
 msgstr "Hanya peran pengguna yang dipilih yang dapat melihat tautan."
 
 #: includes/classes/class-settings.php:305
-#, fuzzy
 msgid "Who Can Create/Edit Shortlinks"
-msgstr "Siapa yang Dapat Membuat/Mengedit Tautan"
+msgstr "Siapa yang Dapat Membuat/Mengedit Tautan Pendek"
 
 #: includes/classes/class-settings.php:306
 msgid "Only selected user roles can create or edit links."
@@ -843,43 +817,42 @@ msgid "Only selected user roles can control settings."
 msgstr "Hanya peran pengguna yang dipilih yang dapat mengontrol pengaturan."
 
 #: includes/classes/class-settings.php:335
-#, fuzzy
 msgid "Auto-List Links"
-msgstr "Aktifkan Tautan Daftar Otomatis"
+msgstr "Daftar Tautan Otomatis"
 
-#: includes/classes/class-settings.php:340
-#, fuzzy
+#: includes/classes/class-settings.php:340, fuzzy
 msgid "Auto-List Shortlinks"
-msgstr "Tautan Pendek"
+msgstr "Auto-List Shortlinks"
 
 #: includes/classes/class-settings.php:341
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
 msgstr ""
-"Ketika diaktifkan, tautan pendek untuk pos, halaman, dan jenis pos lainnya "
-"akan muncul di tabel \"Semua Tautan\" berdasarkan perilaku yang Anda "
-"konfigurasi di bawah."
+"Ketika diaktifkan, shortlink akan muncul di tabel \"Semua Tautan\" "
+"berdasarkan perilaku yang Anda konfigurasikan di bawah."
 
 #: includes/classes/class-settings.php:347
 msgid "Configure Post Types"
-msgstr "Konfigurasi Tipe Pos"
+msgstr "Konfigurasi Post Type"
 
 #: includes/classes/class-settings.php:348
 msgid "Set when links should be auto-listed for each post type"
-msgstr "Atur kapan tautan harus otomatis terdaftar untuk setiap jenis pos"
+msgstr ""
+"Tentukan kapan tautan harus dicantumkan secara otomatis untuk setiap post "
+"type"
 
 #: includes/classes/class-settings.php:349
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
 msgstr ""
-"Tambahkan tipe pos dan konfigurasikan kapan shortlink mereka harus muncul "
-"di tabel \"Semua Tautan\". Perubahan disimpan secara otomatis."
+"Tambahkan post type dan konfigurasi kapan shortlink mereka harus muncul di "
+"tabel \"Semua Tautan\". Perubahan disimpan secara otomatis."
 
 #: includes/classes/class-settings.php:356
 msgid "Post Status Visibility"
-msgstr "Visibilitas Status Pos"
+msgstr "Visibilitas Status Post"
 
 #: includes/classes/class-settings.php:361
 msgid "Allowed Post Statuses"
@@ -887,14 +860,14 @@ msgstr "Status Post yang Diizinkan"
 
 #: includes/classes/class-settings.php:362
 msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Pilih status pos mana yang dapat diakses melalui tautan pendek"
+msgstr "Pilih status post mana yang dapat diakses melalui shortlink"
 
 #: includes/classes/class-settings.php:363
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
 msgstr ""
-"Pilih status pos mana yang dapat diakses saat mengunjungi tautan singkat "
+"Pilih status post mana yang dapat diakses saat mengunjungi shortlink "
 "PublishPress."
 
 #: includes/classes/class-settings.php:366
@@ -915,24 +888,24 @@ msgstr "Pribadi"
 
 #: includes/classes/class-settings.php:377
 msgid "Expired Links"
-msgstr "Tautan Kedaluwarsa"
+msgstr "Tautan yang Kedaluwarsa"
 
 #: includes/classes/class-settings.php:382
 msgid "Default Expired Redirect URL"
-msgstr "URL Pengalihan Kedaluwarsa Default"
+msgstr "URL Redirect Kedaluwarsa Default"
 
 #: includes/classes/class-settings.php:383
 msgid "Where should expired shortlinks redirect?"
-msgstr "Kemana tautan pendek yang telah kedaluwarsa harus diarahkan?"
+msgstr "Kemana shortlink yang kedaluwarsa harus mengarahkan?"
 
 #: includes/classes/class-settings.php:384
 msgid ""
 "When a shortlink expires, visitors will be redirected to this URL instead "
 "of seeing an error. Leave empty to show the default expiration message."
 msgstr ""
-"Ketika tautan pendek kedaluwarsa, pengunjung akan diarahkan ke URL ini "
-"alih-alih melihat kesalahan. Biarkan kosong untuk menampilkan pesan "
-"kedaluwarsa default."
+"Ketika shortlink kadaluarsa, pengunjung akan diarahkan ke URL ini alih-alih "
+"melihat kesalahan. Biarkan kosong untuk menampilkan pesan kedaluwarsa "
+"default."
 
 #: includes/classes/class-settings.php:396
 msgid "Revisions"
@@ -947,8 +920,8 @@ msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
 msgstr ""
-"Saat diaktifkan, shortlink revisi akan muncul di tabel \"Semua Shortlink\" "
-"berdasarkan perilaku yang Anda konfigurasikan di bawah ini."
+"Ketika diaktifkan, shortlink revisi akan muncul di tabel \"Semua "
+"Shortlink\" berdasarkan perilaku yang Anda konfigurasikan di bawah."
 
 #: includes/classes/class-settings.php:404
 msgid "When Revision is Created"
@@ -960,7 +933,7 @@ msgstr "Ketika Revisi Dibuat atau Tautan Pertama Kali Digunakan"
 
 #: includes/classes/class-settings.php:414
 msgid "Show Shortlink in Revision Table"
-msgstr "Tampilkan Tautan Pendek di Tabel Revisi"
+msgstr "Tampilkan Shortlink di Tabel Revisi"
 
 #: includes/classes/class-settings.php:415
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
@@ -973,7 +946,7 @@ msgstr "Visibilitas Revisi untuk Pengunjung"
 #: includes/classes/class-settings.php:422
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
-"Izinkan pengunjung yang keluar untuk melihat konten revisi melalui "
+"Izinkan pengunjung yang tidak masuk untuk melihat konten revisi melalui "
 "shortlink."
 
 #: includes/classes/class-settings.php:423
@@ -984,13 +957,13 @@ msgid ""
 "preview URL."
 msgstr ""
 "Secara default, PublishPress Revisions memblokir pengunjung dari melihat "
-"pratayang revisi. Saat diaktifkan, shortlink revisi akan menampilkan konten "
-"revisi secara langsung untuk pengunjung yang keluar dari sistem daripada "
-"mengalihkan ke URL pratayang."
+"pratinjau revisi. Ketika diaktifkan, shortlink revisi akan menampilkan "
+"konten revisi secara langsung untuk pengunjung yang tidak masuk alih-alih "
+"mengalihkan ke URL pratinjau."
 
-#: includes/classes/class-settings.php:444
+#: includes/classes/class-settings.php:444, fuzzy
 msgid "Dummy"
-msgstr "Palsu"
+msgstr "Dummy"
 
 #: includes/classes/class-settings.php:488
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
@@ -1000,21 +973,20 @@ msgstr ""
 
 #: includes/classes/class-settings.php:520
 msgid "Add Post Type"
-msgstr "Tambahkan Tipe Pos"
+msgstr "Tambahkan Jenis Pos"
 
 #: includes/classes/class-table-logs.php:70
-#, fuzzy
 msgid "Log entry deleted successfully."
-msgstr "Tinyurl berhasil dibuat."
+msgstr "Entri log berhasil dihapus."
 
 #: includes/classes/class-table-logs.php:79
 #, php-format
 msgid "%d log entries deleted successfully."
-msgstr "Tinyurl berhasil dibuat."
+msgstr "%d entri log berhasil dihapus."
 
 #: includes/classes/class-table-logs.php:83
 msgid "All logs have been cleared."
-msgstr "Semua log telah dibersihkan."
+msgstr "Semua log telah dihapus."
 
 #: includes/classes/class-table-logs.php:162
 msgid "Title"
@@ -1025,9 +997,8 @@ msgid "Details"
 msgstr "Detail"
 
 #: includes/classes/class-table-logs.php:198
-#, fuzzy
 msgid "Are you sure you want to delete this log entry?"
-msgstr "Apakah Anda yakin ingin menghapus tipe pos ini?"
+msgstr "Apakah Anda yakin ingin menghapus entri log ini?"
 
 #: includes/classes/class-table-logs.php:249, fuzzy
 msgid "Tablet"
@@ -1063,17 +1034,17 @@ msgstr "Dari %1$s, mengunjungi pada %2$s"
 #. translators: %s: visit date/time
 #, php-format
 msgid "Visited at %s"
-msgstr "%s dari %s dikunjungi pada %s"
+msgstr "Mengunjungi pada %s"
 
 #: includes/classes/class-table-logs.php:329
 #. translators: %s: device type and browser name, e.g. "Mobile Chrome"
-#, php-format
+#, fuzzy, php-format
 msgid "via %s"
-msgstr "melalui %s"
+msgstr "via %s"
 
 #: includes/functions.php:169
 msgid "Edit shortlink settings"
-msgstr "Ubah pengaturan shortlink"
+msgstr "Edit pengaturan shortlink"
 
 #: includes/functions.php:216
 msgid "Target url not found."
@@ -1083,7 +1054,7 @@ msgstr "URL target tidak ditemukan."
 msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr ""
 "Skema URL tidak valid. Hanya http, https, ftp, ftps, dan mailto yang "
-"diperbolehkan."
+"diizinkan."
 
 #: includes/functions.php:229
 msgid "Invalid URL."
@@ -1099,14 +1070,12 @@ msgid "Link - %s"
 msgstr "Tautan - %s"
 
 #: templates/admin-modal-new-link.php:12
-#, fuzzy
 msgid "Shortlink will appear here"
-msgstr "URL pendek akan muncul di sini"
+msgstr "Shortlink akan muncul di sini"
 
 #: templates/admin-modal-new-link.php:20
-#, fuzzy
 msgid "Enter a long URL and make a shortlink"
-msgstr "Masukkan URL panjang dan buat versi kecilnya"
+msgstr "Masukkan URL panjang dan buat shortlink"
 
 #: templates/admin-modal-new-link.php:25
 msgid "Long URL"
@@ -1117,34 +1086,54 @@ msgid "Close"
 msgstr "Tutup"
 
 #: templates/admin-modal-new-link.php:38
-#, fuzzy
 msgid "Create Shortlink"
-msgstr "Buat URL Pendek"
+msgstr "Buat Shortlink"
 
-#: templates/admin/analytics.php:38
+#: templates/admin/analytics.php:45
+#: templates/admin/analytics.php:64
+msgid "Reset Today's Analytics"
+msgstr "Reset Analitik Hari Ini"
+
+#: templates/admin/analytics.php:46
+msgid "Reset Week's Analytics"
+msgstr "Reset Analitik Minggu Ini"
+
+#: templates/admin/analytics.php:47
+msgid "Reset Month's Analytics"
+msgstr "Reset Analitik Bulan Ini"
+
+#: templates/admin/analytics.php:48
+msgid "Reset Year's Analytics"
+msgstr "Reset Analitik Tahun Ini"
+
+#: templates/admin/analytics.php:49
+msgid ""
+"Are you sure you want to reset the analytics for this period? This action "
+"cannot be undone."
+msgstr ""
+"Apakah Anda yakin ingin mereset analitik untuk periode ini? Tindakan ini "
+"tidak dapat dibatalkan."
+
+#: templates/admin/analytics.php:57
 msgid "Today"
 msgstr "Hari Ini"
 
-#: templates/admin/analytics.php:39
+#: templates/admin/analytics.php:58
 msgid "Last 7 Days"
 msgstr "7 Hari Terakhir"
 
-#: templates/admin/analytics.php:40
+#: templates/admin/analytics.php:59
 msgid "Last 1 Month"
 msgstr "1 Bulan Terakhir"
 
-#: templates/admin/analytics.php:41
+#: templates/admin/analytics.php:60
 msgid "Last 1 Year"
 msgstr "1 Tahun Terakhir"
-
-#: templates/admin/analytics.php:45
-msgid "Reset Today's Analytics"
-msgstr "Reset Analitik Hari Ini"
 
 #: templates/admin/footer.php:14
 #, php-format
 msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
-msgstr "Jika Anda suka %1$s, silakan tinggalkan kami penilaian %2$s. Terima kasih!"
+msgstr "Jika Anda menyukai %1$s silakan beri kami penilaian %2$s. Terima kasih!"
 
 #: templates/admin/footer.php:21
 msgid "About"
@@ -1159,9 +1148,8 @@ msgid "Contact"
 msgstr "Kontak"
 
 #: templates/admin/qr-code.php:16
-#, fuzzy
 msgid "Download QR Code"
-msgstr "Unduh QR"
+msgstr "Unduh Kode QR"
 
 #: templates/admin/settings/browsers.php:8
 msgid "We have developed extensions for the below browsers."
@@ -1169,7 +1157,7 @@ msgstr "Kami telah mengembangkan ekstensi untuk browser di bawah ini."
 
 #: templates/admin/settings/browsers.php:9
 msgid "Click on your preferred one to Download the extension."
-msgstr "Klik pada pilihan Anda untuk Mengunduh ekstensi."
+msgstr "Klik pada yang Anda pilih untuk mengunduh ekstensi."
 
 #: templates/admin/settings/browsers.php:16
 msgid "Download the Extension"
@@ -1177,13 +1165,13 @@ msgstr "Unduh Ekstensi"
 
 #: templates/admin/settings/supports.php:17
 msgid "Need PublishPress Shortlinks Support?"
-msgstr "Butuh Dukungan Tautan Pendek PublishPress?"
+msgstr "Butuh Dukungan PublishPress Shortlinks?"
 
 #: templates/admin/settings/supports.php:22
 msgid "If you need help or have a new feature request, let us know."
 msgstr ""
-"Jika Anda memerlukan bantuan atau memiliki permintaan fitur baru, beri tahu "
-"kami."
+"Jika Anda membutuhkan bantuan atau memiliki permintaan fitur baru, beri "
+"tahu kami."
 
 #: templates/admin/settings/supports.php:24
 msgid "Request Support"
@@ -1191,7 +1179,7 @@ msgstr "Permintaan Dukungan"
 
 #: templates/admin/settings/supports.php:29
 msgid "Detailed documentation is also available on the plugin website."
-msgstr "Dokumentasi terperinci juga tersedia di situs web plugin."
+msgstr "Dokumentasi rinci juga tersedia di situs web plugin."
 
 #: templates/admin/settings/supports.php:31
 msgid "View Knowledge Base"
@@ -1204,65 +1192,3 @@ msgstr "Plugin ini dapat dihapus."
 #: tinypress.php:287
 msgid "Copied."
 msgstr "Disalin."
-
-#: includes/wp-dev-kit/classes/class-utils.php
-#, php-format
-msgid "Add %s"
-msgstr "Tambahkan %s"
-
-#: includes/wp-dev-kit/classes/class-utils.php
-#, fuzzy, php-format
-msgid "Edit %s"
-msgstr "Edit %s"
-
-#: includes/wp-dev-kit/classes/class-utils.php
-#, php-format
-msgid "New %s"
-msgstr "Baru %s"
-
-#: includes/wp-dev-kit/classes/class-utils.php
-#, php-format
-msgid "View %s"
-msgstr "Lihat %s"
-
-#: includes/wp-dev-kit/classes/class-utils.php
-#, php-format
-msgid "Search %s"
-msgstr "Cari %s"
-
-#: includes/wp-dev-kit/classes/class-utils.php
-#, php-format
-msgid "No %s found"
-msgstr "Tidak ada %s ditemukan"
-
-#: includes/wp-dev-kit/classes/class-utils.php
-#, php-format
-msgid "No %s found in trash"
-msgstr "Tidak ada %s ditemukan di tempat sampah"
-
-#: includes/wp-dev-kit/classes/class-utils.php
-#, php-format
-msgid "Parent %s"
-msgstr "Induk %s"
-
-#: includes/wp-dev-kit/classes/class-utils.php
-#, php-format
-msgid "%s Details"
-msgstr "Detail %s"
-
-#: includes/wp-dev-kit/classes/class-utils.php
-#, php-format
-msgid "This is where you can create and manage %s."
-msgstr "Ini adalah tempat Anda dapat membuat dan mengelola %s."
-
-#: templates/admin/analytics.php
-msgid "Reset Week's Analytics"
-msgstr "Atur Ulang Analitik Minggu"
-
-#: templates/admin/analytics.php
-msgid "Reset Month's Analytics"
-msgstr "Atur Ulang Analitik Bulan"
-
-#: templates/admin/analytics.php
-msgid "Reset Year's Analytics"
-msgstr "Atur Ulang Analitik Tahun"
