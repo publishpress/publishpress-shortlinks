@@ -5,6 +5,9 @@
         return;
     }
 
+    let markerSize = (tinypressAnalytics.chartData && tinypressAnalytics.chartData.length <= 1) ? 6 : 0;
+    let hoverMarkerSize = markerSize ? (markerSize + 2) : 4;
+
     let options = {
         series: [{
             name: 'Clicks',
@@ -25,8 +28,13 @@
             enabled: false
         },
         markers: {
-            size: 0,
-            style: 'hollow',
+            size: markerSize,
+            hover: {
+                size: hoverMarkerSize,
+                sizeOffset: 0
+            },
+            strokeWidth: markerSize ? 2 : 0,
+            style: 'full',
         },
         xaxis: {
             type: 'datetime',
