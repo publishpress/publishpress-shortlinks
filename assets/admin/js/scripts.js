@@ -61,6 +61,66 @@
                 return false;
             }
         });
+
+        function tinypressSyncAutolinkAllCheckbox() {
+            if (!$('body').hasClass('post-type-tinypress_link')) {
+                return;
+            }
+
+            var $all = $('input[type="checkbox"][value="__all__"]').first();
+            if (!$all.length) {
+                return;
+            }
+
+            var name = $all.attr('name');
+            if (!name) {
+                return;
+            }
+
+            var $group = $('input[type="checkbox"][name="' + name.replace(/([\[\]])/g, '\\$1') + '"]');
+            var $others = $group.not($all);
+
+            var isAllChecked = $all.is(':checked');
+            if (isAllChecked) {
+                $others.prop('checked', true).prop('disabled', true);
+                return;
+            }
+
+            $others.prop('disabled', false);
+
+            var allOthersChecked = true;
+            $others.each(function () {
+                if (!$(this).is(':checked')) {
+                    allOthersChecked = false;
+                    return false;
+                }
+            });
+
+            if (allOthersChecked && $others.length) {
+                $all.prop('checked', true);
+                $others.prop('disabled', true);
+            }
+        }
+
+        $(document).on('change', 'input[type="checkbox"][value="__all__"]', function () {
+            var $all = $(this);
+            var name = $all.attr('name');
+            if (name && !$all.is(':checked')) {
+                var $group = $('input[type="checkbox"][name="' + name.replace(/([\[\]])/g, '\\$1') + '"]');
+                $group.not($all).prop('checked', false).prop('disabled', false);
+            }
+
+            tinypressSyncAutolinkAllCheckbox();
+        });
+
+        $(document).on('change', 'input[type="checkbox"][name*="[autolink_post_types]"]', function () {
+            if ($(this).val() === '__all__') {
+                return;
+            }
+            tinypressSyncAutolinkAllCheckbox();
+        });
+
+        tinypressSyncAutolinkAllCheckbox();
     });
 
 

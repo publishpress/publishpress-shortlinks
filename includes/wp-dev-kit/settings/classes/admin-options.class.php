@@ -317,7 +317,7 @@ if (! class_exists('WPDK_Settings_Options')) {
                     foreach ($this->pre_fields as $field) {
                         if (! empty($field['id'])) {
                             $field_id    = $field['id'];
-                            $field_value = isset($options[ $field_id ]) ? $options[ $field_id ] : '';
+                            $field_value = isset($options[ $field_id ]) ? $options[ $field_id ] : ( isset($this->options[ $field_id ]) ? $this->options[ $field_id ] : '' );
 
                             // Ajax and Importing doing wp_unslash already.
                             if (! $ajax && ! $importing) {

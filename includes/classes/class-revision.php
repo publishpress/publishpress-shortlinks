@@ -27,8 +27,52 @@ class TINYPRESS_Revisions
         add_action('init', array( $this, 'migrate_revision_link_meta' ), 2);
         add_action('init', array( $this, 'migrate_legacy_revision_slugs' ), 3);
         add_action('init', array( $this, 'sync_revision_shortlinks_status' ), 4);
+        add_action('init', array( $this, 'cleanup_orphan_revision_shortlinks' ), 6);
         add_action('admin_init', array( $this, 'redirect_after_activation' ));
         add_action('wp_ajax_tinypress_dismiss_migration_notice', array( $this, 'dismiss_migration_notice' ));
+    }
+
+    /**
+     * Remove orphaned revision shortlinks.
+     *
+     * @return void
+     */
+    public function cleanup_orphan_revision_shortlinks()
+    {
+        if (! function_exists('rvy_in_revision_workflow')) {
+            return;
+        }
+
+        $links = get_posts(array(
+            'post_type'      => 'tinypress_link',
+            'post_status'    => array( 'publish', 'draft', 'pending', 'future', 'private', 'tinypress_suspended' ),
+            'fields'         => 'ids',
+            'posts_per_page' => -1,
+            'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- required lookup
+                array(
+                    'key'   => 'is_revision_link',
+                    'value' => '1',
+                ),
+            ),
+        ));
+
+        if (empty($links)) {
+            return;
+        }
+
+        foreach ($links as $link_id) {
+            $revision_id = absint(get_post_meta((int) $link_id, 'source_post_id', true));
+
+            if (! $revision_id) {
+                wp_delete_post((int) $link_id, true);
+                continue;
+            }
+
+            $revision_post = get_post($revision_id);
+            if (! $revision_post || ! rvy_in_revision_workflow($revision_id)) {
+                wp_delete_post((int) $link_id, true);
+            }
+        }
     }
 
     /**

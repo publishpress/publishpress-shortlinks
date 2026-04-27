@@ -203,6 +203,10 @@ if (! defined('TINYPRESS_LOADED')) {
                     $settings = array();
                 }
 
+                if (! isset($settings['tinypress_autolink_enabled'])) {
+                    $settings['tinypress_autolink_enabled'] = '1';
+                }
+
                 if (! isset($settings['tinypress_autolist_enabled'])) {
                     $settings['tinypress_autolist_enabled'] = '1';
                 }
@@ -312,6 +316,7 @@ if (! defined('TINYPRESS_LOADED')) {
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-columns-link.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-settings.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-redirection.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-autolink.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-autolist.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-autolist-ajax.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-reviews.php';
@@ -321,6 +326,7 @@ if (! defined('TINYPRESS_LOADED')) {
                 new TINYPRESS_Hooks();
                 new TINYPRESS_Settings();
                 new TINYPRESS_Redirection();
+                new TINYPRESS_AutoLink();
                 new TINYPRESS_AutoList();
                 TINYPRESS_Autolist_Ajax::instance();
                 SHORTLINKS_Reviews::instance();

@@ -247,6 +247,40 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                 )
             );
 
+            $post_type_options = array(
+                '__all__' => esc_html__('All', 'tinypress'),
+            );
+            foreach (get_post_types(array('public' => true, 'show_ui' => true), 'objects') as $post_type => $post_type_obj) {
+                if (in_array($post_type, array('attachment', 'tinypress_link'), true)) {
+                    continue;
+                }
+                $post_type_options[$post_type] = $post_type_obj->labels->singular_name . ' (' . $post_type . ')';
+            }
+
+            WPDK_Settings::createSection(
+                $this->tinypress_metabox_main,
+                array(
+                    'title'  => esc_html__('Auto-linking', 'tinypress'),
+                    'fields' => array(
+                        array(
+                            'id'       => 'autolink_keywords',
+                            'type'     => 'textarea',
+                            'title'    => esc_html__('Keywords', 'tinypress'),
+                            'subtitle' => esc_html__('Add keywords separated by commas or on separate lines. Each keyword will link to this shortlink.', 'tinypress'),
+                        ),
+                        array(
+                            'id'       => 'autolink_post_types',
+                            'type'     => 'checkbox',
+                            'title'    => esc_html__('Post Types', 'tinypress'),
+                            'subtitle' => esc_html__('Where should these keywords be auto-linked?', 'tinypress'),
+                            'inline'   => true,
+                            'options'  => $post_type_options,
+                            'default'  => array('post', 'page'),
+                        ),
+                    ),
+                )
+            );
+
             // Redirection Settings section.
             WPDK_Settings::createSection(
                 $this->tinypress_metabox_main,
