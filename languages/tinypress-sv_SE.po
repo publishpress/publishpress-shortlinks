@@ -4,30 +4,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PublishPress Shortlinks Free 1.5.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
-"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-08 11:21+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: sv-SE\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
+"PO-Revision-Date: 2026-04-27 15:46+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: sv-SE\n"
 
+#: tinypress.php, fuzzy
 #. Plugin Name of the plugin
-#: tinypress.php
 msgid "PublishPress Shortlinks Free"
-msgstr ""
+msgstr "PublishPress Shortlinks Free"
 
+#: tinypress.php, fuzzy
 #. Plugin URI of the plugin
-#: tinypress.php
 msgid "https://publishpress.com/shortlinks/"
-msgstr ""
+msgstr "https://publishpress.com/shortlinks/"
 
-#. Description of the plugin
 #: tinypress.php
+#. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
 "and can have custom view permissions."
@@ -35,20 +35,20 @@ msgstr ""
 "Skapa anpassade länkar för dina inlägg. Dessa länkar är varumärkesbara, "
 "spårbara och kan ha anpassade visningsbehörigheter."
 
-#. Author of the plugin
 #: tinypress.php
+#. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
+#: tinypress.php, fuzzy
 #. Author URI of the plugin
-#: tinypress.php
 msgid "https://publishpress.com/"
-msgstr ""
+msgstr "https://publishpress.com/"
 
 #: includes-core/ShortlinksCoreAdmin.php:86
 msgid ""
-"You're using PublishPress Shortlinks Free. The Pro version has more features "
-"and support. "
+"You're using PublishPress Shortlinks Free. The Pro version has more "
+"features and support. "
 msgstr ""
 "Du använder PublishPress Shortlinks Free. Pro-versionen har fler funktioner "
 "och support. "
@@ -125,7 +125,7 @@ msgid "Bulk Management"
 msgstr "Masshantering"
 
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:194
+#: includes/classes/class-autolist-ajax.php:200
 msgid "Permission denied"
 msgstr "Behörighet nekad"
 
@@ -133,104 +133,105 @@ msgstr "Behörighet nekad"
 msgid "Post type is required"
 msgstr "Post type krävs"
 
-#: includes/classes/class-autolist-ajax.php:52
-#, php-format
-msgid "\"%s\" is not a registered post type"
-msgstr "\"%s\" är inte en registrerad post type"
+#: includes/classes/class-autolist-ajax.php:53
+#. translators: %s: post type name
+msgid "\"%%s\" is not a registered post type"
+msgstr "\"%%s\" är inte en registrerad post type"
 
-#: includes/classes/class-autolist-ajax.php:59
-#, php-format
-msgid "\"%s\" is not a public post type"
-msgstr "\"%s\" är inte en offentlig post type"
+#: includes/classes/class-autolist-ajax.php:61
+#. translators: %s: post type name
+msgid "\"%%s\" is not a public post type"
+msgstr "\"%%s\" är inte en offentlig post type"
 
-#: includes/classes/class-autolist-ajax.php:65
-#, php-format
-msgid "\"%s\" cannot be used for auto-listing"
-msgstr "\"%s\" kan inte användas för automatisk listning"
+#: includes/classes/class-autolist-ajax.php:68
+#. translators: %s: post type name
+msgid "\"%%s\" cannot be used for auto-listing"
+msgstr "\"%%s\" kan inte användas för automatisk listning"
 
-#: includes/classes/class-autolist-ajax.php:74
-#, php-format
-msgid "\"%s\" is already configured"
-msgstr "\"%s\" är redan konfigurerad"
+#: includes/classes/class-autolist-ajax.php:78
+#. translators: %s: post type name
+msgid "\"%%s\" is already configured"
+msgstr "\"%%s\" är redan konfigurerad"
 
-#: includes/classes/class-autolist-ajax.php:80
-#, php-format
-msgid "Valid: %s"
-msgstr "Giltig: %s"
+#: includes/classes/class-autolist-ajax.php:85
+#. translators: %s: post type label
+msgid "Valid: %%s"
+msgstr "Giltig: %%s"
 
-#: includes/classes/class-autolist-ajax.php:94
+#: includes/classes/class-autolist-ajax.php:99
 msgid "Permission denied - you must be an administrator"
 msgstr "Behörighet nekad - du måste vara administratör"
 
-#: includes/classes/class-autolist-ajax.php:102
+#: includes/classes/class-autolist-ajax.php:107
 msgid "Invalid configuration format - expected array"
 msgstr "Ogiltigt konfigurationsformat - förväntad array"
 
-#: includes/classes/class-autolist-ajax.php:123
+#: includes/classes/class-autolist-ajax.php:128
 msgid "Configuration unchanged (already saved)"
 msgstr "Konfiguration oförändrad (redan sparad)"
 
-#: includes/classes/class-autolist-ajax.php:127
+#: includes/classes/class-autolist-ajax.php:132
 msgid "Failed to save configuration to database"
 msgstr "Misslyckades med att spara konfiguration till databasen"
 
-#: includes/classes/class-autolist-ajax.php:132
+#: includes/classes/class-autolist-ajax.php:137
 msgid "Configuration saved successfully"
 msgstr "Konfiguration sparad framgångsrikt"
 
-#: includes/classes/class-autolist-ajax.php:138
+#: includes/classes/class-autolist-ajax.php:144
+#. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "Fel: %s"
 
-#: includes/classes/class-autolist-ajax.php:283
+#: includes/classes/class-autolist-ajax.php:289
 msgid "Validating..."
 msgstr "Validerar..."
 
-#: includes/classes/class-autolist-ajax.php:284
+#: includes/classes/class-autolist-ajax.php:290
 msgid "Saving..."
 msgstr "Sparar..."
 
-#: includes/classes/class-autolist-ajax.php:285
+#: includes/classes/class-autolist-ajax.php:291
 msgid "Saved!"
 msgstr "Sparad!"
 
-#: includes/classes/class-autolist-ajax.php:286
+#: includes/classes/class-autolist-ajax.php:292
 msgid "Error"
 msgstr "Fel"
 
-#: includes/classes/class-autolist-ajax.php:287
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Are you sure you want to remove this post type?"
 msgstr "Är du säker på att du vill ta bort denna post type?"
 
-#: includes/classes/class-autolist-ajax.php:288
+#: includes/classes/class-autolist-ajax.php:294
 msgid "Select a post type"
 msgstr "Välj en post type"
 
-#: includes/classes/class-autolist-ajax.php:289
-#: includes/classes/class-settings.php:407
-#: includes/classes/class-settings.php:503
+#: includes/classes/class-autolist-ajax.php:295
+#: includes/classes/class-settings.php:525
+#: includes/classes/class-settings.php:621
 msgid "Never"
 msgstr "Aldrig"
 
-#: includes/classes/class-autolist-ajax.php:290
-#: includes/classes/class-settings.php:405
-#: includes/classes/class-settings.php:505
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-settings.php:523
+#: includes/classes/class-settings.php:623
 msgid "When Link is First Used"
 msgstr "När länk används för första gången"
 
-#: includes/classes/class-autolist-ajax.php:291
-#: includes/classes/class-settings.php:507
+#: includes/classes/class-autolist-ajax.php:297
+#: includes/classes/class-settings.php:625
 msgid "When Post is Published"
 msgstr "När inlägget publiceras"
 
-#: includes/classes/class-autolist-ajax.php:292
-#: includes/classes/class-settings.php:506
+#: includes/classes/class-autolist-ajax.php:298
+#: includes/classes/class-settings.php:624
 msgid "When Post is Created"
 msgstr "När inlägget skapas"
 
-#: includes/classes/class-autolist-ajax.php:293
-#: includes/classes/class-settings.php:504
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:622
 msgid "When Link is First Used or Post Created"
 msgstr "När länk används för första gången eller inlägget skapas"
 
@@ -239,9 +240,9 @@ msgid "Invalid post ID or post type."
 msgstr "Ogiltigt inläggs-ID eller post type."
 
 #: includes/classes/class-columns-link.php:49
-#: includes/classes/class-columns-link.php:277
+#: includes/classes/class-columns-link.php:279
 #: includes/classes/class-hooks.php:207
-#: includes/classes/class-table-logs.php:163
+#: includes/classes/class-table-logs.php:164
 #: templates/admin-modal-new-link.php:29
 msgid "Shortlink"
 msgstr "Kortlänk"
@@ -251,7 +252,8 @@ msgid "No shortlink"
 msgstr "Ingen kortlänk"
 
 #: includes/classes/class-columns-link.php:92
-#: includes/classes/class-hooks.php:208 includes/classes/class-hooks.php:210
+#: includes/classes/class-hooks.php:208
+#: includes/classes/class-hooks.php:210
 #: includes/classes/class-meta-boxes.php:93
 msgid "Shortlinks"
 msgstr "Kortlänkar"
@@ -272,9 +274,9 @@ msgstr "Denna länkar till ditt inlägg"
 msgid "This links to an external website"
 msgstr "Denna länkar till en extern webbplats"
 
-#: includes/classes/class-columns-link.php:189
+#: includes/classes/class-columns-link.php:189, fuzzy
 msgid "Revision"
-msgstr ""
+msgstr "Revision"
 
 #: includes/classes/class-columns-link.php:190
 msgid "This links to a revision"
@@ -289,7 +291,7 @@ msgid "Submitted for approval"
 msgstr "Inlämnad för godkännande"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:370
+#: includes/classes/class-settings.php:488
 msgid "Scheduled"
 msgstr "Schemalagd"
 
@@ -305,40 +307,42 @@ msgstr "Behöver arbete"
 msgid "Rejected"
 msgstr "Avvisad"
 
-#: includes/classes/class-columns-link.php:206
-#, php-format
+#: includes/classes/class-columns-link.php:207
+#. translators: %s: revision status label
+#, fuzzy, php-format
 msgid "Revision: %s"
-msgstr ""
+msgstr "Revision: %s"
 
-#: includes/classes/class-columns-link.php:222
+#: includes/classes/class-columns-link.php:224
+#. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "Klickade %s gånger"
 
-#: includes/classes/class-columns-link.php:228
-#: includes/classes/class-table-logs.php:196
+#: includes/classes/class-columns-link.php:230
+#: includes/classes/class-table-logs.php:197
 msgid "Edit"
 msgstr "Redigera"
 
-#: includes/classes/class-columns-link.php:229
-#: includes/classes/class-table-logs.php:177
-#: includes/classes/class-table-logs.php:198
+#: includes/classes/class-columns-link.php:231
+#: includes/classes/class-table-logs.php:178
+#: includes/classes/class-table-logs.php:199
 msgid "Delete"
 msgstr "Ta bort"
 
-#: includes/classes/class-columns-link.php:276
+#: includes/classes/class-columns-link.php:278
 msgid "Link Title"
 msgstr "Länk Titel"
 
-#: includes/classes/class-columns-link.php:278
+#: includes/classes/class-columns-link.php:280
 msgid "Link Type"
 msgstr "Länktyp"
 
-#: includes/classes/class-columns-link.php:279
+#: includes/classes/class-columns-link.php:281
 msgid "Stats"
 msgstr "Statistik"
 
-#: includes/classes/class-columns-link.php:280
+#: includes/classes/class-columns-link.php:282
 msgid "Actions"
 msgstr "Åtgärder"
 
@@ -402,7 +406,8 @@ msgstr "Kategori"
 msgid "Categories"
 msgstr "Kategorier"
 
-#: includes/classes/class-hooks.php:253 includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:253
+#: includes/classes/class-hooks.php:254
 msgid "Logs"
 msgstr "Loggar"
 
@@ -422,8 +427,10 @@ msgstr "Rensa loggar"
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Tyvärr, du har inte tillåtelse att komma åt kortlänkar."
 
-#: includes/classes/class-hooks.php:504 includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536 includes/classes/class-hooks.php:557
+#: includes/classes/class-hooks.php:504
+#: includes/classes/class-hooks.php:525
+#: includes/classes/class-hooks.php:536
+#: includes/classes/class-hooks.php:557
 msgid "Access Denied"
 msgstr "Åtkomst nekad"
 
@@ -437,19 +444,19 @@ msgstr "Tyvärr, du har inte tillåtelse att redigera kortlänkar."
 
 #: includes/classes/class-hooks.php:556
 msgid "Sorry, you are not allowed to access shortlink settings."
-msgstr ""
-"Tyvärr, du har inte tillåtelse att komma åt inställningarna för kortlänkar."
+msgstr "Tyvärr, du har inte tillåtelse att komma åt inställningarna för kortlänkar."
 
 #: includes/classes/class-meta-boxes.php:76
 msgid "Side"
 msgstr "Sida"
 
-#: includes/classes/class-meta-boxes.php:187 tinypress.php:380
+#: includes/classes/class-meta-boxes.php:187
+#: tinypress.php:448
 msgid "PublishPress Shortlinks"
 msgstr "PublishPress kortlänkar"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:246
+#: includes/classes/class-settings.php:331
 msgid "General"
 msgstr "Allmänt"
 
@@ -473,17 +480,16 @@ msgstr "Kort sträng *"
 msgid "Short string of this URL."
 msgstr "Kort sträng av denna URL."
 
-#: includes/classes/class-meta-boxes.php:233
+#: includes/classes/class-meta-boxes.php:233, fuzzy
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: includes/classes/class-meta-boxes.php:234
 msgid "Disable the shortlink instantly."
 msgstr "Inaktivera kortlänken omedelbart."
 
 #: includes/classes/class-meta-boxes.php:235
-msgid ""
-"After disabling the link will not active but the settings will be reserved."
+msgid "After disabling the link will not active but the settings will be reserved."
 msgstr ""
 "Efter inaktivering kommer länken inte att vara aktiv men inställningarna "
 "kommer att sparas."
@@ -500,43 +506,71 @@ msgstr "Inaktivera"
 msgid "Notes"
 msgstr "Anteckningar"
 
-#: includes/classes/class-meta-boxes.php:254
+#: includes/classes/class-meta-boxes.php:251
+msgid "All"
+msgstr "Alla"
+
+#: includes/classes/class-meta-boxes.php:263
+msgid "Auto-linking"
+msgstr "Automatisk länkning"
+
+#: includes/classes/class-meta-boxes.php:268
+msgid "Keywords"
+msgstr "Nyckelord"
+
+#: includes/classes/class-meta-boxes.php:269
+msgid ""
+"Add keywords separated by commas or on separate lines. Each keyword will "
+"link to this shortlink."
+msgstr ""
+"Lägg till nyckelord separerade med kommatecken eller på separata rader. "
+"Varje nyckelord kommer att länkas till denna kortlänk."
+
+#: includes/classes/class-meta-boxes.php:274, fuzzy
+msgid "Post Types"
+msgstr "Post Types"
+
+#: includes/classes/class-meta-boxes.php:275
+msgid "Where should these keywords be auto-linked?"
+msgstr "Var ska dessa nyckelord automatiskt länkas?"
+
+#: includes/classes/class-meta-boxes.php:288
 msgid "Redirection"
 msgstr "Omdirigering"
 
-#: includes/classes/class-meta-boxes.php:259
+#: includes/classes/class-meta-boxes.php:293
 msgid "Redirection Method"
 msgstr "Omdirigeringsmetod"
 
-#: includes/classes/class-meta-boxes.php:260
+#: includes/classes/class-meta-boxes.php:294
 msgid "Select redirection method"
 msgstr "Välj omdirigeringsmetod"
 
-#: includes/classes/class-meta-boxes.php:261
+#: includes/classes/class-meta-boxes.php:295
 msgid "Select a method"
 msgstr "Välj en metod"
 
-#: includes/classes/class-meta-boxes.php:263
+#: includes/classes/class-meta-boxes.php:297
 msgid "307 (Temporary)"
 msgstr "307 (Tillfällig)"
 
-#: includes/classes/class-meta-boxes.php:264
+#: includes/classes/class-meta-boxes.php:298
 msgid "302 (Temporary)"
 msgstr "302 (Tillfällig)"
 
-#: includes/classes/class-meta-boxes.php:265
+#: includes/classes/class-meta-boxes.php:299, fuzzy
 msgid "301 (Permanent)"
-msgstr ""
+msgstr "301 (Permanent)"
 
-#: includes/classes/class-meta-boxes.php:272
+#: includes/classes/class-meta-boxes.php:306
 msgid "Sponsored"
 msgstr "Sponsrad"
 
-#: includes/classes/class-meta-boxes.php:273
+#: includes/classes/class-meta-boxes.php:307
 msgid "Mark links as sponsored content."
 msgstr "Markera länkar som sponsrat innehåll."
 
-#: includes/classes/class-meta-boxes.php:274
+#: includes/classes/class-meta-boxes.php:308
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -544,15 +578,15 @@ msgstr ""
 "Lägger till rel=\"sponsored\" attribut. Rekommenderas för affiliatelänkar "
 "och betalda kampanjer."
 
-#: includes/classes/class-meta-boxes.php:279
+#: includes/classes/class-meta-boxes.php:313, fuzzy
 msgid "NoFollow"
-msgstr ""
+msgstr "NoFollow"
 
-#: includes/classes/class-meta-boxes.php:280
+#: includes/classes/class-meta-boxes.php:314
 msgid "Prevent search engines from following this link."
 msgstr "Förhindra sökmotorer från att följa denna länk."
 
-#: includes/classes/class-meta-boxes.php:281
+#: includes/classes/class-meta-boxes.php:315
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -560,284 +594,328 @@ msgstr ""
 "Lägger till rel=\"nofollow\" attribut. Rekommenderas för externa länkar och "
 "opålitliga källor."
 
-#: includes/classes/class-meta-boxes.php:287
+#: includes/classes/class-meta-boxes.php:321
 msgid "Parameter Forwarding"
 msgstr "Parameter Vidarebefordran"
 
-#: includes/classes/class-meta-boxes.php:288
+#: includes/classes/class-meta-boxes.php:322
 msgid "Pass URL parameters to the target link."
 msgstr "Skicka URL-parametrar till mål-länken."
 
-#: includes/classes/class-meta-boxes.php:289
+#: includes/classes/class-meta-boxes.php:323
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
 msgstr ""
-"Eventuella parametrar som läggs till den korta URL:en (t.ex., ?"
-"utm_source=email) kommer att vidarebefordras till mål-URL:en."
+"Eventuella parametrar som läggs till den korta URL:en (t.ex., "
+"?utm_source=email) kommer att vidarebefordras till mål-URL:en."
 
-#: includes/classes/class-meta-boxes.php:299
+#: includes/classes/class-meta-boxes.php:333
 msgid "Password Protection"
 msgstr "Lösenordsskydd"
 
-#: includes/classes/class-meta-boxes.php:300
+#: includes/classes/class-meta-boxes.php:334
 msgid "Secure your shortlink."
 msgstr "Säkra din kortlänk."
 
-#: includes/classes/class-meta-boxes.php:301
+#: includes/classes/class-meta-boxes.php:335
 msgid "Users must enter the password to redirect to the target link."
 msgstr "Användare måste ange lösenordet för att omdirigeras till mål-länken."
 
-#: includes/classes/class-meta-boxes.php:306
+#: includes/classes/class-meta-boxes.php:340
 msgid "Password"
 msgstr "Lösenord"
 
-#: includes/classes/class-meta-boxes.php:307
+#: includes/classes/class-meta-boxes.php:341
 msgid "Share this with users."
 msgstr "Dela detta med användare."
 
-#: includes/classes/class-meta-boxes.php:308
+#: includes/classes/class-meta-boxes.php:342
 msgid "Passwords are case sensitive."
 msgstr "Lösenord är skiftlägeskänsliga."
 
-#: includes/classes/class-meta-boxes.php:309
+#: includes/classes/class-meta-boxes.php:343, fuzzy
 msgid "********"
-msgstr ""
+msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:318
+#: includes/classes/class-meta-boxes.php:352
 msgid "Enable Expiration"
 msgstr "Aktivera Utgång"
 
-#: includes/classes/class-meta-boxes.php:319
+#: includes/classes/class-meta-boxes.php:353
 msgid "Expire automatically."
 msgstr "Utgå automatiskt."
 
-#: includes/classes/class-meta-boxes.php:320
+#: includes/classes/class-meta-boxes.php:354
 msgid "Users will not able to redirect to the target URL once expire."
 msgstr ""
 "Användare kommer inte att kunna omdirigeras till mål-URL:en när den har "
 "utgått."
 
-#: includes/classes/class-meta-boxes.php:325
+#: includes/classes/class-meta-boxes.php:359
 msgid "Expiration Date"
 msgstr "Utgångsdatum"
 
-#: includes/classes/class-meta-boxes.php:326
+#: includes/classes/class-meta-boxes.php:360
 msgid "Choose the date this link should expire."
 msgstr "Välj datum när denna länk ska gå ut."
 
-#: includes/classes/class-meta-boxes.php:338
+#: includes/classes/class-meta-boxes.php:372
 msgid "Expiration Time"
 msgstr "Utgångstid"
 
-#: includes/classes/class-meta-boxes.php:339
+#: includes/classes/class-meta-boxes.php:373
 msgid "Choose the time this link should expire."
 msgstr "Välj tid när denna länk ska gå ut."
 
-#: includes/classes/class-meta-boxes.php:340
+#: includes/classes/class-meta-boxes.php:374
 msgid "Must be at least 1 minute in the future."
 msgstr "Måste vara minst 1 minut in i framtiden."
 
-#: includes/classes/class-meta-boxes.php:357
+#: includes/classes/class-meta-boxes.php:391
 msgid "Security"
 msgstr "Säkerhet"
 
-#: includes/classes/class-meta-boxes.php:368
+#: includes/classes/class-meta-boxes.php:402
 msgid "Analytics"
 msgstr "Analys"
 
-#: includes/classes/class-redirection.php:543
+#: includes/classes/class-redirection.php:599
 msgid "Post not found."
 msgstr "Inlägget hittades inte."
 
-#: includes/classes/class-redirection.php:585
-msgid "Link Expired"
-msgstr "Länken har gått ut"
-
-#: includes/classes/class-redirection.php:598
+#: includes/classes/class-redirection.php:648
 msgid "This link has expired"
 msgstr "Denna länk har gått ut"
 
-#: includes/classes/class-redirection.php:599
+#: includes/classes/class-redirection.php:652
 msgid "You will be redirected shortly."
 msgstr "Du kommer att omdirigeras snart."
 
-#: includes/classes/class-redirection.php:600
+#: includes/classes/class-redirection.php:656
 msgid "Click here if you are not redirected"
 msgstr "Klicka här om du inte blir omdirigerad"
 
-#: includes/classes/class-redirection.php:716
+#: includes/classes/class-redirection.php:673
+msgid "Link Expired"
+msgstr "Länken har gått ut"
+
+#: includes/classes/class-redirection.php:804
 msgid "This link is not active."
 msgstr "Denna länk är inte aktiv."
 
-#: includes/classes/class-redirection.php:750
+#: includes/classes/class-redirection.php:849
 msgid "This link is expired."
 msgstr "Denna länk har gått ut."
 
-#: includes/classes/class-redirection.php:769
+#: includes/classes/class-redirection.php:868
 msgid "Incorrect password. Please try again."
 msgstr "Felaktigt lösenord. Vänligen försök igen."
 
-#: includes/classes/class-redirection.php:784
-#: includes/classes/class-redirection.php:789
+#: includes/classes/class-redirection.php:883
+#: includes/classes/class-redirection.php:888
 msgid "Password Protected Link"
 msgstr "Lösenordsskyddad länk"
 
-#: includes/classes/class-redirection.php:795
+#: includes/classes/class-redirection.php:894
 msgid "Enter password to continue:"
 msgstr "Ange lösenord för att fortsätta:"
 
-#: includes/classes/class-redirection.php:797
+#: includes/classes/class-redirection.php:896
 msgid "Submit"
 msgstr "Skicka in"
 
-#: includes/classes/class-redirection.php:915
+#: includes/classes/class-redirection.php:1014
 msgid "This link is not containing the right prefix slug."
 msgstr "Denna länk innehåller inte rätt prefix-slug."
 
-#: includes/classes/class-revision.php:395
+#: includes/classes/class-revision.php:439
 msgid "Invalid revision ID."
 msgstr "Ogiltigt revisions-ID."
 
-#: includes/classes/class-settings.php:102
+#: includes/classes/class-settings.php:187
 msgid "Settings"
 msgstr "Inställningar"
 
-#: includes/classes/class-settings.php:152
+#: includes/classes/class-settings.php:237
 msgid "Elementor Detected:"
 msgstr "Elementor upptäckte:"
 
-#: includes/classes/class-settings.php:153
+#: includes/classes/class-settings.php:238
 msgid ""
-"Shortlink prefix is required for proper rendering of Elementor revisions. It "
-"is advisable to keep it enabled."
+"Shortlink prefix is required for proper rendering of Elementor revisions. "
+"It is advisable to keep it enabled."
 msgstr ""
 "Shortlink-prefix krävs för korrekt rendering av Elementor-revisioner. Det "
 "rekommenderas att hålla det aktiverat."
 
-#: includes/classes/class-settings.php:185
+#: includes/classes/class-settings.php:270
 msgid "TinyPress Shortlinks Notice:"
 msgstr "TinyPress Shortlinks Meddelande:"
 
-#: includes/classes/class-settings.php:186
+#: includes/classes/class-settings.php:271
 msgid ""
-"Elementor is active. Shortlink prefix has been automatically disabled, it is "
-"required for optimal compatibility with Elementor revisions."
+"Elementor is active. Shortlink prefix has been automatically disabled, it "
+"is required for optimal compatibility with Elementor revisions."
 msgstr ""
 "Elementor är aktivt. Shortlink-prefix har automatiskt inaktiverats, det "
 "krävs för optimal kompatibilitet med Elementor-revisioner."
 
-#: includes/classes/class-settings.php:249
+#: includes/classes/class-settings.php:334
 msgid "Options"
 msgstr "Alternativ"
 
-#: includes/classes/class-settings.php:254
+#: includes/classes/class-settings.php:339, fuzzy
 msgid "Shortlink Prefix"
-msgstr ""
+msgstr "Shortlink Prefix"
 
-#: includes/classes/class-settings.php:255
+#: includes/classes/class-settings.php:340
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Lägg till ett prefix mellan ditt domännamn och kortlänk."
 
-#: includes/classes/class-settings.php:262
+#: includes/classes/class-settings.php:347, fuzzy
 msgid "Prefix Slug"
-msgstr ""
+msgstr "Prefix Slug"
 
-#: includes/classes/class-settings.php:263
+#: includes/classes/class-settings.php:348
 msgid "Custom prefix slug."
 msgstr "Anpassad prefix slug."
 
-#: includes/classes/class-settings.php:264
+#: includes/classes/class-settings.php:349
 msgid "This text will be added between your domain name and shortlink."
 msgstr "Denna text kommer att läggas till mellan ditt domännamn och kortlänk."
 
-#: includes/classes/class-settings.php:265
-#: includes/classes/class-settings.php:266
+#: includes/classes/class-settings.php:350
+#: includes/classes/class-settings.php:351
 msgid "go"
 msgstr "gå"
 
-#: includes/classes/class-settings.php:272
+#: includes/classes/class-settings.php:357
 msgid "Keyboard Shortcut"
 msgstr "Tangentbordsgenväg"
 
-#: includes/classes/class-settings.php:273
+#: includes/classes/class-settings.php:358
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr "Skapa kortlänkar från var som helst i din WordPress dashboard."
 
-#: includes/classes/class-settings.php:274
-#: includes/classes/class-settings.php:275
+#: includes/classes/class-settings.php:359
+#: includes/classes/class-settings.php:360
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl eller Cmd + /"
 
-#: includes/classes/class-settings.php:284
+#: includes/classes/class-settings.php:369
 msgid "Remove from Admin Bar"
 msgstr "Ta bort från Admin Bar"
 
-#: includes/classes/class-settings.php:285
+#: includes/classes/class-settings.php:370
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "Dölj knappen \"Förkorta\" från WordPress admin bar."
 
-#: includes/classes/class-settings.php:291
+#: includes/classes/class-settings.php:376
 msgid "Role Management"
 msgstr "Rollhantering"
 
-#: includes/classes/class-settings.php:296
+#: includes/classes/class-settings.php:381
 msgid "Who Can View Shortlinks"
 msgstr "Vem kan se kortlänkar"
 
-#: includes/classes/class-settings.php:297
+#: includes/classes/class-settings.php:382
 msgid "Only selected user roles can view links."
 msgstr "Endast utvalda användarroller kan se länkar."
 
-#: includes/classes/class-settings.php:305
+#: includes/classes/class-settings.php:390
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Vem kan skapa/redigera kortlänkar"
 
-#: includes/classes/class-settings.php:306
+#: includes/classes/class-settings.php:391
 msgid "Only selected user roles can create or edit links."
 msgstr "Endast utvalda användarroller kan skapa eller redigera länkar."
 
-#: includes/classes/class-settings.php:315
+#: includes/classes/class-settings.php:400
 msgid "Who Can See Analytics"
 msgstr "Vem kan se analyser"
 
-#: includes/classes/class-settings.php:316
+#: includes/classes/class-settings.php:401
 msgid "Only selected user roles can see analytics."
 msgstr "Endast utvalda användarroller kan se analyser."
 
-#: includes/classes/class-settings.php:325
+#: includes/classes/class-settings.php:410
 msgid "Who Can Control Settings"
 msgstr "Vem kan kontrollera inställningar"
 
-#: includes/classes/class-settings.php:326
+#: includes/classes/class-settings.php:411
 msgid "Only selected user roles can control settings."
 msgstr "Endast utvalda användarroller kan kontrollera inställningar."
 
-#: includes/classes/class-settings.php:335
+#: includes/classes/class-settings.php:420
+msgid "Auto-Linking"
+msgstr "Automatisk länkning"
+
+#: includes/classes/class-settings.php:425
+msgid "Enable Auto-Linking"
+msgstr "Aktivera automatisk länkning"
+
+#: includes/classes/class-settings.php:426
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr "Konvertera automatiskt nyckelord till kortlänkar i inläggsinnehållet."
+
+#: includes/classes/class-settings.php:427
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr ""
+"När aktiverat kommer nyckelord som konfigurerats i kortlänksinställningarna "
+"automatiskt att länkas i ditt innehåll."
+
+#: includes/classes/class-settings.php:433
+msgid "Open Auto-Links In"
+msgstr "Öppna automatisk länkar i"
+
+#: includes/classes/class-settings.php:434
+msgid "Choose how auto-linked keywords should open."
+msgstr "Välj hur automatiskt länkade nyckelord ska öppnas."
+
+#: includes/classes/class-settings.php:436
+msgid "Same tab"
+msgstr "Samma flik"
+
+#: includes/classes/class-settings.php:437
+msgid "New tab"
+msgstr "Ny flik"
+
+#: includes/classes/class-settings.php:445
+msgid "Auto-Link Color"
+msgstr "Färg för automatisk länk"
+
+#: includes/classes/class-settings.php:446
+msgid "Choose the color for auto-linked keywords."
+msgstr "Välj färg för automatiskt länkade nyckelord."
+
+#: includes/classes/class-settings.php:453
 msgid "Auto-List Links"
 msgstr "Auto-lista länkar"
 
-#: includes/classes/class-settings.php:340
+#: includes/classes/class-settings.php:458
 msgid "Auto-List Shortlinks"
 msgstr "Auto-List Kortlänkar"
 
-#: includes/classes/class-settings.php:341
+#: includes/classes/class-settings.php:459
 msgid ""
-"When enabled, shortlinks will appear in the \"All Links\" table based on the "
-"behavior you configure below."
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
 msgstr ""
 "När det är aktiverat kommer kortlänkar att visas i \"Alla Länkar\" tabellen "
 "baserat på beteendet du konfigurerar nedan."
 
-#: includes/classes/class-settings.php:347
+#: includes/classes/class-settings.php:465
 msgid "Configure Post Types"
 msgstr "Konfigurera Post Typer"
 
-#: includes/classes/class-settings.php:348
+#: includes/classes/class-settings.php:466
 msgid "Set when links should be auto-listed for each post type"
 msgstr "Ange när länkar ska listas automatiskt för varje post type"
 
-#: includes/classes/class-settings.php:349
+#: includes/classes/class-settings.php:467
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -845,19 +923,20 @@ msgstr ""
 "Lägg till posttyper och konfigurera när deras kortlänkar ska visas i \"Alla "
 "Länkar\" tabellen. Ändringar sparas automatiskt."
 
-#: includes/classes/class-settings.php:356
+#: includes/classes/class-settings.php:474
+#: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "Poststatus Synlighet"
 
-#: includes/classes/class-settings.php:361
+#: includes/classes/class-settings.php:479
 msgid "Allowed Post Statuses"
 msgstr "Tillåtna Poststatusar"
 
-#: includes/classes/class-settings.php:362
+#: includes/classes/class-settings.php:480
 msgid "Choose which post statuses can be accessed via shortlinks"
 msgstr "Välj vilka poststatusar som kan nås via kortlänkar"
 
-#: includes/classes/class-settings.php:363
+#: includes/classes/class-settings.php:481
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -865,52 +944,52 @@ msgstr ""
 "Välj vilka poststatusar som är åtkomliga när du besöker en PublishPress "
 "kortlänk."
 
-#: includes/classes/class-settings.php:366
+#: includes/classes/class-settings.php:484
 msgid "Published"
 msgstr "Publicerad"
 
-#: includes/classes/class-settings.php:367
+#: includes/classes/class-settings.php:485
 msgid "Draft"
 msgstr "Utkast"
 
-#: includes/classes/class-settings.php:368
+#: includes/classes/class-settings.php:486
 msgid "Pending Review"
 msgstr "Avvaktan på Granskning"
 
-#: includes/classes/class-settings.php:369
+#: includes/classes/class-settings.php:487
 msgid "Private"
 msgstr "Privat"
 
-#: includes/classes/class-settings.php:377
+#: includes/classes/class-settings.php:495
 msgid "Expired Links"
 msgstr "Utgångna Länkar"
 
-#: includes/classes/class-settings.php:382
+#: includes/classes/class-settings.php:500
 msgid "Default Expired Redirect URL"
 msgstr "Standard Utgången Omdirigerings-URL"
 
-#: includes/classes/class-settings.php:383
+#: includes/classes/class-settings.php:501
 msgid "Where should expired shortlinks redirect?"
 msgstr "Var ska utgångna kortlänkar omdirigera?"
 
-#: includes/classes/class-settings.php:384
+#: includes/classes/class-settings.php:502
 msgid ""
-"When a shortlink expires, visitors will be redirected to this URL instead of "
-"seeing an error. Leave empty to show the default expiration message."
+"When a shortlink expires, visitors will be redirected to this URL instead "
+"of seeing an error. Leave empty to show the default expiration message."
 msgstr ""
 "När en kortlänk löper ut, kommer besökare att omdirigeras till denna URL "
-"istället för att se ett fel. Lämna tomt för att visa standardmeddelandet för "
-"utgång."
+"istället för att se ett fel. Lämna tomt för att visa standardmeddelandet "
+"för utgång."
 
-#: includes/classes/class-settings.php:396
+#: includes/classes/class-settings.php:514
 msgid "Revisions"
 msgstr "Revisioner"
 
-#: includes/classes/class-settings.php:401
+#: includes/classes/class-settings.php:519
 msgid "Revision Link Visibility"
 msgstr "Revision Länk Synlighet"
 
-#: includes/classes/class-settings.php:402
+#: includes/classes/class-settings.php:520
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -918,53 +997,53 @@ msgstr ""
 "När det är aktiverat kommer revisionskortlänkar att visas i \"Alla "
 "Kortlänkar\" tabellen baserat på beteendet du konfigurerar nedan."
 
-#: includes/classes/class-settings.php:404
+#: includes/classes/class-settings.php:522
 msgid "When Revision is Created"
 msgstr "När revision skapas"
 
-#: includes/classes/class-settings.php:406
+#: includes/classes/class-settings.php:524
 msgid "When Revision is Created or Link is First Used"
 msgstr "När revision skapas eller länk används första gången"
 
-#: includes/classes/class-settings.php:414
+#: includes/classes/class-settings.php:532
 msgid "Show Shortlink in Revision Table"
 msgstr "Visa kortlänk i revisions-tabellen"
 
-#: includes/classes/class-settings.php:415
-msgid ""
-"Display shortlink column when viewing revisions in PublishPress Revisions."
+#: includes/classes/class-settings.php:533
+msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr "Visa kortlänkskolumn när du visar revisioner i PublishPress Revisions."
 
-#: includes/classes/class-settings.php:421
+#: includes/classes/class-settings.php:539
 msgid "Revision Visibility for Visitors"
 msgstr "Revisionssynlighet för besökare"
 
-#: includes/classes/class-settings.php:422
+#: includes/classes/class-settings.php:540
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr "Tillåt inloggade besökare att se revisionsinnehåll via kortlänkar."
 
-#: includes/classes/class-settings.php:423
+#: includes/classes/class-settings.php:541
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
-"previews. When enabled, revision shortlinks will render the revision content "
-"directly for logged-out visitors instead of redirecting to the preview URL."
+"previews. When enabled, revision shortlinks will render the revision "
+"content directly for logged-out visitors instead of redirecting to the "
+"preview URL."
 msgstr ""
 "Som standard blockerar PublishPress Revisions besökare från att se "
 "revisionsförhandsvisningar. När det är aktiverat kommer revisionskortlänkar "
 "att visa revisionsinnehållet direkt för inloggade besökare istället för att "
 "omdirigera till förhandsvisnings-URL:en."
 
-#: includes/classes/class-settings.php:444
+#: includes/classes/class-settings.php:562, fuzzy
 msgid "Dummy"
-msgstr ""
+msgstr "Dummy"
 
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:606
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Inga posttyper konfigurerade än. Klicka på \"Lägg till posttyp\" för att "
 "komma igång."
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:638
 msgid "Add Post Type"
 msgstr "Lägg till posttyp"
 
@@ -972,68 +1051,69 @@ msgstr "Lägg till posttyp"
 msgid "Log entry deleted successfully."
 msgstr "Loggpost raderad framgångsrikt."
 
-#: includes/classes/class-table-logs.php:79
+#: includes/classes/class-table-logs.php:80
+#. translators: %d: number of log entries deleted
 #, php-format
 msgid "%d log entries deleted successfully."
 msgstr "%d loggposter raderade framgångsrikt."
 
-#: includes/classes/class-table-logs.php:83
+#: includes/classes/class-table-logs.php:84
 msgid "All logs have been cleared."
 msgstr "Alla loggar har rensats."
 
-#: includes/classes/class-table-logs.php:162
+#: includes/classes/class-table-logs.php:163
 msgid "Title"
 msgstr "Titel"
 
-#: includes/classes/class-table-logs.php:164
+#: includes/classes/class-table-logs.php:165
 msgid "Details"
 msgstr "Detaljer"
 
-#: includes/classes/class-table-logs.php:198
+#: includes/classes/class-table-logs.php:199
 msgid "Are you sure you want to delete this log entry?"
 msgstr "Är du säker på att du vill radera denna loggpost?"
 
-#: includes/classes/class-table-logs.php:249
+#: includes/classes/class-table-logs.php:250, fuzzy
 msgid "Tablet"
-msgstr ""
+msgstr "Tablet"
 
-#: includes/classes/class-table-logs.php:251
+#: includes/classes/class-table-logs.php:252
 msgid "Mobile"
 msgstr "Mobil"
 
-#: includes/classes/class-table-logs.php:253
+#: includes/classes/class-table-logs.php:254
 msgid "Desktop"
 msgstr "Skrivbord"
 
+#: includes/classes/class-table-logs.php:308
 #. translators: 1: user display name, 2: location name, 3: visit date/time
-#: includes/classes/class-table-logs.php:307
 #, php-format
 msgid "%1$s from %2$s visited at %3$s"
 msgstr "%1$s från %2$s besökte vid %3$s"
 
+#: includes/classes/class-table-logs.php:311
 #. translators: 1: user display name, 2: visit date/time
-#: includes/classes/class-table-logs.php:310
 #, php-format
 msgid "%1$s visited at %2$s"
 msgstr "%1$s besökte den %2$s"
 
+#: includes/classes/class-table-logs.php:315
 #. translators: 1: location name, 2: visit date/time
-#: includes/classes/class-table-logs.php:314
 #, php-format
 msgid "From %1$s, visited at %2$s"
 msgstr "Från %1$s, besökt den %2$s"
 
+#: includes/classes/class-table-logs.php:318
 #. translators: %s: visit date/time
-#: includes/classes/class-table-logs.php:317
 #, php-format
 msgid "Visited at %s"
 msgstr "Besökt den %s"
 
+#: includes/classes/class-table-logs.php:330
 #. translators: %s: device type and browser name, e.g. "Mobile Chrome"
-#: includes/classes/class-table-logs.php:329
-#, php-format
+#, fuzzy, php-format
 msgid "via %s"
-msgstr ""
+msgstr "via %s"
 
 #: includes/functions.php:169
 msgid "Edit shortlink settings"
@@ -1044,10 +1124,8 @@ msgid "Target url not found."
 msgstr "Måluppgiften hittades inte."
 
 #: includes/functions.php:223
-msgid ""
-"Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
-msgstr ""
-"Ogiltig URL-schema. Endast http, https, ftp, ftps och mailto är tillåtna."
+msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
+msgstr "Ogiltig URL-schema. Endast http, https, ftp, ftps och mailto är tillåtna."
 
 #: includes/functions.php:229
 msgid "Invalid URL."
@@ -1057,7 +1135,8 @@ msgstr "Ogiltig URL."
 msgid "Tiny slug could not created."
 msgstr "Tiny slug kunde inte skapas."
 
-#: includes/functions.php:251
+#: includes/functions.php:252
+#. translators: %s: link ID number
 #, php-format
 msgid "Link - %s"
 msgstr "Länk - %s"
@@ -1082,7 +1161,8 @@ msgstr "Stäng"
 msgid "Create Shortlink"
 msgstr "Skapa Kortlänk"
 
-#: templates/admin/analytics.php:45 templates/admin/analytics.php:64
+#: templates/admin/analytics.php:45
+#: templates/admin/analytics.php:64
 msgid "Reset Today's Analytics"
 msgstr "Återställ dagens analys"
 
@@ -1122,20 +1202,21 @@ msgstr "Senaste 1 månaden"
 msgid "Last 1 Year"
 msgstr "Senaste 1 året"
 
-#: templates/admin/footer.php:14
+#: templates/admin/footer.php:16
+#. translators: %1$s: plugin name, %2$s: star rating icon
 #, php-format
 msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
 msgstr "Om du gillar %1$s vänligen ge oss en %2$s betyg. Tack!"
 
-#: templates/admin/footer.php:21
+#: templates/admin/footer.php:24
 msgid "About"
 msgstr "Om"
 
-#: templates/admin/footer.php:26
+#: templates/admin/footer.php:29
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: templates/admin/footer.php:30
+#: templates/admin/footer.php:33
 msgid "Contact"
 msgstr "Kontakta"
 
@@ -1169,17 +1250,16 @@ msgstr "Begär hjälp"
 
 #: templates/admin/settings/supports.php:29
 msgid "Detailed documentation is also available on the plugin website."
-msgstr ""
-"Detaljerad dokumentation finns också tillgänglig på plugin-webbplatsen."
+msgstr "Detaljerad dokumentation finns också tillgänglig på plugin-webbplatsen."
 
 #: templates/admin/settings/supports.php:31
 msgid "View Knowledge Base"
 msgstr "Visa kunskapsbas"
 
-#: tinypress.php:79
+#: tinypress.php:98
 msgid "This plugin can be deleted."
 msgstr "Detta tillägg kan tas bort."
 
-#: tinypress.php:287
+#: tinypress.php:355
 msgid "Copied."
 msgstr "Kopierad."

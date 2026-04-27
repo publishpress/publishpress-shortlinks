@@ -10,10 +10,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-08 17:09+0000\n"
+"PO-Revision-Date: 2026-04-27 15:43+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "|| n % 10 == 6 || n % 10 == 9);\n"
+"|| n % 10 == 6 || n % 10 == 9);: \n"
 "Language: fil\n"
 "Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 || n % 10 == 6 || n % 10 == 9);\n"
 
@@ -37,7 +38,7 @@ msgstr ""
 "ay maaaring i-brand, masusubaybayan, at maaaring magkaroon ng mga pasadyang "
 "pahintulot sa pagtingin."
 
-#: tinypress.php, fuzzy
+#: tinypress.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
@@ -130,7 +131,7 @@ msgid "Bulk Management"
 msgstr "Bulk Management"
 
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:194, fuzzy
+#: includes/classes/class-autolist-ajax.php:200, fuzzy
 msgid "Permission denied"
 msgstr "Permission denied"
 
@@ -138,104 +139,105 @@ msgstr "Permission denied"
 msgid "Post type is required"
 msgstr "Post type is required"
 
-#: includes/classes/class-autolist-ajax.php:52
-#, fuzzy, php-format
-msgid "\"%s\" is not a registered post type"
-msgstr "\"%s\" is not a registered post type"
+#: includes/classes/class-autolist-ajax.php:53
+#. translators: %s: post type name
+msgid "\"%%s\" is not a registered post type"
+msgstr "\"%%s\" ay hindi isang nakarehistrong post type"
 
-#: includes/classes/class-autolist-ajax.php:59
-#, fuzzy, php-format
-msgid "\"%s\" is not a public post type"
-msgstr "\"%s\" is not a public post type"
+#: includes/classes/class-autolist-ajax.php:61
+#. translators: %s: post type name
+msgid "\"%%s\" is not a public post type"
+msgstr "\"%%s\" ay hindi isang pampublikong post type"
 
-#: includes/classes/class-autolist-ajax.php:65
-#, fuzzy, php-format
-msgid "\"%s\" cannot be used for auto-listing"
-msgstr "\"%s\" cannot be used for auto-listing"
+#: includes/classes/class-autolist-ajax.php:68
+#. translators: %s: post type name
+msgid "\"%%s\" cannot be used for auto-listing"
+msgstr "\"%%s\" ay hindi maaaring gamitin para sa auto-listing"
 
-#: includes/classes/class-autolist-ajax.php:74
-#, fuzzy, php-format
-msgid "\"%s\" is already configured"
-msgstr "\"%s\" is already configured"
+#: includes/classes/class-autolist-ajax.php:78
+#. translators: %s: post type name
+msgid "\"%%s\" is already configured"
+msgstr "\"%%s\" ay naka-configure na"
 
-#: includes/classes/class-autolist-ajax.php:80
-#, fuzzy, php-format
-msgid "Valid: %s"
-msgstr "Valid: %s"
+#: includes/classes/class-autolist-ajax.php:85
+#. translators: %s: post type label
+msgid "Valid: %%s"
+msgstr "Bumagay: %%s"
 
-#: includes/classes/class-autolist-ajax.php:94, fuzzy
+#: includes/classes/class-autolist-ajax.php:99, fuzzy
 msgid "Permission denied - you must be an administrator"
 msgstr "Permission denied - you must be an administrator"
 
-#: includes/classes/class-autolist-ajax.php:102, fuzzy
+#: includes/classes/class-autolist-ajax.php:107, fuzzy
 msgid "Invalid configuration format - expected array"
 msgstr "Invalid configuration format - expected array"
 
-#: includes/classes/class-autolist-ajax.php:123, fuzzy
+#: includes/classes/class-autolist-ajax.php:128, fuzzy
 msgid "Configuration unchanged (already saved)"
 msgstr "Configuration unchanged (already saved)"
 
-#: includes/classes/class-autolist-ajax.php:127, fuzzy
+#: includes/classes/class-autolist-ajax.php:132, fuzzy
 msgid "Failed to save configuration to database"
 msgstr "Failed to save configuration to database"
 
-#: includes/classes/class-autolist-ajax.php:132, fuzzy
+#: includes/classes/class-autolist-ajax.php:137, fuzzy
 msgid "Configuration saved successfully"
 msgstr "Configuration saved successfully"
 
-#: includes/classes/class-autolist-ajax.php:138
+#: includes/classes/class-autolist-ajax.php:144
+#. translators: %s: error message
 #, fuzzy, php-format
 msgid "Error: %s"
 msgstr "Error: %s"
 
-#: includes/classes/class-autolist-ajax.php:283, fuzzy
+#: includes/classes/class-autolist-ajax.php:289, fuzzy
 msgid "Validating..."
 msgstr "Validating..."
 
-#: includes/classes/class-autolist-ajax.php:284, fuzzy
+#: includes/classes/class-autolist-ajax.php:290, fuzzy
 msgid "Saving..."
 msgstr "Saving..."
 
-#: includes/classes/class-autolist-ajax.php:285, fuzzy
+#: includes/classes/class-autolist-ajax.php:291, fuzzy
 msgid "Saved!"
 msgstr "Saved!"
 
-#: includes/classes/class-autolist-ajax.php:286, fuzzy
+#: includes/classes/class-autolist-ajax.php:292, fuzzy
 msgid "Error"
 msgstr "Error"
 
-#: includes/classes/class-autolist-ajax.php:287, fuzzy
+#: includes/classes/class-autolist-ajax.php:293, fuzzy
 msgid "Are you sure you want to remove this post type?"
 msgstr "Are you sure you want to remove this post type?"
 
-#: includes/classes/class-autolist-ajax.php:288, fuzzy
+#: includes/classes/class-autolist-ajax.php:294, fuzzy
 msgid "Select a post type"
 msgstr "Select a post type"
 
-#: includes/classes/class-autolist-ajax.php:289
-#: includes/classes/class-settings.php:407
-#: includes/classes/class-settings.php:503
+#: includes/classes/class-autolist-ajax.php:295
+#: includes/classes/class-settings.php:525
+#: includes/classes/class-settings.php:621
 msgid "Never"
 msgstr "Hindi"
 
-#: includes/classes/class-autolist-ajax.php:290
-#: includes/classes/class-settings.php:405
-#: includes/classes/class-settings.php:505
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-settings.php:523
+#: includes/classes/class-settings.php:623
 msgid "When Link is First Used"
 msgstr "Kapag Unang Ginagamit ang Link"
 
-#: includes/classes/class-autolist-ajax.php:291
-#: includes/classes/class-settings.php:507
+#: includes/classes/class-autolist-ajax.php:297
+#: includes/classes/class-settings.php:625
 msgid "When Post is Published"
 msgstr "Kapag Naka-publish ang Post"
 
-#: includes/classes/class-autolist-ajax.php:292
-#: includes/classes/class-settings.php:506
+#: includes/classes/class-autolist-ajax.php:298
+#: includes/classes/class-settings.php:624
 msgid "When Post is Created"
 msgstr "Kapag Nilikha ang Post"
 
-#: includes/classes/class-autolist-ajax.php:293
-#: includes/classes/class-settings.php:504
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:622
 msgid "When Link is First Used or Post Created"
 msgstr "Kapag Unang Ginagamit ang Link o Nilikha ang Post"
 
@@ -244,9 +246,9 @@ msgid "Invalid post ID or post type."
 msgstr "Hindi wastong post ID o post type."
 
 #: includes/classes/class-columns-link.php:49
-#: includes/classes/class-columns-link.php:277
+#: includes/classes/class-columns-link.php:279
 #: includes/classes/class-hooks.php:207
-#: includes/classes/class-table-logs.php:163
+#: includes/classes/class-table-logs.php:164
 #: templates/admin-modal-new-link.php:29, fuzzy
 msgid "Shortlink"
 msgstr "Shortlink"
@@ -295,7 +297,7 @@ msgid "Submitted for approval"
 msgstr "Isinumite para sa pag-apruba"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:370
+#: includes/classes/class-settings.php:488
 msgid "Scheduled"
 msgstr "Naka-schedule"
 
@@ -311,40 +313,42 @@ msgstr "Kailangang pagbutihin"
 msgid "Rejected"
 msgstr "Tinanggihan"
 
-#: includes/classes/class-columns-link.php:206
+#: includes/classes/class-columns-link.php:207
+#. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "Rebisyon: %s"
 
-#: includes/classes/class-columns-link.php:222
+#: includes/classes/class-columns-link.php:224
+#. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "Na-click ng %s beses"
 
-#: includes/classes/class-columns-link.php:228
-#: includes/classes/class-table-logs.php:196
+#: includes/classes/class-columns-link.php:230
+#: includes/classes/class-table-logs.php:197
 msgid "Edit"
 msgstr "I-edit"
 
-#: includes/classes/class-columns-link.php:229
-#: includes/classes/class-table-logs.php:177
-#: includes/classes/class-table-logs.php:198
+#: includes/classes/class-columns-link.php:231
+#: includes/classes/class-table-logs.php:178
+#: includes/classes/class-table-logs.php:199
 msgid "Delete"
 msgstr "Burahin"
 
-#: includes/classes/class-columns-link.php:276
+#: includes/classes/class-columns-link.php:278
 msgid "Link Title"
 msgstr "Pamagat ng Link"
 
-#: includes/classes/class-columns-link.php:278
+#: includes/classes/class-columns-link.php:280
 msgid "Link Type"
 msgstr "Uri ng Link"
 
-#: includes/classes/class-columns-link.php:279, fuzzy
+#: includes/classes/class-columns-link.php:281, fuzzy
 msgid "Stats"
 msgstr "Stats"
 
-#: includes/classes/class-columns-link.php:280
+#: includes/classes/class-columns-link.php:282
 msgid "Actions"
 msgstr "Mga Aksyon"
 
@@ -453,12 +457,12 @@ msgid "Side"
 msgstr "Gilid"
 
 #: includes/classes/class-meta-boxes.php:187
-#: tinypress.php:380, fuzzy
+#: tinypress.php:448, fuzzy
 msgid "PublishPress Shortlinks"
 msgstr "PublishPress Shortlinks"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:246
+#: includes/classes/class-settings.php:331
 msgid "General"
 msgstr "Pangkalahatan"
 
@@ -508,43 +512,71 @@ msgstr "I-disable"
 msgid "Notes"
 msgstr "Mga Tala"
 
-#: includes/classes/class-meta-boxes.php:254
+#: includes/classes/class-meta-boxes.php:251
+msgid "All"
+msgstr "Lahat"
+
+#: includes/classes/class-meta-boxes.php:263, fuzzy
+msgid "Auto-linking"
+msgstr "Auto-linking"
+
+#: includes/classes/class-meta-boxes.php:268
+msgid "Keywords"
+msgstr "Mga Keyword"
+
+#: includes/classes/class-meta-boxes.php:269
+msgid ""
+"Add keywords separated by commas or on separate lines. Each keyword will "
+"link to this shortlink."
+msgstr ""
+"Magdagdag ng mga keyword na pinaghiwalay ng kuwit o sa magkakahiwalay na "
+"linya. Ang bawat keyword ay mag-uugnay sa maikling link na ito."
+
+#: includes/classes/class-meta-boxes.php:274
+msgid "Post Types"
+msgstr "Mga Uri ng Post"
+
+#: includes/classes/class-meta-boxes.php:275
+msgid "Where should these keywords be auto-linked?"
+msgstr "Saan dapat awtomatikong i-link ang mga keyword na ito?"
+
+#: includes/classes/class-meta-boxes.php:288
 msgid "Redirection"
 msgstr "Redireksyon"
 
-#: includes/classes/class-meta-boxes.php:259
+#: includes/classes/class-meta-boxes.php:293
 msgid "Redirection Method"
 msgstr "Paraan ng Redireksyon"
 
-#: includes/classes/class-meta-boxes.php:260
+#: includes/classes/class-meta-boxes.php:294
 msgid "Select redirection method"
 msgstr "Pumili ng paraan ng redireksyon"
 
-#: includes/classes/class-meta-boxes.php:261
+#: includes/classes/class-meta-boxes.php:295
 msgid "Select a method"
 msgstr "Pumili ng isang paraan"
 
-#: includes/classes/class-meta-boxes.php:263
+#: includes/classes/class-meta-boxes.php:297
 msgid "307 (Temporary)"
 msgstr "307 (Pansamantala)"
 
-#: includes/classes/class-meta-boxes.php:264
+#: includes/classes/class-meta-boxes.php:298
 msgid "302 (Temporary)"
 msgstr "302 (Pansamantala)"
 
-#: includes/classes/class-meta-boxes.php:265
+#: includes/classes/class-meta-boxes.php:299
 msgid "301 (Permanent)"
 msgstr "301 (Permanenteng)"
 
-#: includes/classes/class-meta-boxes.php:272, fuzzy
+#: includes/classes/class-meta-boxes.php:306, fuzzy
 msgid "Sponsored"
 msgstr "Sponsored"
 
-#: includes/classes/class-meta-boxes.php:273
+#: includes/classes/class-meta-boxes.php:307
 msgid "Mark links as sponsored content."
 msgstr "Tandaan ang mga link bilang sponsored na nilalaman."
 
-#: includes/classes/class-meta-boxes.php:274
+#: includes/classes/class-meta-boxes.php:308
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -552,15 +584,15 @@ msgstr ""
 "Nagdaragdag ng rel=\"sponsored\" na katangian. Inirerekomenda para sa mga "
 "affiliate link at bayad na promosyon."
 
-#: includes/classes/class-meta-boxes.php:279, fuzzy
+#: includes/classes/class-meta-boxes.php:313, fuzzy
 msgid "NoFollow"
 msgstr "NoFollow"
 
-#: includes/classes/class-meta-boxes.php:280
+#: includes/classes/class-meta-boxes.php:314
 msgid "Prevent search engines from following this link."
 msgstr "Pigilan ang mga search engine na sundan ang link na ito."
 
-#: includes/classes/class-meta-boxes.php:281
+#: includes/classes/class-meta-boxes.php:315
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -568,15 +600,15 @@ msgstr ""
 "Nagdaragdag ng rel=\"nofollow\" na katangian. Inirerekomenda para sa mga "
 "panlabas na link at di-mapagkakatiwalaang mga pinagkukunan."
 
-#: includes/classes/class-meta-boxes.php:287
+#: includes/classes/class-meta-boxes.php:321
 msgid "Parameter Forwarding"
 msgstr "Pagpasa ng Parameter"
 
-#: includes/classes/class-meta-boxes.php:288
+#: includes/classes/class-meta-boxes.php:322
 msgid "Pass URL parameters to the target link."
 msgstr "Ipasa ang mga URL parameter sa target na link."
 
-#: includes/classes/class-meta-boxes.php:289
+#: includes/classes/class-meta-boxes.php:323
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -584,140 +616,140 @@ msgstr ""
 "Anumang mga parameter na idinagdag sa maikling URL (hal., "
 "?utm_source=email) ay ipapasa sa target na URL."
 
-#: includes/classes/class-meta-boxes.php:299
+#: includes/classes/class-meta-boxes.php:333
 msgid "Password Protection"
 msgstr "Proteksyon ng Password"
 
-#: includes/classes/class-meta-boxes.php:300
+#: includes/classes/class-meta-boxes.php:334
 msgid "Secure your shortlink."
 msgstr "I-secure ang iyong maikling link."
 
-#: includes/classes/class-meta-boxes.php:301
+#: includes/classes/class-meta-boxes.php:335
 msgid "Users must enter the password to redirect to the target link."
 msgstr ""
 "Kailangan ng mga gumagamit na ipasok ang password upang mag-redirect sa "
 "target na link."
 
-#: includes/classes/class-meta-boxes.php:306, fuzzy
+#: includes/classes/class-meta-boxes.php:340, fuzzy
 msgid "Password"
 msgstr "Password"
 
-#: includes/classes/class-meta-boxes.php:307
+#: includes/classes/class-meta-boxes.php:341
 msgid "Share this with users."
 msgstr "Ibahagi ito sa mga gumagamit."
 
-#: includes/classes/class-meta-boxes.php:308
+#: includes/classes/class-meta-boxes.php:342
 msgid "Passwords are case sensitive."
 msgstr "Ang mga password ay case sensitive."
 
-#: includes/classes/class-meta-boxes.php:309, fuzzy
+#: includes/classes/class-meta-boxes.php:343, fuzzy
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:318
+#: includes/classes/class-meta-boxes.php:352
 msgid "Enable Expiration"
 msgstr "Paganahin ang Pag-expire"
 
-#: includes/classes/class-meta-boxes.php:319
+#: includes/classes/class-meta-boxes.php:353
 msgid "Expire automatically."
 msgstr "Awtomatikong mag-e-expire."
 
-#: includes/classes/class-meta-boxes.php:320
+#: includes/classes/class-meta-boxes.php:354
 msgid "Users will not able to redirect to the target URL once expire."
 msgstr ""
 "Hindi magagampanan ng mga gumagamit na mag-redirect sa target na URL kapag "
 "nag-expire na."
 
-#: includes/classes/class-meta-boxes.php:325
+#: includes/classes/class-meta-boxes.php:359
 msgid "Expiration Date"
 msgstr "Petsa ng Pag-expire"
 
-#: includes/classes/class-meta-boxes.php:326
+#: includes/classes/class-meta-boxes.php:360
 msgid "Choose the date this link should expire."
 msgstr "Pumili ng petsa kung kailan dapat mag-expire ang link na ito."
 
-#: includes/classes/class-meta-boxes.php:338
+#: includes/classes/class-meta-boxes.php:372
 msgid "Expiration Time"
 msgstr "Oras ng Pag-expire"
 
-#: includes/classes/class-meta-boxes.php:339
+#: includes/classes/class-meta-boxes.php:373
 msgid "Choose the time this link should expire."
 msgstr "Pumili ng oras kung kailan dapat mag-expire ang link na ito."
 
-#: includes/classes/class-meta-boxes.php:340
+#: includes/classes/class-meta-boxes.php:374
 msgid "Must be at least 1 minute in the future."
 msgstr "Dapat ay hindi bababa sa 1 minuto sa hinaharap."
 
-#: includes/classes/class-meta-boxes.php:357
+#: includes/classes/class-meta-boxes.php:391
 msgid "Security"
 msgstr "Seguridad"
 
-#: includes/classes/class-meta-boxes.php:368
+#: includes/classes/class-meta-boxes.php:402
 msgid "Analytics"
 msgstr "Analitika"
 
-#: includes/classes/class-redirection.php:543
+#: includes/classes/class-redirection.php:599
 msgid "Post not found."
 msgstr "Hindi natagpuan ang post."
 
-#: includes/classes/class-redirection.php:585
-msgid "Link Expired"
-msgstr "Nawawalang Link"
-
-#: includes/classes/class-redirection.php:598
+#: includes/classes/class-redirection.php:648
 msgid "This link has expired"
 msgstr "Nawalan na ng bisa ang link na ito"
 
-#: includes/classes/class-redirection.php:599
+#: includes/classes/class-redirection.php:652
 msgid "You will be redirected shortly."
 msgstr "Ikaw ay ire-redirekta sa lalong madaling panahon."
 
-#: includes/classes/class-redirection.php:600
+#: includes/classes/class-redirection.php:656
 msgid "Click here if you are not redirected"
 msgstr "I-click dito kung hindi ka ire-redirekta"
 
-#: includes/classes/class-redirection.php:716
+#: includes/classes/class-redirection.php:673
+msgid "Link Expired"
+msgstr "Nawawalang Link"
+
+#: includes/classes/class-redirection.php:804
 msgid "This link is not active."
 msgstr "Ang link na ito ay hindi aktibo."
 
-#: includes/classes/class-redirection.php:750
+#: includes/classes/class-redirection.php:849
 msgid "This link is expired."
 msgstr "Ang link na ito ay expired."
 
-#: includes/classes/class-redirection.php:769
+#: includes/classes/class-redirection.php:868
 msgid "Incorrect password. Please try again."
 msgstr "Maling password. Pakisubukan muli."
 
-#: includes/classes/class-redirection.php:784
-#: includes/classes/class-redirection.php:789
+#: includes/classes/class-redirection.php:883
+#: includes/classes/class-redirection.php:888
 msgid "Password Protected Link"
 msgstr "Password Protected na Link"
 
-#: includes/classes/class-redirection.php:795
+#: includes/classes/class-redirection.php:894
 msgid "Enter password to continue:"
 msgstr "Ilagay ang password upang magpatuloy:"
 
-#: includes/classes/class-redirection.php:797
+#: includes/classes/class-redirection.php:896
 msgid "Submit"
 msgstr "Isumite"
 
-#: includes/classes/class-redirection.php:915
+#: includes/classes/class-redirection.php:1014
 msgid "This link is not containing the right prefix slug."
 msgstr "Ang link na ito ay walang tamang prefix slug."
 
-#: includes/classes/class-revision.php:395
+#: includes/classes/class-revision.php:439
 msgid "Invalid revision ID."
 msgstr "Invalid na revision ID."
 
-#: includes/classes/class-settings.php:102
+#: includes/classes/class-settings.php:187
 msgid "Settings"
 msgstr "Mga Setting"
 
-#: includes/classes/class-settings.php:152
+#: includes/classes/class-settings.php:237
 msgid "Elementor Detected:"
 msgstr "Nadetect ang Elementor:"
 
-#: includes/classes/class-settings.php:153
+#: includes/classes/class-settings.php:238
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
@@ -725,11 +757,11 @@ msgstr ""
 "Kinakailangan ang shortlink prefix para sa wastong pagpapakita ng mga "
 "Elementor revisions. Ipinapayo na ito ay panatilihing enabled."
 
-#: includes/classes/class-settings.php:185
+#: includes/classes/class-settings.php:270
 msgid "TinyPress Shortlinks Notice:"
 msgstr "Pabatid ng TinyPress Shortlinks:"
 
-#: includes/classes/class-settings.php:186
+#: includes/classes/class-settings.php:271
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
@@ -738,103 +770,149 @@ msgstr ""
 "ay kinakailangan para sa optimal na compatibility sa mga Elementor "
 "revisions."
 
-#: includes/classes/class-settings.php:249
+#: includes/classes/class-settings.php:334
 msgid "Options"
 msgstr "Mga Opsyon"
 
-#: includes/classes/class-settings.php:254, fuzzy
+#: includes/classes/class-settings.php:339, fuzzy
 msgid "Shortlink Prefix"
 msgstr "Shortlink Prefix"
 
-#: includes/classes/class-settings.php:255
+#: includes/classes/class-settings.php:340
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Magdagdag ng prefix sa pagitan ng iyong domain name at shortlink."
 
-#: includes/classes/class-settings.php:262, fuzzy
+#: includes/classes/class-settings.php:347, fuzzy
 msgid "Prefix Slug"
 msgstr "Prefix Slug"
 
-#: includes/classes/class-settings.php:263
+#: includes/classes/class-settings.php:348
 msgid "Custom prefix slug."
 msgstr "Pasadyang prefix slug."
 
-#: includes/classes/class-settings.php:264
+#: includes/classes/class-settings.php:349
 msgid "This text will be added between your domain name and shortlink."
 msgstr "Ang text na ito ay idaragdag sa pagitan ng iyong domain name at shortlink."
 
-#: includes/classes/class-settings.php:265
-#: includes/classes/class-settings.php:266
+#: includes/classes/class-settings.php:350
+#: includes/classes/class-settings.php:351
 msgid "go"
 msgstr "pumunta"
 
-#: includes/classes/class-settings.php:272
+#: includes/classes/class-settings.php:357
 msgid "Keyboard Shortcut"
 msgstr "Shortcut sa Keyboard"
 
-#: includes/classes/class-settings.php:273
+#: includes/classes/class-settings.php:358
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr ""
 "Lumikha ng shortlinks mula sa kahit saan sa loob ng iyong WordPress "
 "dashboard."
 
-#: includes/classes/class-settings.php:274
-#: includes/classes/class-settings.php:275
+#: includes/classes/class-settings.php:359
+#: includes/classes/class-settings.php:360
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl o Cmd + /"
 
-#: includes/classes/class-settings.php:284
+#: includes/classes/class-settings.php:369
 msgid "Remove from Admin Bar"
 msgstr "Alisin mula sa Admin Bar"
 
-#: includes/classes/class-settings.php:285
+#: includes/classes/class-settings.php:370
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "Itago ang \"Shorten\" na button mula sa WordPress admin bar."
 
-#: includes/classes/class-settings.php:291
+#: includes/classes/class-settings.php:376
 msgid "Role Management"
 msgstr "Pamamahala ng Role"
 
-#: includes/classes/class-settings.php:296
+#: includes/classes/class-settings.php:381
 msgid "Who Can View Shortlinks"
 msgstr "Sino ang Maaaring Makakita ng Shortlinks"
 
-#: includes/classes/class-settings.php:297
+#: includes/classes/class-settings.php:382
 msgid "Only selected user roles can view links."
 msgstr "Tanging mga napiling user roles ang maaaring makakita ng mga link."
 
-#: includes/classes/class-settings.php:305
+#: includes/classes/class-settings.php:390
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Sino ang Maaaring Lumikha/Mag-edit ng Shortlinks"
 
-#: includes/classes/class-settings.php:306
+#: includes/classes/class-settings.php:391
 msgid "Only selected user roles can create or edit links."
 msgstr "Tanging mga napiling user roles ang maaaring lumikha o mag-edit ng mga link."
 
-#: includes/classes/class-settings.php:315
+#: includes/classes/class-settings.php:400
 msgid "Who Can See Analytics"
 msgstr "Sino ang Maaaring Makakita ng Analytics"
 
-#: includes/classes/class-settings.php:316
+#: includes/classes/class-settings.php:401
 msgid "Only selected user roles can see analytics."
 msgstr "Tanging mga napiling user roles ang maaaring makakita ng analytics."
 
-#: includes/classes/class-settings.php:325
+#: includes/classes/class-settings.php:410
 msgid "Who Can Control Settings"
 msgstr "Sino ang Maaaring Kontrolin ang Mga Setting"
 
-#: includes/classes/class-settings.php:326
+#: includes/classes/class-settings.php:411
 msgid "Only selected user roles can control settings."
 msgstr "Tanging mga napiling user roles ang maaaring kontrolin ang mga setting."
 
-#: includes/classes/class-settings.php:335, fuzzy
+#: includes/classes/class-settings.php:420, fuzzy
+msgid "Auto-Linking"
+msgstr "Auto-Linking"
+
+#: includes/classes/class-settings.php:425
+msgid "Enable Auto-Linking"
+msgstr "Paganahin ang Auto-Linking"
+
+#: includes/classes/class-settings.php:426
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr ""
+"Awtomatikong i-convert ang mga keyword sa mga maikling link sa nilalaman ng "
+"post."
+
+#: includes/classes/class-settings.php:427
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr ""
+"Kapag pinagana, ang mga keyword na naka-configure sa mga setting ng "
+"maikling link ay awtomatikong i-uugnay sa iyong nilalaman."
+
+#: includes/classes/class-settings.php:433
+msgid "Open Auto-Links In"
+msgstr "Buksan ang Auto-Links Sa"
+
+#: includes/classes/class-settings.php:434
+msgid "Choose how auto-linked keywords should open."
+msgstr "Pumili kung paano dapat buksan ang mga auto-linked na keyword."
+
+#: includes/classes/class-settings.php:436
+msgid "Same tab"
+msgstr "Parehong tab"
+
+#: includes/classes/class-settings.php:437
+msgid "New tab"
+msgstr "Bagong tab"
+
+#: includes/classes/class-settings.php:445
+msgid "Auto-Link Color"
+msgstr "Kulayan ng Auto-Link"
+
+#: includes/classes/class-settings.php:446
+msgid "Choose the color for auto-linked keywords."
+msgstr "Pumili ng kulay para sa awtomatikong naka-link na mga keyword."
+
+#: includes/classes/class-settings.php:453, fuzzy
 msgid "Auto-List Links"
 msgstr "Auto-List Links"
 
-#: includes/classes/class-settings.php:340, fuzzy
+#: includes/classes/class-settings.php:458, fuzzy
 msgid "Auto-List Shortlinks"
 msgstr "Auto-List Shortlinks"
 
-#: includes/classes/class-settings.php:341
+#: includes/classes/class-settings.php:459
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
@@ -842,15 +920,15 @@ msgstr ""
 "Kapag pinagana, ang mga shortlink ay lilitaw sa talahanayan ng \"Lahat ng "
 "Link\" batay sa gawi na iyong i-configure sa ibaba."
 
-#: includes/classes/class-settings.php:347
+#: includes/classes/class-settings.php:465
 msgid "Configure Post Types"
 msgstr "I-configure ang mga Post Type"
 
-#: includes/classes/class-settings.php:348
+#: includes/classes/class-settings.php:466
 msgid "Set when links should be auto-listed for each post type"
 msgstr "Itakda kung kailan dapat i-auto-list ang mga link para sa bawat post type"
 
-#: includes/classes/class-settings.php:349
+#: includes/classes/class-settings.php:467
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -859,21 +937,22 @@ msgstr ""
 "kanilang mga shortlink sa talahanayan ng \"Lahat ng Link\". Ang mga "
 "pagbabago ay awtomatikong nasasave."
 
-#: includes/classes/class-settings.php:356
+#: includes/classes/class-settings.php:474
+#: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "Visibility ng Status ng Post"
 
-#: includes/classes/class-settings.php:361
+#: includes/classes/class-settings.php:479
 msgid "Allowed Post Statuses"
 msgstr "Pinapayagang Status ng Post"
 
-#: includes/classes/class-settings.php:362
+#: includes/classes/class-settings.php:480
 msgid "Choose which post statuses can be accessed via shortlinks"
 msgstr ""
 "Pumili kung aling mga status ng post ang maaaring ma-access sa pamamagitan "
 "ng mga shortlink"
 
-#: includes/classes/class-settings.php:363
+#: includes/classes/class-settings.php:481
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -881,35 +960,35 @@ msgstr ""
 "Pumili kung aling mga status ng post ang naa-access kapag bumibisita sa "
 "isang PublishPress shortlink."
 
-#: includes/classes/class-settings.php:366
+#: includes/classes/class-settings.php:484
 msgid "Published"
 msgstr "Nai-publish"
 
-#: includes/classes/class-settings.php:367, fuzzy
+#: includes/classes/class-settings.php:485, fuzzy
 msgid "Draft"
 msgstr "Draft"
 
-#: includes/classes/class-settings.php:368
+#: includes/classes/class-settings.php:486
 msgid "Pending Review"
 msgstr "Naghihintay ng Pagsusuri"
 
-#: includes/classes/class-settings.php:369
+#: includes/classes/class-settings.php:487
 msgid "Private"
 msgstr "Pribado"
 
-#: includes/classes/class-settings.php:377
+#: includes/classes/class-settings.php:495
 msgid "Expired Links"
 msgstr "Mga Nag-expire na Link"
 
-#: includes/classes/class-settings.php:382
+#: includes/classes/class-settings.php:500
 msgid "Default Expired Redirect URL"
 msgstr "Default na URL ng Nag-expire na Redirect"
 
-#: includes/classes/class-settings.php:383
+#: includes/classes/class-settings.php:501
 msgid "Where should expired shortlinks redirect?"
 msgstr "Saan dapat mag-redirect ang mga nag-expire na shortlink?"
 
-#: includes/classes/class-settings.php:384
+#: includes/classes/class-settings.php:502
 msgid ""
 "When a shortlink expires, visitors will be redirected to this URL instead "
 "of seeing an error. Leave empty to show the default expiration message."
@@ -918,15 +997,15 @@ msgstr ""
 "URL na ito sa halip na makakita ng error. Iwanang blangko upang ipakita ang "
 "default na mensahe ng expiration."
 
-#: includes/classes/class-settings.php:396
+#: includes/classes/class-settings.php:514
 msgid "Revisions"
 msgstr "Mga Rebisyon"
 
-#: includes/classes/class-settings.php:401
+#: includes/classes/class-settings.php:519
 msgid "Revision Link Visibility"
 msgstr "Visibility ng Link ng Rebisyon"
 
-#: includes/classes/class-settings.php:402
+#: includes/classes/class-settings.php:520
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -934,35 +1013,35 @@ msgstr ""
 "Kapag pinagana, ang mga shortlink ng rebisyon ay lilitaw sa talahanayan ng "
 "\"Lahat ng Shortlink\" batay sa gawi na iyong i-configure sa ibaba."
 
-#: includes/classes/class-settings.php:404
+#: includes/classes/class-settings.php:522
 msgid "When Revision is Created"
 msgstr "Kapag nilikha ang Rebisyon"
 
-#: includes/classes/class-settings.php:406
+#: includes/classes/class-settings.php:524
 msgid "When Revision is Created or Link is First Used"
 msgstr "Kapag nilikha ang Rebisyon o unang ginamit ang Link"
 
-#: includes/classes/class-settings.php:414
+#: includes/classes/class-settings.php:532
 msgid "Show Shortlink in Revision Table"
 msgstr "Ipakita ang Shortlink sa Talaan ng Rebisyon"
 
-#: includes/classes/class-settings.php:415
+#: includes/classes/class-settings.php:533
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "I-display ang column ng shortlink kapag tinitingnan ang mga rebisyon sa "
 "PublishPress Revisions."
 
-#: includes/classes/class-settings.php:421
+#: includes/classes/class-settings.php:539
 msgid "Revision Visibility for Visitors"
 msgstr "Visibility ng Rebisyon para sa mga Bisita"
 
-#: includes/classes/class-settings.php:422
+#: includes/classes/class-settings.php:540
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Pahintulutan ang mga nakalog-out na bisita na makita ang nilalaman ng "
 "rebisyon sa pamamagitan ng mga shortlink."
 
-#: includes/classes/class-settings.php:423
+#: includes/classes/class-settings.php:541
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -974,17 +1053,17 @@ msgstr ""
 "ay direktang magpapakita ng nilalaman ng rebisyon para sa mga nakalog-out "
 "na bisita sa halip na i-redirect sa URL ng preview."
 
-#: includes/classes/class-settings.php:444, fuzzy
+#: includes/classes/class-settings.php:562, fuzzy
 msgid "Dummy"
 msgstr "Dummy"
 
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:606
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Walang post type na na-configure pa. I-click ang \"Magdagdag ng Post Type\" "
 "upang magsimula."
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:638
 msgid "Add Post Type"
 msgstr "Magdagdag ng Post Type"
 
@@ -992,64 +1071,65 @@ msgstr "Magdagdag ng Post Type"
 msgid "Log entry deleted successfully."
 msgstr "Matagumpay na tinanggal ang log entry."
 
-#: includes/classes/class-table-logs.php:79
+#: includes/classes/class-table-logs.php:80
+#. translators: %d: number of log entries deleted
 #, php-format
 msgid "%d log entries deleted successfully."
 msgstr "%d log entries na matagumpay na tinanggal."
 
-#: includes/classes/class-table-logs.php:83
+#: includes/classes/class-table-logs.php:84
 msgid "All logs have been cleared."
 msgstr "Lahat ng mga log ay nalinis na."
 
-#: includes/classes/class-table-logs.php:162
+#: includes/classes/class-table-logs.php:163
 msgid "Title"
 msgstr "Pamagat"
 
-#: includes/classes/class-table-logs.php:164
+#: includes/classes/class-table-logs.php:165
 msgid "Details"
 msgstr "Mga Detalye"
 
-#: includes/classes/class-table-logs.php:198
+#: includes/classes/class-table-logs.php:199
 msgid "Are you sure you want to delete this log entry?"
 msgstr "Sigurado ka bang nais mong tanggalin ang log entry na ito?"
 
-#: includes/classes/class-table-logs.php:249, fuzzy
+#: includes/classes/class-table-logs.php:250, fuzzy
 msgid "Tablet"
 msgstr "Tablet"
 
-#: includes/classes/class-table-logs.php:251, fuzzy
+#: includes/classes/class-table-logs.php:252, fuzzy
 msgid "Mobile"
 msgstr "Mobile"
 
-#: includes/classes/class-table-logs.php:253, fuzzy
+#: includes/classes/class-table-logs.php:254, fuzzy
 msgid "Desktop"
 msgstr "Desktop"
 
-#: includes/classes/class-table-logs.php:307
+#: includes/classes/class-table-logs.php:308
 #. translators: 1: user display name, 2: location name, 3: visit date/time
 #, php-format
 msgid "%1$s from %2$s visited at %3$s"
 msgstr "%1$s mula sa %2$s ay bumisita sa %3$s"
 
-#: includes/classes/class-table-logs.php:310
+#: includes/classes/class-table-logs.php:311
 #. translators: 1: user display name, 2: visit date/time
 #, php-format
 msgid "%1$s visited at %2$s"
 msgstr "%1$s ay bumisita sa %2$s"
 
-#: includes/classes/class-table-logs.php:314
+#: includes/classes/class-table-logs.php:315
 #. translators: 1: location name, 2: visit date/time
 #, php-format
 msgid "From %1$s, visited at %2$s"
 msgstr "Mula sa %1$s, bumisita sa %2$s"
 
-#: includes/classes/class-table-logs.php:317
+#: includes/classes/class-table-logs.php:318
 #. translators: %s: visit date/time
 #, php-format
 msgid "Visited at %s"
 msgstr "Bumisita sa %s"
 
-#: includes/classes/class-table-logs.php:329
+#: includes/classes/class-table-logs.php:330
 #. translators: %s: device type and browser name, e.g. "Mobile Chrome"
 #, php-format
 msgid "via %s"
@@ -1077,7 +1157,8 @@ msgstr "Hindi wastong URL."
 msgid "Tiny slug could not created."
 msgstr "Hindi makalikha ng Tiny slug."
 
-#: includes/functions.php:251
+#: includes/functions.php:252
+#. translators: %s: link ID number
 #, fuzzy, php-format
 msgid "Link - %s"
 msgstr "Link - %s"
@@ -1143,20 +1224,21 @@ msgstr "Huling 1 Buwan"
 msgid "Last 1 Year"
 msgstr "Huling 1 Taon"
 
-#: templates/admin/footer.php:14
+#: templates/admin/footer.php:16
+#. translators: %1$s: plugin name, %2$s: star rating icon
 #, php-format
 msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
 msgstr "Kung gusto mo ang %1$s mangyaring iwanan kami ng %2$s na rating. Salamat!"
 
-#: templates/admin/footer.php:21
+#: templates/admin/footer.php:24
 msgid "About"
 msgstr "Tungkol"
 
-#: templates/admin/footer.php:26
+#: templates/admin/footer.php:29
 msgid "Documentation"
 msgstr "Dokumentasyon"
 
-#: templates/admin/footer.php:30
+#: templates/admin/footer.php:33
 msgid "Contact"
 msgstr "Makipag-ugnayan"
 
@@ -1198,10 +1280,10 @@ msgstr "Detalyadong dokumentasyon ay available din sa website ng plugin."
 msgid "View Knowledge Base"
 msgstr "Tingnan ang Knowledge Base"
 
-#: tinypress.php:79
+#: tinypress.php:98
 msgid "This plugin can be deleted."
 msgstr "Maaaring tanggalin ang plugin na ito."
 
-#: tinypress.php:287
+#: tinypress.php:355
 msgid "Copied."
 msgstr "Nakopya."

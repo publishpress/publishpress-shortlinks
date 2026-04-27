@@ -4,53 +4,54 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PublishPress Shortlinks Free 1.5.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
-"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-08 11:06+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: pl_PL\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
+"PO-Revision-Date: 2026-04-27 15:44+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
-"(n%100<10 || n%100>=20) ? 1 : 2);\n"
-"Plural-Forms: nplurals=3; plural=(n == 1 ? 0 : n % 10 >= 2 && n % 10 <= 4 && "
-"(n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
+"&& (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
+"&& (n % 100 < 10 || n % 100 >= 20) ? 1: 2);\n"
+"Language: pl_PL\n"
+"(n%100<10 || n%100>=20) ? 1: 2);\n"
+"Plural-Forms: nplurals=3; plural=(n == 1 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
 
+#: tinypress.php, fuzzy
 #. Plugin Name of the plugin
-#: tinypress.php
 msgid "PublishPress Shortlinks Free"
-msgstr ""
+msgstr "PublishPress Shortlinks Free"
 
+#: tinypress.php, fuzzy
 #. Plugin URI of the plugin
-#: tinypress.php
 msgid "https://publishpress.com/shortlinks/"
-msgstr ""
+msgstr "https://publishpress.com/shortlinks/"
 
-#. Description of the plugin
 #: tinypress.php
+#. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
 "and can have custom view permissions."
 msgstr ""
-"Twórz niestandardowe linki do swoich postów. Linki te są markowe, śledzone i "
-"mogą mieć niestandardowe uprawnienia do wyświetlania."
+"Twórz niestandardowe linki do swoich postów. Linki te są markowe, śledzone "
+"i mogą mieć niestandardowe uprawnienia do wyświetlania."
 
-#. Author of the plugin
 #: tinypress.php
+#. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
+#: tinypress.php, fuzzy
 #. Author URI of the plugin
-#: tinypress.php
 msgid "https://publishpress.com/"
-msgstr ""
+msgstr "https://publishpress.com/"
 
 #: includes-core/ShortlinksCoreAdmin.php:86
 msgid ""
-"You're using PublishPress Shortlinks Free. The Pro version has more features "
-"and support. "
+"You're using PublishPress Shortlinks Free. The Pro version has more "
+"features and support. "
 msgstr ""
 "Używasz PublishPress Shortlinks Free. Wersja Pro ma więcej funkcji i "
 "wsparcia. "
@@ -127,7 +128,7 @@ msgid "Bulk Management"
 msgstr "Zarządzanie masowe"
 
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:194
+#: includes/classes/class-autolist-ajax.php:200
 msgid "Permission denied"
 msgstr "Odmowa dostępu"
 
@@ -135,104 +136,105 @@ msgstr "Odmowa dostępu"
 msgid "Post type is required"
 msgstr "Post type jest wymagany"
 
-#: includes/classes/class-autolist-ajax.php:52
-#, php-format
-msgid "\"%s\" is not a registered post type"
-msgstr "\"%s\" nie jest zarejestrowanym post type"
+#: includes/classes/class-autolist-ajax.php:53
+#. translators: %s: post type name
+msgid "\"%%s\" is not a registered post type"
+msgstr "\"%%s\" nie jest zarejestrowanym post type"
 
-#: includes/classes/class-autolist-ajax.php:59
-#, php-format
-msgid "\"%s\" is not a public post type"
-msgstr "\"%s\" nie jest publicznym post type"
+#: includes/classes/class-autolist-ajax.php:61
+#. translators: %s: post type name
+msgid "\"%%s\" is not a public post type"
+msgstr "\"%%s\" nie jest publicznym post type"
 
-#: includes/classes/class-autolist-ajax.php:65
-#, php-format
-msgid "\"%s\" cannot be used for auto-listing"
-msgstr "\"%s\" nie może być używany do automatycznego wyświetlania"
+#: includes/classes/class-autolist-ajax.php:68
+#. translators: %s: post type name
+msgid "\"%%s\" cannot be used for auto-listing"
+msgstr "\"%%s\" nie może być użyty do automatycznego linkowania"
 
-#: includes/classes/class-autolist-ajax.php:74
-#, php-format
-msgid "\"%s\" is already configured"
-msgstr "\"%s\" jest już skonfigurowany"
+#: includes/classes/class-autolist-ajax.php:78
+#. translators: %s: post type name
+msgid "\"%%s\" is already configured"
+msgstr "\"%%s\" jest już skonfigurowany"
 
-#: includes/classes/class-autolist-ajax.php:80
-#, php-format
-msgid "Valid: %s"
-msgstr "Ważne: %s"
+#: includes/classes/class-autolist-ajax.php:85
+#. translators: %s: post type label
+msgid "Valid: %%s"
+msgstr "Ważne: %%s"
 
-#: includes/classes/class-autolist-ajax.php:94
+#: includes/classes/class-autolist-ajax.php:99
 msgid "Permission denied - you must be an administrator"
 msgstr "Odmowa dostępu - musisz być administratorem"
 
-#: includes/classes/class-autolist-ajax.php:102
+#: includes/classes/class-autolist-ajax.php:107
 msgid "Invalid configuration format - expected array"
 msgstr "Nieprawidłowy format konfiguracji - oczekiwano tablicy"
 
-#: includes/classes/class-autolist-ajax.php:123
+#: includes/classes/class-autolist-ajax.php:128
 msgid "Configuration unchanged (already saved)"
 msgstr "Konfiguracja niezmieniona (już zapisana)"
 
-#: includes/classes/class-autolist-ajax.php:127
+#: includes/classes/class-autolist-ajax.php:132
 msgid "Failed to save configuration to database"
 msgstr "Nie udało się zapisać konfiguracji w bazie danych"
 
-#: includes/classes/class-autolist-ajax.php:132
+#: includes/classes/class-autolist-ajax.php:137
 msgid "Configuration saved successfully"
 msgstr "Konfiguracja zapisana pomyślnie"
 
-#: includes/classes/class-autolist-ajax.php:138
+#: includes/classes/class-autolist-ajax.php:144
+#. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "Błąd: %s"
 
-#: includes/classes/class-autolist-ajax.php:283
+#: includes/classes/class-autolist-ajax.php:289
 msgid "Validating..."
 msgstr "Weryfikacja..."
 
-#: includes/classes/class-autolist-ajax.php:284
+#: includes/classes/class-autolist-ajax.php:290
 msgid "Saving..."
 msgstr "Zapisywanie..."
 
-#: includes/classes/class-autolist-ajax.php:285
+#: includes/classes/class-autolist-ajax.php:291
 msgid "Saved!"
 msgstr "Zapisano!"
 
-#: includes/classes/class-autolist-ajax.php:286
+#: includes/classes/class-autolist-ajax.php:292
 msgid "Error"
 msgstr "Błąd"
 
-#: includes/classes/class-autolist-ajax.php:287
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Are you sure you want to remove this post type?"
 msgstr "Czy na pewno chcesz usunąć ten post type?"
 
-#: includes/classes/class-autolist-ajax.php:288
+#: includes/classes/class-autolist-ajax.php:294
 msgid "Select a post type"
 msgstr "Wybierz post type"
 
-#: includes/classes/class-autolist-ajax.php:289
-#: includes/classes/class-settings.php:407
-#: includes/classes/class-settings.php:503
+#: includes/classes/class-autolist-ajax.php:295
+#: includes/classes/class-settings.php:525
+#: includes/classes/class-settings.php:621
 msgid "Never"
 msgstr "Nigdy"
 
-#: includes/classes/class-autolist-ajax.php:290
-#: includes/classes/class-settings.php:405
-#: includes/classes/class-settings.php:505
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-settings.php:523
+#: includes/classes/class-settings.php:623
 msgid "When Link is First Used"
 msgstr "Gdy link jest użyty po raz pierwszy"
 
-#: includes/classes/class-autolist-ajax.php:291
-#: includes/classes/class-settings.php:507
+#: includes/classes/class-autolist-ajax.php:297
+#: includes/classes/class-settings.php:625
 msgid "When Post is Published"
 msgstr "Gdy post jest publikowany"
 
-#: includes/classes/class-autolist-ajax.php:292
-#: includes/classes/class-settings.php:506
+#: includes/classes/class-autolist-ajax.php:298
+#: includes/classes/class-settings.php:624
 msgid "When Post is Created"
 msgstr "Gdy post jest tworzony"
 
-#: includes/classes/class-autolist-ajax.php:293
-#: includes/classes/class-settings.php:504
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:622
 msgid "When Link is First Used or Post Created"
 msgstr "Gdy link jest użyty po raz pierwszy lub post jest tworzony"
 
@@ -241,19 +243,20 @@ msgid "Invalid post ID or post type."
 msgstr "Nieprawidłowe ID posta lub typ posta."
 
 #: includes/classes/class-columns-link.php:49
-#: includes/classes/class-columns-link.php:277
+#: includes/classes/class-columns-link.php:279
 #: includes/classes/class-hooks.php:207
-#: includes/classes/class-table-logs.php:163
-#: templates/admin-modal-new-link.php:29
+#: includes/classes/class-table-logs.php:164
+#: templates/admin-modal-new-link.php:29, fuzzy
 msgid "Shortlink"
-msgstr ""
+msgstr "Shortlink"
 
 #: includes/classes/class-columns-link.php:71
 msgid "No shortlink"
 msgstr "Brak shortlinka"
 
 #: includes/classes/class-columns-link.php:92
-#: includes/classes/class-hooks.php:208 includes/classes/class-hooks.php:210
+#: includes/classes/class-hooks.php:208
+#: includes/classes/class-hooks.php:210
 #: includes/classes/class-meta-boxes.php:93
 msgid "Shortlinks"
 msgstr "Shortlinki"
@@ -291,7 +294,7 @@ msgid "Submitted for approval"
 msgstr "Przesłane do zatwierdzenia"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:370
+#: includes/classes/class-settings.php:488
 msgid "Scheduled"
 msgstr "Zaplanowane"
 
@@ -307,40 +310,42 @@ msgstr "Wymaga pracy"
 msgid "Rejected"
 msgstr "Odrzucono"
 
-#: includes/classes/class-columns-link.php:206
+#: includes/classes/class-columns-link.php:207
+#. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "Rewizja: %s"
 
-#: includes/classes/class-columns-link.php:222
+#: includes/classes/class-columns-link.php:224
+#. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "Kliknięto %s razy"
 
-#: includes/classes/class-columns-link.php:228
-#: includes/classes/class-table-logs.php:196
+#: includes/classes/class-columns-link.php:230
+#: includes/classes/class-table-logs.php:197
 msgid "Edit"
 msgstr "Edytuj"
 
-#: includes/classes/class-columns-link.php:229
-#: includes/classes/class-table-logs.php:177
-#: includes/classes/class-table-logs.php:198
+#: includes/classes/class-columns-link.php:231
+#: includes/classes/class-table-logs.php:178
+#: includes/classes/class-table-logs.php:199
 msgid "Delete"
 msgstr "Usuń"
 
-#: includes/classes/class-columns-link.php:276
+#: includes/classes/class-columns-link.php:278
 msgid "Link Title"
 msgstr "Tytuł linku"
 
-#: includes/classes/class-columns-link.php:278
+#: includes/classes/class-columns-link.php:280
 msgid "Link Type"
 msgstr "Typ linku"
 
-#: includes/classes/class-columns-link.php:279
+#: includes/classes/class-columns-link.php:281
 msgid "Stats"
 msgstr "Statystyki"
 
-#: includes/classes/class-columns-link.php:280
+#: includes/classes/class-columns-link.php:282
 msgid "Actions"
 msgstr "Akcje"
 
@@ -404,7 +409,8 @@ msgstr "Kategoria"
 msgid "Categories"
 msgstr "Kategorie"
 
-#: includes/classes/class-hooks.php:253 includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:253
+#: includes/classes/class-hooks.php:254
 msgid "Logs"
 msgstr "Logi"
 
@@ -424,8 +430,10 @@ msgstr "Wyczyść logi"
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Przykro mi, nie masz dostępu do krótkich linków."
 
-#: includes/classes/class-hooks.php:504 includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536 includes/classes/class-hooks.php:557
+#: includes/classes/class-hooks.php:504
+#: includes/classes/class-hooks.php:525
+#: includes/classes/class-hooks.php:536
+#: includes/classes/class-hooks.php:557
 msgid "Access Denied"
 msgstr "Dostęp zabroniony"
 
@@ -447,12 +455,13 @@ msgstr ""
 msgid "Side"
 msgstr "Bok"
 
-#: includes/classes/class-meta-boxes.php:187 tinypress.php:380
+#: includes/classes/class-meta-boxes.php:187
+#: tinypress.php:448
 msgid "PublishPress Shortlinks"
 msgstr "Krótkie linki PublishPress"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:246
+#: includes/classes/class-settings.php:331
 msgid "General"
 msgstr "Ogólne"
 
@@ -476,19 +485,17 @@ msgstr "Krótki ciąg *"
 msgid "Short string of this URL."
 msgstr "Krótki ciąg tego URL."
 
-#: includes/classes/class-meta-boxes.php:233
+#: includes/classes/class-meta-boxes.php:233, fuzzy
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: includes/classes/class-meta-boxes.php:234
 msgid "Disable the shortlink instantly."
 msgstr "Natychmiast wyłącz skrót linku."
 
 #: includes/classes/class-meta-boxes.php:235
-msgid ""
-"After disabling the link will not active but the settings will be reserved."
-msgstr ""
-"Po wyłączeniu link nie będzie aktywny, ale ustawienia zostaną zachowane."
+msgid "After disabling the link will not active but the settings will be reserved."
+msgstr "Po wyłączeniu link nie będzie aktywny, ale ustawienia zostaną zachowane."
 
 #: includes/classes/class-meta-boxes.php:236
 msgid "Enable"
@@ -502,43 +509,71 @@ msgstr "Wyłącz"
 msgid "Notes"
 msgstr "Notatki"
 
-#: includes/classes/class-meta-boxes.php:254
+#: includes/classes/class-meta-boxes.php:251
+msgid "All"
+msgstr "Wszystkie"
+
+#: includes/classes/class-meta-boxes.php:263
+msgid "Auto-linking"
+msgstr "Automatyczne linkowanie"
+
+#: includes/classes/class-meta-boxes.php:268
+msgid "Keywords"
+msgstr "Słowa kluczowe"
+
+#: includes/classes/class-meta-boxes.php:269
+msgid ""
+"Add keywords separated by commas or on separate lines. Each keyword will "
+"link to this shortlink."
+msgstr ""
+"Dodaj słowa kluczowe oddzielone przecinkami lub w osobnych liniach. Każde "
+"słowo kluczowe będzie linkować do tego skróconego linku."
+
+#: includes/classes/class-meta-boxes.php:274
+msgid "Post Types"
+msgstr "Typy postów"
+
+#: includes/classes/class-meta-boxes.php:275
+msgid "Where should these keywords be auto-linked?"
+msgstr "Gdzie te słowa kluczowe powinny być automatycznie linkowane?"
+
+#: includes/classes/class-meta-boxes.php:288
 msgid "Redirection"
 msgstr "Przekierowanie"
 
-#: includes/classes/class-meta-boxes.php:259
+#: includes/classes/class-meta-boxes.php:293
 msgid "Redirection Method"
 msgstr "Metoda przekierowania"
 
-#: includes/classes/class-meta-boxes.php:260
+#: includes/classes/class-meta-boxes.php:294
 msgid "Select redirection method"
 msgstr "Wybierz metodę przekierowania"
 
-#: includes/classes/class-meta-boxes.php:261
+#: includes/classes/class-meta-boxes.php:295
 msgid "Select a method"
 msgstr "Wybierz metodę"
 
-#: includes/classes/class-meta-boxes.php:263
+#: includes/classes/class-meta-boxes.php:297
 msgid "307 (Temporary)"
 msgstr "307 (Tymczasowy)"
 
-#: includes/classes/class-meta-boxes.php:264
+#: includes/classes/class-meta-boxes.php:298
 msgid "302 (Temporary)"
 msgstr "302 (Tymczasowy)"
 
-#: includes/classes/class-meta-boxes.php:265
+#: includes/classes/class-meta-boxes.php:299
 msgid "301 (Permanent)"
 msgstr "301 (Trwały)"
 
-#: includes/classes/class-meta-boxes.php:272
+#: includes/classes/class-meta-boxes.php:306
 msgid "Sponsored"
 msgstr "Sponsorowane"
 
-#: includes/classes/class-meta-boxes.php:273
+#: includes/classes/class-meta-boxes.php:307
 msgid "Mark links as sponsored content."
 msgstr "Oznacz linki jako treść sponsorowaną."
 
-#: includes/classes/class-meta-boxes.php:274
+#: includes/classes/class-meta-boxes.php:308
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -546,15 +581,15 @@ msgstr ""
 "Dodaje atrybut rel=\"sponsored\". Zalecane dla linków afiliacyjnych i "
 "płatnych promocji."
 
-#: includes/classes/class-meta-boxes.php:279
+#: includes/classes/class-meta-boxes.php:313, fuzzy
 msgid "NoFollow"
-msgstr ""
+msgstr "NoFollow"
 
-#: includes/classes/class-meta-boxes.php:280
+#: includes/classes/class-meta-boxes.php:314
 msgid "Prevent search engines from following this link."
 msgstr "Zapobiega, aby wyszukiwarki śledziły ten link."
 
-#: includes/classes/class-meta-boxes.php:281
+#: includes/classes/class-meta-boxes.php:315
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -562,15 +597,15 @@ msgstr ""
 "Dodaje atrybut rel=\"nofollow\". Zalecane dla linków zewnętrznych i "
 "nieufnych źródeł."
 
-#: includes/classes/class-meta-boxes.php:287
+#: includes/classes/class-meta-boxes.php:321
 msgid "Parameter Forwarding"
 msgstr "Przekazywanie parametrów"
 
-#: includes/classes/class-meta-boxes.php:288
+#: includes/classes/class-meta-boxes.php:322
 msgid "Pass URL parameters to the target link."
 msgstr "Przekaż parametry URL do docelowego linku."
 
-#: includes/classes/class-meta-boxes.php:289
+#: includes/classes/class-meta-boxes.php:323
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -578,270 +613,313 @@ msgstr ""
 "Wszystkie parametry dodane do krótkiego URL (np. ?utm_source=email) zostaną "
 "przekazane do docelowego URL."
 
-#: includes/classes/class-meta-boxes.php:299
+#: includes/classes/class-meta-boxes.php:333
 msgid "Password Protection"
 msgstr "Ochrona hasłem"
 
-#: includes/classes/class-meta-boxes.php:300
+#: includes/classes/class-meta-boxes.php:334
 msgid "Secure your shortlink."
 msgstr "Zabezpiecz swój krótki link."
 
-#: includes/classes/class-meta-boxes.php:301
+#: includes/classes/class-meta-boxes.php:335
 msgid "Users must enter the password to redirect to the target link."
-msgstr ""
-"Użytkownicy muszą wprowadzić hasło, aby przekierować do docelowego linku."
+msgstr "Użytkownicy muszą wprowadzić hasło, aby przekierować do docelowego linku."
 
-#: includes/classes/class-meta-boxes.php:306
+#: includes/classes/class-meta-boxes.php:340
 msgid "Password"
 msgstr "Hasło"
 
-#: includes/classes/class-meta-boxes.php:307
+#: includes/classes/class-meta-boxes.php:341
 msgid "Share this with users."
 msgstr "Podziel się tym z użytkownikami."
 
-#: includes/classes/class-meta-boxes.php:308
+#: includes/classes/class-meta-boxes.php:342
 msgid "Passwords are case sensitive."
 msgstr "Hasła są wrażliwe na wielkość liter."
 
-#: includes/classes/class-meta-boxes.php:309
+#: includes/classes/class-meta-boxes.php:343, fuzzy
 msgid "********"
-msgstr ""
+msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:318
+#: includes/classes/class-meta-boxes.php:352
 msgid "Enable Expiration"
 msgstr "Włącz wygasanie"
 
-#: includes/classes/class-meta-boxes.php:319
+#: includes/classes/class-meta-boxes.php:353
 msgid "Expire automatically."
 msgstr "Wygasaj automatycznie."
 
-#: includes/classes/class-meta-boxes.php:320
+#: includes/classes/class-meta-boxes.php:354
 msgid "Users will not able to redirect to the target URL once expire."
-msgstr ""
-"Użytkownicy nie będą mogli przekierować do docelowego URL po wygaśnięciu."
+msgstr "Użytkownicy nie będą mogli przekierować do docelowego URL po wygaśnięciu."
 
-#: includes/classes/class-meta-boxes.php:325
+#: includes/classes/class-meta-boxes.php:359
 msgid "Expiration Date"
 msgstr "Data wygaśnięcia"
 
-#: includes/classes/class-meta-boxes.php:326
+#: includes/classes/class-meta-boxes.php:360
 msgid "Choose the date this link should expire."
 msgstr "Wybierz datę, w której ten link powinien wygasnąć."
 
-#: includes/classes/class-meta-boxes.php:338
+#: includes/classes/class-meta-boxes.php:372
 msgid "Expiration Time"
 msgstr "Czas wygaśnięcia"
 
-#: includes/classes/class-meta-boxes.php:339
+#: includes/classes/class-meta-boxes.php:373
 msgid "Choose the time this link should expire."
 msgstr "Wybierz czas, w którym ten link powinien wygasnąć."
 
-#: includes/classes/class-meta-boxes.php:340
+#: includes/classes/class-meta-boxes.php:374
 msgid "Must be at least 1 minute in the future."
 msgstr "Musi być co najmniej 1 minutę w przyszłości."
 
-#: includes/classes/class-meta-boxes.php:357
+#: includes/classes/class-meta-boxes.php:391
 msgid "Security"
 msgstr "Bezpieczeństwo"
 
-#: includes/classes/class-meta-boxes.php:368
+#: includes/classes/class-meta-boxes.php:402
 msgid "Analytics"
 msgstr "Analizy"
 
-#: includes/classes/class-redirection.php:543
+#: includes/classes/class-redirection.php:599
 msgid "Post not found."
 msgstr "Post nie znaleziono."
 
-#: includes/classes/class-redirection.php:585
-msgid "Link Expired"
-msgstr "Link wygasł"
-
-#: includes/classes/class-redirection.php:598
+#: includes/classes/class-redirection.php:648
 msgid "This link has expired"
 msgstr "Ten link wygasł"
 
-#: includes/classes/class-redirection.php:599
+#: includes/classes/class-redirection.php:652
 msgid "You will be redirected shortly."
 msgstr "Zostaniesz wkrótce przekierowany."
 
-#: includes/classes/class-redirection.php:600
+#: includes/classes/class-redirection.php:656
 msgid "Click here if you are not redirected"
 msgstr "Kliknij tutaj, jeśli nie zostaniesz przekierowany"
 
-#: includes/classes/class-redirection.php:716
+#: includes/classes/class-redirection.php:673
+msgid "Link Expired"
+msgstr "Link wygasł"
+
+#: includes/classes/class-redirection.php:804
 msgid "This link is not active."
 msgstr "Ten link nie jest aktywny."
 
-#: includes/classes/class-redirection.php:750
+#: includes/classes/class-redirection.php:849
 msgid "This link is expired."
 msgstr "Ten link jest nieaktualny."
 
-#: includes/classes/class-redirection.php:769
+#: includes/classes/class-redirection.php:868
 msgid "Incorrect password. Please try again."
 msgstr "Niepoprawne hasło. Proszę spróbować ponownie."
 
-#: includes/classes/class-redirection.php:784
-#: includes/classes/class-redirection.php:789
+#: includes/classes/class-redirection.php:883
+#: includes/classes/class-redirection.php:888
 msgid "Password Protected Link"
 msgstr "Link chroniony hasłem"
 
-#: includes/classes/class-redirection.php:795
+#: includes/classes/class-redirection.php:894
 msgid "Enter password to continue:"
 msgstr "Wprowadź hasło, aby kontynuować:"
 
-#: includes/classes/class-redirection.php:797
+#: includes/classes/class-redirection.php:896
 msgid "Submit"
 msgstr "Wyślij"
 
-#: includes/classes/class-redirection.php:915
+#: includes/classes/class-redirection.php:1014
 msgid "This link is not containing the right prefix slug."
 msgstr "Ten link nie zawiera właściwego prefiksu slug."
 
-#: includes/classes/class-revision.php:395
+#: includes/classes/class-revision.php:439
 msgid "Invalid revision ID."
 msgstr "Nieprawidłowe ID rewizji."
 
-#: includes/classes/class-settings.php:102
+#: includes/classes/class-settings.php:187
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: includes/classes/class-settings.php:152
+#: includes/classes/class-settings.php:237
 msgid "Elementor Detected:"
 msgstr "Wykryto Elementor:"
 
-#: includes/classes/class-settings.php:153
+#: includes/classes/class-settings.php:238
 msgid ""
-"Shortlink prefix is required for proper rendering of Elementor revisions. It "
-"is advisable to keep it enabled."
+"Shortlink prefix is required for proper rendering of Elementor revisions. "
+"It is advisable to keep it enabled."
 msgstr ""
 "Prefiks skróconego linku jest wymagany do prawidłowego renderowania rewizji "
 "Elementora. Zaleca się, aby pozostawić go włączonym."
 
-#: includes/classes/class-settings.php:185
+#: includes/classes/class-settings.php:270
 msgid "TinyPress Shortlinks Notice:"
 msgstr "Powiadomienie o skróconych linkach TinyPress:"
 
-#: includes/classes/class-settings.php:186
+#: includes/classes/class-settings.php:271
 msgid ""
-"Elementor is active. Shortlink prefix has been automatically disabled, it is "
-"required for optimal compatibility with Elementor revisions."
+"Elementor is active. Shortlink prefix has been automatically disabled, it "
+"is required for optimal compatibility with Elementor revisions."
 msgstr ""
 "Elementor jest aktywny. Prefiks skróconego linku został automatycznie "
 "wyłączony, jest wymagany dla optymalnej kompatybilności z rewizjami "
 "Elementora."
 
-#: includes/classes/class-settings.php:249
+#: includes/classes/class-settings.php:334
 msgid "Options"
 msgstr "Opcje"
 
-#: includes/classes/class-settings.php:254
+#: includes/classes/class-settings.php:339
 msgid "Shortlink Prefix"
 msgstr "Prefiks skróconego linku"
 
-#: includes/classes/class-settings.php:255
+#: includes/classes/class-settings.php:340
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Dodaj prefiks między swoją nazwą domeny a skrótem."
 
-#: includes/classes/class-settings.php:262
+#: includes/classes/class-settings.php:347
 msgid "Prefix Slug"
 msgstr "Prefiks Slug"
 
-#: includes/classes/class-settings.php:263
+#: includes/classes/class-settings.php:348
 msgid "Custom prefix slug."
 msgstr "Niestandardowy prefiks slug."
 
-#: includes/classes/class-settings.php:264
+#: includes/classes/class-settings.php:349
 msgid "This text will be added between your domain name and shortlink."
 msgstr "Ten tekst zostanie dodany między Twoją nazwą domeny a skrótem."
 
-#: includes/classes/class-settings.php:265
-#: includes/classes/class-settings.php:266
+#: includes/classes/class-settings.php:350
+#: includes/classes/class-settings.php:351
 msgid "go"
-msgstr ""
+msgstr "przejdź"
 
-#: includes/classes/class-settings.php:272
+#: includes/classes/class-settings.php:357
 msgid "Keyboard Shortcut"
 msgstr "Skrót klawiaturowy"
 
-#: includes/classes/class-settings.php:273
+#: includes/classes/class-settings.php:358
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr "Twórz skróty z dowolnego miejsca w swoim dashboardzie WordPress."
 
-#: includes/classes/class-settings.php:274
-#: includes/classes/class-settings.php:275
+#: includes/classes/class-settings.php:359
+#: includes/classes/class-settings.php:360
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl lub Cmd + /"
 
-#: includes/classes/class-settings.php:284
+#: includes/classes/class-settings.php:369
 msgid "Remove from Admin Bar"
 msgstr "Usuń z paska administracyjnego"
 
-#: includes/classes/class-settings.php:285
+#: includes/classes/class-settings.php:370
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "Ukryj przycisk \"Skróć\" z paska administracyjnego WordPress."
 
-#: includes/classes/class-settings.php:291
+#: includes/classes/class-settings.php:376
 msgid "Role Management"
 msgstr "Zarządzanie rolami"
 
-#: includes/classes/class-settings.php:296
+#: includes/classes/class-settings.php:381
 msgid "Who Can View Shortlinks"
 msgstr "Kto może wyświetlać skróty"
 
-#: includes/classes/class-settings.php:297
+#: includes/classes/class-settings.php:382
 msgid "Only selected user roles can view links."
 msgstr "Tylko wybrane role użytkowników mogą wyświetlać linki."
 
-#: includes/classes/class-settings.php:305
+#: includes/classes/class-settings.php:390
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Kto może tworzyć/edytować skróty"
 
-#: includes/classes/class-settings.php:306
+#: includes/classes/class-settings.php:391
 msgid "Only selected user roles can create or edit links."
 msgstr "Tylko wybrane role użytkowników mogą tworzyć lub edytować linki."
 
-#: includes/classes/class-settings.php:315
+#: includes/classes/class-settings.php:400
 msgid "Who Can See Analytics"
 msgstr "Kto może zobaczyć analizy"
 
-#: includes/classes/class-settings.php:316
+#: includes/classes/class-settings.php:401
 msgid "Only selected user roles can see analytics."
 msgstr "Tylko wybrane role użytkowników mogą zobaczyć analizy."
 
-#: includes/classes/class-settings.php:325
+#: includes/classes/class-settings.php:410
 msgid "Who Can Control Settings"
 msgstr "Kto może kontrolować ustawienia"
 
-#: includes/classes/class-settings.php:326
+#: includes/classes/class-settings.php:411
 msgid "Only selected user roles can control settings."
 msgstr "Tylko wybrane role użytkowników mogą kontrolować ustawienia."
 
-#: includes/classes/class-settings.php:335
+#: includes/classes/class-settings.php:420
+msgid "Auto-Linking"
+msgstr "Automatyczne linkowanie"
+
+#: includes/classes/class-settings.php:425
+msgid "Enable Auto-Linking"
+msgstr "Włącz automatyczne linkowanie"
+
+#: includes/classes/class-settings.php:426
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr "Automatycznie przekształć słowa kluczowe w skrócone linki w treści postu."
+
+#: includes/classes/class-settings.php:427
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr ""
+"Po włączeniu, słowa kluczowe skonfigurowane w ustawieniach skróconego linku "
+"będą automatycznie linkowane w Twojej treści."
+
+#: includes/classes/class-settings.php:433
+msgid "Open Auto-Links In"
+msgstr "Otwórz automatyczne linki w"
+
+#: includes/classes/class-settings.php:434
+msgid "Choose how auto-linked keywords should open."
+msgstr "Wybierz, jak automatycznie linkowane słowa kluczowe powinny się otwierać."
+
+#: includes/classes/class-settings.php:436
+msgid "Same tab"
+msgstr "Ta sama karta"
+
+#: includes/classes/class-settings.php:437
+msgid "New tab"
+msgstr "Nowa karta"
+
+#: includes/classes/class-settings.php:445
+msgid "Auto-Link Color"
+msgstr "Kolor automatycznego linku"
+
+#: includes/classes/class-settings.php:446
+msgid "Choose the color for auto-linked keywords."
+msgstr "Wybierz kolor dla automatycznie powiązanych słów kluczowych."
+
+#: includes/classes/class-settings.php:453
 msgid "Auto-List Links"
 msgstr "Automatyczne listowanie linków"
 
-#: includes/classes/class-settings.php:340
+#: includes/classes/class-settings.php:458
 msgid "Auto-List Shortlinks"
 msgstr "Automatyczne listowanie skrótów"
 
-#: includes/classes/class-settings.php:341
+#: includes/classes/class-settings.php:459
 msgid ""
-"When enabled, shortlinks will appear in the \"All Links\" table based on the "
-"behavior you configure below."
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
 msgstr ""
 "Gdy włączone, skróty pojawią się w tabeli \"Wszystkie linki\" w zależności "
 "od zachowania, które skonfigurujesz poniżej."
 
-#: includes/classes/class-settings.php:347
+#: includes/classes/class-settings.php:465
 msgid "Configure Post Types"
 msgstr "Skonfiguruj typy postów"
 
-#: includes/classes/class-settings.php:348
+#: includes/classes/class-settings.php:466
 msgid "Set when links should be auto-listed for each post type"
 msgstr ""
-"Ustaw, kiedy linki powinny być automatycznie listowane dla każdego typu postu"
+"Ustaw, kiedy linki powinny być automatycznie listowane dla każdego typu "
+"postu"
 
-#: includes/classes/class-settings.php:349
+#: includes/classes/class-settings.php:467
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -849,19 +927,20 @@ msgstr ""
 "Dodaj typy postów i skonfiguruj, kiedy ich skróty powinny pojawić się w "
 "tabeli \"Wszystkie linki\". Zmiany są zapisywane automatycznie."
 
-#: includes/classes/class-settings.php:356
+#: includes/classes/class-settings.php:474
+#: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "Widoczność statusu postu"
 
-#: includes/classes/class-settings.php:361
+#: includes/classes/class-settings.php:479
 msgid "Allowed Post Statuses"
 msgstr "Dozwolone statusy postów"
 
-#: includes/classes/class-settings.php:362
+#: includes/classes/class-settings.php:480
 msgid "Choose which post statuses can be accessed via shortlinks"
 msgstr "Wybierz, które statusy postów mogą być dostępne za pomocą skrótów"
 
-#: includes/classes/class-settings.php:363
+#: includes/classes/class-settings.php:481
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -869,52 +948,52 @@ msgstr ""
 "Wybierz, które statusy postów są dostępne podczas odwiedzania skrótu "
 "PublishPress."
 
-#: includes/classes/class-settings.php:366
+#: includes/classes/class-settings.php:484
 msgid "Published"
 msgstr "Opublikowany"
 
-#: includes/classes/class-settings.php:367
+#: includes/classes/class-settings.php:485
 msgid "Draft"
 msgstr "Szkic"
 
-#: includes/classes/class-settings.php:368
+#: includes/classes/class-settings.php:486
 msgid "Pending Review"
 msgstr "Oczekuje na recenzję"
 
-#: includes/classes/class-settings.php:369
+#: includes/classes/class-settings.php:487
 msgid "Private"
 msgstr "Prywatny"
 
-#: includes/classes/class-settings.php:377
+#: includes/classes/class-settings.php:495
 msgid "Expired Links"
 msgstr "Wygasłe linki"
 
-#: includes/classes/class-settings.php:382
+#: includes/classes/class-settings.php:500
 msgid "Default Expired Redirect URL"
 msgstr "Domyślny URL przekierowania wygasłych linków"
 
-#: includes/classes/class-settings.php:383
+#: includes/classes/class-settings.php:501
 msgid "Where should expired shortlinks redirect?"
 msgstr "Gdzie powinny przekierowywać wygasłe skróty?"
 
-#: includes/classes/class-settings.php:384
+#: includes/classes/class-settings.php:502
 msgid ""
-"When a shortlink expires, visitors will be redirected to this URL instead of "
-"seeing an error. Leave empty to show the default expiration message."
+"When a shortlink expires, visitors will be redirected to this URL instead "
+"of seeing an error. Leave empty to show the default expiration message."
 msgstr ""
 "Gdy skrót wygaśnie, odwiedzający zostaną przekierowani na ten URL zamiast "
 "widzieć błąd. Pozostaw puste, aby wyświetlić domyślną wiadomość o "
 "wygaśnięciu."
 
-#: includes/classes/class-settings.php:396
+#: includes/classes/class-settings.php:514
 msgid "Revisions"
 msgstr "Rewizje"
 
-#: includes/classes/class-settings.php:401
+#: includes/classes/class-settings.php:519
 msgid "Revision Link Visibility"
 msgstr "Widoczność linków rewizji"
 
-#: includes/classes/class-settings.php:402
+#: includes/classes/class-settings.php:520
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -922,57 +1001,57 @@ msgstr ""
 "Gdy włączone, skróty rewizji pojawią się w tabeli \"Wszystkie skróty\" w "
 "zależności od zachowania, które skonfigurujesz poniżej."
 
-#: includes/classes/class-settings.php:404
+#: includes/classes/class-settings.php:522
 msgid "When Revision is Created"
 msgstr "Gdy utworzono rewizję"
 
-#: includes/classes/class-settings.php:406
+#: includes/classes/class-settings.php:524
 msgid "When Revision is Created or Link is First Used"
 msgstr "Gdy rewizja jest tworzona lub link jest po raz pierwszy używany"
 
-#: includes/classes/class-settings.php:414
+#: includes/classes/class-settings.php:532
 msgid "Show Shortlink in Revision Table"
 msgstr "Pokaż krótki link w tabeli rewizji"
 
-#: includes/classes/class-settings.php:415
-msgid ""
-"Display shortlink column when viewing revisions in PublishPress Revisions."
+#: includes/classes/class-settings.php:533
+msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
-"Wyświetl kolumnę krótkiego linku podczas przeglądania rewizji w PublishPress "
-"Revisions."
+"Wyświetl kolumnę krótkiego linku podczas przeglądania rewizji w "
+"PublishPress Revisions."
 
-#: includes/classes/class-settings.php:421
+#: includes/classes/class-settings.php:539
 msgid "Revision Visibility for Visitors"
 msgstr "Widoczność rewizji dla odwiedzających"
 
-#: includes/classes/class-settings.php:422
+#: includes/classes/class-settings.php:540
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Zezwól wylogowanym odwiedzającym na przeglądanie treści rewizji za pomocą "
 "krótkich linków."
 
-#: includes/classes/class-settings.php:423
+#: includes/classes/class-settings.php:541
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
-"previews. When enabled, revision shortlinks will render the revision content "
-"directly for logged-out visitors instead of redirecting to the preview URL."
+"previews. When enabled, revision shortlinks will render the revision "
+"content directly for logged-out visitors instead of redirecting to the "
+"preview URL."
 msgstr ""
 "Domyślnie PublishPress Revisions blokuje odwiedzających przed przeglądaniem "
 "podglądów rewizji. Po włączeniu, krótkie linki rewizji będą bezpośrednio "
 "wyświetlać treść rewizji dla wylogowanych odwiedzających, zamiast "
 "przekierowywać do adresu URL podglądu."
 
-#: includes/classes/class-settings.php:444
+#: includes/classes/class-settings.php:562, fuzzy
 msgid "Dummy"
-msgstr ""
+msgstr "Dummy"
 
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:606
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Nie skonfigurowano jeszcze typów postów. Kliknij \"Dodaj typ postu\", aby "
 "rozpocząć."
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:638
 msgid "Add Post Type"
 msgstr "Dodaj typ postu"
 
@@ -980,65 +1059,66 @@ msgstr "Dodaj typ postu"
 msgid "Log entry deleted successfully."
 msgstr "Wpis dziennika usunięty pomyślnie."
 
-#: includes/classes/class-table-logs.php:79
+#: includes/classes/class-table-logs.php:80
+#. translators: %d: number of log entries deleted
 #, php-format
 msgid "%d log entries deleted successfully."
 msgstr "%d wpisy dziennika usunięto pomyślnie."
 
-#: includes/classes/class-table-logs.php:83
+#: includes/classes/class-table-logs.php:84
 msgid "All logs have been cleared."
 msgstr "Wszystkie dzienniki zostały wyczyszczone."
 
-#: includes/classes/class-table-logs.php:162
+#: includes/classes/class-table-logs.php:163
 msgid "Title"
 msgstr "Tytuł"
 
-#: includes/classes/class-table-logs.php:164
+#: includes/classes/class-table-logs.php:165
 msgid "Details"
 msgstr "Szczegóły"
 
-#: includes/classes/class-table-logs.php:198
+#: includes/classes/class-table-logs.php:199
 msgid "Are you sure you want to delete this log entry?"
 msgstr "Czy na pewno chcesz usunąć ten wpis dziennika?"
 
-#: includes/classes/class-table-logs.php:249
+#: includes/classes/class-table-logs.php:250, fuzzy
 msgid "Tablet"
-msgstr ""
+msgstr "Tablet"
 
-#: includes/classes/class-table-logs.php:251
+#: includes/classes/class-table-logs.php:252
 msgid "Mobile"
 msgstr "Mobilny"
 
-#: includes/classes/class-table-logs.php:253
+#: includes/classes/class-table-logs.php:254
 msgid "Desktop"
 msgstr "Komputer stacjonarny"
 
+#: includes/classes/class-table-logs.php:308
 #. translators: 1: user display name, 2: location name, 3: visit date/time
-#: includes/classes/class-table-logs.php:307
 #, php-format
 msgid "%1$s from %2$s visited at %3$s"
 msgstr "%1$s z %2$s odwiedził/a w %3$s"
 
+#: includes/classes/class-table-logs.php:311
 #. translators: 1: user display name, 2: visit date/time
-#: includes/classes/class-table-logs.php:310
 #, php-format
 msgid "%1$s visited at %2$s"
 msgstr "%1$s odwiedził(a) o %2$s"
 
+#: includes/classes/class-table-logs.php:315
 #. translators: 1: location name, 2: visit date/time
-#: includes/classes/class-table-logs.php:314
 #, php-format
 msgid "From %1$s, visited at %2$s"
 msgstr "Z %1$s, odwiedzone o %2$s"
 
+#: includes/classes/class-table-logs.php:318
 #. translators: %s: visit date/time
-#: includes/classes/class-table-logs.php:317
 #, php-format
 msgid "Visited at %s"
 msgstr "Odwiedzone o %s"
 
+#: includes/classes/class-table-logs.php:330
 #. translators: %s: device type and browser name, e.g. "Mobile Chrome"
-#: includes/classes/class-table-logs.php:329
 #, php-format
 msgid "via %s"
 msgstr "przez %s"
@@ -1052,8 +1132,7 @@ msgid "Target url not found."
 msgstr "Nie znaleziono adresu docelowego."
 
 #: includes/functions.php:223
-msgid ""
-"Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
+msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr ""
 "Nieprawidłowy schemat URL. Dozwolone są tylko http, https, ftp, ftps i "
 "mailto."
@@ -1066,10 +1145,11 @@ msgstr "Nieprawidłowy URL."
 msgid "Tiny slug could not created."
 msgstr "Nie udało się utworzyć małego slug."
 
-#: includes/functions.php:251
-#, php-format
+#: includes/functions.php:252
+#. translators: %s: link ID number
+#, fuzzy, php-format
 msgid "Link - %s"
-msgstr ""
+msgstr "Link - %s"
 
 #: templates/admin-modal-new-link.php:12
 msgid "Shortlink will appear here"
@@ -1091,7 +1171,8 @@ msgstr "Zamknij"
 msgid "Create Shortlink"
 msgstr "Utwórz skrót"
 
-#: templates/admin/analytics.php:45 templates/admin/analytics.php:64
+#: templates/admin/analytics.php:45
+#: templates/admin/analytics.php:64
 msgid "Reset Today's Analytics"
 msgstr "Resetuj dzisiejszą analitykę"
 
@@ -1112,8 +1193,8 @@ msgid ""
 "Are you sure you want to reset the analytics for this period? This action "
 "cannot be undone."
 msgstr ""
-"Czy na pewno chcesz zresetować analitykę za ten okres? Ta akcja nie może być "
-"cofnięta."
+"Czy na pewno chcesz zresetować analitykę za ten okres? Ta akcja nie może "
+"być cofnięta."
 
 #: templates/admin/analytics.php:57
 msgid "Today"
@@ -1131,21 +1212,21 @@ msgstr "Ostatni 1 miesiąc"
 msgid "Last 1 Year"
 msgstr "Ostatni 1 rok"
 
-#: templates/admin/footer.php:14
+#: templates/admin/footer.php:16
+#. translators: %1$s: plugin name, %2$s: star rating icon
 #, php-format
 msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
-msgstr ""
-"Jeśli podoba ci się %1$s, prosimy o wystawienie nam oceny %2$s. Dziękujemy!"
+msgstr "Jeśli podoba ci się %1$s, prosimy o wystawienie nam oceny %2$s. Dziękujemy!"
 
-#: templates/admin/footer.php:21
+#: templates/admin/footer.php:24
 msgid "About"
 msgstr "O programie"
 
-#: templates/admin/footer.php:26
+#: templates/admin/footer.php:29
 msgid "Documentation"
 msgstr "Dokumentacja"
 
-#: templates/admin/footer.php:30
+#: templates/admin/footer.php:33
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -1171,8 +1252,7 @@ msgstr "Potrzebujesz wsparcia dla PublishPress Shortlinks?"
 
 #: templates/admin/settings/supports.php:22
 msgid "If you need help or have a new feature request, let us know."
-msgstr ""
-"Jeśli potrzebujesz pomocy lub masz nowe zgłoszenie funkcji, daj nam znać."
+msgstr "Jeśli potrzebujesz pomocy lub masz nowe zgłoszenie funkcji, daj nam znać."
 
 #: templates/admin/settings/supports.php:24
 msgid "Request Support"
@@ -1188,10 +1268,10 @@ msgstr ""
 msgid "View Knowledge Base"
 msgstr "Zobacz bazę wiedzy"
 
-#: tinypress.php:79
+#: tinypress.php:98
 msgid "This plugin can be deleted."
 msgstr "Ta wtyczka może być usunięta."
 
-#: tinypress.php:287
+#: tinypress.php:355
 msgid "Copied."
 msgstr "Skopiowane."
