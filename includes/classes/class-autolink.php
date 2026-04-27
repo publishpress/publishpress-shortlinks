@@ -92,6 +92,11 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
             add_filter('the_content', array($this, 'filter_content'), 8);
             add_filter('the_excerpt', array($this, 'filter_content'), 8);
+
+            if (defined('ELEMENTOR_VERSION') || class_exists('\\Elementor\\Plugin')) {
+                add_filter('elementor/frontend/the_content', array($this, 'filter_content'), 8);
+                add_filter('elementor/frontend/builder_content', array($this, 'filter_content'), 8);
+            }
         }
 
         private function is_autolink_enabled()
