@@ -1,0 +1,2 @@
+<?php
+return ['domain'=>'tinypress','plural-forms'=>'nplurals=INTEGER; plural=EXPRESSION;','language'=>'','project-id-version'=>'PublishPress Shortlinks 1.2.6','pot-creation-date'=>'2026-04-07T09:15:09+00:00','po-revision-date'=>'YEAR-MO-DA HO:MI+ZONE','x-generator'=>'Loco https://localise.biz/','messages'=>['PublishPress'=>'PublishPress']];
