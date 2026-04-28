@@ -222,6 +222,76 @@ if (! class_exists('TINYPRESS_Settings')) {
         }
 
         /**
+         * Check if PublishPress Statuses is active
+         *
+         * @return bool
+         */
+        private function is_publishpress_statuses_active()
+        {
+            return defined('PUBLISHPRESS_STATUSES_VERSION') && class_exists('PublishPress_Statuses');
+        }
+
+        private function is_publishpress_statuses_enabled_for_shortlinks()
+        {
+            if (! $this->is_publishpress_statuses_active()) {
+                return false;
+            }
+
+            $shortlinks_post_types = array('tinypress_link', 'shortlinks');
+
+            if (! method_exists('PublishPress_Statuses', 'getEnabledPostTypes')) {
+                $pp_options = get_option('publishpress_custom_status_options');
+                if (is_object($pp_options) && ! empty($pp_options->post_types) && is_array($pp_options->post_types)) {
+                    foreach ($shortlinks_post_types as $post_type) {
+                        if (! empty($pp_options->post_types[$post_type])) {
+                            return true;
+                        }
+                    }
+                }
+
+                return false;
+            }
+
+            $enabled_post_types = PublishPress_Statuses::getEnabledPostTypes();
+            if (! is_array($enabled_post_types)) {
+                return false;
+            }
+
+            foreach ($shortlinks_post_types as $post_type) {
+                if (in_array($post_type, $enabled_post_types, true)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public function get_allowed_post_statuses_field_description()
+        {
+            $desc = esc_html__('Select which post statuses are accessible when visiting a PublishPress shortlink.', 'tinypress');
+
+            if (! $this->is_publishpress_statuses_active()) {
+                return $desc;
+            }
+
+            if ($this->is_publishpress_statuses_enabled_for_shortlinks()) {
+                return $desc;
+            }
+
+            $pp_notice = sprintf(
+                '<div class="notice notice-warning is-dismissible tinypress-pp-statuses-notice">
+                    <p>
+                        <strong>%s</strong> %s
+                    </p>
+                </div>',
+                esc_html__('PublishPress Statuses Plugin Detected:', 'tinypress'),
+                esc_html__('To use core PublishPress statuses with Shortlinks, Please enable the Shortlinks post type in PublishPress Statuses workflow settings.', 'tinypress')
+            );
+
+            return $desc . $pp_notice;
+        }
+
+        /**
          * Get field description for prefix setting (includes warning if Elementor is active)
          *
          * @return string
@@ -478,7 +548,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                                 'type'     => 'checkbox',
                                 'title'    => esc_html__('Allowed Post Statuses', 'tinypress'),
                                 'subtitle' => esc_html__('Choose which post statuses can be accessed via shortlinks', 'tinypress'),
-                                'desc'     => esc_html__('Select which post statuses are accessible when visiting a PublishPress shortlink.', 'tinypress'),
+                                'desc'     => $this->get_allowed_post_statuses_field_description(),
                                 'inline'   => true,
                                 'options'  => array(
                                     'publish' => esc_html__('Published', 'tinypress'),

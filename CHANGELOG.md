@@ -1,6 +1,20 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+= [1.6.0] - 29 April, 2026 =
+
+* Fixed: Mismatching in Weblate, #206
+* Fixed: Draft preview don't work with Elementor #218
+* Feature: Support for PublishPress Statuses, #86
+* Feature: Auto-link keywords, #123
+* Update: Allow users to customize the expiry message, #92
+* Update: Show Expiration Notice, #189
+* Update: Make a single data point bigger, #210
+* Update: Update the readme file from WordPress.org, #217
+* Update: Add Bundled Translations library, #219
+* Update: Add loco.xml file, #220
+* Update: Increase supported language to 34
+
 = [1.5.0] - 07 April, 2026 =
 
 * Fixed: Issue with Target URL characters, #193

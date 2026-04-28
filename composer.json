@@ -20,7 +20,8 @@
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "automattic/jetpack-autoloader": true,
             "php-http/discovery": true,
-            "publishpress/dev-workspace": true
+            "publishpress/dev-workspace": true,
+            "phpstan/extension-installer": true
         }
     },
     "prefer-stable": true,
@@ -36,9 +37,9 @@
         "dealerdirect/phpcodesniffer-composer-installer": "^1",
         "overtrue/phplint": "^9.1",
         "friendsofphp/php-cs-fixer": "^3.49",
-        "publishpress/publishpress-phpcs-standards": "dev-main",
+        "publishpress/publishpress-phpcs-standards": "^1.0.0",
         "publishpress/translations": "^1.0.0",
-        "publishpress/dev-workspace": "^1.0"
+        "publishpress/dev-workspace": "^1.1.0"
     },
     "scripts": {
         "build:pot-php": "vendor/publishpress/dev-workspace/scripts/run.sh wp i18n make-pot . ./languages/tinypress.pot --domain=tinypress --exclude=dev-workspace,.wordpress-org,.github,dist,tests,lib,tmp,doc,*.js,*.js.map,*.jsx --allow-root",
