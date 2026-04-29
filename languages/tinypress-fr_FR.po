@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PublishPress Shortlinks 1.2.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
-"POT-Creation-Date: 2026-04-27T15:40:47+00:00\n"
-"PO-Revision-Date: 2026-04-27 19:02+0200\n"
+"POT-Creation-Date: 2026-04-29T12:33:21+00:00\n"
+"PO-Revision-Date: 2026-04-28 11:35+0200\n"
 "Last-Translator: Angelo Giammarresi <info@wocmultimedia.biz>\n"
 "Language-Team: French <https://weblate.publishpress.com/projects/"
 "publishpress-shortlinks/tinypress/fr/>\n"
@@ -18,29 +18,29 @@ msgstr ""
 "X-Domain: tinypress\n"
 
 #. Plugin Name of the plugin
-#: tinypress.php, fuzzy
+#: tinypress.php:4, fuzzy
 msgid "PublishPress Shortlinks Free"
 msgstr "PublishPress Shortlinks Free"
 
 #. Plugin URI of the plugin
-#: tinypress.php, fuzzy
+#: tinypress.php:5, fuzzy
 msgid "https://publishpress.com/shortlinks/"
 msgstr "https://publishpress.com/shortlinks/"
 
 #. Description of the plugin
-#: tinypress.php
+#: tinypress.php:6
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
 "and can have custom view permissions."
 msgstr "Créez des liens personnalisés pour vos publications. Ces liens sont associables à votre marque, suivables et peuvent avoir de droits de visualisation personnalisés."
 
 #. Author of the plugin
-#: tinypress.php
+#: tinypress.php:9
 msgid "PublishPress"
 msgstr "PublishPress"
 
 #. Author URI of the plugin
-#: tinypress.php, fuzzy
+#: tinypress.php:10, fuzzy
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
@@ -204,29 +204,29 @@ msgid "Select a post type"
 msgstr "Sélectionner un type de publication"
 
 #: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:525
-#: includes/classes/class-settings.php:621
+#: includes/classes/class-settings.php:595
+#: includes/classes/class-settings.php:691
 msgid "Never"
 msgstr "Jamais"
 
 #: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:523
-#: includes/classes/class-settings.php:623
+#: includes/classes/class-settings.php:593
+#: includes/classes/class-settings.php:693
 msgid "When Link is First Used"
 msgstr "Lors de la première utilisation du lien"
 
 #: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:625
+#: includes/classes/class-settings.php:695
 msgid "When Post is Published"
 msgstr "Lors de la publication de la publication"
 
 #: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:624
+#: includes/classes/class-settings.php:694
 msgid "When Post is Created"
 msgstr "Lors de la création de la publication"
 
 #: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:622
+#: includes/classes/class-settings.php:692
 msgid "When Link is First Used or Post Created"
 msgstr "Lors de la première utilisation du lien ou de la création de la publication"
 
@@ -285,7 +285,7 @@ msgid "Submitted for approval"
 msgstr "Envoyée pour l’approbation"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:558
 msgid "Scheduled"
 msgstr "Planifié"
 
@@ -392,48 +392,60 @@ msgstr "Abréger"
 msgid "All Shortlinks"
 msgstr "Tous les liens courts"
 
-#: includes/classes/class-hooks.php:226
+#: includes/classes/class-hooks.php:212 includes/classes/class-hooks.php:213
+#, fuzzy
+#| msgid "Shortlink"
+msgid "Add Shortlink"
+msgstr "Lien court"
+
+#: includes/classes/class-hooks.php:214
+#, fuzzy
+#| msgid "Shortlinks"
+msgid "Search Shortlinks"
+msgstr "Liens courts"
+
+#: includes/classes/class-hooks.php:229
 msgid "Category"
 msgstr "Catégorie"
 
-#: includes/classes/class-hooks.php:227
+#: includes/classes/class-hooks.php:230
 msgid "Categories"
 msgstr "Catégories"
 
-#: includes/classes/class-hooks.php:253 includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:256 includes/classes/class-hooks.php:257
 msgid "Logs"
 msgstr "Journaux"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "All Logs"
 msgstr "Tous les journaux"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Are you sure you want to clear all logs?"
 msgstr "Confirmez-vous de vouloir supprimer tous les journaux ?"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Clear Logs"
 msgstr "Effacer les journaux"
 
-#: includes/classes/class-hooks.php:503
+#: includes/classes/class-hooks.php:506
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Désolé, vous n’êtes pas autorisé à accéder aux liens courts."
 
-#: includes/classes/class-hooks.php:504 includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536 includes/classes/class-hooks.php:557
+#: includes/classes/class-hooks.php:507 includes/classes/class-hooks.php:528
+#: includes/classes/class-hooks.php:539 includes/classes/class-hooks.php:560
 msgid "Access Denied"
 msgstr "Accès refusé"
 
-#: includes/classes/class-hooks.php:524
+#: includes/classes/class-hooks.php:527
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Désolé, vous n’êtes pas autorisé à créer des liens courts."
 
-#: includes/classes/class-hooks.php:535
+#: includes/classes/class-hooks.php:538
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Désolé, vous n’êtes pas autorisé à modifier les liens courts."
 
-#: includes/classes/class-hooks.php:556
+#: includes/classes/class-hooks.php:559
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Désolé, vous n’êtes pas autorisé à accéder aux réglages des liens courts."
 
@@ -446,7 +458,7 @@ msgid "PublishPress Shortlinks"
 msgstr "PublishPress Shortlinks"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:331
+#: includes/classes/class-settings.php:401
 msgid "General"
 msgstr "Général"
 
@@ -718,127 +730,146 @@ msgstr "ID de révision invalide."
 msgid "Settings"
 msgstr "Réglages"
 
-#: includes/classes/class-settings.php:237
+#: includes/classes/class-settings.php:271
+msgid ""
+"Select which post statuses are accessible when visiting a PublishPress "
+"shortlink."
+msgstr "Sélectionner quels états de publication sont accessibles lors de la consultation d’un lien court PublishPress."
+
+#: includes/classes/class-settings.php:287
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "La extension PublishPress Statuses a été détectée :"
+
+#: includes/classes/class-settings.php:288
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr ""
+"Pour utiliser le cœur de PublishPress Statuses avec Shortlinks, veuillez "
+"activer le type de publication « Shortlinks » dans les réglages du flux de "
+"travail de PublishPress Statuses."
+
+#: includes/classes/class-settings.php:307
 msgid "Elementor Detected:"
 msgstr "Elementor détectée :"
 
-#: includes/classes/class-settings.php:238
+#: includes/classes/class-settings.php:308
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. It "
 "is advisable to keep it enabled."
 msgstr "Le préfixe de lien court est obligatoire pour un affichage correct des révisions d’Elementor. Il est recommandé de le laisser activé."
 
-#: includes/classes/class-settings.php:270
+#: includes/classes/class-settings.php:340
 msgid "TinyPress Shortlinks Notice:"
 msgstr "Notification de liens courts de TinyPress :"
 
-#: includes/classes/class-settings.php:271
+#: includes/classes/class-settings.php:341
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it is "
 "required for optimal compatibility with Elementor revisions."
 msgstr "Elementor est activée. Le préfixe des liens courts a été automatiquement désactivé ; il est obligatoire pour une prise en charge optimale des révisions d’Elementor."
 
-#: includes/classes/class-settings.php:334, fuzzy
+#: includes/classes/class-settings.php:404, fuzzy
 msgid "Options"
 msgstr "Options"
 
-#: includes/classes/class-settings.php:339
+#: includes/classes/class-settings.php:409
 msgid "Shortlink Prefix"
 msgstr "Préfixe du lien court"
 
-#: includes/classes/class-settings.php:340
+#: includes/classes/class-settings.php:410
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Ajouter un préfixe entre le nom de votre domain et le lien court."
 
-#: includes/classes/class-settings.php:347
+#: includes/classes/class-settings.php:417
 msgid "Prefix Slug"
 msgstr "Prefixe du slug"
 
-#: includes/classes/class-settings.php:348
+#: includes/classes/class-settings.php:418
 msgid "Custom prefix slug."
 msgstr "Préfixe de slug personnalisé."
 
-#: includes/classes/class-settings.php:349
+#: includes/classes/class-settings.php:419
 msgid "This text will be added between your domain name and shortlink."
 msgstr "Ce texte sera ajouté entre le nom de votre domain et le lien court."
 
-#: includes/classes/class-settings.php:350
-#: includes/classes/class-settings.php:351
+#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:421
 msgid "go"
 msgstr "aller"
 
-#: includes/classes/class-settings.php:357
+#: includes/classes/class-settings.php:427
 msgid "Keyboard Shortcut"
 msgstr "Raccourci clavier"
 
-#: includes/classes/class-settings.php:358
+#: includes/classes/class-settings.php:428
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr "Créer des liens courts depuis n’importe où dans votre tableau de bord WordPress."
 
-#: includes/classes/class-settings.php:359
-#: includes/classes/class-settings.php:360
+#: includes/classes/class-settings.php:429
+#: includes/classes/class-settings.php:430
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl ou Cmd + /"
 
-#: includes/classes/class-settings.php:369
+#: includes/classes/class-settings.php:439
 msgid "Remove from Admin Bar"
 msgstr "Supprimer de la barre d’administration"
 
-#: includes/classes/class-settings.php:370
+#: includes/classes/class-settings.php:440
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "Masquer le bouton « Raccourcir » de la barre d’administration de WordPress."
 
-#: includes/classes/class-settings.php:376
+#: includes/classes/class-settings.php:446
 msgid "Role Management"
 msgstr "Gestion des rôles"
 
-#: includes/classes/class-settings.php:381
+#: includes/classes/class-settings.php:451
 msgid "Who Can View Shortlinks"
 msgstr "Qui peut voir les liens courts"
 
-#: includes/classes/class-settings.php:382
+#: includes/classes/class-settings.php:452
 msgid "Only selected user roles can view links."
 msgstr "Uniquement les rôles du compte sélectionnés peuvent voir les liens."
 
-#: includes/classes/class-settings.php:390
+#: includes/classes/class-settings.php:460
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Qui peut créer/modifier les liens courts"
 
-#: includes/classes/class-settings.php:391
+#: includes/classes/class-settings.php:461
 msgid "Only selected user roles can create or edit links."
 msgstr "Uniquement les rôles du compte sélectionnés peuvent créer ou modifier les liens."
 
-#: includes/classes/class-settings.php:400
+#: includes/classes/class-settings.php:470
 msgid "Who Can See Analytics"
 msgstr "Qui peut voir les statistiques"
 
-#: includes/classes/class-settings.php:401
+#: includes/classes/class-settings.php:471
 msgid "Only selected user roles can see analytics."
 msgstr "Uniquement les rôles du compte sélectionnés peuvent voir les statistiques."
 
-#: includes/classes/class-settings.php:410
+#: includes/classes/class-settings.php:480
 msgid "Who Can Control Settings"
 msgstr "Qui peut contrôler les réglages"
 
-#: includes/classes/class-settings.php:411
+#: includes/classes/class-settings.php:481
 msgid "Only selected user roles can control settings."
 msgstr "Uniquement les rôles du compte sélectionnés peuvent contrôler les réglages."
 
-#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:490
 msgid "Auto-Linking"
 msgstr "Liason automatique"
 
-#: includes/classes/class-settings.php:425
+#: includes/classes/class-settings.php:495
 msgid "Enable Auto-Linking"
 msgstr "Activer la liason automatique"
 
-#: includes/classes/class-settings.php:426
+#: includes/classes/class-settings.php:496
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr ""
 "Convertir automatiquement les mots-clés en liens courts dans le contenu des "
 "publications."
 
-#: includes/classes/class-settings.php:427
+#: includes/classes/class-settings.php:497
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
@@ -846,166 +877,160 @@ msgstr ""
 "Lorsque il est activé, les mots-clés configurés dans les réglages de lien "
 "court seront automatiquement liées dans votre contenu."
 
-#: includes/classes/class-settings.php:433
+#: includes/classes/class-settings.php:503
 msgid "Open Auto-Links In"
 msgstr "Ouvrir les liens automatiques dans"
 
-#: includes/classes/class-settings.php:434
+#: includes/classes/class-settings.php:504
 msgid "Choose how auto-linked keywords should open."
 msgstr "Choisir comment les mots-clés liés automatiquement doivent s’ouvrir."
 
-#: includes/classes/class-settings.php:436
+#: includes/classes/class-settings.php:506
 msgid "Same tab"
 msgstr "Même onglet"
 
-#: includes/classes/class-settings.php:437
+#: includes/classes/class-settings.php:507
 msgid "New tab"
 msgstr "Nouvel onglet"
 
-#: includes/classes/class-settings.php:445
+#: includes/classes/class-settings.php:515
 msgid "Auto-Link Color"
 msgstr "Couleur des liens automatiques"
 
-#: includes/classes/class-settings.php:446
+#: includes/classes/class-settings.php:516
 msgid "Choose the color for auto-linked keywords."
 msgstr "Choisir la couleur ads mots-clés liés automatiquement."
 
-#: includes/classes/class-settings.php:453
+#: includes/classes/class-settings.php:523
 msgid "Auto-List Links"
 msgstr "Liste automatique des liens"
 
-#: includes/classes/class-settings.php:458
+#: includes/classes/class-settings.php:528
 msgid "Auto-List Shortlinks"
 msgstr "Liste automatique des liens courts"
 
-#: includes/classes/class-settings.php:459
+#: includes/classes/class-settings.php:529
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on the "
 "behavior you configure below."
 msgstr "Lorsqu’il est activé, les liens courts seront affichés dans le tableau « Tous les liens » en fonction du comportement que vous configurez ci-dessous."
 
-#: includes/classes/class-settings.php:465
+#: includes/classes/class-settings.php:535
 msgid "Configure Post Types"
 msgstr "Configurer les types de publication"
 
-#: includes/classes/class-settings.php:466
+#: includes/classes/class-settings.php:536
 msgid "Set when links should be auto-listed for each post type"
 msgstr "Définir quand les liens doivent être listés automatiquement pour chaque type de publication"
 
-#: includes/classes/class-settings.php:467
+#: includes/classes/class-settings.php:537
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
 msgstr "Ajouter des types de publication et configurer quand leurs liens courts doivent apparaître dans le tableau « Tous les liens ». Les modifications sont enregistrées automatiquement."
 
-#: includes/classes/class-settings.php:474
+#: includes/classes/class-settings.php:544
 #: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "Visibilité de l’état de la publication"
 
-#: includes/classes/class-settings.php:479
+#: includes/classes/class-settings.php:549
 msgid "Allowed Post Statuses"
 msgstr "États de publication autorisés"
 
-#: includes/classes/class-settings.php:480
+#: includes/classes/class-settings.php:550
 msgid "Choose which post statuses can be accessed via shortlinks"
 msgstr "Choisir quels états de publication peuvent être accessibles via des liens courts"
 
-#: includes/classes/class-settings.php:481
-msgid ""
-"Select which post statuses are accessible when visiting a PublishPress "
-"shortlink."
-msgstr "Sélectionner quels états de publication sont accessibles lors de la consultation d’un lien court PublishPress."
-
-#: includes/classes/class-settings.php:484
+#: includes/classes/class-settings.php:554
 msgid "Published"
 msgstr "Publié"
 
-#: includes/classes/class-settings.php:485
+#: includes/classes/class-settings.php:555
 msgid "Draft"
 msgstr "Brouillon"
 
-#: includes/classes/class-settings.php:486
+#: includes/classes/class-settings.php:556
 msgid "Pending Review"
 msgstr "En attente de révision"
 
-#: includes/classes/class-settings.php:487
+#: includes/classes/class-settings.php:557
 msgid "Private"
 msgstr "Privé"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:565
 msgid "Expired Links"
 msgstr "Liens expirés"
 
-#: includes/classes/class-settings.php:500
+#: includes/classes/class-settings.php:570
 msgid "Default Expired Redirect URL"
 msgstr "URL de redirection par défaut après l’expiration"
 
-#: includes/classes/class-settings.php:501
+#: includes/classes/class-settings.php:571
 msgid "Where should expired shortlinks redirect?"
 msgstr "Vers quoi les liens courts expirés doivent-ils rediriger ?"
 
-#: includes/classes/class-settings.php:502
+#: includes/classes/class-settings.php:572
 msgid ""
 "When a shortlink expires, visitors will be redirected to this URL instead of "
 "seeing an error. Leave empty to show the default expiration message."
 msgstr "Lorsqu’un lien court expire, les visiteurs/visiteuses seront redirigés vers cette URL au lieu de voir un erreur. Laisser ce champ vide pour afficher le message d’expiration par défaut."
 
-#: includes/classes/class-settings.php:514
+#: includes/classes/class-settings.php:584
 msgid "Revisions"
 msgstr "Révisions"
 
-#: includes/classes/class-settings.php:519
+#: includes/classes/class-settings.php:589
 msgid "Revision Link Visibility"
 msgstr "Visibilité du lien de révision"
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:590
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
 msgstr "Lorsqu’il est activé, les liens courts des révisions seront affichés dans le tableau « Tous les liens courts » en fonction du comportement que vous configurez ci-dessous."
 
-#: includes/classes/class-settings.php:522
+#: includes/classes/class-settings.php:592
 msgid "When Revision is Created"
 msgstr "Lors de la création de la révision"
 
-#: includes/classes/class-settings.php:524
+#: includes/classes/class-settings.php:594
 msgid "When Revision is Created or Link is First Used"
 msgstr "Lors de la création de la révision ou de la première utilisation du lien"
 
-#: includes/classes/class-settings.php:532
+#: includes/classes/class-settings.php:602
 msgid "Show Shortlink in Revision Table"
 msgstr "Afficher le lien court dans le tableau de révision"
 
-#: includes/classes/class-settings.php:533
+#: includes/classes/class-settings.php:603
 msgid ""
 "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr "Afficher la colonne « Lien court » lors de la consultation des révisions dans PublishPress Revisions."
 
-#: includes/classes/class-settings.php:539
+#: includes/classes/class-settings.php:609
 msgid "Revision Visibility for Visitors"
 msgstr "Visibilité des révisions pour les visiteurs/visiteuses"
 
-#: includes/classes/class-settings.php:540
+#: includes/classes/class-settings.php:610
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr "Permettre aux internautes déconnectés de consulter le contenu des révisions via des liens courts."
 
-#: includes/classes/class-settings.php:541
+#: includes/classes/class-settings.php:611
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision content "
 "directly for logged-out visitors instead of redirecting to the preview URL."
 msgstr "Par défaut, PublishPress Revisions empêche les visiteurs/visiteuses de consulter les aperçus des révisions. Une fois cette option activée, les liens courts vers les révisions afficheront directement le contenu de la révision pour les visiteurs/visiteuses déconnectés au lieu de les rediriger vers l’URL d’aperçu."
 
-#: includes/classes/class-settings.php:562
+#: includes/classes/class-settings.php:632
 msgid "Dummy"
 msgstr "Factice"
 
-#: includes/classes/class-settings.php:606
+#: includes/classes/class-settings.php:676
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr "Aucun type de publication n’est encore configuré. Cliquer sur « Ajouter un type de publication » pour commencer."
 
-#: includes/classes/class-settings.php:638
+#: includes/classes/class-settings.php:708
 msgid "Add Post Type"
 msgstr "Ajouter un type de publication"
 

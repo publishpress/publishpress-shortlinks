@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-27 15:50+0000\n"
+"POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
+"PO-Revision-Date: 2026-04-29 12:58+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 ">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
@@ -19,17 +19,17 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1: 2);\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:4, fuzzy
 #. Plugin Name of the plugin
 msgid "PublishPress Shortlinks Free"
 msgstr "PublishPress Shortlinks Free"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:5, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/shortlinks/"
 msgstr "https://publishpress.com/shortlinks/"
 
-#: tinypress.php
+#: tinypress.php:6
 #. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
@@ -38,12 +38,12 @@ msgstr ""
 "Kreirajte prilagođene veze za svoje objave. Ove veze su brendirane, "
 "pratljive i mogu imati prilagođene dozvole za pregled."
 
-#: tinypress.php
+#: tinypress.php:9
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:10, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -213,29 +213,29 @@ msgid "Select a post type"
 msgstr "Odaberite post type"
 
 #: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:525
-#: includes/classes/class-settings.php:621
+#: includes/classes/class-settings.php:595
+#: includes/classes/class-settings.php:691
 msgid "Never"
 msgstr "Nikad"
 
 #: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:523
-#: includes/classes/class-settings.php:623
+#: includes/classes/class-settings.php:593
+#: includes/classes/class-settings.php:693
 msgid "When Link is First Used"
 msgstr "Kada je veza prvi put korištena"
 
 #: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:625
+#: includes/classes/class-settings.php:695
 msgid "When Post is Published"
 msgstr "Kada je post objavljen"
 
 #: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:624
+#: includes/classes/class-settings.php:694
 msgid "When Post is Created"
 msgstr "Kada je post kreiran"
 
 #: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:622
+#: includes/classes/class-settings.php:692
 msgid "When Link is First Used or Post Created"
 msgstr "Kada je veza prvi put korištena ili post kreiran"
 
@@ -295,7 +295,7 @@ msgid "Submitted for approval"
 msgstr "Podneseno na odobrenje"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:558
 msgid "Scheduled"
 msgstr "Zakazano"
 
@@ -402,51 +402,60 @@ msgstr "Skraćivanje"
 msgid "All Shortlinks"
 msgstr "Sve skraćene veze"
 
-#: includes/classes/class-hooks.php:226
+#: includes/classes/class-hooks.php:212
+#: includes/classes/class-hooks.php:213
+msgid "Add Shortlink"
+msgstr "Dodaj kratku vezu"
+
+#: includes/classes/class-hooks.php:214
+msgid "Search Shortlinks"
+msgstr "Pretraži kratke veze"
+
+#: includes/classes/class-hooks.php:229
 msgid "Category"
 msgstr "Kategorija"
 
-#: includes/classes/class-hooks.php:227
+#: includes/classes/class-hooks.php:230
 msgid "Categories"
 msgstr "Kategorije"
 
-#: includes/classes/class-hooks.php:253
-#: includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:256
+#: includes/classes/class-hooks.php:257
 msgid "Logs"
 msgstr "Dnevnici"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "All Logs"
 msgstr "Svi dnevnici"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Are you sure you want to clear all logs?"
 msgstr "Jeste li sigurni da želite izbrisati sve dnevnike?"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Clear Logs"
 msgstr "Izbriši dnevnike"
 
-#: includes/classes/class-hooks.php:503
+#: includes/classes/class-hooks.php:506
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Žao nam je, nemate dopuštenje za pristup skraćenim vezama."
 
-#: includes/classes/class-hooks.php:504
-#: includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536
-#: includes/classes/class-hooks.php:557
+#: includes/classes/class-hooks.php:507
+#: includes/classes/class-hooks.php:528
+#: includes/classes/class-hooks.php:539
+#: includes/classes/class-hooks.php:560
 msgid "Access Denied"
 msgstr "Pristup odbijen"
 
-#: includes/classes/class-hooks.php:524
+#: includes/classes/class-hooks.php:527
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Žao nam je, nemate dopuštenje za kreiranje skraćenih veza."
 
-#: includes/classes/class-hooks.php:535
+#: includes/classes/class-hooks.php:538
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Žao nam je, nemate dopuštenje za uređivanje skraćenih veza."
 
-#: includes/classes/class-hooks.php:556
+#: includes/classes/class-hooks.php:559
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Žao nam je, nemate dopuštenje za pristup postavkama skraćenih veza."
 
@@ -460,7 +469,7 @@ msgid "PublishPress Shortlinks"
 msgstr "PublishPress skraćene veze"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:331
+#: includes/classes/class-settings.php:401
 msgid "General"
 msgstr "Općenito"
 
@@ -737,208 +746,7 @@ msgstr "Nevažeći ID revizije."
 msgid "Settings"
 msgstr "Postavke"
 
-#: includes/classes/class-settings.php:237
-msgid "Elementor Detected:"
-msgstr "Elementor otkriven:"
-
-#: includes/classes/class-settings.php:238
-msgid ""
-"Shortlink prefix is required for proper rendering of Elementor revisions. "
-"It is advisable to keep it enabled."
-msgstr ""
-"Prefiks kratke veze je potreban za pravilno prikazivanje Elementor "
-"revizija. Preporučuje se da ga zadržite omogućenim."
-
-#: includes/classes/class-settings.php:270
-msgid "TinyPress Shortlinks Notice:"
-msgstr "Obavijest o TinyPress kratkim vezama:"
-
 #: includes/classes/class-settings.php:271
-msgid ""
-"Elementor is active. Shortlink prefix has been automatically disabled, it "
-"is required for optimal compatibility with Elementor revisions."
-msgstr ""
-"Elementor je aktivan. Prefiks kratke veze je automatski onemogućen, "
-"potreban je za optimalnu kompatibilnost s Elementor revizijama."
-
-#: includes/classes/class-settings.php:334
-msgid "Options"
-msgstr "Opcije"
-
-#: includes/classes/class-settings.php:339
-msgid "Shortlink Prefix"
-msgstr "Prefiks kratke veze"
-
-#: includes/classes/class-settings.php:340
-msgid "Add a prefix between your domain name and shortlink."
-msgstr "Dodajte prefiks između vašeg domena i kratke veze."
-
-#: includes/classes/class-settings.php:347
-msgid "Prefix Slug"
-msgstr "Prefiks Slug"
-
-#: includes/classes/class-settings.php:348
-msgid "Custom prefix slug."
-msgstr "Prilagođeni prefiks slug."
-
-#: includes/classes/class-settings.php:349
-msgid "This text will be added between your domain name and shortlink."
-msgstr "Ovaj tekst će biti dodat između vašeg domena i kratke veze."
-
-#: includes/classes/class-settings.php:350
-#: includes/classes/class-settings.php:351
-msgid "go"
-msgstr "idi"
-
-#: includes/classes/class-settings.php:357
-msgid "Keyboard Shortcut"
-msgstr "Prečica na tipkovnici"
-
-#: includes/classes/class-settings.php:358
-msgid "Create shortlinks from anywhere inside your WordPress dashboard."
-msgstr ""
-"Kreirajte kratke veze s bilo kojeg mjesta unutar vašeg WordPress nadzorne "
-"ploče."
-
-#: includes/classes/class-settings.php:359
-#: includes/classes/class-settings.php:360
-msgid "Ctrl or Cmd + /"
-msgstr "Ctrl ili Cmd + /"
-
-#: includes/classes/class-settings.php:369
-msgid "Remove from Admin Bar"
-msgstr "Ukloni iz Admin Trake"
-
-#: includes/classes/class-settings.php:370
-msgid "Hide the \"Shorten\" button from the WordPress admin bar."
-msgstr "Sakrijte gumb \"Skraćivanje\" iz WordPress admin trake."
-
-#: includes/classes/class-settings.php:376
-msgid "Role Management"
-msgstr "Upravljanje Ulogama"
-
-#: includes/classes/class-settings.php:381
-msgid "Who Can View Shortlinks"
-msgstr "Tko može vidjeti kratke veze"
-
-#: includes/classes/class-settings.php:382
-msgid "Only selected user roles can view links."
-msgstr "Samo odabrane korisničke uloge mogu vidjeti veze."
-
-#: includes/classes/class-settings.php:390
-msgid "Who Can Create/Edit Shortlinks"
-msgstr "Tko može kreirati/uređivati kratke veze"
-
-#: includes/classes/class-settings.php:391
-msgid "Only selected user roles can create or edit links."
-msgstr "Samo odabrane korisničke uloge mogu kreirati ili uređivati veze."
-
-#: includes/classes/class-settings.php:400
-msgid "Who Can See Analytics"
-msgstr "Tko može vidjeti analitiku"
-
-#: includes/classes/class-settings.php:401
-msgid "Only selected user roles can see analytics."
-msgstr "Samo odabrane korisničke uloge mogu vidjeti analitiku."
-
-#: includes/classes/class-settings.php:410
-msgid "Who Can Control Settings"
-msgstr "Tko može kontrolirati postavke"
-
-#: includes/classes/class-settings.php:411
-msgid "Only selected user roles can control settings."
-msgstr "Samo odabrane korisničke uloge mogu kontrolirati postavke."
-
-#: includes/classes/class-settings.php:420
-msgid "Auto-Linking"
-msgstr "Automatsko povezivanje"
-
-#: includes/classes/class-settings.php:425
-msgid "Enable Auto-Linking"
-msgstr "Omogući automatsko povezivanje"
-
-#: includes/classes/class-settings.php:426
-msgid "Automatically convert keywords to shortlinks in post content."
-msgstr "Automatski pretvorite ključne riječi u kratke veze u sadržaju posta."
-
-#: includes/classes/class-settings.php:427
-msgid ""
-"When enabled, keywords configured in shortlink settings will be "
-"automatically linked in your content."
-msgstr ""
-"Kada je omogućeno, ključne riječi konfigurirane u postavkama kratkih veza "
-"bit će automatski povezane u vašem sadržaju."
-
-#: includes/classes/class-settings.php:433
-msgid "Open Auto-Links In"
-msgstr "Otvorite automatske veze u"
-
-#: includes/classes/class-settings.php:434
-msgid "Choose how auto-linked keywords should open."
-msgstr "Odaberite kako bi se automatski povezane ključne riječi trebale otvoriti."
-
-#: includes/classes/class-settings.php:436
-msgid "Same tab"
-msgstr "Ista kartica"
-
-#: includes/classes/class-settings.php:437
-msgid "New tab"
-msgstr "Nova kartica"
-
-#: includes/classes/class-settings.php:445
-msgid "Auto-Link Color"
-msgstr "Boja automatske veze"
-
-#: includes/classes/class-settings.php:446
-msgid "Choose the color for auto-linked keywords."
-msgstr "Odaberite boju za automatski povezane ključne riječi."
-
-#: includes/classes/class-settings.php:453
-msgid "Auto-List Links"
-msgstr "Automatski popis veza"
-
-#: includes/classes/class-settings.php:458
-msgid "Auto-List Shortlinks"
-msgstr "Automatski popis kratkih linkova"
-
-#: includes/classes/class-settings.php:459
-msgid ""
-"When enabled, shortlinks will appear in the \"All Links\" table based on "
-"the behavior you configure below."
-msgstr ""
-"Kada je omogućeno, kratki linkovi će se pojaviti u tablici \"Svi linkovi\" "
-"na temelju ponašanja koje konfigurirate u nastavku."
-
-#: includes/classes/class-settings.php:465
-msgid "Configure Post Types"
-msgstr "Konfiguriraj post tipove"
-
-#: includes/classes/class-settings.php:466
-msgid "Set when links should be auto-listed for each post type"
-msgstr "Postavite kada se linkovi trebaju automatski popisati za svaki post tip"
-
-#: includes/classes/class-settings.php:467
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr ""
-"Dodajte post tipove i konfigurirajte kada se njihovi kratki linkovi trebaju "
-"pojaviti u tablici \"Svi linkovi\". Promjene se automatski spremaju."
-
-#: includes/classes/class-settings.php:474
-#: includes/classes/class-statuses.php:233
-msgid "Post Status Visibility"
-msgstr "Vidljivost statusa posta"
-
-#: includes/classes/class-settings.php:479
-msgid "Allowed Post Statuses"
-msgstr "Dopušteni statusi postova"
-
-#: includes/classes/class-settings.php:480
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Odaberite koje status postove možete pristupiti putem kratkih linkova"
-
-#: includes/classes/class-settings.php:481
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -946,35 +754,249 @@ msgstr ""
 "Odaberite koji su statusi postova dostupni prilikom posjeta PublishPress "
 "kratkom linku."
 
-#: includes/classes/class-settings.php:484
+#: includes/classes/class-settings.php:287
+#, fuzzy
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "PublishPress Shortlinks Free"
+
+#: includes/classes/class-settings.php:288
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr ""
+"Da biste koristili osnovne PublishPress statuse s kratkim vezama, omogućite "
+"post type kratkih veza u postavkama tijeka rada PublishPress Statusa."
+
+#: includes/classes/class-settings.php:307
+msgid "Elementor Detected:"
+msgstr "Elementor otkriven:"
+
+#: includes/classes/class-settings.php:308
+msgid ""
+"Shortlink prefix is required for proper rendering of Elementor revisions. "
+"It is advisable to keep it enabled."
+msgstr ""
+"Prefiks kratke veze je potreban za pravilno prikazivanje Elementor "
+"revizija. Preporučuje se da ga zadržite omogućenim."
+
+#: includes/classes/class-settings.php:340
+msgid "TinyPress Shortlinks Notice:"
+msgstr "Obavijest o TinyPress kratkim vezama:"
+
+#: includes/classes/class-settings.php:341
+msgid ""
+"Elementor is active. Shortlink prefix has been automatically disabled, it "
+"is required for optimal compatibility with Elementor revisions."
+msgstr ""
+"Elementor je aktivan. Prefiks kratke veze je automatski onemogućen, "
+"potreban je za optimalnu kompatibilnost s Elementor revizijama."
+
+#: includes/classes/class-settings.php:404
+msgid "Options"
+msgstr "Opcije"
+
+#: includes/classes/class-settings.php:409
+msgid "Shortlink Prefix"
+msgstr "Prefiks kratke veze"
+
+#: includes/classes/class-settings.php:410
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "Dodajte prefiks između vašeg domena i kratke veze."
+
+#: includes/classes/class-settings.php:417
+msgid "Prefix Slug"
+msgstr "Prefiks Slug"
+
+#: includes/classes/class-settings.php:418
+msgid "Custom prefix slug."
+msgstr "Prilagođeni prefiks slug."
+
+#: includes/classes/class-settings.php:419
+msgid "This text will be added between your domain name and shortlink."
+msgstr "Ovaj tekst će biti dodat između vašeg domena i kratke veze."
+
+#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:421
+msgid "go"
+msgstr "idi"
+
+#: includes/classes/class-settings.php:427
+msgid "Keyboard Shortcut"
+msgstr "Prečica na tipkovnici"
+
+#: includes/classes/class-settings.php:428
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
+msgstr ""
+"Kreirajte kratke veze s bilo kojeg mjesta unutar vašeg WordPress nadzorne "
+"ploče."
+
+#: includes/classes/class-settings.php:429
+#: includes/classes/class-settings.php:430
+msgid "Ctrl or Cmd + /"
+msgstr "Ctrl ili Cmd + /"
+
+#: includes/classes/class-settings.php:439
+msgid "Remove from Admin Bar"
+msgstr "Ukloni iz Admin Trake"
+
+#: includes/classes/class-settings.php:440
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "Sakrijte gumb \"Skraćivanje\" iz WordPress admin trake."
+
+#: includes/classes/class-settings.php:446
+msgid "Role Management"
+msgstr "Upravljanje Ulogama"
+
+#: includes/classes/class-settings.php:451
+msgid "Who Can View Shortlinks"
+msgstr "Tko može vidjeti kratke veze"
+
+#: includes/classes/class-settings.php:452
+msgid "Only selected user roles can view links."
+msgstr "Samo odabrane korisničke uloge mogu vidjeti veze."
+
+#: includes/classes/class-settings.php:460
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "Tko može kreirati/uređivati kratke veze"
+
+#: includes/classes/class-settings.php:461
+msgid "Only selected user roles can create or edit links."
+msgstr "Samo odabrane korisničke uloge mogu kreirati ili uređivati veze."
+
+#: includes/classes/class-settings.php:470
+msgid "Who Can See Analytics"
+msgstr "Tko može vidjeti analitiku"
+
+#: includes/classes/class-settings.php:471
+msgid "Only selected user roles can see analytics."
+msgstr "Samo odabrane korisničke uloge mogu vidjeti analitiku."
+
+#: includes/classes/class-settings.php:480
+msgid "Who Can Control Settings"
+msgstr "Tko može kontrolirati postavke"
+
+#: includes/classes/class-settings.php:481
+msgid "Only selected user roles can control settings."
+msgstr "Samo odabrane korisničke uloge mogu kontrolirati postavke."
+
+#: includes/classes/class-settings.php:490
+msgid "Auto-Linking"
+msgstr "Automatsko povezivanje"
+
+#: includes/classes/class-settings.php:495
+msgid "Enable Auto-Linking"
+msgstr "Omogući automatsko povezivanje"
+
+#: includes/classes/class-settings.php:496
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr "Automatski pretvorite ključne riječi u kratke veze u sadržaju posta."
+
+#: includes/classes/class-settings.php:497
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr ""
+"Kada je omogućeno, ključne riječi konfigurirane u postavkama kratkih veza "
+"bit će automatski povezane u vašem sadržaju."
+
+#: includes/classes/class-settings.php:503
+msgid "Open Auto-Links In"
+msgstr "Otvorite automatske veze u"
+
+#: includes/classes/class-settings.php:504
+msgid "Choose how auto-linked keywords should open."
+msgstr "Odaberite kako bi se automatski povezane ključne riječi trebale otvoriti."
+
+#: includes/classes/class-settings.php:506
+msgid "Same tab"
+msgstr "Ista kartica"
+
+#: includes/classes/class-settings.php:507
+msgid "New tab"
+msgstr "Nova kartica"
+
+#: includes/classes/class-settings.php:515
+msgid "Auto-Link Color"
+msgstr "Boja automatske veze"
+
+#: includes/classes/class-settings.php:516
+msgid "Choose the color for auto-linked keywords."
+msgstr "Odaberite boju za automatski povezane ključne riječi."
+
+#: includes/classes/class-settings.php:523
+msgid "Auto-List Links"
+msgstr "Automatski popis veza"
+
+#: includes/classes/class-settings.php:528
+msgid "Auto-List Shortlinks"
+msgstr "Automatski popis kratkih linkova"
+
+#: includes/classes/class-settings.php:529
+msgid ""
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
+msgstr ""
+"Kada je omogućeno, kratki linkovi će se pojaviti u tablici \"Svi linkovi\" "
+"na temelju ponašanja koje konfigurirate u nastavku."
+
+#: includes/classes/class-settings.php:535
+msgid "Configure Post Types"
+msgstr "Konfiguriraj post tipove"
+
+#: includes/classes/class-settings.php:536
+msgid "Set when links should be auto-listed for each post type"
+msgstr "Postavite kada se linkovi trebaju automatski popisati za svaki post tip"
+
+#: includes/classes/class-settings.php:537
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr ""
+"Dodajte post tipove i konfigurirajte kada se njihovi kratki linkovi trebaju "
+"pojaviti u tablici \"Svi linkovi\". Promjene se automatski spremaju."
+
+#: includes/classes/class-settings.php:544
+#: includes/classes/class-statuses.php:233
+msgid "Post Status Visibility"
+msgstr "Vidljivost statusa posta"
+
+#: includes/classes/class-settings.php:549
+msgid "Allowed Post Statuses"
+msgstr "Dopušteni statusi postova"
+
+#: includes/classes/class-settings.php:550
+msgid "Choose which post statuses can be accessed via shortlinks"
+msgstr "Odaberite koje status postove možete pristupiti putem kratkih linkova"
+
+#: includes/classes/class-settings.php:554
 msgid "Published"
 msgstr "Objavljeno"
 
-#: includes/classes/class-settings.php:485
+#: includes/classes/class-settings.php:555
 msgid "Draft"
 msgstr "Nacrt"
 
-#: includes/classes/class-settings.php:486
+#: includes/classes/class-settings.php:556
 msgid "Pending Review"
 msgstr "Na čekanju za pregled"
 
-#: includes/classes/class-settings.php:487
+#: includes/classes/class-settings.php:557
 msgid "Private"
 msgstr "Privatno"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:565
 msgid "Expired Links"
 msgstr "Istekli linkovi"
 
-#: includes/classes/class-settings.php:500
+#: includes/classes/class-settings.php:570
 msgid "Default Expired Redirect URL"
 msgstr "Zadani URL za preusmjeravanje isteka"
 
-#: includes/classes/class-settings.php:501
+#: includes/classes/class-settings.php:571
 msgid "Where should expired shortlinks redirect?"
 msgstr "Kuda bi trebali preusmjeriti istekle kratke linkove?"
 
-#: includes/classes/class-settings.php:502
+#: includes/classes/class-settings.php:572
 msgid ""
 "When a shortlink expires, visitors will be redirected to this URL instead "
 "of seeing an error. Leave empty to show the default expiration message."
@@ -983,15 +1005,15 @@ msgstr ""
 "adresu umjesto da vide grešku. Ostavite prazno da biste prikazali zadanu "
 "poruku o isteku."
 
-#: includes/classes/class-settings.php:514
+#: includes/classes/class-settings.php:584
 msgid "Revisions"
 msgstr "Revizije"
 
-#: includes/classes/class-settings.php:519
+#: includes/classes/class-settings.php:589
 msgid "Revision Link Visibility"
 msgstr "Vidljivost poveznice revizije"
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:590
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -999,35 +1021,35 @@ msgstr ""
 "Kada je omogućeno, kratki linkovi revizija će se pojaviti u tablici \"Svi "
 "kratki linkovi\" na temelju ponašanja koje konfigurirate u nastavku."
 
-#: includes/classes/class-settings.php:522
+#: includes/classes/class-settings.php:592
 msgid "When Revision is Created"
 msgstr "Kada je revizija stvorena"
 
-#: includes/classes/class-settings.php:524
+#: includes/classes/class-settings.php:594
 msgid "When Revision is Created or Link is First Used"
 msgstr "Kada je revizija stvorena ili je poveznica prvi put korištena"
 
-#: includes/classes/class-settings.php:532
+#: includes/classes/class-settings.php:602
 msgid "Show Shortlink in Revision Table"
 msgstr "Prikaži kratku poveznicu u tablici revizija"
 
-#: includes/classes/class-settings.php:533
+#: includes/classes/class-settings.php:603
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "Prikaži stupac kratkih poveznica prilikom pregledavanja revizija u "
 "PublishPress Revizijama."
 
-#: includes/classes/class-settings.php:539
+#: includes/classes/class-settings.php:609
 msgid "Revision Visibility for Visitors"
 msgstr "Vidljivost revizije za posjetitelje"
 
-#: includes/classes/class-settings.php:540
+#: includes/classes/class-settings.php:610
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Dopusti odjavljenim posjetiteljima da pregledavaju sadržaj revizije putem "
 "kratkih poveznica."
 
-#: includes/classes/class-settings.php:541
+#: includes/classes/class-settings.php:611
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1039,17 +1061,17 @@ msgstr ""
 "prikazati sadržaj revizije za odjavljenih posjetitelje umjesto da "
 "preusmjere na URL pregleda."
 
-#: includes/classes/class-settings.php:562, fuzzy
+#: includes/classes/class-settings.php:632, fuzzy
 msgid "Dummy"
 msgstr "Dummy"
 
-#: includes/classes/class-settings.php:606
+#: includes/classes/class-settings.php:676
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Još nisu konfigurirani nijedni tipovi objava. Kliknite \"Dodaj tip objave\" "
 "da biste započeli."
 
-#: includes/classes/class-settings.php:638
+#: includes/classes/class-settings.php:708
 msgid "Add Post Type"
 msgstr "Dodaj tip objave"
 

@@ -9,24 +9,24 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-27 15:50+0000\n"
+"POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
+"PO-Revision-Date: 2026-04-29 12:58+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: ca\n"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:4, fuzzy
 #. Plugin Name of the plugin
 msgid "PublishPress Shortlinks Free"
 msgstr "PublishPress Shortlinks Free"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:5, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/shortlinks/"
 msgstr "https://publishpress.com/shortlinks/"
 
-#: tinypress.php
+#: tinypress.php:6
 #. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
@@ -35,12 +35,12 @@ msgstr ""
 "Crea enllaços personalitzats per als teus articles. Aquests enllaços són de "
 "marca, rastreables i poden tenir permisos de visualització personalitzats."
 
-#: tinypress.php
+#: tinypress.php:9
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:10, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -209,29 +209,29 @@ msgid "Select a post type"
 msgstr "Selecciona un post type"
 
 #: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:525
-#: includes/classes/class-settings.php:621
+#: includes/classes/class-settings.php:595
+#: includes/classes/class-settings.php:691
 msgid "Never"
 msgstr "Mai"
 
 #: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:523
-#: includes/classes/class-settings.php:623
+#: includes/classes/class-settings.php:593
+#: includes/classes/class-settings.php:693
 msgid "When Link is First Used"
 msgstr "Quan s'utilitza el link per primera vegada"
 
 #: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:625
+#: includes/classes/class-settings.php:695
 msgid "When Post is Published"
 msgstr "Quan s publica el post"
 
 #: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:624
+#: includes/classes/class-settings.php:694
 msgid "When Post is Created"
 msgstr "Quan es crea el post"
 
 #: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:622
+#: includes/classes/class-settings.php:692
 msgid "When Link is First Used or Post Created"
 msgstr "Quan s'utilitza el link per primera vegada o s crea el post"
 
@@ -291,7 +291,7 @@ msgid "Submitted for approval"
 msgstr "Enviat per a aprovació"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:558
 msgid "Scheduled"
 msgstr "Programat"
 
@@ -398,51 +398,60 @@ msgstr "Escurçar"
 msgid "All Shortlinks"
 msgstr "Tots els enllaços curts"
 
-#: includes/classes/class-hooks.php:226
+#: includes/classes/class-hooks.php:212
+#: includes/classes/class-hooks.php:213
+msgid "Add Shortlink"
+msgstr "Afegir enllaç curt"
+
+#: includes/classes/class-hooks.php:214
+msgid "Search Shortlinks"
+msgstr "Cercar enllaços curts"
+
+#: includes/classes/class-hooks.php:229
 msgid "Category"
 msgstr "Categoria"
 
-#: includes/classes/class-hooks.php:227, fuzzy
+#: includes/classes/class-hooks.php:230, fuzzy
 msgid "Categories"
 msgstr "Categories"
 
-#: includes/classes/class-hooks.php:253
-#: includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:256
+#: includes/classes/class-hooks.php:257
 msgid "Logs"
 msgstr "Registres"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "All Logs"
 msgstr "Tots els registres"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Are you sure you want to clear all logs?"
 msgstr "Esteu segur que voleu esborrar tots els registres?"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Clear Logs"
 msgstr "Esborrar registres"
 
-#: includes/classes/class-hooks.php:503
+#: includes/classes/class-hooks.php:506
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Ho sentim, no teniu permís per accedir als enllaços curts."
 
-#: includes/classes/class-hooks.php:504
-#: includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536
-#: includes/classes/class-hooks.php:557
+#: includes/classes/class-hooks.php:507
+#: includes/classes/class-hooks.php:528
+#: includes/classes/class-hooks.php:539
+#: includes/classes/class-hooks.php:560
 msgid "Access Denied"
 msgstr "Accés denegat"
 
-#: includes/classes/class-hooks.php:524
+#: includes/classes/class-hooks.php:527
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Ho sentim, no teniu permís per crear enllaços curts."
 
-#: includes/classes/class-hooks.php:535
+#: includes/classes/class-hooks.php:538
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Ho sentim, no teniu permís per editar enllaços curts."
 
-#: includes/classes/class-hooks.php:556
+#: includes/classes/class-hooks.php:559
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr ""
 "Ho sentim, no teniu permís per accedir a la configuració dels enllaços "
@@ -458,7 +467,7 @@ msgid "PublishPress Shortlinks"
 msgstr "Enllaços curts de PublishPress"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:331, fuzzy
+#: includes/classes/class-settings.php:401, fuzzy
 msgid "General"
 msgstr "General"
 
@@ -739,11 +748,33 @@ msgstr "ID de revisió no vàlid."
 msgid "Settings"
 msgstr "Configuració"
 
-#: includes/classes/class-settings.php:237
+#: includes/classes/class-settings.php:271
+msgid ""
+"Select which post statuses are accessible when visiting a PublishPress "
+"shortlink."
+msgstr ""
+"Seleccioneu quins estats de post són accessibles quan es visita un enllaç "
+"curt de PublishPress."
+
+#: includes/classes/class-settings.php:287
+#, fuzzy
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "PublishPress Shortlinks Free"
+
+#: includes/classes/class-settings.php:288
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr ""
+"Per utilitzar els estats bàsics de PublishPress amb Shortlinks, si us plau, "
+"habilita el tipus de post Shortlinks a la configuració del flux de treball "
+"dels estats de PublishPress."
+
+#: includes/classes/class-settings.php:307
 msgid "Elementor Detected:"
 msgstr "Elementor detectat:"
 
-#: includes/classes/class-settings.php:238
+#: includes/classes/class-settings.php:308
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
@@ -751,11 +782,11 @@ msgstr ""
 "Es necessita un prefixe de l'enllaç curt per a una correcta representació "
 "de les revisions d'Elementor. És aconsellable mantenir-ho activat."
 
-#: includes/classes/class-settings.php:270
+#: includes/classes/class-settings.php:340
 msgid "TinyPress Shortlinks Notice:"
 msgstr "Avís de TinyPress Shortlinks:"
 
-#: includes/classes/class-settings.php:271
+#: includes/classes/class-settings.php:341
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
@@ -764,109 +795,109 @@ msgstr ""
 "automàticament, és necessari per a una compatibilitat òptima amb les "
 "revisions d'Elementor."
 
-#: includes/classes/class-settings.php:334
+#: includes/classes/class-settings.php:404
 msgid "Options"
 msgstr "Opcions"
 
-#: includes/classes/class-settings.php:339
+#: includes/classes/class-settings.php:409
 msgid "Shortlink Prefix"
 msgstr "Prefix d'enllaç curt"
 
-#: includes/classes/class-settings.php:340
+#: includes/classes/class-settings.php:410
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Afegiu un prefix entre el nom del vostre domini i l'enllaç curt."
 
-#: includes/classes/class-settings.php:347, fuzzy
+#: includes/classes/class-settings.php:417, fuzzy
 msgid "Prefix Slug"
 msgstr "Prefix Slug"
 
-#: includes/classes/class-settings.php:348
+#: includes/classes/class-settings.php:418
 msgid "Custom prefix slug."
 msgstr "Slug de prefix personalitzat."
 
-#: includes/classes/class-settings.php:349
+#: includes/classes/class-settings.php:419
 msgid "This text will be added between your domain name and shortlink."
 msgstr "Aquest text s'afegirà entre el nom del vostre domini i l'enllaç curt."
 
-#: includes/classes/class-settings.php:350
-#: includes/classes/class-settings.php:351
+#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:421
 msgid "go"
 msgstr "anar"
 
-#: includes/classes/class-settings.php:357
+#: includes/classes/class-settings.php:427
 msgid "Keyboard Shortcut"
 msgstr "Drecera de teclat"
 
-#: includes/classes/class-settings.php:358
+#: includes/classes/class-settings.php:428
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr ""
 "Creeu enllaços curts des de qualsevol lloc dins del vostre dashboard de "
 "WordPress."
 
-#: includes/classes/class-settings.php:359
-#: includes/classes/class-settings.php:360
+#: includes/classes/class-settings.php:429
+#: includes/classes/class-settings.php:430
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl o Cmd + /"
 
-#: includes/classes/class-settings.php:369
+#: includes/classes/class-settings.php:439
 msgid "Remove from Admin Bar"
 msgstr "Eliminar de la barra d'administració"
 
-#: includes/classes/class-settings.php:370
+#: includes/classes/class-settings.php:440
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "Amagueu el botó \"Escurçar\" de la barra d'administració de WordPress."
 
-#: includes/classes/class-settings.php:376
+#: includes/classes/class-settings.php:446
 msgid "Role Management"
 msgstr "Gestió de rols"
 
-#: includes/classes/class-settings.php:381
+#: includes/classes/class-settings.php:451
 msgid "Who Can View Shortlinks"
 msgstr "Qui pot veure enllaços curts"
 
-#: includes/classes/class-settings.php:382
+#: includes/classes/class-settings.php:452
 msgid "Only selected user roles can view links."
 msgstr "Només els rols d'usuari seleccionats poden veure enllaços."
 
-#: includes/classes/class-settings.php:390
+#: includes/classes/class-settings.php:460
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Qui pot crear/editar enllaços curts"
 
-#: includes/classes/class-settings.php:391
+#: includes/classes/class-settings.php:461
 msgid "Only selected user roles can create or edit links."
 msgstr "Només els rols d'usuari seleccionats poden crear o editar enllaços."
 
-#: includes/classes/class-settings.php:400
+#: includes/classes/class-settings.php:470
 msgid "Who Can See Analytics"
 msgstr "Qui pot veure analítiques"
 
-#: includes/classes/class-settings.php:401
+#: includes/classes/class-settings.php:471
 msgid "Only selected user roles can see analytics."
 msgstr "Només els rols d'usuari seleccionats poden veure analítiques."
 
-#: includes/classes/class-settings.php:410
+#: includes/classes/class-settings.php:480
 msgid "Who Can Control Settings"
 msgstr "Qui pot controlar configuracions"
 
-#: includes/classes/class-settings.php:411
+#: includes/classes/class-settings.php:481
 msgid "Only selected user roles can control settings."
 msgstr "Només els rols d'usuari seleccionats poden controlar configuracions."
 
-#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:490
 msgid "Auto-Linking"
 msgstr "Enllaç automàtic"
 
-#: includes/classes/class-settings.php:425
+#: includes/classes/class-settings.php:495
 msgid "Enable Auto-Linking"
 msgstr "Habilitar l'enllaç automàtic"
 
-#: includes/classes/class-settings.php:426
+#: includes/classes/class-settings.php:496
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr ""
 "Convertir automàticament les paraules clau en enllaços curts en el "
 "contingut del post."
 
-#: includes/classes/class-settings.php:427
+#: includes/classes/class-settings.php:497
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
@@ -874,39 +905,39 @@ msgstr ""
 "Quan està habilitat, les paraules clau configurades a la configuració "
 "d'enllaç curt s'enllaçaran automàticament en el teu contingut."
 
-#: includes/classes/class-settings.php:433
+#: includes/classes/class-settings.php:503
 msgid "Open Auto-Links In"
 msgstr "Obrir enllaços automàtics en"
 
-#: includes/classes/class-settings.php:434
+#: includes/classes/class-settings.php:504
 msgid "Choose how auto-linked keywords should open."
 msgstr "Tria com s'han d'obrir les paraules clau enllaçades automàticament."
 
-#: includes/classes/class-settings.php:436
+#: includes/classes/class-settings.php:506
 msgid "Same tab"
 msgstr "Mateixa pestanya"
 
-#: includes/classes/class-settings.php:437
+#: includes/classes/class-settings.php:507
 msgid "New tab"
 msgstr "Nova pestanya"
 
-#: includes/classes/class-settings.php:445
+#: includes/classes/class-settings.php:515
 msgid "Auto-Link Color"
 msgstr "Color de l'enllaç automàtic"
 
-#: includes/classes/class-settings.php:446
+#: includes/classes/class-settings.php:516
 msgid "Choose the color for auto-linked keywords."
 msgstr "Trieu el color per a les paraules clau enllaçades automàticament."
 
-#: includes/classes/class-settings.php:453
+#: includes/classes/class-settings.php:523
 msgid "Auto-List Links"
 msgstr "Enllaços automàtics"
 
-#: includes/classes/class-settings.php:458, fuzzy
+#: includes/classes/class-settings.php:528, fuzzy
 msgid "Auto-List Shortlinks"
 msgstr "Auto-List Shortlinks"
 
-#: includes/classes/class-settings.php:459
+#: includes/classes/class-settings.php:529
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
@@ -914,15 +945,15 @@ msgstr ""
 "Quan està habilitat, els enllaços curts apareixeran a la taula \"Tots els "
 "enllaços\" en funció del comportament que configureu a continuació."
 
-#: includes/classes/class-settings.php:465
+#: includes/classes/class-settings.php:535
 msgid "Configure Post Types"
 msgstr "Configurar Tipus de Post"
 
-#: includes/classes/class-settings.php:466
+#: includes/classes/class-settings.php:536
 msgid "Set when links should be auto-listed for each post type"
 msgstr "Estableix quan els enllaços s'han d'auto-llistar per a cada tipus de post"
 
-#: includes/classes/class-settings.php:467
+#: includes/classes/class-settings.php:537
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -931,56 +962,48 @@ msgstr ""
 "d'aparèixer a la taula \"Tots els enllaços\". Les modificacions es desaran "
 "automàticament."
 
-#: includes/classes/class-settings.php:474
+#: includes/classes/class-settings.php:544
 #: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "Visibilitat de l'Estat del Post"
 
-#: includes/classes/class-settings.php:479
+#: includes/classes/class-settings.php:549
 msgid "Allowed Post Statuses"
 msgstr "Estats de Post Permesos"
 
-#: includes/classes/class-settings.php:480
+#: includes/classes/class-settings.php:550
 msgid "Choose which post statuses can be accessed via shortlinks"
 msgstr "Trieu quins estats de post es poden accedir mitjançant enllaços curts"
 
-#: includes/classes/class-settings.php:481
-msgid ""
-"Select which post statuses are accessible when visiting a PublishPress "
-"shortlink."
-msgstr ""
-"Seleccioneu quins estats de post són accessibles quan es visita un enllaç "
-"curt de PublishPress."
-
-#: includes/classes/class-settings.php:484
+#: includes/classes/class-settings.php:554
 msgid "Published"
 msgstr "Publicat"
 
-#: includes/classes/class-settings.php:485
+#: includes/classes/class-settings.php:555
 msgid "Draft"
 msgstr "Esborrany"
 
-#: includes/classes/class-settings.php:486
+#: includes/classes/class-settings.php:556
 msgid "Pending Review"
 msgstr "Pendent de Revisió"
 
-#: includes/classes/class-settings.php:487
+#: includes/classes/class-settings.php:557
 msgid "Private"
 msgstr "Privat"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:565
 msgid "Expired Links"
 msgstr "Enllaços Caducats"
 
-#: includes/classes/class-settings.php:500
+#: includes/classes/class-settings.php:570
 msgid "Default Expired Redirect URL"
 msgstr "URL de Redirecció Caducada per Defecte"
 
-#: includes/classes/class-settings.php:501
+#: includes/classes/class-settings.php:571
 msgid "Where should expired shortlinks redirect?"
 msgstr "On s'han de redirigir els enllaços curts caducats?"
 
-#: includes/classes/class-settings.php:502
+#: includes/classes/class-settings.php:572
 msgid ""
 "When a shortlink expires, visitors will be redirected to this URL instead "
 "of seeing an error. Leave empty to show the default expiration message."
@@ -989,15 +1012,15 @@ msgstr ""
 "lloc de veure un error. Deixeu buit per mostrar el missatge d'expiració per "
 "defecte."
 
-#: includes/classes/class-settings.php:514, fuzzy
+#: includes/classes/class-settings.php:584, fuzzy
 msgid "Revisions"
 msgstr "Revisions"
 
-#: includes/classes/class-settings.php:519
+#: includes/classes/class-settings.php:589
 msgid "Revision Link Visibility"
 msgstr "Visibilitat de l'Enllaç de Revisió"
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:590
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -1006,35 +1029,35 @@ msgstr ""
 "\"Tots els Enllaços Curts\" en funció del comportament que configureu a "
 "continuació."
 
-#: includes/classes/class-settings.php:522
+#: includes/classes/class-settings.php:592
 msgid "When Revision is Created"
 msgstr "Quan es crea una revisió"
 
-#: includes/classes/class-settings.php:524
+#: includes/classes/class-settings.php:594
 msgid "When Revision is Created or Link is First Used"
 msgstr "Quan es crea una revisió o quan s'utilitza per primera vegada l'enllaç"
 
-#: includes/classes/class-settings.php:532
+#: includes/classes/class-settings.php:602
 msgid "Show Shortlink in Revision Table"
 msgstr "Mostra l'enllaç curt a la taula de revisions"
 
-#: includes/classes/class-settings.php:533
+#: includes/classes/class-settings.php:603
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "Mostra la columna d'enllaços curts quan es visualitzen revisions a "
 "PublishPress Revisions."
 
-#: includes/classes/class-settings.php:539
+#: includes/classes/class-settings.php:609
 msgid "Revision Visibility for Visitors"
 msgstr "Visibilitat de la revisió per als visitants"
 
-#: includes/classes/class-settings.php:540
+#: includes/classes/class-settings.php:610
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Permetre als visitants no registrats veure el contingut de la revisió a "
 "través d'enllaços curts."
 
-#: includes/classes/class-settings.php:541
+#: includes/classes/class-settings.php:611
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1047,17 +1070,17 @@ msgstr ""
 "visitants no registrats en lloc de redirigir-los a l'URL de "
 "previsualització."
 
-#: includes/classes/class-settings.php:562, fuzzy
+#: includes/classes/class-settings.php:632, fuzzy
 msgid "Dummy"
 msgstr "Dummy"
 
-#: includes/classes/class-settings.php:606
+#: includes/classes/class-settings.php:676
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "No s'han configurat tipus de publicació encara. Fes clic a \"Afegir tipus "
 "de publicació\" per començar."
 
-#: includes/classes/class-settings.php:638
+#: includes/classes/class-settings.php:708
 msgid "Add Post Type"
 msgstr "Afegir tipus de publicació"
 

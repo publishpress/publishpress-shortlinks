@@ -9,24 +9,24 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-27 15:51+0000\n"
+"POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
+"PO-Revision-Date: 2026-04-29 12:58+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: et-EE\n"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:4, fuzzy
 #. Plugin Name of the plugin
 msgid "PublishPress Shortlinks Free"
 msgstr "PublishPress Shortlinks Free"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:5, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/shortlinks/"
 msgstr "https://publishpress.com/shortlinks/"
 
-#: tinypress.php
+#: tinypress.php:6
 #. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
@@ -35,12 +35,12 @@ msgstr ""
 "Looge kohandatud lingid oma postitustele. Need lingid on bränditavad, "
 "jälgitavad ja neil võivad olla kohandatud vaatamisõigused."
 
-#: tinypress.php
+#: tinypress.php:9
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:10, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -209,29 +209,29 @@ msgid "Select a post type"
 msgstr "Valige post type"
 
 #: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:525
-#: includes/classes/class-settings.php:621
+#: includes/classes/class-settings.php:595
+#: includes/classes/class-settings.php:691
 msgid "Never"
 msgstr "Kunagi"
 
 #: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:523
-#: includes/classes/class-settings.php:623
+#: includes/classes/class-settings.php:593
+#: includes/classes/class-settings.php:693
 msgid "When Link is First Used"
 msgstr "Kui link on esmakordselt kasutatud"
 
 #: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:625
+#: includes/classes/class-settings.php:695
 msgid "When Post is Published"
 msgstr "Kui postitus on avaldatud"
 
 #: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:624
+#: includes/classes/class-settings.php:694
 msgid "When Post is Created"
 msgstr "Kui postitus on loodud"
 
 #: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:622
+#: includes/classes/class-settings.php:692
 msgid "When Link is First Used or Post Created"
 msgstr "Kui link on esmakordselt kasutatud või postitus on loodud"
 
@@ -291,7 +291,7 @@ msgid "Submitted for approval"
 msgstr "Esitatud heakskiitmiseks"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:558
 msgid "Scheduled"
 msgstr "Planeeritud"
 
@@ -398,51 +398,60 @@ msgstr "Lühenda"
 msgid "All Shortlinks"
 msgstr "Kõik lühilinkid"
 
-#: includes/classes/class-hooks.php:226
+#: includes/classes/class-hooks.php:212
+#: includes/classes/class-hooks.php:213
+msgid "Add Shortlink"
+msgstr "Lisa lühilink"
+
+#: includes/classes/class-hooks.php:214
+msgid "Search Shortlinks"
+msgstr "Otsi lühilinke"
+
+#: includes/classes/class-hooks.php:229
 msgid "Category"
 msgstr "Kategooria"
 
-#: includes/classes/class-hooks.php:227
+#: includes/classes/class-hooks.php:230
 msgid "Categories"
 msgstr "Kategooriad"
 
-#: includes/classes/class-hooks.php:253
-#: includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:256
+#: includes/classes/class-hooks.php:257
 msgid "Logs"
 msgstr "Logid"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "All Logs"
 msgstr "Kõik logid"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Are you sure you want to clear all logs?"
 msgstr "Kas olete kindel, et soovite kõik logid kustutada?"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Clear Logs"
 msgstr "Kustuta logid"
 
-#: includes/classes/class-hooks.php:503
+#: includes/classes/class-hooks.php:506
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Kahjuks ei ole teil lühilinkidele juurdepääsu."
 
-#: includes/classes/class-hooks.php:504
-#: includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536
-#: includes/classes/class-hooks.php:557
+#: includes/classes/class-hooks.php:507
+#: includes/classes/class-hooks.php:528
+#: includes/classes/class-hooks.php:539
+#: includes/classes/class-hooks.php:560
 msgid "Access Denied"
 msgstr "Juurdepääs keelatud"
 
-#: includes/classes/class-hooks.php:524
+#: includes/classes/class-hooks.php:527
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Kahjuks ei ole teil lühilinkide loomise õigust."
 
-#: includes/classes/class-hooks.php:535
+#: includes/classes/class-hooks.php:538
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Kahjuks ei ole teil lühilinkide redigeerimise õigust."
 
-#: includes/classes/class-hooks.php:556
+#: includes/classes/class-hooks.php:559
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Kahjuks ei ole teil lühilinkide seadetesse juurdepääsu."
 
@@ -456,7 +465,7 @@ msgid "PublishPress Shortlinks"
 msgstr "PublishPress lühilinkid"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:331
+#: includes/classes/class-settings.php:401
 msgid "General"
 msgstr "Üldine"
 
@@ -733,208 +742,7 @@ msgstr "Kehtetu revisjoni ID."
 msgid "Settings"
 msgstr "Seaded"
 
-#: includes/classes/class-settings.php:237
-msgid "Elementor Detected:"
-msgstr "Elementor tuvastatud:"
-
-#: includes/classes/class-settings.php:238
-msgid ""
-"Shortlink prefix is required for proper rendering of Elementor revisions. "
-"It is advisable to keep it enabled."
-msgstr ""
-"Elementori revisjonide õige renderdamise jaoks on vajalik lühilinki "
-"eesliide. Soovitav on see sisse lülitada."
-
-#: includes/classes/class-settings.php:270
-msgid "TinyPress Shortlinks Notice:"
-msgstr "TinyPress lühilinkide teade:"
-
 #: includes/classes/class-settings.php:271
-msgid ""
-"Elementor is active. Shortlink prefix has been automatically disabled, it "
-"is required for optimal compatibility with Elementor revisions."
-msgstr ""
-"Elementor on aktiivne. Lühilinki eesliide on automaatselt keelatud, see on "
-"vajalik Elementori revisjonide optimaalse ühilduvuse tagamiseks."
-
-#: includes/classes/class-settings.php:334
-msgid "Options"
-msgstr "Valikud"
-
-#: includes/classes/class-settings.php:339
-msgid "Shortlink Prefix"
-msgstr "Lühilinki eesliide"
-
-#: includes/classes/class-settings.php:340
-msgid "Add a prefix between your domain name and shortlink."
-msgstr "Lisa eelistus oma domeeninime ja lühilinki vahele."
-
-#: includes/classes/class-settings.php:347
-msgid "Prefix Slug"
-msgstr "Eelistuse slug"
-
-#: includes/classes/class-settings.php:348
-msgid "Custom prefix slug."
-msgstr "Kohandatud eelistuse slug."
-
-#: includes/classes/class-settings.php:349
-msgid "This text will be added between your domain name and shortlink."
-msgstr "See tekst lisatakse teie domeeninime ja lühilinki vahele."
-
-#: includes/classes/class-settings.php:350
-#: includes/classes/class-settings.php:351
-msgid "go"
-msgstr "mine"
-
-#: includes/classes/class-settings.php:357
-msgid "Keyboard Shortcut"
-msgstr "Klaviatuuri otsetee"
-
-#: includes/classes/class-settings.php:358
-msgid "Create shortlinks from anywhere inside your WordPress dashboard."
-msgstr "Loo lühilinke igal pool oma WordPressi juhtpaneelis."
-
-#: includes/classes/class-settings.php:359
-#: includes/classes/class-settings.php:360
-msgid "Ctrl or Cmd + /"
-msgstr "Ctrl või Cmd + /"
-
-#: includes/classes/class-settings.php:369
-msgid "Remove from Admin Bar"
-msgstr "Eemalda administraatori tööriistaribalt"
-
-#: includes/classes/class-settings.php:370
-msgid "Hide the \"Shorten\" button from the WordPress admin bar."
-msgstr "Peida \"Lühenda\" nupp WordPressi administraatori tööriistaribalt."
-
-#: includes/classes/class-settings.php:376
-msgid "Role Management"
-msgstr "Rollihaldus"
-
-#: includes/classes/class-settings.php:381
-msgid "Who Can View Shortlinks"
-msgstr "Kes saab lühilinke vaadata"
-
-#: includes/classes/class-settings.php:382
-msgid "Only selected user roles can view links."
-msgstr "Ainult valitud kasutajarollid saavad linke vaadata."
-
-#: includes/classes/class-settings.php:390
-msgid "Who Can Create/Edit Shortlinks"
-msgstr "Kes saab lühilinke luua/redigeerida"
-
-#: includes/classes/class-settings.php:391
-msgid "Only selected user roles can create or edit links."
-msgstr "Ainult valitud kasutajarollid saavad linke luua või redigeerida."
-
-#: includes/classes/class-settings.php:400
-msgid "Who Can See Analytics"
-msgstr "Kes saab analüüse näha"
-
-#: includes/classes/class-settings.php:401
-msgid "Only selected user roles can see analytics."
-msgstr "Ainult valitud kasutajarollid saavad analüüse näha."
-
-#: includes/classes/class-settings.php:410
-msgid "Who Can Control Settings"
-msgstr "Kes saab seadeid juhtida"
-
-#: includes/classes/class-settings.php:411
-msgid "Only selected user roles can control settings."
-msgstr "Ainult valitud kasutajarollid saavad seadeid juhtida."
-
-#: includes/classes/class-settings.php:420
-msgid "Auto-Linking"
-msgstr "Automaatlinkimine"
-
-#: includes/classes/class-settings.php:425
-msgid "Enable Auto-Linking"
-msgstr "Luba automaatlinkimine"
-
-#: includes/classes/class-settings.php:426
-msgid "Automatically convert keywords to shortlinks in post content."
-msgstr "Märksõnade automaatne muutmine lühilingideks postituse sisus."
-
-#: includes/classes/class-settings.php:427
-msgid ""
-"When enabled, keywords configured in shortlink settings will be "
-"automatically linked in your content."
-msgstr ""
-"Kui lubatud, linkitakse lühilingi seadetes konfigureeritud märksõnad "
-"automaatselt sinu sisus."
-
-#: includes/classes/class-settings.php:433
-msgid "Open Auto-Links In"
-msgstr "Ava automaatlingid"
-
-#: includes/classes/class-settings.php:434
-msgid "Choose how auto-linked keywords should open."
-msgstr "Vali, kuidas automaatlinkitud märksõnad peaksid avanema."
-
-#: includes/classes/class-settings.php:436
-msgid "Same tab"
-msgstr "Samas vahekaardis"
-
-#: includes/classes/class-settings.php:437
-msgid "New tab"
-msgstr "Uues vahekaardis"
-
-#: includes/classes/class-settings.php:445
-msgid "Auto-Link Color"
-msgstr "Automaatlinkimise värv"
-
-#: includes/classes/class-settings.php:446
-msgid "Choose the color for auto-linked keywords."
-msgstr "Valige automaatse lingitud märksõnade värv."
-
-#: includes/classes/class-settings.php:453
-msgid "Auto-List Links"
-msgstr "Automaatne loetelu linkidest"
-
-#: includes/classes/class-settings.php:458
-msgid "Auto-List Shortlinks"
-msgstr "Auto-List Lühilinkide"
-
-#: includes/classes/class-settings.php:459
-msgid ""
-"When enabled, shortlinks will appear in the \"All Links\" table based on "
-"the behavior you configure below."
-msgstr ""
-"Kui lubatud, kuvatakse lühilinkid \"Kõik lingid\" tabelis vastavalt allpool "
-"konfigureeritud käitumisele."
-
-#: includes/classes/class-settings.php:465
-msgid "Configure Post Types"
-msgstr "Konfigureeri Postituse Tüübid"
-
-#: includes/classes/class-settings.php:466
-msgid "Set when links should be auto-listed for each post type"
-msgstr ""
-"Määra, millal lingid peaksid olema automaatselt loetletud iga postituse "
-"tüübi jaoks"
-
-#: includes/classes/class-settings.php:467
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr ""
-"Lisa postituse tüüpe ja konfigureeri, millal nende lühilinkid peaksid "
-"ilmuma \"Kõik lingid\" tabelis. Muudatused salvestatakse automaatselt."
-
-#: includes/classes/class-settings.php:474
-#: includes/classes/class-statuses.php:233
-msgid "Post Status Visibility"
-msgstr "Postituse Staatusi Nähtavus"
-
-#: includes/classes/class-settings.php:479
-msgid "Allowed Post Statuses"
-msgstr "Lubatud Postituse Staatused"
-
-#: includes/classes/class-settings.php:480
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Vali, milliseid postituse staatusi saab lühilinkide kaudu juurde pääseda"
-
-#: includes/classes/class-settings.php:481
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -942,35 +750,250 @@ msgstr ""
 "Vali, millised postituse staatused on ligipääsetavad PublishPress lühilinki "
 "külastades."
 
-#: includes/classes/class-settings.php:484
+#: includes/classes/class-settings.php:287
+#, fuzzy
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "PublishPress Shortlinks Free"
+
+#: includes/classes/class-settings.php:288
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr ""
+"Kasutamiseks põhivälja PublishPress staatustega koos Shortlinkidega, palun "
+"lubage Shortlinkide postitüübi kasutamine PublishPressi staatuste töövoo "
+"seadetes."
+
+#: includes/classes/class-settings.php:307
+msgid "Elementor Detected:"
+msgstr "Elementor tuvastatud:"
+
+#: includes/classes/class-settings.php:308
+msgid ""
+"Shortlink prefix is required for proper rendering of Elementor revisions. "
+"It is advisable to keep it enabled."
+msgstr ""
+"Elementori revisjonide õige renderdamise jaoks on vajalik lühilinki "
+"eesliide. Soovitav on see sisse lülitada."
+
+#: includes/classes/class-settings.php:340
+msgid "TinyPress Shortlinks Notice:"
+msgstr "TinyPress lühilinkide teade:"
+
+#: includes/classes/class-settings.php:341
+msgid ""
+"Elementor is active. Shortlink prefix has been automatically disabled, it "
+"is required for optimal compatibility with Elementor revisions."
+msgstr ""
+"Elementor on aktiivne. Lühilinki eesliide on automaatselt keelatud, see on "
+"vajalik Elementori revisjonide optimaalse ühilduvuse tagamiseks."
+
+#: includes/classes/class-settings.php:404
+msgid "Options"
+msgstr "Valikud"
+
+#: includes/classes/class-settings.php:409
+msgid "Shortlink Prefix"
+msgstr "Lühilinki eesliide"
+
+#: includes/classes/class-settings.php:410
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "Lisa eelistus oma domeeninime ja lühilinki vahele."
+
+#: includes/classes/class-settings.php:417
+msgid "Prefix Slug"
+msgstr "Eelistuse slug"
+
+#: includes/classes/class-settings.php:418
+msgid "Custom prefix slug."
+msgstr "Kohandatud eelistuse slug."
+
+#: includes/classes/class-settings.php:419
+msgid "This text will be added between your domain name and shortlink."
+msgstr "See tekst lisatakse teie domeeninime ja lühilinki vahele."
+
+#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:421
+msgid "go"
+msgstr "mine"
+
+#: includes/classes/class-settings.php:427
+msgid "Keyboard Shortcut"
+msgstr "Klaviatuuri otsetee"
+
+#: includes/classes/class-settings.php:428
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
+msgstr "Loo lühilinke igal pool oma WordPressi juhtpaneelis."
+
+#: includes/classes/class-settings.php:429
+#: includes/classes/class-settings.php:430
+msgid "Ctrl or Cmd + /"
+msgstr "Ctrl või Cmd + /"
+
+#: includes/classes/class-settings.php:439
+msgid "Remove from Admin Bar"
+msgstr "Eemalda administraatori tööriistaribalt"
+
+#: includes/classes/class-settings.php:440
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "Peida \"Lühenda\" nupp WordPressi administraatori tööriistaribalt."
+
+#: includes/classes/class-settings.php:446
+msgid "Role Management"
+msgstr "Rollihaldus"
+
+#: includes/classes/class-settings.php:451
+msgid "Who Can View Shortlinks"
+msgstr "Kes saab lühilinke vaadata"
+
+#: includes/classes/class-settings.php:452
+msgid "Only selected user roles can view links."
+msgstr "Ainult valitud kasutajarollid saavad linke vaadata."
+
+#: includes/classes/class-settings.php:460
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "Kes saab lühilinke luua/redigeerida"
+
+#: includes/classes/class-settings.php:461
+msgid "Only selected user roles can create or edit links."
+msgstr "Ainult valitud kasutajarollid saavad linke luua või redigeerida."
+
+#: includes/classes/class-settings.php:470
+msgid "Who Can See Analytics"
+msgstr "Kes saab analüüse näha"
+
+#: includes/classes/class-settings.php:471
+msgid "Only selected user roles can see analytics."
+msgstr "Ainult valitud kasutajarollid saavad analüüse näha."
+
+#: includes/classes/class-settings.php:480
+msgid "Who Can Control Settings"
+msgstr "Kes saab seadeid juhtida"
+
+#: includes/classes/class-settings.php:481
+msgid "Only selected user roles can control settings."
+msgstr "Ainult valitud kasutajarollid saavad seadeid juhtida."
+
+#: includes/classes/class-settings.php:490
+msgid "Auto-Linking"
+msgstr "Automaatlinkimine"
+
+#: includes/classes/class-settings.php:495
+msgid "Enable Auto-Linking"
+msgstr "Luba automaatlinkimine"
+
+#: includes/classes/class-settings.php:496
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr "Märksõnade automaatne muutmine lühilingideks postituse sisus."
+
+#: includes/classes/class-settings.php:497
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr ""
+"Kui lubatud, linkitakse lühilingi seadetes konfigureeritud märksõnad "
+"automaatselt sinu sisus."
+
+#: includes/classes/class-settings.php:503
+msgid "Open Auto-Links In"
+msgstr "Ava automaatlingid"
+
+#: includes/classes/class-settings.php:504
+msgid "Choose how auto-linked keywords should open."
+msgstr "Vali, kuidas automaatlinkitud märksõnad peaksid avanema."
+
+#: includes/classes/class-settings.php:506
+msgid "Same tab"
+msgstr "Samas vahekaardis"
+
+#: includes/classes/class-settings.php:507
+msgid "New tab"
+msgstr "Uues vahekaardis"
+
+#: includes/classes/class-settings.php:515
+msgid "Auto-Link Color"
+msgstr "Automaatlinkimise värv"
+
+#: includes/classes/class-settings.php:516
+msgid "Choose the color for auto-linked keywords."
+msgstr "Valige automaatse lingitud märksõnade värv."
+
+#: includes/classes/class-settings.php:523
+msgid "Auto-List Links"
+msgstr "Automaatne loetelu linkidest"
+
+#: includes/classes/class-settings.php:528
+msgid "Auto-List Shortlinks"
+msgstr "Auto-List Lühilinkide"
+
+#: includes/classes/class-settings.php:529
+msgid ""
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
+msgstr ""
+"Kui lubatud, kuvatakse lühilinkid \"Kõik lingid\" tabelis vastavalt allpool "
+"konfigureeritud käitumisele."
+
+#: includes/classes/class-settings.php:535
+msgid "Configure Post Types"
+msgstr "Konfigureeri Postituse Tüübid"
+
+#: includes/classes/class-settings.php:536
+msgid "Set when links should be auto-listed for each post type"
+msgstr ""
+"Määra, millal lingid peaksid olema automaatselt loetletud iga postituse "
+"tüübi jaoks"
+
+#: includes/classes/class-settings.php:537
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr ""
+"Lisa postituse tüüpe ja konfigureeri, millal nende lühilinkid peaksid "
+"ilmuma \"Kõik lingid\" tabelis. Muudatused salvestatakse automaatselt."
+
+#: includes/classes/class-settings.php:544
+#: includes/classes/class-statuses.php:233
+msgid "Post Status Visibility"
+msgstr "Postituse Staatusi Nähtavus"
+
+#: includes/classes/class-settings.php:549
+msgid "Allowed Post Statuses"
+msgstr "Lubatud Postituse Staatused"
+
+#: includes/classes/class-settings.php:550
+msgid "Choose which post statuses can be accessed via shortlinks"
+msgstr "Vali, milliseid postituse staatusi saab lühilinkide kaudu juurde pääseda"
+
+#: includes/classes/class-settings.php:554
 msgid "Published"
 msgstr "Avaldatud"
 
-#: includes/classes/class-settings.php:485
+#: includes/classes/class-settings.php:555
 msgid "Draft"
 msgstr "Mustand"
 
-#: includes/classes/class-settings.php:486
+#: includes/classes/class-settings.php:556
 msgid "Pending Review"
 msgstr "Ootel Ülevaatus"
 
-#: includes/classes/class-settings.php:487
+#: includes/classes/class-settings.php:557
 msgid "Private"
 msgstr "Privaatne"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:565
 msgid "Expired Links"
 msgstr "Aegunud Lingid"
 
-#: includes/classes/class-settings.php:500
+#: includes/classes/class-settings.php:570
 msgid "Default Expired Redirect URL"
 msgstr "Vaikimisi Aegunud Ümbersuunamise URL"
 
-#: includes/classes/class-settings.php:501
+#: includes/classes/class-settings.php:571
 msgid "Where should expired shortlinks redirect?"
 msgstr "Kuhu peaksid aegunud lühilinkid ümber suunama?"
 
-#: includes/classes/class-settings.php:502
+#: includes/classes/class-settings.php:572
 msgid ""
 "When a shortlink expires, visitors will be redirected to this URL instead "
 "of seeing an error. Leave empty to show the default expiration message."
@@ -978,15 +1001,15 @@ msgstr ""
 "Kui lühilink aegub, suunatakse külastajad sellele URL-ile, selle asemel et "
 "näha viga. Jäta tühi, et näidata vaikimisi aegumise sõnumit."
 
-#: includes/classes/class-settings.php:514
+#: includes/classes/class-settings.php:584
 msgid "Revisions"
 msgstr "Muudatused"
 
-#: includes/classes/class-settings.php:519
+#: includes/classes/class-settings.php:589
 msgid "Revision Link Visibility"
 msgstr "Muudatuste Lingi Nähtavus"
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:590
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -994,31 +1017,31 @@ msgstr ""
 "Kui lubatud, kuvatakse muudatuste lühilinkid \"Kõik Lühilinkid\" tabelis "
 "vastavalt allpool konfigureeritud käitumisele."
 
-#: includes/classes/class-settings.php:522
+#: includes/classes/class-settings.php:592
 msgid "When Revision is Created"
 msgstr "Kui revisjon on loodud"
 
-#: includes/classes/class-settings.php:524
+#: includes/classes/class-settings.php:594
 msgid "When Revision is Created or Link is First Used"
 msgstr "Kui revisjon on loodud või link on esmakordselt kasutatud"
 
-#: includes/classes/class-settings.php:532
+#: includes/classes/class-settings.php:602
 msgid "Show Shortlink in Revision Table"
 msgstr "Kuva lühilink revisjoni tabelis"
 
-#: includes/classes/class-settings.php:533
+#: includes/classes/class-settings.php:603
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr "Kuva lühilinki veerus, kui vaatate revisjone PublishPress Revisionsis."
 
-#: includes/classes/class-settings.php:539
+#: includes/classes/class-settings.php:609
 msgid "Revision Visibility for Visitors"
 msgstr "Revisjoni nähtavus külastajatele"
 
-#: includes/classes/class-settings.php:540
+#: includes/classes/class-settings.php:610
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr "Luba sisse logimata külastajatel vaadata revisjoni sisu lühilinkide kaudu."
 
-#: includes/classes/class-settings.php:541
+#: includes/classes/class-settings.php:611
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1030,17 +1053,17 @@ msgstr ""
 "revisjoni sisu otse sisse logimata külastajatele, selle asemel et suunata "
 "eelvaate URL-ile."
 
-#: includes/classes/class-settings.php:562, fuzzy
+#: includes/classes/class-settings.php:632, fuzzy
 msgid "Dummy"
 msgstr "Dummy"
 
-#: includes/classes/class-settings.php:606
+#: includes/classes/class-settings.php:676
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Postituste tüüpe pole veel konfigureeritud. Klõpsake \"Lisa postituse "
 "tüüp\", et alustada."
 
-#: includes/classes/class-settings.php:638
+#: includes/classes/class-settings.php:708
 msgid "Add Post Type"
 msgstr "Lisa postituse tüüp"
 

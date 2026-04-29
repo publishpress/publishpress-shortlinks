@@ -10,10 +10,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-28 09:06+0000\n"
+"PO-Revision-Date: 2026-04-29 12:57+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "|| n % 10 == 6 || n % 10 == 9);\n"
+"|| n % 10 == 6 || n % 10 == 9);: \n"
 "Language: fil\n"
 "Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 || n % 10 == 6 || n % 10 == 9);\n"
 
@@ -403,51 +404,60 @@ msgstr "Paliitin"
 msgid "All Shortlinks"
 msgstr "Lahat ng Shortlink"
 
-#: includes/classes/class-hooks.php:226
+#: includes/classes/class-hooks.php:212
+#: includes/classes/class-hooks.php:213
+msgid "Add Shortlink"
+msgstr "Magdagdag ng Maikling Link"
+
+#: includes/classes/class-hooks.php:214
+msgid "Search Shortlinks"
+msgstr "Maghanap ng mga Maikling Link"
+
+#: includes/classes/class-hooks.php:229
 msgid "Category"
 msgstr "Kategorya"
 
-#: includes/classes/class-hooks.php:227
+#: includes/classes/class-hooks.php:230
 msgid "Categories"
 msgstr "Mga Kategorya"
 
-#: includes/classes/class-hooks.php:253
-#: includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:256
+#: includes/classes/class-hooks.php:257
 msgid "Logs"
 msgstr "Mga Log"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "All Logs"
 msgstr "Lahat ng Log"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Are you sure you want to clear all logs?"
 msgstr "Sigurado ka bang nais mong i-clear ang lahat ng log?"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Clear Logs"
 msgstr "I-clear ang Log"
 
-#: includes/classes/class-hooks.php:503
+#: includes/classes/class-hooks.php:506
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Paumanhin, hindi ka pinapayagang mag-access sa mga shortlink."
 
-#: includes/classes/class-hooks.php:504
-#: includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536
-#: includes/classes/class-hooks.php:557, fuzzy
+#: includes/classes/class-hooks.php:507
+#: includes/classes/class-hooks.php:528
+#: includes/classes/class-hooks.php:539
+#: includes/classes/class-hooks.php:560, fuzzy
 msgid "Access Denied"
 msgstr "Access Denied"
 
-#: includes/classes/class-hooks.php:524
+#: includes/classes/class-hooks.php:527
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Paumanhin, hindi ka pinapayagang lumikha ng mga shortlink."
 
-#: includes/classes/class-hooks.php:535
+#: includes/classes/class-hooks.php:538
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Paumanhin, hindi ka pinapayagang mag-edit ng mga shortlink."
 
-#: includes/classes/class-hooks.php:556
+#: includes/classes/class-hooks.php:559
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Paumanhin, hindi ka pinapayagang mag-access sa mga setting ng shortlink."
 

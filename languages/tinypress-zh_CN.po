@@ -10,35 +10,35 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-26 14:40+0000\n"
-"PO-Revision-Date: 2026-04-27 15:46+0000\n"
+"PO-Revision-Date: 2026-04-29 12:57+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: tinypress\n"
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: tinypress.php
+#: tinypress.php:4
 #. Plugin Name of the plugin
 msgid "PublishPress Shortlinks Free"
 msgstr "PublishPress Shortlinks 免费"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:5, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/shortlinks/"
 msgstr "https://publishpress.com/shortlinks/"
 
-#: tinypress.php
+#: tinypress.php:6
 #. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
 "and can have custom view permissions."
 msgstr "为您的帖子创建自定义链接。这些链接可品牌化、可追踪，并可以设置自定义查看权限。"
 
-#: tinypress.php
+#: tinypress.php:9
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:10, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -203,29 +203,29 @@ msgid "Select a post type"
 msgstr "选择帖子类型"
 
 #: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:525
-#: includes/classes/class-settings.php:621
+#: includes/classes/class-settings.php:595
+#: includes/classes/class-settings.php:691
 msgid "Never"
 msgstr "从不"
 
 #: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:523
-#: includes/classes/class-settings.php:623
+#: includes/classes/class-settings.php:593
+#: includes/classes/class-settings.php:693
 msgid "When Link is First Used"
 msgstr "首次使用链接时"
 
 #: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:625
+#: includes/classes/class-settings.php:695
 msgid "When Post is Published"
 msgstr "发布帖子时"
 
 #: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:624
+#: includes/classes/class-settings.php:694
 msgid "When Post is Created"
 msgstr "创建帖子时"
 
 #: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:622
+#: includes/classes/class-settings.php:692
 msgid "When Link is First Used or Post Created"
 msgstr "首次使用链接时或创建帖子时"
 
@@ -285,7 +285,7 @@ msgid "Submitted for approval"
 msgstr "已提交待审批"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:558
 msgid "Scheduled"
 msgstr "已安排"
 
@@ -392,51 +392,60 @@ msgstr "缩短"
 msgid "All Shortlinks"
 msgstr "所有短链接"
 
-#: includes/classes/class-hooks.php:226
+#: includes/classes/class-hooks.php:212
+#: includes/classes/class-hooks.php:213
+msgid "Add Shortlink"
+msgstr "添加短链接"
+
+#: includes/classes/class-hooks.php:214
+msgid "Search Shortlinks"
+msgstr "搜索短链接"
+
+#: includes/classes/class-hooks.php:229
 msgid "Category"
 msgstr "类别"
 
-#: includes/classes/class-hooks.php:227
+#: includes/classes/class-hooks.php:230
 msgid "Categories"
 msgstr "分类"
 
-#: includes/classes/class-hooks.php:253
-#: includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:256
+#: includes/classes/class-hooks.php:257
 msgid "Logs"
 msgstr "日志"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "All Logs"
 msgstr "所有日志"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Are you sure you want to clear all logs?"
 msgstr "您确定要清除所有日志吗？"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Clear Logs"
 msgstr "清除日志"
 
-#: includes/classes/class-hooks.php:503
+#: includes/classes/class-hooks.php:506
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "抱歉，您没有权限访问短链接。"
 
-#: includes/classes/class-hooks.php:504
-#: includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536
-#: includes/classes/class-hooks.php:557
+#: includes/classes/class-hooks.php:507
+#: includes/classes/class-hooks.php:528
+#: includes/classes/class-hooks.php:539
+#: includes/classes/class-hooks.php:560
 msgid "Access Denied"
 msgstr "访问被拒绝"
 
-#: includes/classes/class-hooks.php:524
+#: includes/classes/class-hooks.php:527
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "抱歉，您没有权限创建短链接。"
 
-#: includes/classes/class-hooks.php:535
+#: includes/classes/class-hooks.php:538
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "抱歉，您没有权限编辑短链接。"
 
-#: includes/classes/class-hooks.php:556
+#: includes/classes/class-hooks.php:559
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "抱歉，您没有权限访问短链接设置。"
 
@@ -450,7 +459,7 @@ msgid "PublishPress Shortlinks"
 msgstr "PublishPress 短链接"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:331
+#: includes/classes/class-settings.php:401
 msgid "General"
 msgstr "常规"
 
@@ -719,274 +728,284 @@ msgstr "无效的修订 ID。"
 msgid "Settings"
 msgstr "设置"
 
-#: includes/classes/class-settings.php:237
-msgid "Elementor Detected:"
-msgstr "检测到 Elementor："
-
-#: includes/classes/class-settings.php:238
-msgid ""
-"Shortlink prefix is required for proper rendering of Elementor revisions. "
-"It is advisable to keep it enabled."
-msgstr "为正确呈现 Elementor 修订版，需要短链接前缀。建议保持启用状态。"
-
-#: includes/classes/class-settings.php:270
-msgid "TinyPress Shortlinks Notice:"
-msgstr "TinyPress 短链接通知："
-
 #: includes/classes/class-settings.php:271
-msgid ""
-"Elementor is active. Shortlink prefix has been automatically disabled, it "
-"is required for optimal compatibility with Elementor revisions."
-msgstr "Elementor 已激活。短链接前缀已自动禁用，需为与 Elementor 修订版的最佳兼容性。"
-
-#: includes/classes/class-settings.php:334
-msgid "Options"
-msgstr "选项"
-
-#: includes/classes/class-settings.php:339
-msgid "Shortlink Prefix"
-msgstr "短链接前缀"
-
-#: includes/classes/class-settings.php:340
-msgid "Add a prefix between your domain name and shortlink."
-msgstr "在您的域名和短链接之间添加一个前缀。"
-
-#: includes/classes/class-settings.php:347
-msgid "Prefix Slug"
-msgstr "前缀别名"
-
-#: includes/classes/class-settings.php:348
-msgid "Custom prefix slug."
-msgstr "自定义前缀 slug。"
-
-#: includes/classes/class-settings.php:349
-msgid "This text will be added between your domain name and shortlink."
-msgstr "此文本将添加在您的域名和短链接之间。"
-
-#: includes/classes/class-settings.php:350
-#: includes/classes/class-settings.php:351
-msgid "go"
-msgstr "去"
-
-#: includes/classes/class-settings.php:357
-msgid "Keyboard Shortcut"
-msgstr "键盘快捷键"
-
-#: includes/classes/class-settings.php:358
-msgid "Create shortlinks from anywhere inside your WordPress dashboard."
-msgstr "在您的 WordPress 控制面板内的任何地方创建短链接。"
-
-#: includes/classes/class-settings.php:359
-#: includes/classes/class-settings.php:360
-msgid "Ctrl or Cmd + /"
-msgstr "Ctrl 或 Cmd + /"
-
-#: includes/classes/class-settings.php:369
-msgid "Remove from Admin Bar"
-msgstr "从管理栏中移除"
-
-#: includes/classes/class-settings.php:370
-msgid "Hide the \"Shorten\" button from the WordPress admin bar."
-msgstr "从WordPress管理员工具栏隐藏“缩短”按钮。"
-
-#: includes/classes/class-settings.php:376
-msgid "Role Management"
-msgstr "角色管理"
-
-#: includes/classes/class-settings.php:381
-msgid "Who Can View Shortlinks"
-msgstr "谁可以查看短链接"
-
-#: includes/classes/class-settings.php:382
-msgid "Only selected user roles can view links."
-msgstr "只有选定的用户角色可以查看链接。"
-
-#: includes/classes/class-settings.php:390
-msgid "Who Can Create/Edit Shortlinks"
-msgstr "谁可以创建/编辑短链接"
-
-#: includes/classes/class-settings.php:391
-msgid "Only selected user roles can create or edit links."
-msgstr "只有选定的用户角色可以创建或编辑链接。"
-
-#: includes/classes/class-settings.php:400
-msgid "Who Can See Analytics"
-msgstr "谁可以查看分析"
-
-#: includes/classes/class-settings.php:401
-msgid "Only selected user roles can see analytics."
-msgstr "只有选定的用户角色可以查看分析。"
-
-#: includes/classes/class-settings.php:410
-msgid "Who Can Control Settings"
-msgstr "谁可以控制设置"
-
-#: includes/classes/class-settings.php:411
-msgid "Only selected user roles can control settings."
-msgstr "只有选定的用户角色可以控制设置。"
-
-#: includes/classes/class-settings.php:420
-msgid "Auto-Linking"
-msgstr "自动链接"
-
-#: includes/classes/class-settings.php:425
-msgid "Enable Auto-Linking"
-msgstr "启用自动链接"
-
-#: includes/classes/class-settings.php:426
-msgid "Automatically convert keywords to shortlinks in post content."
-msgstr "在文章内容中自动将关键词转换为短链接。"
-
-#: includes/classes/class-settings.php:427
-msgid ""
-"When enabled, keywords configured in shortlink settings will be "
-"automatically linked in your content."
-msgstr "启用后，在短链接设置中配置的关键词将在您的内容中自动链接。"
-
-#: includes/classes/class-settings.php:433
-msgid "Open Auto-Links In"
-msgstr "在中打开自动链接"
-
-#: includes/classes/class-settings.php:434
-msgid "Choose how auto-linked keywords should open."
-msgstr "选择自动链接的关键词应该如何打开。"
-
-#: includes/classes/class-settings.php:436
-msgid "Same tab"
-msgstr "同一标签"
-
-#: includes/classes/class-settings.php:437
-msgid "New tab"
-msgstr "新标签"
-
-#: includes/classes/class-settings.php:445
-msgid "Auto-Link Color"
-msgstr "自动链接颜色"
-
-#: includes/classes/class-settings.php:446
-msgid "Choose the color for auto-linked keywords."
-msgstr "选择自动链接关键词的颜色。"
-
-#: includes/classes/class-settings.php:453
-msgid "Auto-List Links"
-msgstr "自动列出链接"
-
-#: includes/classes/class-settings.php:458
-msgid "Auto-List Shortlinks"
-msgstr "自动列出短链接"
-
-#: includes/classes/class-settings.php:459
-msgid ""
-"When enabled, shortlinks will appear in the \"All Links\" table based on "
-"the behavior you configure below."
-msgstr "启用后，短链接将基于您在下面配置的行为出现在“所有链接”表中。"
-
-#: includes/classes/class-settings.php:465
-msgid "Configure Post Types"
-msgstr "配置帖子类型"
-
-#: includes/classes/class-settings.php:466
-msgid "Set when links should be auto-listed for each post type"
-msgstr "设置每种帖子类型的链接应何时自动列出"
-
-#: includes/classes/class-settings.php:467
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr "添加文章类型并配置其短链接何时应出现在“所有链接”表中。更改会自动保存。"
-
-#: includes/classes/class-settings.php:474
-#: includes/classes/class-statuses.php:233
-msgid "Post Status Visibility"
-msgstr "帖子状态可见性"
-
-#: includes/classes/class-settings.php:479
-msgid "Allowed Post Statuses"
-msgstr "允许的帖子状态"
-
-#: includes/classes/class-settings.php:480
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "选择可以通过短链接访问的帖子状态"
-
-#: includes/classes/class-settings.php:481
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
 msgstr "选择访问 PublishPress 短链接时可访问的文章状态。"
 
-#: includes/classes/class-settings.php:484
+#: includes/classes/class-settings.php:287
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "检测到 PublishPress 状态插件："
+
+#: includes/classes/class-settings.php:288
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr "要在使用短链接时启用核心 PublishPress 状态，请在 PublishPress 状态工作流设置中启用短链接文章类型。"
+
+#: includes/classes/class-settings.php:307
+msgid "Elementor Detected:"
+msgstr "检测到 Elementor："
+
+#: includes/classes/class-settings.php:308
+msgid ""
+"Shortlink prefix is required for proper rendering of Elementor revisions. "
+"It is advisable to keep it enabled."
+msgstr "为正确呈现 Elementor 修订版，需要短链接前缀。建议保持启用状态。"
+
+#: includes/classes/class-settings.php:340
+msgid "TinyPress Shortlinks Notice:"
+msgstr "TinyPress 短链接通知："
+
+#: includes/classes/class-settings.php:341
+msgid ""
+"Elementor is active. Shortlink prefix has been automatically disabled, it "
+"is required for optimal compatibility with Elementor revisions."
+msgstr "Elementor 已激活。短链接前缀已自动禁用，需为与 Elementor 修订版的最佳兼容性。"
+
+#: includes/classes/class-settings.php:404
+msgid "Options"
+msgstr "选项"
+
+#: includes/classes/class-settings.php:409
+msgid "Shortlink Prefix"
+msgstr "短链接前缀"
+
+#: includes/classes/class-settings.php:410
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "在您的域名和短链接之间添加一个前缀。"
+
+#: includes/classes/class-settings.php:417
+msgid "Prefix Slug"
+msgstr "前缀别名"
+
+#: includes/classes/class-settings.php:418
+msgid "Custom prefix slug."
+msgstr "自定义前缀 slug。"
+
+#: includes/classes/class-settings.php:419
+msgid "This text will be added between your domain name and shortlink."
+msgstr "此文本将添加在您的域名和短链接之间。"
+
+#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:421
+msgid "go"
+msgstr "去"
+
+#: includes/classes/class-settings.php:427
+msgid "Keyboard Shortcut"
+msgstr "键盘快捷键"
+
+#: includes/classes/class-settings.php:428
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
+msgstr "在您的 WordPress 控制面板内的任何地方创建短链接。"
+
+#: includes/classes/class-settings.php:429
+#: includes/classes/class-settings.php:430
+msgid "Ctrl or Cmd + /"
+msgstr "Ctrl 或 Cmd + /"
+
+#: includes/classes/class-settings.php:439
+msgid "Remove from Admin Bar"
+msgstr "从管理栏中移除"
+
+#: includes/classes/class-settings.php:440
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "从WordPress管理员工具栏隐藏“缩短”按钮。"
+
+#: includes/classes/class-settings.php:446
+msgid "Role Management"
+msgstr "角色管理"
+
+#: includes/classes/class-settings.php:451
+msgid "Who Can View Shortlinks"
+msgstr "谁可以查看短链接"
+
+#: includes/classes/class-settings.php:452
+msgid "Only selected user roles can view links."
+msgstr "只有选定的用户角色可以查看链接。"
+
+#: includes/classes/class-settings.php:460
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "谁可以创建/编辑短链接"
+
+#: includes/classes/class-settings.php:461
+msgid "Only selected user roles can create or edit links."
+msgstr "只有选定的用户角色可以创建或编辑链接。"
+
+#: includes/classes/class-settings.php:470
+msgid "Who Can See Analytics"
+msgstr "谁可以查看分析"
+
+#: includes/classes/class-settings.php:471
+msgid "Only selected user roles can see analytics."
+msgstr "只有选定的用户角色可以查看分析。"
+
+#: includes/classes/class-settings.php:480
+msgid "Who Can Control Settings"
+msgstr "谁可以控制设置"
+
+#: includes/classes/class-settings.php:481
+msgid "Only selected user roles can control settings."
+msgstr "只有选定的用户角色可以控制设置。"
+
+#: includes/classes/class-settings.php:490
+msgid "Auto-Linking"
+msgstr "自动链接"
+
+#: includes/classes/class-settings.php:495
+msgid "Enable Auto-Linking"
+msgstr "启用自动链接"
+
+#: includes/classes/class-settings.php:496
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr "在文章内容中自动将关键词转换为短链接。"
+
+#: includes/classes/class-settings.php:497
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr "启用后，在短链接设置中配置的关键词将在您的内容中自动链接。"
+
+#: includes/classes/class-settings.php:503
+msgid "Open Auto-Links In"
+msgstr "在中打开自动链接"
+
+#: includes/classes/class-settings.php:504
+msgid "Choose how auto-linked keywords should open."
+msgstr "选择自动链接的关键词应该如何打开。"
+
+#: includes/classes/class-settings.php:506
+msgid "Same tab"
+msgstr "同一标签"
+
+#: includes/classes/class-settings.php:507
+msgid "New tab"
+msgstr "新标签"
+
+#: includes/classes/class-settings.php:515
+msgid "Auto-Link Color"
+msgstr "自动链接颜色"
+
+#: includes/classes/class-settings.php:516
+msgid "Choose the color for auto-linked keywords."
+msgstr "选择自动链接关键词的颜色。"
+
+#: includes/classes/class-settings.php:523
+msgid "Auto-List Links"
+msgstr "自动列出链接"
+
+#: includes/classes/class-settings.php:528
+msgid "Auto-List Shortlinks"
+msgstr "自动列出短链接"
+
+#: includes/classes/class-settings.php:529
+msgid ""
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
+msgstr "启用后，短链接将基于您在下面配置的行为出现在“所有链接”表中。"
+
+#: includes/classes/class-settings.php:535
+msgid "Configure Post Types"
+msgstr "配置帖子类型"
+
+#: includes/classes/class-settings.php:536
+msgid "Set when links should be auto-listed for each post type"
+msgstr "设置每种帖子类型的链接应何时自动列出"
+
+#: includes/classes/class-settings.php:537
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr "添加文章类型并配置其短链接何时应出现在“所有链接”表中。更改会自动保存。"
+
+#: includes/classes/class-settings.php:544
+#: includes/classes/class-statuses.php:233
+msgid "Post Status Visibility"
+msgstr "帖子状态可见性"
+
+#: includes/classes/class-settings.php:549
+msgid "Allowed Post Statuses"
+msgstr "允许的帖子状态"
+
+#: includes/classes/class-settings.php:550
+msgid "Choose which post statuses can be accessed via shortlinks"
+msgstr "选择可以通过短链接访问的帖子状态"
+
+#: includes/classes/class-settings.php:554
 msgid "Published"
 msgstr "已发布"
 
-#: includes/classes/class-settings.php:485
+#: includes/classes/class-settings.php:555
 msgid "Draft"
 msgstr "草稿"
 
-#: includes/classes/class-settings.php:486
+#: includes/classes/class-settings.php:556
 msgid "Pending Review"
 msgstr "待审核"
 
-#: includes/classes/class-settings.php:487
+#: includes/classes/class-settings.php:557
 msgid "Private"
 msgstr "私有"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:565
 msgid "Expired Links"
 msgstr "过期链接"
 
-#: includes/classes/class-settings.php:500
+#: includes/classes/class-settings.php:570
 msgid "Default Expired Redirect URL"
 msgstr "默认过期重定向 URL"
 
-#: includes/classes/class-settings.php:501
+#: includes/classes/class-settings.php:571
 msgid "Where should expired shortlinks redirect?"
 msgstr "过期短链接应重定向到哪里？"
 
-#: includes/classes/class-settings.php:502
+#: includes/classes/class-settings.php:572
 msgid ""
 "When a shortlink expires, visitors will be redirected to this URL instead "
 "of seeing an error. Leave empty to show the default expiration message."
 msgstr "当短链接过期时，访客将被重定向到此 URL，而不是看到错误。留空以显示默认的过期消息。"
 
-#: includes/classes/class-settings.php:514
+#: includes/classes/class-settings.php:584
 msgid "Revisions"
 msgstr "修订"
 
-#: includes/classes/class-settings.php:519
+#: includes/classes/class-settings.php:589
 msgid "Revision Link Visibility"
 msgstr "修订链接可见性"
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:590
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
 msgstr "启用后，修订短链接将基于您在下面配置的行为出现在“所有短链接”表中。"
 
-#: includes/classes/class-settings.php:522
+#: includes/classes/class-settings.php:592
 msgid "When Revision is Created"
 msgstr "创建修订版时"
 
-#: includes/classes/class-settings.php:524
+#: includes/classes/class-settings.php:594
 msgid "When Revision is Created or Link is First Used"
 msgstr "创建修订版时或首次使用链接时"
 
-#: includes/classes/class-settings.php:532
+#: includes/classes/class-settings.php:602
 msgid "Show Shortlink in Revision Table"
 msgstr "在修订表中显示短链接"
 
-#: includes/classes/class-settings.php:533
+#: includes/classes/class-settings.php:603
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr "在查看 PublishPress 版本时显示短链接列。"
 
-#: includes/classes/class-settings.php:539
+#: includes/classes/class-settings.php:609
 msgid "Revision Visibility for Visitors"
 msgstr "访客的修订可见性"
 
-#: includes/classes/class-settings.php:540
+#: includes/classes/class-settings.php:610
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr "允许未登录的访客通过短链接查看修订内容。"
 
-#: includes/classes/class-settings.php:541
+#: includes/classes/class-settings.php:611
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -996,15 +1015,15 @@ msgstr ""
 "默认情况下，PublishPress Revisions 阻止访客查看修订预览。当启用时，修订短链接将直接为未登录访客呈现修订内容，而不是重定向到预览 "
 "URL。"
 
-#: includes/classes/class-settings.php:562
+#: includes/classes/class-settings.php:632
 msgid "Dummy"
 msgstr "虚拟"
 
-#: includes/classes/class-settings.php:606
+#: includes/classes/class-settings.php:676
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr "尚未配置任何帖子类型。单击“添加帖子类型”开始。"
 
-#: includes/classes/class-settings.php:638
+#: includes/classes/class-settings.php:708
 msgid "Add Post Type"
 msgstr "添加帖子类型"
 

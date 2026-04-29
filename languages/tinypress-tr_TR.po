@@ -9,24 +9,24 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-27 15:45+0000\n"
+"POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
+"PO-Revision-Date: 2026-04-29 12:57+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: tinypress.php
+#: tinypress.php:4
 #. Plugin Name of the plugin
 msgid "PublishPress Shortlinks Free"
 msgstr "PublishPress Kısa Linkler Ücretsiz"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:5, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/shortlinks/"
 msgstr "https://publishpress.com/shortlinks/"
 
-#: tinypress.php
+#: tinypress.php:6
 #. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
@@ -35,12 +35,12 @@ msgstr ""
 "Gönderileriniz için özel bağlantılar oluşturun. Bu bağlantılar "
 "markalanabilir, izlenebilir ve özel görüntü izinlerine sahip olabilir."
 
-#: tinypress.php
+#: tinypress.php:9
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:10, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -212,29 +212,29 @@ msgid "Select a post type"
 msgstr "Bir post type seçin"
 
 #: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:525
-#: includes/classes/class-settings.php:621
+#: includes/classes/class-settings.php:595
+#: includes/classes/class-settings.php:691
 msgid "Never"
 msgstr "Asla"
 
 #: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:523
-#: includes/classes/class-settings.php:623
+#: includes/classes/class-settings.php:593
+#: includes/classes/class-settings.php:693
 msgid "When Link is First Used"
 msgstr "Bağlantı İlk Kullanıldığında"
 
 #: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:625
+#: includes/classes/class-settings.php:695
 msgid "When Post is Published"
 msgstr "Gönderi Yayınlandığında"
 
 #: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:624
+#: includes/classes/class-settings.php:694
 msgid "When Post is Created"
 msgstr "Gönderi Oluşturulduğunda"
 
 #: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:622
+#: includes/classes/class-settings.php:692
 msgid "When Link is First Used or Post Created"
 msgstr "Bağlantı İlk Kullanıldığında veya Gönderi Oluşturulduğunda"
 
@@ -294,7 +294,7 @@ msgid "Submitted for approval"
 msgstr "Onay için gönderildi"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:558
 msgid "Scheduled"
 msgstr "Planlandı"
 
@@ -401,51 +401,60 @@ msgstr "Kısalt"
 msgid "All Shortlinks"
 msgstr "Tüm Kısa Bağlantılar"
 
-#: includes/classes/class-hooks.php:226
+#: includes/classes/class-hooks.php:212
+#: includes/classes/class-hooks.php:213
+msgid "Add Shortlink"
+msgstr "Kısa Bağlantı Ekle"
+
+#: includes/classes/class-hooks.php:214
+msgid "Search Shortlinks"
+msgstr "Kısa Bağlantıları Ara"
+
+#: includes/classes/class-hooks.php:229
 msgid "Category"
 msgstr "Kategori"
 
-#: includes/classes/class-hooks.php:227
+#: includes/classes/class-hooks.php:230
 msgid "Categories"
 msgstr "Kategoriler"
 
-#: includes/classes/class-hooks.php:253
-#: includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:256
+#: includes/classes/class-hooks.php:257
 msgid "Logs"
 msgstr "Loglar"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "All Logs"
 msgstr "Tüm Loglar"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Are you sure you want to clear all logs?"
 msgstr "Tüm logları temizlemek istediğinize emin misiniz?"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Clear Logs"
 msgstr "Logları Temizle"
 
-#: includes/classes/class-hooks.php:503
+#: includes/classes/class-hooks.php:506
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Üzgünüm, kısa bağlantılara erişiminiz yok."
 
-#: includes/classes/class-hooks.php:504
-#: includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536
-#: includes/classes/class-hooks.php:557
+#: includes/classes/class-hooks.php:507
+#: includes/classes/class-hooks.php:528
+#: includes/classes/class-hooks.php:539
+#: includes/classes/class-hooks.php:560
 msgid "Access Denied"
 msgstr "Erişim Engellendi"
 
-#: includes/classes/class-hooks.php:524
+#: includes/classes/class-hooks.php:527
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Üzgünüm, kısa bağlantılar oluşturmanıza izin verilmiyor."
 
-#: includes/classes/class-hooks.php:535
+#: includes/classes/class-hooks.php:538
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Üzgünüm, kısa bağlantıları düzenlemenize izin verilmiyor."
 
-#: includes/classes/class-hooks.php:556
+#: includes/classes/class-hooks.php:559
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Üzgünüm, kısa bağlantı ayarlarına erişmenize izin verilmiyor."
 
@@ -459,7 +468,7 @@ msgid "PublishPress Shortlinks"
 msgstr "PublishPress Kısa Bağlantılar"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:331
+#: includes/classes/class-settings.php:401
 msgid "General"
 msgstr "Genel"
 
@@ -738,212 +747,7 @@ msgstr "Geçersiz revizyon ID'si."
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: includes/classes/class-settings.php:237
-msgid "Elementor Detected:"
-msgstr "Elementor Tespit Edildi:"
-
-#: includes/classes/class-settings.php:238
-msgid ""
-"Shortlink prefix is required for proper rendering of Elementor revisions. "
-"It is advisable to keep it enabled."
-msgstr ""
-"Elementor revizyonlarının doğru görüntülenmesi için kısa bağlantı öneki "
-"gereklidir. Açık tutmanız önerilir."
-
-#: includes/classes/class-settings.php:270
-msgid "TinyPress Shortlinks Notice:"
-msgstr "TinyPress Kısa Bağlantılar Bildirimi:"
-
 #: includes/classes/class-settings.php:271
-msgid ""
-"Elementor is active. Shortlink prefix has been automatically disabled, it "
-"is required for optimal compatibility with Elementor revisions."
-msgstr ""
-"Elementor aktiftir. Kısa bağlantı öneki otomatik olarak devre dışı "
-"bırakıldı, Elementor revizyonlarıyla optimal uyumluluk için gereklidir."
-
-#: includes/classes/class-settings.php:334
-msgid "Options"
-msgstr "Seçenekler"
-
-#: includes/classes/class-settings.php:339
-msgid "Shortlink Prefix"
-msgstr "Kısa Bağlantı Öneki"
-
-#: includes/classes/class-settings.php:340
-msgid "Add a prefix between your domain name and shortlink."
-msgstr "Alan adınız ile kısayolunuz arasında bir önek ekleyin."
-
-#: includes/classes/class-settings.php:347
-msgid "Prefix Slug"
-msgstr "Önek Slug"
-
-#: includes/classes/class-settings.php:348
-msgid "Custom prefix slug."
-msgstr "Özel önek slug."
-
-#: includes/classes/class-settings.php:349
-msgid "This text will be added between your domain name and shortlink."
-msgstr "Bu metin alan adınız ile kısayolunuz arasında eklenecektir."
-
-#: includes/classes/class-settings.php:350
-#: includes/classes/class-settings.php:351
-msgid "go"
-msgstr "git"
-
-#: includes/classes/class-settings.php:357
-msgid "Keyboard Shortcut"
-msgstr "Klavye Kısayolu"
-
-#: includes/classes/class-settings.php:358
-msgid "Create shortlinks from anywhere inside your WordPress dashboard."
-msgstr "WordPress dashboard'unuzun içinden her yerden kısayollar oluşturun."
-
-#: includes/classes/class-settings.php:359
-#: includes/classes/class-settings.php:360
-msgid "Ctrl or Cmd + /"
-msgstr "Ctrl veya Cmd + /"
-
-#: includes/classes/class-settings.php:369
-msgid "Remove from Admin Bar"
-msgstr "Yönetici Çubuğundan Kaldır"
-
-#: includes/classes/class-settings.php:370
-msgid "Hide the \"Shorten\" button from the WordPress admin bar."
-msgstr "WordPress yönetici çubuğundan \"Kısalt\" düğmesini gizleyin."
-
-#: includes/classes/class-settings.php:376
-msgid "Role Management"
-msgstr "Rol Yönetimi"
-
-#: includes/classes/class-settings.php:381
-msgid "Who Can View Shortlinks"
-msgstr "Kısayolları Kim Görebilir"
-
-#: includes/classes/class-settings.php:382
-msgid "Only selected user roles can view links."
-msgstr "Yalnızca seçilen kullanıcı rolleri bağlantıları görebilir."
-
-#: includes/classes/class-settings.php:390
-msgid "Who Can Create/Edit Shortlinks"
-msgstr "Kısayolları Kim Oluşturabilir/Düzenleyebilir"
-
-#: includes/classes/class-settings.php:391
-msgid "Only selected user roles can create or edit links."
-msgstr ""
-"Yalnızca seçilen kullanıcı rolleri bağlantıları oluşturabilir veya "
-"düzenleyebilir."
-
-#: includes/classes/class-settings.php:400
-msgid "Who Can See Analytics"
-msgstr "Analitikleri Kim Görebilir"
-
-#: includes/classes/class-settings.php:401
-msgid "Only selected user roles can see analytics."
-msgstr "Yalnızca seçilen kullanıcı rolleri analitikleri görebilir."
-
-#: includes/classes/class-settings.php:410
-msgid "Who Can Control Settings"
-msgstr "Ayarları Kim Kontrol Edebilir"
-
-#: includes/classes/class-settings.php:411
-msgid "Only selected user roles can control settings."
-msgstr "Yalnızca seçilen kullanıcı rolleri ayarları kontrol edebilir."
-
-#: includes/classes/class-settings.php:420
-msgid "Auto-Linking"
-msgstr "Otomatik Bağlantı"
-
-#: includes/classes/class-settings.php:425
-msgid "Enable Auto-Linking"
-msgstr "Otomatik Bağlantıyı Etkinleştir"
-
-#: includes/classes/class-settings.php:426
-msgid "Automatically convert keywords to shortlinks in post content."
-msgstr ""
-"Anahtar kelimeleri post içeriğinde kısa bağlantılara otomatik olarak "
-"dönüştür."
-
-#: includes/classes/class-settings.php:427
-msgid ""
-"When enabled, keywords configured in shortlink settings will be "
-"automatically linked in your content."
-msgstr ""
-"Etkinleştirildiğinde, kısa bağlantı ayarlarında yapılandırılan anahtar "
-"kelimeler içeriğinizde otomatik olarak bağlanacaktır."
-
-#: includes/classes/class-settings.php:433
-msgid "Open Auto-Links In"
-msgstr "Otomatik Bağlantıları Aç"
-
-#: includes/classes/class-settings.php:434
-msgid "Choose how auto-linked keywords should open."
-msgstr "Otomatik bağlantılı anahtar kelimelerin nasıl açılacağını seçin."
-
-#: includes/classes/class-settings.php:436
-msgid "Same tab"
-msgstr "Aynı sekme"
-
-#: includes/classes/class-settings.php:437
-msgid "New tab"
-msgstr "Yeni sekme"
-
-#: includes/classes/class-settings.php:445
-msgid "Auto-Link Color"
-msgstr "Otomatik Bağlantı Rengi"
-
-#: includes/classes/class-settings.php:446
-msgid "Choose the color for auto-linked keywords."
-msgstr "Otomatik bağlantılı anahtar kelimeler için rengi seçin."
-
-#: includes/classes/class-settings.php:453
-msgid "Auto-List Links"
-msgstr "Otomatik Liste Bağlantıları"
-
-#: includes/classes/class-settings.php:458
-msgid "Auto-List Shortlinks"
-msgstr "Kısa Linkleri Otomatik Listele"
-
-#: includes/classes/class-settings.php:459
-msgid ""
-"When enabled, shortlinks will appear in the \"All Links\" table based on "
-"the behavior you configure below."
-msgstr ""
-"Etkinleştirildiğinde, kısa linkler aşağıda yapılandırdığınız davranışa göre "
-"\"Tüm Linkler\" tablosunda görünecektir."
-
-#: includes/classes/class-settings.php:465
-msgid "Configure Post Types"
-msgstr "Post Tiplerini Yapılandır"
-
-#: includes/classes/class-settings.php:466
-msgid "Set when links should be auto-listed for each post type"
-msgstr ""
-"Her post tipi için linklerin ne zaman otomatik olarak listelenmesi "
-"gerektiğini ayarlayın"
-
-#: includes/classes/class-settings.php:467
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr ""
-"Post tiplerini ekleyin ve kısa linklerinin \"Tüm Linkler\" tablosunda ne "
-"zaman görüneceğini yapılandırın. Değişiklikler otomatik olarak kaydedilir."
-
-#: includes/classes/class-settings.php:474
-#: includes/classes/class-statuses.php:233
-msgid "Post Status Visibility"
-msgstr "Gönderi Durumu Görünürlüğü"
-
-#: includes/classes/class-settings.php:479
-msgid "Allowed Post Statuses"
-msgstr "İzin Verilen Gönderi Durumları"
-
-#: includes/classes/class-settings.php:480
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Hangi gönderi durumlarının kısa linkler aracılığıyla erişilebileceğini seçin"
-
-#: includes/classes/class-settings.php:481
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -951,35 +755,254 @@ msgstr ""
 "Bir PublishPress kısa linkine erişirken hangi gönderi durumlarının "
 "erişilebilir olduğunu seçin."
 
-#: includes/classes/class-settings.php:484
+#: includes/classes/class-settings.php:287
+#, fuzzy
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "PublishPress Kısa Linkler Ücretsiz"
+
+#: includes/classes/class-settings.php:288
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr ""
+"PublishPress durumlarını Kısa Bağlantılar ile kullanmak için, lütfen "
+"PublishPress Durumları iş akışı ayarlarında Kısa Bağlantılar post type'ını "
+"etkinleştirin."
+
+#: includes/classes/class-settings.php:307
+msgid "Elementor Detected:"
+msgstr "Elementor Tespit Edildi:"
+
+#: includes/classes/class-settings.php:308
+msgid ""
+"Shortlink prefix is required for proper rendering of Elementor revisions. "
+"It is advisable to keep it enabled."
+msgstr ""
+"Elementor revizyonlarının doğru görüntülenmesi için kısa bağlantı öneki "
+"gereklidir. Açık tutmanız önerilir."
+
+#: includes/classes/class-settings.php:340
+msgid "TinyPress Shortlinks Notice:"
+msgstr "TinyPress Kısa Bağlantılar Bildirimi:"
+
+#: includes/classes/class-settings.php:341
+msgid ""
+"Elementor is active. Shortlink prefix has been automatically disabled, it "
+"is required for optimal compatibility with Elementor revisions."
+msgstr ""
+"Elementor aktiftir. Kısa bağlantı öneki otomatik olarak devre dışı "
+"bırakıldı, Elementor revizyonlarıyla optimal uyumluluk için gereklidir."
+
+#: includes/classes/class-settings.php:404
+msgid "Options"
+msgstr "Seçenekler"
+
+#: includes/classes/class-settings.php:409
+msgid "Shortlink Prefix"
+msgstr "Kısa Bağlantı Öneki"
+
+#: includes/classes/class-settings.php:410
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "Alan adınız ile kısayolunuz arasında bir önek ekleyin."
+
+#: includes/classes/class-settings.php:417
+msgid "Prefix Slug"
+msgstr "Önek Slug"
+
+#: includes/classes/class-settings.php:418
+msgid "Custom prefix slug."
+msgstr "Özel önek slug."
+
+#: includes/classes/class-settings.php:419
+msgid "This text will be added between your domain name and shortlink."
+msgstr "Bu metin alan adınız ile kısayolunuz arasında eklenecektir."
+
+#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:421
+msgid "go"
+msgstr "git"
+
+#: includes/classes/class-settings.php:427
+msgid "Keyboard Shortcut"
+msgstr "Klavye Kısayolu"
+
+#: includes/classes/class-settings.php:428
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
+msgstr "WordPress dashboard'unuzun içinden her yerden kısayollar oluşturun."
+
+#: includes/classes/class-settings.php:429
+#: includes/classes/class-settings.php:430
+msgid "Ctrl or Cmd + /"
+msgstr "Ctrl veya Cmd + /"
+
+#: includes/classes/class-settings.php:439
+msgid "Remove from Admin Bar"
+msgstr "Yönetici Çubuğundan Kaldır"
+
+#: includes/classes/class-settings.php:440
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "WordPress yönetici çubuğundan \"Kısalt\" düğmesini gizleyin."
+
+#: includes/classes/class-settings.php:446
+msgid "Role Management"
+msgstr "Rol Yönetimi"
+
+#: includes/classes/class-settings.php:451
+msgid "Who Can View Shortlinks"
+msgstr "Kısayolları Kim Görebilir"
+
+#: includes/classes/class-settings.php:452
+msgid "Only selected user roles can view links."
+msgstr "Yalnızca seçilen kullanıcı rolleri bağlantıları görebilir."
+
+#: includes/classes/class-settings.php:460
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "Kısayolları Kim Oluşturabilir/Düzenleyebilir"
+
+#: includes/classes/class-settings.php:461
+msgid "Only selected user roles can create or edit links."
+msgstr ""
+"Yalnızca seçilen kullanıcı rolleri bağlantıları oluşturabilir veya "
+"düzenleyebilir."
+
+#: includes/classes/class-settings.php:470
+msgid "Who Can See Analytics"
+msgstr "Analitikleri Kim Görebilir"
+
+#: includes/classes/class-settings.php:471
+msgid "Only selected user roles can see analytics."
+msgstr "Yalnızca seçilen kullanıcı rolleri analitikleri görebilir."
+
+#: includes/classes/class-settings.php:480
+msgid "Who Can Control Settings"
+msgstr "Ayarları Kim Kontrol Edebilir"
+
+#: includes/classes/class-settings.php:481
+msgid "Only selected user roles can control settings."
+msgstr "Yalnızca seçilen kullanıcı rolleri ayarları kontrol edebilir."
+
+#: includes/classes/class-settings.php:490
+msgid "Auto-Linking"
+msgstr "Otomatik Bağlantı"
+
+#: includes/classes/class-settings.php:495
+msgid "Enable Auto-Linking"
+msgstr "Otomatik Bağlantıyı Etkinleştir"
+
+#: includes/classes/class-settings.php:496
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr ""
+"Anahtar kelimeleri post içeriğinde kısa bağlantılara otomatik olarak "
+"dönüştür."
+
+#: includes/classes/class-settings.php:497
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr ""
+"Etkinleştirildiğinde, kısa bağlantı ayarlarında yapılandırılan anahtar "
+"kelimeler içeriğinizde otomatik olarak bağlanacaktır."
+
+#: includes/classes/class-settings.php:503
+msgid "Open Auto-Links In"
+msgstr "Otomatik Bağlantıları Aç"
+
+#: includes/classes/class-settings.php:504
+msgid "Choose how auto-linked keywords should open."
+msgstr "Otomatik bağlantılı anahtar kelimelerin nasıl açılacağını seçin."
+
+#: includes/classes/class-settings.php:506
+msgid "Same tab"
+msgstr "Aynı sekme"
+
+#: includes/classes/class-settings.php:507
+msgid "New tab"
+msgstr "Yeni sekme"
+
+#: includes/classes/class-settings.php:515
+msgid "Auto-Link Color"
+msgstr "Otomatik Bağlantı Rengi"
+
+#: includes/classes/class-settings.php:516
+msgid "Choose the color for auto-linked keywords."
+msgstr "Otomatik bağlantılı anahtar kelimeler için rengi seçin."
+
+#: includes/classes/class-settings.php:523
+msgid "Auto-List Links"
+msgstr "Otomatik Liste Bağlantıları"
+
+#: includes/classes/class-settings.php:528
+msgid "Auto-List Shortlinks"
+msgstr "Kısa Linkleri Otomatik Listele"
+
+#: includes/classes/class-settings.php:529
+msgid ""
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
+msgstr ""
+"Etkinleştirildiğinde, kısa linkler aşağıda yapılandırdığınız davranışa göre "
+"\"Tüm Linkler\" tablosunda görünecektir."
+
+#: includes/classes/class-settings.php:535
+msgid "Configure Post Types"
+msgstr "Post Tiplerini Yapılandır"
+
+#: includes/classes/class-settings.php:536
+msgid "Set when links should be auto-listed for each post type"
+msgstr ""
+"Her post tipi için linklerin ne zaman otomatik olarak listelenmesi "
+"gerektiğini ayarlayın"
+
+#: includes/classes/class-settings.php:537
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr ""
+"Post tiplerini ekleyin ve kısa linklerinin \"Tüm Linkler\" tablosunda ne "
+"zaman görüneceğini yapılandırın. Değişiklikler otomatik olarak kaydedilir."
+
+#: includes/classes/class-settings.php:544
+#: includes/classes/class-statuses.php:233
+msgid "Post Status Visibility"
+msgstr "Gönderi Durumu Görünürlüğü"
+
+#: includes/classes/class-settings.php:549
+msgid "Allowed Post Statuses"
+msgstr "İzin Verilen Gönderi Durumları"
+
+#: includes/classes/class-settings.php:550
+msgid "Choose which post statuses can be accessed via shortlinks"
+msgstr "Hangi gönderi durumlarının kısa linkler aracılığıyla erişilebileceğini seçin"
+
+#: includes/classes/class-settings.php:554
 msgid "Published"
 msgstr "Yayınlandı"
 
-#: includes/classes/class-settings.php:485
+#: includes/classes/class-settings.php:555
 msgid "Draft"
 msgstr "Taslak"
 
-#: includes/classes/class-settings.php:486
+#: includes/classes/class-settings.php:556
 msgid "Pending Review"
 msgstr "İnceleme Bekliyor"
 
-#: includes/classes/class-settings.php:487
+#: includes/classes/class-settings.php:557
 msgid "Private"
 msgstr "Özel"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:565
 msgid "Expired Links"
 msgstr "Süresi Dolmuş Linkler"
 
-#: includes/classes/class-settings.php:500
+#: includes/classes/class-settings.php:570
 msgid "Default Expired Redirect URL"
 msgstr "Varsayılan Süresi Dolmuş Yönlendirme URL'si"
 
-#: includes/classes/class-settings.php:501
+#: includes/classes/class-settings.php:571
 msgid "Where should expired shortlinks redirect?"
 msgstr "Süresi dolmuş kısa linkler nereye yönlendirilmelidir?"
 
-#: includes/classes/class-settings.php:502
+#: includes/classes/class-settings.php:572
 msgid ""
 "When a shortlink expires, visitors will be redirected to this URL instead "
 "of seeing an error. Leave empty to show the default expiration message."
@@ -988,15 +1011,15 @@ msgstr ""
 "yönlendirilecektir. Varsayılan süre dolma mesajını göstermek için boş "
 "bırakın."
 
-#: includes/classes/class-settings.php:514
+#: includes/classes/class-settings.php:584
 msgid "Revisions"
 msgstr "Revizyonlar"
 
-#: includes/classes/class-settings.php:519
+#: includes/classes/class-settings.php:589
 msgid "Revision Link Visibility"
 msgstr "Revizyon Linki Görünürlüğü"
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:590
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -1004,35 +1027,35 @@ msgstr ""
 "Etkinleştirildiğinde, revizyon kısa linkleri aşağıda yapılandırdığınız "
 "davranışa göre \"Tüm Kısa Linkler\" tablosunda görünecektir."
 
-#: includes/classes/class-settings.php:522
+#: includes/classes/class-settings.php:592
 msgid "When Revision is Created"
 msgstr "Revizyon Oluşturulduğunda"
 
-#: includes/classes/class-settings.php:524
+#: includes/classes/class-settings.php:594
 msgid "When Revision is Created or Link is First Used"
 msgstr "Revizyon Oluşturulduğunda veya Bağlantı İlk Kullanıldığında"
 
-#: includes/classes/class-settings.php:532
+#: includes/classes/class-settings.php:602
 msgid "Show Shortlink in Revision Table"
 msgstr "Revizyon Tablosunda Kısa Bağlantıyı Göster"
 
-#: includes/classes/class-settings.php:533
+#: includes/classes/class-settings.php:603
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "PublishPress Revizyonları'nda revizyonları görüntülerken kısa bağlantı "
 "sütununu göster."
 
-#: includes/classes/class-settings.php:539
+#: includes/classes/class-settings.php:609
 msgid "Revision Visibility for Visitors"
 msgstr "Ziyaretçiler için Revizyon Görünürlüğü"
 
-#: includes/classes/class-settings.php:540
+#: includes/classes/class-settings.php:610
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Oturum açmamış ziyaretçilerin kısa bağlantılar aracılığıyla revizyon "
 "içeriğini görüntülemesine izin ver."
 
-#: includes/classes/class-settings.php:541
+#: includes/classes/class-settings.php:611
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1044,17 +1067,17 @@ msgstr ""
 "kısa bağlantıları oturum açmamış ziyaretçiler için revizyon içeriğini "
 "doğrudan gösterir; önizleme URL'sine yönlendirmez."
 
-#: includes/classes/class-settings.php:562
+#: includes/classes/class-settings.php:632
 msgid "Dummy"
 msgstr "Sahte"
 
-#: includes/classes/class-settings.php:606
+#: includes/classes/class-settings.php:676
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Henüz yapılandırılmış post type yok. Başlamak için \"Post Type Ekle\"ya "
 "tıklayın."
 
-#: includes/classes/class-settings.php:638
+#: includes/classes/class-settings.php:708
 msgid "Add Post Type"
 msgstr "Post Type Ekle"
 

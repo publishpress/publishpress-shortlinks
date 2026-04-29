@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-27 15:47+0000\n"
+"POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
+"PO-Revision-Date: 2026-04-29 12:57+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "% 100 >= 3 && n % 100 <= 10 ? 3 : n % 100 >= 11 ? 4 : 5);\n"
@@ -19,17 +19,17 @@ msgstr ""
 "&& n%100<=10 ? 3: n%100>=11 ? 4 : 5);\n"
 "Plural-Forms: nplurals=6; plural=(n == 0 ? 0 : n == 1 ? 1 : n == 2 ? 2 : n % 100 >= 3 && n % 100 <= 10 ? 3 : n % 100 >= 11 ? 4 : 5);\n"
 
-#: tinypress.php
+#: tinypress.php:4
 #. Plugin Name of the plugin
 msgid "PublishPress Shortlinks Free"
 msgstr "نظام PublishPress للروابط القصيرة المجانية"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:5, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/shortlinks/"
 msgstr "https://publishpress.com/shortlinks/"
 
-#: tinypress.php
+#: tinypress.php:6
 #. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
@@ -38,12 +38,12 @@ msgstr ""
 "إنشاء روابط مخصصة لمشاركاتك. هذه الروابط قابلة للعلامة، قابلة للتتبع، ويمكن "
 "أن تحتوي على أذونات عرض مخصصة."
 
-#: tinypress.php
+#: tinypress.php:9
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:10, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -212,29 +212,29 @@ msgid "Select a post type"
 msgstr "اختر نوع مشاركة"
 
 #: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:525
-#: includes/classes/class-settings.php:621
+#: includes/classes/class-settings.php:595
+#: includes/classes/class-settings.php:691
 msgid "Never"
 msgstr "أبداً"
 
 #: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:523
-#: includes/classes/class-settings.php:623
+#: includes/classes/class-settings.php:593
+#: includes/classes/class-settings.php:693
 msgid "When Link is First Used"
 msgstr "عندما يتم استخدام الرابط لأول مرة"
 
 #: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:625
+#: includes/classes/class-settings.php:695
 msgid "When Post is Published"
 msgstr "عندما يتم نشر المشاركة"
 
 #: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:624
+#: includes/classes/class-settings.php:694
 msgid "When Post is Created"
 msgstr "عندما يتم إنشاء المشاركة"
 
 #: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:622
+#: includes/classes/class-settings.php:692
 msgid "When Link is First Used or Post Created"
 msgstr "عندما يتم استخدام الرابط لأول مرة أو يتم إنشاء المشاركة"
 
@@ -294,7 +294,7 @@ msgid "Submitted for approval"
 msgstr "مقدم للموافقة"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:558
 msgid "Scheduled"
 msgstr "مجدد"
 
@@ -401,51 +401,60 @@ msgstr "اختصار"
 msgid "All Shortlinks"
 msgstr "جميع الروابط القصيرة"
 
-#: includes/classes/class-hooks.php:226
+#: includes/classes/class-hooks.php:212
+#: includes/classes/class-hooks.php:213
+msgid "Add Shortlink"
+msgstr "إضافة رابط قصير"
+
+#: includes/classes/class-hooks.php:214
+msgid "Search Shortlinks"
+msgstr "البحث عن الروابط القصيرة"
+
+#: includes/classes/class-hooks.php:229
 msgid "Category"
 msgstr "فئة"
 
-#: includes/classes/class-hooks.php:227
+#: includes/classes/class-hooks.php:230
 msgid "Categories"
 msgstr "فئات"
 
-#: includes/classes/class-hooks.php:253
-#: includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:256
+#: includes/classes/class-hooks.php:257
 msgid "Logs"
 msgstr "السجلات"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "All Logs"
 msgstr "جميع السجلات"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Are you sure you want to clear all logs?"
 msgstr "هل أنت متأكد أنك تريد مسح جميع السجلات؟"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Clear Logs"
 msgstr "مسح السجلات"
 
-#: includes/classes/class-hooks.php:503
+#: includes/classes/class-hooks.php:506
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "عذرًا، ليس لديك إذن للوصول إلى الروابط القصيرة."
 
-#: includes/classes/class-hooks.php:504
-#: includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536
-#: includes/classes/class-hooks.php:557
+#: includes/classes/class-hooks.php:507
+#: includes/classes/class-hooks.php:528
+#: includes/classes/class-hooks.php:539
+#: includes/classes/class-hooks.php:560
 msgid "Access Denied"
 msgstr "تم رفض الوصول"
 
-#: includes/classes/class-hooks.php:524
+#: includes/classes/class-hooks.php:527
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "عذرًا، ليس لديك إذن لإنشاء روابط قصيرة."
 
-#: includes/classes/class-hooks.php:535
+#: includes/classes/class-hooks.php:538
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "عذرًا، ليس لديك إذن لتحرير الروابط القصيرة."
 
-#: includes/classes/class-hooks.php:556
+#: includes/classes/class-hooks.php:559
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "عذرًا، ليس لديك إذن للوصول إلى إعدادات الروابط القصيرة."
 
@@ -459,7 +468,7 @@ msgid "PublishPress Shortlinks"
 msgstr "روابط PublishPress القصيرة"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:331
+#: includes/classes/class-settings.php:401
 msgid "General"
 msgstr "عام"
 
@@ -732,206 +741,7 @@ msgstr "معرف النسخة غير صالح."
 msgid "Settings"
 msgstr "الإعدادات"
 
-#: includes/classes/class-settings.php:237
-msgid "Elementor Detected:"
-msgstr "تم اكتشاف Elementor:"
-
-#: includes/classes/class-settings.php:238
-msgid ""
-"Shortlink prefix is required for proper rendering of Elementor revisions. "
-"It is advisable to keep it enabled."
-msgstr ""
-"تتطلب بادئة الرابط القصير لتقديم النسخ بشكل صحيح من Elementor. من المستحسن "
-"إبقائها مفعلة."
-
-#: includes/classes/class-settings.php:270
-msgid "TinyPress Shortlinks Notice:"
-msgstr "إشعار روابط TinyPress:"
-
 #: includes/classes/class-settings.php:271
-msgid ""
-"Elementor is active. Shortlink prefix has been automatically disabled, it "
-"is required for optimal compatibility with Elementor revisions."
-msgstr ""
-"Elementor نشط. تم تعطيل بادئة الرابط القصير تلقائيًا، وهي مطلوبة للتوافق "
-"الأمثل مع نسخ Elementor."
-
-#: includes/classes/class-settings.php:334
-msgid "Options"
-msgstr "الخيارات"
-
-#: includes/classes/class-settings.php:339
-msgid "Shortlink Prefix"
-msgstr "بادئة الرابط القصير"
-
-#: includes/classes/class-settings.php:340
-msgid "Add a prefix between your domain name and shortlink."
-msgstr "أضف بادئة بين اسم المجال الخاص بك والرابط القصير."
-
-#: includes/classes/class-settings.php:347
-msgid "Prefix Slug"
-msgstr "بادئة الرابط"
-
-#: includes/classes/class-settings.php:348
-msgid "Custom prefix slug."
-msgstr "بادئة مخصصة للرابط."
-
-#: includes/classes/class-settings.php:349
-msgid "This text will be added between your domain name and shortlink."
-msgstr "سيتم إضافة هذا النص بين اسم المجال الخاص بك والرابط القصير."
-
-#: includes/classes/class-settings.php:350
-#: includes/classes/class-settings.php:351
-msgid "go"
-msgstr "اذهب"
-
-#: includes/classes/class-settings.php:357
-msgid "Keyboard Shortcut"
-msgstr "اختصار لوحة المفاتيح"
-
-#: includes/classes/class-settings.php:358
-msgid "Create shortlinks from anywhere inside your WordPress dashboard."
-msgstr "أنشئ روابط قصيرة من أي مكان داخل لوحة تحكم WordPress الخاصة بك."
-
-#: includes/classes/class-settings.php:359
-#: includes/classes/class-settings.php:360
-msgid "Ctrl or Cmd + /"
-msgstr "Ctrl أو Cmd + /"
-
-#: includes/classes/class-settings.php:369
-msgid "Remove from Admin Bar"
-msgstr "إزالة من شريط الإدارة"
-
-#: includes/classes/class-settings.php:370
-msgid "Hide the \"Shorten\" button from the WordPress admin bar."
-msgstr "إخفاء زر \"تقليل\" من شريط إدارة WordPress."
-
-#: includes/classes/class-settings.php:376
-msgid "Role Management"
-msgstr "إدارة الأدوار"
-
-#: includes/classes/class-settings.php:381
-msgid "Who Can View Shortlinks"
-msgstr "من يمكنه رؤية الروابط القصيرة"
-
-#: includes/classes/class-settings.php:382
-msgid "Only selected user roles can view links."
-msgstr "فقط أدوار المستخدمين المحددين يمكنهم رؤية الروابط."
-
-#: includes/classes/class-settings.php:390
-msgid "Who Can Create/Edit Shortlinks"
-msgstr "من يمكنه إنشاء/تعديل الروابط القصيرة"
-
-#: includes/classes/class-settings.php:391
-msgid "Only selected user roles can create or edit links."
-msgstr "فقط أدوار المستخدمين المحددين يمكنهم إنشاء أو تعديل الروابط."
-
-#: includes/classes/class-settings.php:400
-msgid "Who Can See Analytics"
-msgstr "من يمكنه رؤية التحليلات"
-
-#: includes/classes/class-settings.php:401
-msgid "Only selected user roles can see analytics."
-msgstr "فقط أدوار المستخدمين المحددين يمكنهم رؤية التحليلات."
-
-#: includes/classes/class-settings.php:410
-msgid "Who Can Control Settings"
-msgstr "من يمكنه التحكم في الإعدادات"
-
-#: includes/classes/class-settings.php:411
-msgid "Only selected user roles can control settings."
-msgstr "فقط أدوار المستخدمين المحددين يمكنهم التحكم في الإعدادات."
-
-#: includes/classes/class-settings.php:420
-msgid "Auto-Linking"
-msgstr "الارتباط التلقائي"
-
-#: includes/classes/class-settings.php:425
-msgid "Enable Auto-Linking"
-msgstr "تفعيل الارتباط التلقائي"
-
-#: includes/classes/class-settings.php:426
-msgid "Automatically convert keywords to shortlinks in post content."
-msgstr "تحويل الكلمات الرئيسية تلقائيًا إلى روابط قصيرة في محتوى المنشور."
-
-#: includes/classes/class-settings.php:427
-msgid ""
-"When enabled, keywords configured in shortlink settings will be "
-"automatically linked in your content."
-msgstr ""
-"عند التفعيل، سيتم ربط الكلمات الرئيسية المكونة في إعدادات الرابط القصير "
-"تلقائيًا في محتواك."
-
-#: includes/classes/class-settings.php:433
-msgid "Open Auto-Links In"
-msgstr "فتح الروابط التلقائية في"
-
-#: includes/classes/class-settings.php:434
-msgid "Choose how auto-linked keywords should open."
-msgstr "اختر كيفية فتح الكلمات الرئيسية المرتبطة تلقائيًا."
-
-#: includes/classes/class-settings.php:436
-msgid "Same tab"
-msgstr "نفس علامة التبويب"
-
-#: includes/classes/class-settings.php:437
-msgid "New tab"
-msgstr "علامة تبويب جديدة"
-
-#: includes/classes/class-settings.php:445
-msgid "Auto-Link Color"
-msgstr "لون الارتباط التلقائي"
-
-#: includes/classes/class-settings.php:446
-msgid "Choose the color for auto-linked keywords."
-msgstr "اختر اللون للكلمات الرئيسية المرتبطة تلقائيًا."
-
-#: includes/classes/class-settings.php:453
-msgid "Auto-List Links"
-msgstr "قائمة الروابط التلقائية"
-
-#: includes/classes/class-settings.php:458
-msgid "Auto-List Shortlinks"
-msgstr "روابط مختصرة تلقائية"
-
-#: includes/classes/class-settings.php:459
-msgid ""
-"When enabled, shortlinks will appear in the \"All Links\" table based on "
-"the behavior you configure below."
-msgstr ""
-"عند التفعيل، ستظهر الروابط المختصرة في جدول \"جميع الروابط\" بناءً على "
-"السلوك الذي تقوم بتكوينه أدناه."
-
-#: includes/classes/class-settings.php:465
-msgid "Configure Post Types"
-msgstr "تكوين أنواع المنشورات"
-
-#: includes/classes/class-settings.php:466
-msgid "Set when links should be auto-listed for each post type"
-msgstr "حدد متى يجب أن يتم إدراج الروابط تلقائيًا لكل نوع منشور"
-
-#: includes/classes/class-settings.php:467
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr ""
-"أضف أنواع المنشورات وقم بتكوين متى يجب أن تظهر روابطها المختصرة في جدول "
-"\"جميع الروابط\". يتم حفظ التغييرات تلقائيًا."
-
-#: includes/classes/class-settings.php:474
-#: includes/classes/class-statuses.php:233
-msgid "Post Status Visibility"
-msgstr "رؤية حالة المنشور"
-
-#: includes/classes/class-settings.php:479
-msgid "Allowed Post Statuses"
-msgstr "حالات المنشورات المسموح بها"
-
-#: includes/classes/class-settings.php:480
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "اختر حالات المنشورات التي يمكن الوصول إليها عبر الروابط المختصرة"
-
-#: includes/classes/class-settings.php:481
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -939,35 +749,247 @@ msgstr ""
 "حدد حالات المنشورات التي يمكن الوصول إليها عند زيارة رابط مختصر من "
 "PublishPress."
 
-#: includes/classes/class-settings.php:484
+#: includes/classes/class-settings.php:287
+#, fuzzy
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "نظام PublishPress للروابط القصيرة المجانية"
+
+#: includes/classes/class-settings.php:288
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr ""
+"لاستخدام حالات PublishPress الأساسية مع Shortlinks، يرجى تفعيل نوع المنشور "
+"Shortlinks في إعدادات سير عمل حالات PublishPress."
+
+#: includes/classes/class-settings.php:307
+msgid "Elementor Detected:"
+msgstr "تم اكتشاف Elementor:"
+
+#: includes/classes/class-settings.php:308
+msgid ""
+"Shortlink prefix is required for proper rendering of Elementor revisions. "
+"It is advisable to keep it enabled."
+msgstr ""
+"تتطلب بادئة الرابط القصير لتقديم النسخ بشكل صحيح من Elementor. من المستحسن "
+"إبقائها مفعلة."
+
+#: includes/classes/class-settings.php:340
+msgid "TinyPress Shortlinks Notice:"
+msgstr "إشعار روابط TinyPress:"
+
+#: includes/classes/class-settings.php:341
+msgid ""
+"Elementor is active. Shortlink prefix has been automatically disabled, it "
+"is required for optimal compatibility with Elementor revisions."
+msgstr ""
+"Elementor نشط. تم تعطيل بادئة الرابط القصير تلقائيًا، وهي مطلوبة للتوافق "
+"الأمثل مع نسخ Elementor."
+
+#: includes/classes/class-settings.php:404
+msgid "Options"
+msgstr "الخيارات"
+
+#: includes/classes/class-settings.php:409
+msgid "Shortlink Prefix"
+msgstr "بادئة الرابط القصير"
+
+#: includes/classes/class-settings.php:410
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "أضف بادئة بين اسم المجال الخاص بك والرابط القصير."
+
+#: includes/classes/class-settings.php:417
+msgid "Prefix Slug"
+msgstr "بادئة الرابط"
+
+#: includes/classes/class-settings.php:418
+msgid "Custom prefix slug."
+msgstr "بادئة مخصصة للرابط."
+
+#: includes/classes/class-settings.php:419
+msgid "This text will be added between your domain name and shortlink."
+msgstr "سيتم إضافة هذا النص بين اسم المجال الخاص بك والرابط القصير."
+
+#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:421
+msgid "go"
+msgstr "اذهب"
+
+#: includes/classes/class-settings.php:427
+msgid "Keyboard Shortcut"
+msgstr "اختصار لوحة المفاتيح"
+
+#: includes/classes/class-settings.php:428
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
+msgstr "أنشئ روابط قصيرة من أي مكان داخل لوحة تحكم WordPress الخاصة بك."
+
+#: includes/classes/class-settings.php:429
+#: includes/classes/class-settings.php:430
+msgid "Ctrl or Cmd + /"
+msgstr "Ctrl أو Cmd + /"
+
+#: includes/classes/class-settings.php:439
+msgid "Remove from Admin Bar"
+msgstr "إزالة من شريط الإدارة"
+
+#: includes/classes/class-settings.php:440
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "إخفاء زر \"تقليل\" من شريط إدارة WordPress."
+
+#: includes/classes/class-settings.php:446
+msgid "Role Management"
+msgstr "إدارة الأدوار"
+
+#: includes/classes/class-settings.php:451
+msgid "Who Can View Shortlinks"
+msgstr "من يمكنه رؤية الروابط القصيرة"
+
+#: includes/classes/class-settings.php:452
+msgid "Only selected user roles can view links."
+msgstr "فقط أدوار المستخدمين المحددين يمكنهم رؤية الروابط."
+
+#: includes/classes/class-settings.php:460
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "من يمكنه إنشاء/تعديل الروابط القصيرة"
+
+#: includes/classes/class-settings.php:461
+msgid "Only selected user roles can create or edit links."
+msgstr "فقط أدوار المستخدمين المحددين يمكنهم إنشاء أو تعديل الروابط."
+
+#: includes/classes/class-settings.php:470
+msgid "Who Can See Analytics"
+msgstr "من يمكنه رؤية التحليلات"
+
+#: includes/classes/class-settings.php:471
+msgid "Only selected user roles can see analytics."
+msgstr "فقط أدوار المستخدمين المحددين يمكنهم رؤية التحليلات."
+
+#: includes/classes/class-settings.php:480
+msgid "Who Can Control Settings"
+msgstr "من يمكنه التحكم في الإعدادات"
+
+#: includes/classes/class-settings.php:481
+msgid "Only selected user roles can control settings."
+msgstr "فقط أدوار المستخدمين المحددين يمكنهم التحكم في الإعدادات."
+
+#: includes/classes/class-settings.php:490
+msgid "Auto-Linking"
+msgstr "الارتباط التلقائي"
+
+#: includes/classes/class-settings.php:495
+msgid "Enable Auto-Linking"
+msgstr "تفعيل الارتباط التلقائي"
+
+#: includes/classes/class-settings.php:496
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr "تحويل الكلمات الرئيسية تلقائيًا إلى روابط قصيرة في محتوى المنشور."
+
+#: includes/classes/class-settings.php:497
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr ""
+"عند التفعيل، سيتم ربط الكلمات الرئيسية المكونة في إعدادات الرابط القصير "
+"تلقائيًا في محتواك."
+
+#: includes/classes/class-settings.php:503
+msgid "Open Auto-Links In"
+msgstr "فتح الروابط التلقائية في"
+
+#: includes/classes/class-settings.php:504
+msgid "Choose how auto-linked keywords should open."
+msgstr "اختر كيفية فتح الكلمات الرئيسية المرتبطة تلقائيًا."
+
+#: includes/classes/class-settings.php:506
+msgid "Same tab"
+msgstr "نفس علامة التبويب"
+
+#: includes/classes/class-settings.php:507
+msgid "New tab"
+msgstr "علامة تبويب جديدة"
+
+#: includes/classes/class-settings.php:515
+msgid "Auto-Link Color"
+msgstr "لون الارتباط التلقائي"
+
+#: includes/classes/class-settings.php:516
+msgid "Choose the color for auto-linked keywords."
+msgstr "اختر اللون للكلمات الرئيسية المرتبطة تلقائيًا."
+
+#: includes/classes/class-settings.php:523
+msgid "Auto-List Links"
+msgstr "قائمة الروابط التلقائية"
+
+#: includes/classes/class-settings.php:528
+msgid "Auto-List Shortlinks"
+msgstr "روابط مختصرة تلقائية"
+
+#: includes/classes/class-settings.php:529
+msgid ""
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
+msgstr ""
+"عند التفعيل، ستظهر الروابط المختصرة في جدول \"جميع الروابط\" بناءً على "
+"السلوك الذي تقوم بتكوينه أدناه."
+
+#: includes/classes/class-settings.php:535
+msgid "Configure Post Types"
+msgstr "تكوين أنواع المنشورات"
+
+#: includes/classes/class-settings.php:536
+msgid "Set when links should be auto-listed for each post type"
+msgstr "حدد متى يجب أن يتم إدراج الروابط تلقائيًا لكل نوع منشور"
+
+#: includes/classes/class-settings.php:537
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr ""
+"أضف أنواع المنشورات وقم بتكوين متى يجب أن تظهر روابطها المختصرة في جدول "
+"\"جميع الروابط\". يتم حفظ التغييرات تلقائيًا."
+
+#: includes/classes/class-settings.php:544
+#: includes/classes/class-statuses.php:233
+msgid "Post Status Visibility"
+msgstr "رؤية حالة المنشور"
+
+#: includes/classes/class-settings.php:549
+msgid "Allowed Post Statuses"
+msgstr "حالات المنشورات المسموح بها"
+
+#: includes/classes/class-settings.php:550
+msgid "Choose which post statuses can be accessed via shortlinks"
+msgstr "اختر حالات المنشورات التي يمكن الوصول إليها عبر الروابط المختصرة"
+
+#: includes/classes/class-settings.php:554
 msgid "Published"
 msgstr "تم النشر"
 
-#: includes/classes/class-settings.php:485
+#: includes/classes/class-settings.php:555
 msgid "Draft"
 msgstr "مسودة"
 
-#: includes/classes/class-settings.php:486
+#: includes/classes/class-settings.php:556
 msgid "Pending Review"
 msgstr "قيد المراجعة"
 
-#: includes/classes/class-settings.php:487
+#: includes/classes/class-settings.php:557
 msgid "Private"
 msgstr "خاص"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:565
 msgid "Expired Links"
 msgstr "روابط منتهية"
 
-#: includes/classes/class-settings.php:500
+#: includes/classes/class-settings.php:570
 msgid "Default Expired Redirect URL"
 msgstr "رابط إعادة التوجيه الافتراضي للروابط المنتهية"
 
-#: includes/classes/class-settings.php:501
+#: includes/classes/class-settings.php:571
 msgid "Where should expired shortlinks redirect?"
 msgstr "أين يجب أن تعيد الروابط المختصرة المنتهية التوجيه؟"
 
-#: includes/classes/class-settings.php:502
+#: includes/classes/class-settings.php:572
 msgid ""
 "When a shortlink expires, visitors will be redirected to this URL instead "
 "of seeing an error. Leave empty to show the default expiration message."
@@ -975,15 +997,15 @@ msgstr ""
 "عند انتهاء صلاحية الرابط المختصر، سيتم إعادة توجيه الزوار إلى هذا الرابط "
 "بدلاً من رؤية خطأ. اتركه فارغًا لعرض رسالة انتهاء افتراضية."
 
-#: includes/classes/class-settings.php:514
+#: includes/classes/class-settings.php:584
 msgid "Revisions"
 msgstr "الإصدارات"
 
-#: includes/classes/class-settings.php:519
+#: includes/classes/class-settings.php:589
 msgid "Revision Link Visibility"
 msgstr "رؤية رابط الإصدار"
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:590
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -991,31 +1013,31 @@ msgstr ""
 "عند التفعيل، ستظهر الروابط المختصرة للإصدارات في جدول \"جميع الروابط "
 "المختصرة\" بناءً على السلوك الذي تقوم بتكوينه أدناه."
 
-#: includes/classes/class-settings.php:522
+#: includes/classes/class-settings.php:592
 msgid "When Revision is Created"
 msgstr "عند إنشاء مراجعة"
 
-#: includes/classes/class-settings.php:524
+#: includes/classes/class-settings.php:594
 msgid "When Revision is Created or Link is First Used"
 msgstr "عند إنشاء مراجعة أو استخدام الرابط لأول مرة"
 
-#: includes/classes/class-settings.php:532
+#: includes/classes/class-settings.php:602
 msgid "Show Shortlink in Revision Table"
 msgstr "عرض الرابط القصير في جدول المراجعات"
 
-#: includes/classes/class-settings.php:533
+#: includes/classes/class-settings.php:603
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr "عرض عمود الرابط القصير عند عرض المراجعات في PublishPress Revisions."
 
-#: includes/classes/class-settings.php:539
+#: includes/classes/class-settings.php:609
 msgid "Revision Visibility for Visitors"
 msgstr "رؤية المراجعة للزوار"
 
-#: includes/classes/class-settings.php:540
+#: includes/classes/class-settings.php:610
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr "السماح للزوار المسجلين خارج النظام بعرض محتوى المراجعة عبر الروابط القصيرة."
 
-#: includes/classes/class-settings.php:541
+#: includes/classes/class-settings.php:611
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1026,15 +1048,15 @@ msgstr ""
 "عند التمكين، ستظهر الروابط القصيرة للمراجعة محتوى المراجعة مباشرة للزوار "
 "المسجلين خارج النظام بدلاً من إعادة التوجيه إلى عنوان URL للمعاينة."
 
-#: includes/classes/class-settings.php:562
+#: includes/classes/class-settings.php:632
 msgid "Dummy"
 msgstr "وهمي"
 
-#: includes/classes/class-settings.php:606
+#: includes/classes/class-settings.php:676
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr "لا توجد أنواع منشورات مُعدة بعد. انقر على \"إضافة نوع منشور\" للبدء."
 
-#: includes/classes/class-settings.php:638
+#: includes/classes/class-settings.php:708
 msgid "Add Post Type"
 msgstr "إضافة نوع منشور"
 

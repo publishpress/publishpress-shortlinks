@@ -9,24 +9,24 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-27 15:46+0000\n"
+"POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
+"PO-Revision-Date: 2026-04-29 12:57+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: sv-SE\n"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:4, fuzzy
 #. Plugin Name of the plugin
 msgid "PublishPress Shortlinks Free"
 msgstr "PublishPress Shortlinks Free"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:5, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/shortlinks/"
 msgstr "https://publishpress.com/shortlinks/"
 
-#: tinypress.php
+#: tinypress.php:6
 #. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
@@ -35,12 +35,12 @@ msgstr ""
 "Skapa anpassade länkar för dina inlägg. Dessa länkar är varumärkesbara, "
 "spårbara och kan ha anpassade visningsbehörigheter."
 
-#: tinypress.php
+#: tinypress.php:9
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:10, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -209,29 +209,29 @@ msgid "Select a post type"
 msgstr "Välj en post type"
 
 #: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:525
-#: includes/classes/class-settings.php:621
+#: includes/classes/class-settings.php:595
+#: includes/classes/class-settings.php:691
 msgid "Never"
 msgstr "Aldrig"
 
 #: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:523
-#: includes/classes/class-settings.php:623
+#: includes/classes/class-settings.php:593
+#: includes/classes/class-settings.php:693
 msgid "When Link is First Used"
 msgstr "När länk används för första gången"
 
 #: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:625
+#: includes/classes/class-settings.php:695
 msgid "When Post is Published"
 msgstr "När inlägget publiceras"
 
 #: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:624
+#: includes/classes/class-settings.php:694
 msgid "When Post is Created"
 msgstr "När inlägget skapas"
 
 #: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:622
+#: includes/classes/class-settings.php:692
 msgid "When Link is First Used or Post Created"
 msgstr "När länk används för första gången eller inlägget skapas"
 
@@ -291,7 +291,7 @@ msgid "Submitted for approval"
 msgstr "Inlämnad för godkännande"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:558
 msgid "Scheduled"
 msgstr "Schemalagd"
 
@@ -398,51 +398,60 @@ msgstr "Förkorta"
 msgid "All Shortlinks"
 msgstr "Alla kortlänkar"
 
-#: includes/classes/class-hooks.php:226
+#: includes/classes/class-hooks.php:212
+#: includes/classes/class-hooks.php:213
+msgid "Add Shortlink"
+msgstr "Lägg till kortlänk"
+
+#: includes/classes/class-hooks.php:214
+msgid "Search Shortlinks"
+msgstr "Sök kortlänkar"
+
+#: includes/classes/class-hooks.php:229
 msgid "Category"
 msgstr "Kategori"
 
-#: includes/classes/class-hooks.php:227
+#: includes/classes/class-hooks.php:230
 msgid "Categories"
 msgstr "Kategorier"
 
-#: includes/classes/class-hooks.php:253
-#: includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:256
+#: includes/classes/class-hooks.php:257
 msgid "Logs"
 msgstr "Loggar"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "All Logs"
 msgstr "Alla loggar"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Are you sure you want to clear all logs?"
 msgstr "Är du säker på att du vill rensa alla loggar?"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Clear Logs"
 msgstr "Rensa loggar"
 
-#: includes/classes/class-hooks.php:503
+#: includes/classes/class-hooks.php:506
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Tyvärr, du har inte tillåtelse att komma åt kortlänkar."
 
-#: includes/classes/class-hooks.php:504
-#: includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536
-#: includes/classes/class-hooks.php:557
+#: includes/classes/class-hooks.php:507
+#: includes/classes/class-hooks.php:528
+#: includes/classes/class-hooks.php:539
+#: includes/classes/class-hooks.php:560
 msgid "Access Denied"
 msgstr "Åtkomst nekad"
 
-#: includes/classes/class-hooks.php:524
+#: includes/classes/class-hooks.php:527
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Tyvärr, du har inte tillåtelse att skapa kortlänkar."
 
-#: includes/classes/class-hooks.php:535
+#: includes/classes/class-hooks.php:538
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Tyvärr, du har inte tillåtelse att redigera kortlänkar."
 
-#: includes/classes/class-hooks.php:556
+#: includes/classes/class-hooks.php:559
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Tyvärr, du har inte tillåtelse att komma åt inställningarna för kortlänkar."
 
@@ -456,7 +465,7 @@ msgid "PublishPress Shortlinks"
 msgstr "PublishPress kortlänkar"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:331
+#: includes/classes/class-settings.php:401
 msgid "General"
 msgstr "Allmänt"
 
@@ -737,206 +746,7 @@ msgstr "Ogiltigt revisions-ID."
 msgid "Settings"
 msgstr "Inställningar"
 
-#: includes/classes/class-settings.php:237
-msgid "Elementor Detected:"
-msgstr "Elementor upptäckte:"
-
-#: includes/classes/class-settings.php:238
-msgid ""
-"Shortlink prefix is required for proper rendering of Elementor revisions. "
-"It is advisable to keep it enabled."
-msgstr ""
-"Shortlink-prefix krävs för korrekt rendering av Elementor-revisioner. Det "
-"rekommenderas att hålla det aktiverat."
-
-#: includes/classes/class-settings.php:270
-msgid "TinyPress Shortlinks Notice:"
-msgstr "TinyPress Shortlinks Meddelande:"
-
 #: includes/classes/class-settings.php:271
-msgid ""
-"Elementor is active. Shortlink prefix has been automatically disabled, it "
-"is required for optimal compatibility with Elementor revisions."
-msgstr ""
-"Elementor är aktivt. Shortlink-prefix har automatiskt inaktiverats, det "
-"krävs för optimal kompatibilitet med Elementor-revisioner."
-
-#: includes/classes/class-settings.php:334
-msgid "Options"
-msgstr "Alternativ"
-
-#: includes/classes/class-settings.php:339, fuzzy
-msgid "Shortlink Prefix"
-msgstr "Shortlink Prefix"
-
-#: includes/classes/class-settings.php:340
-msgid "Add a prefix between your domain name and shortlink."
-msgstr "Lägg till ett prefix mellan ditt domännamn och kortlänk."
-
-#: includes/classes/class-settings.php:347, fuzzy
-msgid "Prefix Slug"
-msgstr "Prefix Slug"
-
-#: includes/classes/class-settings.php:348
-msgid "Custom prefix slug."
-msgstr "Anpassad prefix slug."
-
-#: includes/classes/class-settings.php:349
-msgid "This text will be added between your domain name and shortlink."
-msgstr "Denna text kommer att läggas till mellan ditt domännamn och kortlänk."
-
-#: includes/classes/class-settings.php:350
-#: includes/classes/class-settings.php:351
-msgid "go"
-msgstr "gå"
-
-#: includes/classes/class-settings.php:357
-msgid "Keyboard Shortcut"
-msgstr "Tangentbordsgenväg"
-
-#: includes/classes/class-settings.php:358
-msgid "Create shortlinks from anywhere inside your WordPress dashboard."
-msgstr "Skapa kortlänkar från var som helst i din WordPress dashboard."
-
-#: includes/classes/class-settings.php:359
-#: includes/classes/class-settings.php:360
-msgid "Ctrl or Cmd + /"
-msgstr "Ctrl eller Cmd + /"
-
-#: includes/classes/class-settings.php:369
-msgid "Remove from Admin Bar"
-msgstr "Ta bort från Admin Bar"
-
-#: includes/classes/class-settings.php:370
-msgid "Hide the \"Shorten\" button from the WordPress admin bar."
-msgstr "Dölj knappen \"Förkorta\" från WordPress admin bar."
-
-#: includes/classes/class-settings.php:376
-msgid "Role Management"
-msgstr "Rollhantering"
-
-#: includes/classes/class-settings.php:381
-msgid "Who Can View Shortlinks"
-msgstr "Vem kan se kortlänkar"
-
-#: includes/classes/class-settings.php:382
-msgid "Only selected user roles can view links."
-msgstr "Endast utvalda användarroller kan se länkar."
-
-#: includes/classes/class-settings.php:390
-msgid "Who Can Create/Edit Shortlinks"
-msgstr "Vem kan skapa/redigera kortlänkar"
-
-#: includes/classes/class-settings.php:391
-msgid "Only selected user roles can create or edit links."
-msgstr "Endast utvalda användarroller kan skapa eller redigera länkar."
-
-#: includes/classes/class-settings.php:400
-msgid "Who Can See Analytics"
-msgstr "Vem kan se analyser"
-
-#: includes/classes/class-settings.php:401
-msgid "Only selected user roles can see analytics."
-msgstr "Endast utvalda användarroller kan se analyser."
-
-#: includes/classes/class-settings.php:410
-msgid "Who Can Control Settings"
-msgstr "Vem kan kontrollera inställningar"
-
-#: includes/classes/class-settings.php:411
-msgid "Only selected user roles can control settings."
-msgstr "Endast utvalda användarroller kan kontrollera inställningar."
-
-#: includes/classes/class-settings.php:420
-msgid "Auto-Linking"
-msgstr "Automatisk länkning"
-
-#: includes/classes/class-settings.php:425
-msgid "Enable Auto-Linking"
-msgstr "Aktivera automatisk länkning"
-
-#: includes/classes/class-settings.php:426
-msgid "Automatically convert keywords to shortlinks in post content."
-msgstr "Konvertera automatiskt nyckelord till kortlänkar i inläggsinnehållet."
-
-#: includes/classes/class-settings.php:427
-msgid ""
-"When enabled, keywords configured in shortlink settings will be "
-"automatically linked in your content."
-msgstr ""
-"När aktiverat kommer nyckelord som konfigurerats i kortlänksinställningarna "
-"automatiskt att länkas i ditt innehåll."
-
-#: includes/classes/class-settings.php:433
-msgid "Open Auto-Links In"
-msgstr "Öppna automatisk länkar i"
-
-#: includes/classes/class-settings.php:434
-msgid "Choose how auto-linked keywords should open."
-msgstr "Välj hur automatiskt länkade nyckelord ska öppnas."
-
-#: includes/classes/class-settings.php:436
-msgid "Same tab"
-msgstr "Samma flik"
-
-#: includes/classes/class-settings.php:437
-msgid "New tab"
-msgstr "Ny flik"
-
-#: includes/classes/class-settings.php:445
-msgid "Auto-Link Color"
-msgstr "Färg för automatisk länk"
-
-#: includes/classes/class-settings.php:446
-msgid "Choose the color for auto-linked keywords."
-msgstr "Välj färg för automatiskt länkade nyckelord."
-
-#: includes/classes/class-settings.php:453
-msgid "Auto-List Links"
-msgstr "Auto-lista länkar"
-
-#: includes/classes/class-settings.php:458
-msgid "Auto-List Shortlinks"
-msgstr "Auto-List Kortlänkar"
-
-#: includes/classes/class-settings.php:459
-msgid ""
-"When enabled, shortlinks will appear in the \"All Links\" table based on "
-"the behavior you configure below."
-msgstr ""
-"När det är aktiverat kommer kortlänkar att visas i \"Alla Länkar\" tabellen "
-"baserat på beteendet du konfigurerar nedan."
-
-#: includes/classes/class-settings.php:465
-msgid "Configure Post Types"
-msgstr "Konfigurera Post Typer"
-
-#: includes/classes/class-settings.php:466
-msgid "Set when links should be auto-listed for each post type"
-msgstr "Ange när länkar ska listas automatiskt för varje post type"
-
-#: includes/classes/class-settings.php:467
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr ""
-"Lägg till posttyper och konfigurera när deras kortlänkar ska visas i \"Alla "
-"Länkar\" tabellen. Ändringar sparas automatiskt."
-
-#: includes/classes/class-settings.php:474
-#: includes/classes/class-statuses.php:233
-msgid "Post Status Visibility"
-msgstr "Poststatus Synlighet"
-
-#: includes/classes/class-settings.php:479
-msgid "Allowed Post Statuses"
-msgstr "Tillåtna Poststatusar"
-
-#: includes/classes/class-settings.php:480
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Välj vilka poststatusar som kan nås via kortlänkar"
-
-#: includes/classes/class-settings.php:481
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -944,35 +754,248 @@ msgstr ""
 "Välj vilka poststatusar som är åtkomliga när du besöker en PublishPress "
 "kortlänk."
 
-#: includes/classes/class-settings.php:484
+#: includes/classes/class-settings.php:287
+#, fuzzy
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "PublishPress Shortlinks Free"
+
+#: includes/classes/class-settings.php:288
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr ""
+"För att använda kärnans PublishPress-statusar med Shortlinks, vänligen "
+"aktivera Shortlinks post type i PublishPress Statuses "
+"arbetsflödesinställningar."
+
+#: includes/classes/class-settings.php:307
+msgid "Elementor Detected:"
+msgstr "Elementor upptäckte:"
+
+#: includes/classes/class-settings.php:308
+msgid ""
+"Shortlink prefix is required for proper rendering of Elementor revisions. "
+"It is advisable to keep it enabled."
+msgstr ""
+"Shortlink-prefix krävs för korrekt rendering av Elementor-revisioner. Det "
+"rekommenderas att hålla det aktiverat."
+
+#: includes/classes/class-settings.php:340
+msgid "TinyPress Shortlinks Notice:"
+msgstr "TinyPress Shortlinks Meddelande:"
+
+#: includes/classes/class-settings.php:341
+msgid ""
+"Elementor is active. Shortlink prefix has been automatically disabled, it "
+"is required for optimal compatibility with Elementor revisions."
+msgstr ""
+"Elementor är aktivt. Shortlink-prefix har automatiskt inaktiverats, det "
+"krävs för optimal kompatibilitet med Elementor-revisioner."
+
+#: includes/classes/class-settings.php:404
+msgid "Options"
+msgstr "Alternativ"
+
+#: includes/classes/class-settings.php:409, fuzzy
+msgid "Shortlink Prefix"
+msgstr "Shortlink Prefix"
+
+#: includes/classes/class-settings.php:410
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "Lägg till ett prefix mellan ditt domännamn och kortlänk."
+
+#: includes/classes/class-settings.php:417, fuzzy
+msgid "Prefix Slug"
+msgstr "Prefix Slug"
+
+#: includes/classes/class-settings.php:418
+msgid "Custom prefix slug."
+msgstr "Anpassad prefix slug."
+
+#: includes/classes/class-settings.php:419
+msgid "This text will be added between your domain name and shortlink."
+msgstr "Denna text kommer att läggas till mellan ditt domännamn och kortlänk."
+
+#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:421
+msgid "go"
+msgstr "gå"
+
+#: includes/classes/class-settings.php:427
+msgid "Keyboard Shortcut"
+msgstr "Tangentbordsgenväg"
+
+#: includes/classes/class-settings.php:428
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
+msgstr "Skapa kortlänkar från var som helst i din WordPress dashboard."
+
+#: includes/classes/class-settings.php:429
+#: includes/classes/class-settings.php:430
+msgid "Ctrl or Cmd + /"
+msgstr "Ctrl eller Cmd + /"
+
+#: includes/classes/class-settings.php:439
+msgid "Remove from Admin Bar"
+msgstr "Ta bort från Admin Bar"
+
+#: includes/classes/class-settings.php:440
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "Dölj knappen \"Förkorta\" från WordPress admin bar."
+
+#: includes/classes/class-settings.php:446
+msgid "Role Management"
+msgstr "Rollhantering"
+
+#: includes/classes/class-settings.php:451
+msgid "Who Can View Shortlinks"
+msgstr "Vem kan se kortlänkar"
+
+#: includes/classes/class-settings.php:452
+msgid "Only selected user roles can view links."
+msgstr "Endast utvalda användarroller kan se länkar."
+
+#: includes/classes/class-settings.php:460
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "Vem kan skapa/redigera kortlänkar"
+
+#: includes/classes/class-settings.php:461
+msgid "Only selected user roles can create or edit links."
+msgstr "Endast utvalda användarroller kan skapa eller redigera länkar."
+
+#: includes/classes/class-settings.php:470
+msgid "Who Can See Analytics"
+msgstr "Vem kan se analyser"
+
+#: includes/classes/class-settings.php:471
+msgid "Only selected user roles can see analytics."
+msgstr "Endast utvalda användarroller kan se analyser."
+
+#: includes/classes/class-settings.php:480
+msgid "Who Can Control Settings"
+msgstr "Vem kan kontrollera inställningar"
+
+#: includes/classes/class-settings.php:481
+msgid "Only selected user roles can control settings."
+msgstr "Endast utvalda användarroller kan kontrollera inställningar."
+
+#: includes/classes/class-settings.php:490
+msgid "Auto-Linking"
+msgstr "Automatisk länkning"
+
+#: includes/classes/class-settings.php:495
+msgid "Enable Auto-Linking"
+msgstr "Aktivera automatisk länkning"
+
+#: includes/classes/class-settings.php:496
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr "Konvertera automatiskt nyckelord till kortlänkar i inläggsinnehållet."
+
+#: includes/classes/class-settings.php:497
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr ""
+"När aktiverat kommer nyckelord som konfigurerats i kortlänksinställningarna "
+"automatiskt att länkas i ditt innehåll."
+
+#: includes/classes/class-settings.php:503
+msgid "Open Auto-Links In"
+msgstr "Öppna automatisk länkar i"
+
+#: includes/classes/class-settings.php:504
+msgid "Choose how auto-linked keywords should open."
+msgstr "Välj hur automatiskt länkade nyckelord ska öppnas."
+
+#: includes/classes/class-settings.php:506
+msgid "Same tab"
+msgstr "Samma flik"
+
+#: includes/classes/class-settings.php:507
+msgid "New tab"
+msgstr "Ny flik"
+
+#: includes/classes/class-settings.php:515
+msgid "Auto-Link Color"
+msgstr "Färg för automatisk länk"
+
+#: includes/classes/class-settings.php:516
+msgid "Choose the color for auto-linked keywords."
+msgstr "Välj färg för automatiskt länkade nyckelord."
+
+#: includes/classes/class-settings.php:523
+msgid "Auto-List Links"
+msgstr "Auto-lista länkar"
+
+#: includes/classes/class-settings.php:528
+msgid "Auto-List Shortlinks"
+msgstr "Auto-List Kortlänkar"
+
+#: includes/classes/class-settings.php:529
+msgid ""
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
+msgstr ""
+"När det är aktiverat kommer kortlänkar att visas i \"Alla Länkar\" tabellen "
+"baserat på beteendet du konfigurerar nedan."
+
+#: includes/classes/class-settings.php:535
+msgid "Configure Post Types"
+msgstr "Konfigurera Post Typer"
+
+#: includes/classes/class-settings.php:536
+msgid "Set when links should be auto-listed for each post type"
+msgstr "Ange när länkar ska listas automatiskt för varje post type"
+
+#: includes/classes/class-settings.php:537
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr ""
+"Lägg till posttyper och konfigurera när deras kortlänkar ska visas i \"Alla "
+"Länkar\" tabellen. Ändringar sparas automatiskt."
+
+#: includes/classes/class-settings.php:544
+#: includes/classes/class-statuses.php:233
+msgid "Post Status Visibility"
+msgstr "Poststatus Synlighet"
+
+#: includes/classes/class-settings.php:549
+msgid "Allowed Post Statuses"
+msgstr "Tillåtna Poststatusar"
+
+#: includes/classes/class-settings.php:550
+msgid "Choose which post statuses can be accessed via shortlinks"
+msgstr "Välj vilka poststatusar som kan nås via kortlänkar"
+
+#: includes/classes/class-settings.php:554
 msgid "Published"
 msgstr "Publicerad"
 
-#: includes/classes/class-settings.php:485
+#: includes/classes/class-settings.php:555
 msgid "Draft"
 msgstr "Utkast"
 
-#: includes/classes/class-settings.php:486
+#: includes/classes/class-settings.php:556
 msgid "Pending Review"
 msgstr "Avvaktan på Granskning"
 
-#: includes/classes/class-settings.php:487
+#: includes/classes/class-settings.php:557
 msgid "Private"
 msgstr "Privat"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:565
 msgid "Expired Links"
 msgstr "Utgångna Länkar"
 
-#: includes/classes/class-settings.php:500
+#: includes/classes/class-settings.php:570
 msgid "Default Expired Redirect URL"
 msgstr "Standard Utgången Omdirigerings-URL"
 
-#: includes/classes/class-settings.php:501
+#: includes/classes/class-settings.php:571
 msgid "Where should expired shortlinks redirect?"
 msgstr "Var ska utgångna kortlänkar omdirigera?"
 
-#: includes/classes/class-settings.php:502
+#: includes/classes/class-settings.php:572
 msgid ""
 "When a shortlink expires, visitors will be redirected to this URL instead "
 "of seeing an error. Leave empty to show the default expiration message."
@@ -981,15 +1004,15 @@ msgstr ""
 "istället för att se ett fel. Lämna tomt för att visa standardmeddelandet "
 "för utgång."
 
-#: includes/classes/class-settings.php:514
+#: includes/classes/class-settings.php:584
 msgid "Revisions"
 msgstr "Revisioner"
 
-#: includes/classes/class-settings.php:519
+#: includes/classes/class-settings.php:589
 msgid "Revision Link Visibility"
 msgstr "Revision Länk Synlighet"
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:590
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -997,31 +1020,31 @@ msgstr ""
 "När det är aktiverat kommer revisionskortlänkar att visas i \"Alla "
 "Kortlänkar\" tabellen baserat på beteendet du konfigurerar nedan."
 
-#: includes/classes/class-settings.php:522
+#: includes/classes/class-settings.php:592
 msgid "When Revision is Created"
 msgstr "När revision skapas"
 
-#: includes/classes/class-settings.php:524
+#: includes/classes/class-settings.php:594
 msgid "When Revision is Created or Link is First Used"
 msgstr "När revision skapas eller länk används första gången"
 
-#: includes/classes/class-settings.php:532
+#: includes/classes/class-settings.php:602
 msgid "Show Shortlink in Revision Table"
 msgstr "Visa kortlänk i revisions-tabellen"
 
-#: includes/classes/class-settings.php:533
+#: includes/classes/class-settings.php:603
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr "Visa kortlänkskolumn när du visar revisioner i PublishPress Revisions."
 
-#: includes/classes/class-settings.php:539
+#: includes/classes/class-settings.php:609
 msgid "Revision Visibility for Visitors"
 msgstr "Revisionssynlighet för besökare"
 
-#: includes/classes/class-settings.php:540
+#: includes/classes/class-settings.php:610
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr "Tillåt inloggade besökare att se revisionsinnehåll via kortlänkar."
 
-#: includes/classes/class-settings.php:541
+#: includes/classes/class-settings.php:611
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1033,17 +1056,17 @@ msgstr ""
 "att visa revisionsinnehållet direkt för inloggade besökare istället för att "
 "omdirigera till förhandsvisnings-URL:en."
 
-#: includes/classes/class-settings.php:562, fuzzy
+#: includes/classes/class-settings.php:632, fuzzy
 msgid "Dummy"
 msgstr "Dummy"
 
-#: includes/classes/class-settings.php:606
+#: includes/classes/class-settings.php:676
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Inga posttyper konfigurerade än. Klicka på \"Lägg till posttyp\" för att "
 "komma igång."
 
-#: includes/classes/class-settings.php:638
+#: includes/classes/class-settings.php:708
 msgid "Add Post Type"
 msgstr "Lägg till posttyp"
 

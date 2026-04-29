@@ -9,24 +9,24 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-27 15:47+0000\n"
+"POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
+"PO-Revision-Date: 2026-04-29 12:57+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: hu-HU\n"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:4, fuzzy
 #. Plugin Name of the plugin
 msgid "PublishPress Shortlinks Free"
 msgstr "PublishPress Shortlinks Free"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:5, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/shortlinks/"
 msgstr "https://publishpress.com/shortlinks/"
 
-#: tinypress.php
+#: tinypress.php:6
 #. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
@@ -35,12 +35,12 @@ msgstr ""
 "Hozz létre egyedi linkeket a bejegyzéseidhez. Ezek a linkek márkázottak, "
 "nyomon követhetők, és egyedi megtekintési engedélyekkel rendelkezhetnek."
 
-#: tinypress.php
+#: tinypress.php:9
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:10, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -209,29 +209,29 @@ msgid "Select a post type"
 msgstr "Válassz egy post type-ot"
 
 #: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:525
-#: includes/classes/class-settings.php:621
+#: includes/classes/class-settings.php:595
+#: includes/classes/class-settings.php:691
 msgid "Never"
 msgstr "Soha"
 
 #: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:523
-#: includes/classes/class-settings.php:623
+#: includes/classes/class-settings.php:593
+#: includes/classes/class-settings.php:693
 msgid "When Link is First Used"
 msgstr "Amikor a link először van használva"
 
 #: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:625
+#: includes/classes/class-settings.php:695
 msgid "When Post is Published"
 msgstr "Amikor a bejegyzés közzé van téve"
 
 #: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:624
+#: includes/classes/class-settings.php:694
 msgid "When Post is Created"
 msgstr "Amikor a bejegyzés létrejön"
 
 #: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:622
+#: includes/classes/class-settings.php:692
 msgid "When Link is First Used or Post Created"
 msgstr "Amikor a link először van használva vagy a bejegyzés létrejön"
 
@@ -291,7 +291,7 @@ msgid "Submitted for approval"
 msgstr "Benyújtva jóváhagyásra"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:558
 msgid "Scheduled"
 msgstr "Ütemezett"
 
@@ -398,51 +398,60 @@ msgstr "Rövidítés"
 msgid "All Shortlinks"
 msgstr "Összes rövidlink"
 
-#: includes/classes/class-hooks.php:226
+#: includes/classes/class-hooks.php:212
+#: includes/classes/class-hooks.php:213
+msgid "Add Shortlink"
+msgstr "Rövidlink hozzáadása"
+
+#: includes/classes/class-hooks.php:214
+msgid "Search Shortlinks"
+msgstr "Rövidlinkek keresése"
+
+#: includes/classes/class-hooks.php:229
 msgid "Category"
 msgstr "Kategória"
 
-#: includes/classes/class-hooks.php:227
+#: includes/classes/class-hooks.php:230
 msgid "Categories"
 msgstr "Kategóriák"
 
-#: includes/classes/class-hooks.php:253
-#: includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:256
+#: includes/classes/class-hooks.php:257
 msgid "Logs"
 msgstr "Naplók"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "All Logs"
 msgstr "Összes napló"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Are you sure you want to clear all logs?"
 msgstr "Biztosan törölni szeretné az összes naplót?"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Clear Logs"
 msgstr "Naplók törlése"
 
-#: includes/classes/class-hooks.php:503
+#: includes/classes/class-hooks.php:506
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Sajnálom, nem engedélyezett a rövidlinkek elérése."
 
-#: includes/classes/class-hooks.php:504
-#: includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536
-#: includes/classes/class-hooks.php:557
+#: includes/classes/class-hooks.php:507
+#: includes/classes/class-hooks.php:528
+#: includes/classes/class-hooks.php:539
+#: includes/classes/class-hooks.php:560
 msgid "Access Denied"
 msgstr "Hozzáférés megtagadva"
 
-#: includes/classes/class-hooks.php:524
+#: includes/classes/class-hooks.php:527
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Sajnálom, nem engedélyezett rövidlinkek létrehozása."
 
-#: includes/classes/class-hooks.php:535
+#: includes/classes/class-hooks.php:538
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Sajnálom, nem engedélyezett a rövidlinkek szerkesztése."
 
-#: includes/classes/class-hooks.php:556
+#: includes/classes/class-hooks.php:559
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Sajnálom, nem engedélyezett a rövidlink beállítások elérése."
 
@@ -456,7 +465,7 @@ msgid "PublishPress Shortlinks"
 msgstr "PublishPress rövidlinkek"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:331
+#: includes/classes/class-settings.php:401
 msgid "General"
 msgstr "Általános"
 
@@ -735,11 +744,33 @@ msgstr "Érvénytelen revízió azonosító."
 msgid "Settings"
 msgstr "Beállítások"
 
-#: includes/classes/class-settings.php:237
+#: includes/classes/class-settings.php:271
+msgid ""
+"Select which post statuses are accessible when visiting a PublishPress "
+"shortlink."
+msgstr ""
+"Válassza ki, hogy mely post állapotok érhetők el a PublishPress rövidlink "
+"meglátogatásakor."
+
+#: includes/classes/class-settings.php:287
+#, fuzzy
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "PublishPress Shortlinks Free"
+
+#: includes/classes/class-settings.php:288
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr ""
+"A PublishPress állapotok alapértelmezett státuszainak használatához a "
+"Shortlinks funkcióhoz engedélyezze a Shortlinks post type-ot a PublishPress "
+"Statuses munkafolyamat beállításaiban."
+
+#: includes/classes/class-settings.php:307
 msgid "Elementor Detected:"
 msgstr "Elementor észlelve:"
 
-#: includes/classes/class-settings.php:238
+#: includes/classes/class-settings.php:308
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
@@ -747,11 +778,11 @@ msgstr ""
 "A rövidlink prefix szükséges az Elementor revíziók megfelelő "
 "megjelenítéséhez. Ajánlott, hogy ezt engedélyezve tartsa."
 
-#: includes/classes/class-settings.php:270
+#: includes/classes/class-settings.php:340
 msgid "TinyPress Shortlinks Notice:"
 msgstr "TinyPress rövidlink értesítés:"
 
-#: includes/classes/class-settings.php:271
+#: includes/classes/class-settings.php:341
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
@@ -759,107 +790,107 @@ msgstr ""
 "Az Elementor aktív. A rövidlink prefix automatikusan le lett tiltva, "
 "szükséges az Elementor revíziókkal való optimális kompatibilitáshoz."
 
-#: includes/classes/class-settings.php:334
+#: includes/classes/class-settings.php:404
 msgid "Options"
 msgstr "Opciók"
 
-#: includes/classes/class-settings.php:339
+#: includes/classes/class-settings.php:409
 msgid "Shortlink Prefix"
 msgstr "Rövidlink prefix"
 
-#: includes/classes/class-settings.php:340
+#: includes/classes/class-settings.php:410
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Adj egy előtagot a domain neved és a rövidlinked közé."
 
-#: includes/classes/class-settings.php:347
+#: includes/classes/class-settings.php:417
 msgid "Prefix Slug"
 msgstr "Előtag slug"
 
-#: includes/classes/class-settings.php:348
+#: includes/classes/class-settings.php:418
 msgid "Custom prefix slug."
 msgstr "Egyedi előtag slug."
 
-#: includes/classes/class-settings.php:349
+#: includes/classes/class-settings.php:419
 msgid "This text will be added between your domain name and shortlink."
 msgstr "Ez a szöveg a domain neved és a rövidlinked közé lesz hozzáadva."
 
-#: includes/classes/class-settings.php:350
-#: includes/classes/class-settings.php:351
+#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:421
 msgid "go"
 msgstr "menj"
 
-#: includes/classes/class-settings.php:357
+#: includes/classes/class-settings.php:427
 msgid "Keyboard Shortcut"
 msgstr "Billentyűparancs"
 
-#: includes/classes/class-settings.php:358
+#: includes/classes/class-settings.php:428
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr "Rövidlinkek létrehozása a WordPress dashboardod bármely részéből."
 
-#: includes/classes/class-settings.php:359
-#: includes/classes/class-settings.php:360
+#: includes/classes/class-settings.php:429
+#: includes/classes/class-settings.php:430
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl vagy Cmd + /"
 
-#: includes/classes/class-settings.php:369
+#: includes/classes/class-settings.php:439
 msgid "Remove from Admin Bar"
 msgstr "Eltávolítás az Admin Sávból"
 
-#: includes/classes/class-settings.php:370
+#: includes/classes/class-settings.php:440
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "A \"Rövidítés\" gomb elrejtése a WordPress admin sávból."
 
-#: includes/classes/class-settings.php:376
+#: includes/classes/class-settings.php:446
 msgid "Role Management"
 msgstr "Szerepkör kezelés"
 
-#: includes/classes/class-settings.php:381
+#: includes/classes/class-settings.php:451
 msgid "Who Can View Shortlinks"
 msgstr "Ki láthatja a rövidlinkeket"
 
-#: includes/classes/class-settings.php:382
+#: includes/classes/class-settings.php:452
 msgid "Only selected user roles can view links."
 msgstr "Csak a kiválasztott felhasználói szerepkörök láthatják a linkeket."
 
-#: includes/classes/class-settings.php:390
+#: includes/classes/class-settings.php:460
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Ki hozhat létre/szerkeszthet rövidlinkeket"
 
-#: includes/classes/class-settings.php:391
+#: includes/classes/class-settings.php:461
 msgid "Only selected user roles can create or edit links."
 msgstr ""
 "Csak a kiválasztott felhasználói szerepkörök hozhatnak létre vagy "
 "szerkeszthetnek linkeket."
 
-#: includes/classes/class-settings.php:400
+#: includes/classes/class-settings.php:470
 msgid "Who Can See Analytics"
 msgstr "Ki láthatja az analitikát"
 
-#: includes/classes/class-settings.php:401
+#: includes/classes/class-settings.php:471
 msgid "Only selected user roles can see analytics."
 msgstr "Csak a kiválasztott felhasználói szerepkörök láthatják az analitikát."
 
-#: includes/classes/class-settings.php:410
+#: includes/classes/class-settings.php:480
 msgid "Who Can Control Settings"
 msgstr "Ki vezérelheti a beállításokat"
 
-#: includes/classes/class-settings.php:411
+#: includes/classes/class-settings.php:481
 msgid "Only selected user roles can control settings."
 msgstr "Csak a kiválasztott felhasználói szerepkörök vezérelhetik a beállításokat."
 
-#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:490
 msgid "Auto-Linking"
 msgstr "Automatikus Linkelés"
 
-#: includes/classes/class-settings.php:425
+#: includes/classes/class-settings.php:495
 msgid "Enable Auto-Linking"
 msgstr "Automatikus Linkelés engedélyezése"
 
-#: includes/classes/class-settings.php:426
+#: includes/classes/class-settings.php:496
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr "Automatikusan konvertálja a kulcsszavakat rövidlinkekké a post tartalmában."
 
-#: includes/classes/class-settings.php:427
+#: includes/classes/class-settings.php:497
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
@@ -867,39 +898,39 @@ msgstr ""
 "Ha engedélyezve van, a rövidlink beállításokban konfigurált kulcsszavak "
 "automatikusan linkelve lesznek a tartalmában."
 
-#: includes/classes/class-settings.php:433
+#: includes/classes/class-settings.php:503
 msgid "Open Auto-Links In"
 msgstr "Automatikus Linkek Megnyitása"
 
-#: includes/classes/class-settings.php:434
+#: includes/classes/class-settings.php:504
 msgid "Choose how auto-linked keywords should open."
 msgstr "Válassza ki, hogyan nyílhatnak meg az automatikusan linkelt kulcsszavak."
 
-#: includes/classes/class-settings.php:436
+#: includes/classes/class-settings.php:506
 msgid "Same tab"
 msgstr "Ugyanabban a fülben"
 
-#: includes/classes/class-settings.php:437
+#: includes/classes/class-settings.php:507
 msgid "New tab"
 msgstr "Új fülben"
 
-#: includes/classes/class-settings.php:445
+#: includes/classes/class-settings.php:515
 msgid "Auto-Link Color"
 msgstr "Automatikus Link Szín"
 
-#: includes/classes/class-settings.php:446
+#: includes/classes/class-settings.php:516
 msgid "Choose the color for auto-linked keywords."
 msgstr "Válaszd ki a színt az automatikusan összekapcsolt kulcsszavakhoz."
 
-#: includes/classes/class-settings.php:453
+#: includes/classes/class-settings.php:523
 msgid "Auto-List Links"
 msgstr "Automatikus lista linkekből"
 
-#: includes/classes/class-settings.php:458
+#: includes/classes/class-settings.php:528
 msgid "Auto-List Shortlinks"
 msgstr "Automatikus lista rövidlinkek"
 
-#: includes/classes/class-settings.php:459
+#: includes/classes/class-settings.php:529
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
@@ -907,17 +938,17 @@ msgstr ""
 "Ha engedélyezve van, a rövidlinkek megjelennek az \"Összes Link\" "
 "táblázatban az alább konfigurált viselkedés alapján."
 
-#: includes/classes/class-settings.php:465
+#: includes/classes/class-settings.php:535
 msgid "Configure Post Types"
 msgstr "Post típusok konfigurálása"
 
-#: includes/classes/class-settings.php:466
+#: includes/classes/class-settings.php:536
 msgid "Set when links should be auto-listed for each post type"
 msgstr ""
 "Állítsa be, mikor kell automatikusan listázni a linkeket minden post típus "
 "esetén"
 
-#: includes/classes/class-settings.php:467
+#: includes/classes/class-settings.php:537
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -926,56 +957,48 @@ msgstr ""
 "rövidlinkjeik az \"Összes Link\" táblázatban. A változtatások automatikusan "
 "mentésre kerülnek."
 
-#: includes/classes/class-settings.php:474
+#: includes/classes/class-settings.php:544
 #: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "Post állapot láthatóság"
 
-#: includes/classes/class-settings.php:479
+#: includes/classes/class-settings.php:549
 msgid "Allowed Post Statuses"
 msgstr "Engedélyezett Post állapotok"
 
-#: includes/classes/class-settings.php:480
+#: includes/classes/class-settings.php:550
 msgid "Choose which post statuses can be accessed via shortlinks"
 msgstr "Válassza ki, hogy mely post állapotok érhetők el rövidlinkeken keresztül"
 
-#: includes/classes/class-settings.php:481
-msgid ""
-"Select which post statuses are accessible when visiting a PublishPress "
-"shortlink."
-msgstr ""
-"Válassza ki, hogy mely post állapotok érhetők el a PublishPress rövidlink "
-"meglátogatásakor."
-
-#: includes/classes/class-settings.php:484
+#: includes/classes/class-settings.php:554
 msgid "Published"
 msgstr "Közzétéve"
 
-#: includes/classes/class-settings.php:485
+#: includes/classes/class-settings.php:555
 msgid "Draft"
 msgstr "Vázlat"
 
-#: includes/classes/class-settings.php:486
+#: includes/classes/class-settings.php:556
 msgid "Pending Review"
 msgstr "Függőben lévő felülvizsgálat"
 
-#: includes/classes/class-settings.php:487
+#: includes/classes/class-settings.php:557
 msgid "Private"
 msgstr "Privát"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:565
 msgid "Expired Links"
 msgstr "Lejárt linkek"
 
-#: includes/classes/class-settings.php:500
+#: includes/classes/class-settings.php:570
 msgid "Default Expired Redirect URL"
 msgstr "Alapértelmezett lejárt átirányítási URL"
 
-#: includes/classes/class-settings.php:501
+#: includes/classes/class-settings.php:571
 msgid "Where should expired shortlinks redirect?"
 msgstr "Hová kell átirányítani a lejárt rövidlinkeket?"
 
-#: includes/classes/class-settings.php:502
+#: includes/classes/class-settings.php:572
 msgid ""
 "When a shortlink expires, visitors will be redirected to this URL instead "
 "of seeing an error. Leave empty to show the default expiration message."
@@ -984,15 +1007,15 @@ msgstr ""
 "a hibaüzenet helyett. Hagyja üresen, hogy az alapértelmezett lejárati "
 "üzenetet mutassa."
 
-#: includes/classes/class-settings.php:514
+#: includes/classes/class-settings.php:584
 msgid "Revisions"
 msgstr "Módosítások"
 
-#: includes/classes/class-settings.php:519
+#: includes/classes/class-settings.php:589
 msgid "Revision Link Visibility"
 msgstr "Módosítási link láthatóság"
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:590
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -1000,35 +1023,35 @@ msgstr ""
 "Ha engedélyezve van, a módosítási rövidlinkek megjelennek az \"Összes "
 "Rövidlink\" táblázatban az alább konfigurált viselkedés alapján."
 
-#: includes/classes/class-settings.php:522
+#: includes/classes/class-settings.php:592
 msgid "When Revision is Created"
 msgstr "Amikor a verzió létrejön"
 
-#: includes/classes/class-settings.php:524
+#: includes/classes/class-settings.php:594
 msgid "When Revision is Created or Link is First Used"
 msgstr "Amikor a verzió létrejön vagy a link először használatba kerül"
 
-#: includes/classes/class-settings.php:532
+#: includes/classes/class-settings.php:602
 msgid "Show Shortlink in Revision Table"
 msgstr "Rövidlink megjelenítése a verzió táblázatban"
 
-#: includes/classes/class-settings.php:533
+#: includes/classes/class-settings.php:603
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "Rövidlink oszlop megjelenítése a PublishPress Revisions verzióinak "
 "megtekintésekor."
 
-#: includes/classes/class-settings.php:539
+#: includes/classes/class-settings.php:609
 msgid "Revision Visibility for Visitors"
 msgstr "Verzió láthatóság a látogatók számára"
 
-#: includes/classes/class-settings.php:540
+#: includes/classes/class-settings.php:610
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Engedélyezze a kijelentkezett látogatók számára, hogy rövidlinkeken "
 "keresztül megtekinthessék a verzió tartalmát."
 
-#: includes/classes/class-settings.php:541
+#: includes/classes/class-settings.php:611
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1041,17 +1064,17 @@ msgstr ""
 "tartalmát a kijelentkezett látogatók számára, ahelyett, hogy átirányítanák "
 "az előnézeti URL-re."
 
-#: includes/classes/class-settings.php:562, fuzzy
+#: includes/classes/class-settings.php:632, fuzzy
 msgid "Dummy"
 msgstr "Dummy"
 
-#: includes/classes/class-settings.php:606
+#: includes/classes/class-settings.php:676
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Még nincs konfigurálva post type. Kattintson az \"Add Post Type\" gombra a "
 "kezdéshez."
 
-#: includes/classes/class-settings.php:638
+#: includes/classes/class-settings.php:708
 msgid "Add Post Type"
 msgstr "Post Type hozzáadása"
 

@@ -9,24 +9,24 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-27 15:50+0000\n"
+"POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
+"PO-Revision-Date: 2026-04-29 12:58+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: bg-BG\n"
 
-#: tinypress.php
+#: tinypress.php:4
 #. Plugin Name of the plugin
 msgid "PublishPress Shortlinks Free"
 msgstr "Безплатни кратки линкове на PublishPress"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:5, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/shortlinks/"
 msgstr "https://publishpress.com/shortlinks/"
 
-#: tinypress.php
+#: tinypress.php:6
 #. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
@@ -36,12 +36,12 @@ msgstr ""
 "да бъдат брандируеми, проследими и да имат персонализирани разрешения за "
 "преглед."
 
-#: tinypress.php
+#: tinypress.php:9
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:10, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -211,29 +211,29 @@ msgid "Select a post type"
 msgstr "Изберете post type"
 
 #: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:525
-#: includes/classes/class-settings.php:621
+#: includes/classes/class-settings.php:595
+#: includes/classes/class-settings.php:691
 msgid "Never"
 msgstr "Никога"
 
 #: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:523
-#: includes/classes/class-settings.php:623
+#: includes/classes/class-settings.php:593
+#: includes/classes/class-settings.php:693
 msgid "When Link is First Used"
 msgstr "Когато линкът е използван за първи път"
 
 #: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:625
+#: includes/classes/class-settings.php:695
 msgid "When Post is Published"
 msgstr "Когато постът е публикуван"
 
 #: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:624
+#: includes/classes/class-settings.php:694
 msgid "When Post is Created"
 msgstr "Когато постът е създаден"
 
 #: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:622
+#: includes/classes/class-settings.php:692
 msgid "When Link is First Used or Post Created"
 msgstr "Когато линкът е използван за първи път или постът е създаден"
 
@@ -293,7 +293,7 @@ msgid "Submitted for approval"
 msgstr "Подаден за одобрение"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:558
 msgid "Scheduled"
 msgstr "Планиран"
 
@@ -400,51 +400,60 @@ msgstr "Съкратете"
 msgid "All Shortlinks"
 msgstr "Всички кратки линкове"
 
-#: includes/classes/class-hooks.php:226
+#: includes/classes/class-hooks.php:212
+#: includes/classes/class-hooks.php:213
+msgid "Add Shortlink"
+msgstr "Добавяне на кратък линк"
+
+#: includes/classes/class-hooks.php:214
+msgid "Search Shortlinks"
+msgstr "Търсене на кратки линкове"
+
+#: includes/classes/class-hooks.php:229
 msgid "Category"
 msgstr "Категория"
 
-#: includes/classes/class-hooks.php:227
+#: includes/classes/class-hooks.php:230
 msgid "Categories"
 msgstr "Категории"
 
-#: includes/classes/class-hooks.php:253
-#: includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:256
+#: includes/classes/class-hooks.php:257
 msgid "Logs"
 msgstr "Логове"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "All Logs"
 msgstr "Всички логове"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Are you sure you want to clear all logs?"
 msgstr "Сигурни ли сте, че искате да изчистите всички логове?"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Clear Logs"
 msgstr "Изчисти логовете"
 
-#: includes/classes/class-hooks.php:503
+#: includes/classes/class-hooks.php:506
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Съжалявам, нямате разрешение да достъпвате кратки линкове."
 
-#: includes/classes/class-hooks.php:504
-#: includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536
-#: includes/classes/class-hooks.php:557
+#: includes/classes/class-hooks.php:507
+#: includes/classes/class-hooks.php:528
+#: includes/classes/class-hooks.php:539
+#: includes/classes/class-hooks.php:560
 msgid "Access Denied"
 msgstr "Достъпът е отказан"
 
-#: includes/classes/class-hooks.php:524
+#: includes/classes/class-hooks.php:527
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Съжалявам, нямате разрешение да създавате кратки линкове."
 
-#: includes/classes/class-hooks.php:535
+#: includes/classes/class-hooks.php:538
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Съжалявам, нямате разрешение да редактирате кратки линкове."
 
-#: includes/classes/class-hooks.php:556
+#: includes/classes/class-hooks.php:559
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Съжалявам, нямате разрешение да достъпвате настройките на кратките линкове."
 
@@ -458,7 +467,7 @@ msgid "PublishPress Shortlinks"
 msgstr "PublishPress кратки линкове"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:331
+#: includes/classes/class-settings.php:401
 msgid "General"
 msgstr "Общо"
 
@@ -741,210 +750,7 @@ msgstr "Невалиден идентификатор на ревизия."
 msgid "Settings"
 msgstr "Настройки"
 
-#: includes/classes/class-settings.php:237
-msgid "Elementor Detected:"
-msgstr "Открит Elementor:"
-
-#: includes/classes/class-settings.php:238
-msgid ""
-"Shortlink prefix is required for proper rendering of Elementor revisions. "
-"It is advisable to keep it enabled."
-msgstr ""
-"Префиксът на кратката връзка е необходим за правилното визуализиране на "
-"ревизиите на Elementor. Препоръчително е да го запазите включен."
-
-#: includes/classes/class-settings.php:270
-msgid "TinyPress Shortlinks Notice:"
-msgstr "Уведомление за кратки връзки TinyPress:"
-
 #: includes/classes/class-settings.php:271
-msgid ""
-"Elementor is active. Shortlink prefix has been automatically disabled, it "
-"is required for optimal compatibility with Elementor revisions."
-msgstr ""
-"Elementor е активен. Префиксът на кратката връзка е деактивиран "
-"автоматично, необходим е за оптимална съвместимост с ревiziите на Elementor."
-
-#: includes/classes/class-settings.php:334
-msgid "Options"
-msgstr "Опции"
-
-#: includes/classes/class-settings.php:339
-msgid "Shortlink Prefix"
-msgstr "Префикс на кратка връзка"
-
-#: includes/classes/class-settings.php:340
-msgid "Add a prefix between your domain name and shortlink."
-msgstr "Добавете префикс между името на домейна и краткия линк."
-
-#: includes/classes/class-settings.php:347
-msgid "Prefix Slug"
-msgstr "Префикс на линка"
-
-#: includes/classes/class-settings.php:348
-msgid "Custom prefix slug."
-msgstr "Персонализиран префикс на линка."
-
-#: includes/classes/class-settings.php:349
-msgid "This text will be added between your domain name and shortlink."
-msgstr "Текстът ще бъде добавен между името на домейна и краткия линк."
-
-#: includes/classes/class-settings.php:350
-#: includes/classes/class-settings.php:351
-msgid "go"
-msgstr "отивам"
-
-#: includes/classes/class-settings.php:357
-msgid "Keyboard Shortcut"
-msgstr "Клавишна комбинация"
-
-#: includes/classes/class-settings.php:358
-msgid "Create shortlinks from anywhere inside your WordPress dashboard."
-msgstr "Създавайте кратки линкове от всяко място в таблото на WordPress."
-
-#: includes/classes/class-settings.php:359
-#: includes/classes/class-settings.php:360
-msgid "Ctrl or Cmd + /"
-msgstr "Ctrl или Cmd + /"
-
-#: includes/classes/class-settings.php:369
-msgid "Remove from Admin Bar"
-msgstr "Премахни от админ лентата"
-
-#: includes/classes/class-settings.php:370
-msgid "Hide the \"Shorten\" button from the WordPress admin bar."
-msgstr "Скрий бутона \"Скъсяване\" от админ лентата на WordPress."
-
-#: includes/classes/class-settings.php:376
-msgid "Role Management"
-msgstr "Управление на роли"
-
-#: includes/classes/class-settings.php:381
-msgid "Who Can View Shortlinks"
-msgstr "Кой може да вижда кратки линкове"
-
-#: includes/classes/class-settings.php:382
-msgid "Only selected user roles can view links."
-msgstr "Само избраните роли на потребителите могат да виждат линкове."
-
-#: includes/classes/class-settings.php:390
-msgid "Who Can Create/Edit Shortlinks"
-msgstr "Кой може да създава/редактира кратки линкове"
-
-#: includes/classes/class-settings.php:391
-msgid "Only selected user roles can create or edit links."
-msgstr ""
-"Само избраните роли на потребителите могат да създават или редактират "
-"линкове."
-
-#: includes/classes/class-settings.php:400
-msgid "Who Can See Analytics"
-msgstr "Кой може да вижда аналитика"
-
-#: includes/classes/class-settings.php:401
-msgid "Only selected user roles can see analytics."
-msgstr "Само избраните роли на потребителите могат да виждат аналитика."
-
-#: includes/classes/class-settings.php:410
-msgid "Who Can Control Settings"
-msgstr "Кой може да контролира настройки"
-
-#: includes/classes/class-settings.php:411
-msgid "Only selected user roles can control settings."
-msgstr "Само избраните роли на потребителите могат да контролират настройки."
-
-#: includes/classes/class-settings.php:420
-msgid "Auto-Linking"
-msgstr "Автоматично свързване"
-
-#: includes/classes/class-settings.php:425
-msgid "Enable Auto-Linking"
-msgstr "Активиране на автоматично свързване"
-
-#: includes/classes/class-settings.php:426
-msgid "Automatically convert keywords to shortlinks in post content."
-msgstr ""
-"Автоматично конвертиране на ключови думи в кратки връзки в съдържанието на "
-"публикацията."
-
-#: includes/classes/class-settings.php:427
-msgid ""
-"When enabled, keywords configured in shortlink settings will be "
-"automatically linked in your content."
-msgstr ""
-"Когато е активирано, ключовите думи, конфигурирани в настройките на "
-"кратките връзки, ще бъдат автоматично свързани в съдържанието ви."
-
-#: includes/classes/class-settings.php:433
-msgid "Open Auto-Links In"
-msgstr "Отвори автоматични връзки в"
-
-#: includes/classes/class-settings.php:434
-msgid "Choose how auto-linked keywords should open."
-msgstr "Изберете как ключовите думи, автоматично свързани, да се отварят."
-
-#: includes/classes/class-settings.php:436
-msgid "Same tab"
-msgstr "Същия таб"
-
-#: includes/classes/class-settings.php:437
-msgid "New tab"
-msgstr "Нов таб"
-
-#: includes/classes/class-settings.php:445
-msgid "Auto-Link Color"
-msgstr "Цвят на автоматичната връзка"
-
-#: includes/classes/class-settings.php:446
-msgid "Choose the color for auto-linked keywords."
-msgstr "Изберете цвета за автоматично свързаните ключови думи."
-
-#: includes/classes/class-settings.php:453
-msgid "Auto-List Links"
-msgstr "Автоматично списък на линковете"
-
-#: includes/classes/class-settings.php:458
-msgid "Auto-List Shortlinks"
-msgstr "Авто-списък с кратки линкове"
-
-#: includes/classes/class-settings.php:459
-msgid ""
-"When enabled, shortlinks will appear in the \"All Links\" table based on "
-"the behavior you configure below."
-msgstr ""
-"Когато е активирано, кратките линкове ще се появят в таблицата \"Всички "
-"линкове\" в зависимост от поведението, което конфигурирате по-долу."
-
-#: includes/classes/class-settings.php:465
-msgid "Configure Post Types"
-msgstr "Конфигуриране на пост типове"
-
-#: includes/classes/class-settings.php:466
-msgid "Set when links should be auto-listed for each post type"
-msgstr "Настройте кога линковете да бъдат автоматично изброявани за всеки пост тип"
-
-#: includes/classes/class-settings.php:467
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr ""
-"Добавете пост типове и конфигурирайте кога техните кратки линкове да се "
-"появят в таблицата \"Всички линкове\". Промените се запазват автоматично."
-
-#: includes/classes/class-settings.php:474
-#: includes/classes/class-statuses.php:233
-msgid "Post Status Visibility"
-msgstr "Видимост на статуса на поста"
-
-#: includes/classes/class-settings.php:479
-msgid "Allowed Post Statuses"
-msgstr "Разрешени статуси на постовете"
-
-#: includes/classes/class-settings.php:480
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Изберете кои статуси на постовете могат да се достъпват чрез кратки линкове"
-
-#: includes/classes/class-settings.php:481
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -952,35 +758,252 @@ msgstr ""
 "Изберете кои статуси на постовете са достъпни при посещение на краткия линк "
 "на PublishPress."
 
-#: includes/classes/class-settings.php:484
+#: includes/classes/class-settings.php:287
+#, fuzzy
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "Безплатни кратки линкове на PublishPress"
+
+#: includes/classes/class-settings.php:288
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr ""
+"За да използвате основните статуси на PublishPress с Shortlinks, моля, "
+"активирайте типа на публикацията Shortlinks в настройките на работния поток "
+"на статусите на PublishPress."
+
+#: includes/classes/class-settings.php:307
+msgid "Elementor Detected:"
+msgstr "Открит Elementor:"
+
+#: includes/classes/class-settings.php:308
+msgid ""
+"Shortlink prefix is required for proper rendering of Elementor revisions. "
+"It is advisable to keep it enabled."
+msgstr ""
+"Префиксът на кратката връзка е необходим за правилното визуализиране на "
+"ревизиите на Elementor. Препоръчително е да го запазите включен."
+
+#: includes/classes/class-settings.php:340
+msgid "TinyPress Shortlinks Notice:"
+msgstr "Уведомление за кратки връзки TinyPress:"
+
+#: includes/classes/class-settings.php:341
+msgid ""
+"Elementor is active. Shortlink prefix has been automatically disabled, it "
+"is required for optimal compatibility with Elementor revisions."
+msgstr ""
+"Elementor е активен. Префиксът на кратката връзка е деактивиран "
+"автоматично, необходим е за оптимална съвместимост с ревiziите на Elementor."
+
+#: includes/classes/class-settings.php:404
+msgid "Options"
+msgstr "Опции"
+
+#: includes/classes/class-settings.php:409
+msgid "Shortlink Prefix"
+msgstr "Префикс на кратка връзка"
+
+#: includes/classes/class-settings.php:410
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "Добавете префикс между името на домейна и краткия линк."
+
+#: includes/classes/class-settings.php:417
+msgid "Prefix Slug"
+msgstr "Префикс на линка"
+
+#: includes/classes/class-settings.php:418
+msgid "Custom prefix slug."
+msgstr "Персонализиран префикс на линка."
+
+#: includes/classes/class-settings.php:419
+msgid "This text will be added between your domain name and shortlink."
+msgstr "Текстът ще бъде добавен между името на домейна и краткия линк."
+
+#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:421
+msgid "go"
+msgstr "отивам"
+
+#: includes/classes/class-settings.php:427
+msgid "Keyboard Shortcut"
+msgstr "Клавишна комбинация"
+
+#: includes/classes/class-settings.php:428
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
+msgstr "Създавайте кратки линкове от всяко място в таблото на WordPress."
+
+#: includes/classes/class-settings.php:429
+#: includes/classes/class-settings.php:430
+msgid "Ctrl or Cmd + /"
+msgstr "Ctrl или Cmd + /"
+
+#: includes/classes/class-settings.php:439
+msgid "Remove from Admin Bar"
+msgstr "Премахни от админ лентата"
+
+#: includes/classes/class-settings.php:440
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "Скрий бутона \"Скъсяване\" от админ лентата на WordPress."
+
+#: includes/classes/class-settings.php:446
+msgid "Role Management"
+msgstr "Управление на роли"
+
+#: includes/classes/class-settings.php:451
+msgid "Who Can View Shortlinks"
+msgstr "Кой може да вижда кратки линкове"
+
+#: includes/classes/class-settings.php:452
+msgid "Only selected user roles can view links."
+msgstr "Само избраните роли на потребителите могат да виждат линкове."
+
+#: includes/classes/class-settings.php:460
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "Кой може да създава/редактира кратки линкове"
+
+#: includes/classes/class-settings.php:461
+msgid "Only selected user roles can create or edit links."
+msgstr ""
+"Само избраните роли на потребителите могат да създават или редактират "
+"линкове."
+
+#: includes/classes/class-settings.php:470
+msgid "Who Can See Analytics"
+msgstr "Кой може да вижда аналитика"
+
+#: includes/classes/class-settings.php:471
+msgid "Only selected user roles can see analytics."
+msgstr "Само избраните роли на потребителите могат да виждат аналитика."
+
+#: includes/classes/class-settings.php:480
+msgid "Who Can Control Settings"
+msgstr "Кой може да контролира настройки"
+
+#: includes/classes/class-settings.php:481
+msgid "Only selected user roles can control settings."
+msgstr "Само избраните роли на потребителите могат да контролират настройки."
+
+#: includes/classes/class-settings.php:490
+msgid "Auto-Linking"
+msgstr "Автоматично свързване"
+
+#: includes/classes/class-settings.php:495
+msgid "Enable Auto-Linking"
+msgstr "Активиране на автоматично свързване"
+
+#: includes/classes/class-settings.php:496
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr ""
+"Автоматично конвертиране на ключови думи в кратки връзки в съдържанието на "
+"публикацията."
+
+#: includes/classes/class-settings.php:497
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr ""
+"Когато е активирано, ключовите думи, конфигурирани в настройките на "
+"кратките връзки, ще бъдат автоматично свързани в съдържанието ви."
+
+#: includes/classes/class-settings.php:503
+msgid "Open Auto-Links In"
+msgstr "Отвори автоматични връзки в"
+
+#: includes/classes/class-settings.php:504
+msgid "Choose how auto-linked keywords should open."
+msgstr "Изберете как ключовите думи, автоматично свързани, да се отварят."
+
+#: includes/classes/class-settings.php:506
+msgid "Same tab"
+msgstr "Същия таб"
+
+#: includes/classes/class-settings.php:507
+msgid "New tab"
+msgstr "Нов таб"
+
+#: includes/classes/class-settings.php:515
+msgid "Auto-Link Color"
+msgstr "Цвят на автоматичната връзка"
+
+#: includes/classes/class-settings.php:516
+msgid "Choose the color for auto-linked keywords."
+msgstr "Изберете цвета за автоматично свързаните ключови думи."
+
+#: includes/classes/class-settings.php:523
+msgid "Auto-List Links"
+msgstr "Автоматично списък на линковете"
+
+#: includes/classes/class-settings.php:528
+msgid "Auto-List Shortlinks"
+msgstr "Авто-списък с кратки линкове"
+
+#: includes/classes/class-settings.php:529
+msgid ""
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
+msgstr ""
+"Когато е активирано, кратките линкове ще се появят в таблицата \"Всички "
+"линкове\" в зависимост от поведението, което конфигурирате по-долу."
+
+#: includes/classes/class-settings.php:535
+msgid "Configure Post Types"
+msgstr "Конфигуриране на пост типове"
+
+#: includes/classes/class-settings.php:536
+msgid "Set when links should be auto-listed for each post type"
+msgstr "Настройте кога линковете да бъдат автоматично изброявани за всеки пост тип"
+
+#: includes/classes/class-settings.php:537
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr ""
+"Добавете пост типове и конфигурирайте кога техните кратки линкове да се "
+"появят в таблицата \"Всички линкове\". Промените се запазват автоматично."
+
+#: includes/classes/class-settings.php:544
+#: includes/classes/class-statuses.php:233
+msgid "Post Status Visibility"
+msgstr "Видимост на статуса на поста"
+
+#: includes/classes/class-settings.php:549
+msgid "Allowed Post Statuses"
+msgstr "Разрешени статуси на постовете"
+
+#: includes/classes/class-settings.php:550
+msgid "Choose which post statuses can be accessed via shortlinks"
+msgstr "Изберете кои статуси на постовете могат да се достъпват чрез кратки линкове"
+
+#: includes/classes/class-settings.php:554
 msgid "Published"
 msgstr "Публикуван"
 
-#: includes/classes/class-settings.php:485
+#: includes/classes/class-settings.php:555
 msgid "Draft"
 msgstr "Чернова"
 
-#: includes/classes/class-settings.php:486
+#: includes/classes/class-settings.php:556
 msgid "Pending Review"
 msgstr "В очакване на преглед"
 
-#: includes/classes/class-settings.php:487
+#: includes/classes/class-settings.php:557
 msgid "Private"
 msgstr "Частен"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:565
 msgid "Expired Links"
 msgstr "Изтекли линкове"
 
-#: includes/classes/class-settings.php:500
+#: includes/classes/class-settings.php:570
 msgid "Default Expired Redirect URL"
 msgstr "URL по подразбиране за пренасочване на изтекли линкове"
 
-#: includes/classes/class-settings.php:501
+#: includes/classes/class-settings.php:571
 msgid "Where should expired shortlinks redirect?"
 msgstr "Къде трябва да се пренасочват изтеклите кратки линкове?"
 
-#: includes/classes/class-settings.php:502
+#: includes/classes/class-settings.php:572
 msgid ""
 "When a shortlink expires, visitors will be redirected to this URL instead "
 "of seeing an error. Leave empty to show the default expiration message."
@@ -989,15 +1012,15 @@ msgstr ""
 "вместо да видят грешка. Оставете празно, за да се покаже съобщението за "
 "изтичане по подразбиране."
 
-#: includes/classes/class-settings.php:514
+#: includes/classes/class-settings.php:584
 msgid "Revisions"
 msgstr "Ревизии"
 
-#: includes/classes/class-settings.php:519
+#: includes/classes/class-settings.php:589
 msgid "Revision Link Visibility"
 msgstr "Видимост на линковете за ревизии"
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:590
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -1006,35 +1029,35 @@ msgstr ""
 "\"Всички кратки линкове\" в зависимост от поведението, което конфигурирате "
 "по-долу."
 
-#: includes/classes/class-settings.php:522
+#: includes/classes/class-settings.php:592
 msgid "When Revision is Created"
 msgstr "Когато е създадена ревизия"
 
-#: includes/classes/class-settings.php:524
+#: includes/classes/class-settings.php:594
 msgid "When Revision is Created or Link is First Used"
 msgstr "Когато е създадена ревизия или връзката е използвана за първи път"
 
-#: includes/classes/class-settings.php:532
+#: includes/classes/class-settings.php:602
 msgid "Show Shortlink in Revision Table"
 msgstr "Покажи кратка връзка в таблицата с ревизии"
 
-#: includes/classes/class-settings.php:533
+#: includes/classes/class-settings.php:603
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "Показвайте колоната с кратки връзки при преглед на ревизии в PublishPress "
 "Ревизии."
 
-#: includes/classes/class-settings.php:539
+#: includes/classes/class-settings.php:609
 msgid "Revision Visibility for Visitors"
 msgstr "Видимост на ревизията за посетителите"
 
-#: includes/classes/class-settings.php:540
+#: includes/classes/class-settings.php:610
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Позволете на посетители без влизане да преглеждат съдържанието на ревизията "
 "чрез кратки връзки."
 
-#: includes/classes/class-settings.php:541
+#: includes/classes/class-settings.php:611
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1046,17 +1069,17 @@ msgstr ""
 "показват съдържанието на ревизията директно за посетители без влизане, "
 "вместо да пренасочват към URL адреса на предварителния преглед."
 
-#: includes/classes/class-settings.php:562, fuzzy
+#: includes/classes/class-settings.php:632, fuzzy
 msgid "Dummy"
 msgstr "Dummy"
 
-#: includes/classes/class-settings.php:606
+#: includes/classes/class-settings.php:676
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Все още няма конфигурирани типове публикации. Щракнете върху \"Добавяне на "
 "тип публикация\", за да започнете."
 
-#: includes/classes/class-settings.php:638
+#: includes/classes/class-settings.php:708
 msgid "Add Post Type"
 msgstr "Добавяне на тип публикация"
 

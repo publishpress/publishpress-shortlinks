@@ -9,24 +9,24 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-27 15:45+0000\n"
+"POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
+"PO-Revision-Date: 2026-04-29 12:57+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:4, fuzzy
 #. Plugin Name of the plugin
 msgid "PublishPress Shortlinks Free"
 msgstr "PublishPress Shortlinks Free"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:5, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/shortlinks/"
 msgstr "https://publishpress.com/shortlinks/"
 
-#: tinypress.php
+#: tinypress.php:6
 #. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
@@ -35,12 +35,12 @@ msgstr ""
 "Tạo liên kết tùy chỉnh cho các bài viết của bạn. Những liên kết này có thể "
 "thương hiệu, theo dõi, và có thể có quyền xem tùy chỉnh."
 
-#: tinypress.php
+#: tinypress.php:9
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:10, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -210,29 +210,29 @@ msgid "Select a post type"
 msgstr "Chọn một post type"
 
 #: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:525
-#: includes/classes/class-settings.php:621
+#: includes/classes/class-settings.php:595
+#: includes/classes/class-settings.php:691
 msgid "Never"
 msgstr "Không bao giờ"
 
 #: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:523
-#: includes/classes/class-settings.php:623
+#: includes/classes/class-settings.php:593
+#: includes/classes/class-settings.php:693
 msgid "When Link is First Used"
 msgstr "Khi Liên kết được Sử dụng lần đầu"
 
 #: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:625
+#: includes/classes/class-settings.php:695
 msgid "When Post is Published"
 msgstr "Khi Bài viết được Xuất bản"
 
 #: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:624
+#: includes/classes/class-settings.php:694
 msgid "When Post is Created"
 msgstr "Khi Bài viết được Tạo"
 
 #: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:622
+#: includes/classes/class-settings.php:692
 msgid "When Link is First Used or Post Created"
 msgstr "Khi Liên kết được Sử dụng lần đầu hoặc Bài viết được Tạo"
 
@@ -292,7 +292,7 @@ msgid "Submitted for approval"
 msgstr "Đã gửi để phê duyệt"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:558
 msgid "Scheduled"
 msgstr "Đã lên lịch"
 
@@ -399,51 +399,60 @@ msgstr "Rút ngắn"
 msgid "All Shortlinks"
 msgstr "Tất cả các đường dẫn ngắn"
 
-#: includes/classes/class-hooks.php:226
+#: includes/classes/class-hooks.php:212
+#: includes/classes/class-hooks.php:213
+msgid "Add Shortlink"
+msgstr "Thêm Liên kết Ngắn"
+
+#: includes/classes/class-hooks.php:214
+msgid "Search Shortlinks"
+msgstr "Tìm Kiếm Liên kết Ngắn"
+
+#: includes/classes/class-hooks.php:229
 msgid "Category"
 msgstr "Danh mục"
 
-#: includes/classes/class-hooks.php:227
+#: includes/classes/class-hooks.php:230
 msgid "Categories"
 msgstr "Danh mục"
 
-#: includes/classes/class-hooks.php:253
-#: includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:256
+#: includes/classes/class-hooks.php:257
 msgid "Logs"
 msgstr "Nhật ký"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "All Logs"
 msgstr "Tất cả các nhật ký"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Are you sure you want to clear all logs?"
 msgstr "Bạn có chắc chắn muốn xóa tất cả nhật ký không?"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Clear Logs"
 msgstr "Xóa nhật ký"
 
-#: includes/classes/class-hooks.php:503
+#: includes/classes/class-hooks.php:506
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Xin lỗi, bạn không được phép truy cập vào các đường dẫn ngắn."
 
-#: includes/classes/class-hooks.php:504
-#: includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536
-#: includes/classes/class-hooks.php:557
+#: includes/classes/class-hooks.php:507
+#: includes/classes/class-hooks.php:528
+#: includes/classes/class-hooks.php:539
+#: includes/classes/class-hooks.php:560
 msgid "Access Denied"
 msgstr "Truy cập bị từ chối"
 
-#: includes/classes/class-hooks.php:524
+#: includes/classes/class-hooks.php:527
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Xin lỗi, bạn không được phép tạo đường dẫn ngắn."
 
-#: includes/classes/class-hooks.php:535
+#: includes/classes/class-hooks.php:538
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Xin lỗi, bạn không được phép chỉnh sửa đường dẫn ngắn."
 
-#: includes/classes/class-hooks.php:556
+#: includes/classes/class-hooks.php:559
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Xin lỗi, bạn không được phép truy cập vào cài đặt đường dẫn ngắn."
 
@@ -457,7 +466,7 @@ msgid "PublishPress Shortlinks"
 msgstr "PublishPress Shortlinks"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:331
+#: includes/classes/class-settings.php:401
 msgid "General"
 msgstr "Chung"
 
@@ -736,208 +745,7 @@ msgstr "ID phiên bản không hợp lệ."
 msgid "Settings"
 msgstr "Cài đặt"
 
-#: includes/classes/class-settings.php:237
-msgid "Elementor Detected:"
-msgstr "Phát hiện Elementor:"
-
-#: includes/classes/class-settings.php:238
-msgid ""
-"Shortlink prefix is required for proper rendering of Elementor revisions. "
-"It is advisable to keep it enabled."
-msgstr ""
-"Tiền tố liên kết ngắn là cần thiết để hiển thị đúng các phiên bản "
-"Elementor. Nên giữ nó được bật."
-
-#: includes/classes/class-settings.php:270
-msgid "TinyPress Shortlinks Notice:"
-msgstr "Thông báo về liên kết ngắn TinyPress:"
-
 #: includes/classes/class-settings.php:271
-msgid ""
-"Elementor is active. Shortlink prefix has been automatically disabled, it "
-"is required for optimal compatibility with Elementor revisions."
-msgstr ""
-"Elementor đang hoạt động. Tiền tố liên kết ngắn đã bị tắt tự động, nó cần "
-"thiết cho khả năng tương thích tối ưu với các phiên bản Elementor."
-
-#: includes/classes/class-settings.php:334
-msgid "Options"
-msgstr "Tùy chọn"
-
-#: includes/classes/class-settings.php:339
-msgid "Shortlink Prefix"
-msgstr "Tiền tố liên kết ngắn"
-
-#: includes/classes/class-settings.php:340
-msgid "Add a prefix between your domain name and shortlink."
-msgstr "Thêm một tiền tố giữa tên miền của bạn và đường dẫn ngắn."
-
-#: includes/classes/class-settings.php:347
-msgid "Prefix Slug"
-msgstr "Tiền tố Slug"
-
-#: includes/classes/class-settings.php:348
-msgid "Custom prefix slug."
-msgstr "Tiền tố slug tùy chỉnh."
-
-#: includes/classes/class-settings.php:349
-msgid "This text will be added between your domain name and shortlink."
-msgstr "Văn bản này sẽ được thêm vào giữa tên miền của bạn và đường dẫn ngắn."
-
-#: includes/classes/class-settings.php:350
-#: includes/classes/class-settings.php:351
-msgid "go"
-msgstr "đi"
-
-#: includes/classes/class-settings.php:357
-msgid "Keyboard Shortcut"
-msgstr "Phím tắt"
-
-#: includes/classes/class-settings.php:358
-msgid "Create shortlinks from anywhere inside your WordPress dashboard."
-msgstr "Tạo đường dẫn ngắn từ bất kỳ đâu trong bảng điều khiển WordPress của bạn."
-
-#: includes/classes/class-settings.php:359
-#: includes/classes/class-settings.php:360
-msgid "Ctrl or Cmd + /"
-msgstr "Ctrl hoặc Cmd + /"
-
-#: includes/classes/class-settings.php:369
-msgid "Remove from Admin Bar"
-msgstr "Xóa khỏi Thanh Quản Trị"
-
-#: includes/classes/class-settings.php:370
-msgid "Hide the \"Shorten\" button from the WordPress admin bar."
-msgstr "Ẩn nút \"Rút ngắn\" khỏi thanh quản trị WordPress."
-
-#: includes/classes/class-settings.php:376
-msgid "Role Management"
-msgstr "Quản lý vai trò"
-
-#: includes/classes/class-settings.php:381
-msgid "Who Can View Shortlinks"
-msgstr "Ai có thể xem đường dẫn ngắn"
-
-#: includes/classes/class-settings.php:382
-msgid "Only selected user roles can view links."
-msgstr "Chỉ các vai trò người dùng đã chọn mới có thể xem các liên kết."
-
-#: includes/classes/class-settings.php:390
-msgid "Who Can Create/Edit Shortlinks"
-msgstr "Ai có thể tạo/chỉnh sửa đường dẫn ngắn"
-
-#: includes/classes/class-settings.php:391
-msgid "Only selected user roles can create or edit links."
-msgstr ""
-"Chỉ các vai trò người dùng đã chọn mới có thể tạo hoặc chỉnh sửa các liên "
-"kết."
-
-#: includes/classes/class-settings.php:400
-msgid "Who Can See Analytics"
-msgstr "Ai có thể xem phân tích"
-
-#: includes/classes/class-settings.php:401
-msgid "Only selected user roles can see analytics."
-msgstr "Chỉ các vai trò người dùng đã chọn mới có thể xem phân tích."
-
-#: includes/classes/class-settings.php:410
-msgid "Who Can Control Settings"
-msgstr "Ai có thể kiểm soát cài đặt"
-
-#: includes/classes/class-settings.php:411
-msgid "Only selected user roles can control settings."
-msgstr "Chỉ các vai trò người dùng đã chọn mới có thể kiểm soát cài đặt."
-
-#: includes/classes/class-settings.php:420
-msgid "Auto-Linking"
-msgstr "Liên kết tự động"
-
-#: includes/classes/class-settings.php:425
-msgid "Enable Auto-Linking"
-msgstr "Bật Liên kết Tự động"
-
-#: includes/classes/class-settings.php:426
-msgid "Automatically convert keywords to shortlinks in post content."
-msgstr "Tự động chuyển đổi từ khóa thành liên kết ngắn trong nội dung bài viết."
-
-#: includes/classes/class-settings.php:427
-msgid ""
-"When enabled, keywords configured in shortlink settings will be "
-"automatically linked in your content."
-msgstr ""
-"Khi được bật, các từ khóa được cấu hình trong cài đặt liên kết ngắn sẽ được "
-"liên kết tự động trong nội dung của bạn."
-
-#: includes/classes/class-settings.php:433
-msgid "Open Auto-Links In"
-msgstr "Mở Liên kết Tự động Trong"
-
-#: includes/classes/class-settings.php:434
-msgid "Choose how auto-linked keywords should open."
-msgstr "Chọn cách mà các từ khóa được liên kết tự động nên mở."
-
-#: includes/classes/class-settings.php:436
-msgid "Same tab"
-msgstr "Cùng tab"
-
-#: includes/classes/class-settings.php:437
-msgid "New tab"
-msgstr "Tab mới"
-
-#: includes/classes/class-settings.php:445
-msgid "Auto-Link Color"
-msgstr "Màu Liên kết Tự động"
-
-#: includes/classes/class-settings.php:446
-msgid "Choose the color for auto-linked keywords."
-msgstr "Chọn màu cho các từ khóa tự động liên kết."
-
-#: includes/classes/class-settings.php:453
-msgid "Auto-List Links"
-msgstr "Tự động liệt kê liên kết"
-
-#: includes/classes/class-settings.php:458
-msgid "Auto-List Shortlinks"
-msgstr "Tự động danh sách liên kết ngắn"
-
-#: includes/classes/class-settings.php:459
-msgid ""
-"When enabled, shortlinks will appear in the \"All Links\" table based on "
-"the behavior you configure below."
-msgstr ""
-"Khi được kích hoạt, liên kết ngắn sẽ xuất hiện trong bảng \"Tất cả Liên "
-"kết\" dựa trên hành vi bạn cấu hình bên dưới."
-
-#: includes/classes/class-settings.php:465
-msgid "Configure Post Types"
-msgstr "Cấu hình loại bài viết"
-
-#: includes/classes/class-settings.php:466
-msgid "Set when links should be auto-listed for each post type"
-msgstr "Đặt thời điểm liên kết nên được tự động liệt kê cho mỗi loại bài viết"
-
-#: includes/classes/class-settings.php:467
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr ""
-"Thêm loại bài viết và cấu hình thời điểm liên kết ngắn của chúng nên xuất "
-"hiện trong bảng \"Tất cả Liên kết\". Các thay đổi sẽ được lưu tự động."
-
-#: includes/classes/class-settings.php:474
-#: includes/classes/class-statuses.php:233
-msgid "Post Status Visibility"
-msgstr "Tình trạng bài viết hiển thị"
-
-#: includes/classes/class-settings.php:479
-msgid "Allowed Post Statuses"
-msgstr "Các tình trạng bài viết được cho phép"
-
-#: includes/classes/class-settings.php:480
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Chọn các tình trạng bài viết có thể truy cập qua liên kết ngắn"
-
-#: includes/classes/class-settings.php:481
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -945,35 +753,250 @@ msgstr ""
 "Chọn các tình trạng bài viết có thể truy cập khi truy cập vào một liên kết "
 "ngắn của PublishPress."
 
-#: includes/classes/class-settings.php:484
+#: includes/classes/class-settings.php:287
+#, fuzzy
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "PublishPress Shortlinks Free"
+
+#: includes/classes/class-settings.php:288
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr ""
+"Để sử dụng các trạng thái PublishPress cốt lõi với Shortlinks, vui lòng "
+"kích hoạt loại bài viết Shortlinks trong cài đặt quy trình làm việc của "
+"trạng thái PublishPress."
+
+#: includes/classes/class-settings.php:307
+msgid "Elementor Detected:"
+msgstr "Phát hiện Elementor:"
+
+#: includes/classes/class-settings.php:308
+msgid ""
+"Shortlink prefix is required for proper rendering of Elementor revisions. "
+"It is advisable to keep it enabled."
+msgstr ""
+"Tiền tố liên kết ngắn là cần thiết để hiển thị đúng các phiên bản "
+"Elementor. Nên giữ nó được bật."
+
+#: includes/classes/class-settings.php:340
+msgid "TinyPress Shortlinks Notice:"
+msgstr "Thông báo về liên kết ngắn TinyPress:"
+
+#: includes/classes/class-settings.php:341
+msgid ""
+"Elementor is active. Shortlink prefix has been automatically disabled, it "
+"is required for optimal compatibility with Elementor revisions."
+msgstr ""
+"Elementor đang hoạt động. Tiền tố liên kết ngắn đã bị tắt tự động, nó cần "
+"thiết cho khả năng tương thích tối ưu với các phiên bản Elementor."
+
+#: includes/classes/class-settings.php:404
+msgid "Options"
+msgstr "Tùy chọn"
+
+#: includes/classes/class-settings.php:409
+msgid "Shortlink Prefix"
+msgstr "Tiền tố liên kết ngắn"
+
+#: includes/classes/class-settings.php:410
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "Thêm một tiền tố giữa tên miền của bạn và đường dẫn ngắn."
+
+#: includes/classes/class-settings.php:417
+msgid "Prefix Slug"
+msgstr "Tiền tố Slug"
+
+#: includes/classes/class-settings.php:418
+msgid "Custom prefix slug."
+msgstr "Tiền tố slug tùy chỉnh."
+
+#: includes/classes/class-settings.php:419
+msgid "This text will be added between your domain name and shortlink."
+msgstr "Văn bản này sẽ được thêm vào giữa tên miền của bạn và đường dẫn ngắn."
+
+#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:421
+msgid "go"
+msgstr "đi"
+
+#: includes/classes/class-settings.php:427
+msgid "Keyboard Shortcut"
+msgstr "Phím tắt"
+
+#: includes/classes/class-settings.php:428
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
+msgstr "Tạo đường dẫn ngắn từ bất kỳ đâu trong bảng điều khiển WordPress của bạn."
+
+#: includes/classes/class-settings.php:429
+#: includes/classes/class-settings.php:430
+msgid "Ctrl or Cmd + /"
+msgstr "Ctrl hoặc Cmd + /"
+
+#: includes/classes/class-settings.php:439
+msgid "Remove from Admin Bar"
+msgstr "Xóa khỏi Thanh Quản Trị"
+
+#: includes/classes/class-settings.php:440
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "Ẩn nút \"Rút ngắn\" khỏi thanh quản trị WordPress."
+
+#: includes/classes/class-settings.php:446
+msgid "Role Management"
+msgstr "Quản lý vai trò"
+
+#: includes/classes/class-settings.php:451
+msgid "Who Can View Shortlinks"
+msgstr "Ai có thể xem đường dẫn ngắn"
+
+#: includes/classes/class-settings.php:452
+msgid "Only selected user roles can view links."
+msgstr "Chỉ các vai trò người dùng đã chọn mới có thể xem các liên kết."
+
+#: includes/classes/class-settings.php:460
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "Ai có thể tạo/chỉnh sửa đường dẫn ngắn"
+
+#: includes/classes/class-settings.php:461
+msgid "Only selected user roles can create or edit links."
+msgstr ""
+"Chỉ các vai trò người dùng đã chọn mới có thể tạo hoặc chỉnh sửa các liên "
+"kết."
+
+#: includes/classes/class-settings.php:470
+msgid "Who Can See Analytics"
+msgstr "Ai có thể xem phân tích"
+
+#: includes/classes/class-settings.php:471
+msgid "Only selected user roles can see analytics."
+msgstr "Chỉ các vai trò người dùng đã chọn mới có thể xem phân tích."
+
+#: includes/classes/class-settings.php:480
+msgid "Who Can Control Settings"
+msgstr "Ai có thể kiểm soát cài đặt"
+
+#: includes/classes/class-settings.php:481
+msgid "Only selected user roles can control settings."
+msgstr "Chỉ các vai trò người dùng đã chọn mới có thể kiểm soát cài đặt."
+
+#: includes/classes/class-settings.php:490
+msgid "Auto-Linking"
+msgstr "Liên kết tự động"
+
+#: includes/classes/class-settings.php:495
+msgid "Enable Auto-Linking"
+msgstr "Bật Liên kết Tự động"
+
+#: includes/classes/class-settings.php:496
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr "Tự động chuyển đổi từ khóa thành liên kết ngắn trong nội dung bài viết."
+
+#: includes/classes/class-settings.php:497
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr ""
+"Khi được bật, các từ khóa được cấu hình trong cài đặt liên kết ngắn sẽ được "
+"liên kết tự động trong nội dung của bạn."
+
+#: includes/classes/class-settings.php:503
+msgid "Open Auto-Links In"
+msgstr "Mở Liên kết Tự động Trong"
+
+#: includes/classes/class-settings.php:504
+msgid "Choose how auto-linked keywords should open."
+msgstr "Chọn cách mà các từ khóa được liên kết tự động nên mở."
+
+#: includes/classes/class-settings.php:506
+msgid "Same tab"
+msgstr "Cùng tab"
+
+#: includes/classes/class-settings.php:507
+msgid "New tab"
+msgstr "Tab mới"
+
+#: includes/classes/class-settings.php:515
+msgid "Auto-Link Color"
+msgstr "Màu Liên kết Tự động"
+
+#: includes/classes/class-settings.php:516
+msgid "Choose the color for auto-linked keywords."
+msgstr "Chọn màu cho các từ khóa tự động liên kết."
+
+#: includes/classes/class-settings.php:523
+msgid "Auto-List Links"
+msgstr "Tự động liệt kê liên kết"
+
+#: includes/classes/class-settings.php:528
+msgid "Auto-List Shortlinks"
+msgstr "Tự động danh sách liên kết ngắn"
+
+#: includes/classes/class-settings.php:529
+msgid ""
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
+msgstr ""
+"Khi được kích hoạt, liên kết ngắn sẽ xuất hiện trong bảng \"Tất cả Liên "
+"kết\" dựa trên hành vi bạn cấu hình bên dưới."
+
+#: includes/classes/class-settings.php:535
+msgid "Configure Post Types"
+msgstr "Cấu hình loại bài viết"
+
+#: includes/classes/class-settings.php:536
+msgid "Set when links should be auto-listed for each post type"
+msgstr "Đặt thời điểm liên kết nên được tự động liệt kê cho mỗi loại bài viết"
+
+#: includes/classes/class-settings.php:537
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr ""
+"Thêm loại bài viết và cấu hình thời điểm liên kết ngắn của chúng nên xuất "
+"hiện trong bảng \"Tất cả Liên kết\". Các thay đổi sẽ được lưu tự động."
+
+#: includes/classes/class-settings.php:544
+#: includes/classes/class-statuses.php:233
+msgid "Post Status Visibility"
+msgstr "Tình trạng bài viết hiển thị"
+
+#: includes/classes/class-settings.php:549
+msgid "Allowed Post Statuses"
+msgstr "Các tình trạng bài viết được cho phép"
+
+#: includes/classes/class-settings.php:550
+msgid "Choose which post statuses can be accessed via shortlinks"
+msgstr "Chọn các tình trạng bài viết có thể truy cập qua liên kết ngắn"
+
+#: includes/classes/class-settings.php:554
 msgid "Published"
 msgstr "Đã xuất bản"
 
-#: includes/classes/class-settings.php:485
+#: includes/classes/class-settings.php:555
 msgid "Draft"
 msgstr "Nháp"
 
-#: includes/classes/class-settings.php:486
+#: includes/classes/class-settings.php:556
 msgid "Pending Review"
 msgstr "Chờ xem xét"
 
-#: includes/classes/class-settings.php:487
+#: includes/classes/class-settings.php:557
 msgid "Private"
 msgstr "Riêng tư"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:565
 msgid "Expired Links"
 msgstr "Liên kết hết hạn"
 
-#: includes/classes/class-settings.php:500
+#: includes/classes/class-settings.php:570
 msgid "Default Expired Redirect URL"
 msgstr "URL chuyển hướng hết hạn mặc định"
 
-#: includes/classes/class-settings.php:501
+#: includes/classes/class-settings.php:571
 msgid "Where should expired shortlinks redirect?"
 msgstr "Liên kết ngắn hết hạn nên chuyển hướng đến đâu?"
 
-#: includes/classes/class-settings.php:502
+#: includes/classes/class-settings.php:572
 msgid ""
 "When a shortlink expires, visitors will be redirected to this URL instead "
 "of seeing an error. Leave empty to show the default expiration message."
@@ -981,15 +1004,15 @@ msgstr ""
 "Khi một liên kết ngắn hết hạn, khách truy cập sẽ được chuyển hướng đến URL "
 "này thay vì thấy một lỗi. Để trống để hiển thị thông điệp hết hạn mặc định."
 
-#: includes/classes/class-settings.php:514
+#: includes/classes/class-settings.php:584
 msgid "Revisions"
 msgstr "Phiên bản"
 
-#: includes/classes/class-settings.php:519
+#: includes/classes/class-settings.php:589
 msgid "Revision Link Visibility"
 msgstr "Tình trạng liên kết phiên bản hiển thị"
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:590
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -997,35 +1020,35 @@ msgstr ""
 "Khi được kích hoạt, liên kết ngắn phiên bản sẽ xuất hiện trong bảng \"Tất "
 "cả Liên kết ngắn\" dựa trên hành vi bạn cấu hình bên dưới."
 
-#: includes/classes/class-settings.php:522
+#: includes/classes/class-settings.php:592
 msgid "When Revision is Created"
 msgstr "Khi Bản sửa đổi được Tạo"
 
-#: includes/classes/class-settings.php:524
+#: includes/classes/class-settings.php:594
 msgid "When Revision is Created or Link is First Used"
 msgstr "Khi Bản sửa đổi được Tạo hoặc Liên kết được Sử dụng lần Đầu"
 
-#: includes/classes/class-settings.php:532
+#: includes/classes/class-settings.php:602
 msgid "Show Shortlink in Revision Table"
 msgstr "Hiển thị Liên kết ngắn trong Bảng Bản sửa đổi"
 
-#: includes/classes/class-settings.php:533
+#: includes/classes/class-settings.php:603
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "Hiển thị cột liên kết ngắn khi xem các bản sửa đổi trong PublishPress "
 "Revisions."
 
-#: includes/classes/class-settings.php:539
+#: includes/classes/class-settings.php:609
 msgid "Revision Visibility for Visitors"
 msgstr "Tính khả dụng của Bản sửa đổi cho Khách truy cập"
 
-#: includes/classes/class-settings.php:540
+#: includes/classes/class-settings.php:610
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Cho phép khách truy cập không đăng nhập xem nội dung bản sửa đổi thông qua "
 "các liên kết ngắn."
 
-#: includes/classes/class-settings.php:541
+#: includes/classes/class-settings.php:611
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1037,15 +1060,15 @@ msgstr ""
 "nội dung bản sửa đổi trực tiếp cho khách truy cập không đăng nhập thay vì "
 "chuyển hướng đến URL xem trước."
 
-#: includes/classes/class-settings.php:562
+#: includes/classes/class-settings.php:632
 msgid "Dummy"
 msgstr "Giả lập"
 
-#: includes/classes/class-settings.php:606
+#: includes/classes/class-settings.php:676
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr "Chưa cấu hình loại bài viết nào. Nhấn \"Thêm Loại Bài Viết\" để bắt đầu."
 
-#: includes/classes/class-settings.php:638
+#: includes/classes/class-settings.php:708
 msgid "Add Post Type"
 msgstr "Thêm Loại Bài Viết"
 
