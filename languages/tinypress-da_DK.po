@@ -4,30 +4,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PublishPress Shortlinks Free 1.5.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
-"POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-08 11:24+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: da-DK\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
+"PO-Revision-Date: 2026-04-29 12:57+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: da-DK\n"
 
+#: tinypress.php:4, fuzzy
 #. Plugin Name of the plugin
-#: tinypress.php
 msgid "PublishPress Shortlinks Free"
-msgstr ""
+msgstr "PublishPress Shortlinks Free"
 
+#: tinypress.php:5, fuzzy
 #. Plugin URI of the plugin
-#: tinypress.php
 msgid "https://publishpress.com/shortlinks/"
-msgstr ""
+msgstr "https://publishpress.com/shortlinks/"
 
+#: tinypress.php:6
 #. Description of the plugin
-#: tinypress.php
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
 "and can have custom view permissions."
@@ -35,20 +35,20 @@ msgstr ""
 "Opret brugerdefinerede links til dine indlæg. Disse links kan brandes, "
 "spores og kan have brugerdefinerede visningsrettigheder."
 
+#: tinypress.php:9
 #. Author of the plugin
-#: tinypress.php
 msgid "PublishPress"
 msgstr "PublishPress"
 
+#: tinypress.php:10, fuzzy
 #. Author URI of the plugin
-#: tinypress.php
 msgid "https://publishpress.com/"
-msgstr ""
+msgstr "https://publishpress.com/"
 
 #: includes-core/ShortlinksCoreAdmin.php:86
 msgid ""
-"You're using PublishPress Shortlinks Free. The Pro version has more features "
-"and support. "
+"You're using PublishPress Shortlinks Free. The Pro version has more "
+"features and support. "
 msgstr ""
 "Du bruger PublishPress Shortlinks Free. Pro-versionen har flere funktioner "
 "og support. "
@@ -120,12 +120,12 @@ msgstr "CSV-eksport"
 msgid "CSV Import"
 msgstr "CSV-import"
 
-#: includes-core/ShortlinksCoreAdmin.php:267
+#: includes-core/ShortlinksCoreAdmin.php:267, fuzzy
 msgid "Bulk Management"
-msgstr ""
+msgstr "Bulk Management"
 
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:194
+#: includes/classes/class-autolist-ajax.php:200
 msgid "Permission denied"
 msgstr "Tilladelse nægtet"
 
@@ -133,104 +133,105 @@ msgstr "Tilladelse nægtet"
 msgid "Post type is required"
 msgstr "Post type er påkrævet"
 
-#: includes/classes/class-autolist-ajax.php:52
-#, php-format
-msgid "\"%s\" is not a registered post type"
-msgstr "\"%s\" er ikke en registreret post type"
+#: includes/classes/class-autolist-ajax.php:53
+#. translators: %s: post type name
+msgid "\"%%s\" is not a registered post type"
+msgstr "\"%%s\" er ikke en registreret post type"
 
-#: includes/classes/class-autolist-ajax.php:59
-#, php-format
-msgid "\"%s\" is not a public post type"
-msgstr "\"%s\" er ikke en offentlig post type"
+#: includes/classes/class-autolist-ajax.php:61
+#. translators: %s: post type name
+msgid "\"%%s\" is not a public post type"
+msgstr "\"%%s\" er ikke en offentlig post type"
 
-#: includes/classes/class-autolist-ajax.php:65
-#, php-format
-msgid "\"%s\" cannot be used for auto-listing"
-msgstr "\"%s\" kan ikke bruges til automatisk oplistning"
+#: includes/classes/class-autolist-ajax.php:68
+#. translators: %s: post type name
+msgid "\"%%s\" cannot be used for auto-listing"
+msgstr "\"%%s\" kan ikke bruges til auto-listing"
 
-#: includes/classes/class-autolist-ajax.php:74
-#, php-format
-msgid "\"%s\" is already configured"
-msgstr "\"%s\" er allerede konfigureret"
+#: includes/classes/class-autolist-ajax.php:78
+#. translators: %s: post type name
+msgid "\"%%s\" is already configured"
+msgstr "\"%%s\" er allerede konfigureret"
 
-#: includes/classes/class-autolist-ajax.php:80
-#, php-format
-msgid "Valid: %s"
-msgstr "Gyldig: %s"
+#: includes/classes/class-autolist-ajax.php:85
+#. translators: %s: post type label
+msgid "Valid: %%s"
+msgstr "Gyldig: %%s"
 
-#: includes/classes/class-autolist-ajax.php:94
+#: includes/classes/class-autolist-ajax.php:99
 msgid "Permission denied - you must be an administrator"
 msgstr "Tilladelse nægtet - du skal være administrator"
 
-#: includes/classes/class-autolist-ajax.php:102
+#: includes/classes/class-autolist-ajax.php:107
 msgid "Invalid configuration format - expected array"
 msgstr "Ugyldigt konfigurationsformat - forventet array"
 
-#: includes/classes/class-autolist-ajax.php:123
+#: includes/classes/class-autolist-ajax.php:128
 msgid "Configuration unchanged (already saved)"
 msgstr "Konfiguration uændret (allerede gemt)"
 
-#: includes/classes/class-autolist-ajax.php:127
+#: includes/classes/class-autolist-ajax.php:132
 msgid "Failed to save configuration to database"
 msgstr "Fejl ved at gemme konfiguration til database"
 
-#: includes/classes/class-autolist-ajax.php:132
+#: includes/classes/class-autolist-ajax.php:137
 msgid "Configuration saved successfully"
 msgstr "Konfiguration gemt med succes"
 
-#: includes/classes/class-autolist-ajax.php:138
+#: includes/classes/class-autolist-ajax.php:144
+#. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "Fejl: %s"
 
-#: includes/classes/class-autolist-ajax.php:283
+#: includes/classes/class-autolist-ajax.php:289
 msgid "Validating..."
 msgstr "Validerer..."
 
-#: includes/classes/class-autolist-ajax.php:284
+#: includes/classes/class-autolist-ajax.php:290
 msgid "Saving..."
 msgstr "Gemmer..."
 
-#: includes/classes/class-autolist-ajax.php:285
+#: includes/classes/class-autolist-ajax.php:291
 msgid "Saved!"
 msgstr "Gemt!"
 
-#: includes/classes/class-autolist-ajax.php:286
+#: includes/classes/class-autolist-ajax.php:292
 msgid "Error"
 msgstr "Fejl"
 
-#: includes/classes/class-autolist-ajax.php:287
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Are you sure you want to remove this post type?"
 msgstr "Er du sikker på, at du vil fjerne denne post type?"
 
-#: includes/classes/class-autolist-ajax.php:288
+#: includes/classes/class-autolist-ajax.php:294
 msgid "Select a post type"
 msgstr "Vælg en post type"
 
-#: includes/classes/class-autolist-ajax.php:289
-#: includes/classes/class-settings.php:407
-#: includes/classes/class-settings.php:503
+#: includes/classes/class-autolist-ajax.php:295
+#: includes/classes/class-settings.php:595
+#: includes/classes/class-settings.php:691
 msgid "Never"
 msgstr "Aldrig"
 
-#: includes/classes/class-autolist-ajax.php:290
-#: includes/classes/class-settings.php:405
-#: includes/classes/class-settings.php:505
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-settings.php:593
+#: includes/classes/class-settings.php:693
 msgid "When Link is First Used"
 msgstr "Når linket bruges første gang"
 
-#: includes/classes/class-autolist-ajax.php:291
-#: includes/classes/class-settings.php:507
+#: includes/classes/class-autolist-ajax.php:297
+#: includes/classes/class-settings.php:695
 msgid "When Post is Published"
 msgstr "Når indlægget offentliggøres"
 
-#: includes/classes/class-autolist-ajax.php:292
-#: includes/classes/class-settings.php:506
+#: includes/classes/class-autolist-ajax.php:298
+#: includes/classes/class-settings.php:694
 msgid "When Post is Created"
 msgstr "Når indlægget oprettes"
 
-#: includes/classes/class-autolist-ajax.php:293
-#: includes/classes/class-settings.php:504
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:692
 msgid "When Link is First Used or Post Created"
 msgstr "Når linket bruges første gang eller indlægget oprettes"
 
@@ -239,9 +240,9 @@ msgid "Invalid post ID or post type."
 msgstr "Ugyldigt indlæg ID eller post type."
 
 #: includes/classes/class-columns-link.php:49
-#: includes/classes/class-columns-link.php:277
+#: includes/classes/class-columns-link.php:279
 #: includes/classes/class-hooks.php:207
-#: includes/classes/class-table-logs.php:163
+#: includes/classes/class-table-logs.php:164
 #: templates/admin-modal-new-link.php:29
 msgid "Shortlink"
 msgstr "Kortlink"
@@ -251,7 +252,8 @@ msgid "No shortlink"
 msgstr "Ingen kortlink"
 
 #: includes/classes/class-columns-link.php:92
-#: includes/classes/class-hooks.php:208 includes/classes/class-hooks.php:210
+#: includes/classes/class-hooks.php:208
+#: includes/classes/class-hooks.php:210
 #: includes/classes/class-meta-boxes.php:93
 msgid "Shortlinks"
 msgstr "Kortlinks"
@@ -272,9 +274,9 @@ msgstr "Dette linker til dit indlæg"
 msgid "This links to an external website"
 msgstr "Dette linker til et eksternt websted"
 
-#: includes/classes/class-columns-link.php:189
+#: includes/classes/class-columns-link.php:189, fuzzy
 msgid "Revision"
-msgstr ""
+msgstr "Revision"
 
 #: includes/classes/class-columns-link.php:190
 msgid "This links to a revision"
@@ -289,7 +291,7 @@ msgid "Submitted for approval"
 msgstr "Indsendt til godkendelse"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:370
+#: includes/classes/class-settings.php:558
 msgid "Scheduled"
 msgstr "Planlagt"
 
@@ -305,40 +307,42 @@ msgstr "Kræver arbejde"
 msgid "Rejected"
 msgstr "Afvist"
 
-#: includes/classes/class-columns-link.php:206
-#, php-format
+#: includes/classes/class-columns-link.php:207
+#. translators: %s: revision status label
+#, fuzzy, php-format
 msgid "Revision: %s"
-msgstr ""
+msgstr "Revision: %s"
 
-#: includes/classes/class-columns-link.php:222
+#: includes/classes/class-columns-link.php:224
+#. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "Klikket %s gange"
 
-#: includes/classes/class-columns-link.php:228
-#: includes/classes/class-table-logs.php:196
+#: includes/classes/class-columns-link.php:230
+#: includes/classes/class-table-logs.php:197
 msgid "Edit"
 msgstr "Rediger"
 
-#: includes/classes/class-columns-link.php:229
-#: includes/classes/class-table-logs.php:177
-#: includes/classes/class-table-logs.php:198
+#: includes/classes/class-columns-link.php:231
+#: includes/classes/class-table-logs.php:178
+#: includes/classes/class-table-logs.php:199
 msgid "Delete"
 msgstr "Slet"
 
-#: includes/classes/class-columns-link.php:276
+#: includes/classes/class-columns-link.php:278
 msgid "Link Title"
 msgstr "Linktitel"
 
-#: includes/classes/class-columns-link.php:278
+#: includes/classes/class-columns-link.php:280
 msgid "Link Type"
 msgstr "Linktype"
 
-#: includes/classes/class-columns-link.php:279
+#: includes/classes/class-columns-link.php:281
 msgid "Stats"
 msgstr "Statistik"
 
-#: includes/classes/class-columns-link.php:280
+#: includes/classes/class-columns-link.php:282
 msgid "Actions"
 msgstr "Handlinger"
 
@@ -394,64 +398,76 @@ msgstr "Forkort"
 msgid "All Shortlinks"
 msgstr "Alle forkortede links"
 
-#: includes/classes/class-hooks.php:226
+#: includes/classes/class-hooks.php:212
+#: includes/classes/class-hooks.php:213
+msgid "Add Shortlink"
+msgstr "Tilføj kortlink"
+
+#: includes/classes/class-hooks.php:214
+msgid "Search Shortlinks"
+msgstr "Søg kortlinks"
+
+#: includes/classes/class-hooks.php:229
 msgid "Category"
 msgstr "Kategori"
 
-#: includes/classes/class-hooks.php:227
+#: includes/classes/class-hooks.php:230
 msgid "Categories"
 msgstr "Kategorier"
 
-#: includes/classes/class-hooks.php:253 includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:256
+#: includes/classes/class-hooks.php:257
 msgid "Logs"
 msgstr "Logfiler"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "All Logs"
 msgstr "Alle logfiler"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Are you sure you want to clear all logs?"
 msgstr "Er du sikker på, at du vil rydde alle logfiler?"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Clear Logs"
 msgstr "Ryd logfiler"
 
-#: includes/classes/class-hooks.php:503
+#: includes/classes/class-hooks.php:506
 msgid "Sorry, you are not allowed to access shortlinks."
-msgstr ""
-"Beklager, du har ikke tilladelse til at få adgang til forkortede links."
+msgstr "Beklager, du har ikke tilladelse til at få adgang til forkortede links."
 
-#: includes/classes/class-hooks.php:504 includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536 includes/classes/class-hooks.php:557
+#: includes/classes/class-hooks.php:507
+#: includes/classes/class-hooks.php:528
+#: includes/classes/class-hooks.php:539
+#: includes/classes/class-hooks.php:560
 msgid "Access Denied"
 msgstr "Adgang nægtet"
 
-#: includes/classes/class-hooks.php:524
+#: includes/classes/class-hooks.php:527
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Beklager, du har ikke tilladelse til at oprette forkortede links."
 
-#: includes/classes/class-hooks.php:535
+#: includes/classes/class-hooks.php:538
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Beklager, du har ikke tilladelse til at redigere forkortede links."
 
-#: includes/classes/class-hooks.php:556
+#: includes/classes/class-hooks.php:559
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr ""
 "Beklager, du har ikke tilladelse til at få adgang til indstillingerne for "
 "forkortede links."
 
-#: includes/classes/class-meta-boxes.php:76
+#: includes/classes/class-meta-boxes.php:76, fuzzy
 msgid "Side"
-msgstr ""
+msgstr "Side"
 
-#: includes/classes/class-meta-boxes.php:187 tinypress.php:380
+#: includes/classes/class-meta-boxes.php:187
+#: tinypress.php:448
 msgid "PublishPress Shortlinks"
 msgstr "PublishPress forkortede links"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:246
+#: includes/classes/class-settings.php:401
 msgid "General"
 msgstr "Generelt"
 
@@ -475,17 +491,16 @@ msgstr "Kort streng *"
 msgid "Short string of this URL."
 msgstr "Kort streng af denne URL."
 
-#: includes/classes/class-meta-boxes.php:233
+#: includes/classes/class-meta-boxes.php:233, fuzzy
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: includes/classes/class-meta-boxes.php:234
 msgid "Disable the shortlink instantly."
 msgstr "Deaktiver kortlinket straks."
 
 #: includes/classes/class-meta-boxes.php:235
-msgid ""
-"After disabling the link will not active but the settings will be reserved."
+msgid "After disabling the link will not active but the settings will be reserved."
 msgstr ""
 "Efter deaktivering vil linket ikke være aktivt, men indstillingerne vil "
 "blive gemt."
@@ -502,43 +517,71 @@ msgstr "Deaktiver"
 msgid "Notes"
 msgstr "Noter"
 
-#: includes/classes/class-meta-boxes.php:254
+#: includes/classes/class-meta-boxes.php:251
+msgid "All"
+msgstr "Alle"
+
+#: includes/classes/class-meta-boxes.php:263
+msgid "Auto-linking"
+msgstr "Automatisk linkning"
+
+#: includes/classes/class-meta-boxes.php:268
+msgid "Keywords"
+msgstr "Nøgleord"
+
+#: includes/classes/class-meta-boxes.php:269
+msgid ""
+"Add keywords separated by commas or on separate lines. Each keyword will "
+"link to this shortlink."
+msgstr ""
+"Tilføj nøgleord adskilt af kommaer eller på separate linjer. Hvert nøgleord "
+"vil linke til denne shortlink."
+
+#: includes/classes/class-meta-boxes.php:274, fuzzy
+msgid "Post Types"
+msgstr "Post Types"
+
+#: includes/classes/class-meta-boxes.php:275
+msgid "Where should these keywords be auto-linked?"
+msgstr "Hvor skal disse nøgleord auto-linkes?"
+
+#: includes/classes/class-meta-boxes.php:288
 msgid "Redirection"
 msgstr "Omdirigering"
 
-#: includes/classes/class-meta-boxes.php:259
+#: includes/classes/class-meta-boxes.php:293
 msgid "Redirection Method"
 msgstr "Omdirigeringsmetode"
 
-#: includes/classes/class-meta-boxes.php:260
+#: includes/classes/class-meta-boxes.php:294
 msgid "Select redirection method"
 msgstr "Vælg omdirigeringsmetode"
 
-#: includes/classes/class-meta-boxes.php:261
+#: includes/classes/class-meta-boxes.php:295
 msgid "Select a method"
 msgstr "Vælg en metode"
 
-#: includes/classes/class-meta-boxes.php:263
+#: includes/classes/class-meta-boxes.php:297
 msgid "307 (Temporary)"
 msgstr "307 (Midlertidig)"
 
-#: includes/classes/class-meta-boxes.php:264
+#: includes/classes/class-meta-boxes.php:298
 msgid "302 (Temporary)"
 msgstr "302 (Midlertidig)"
 
-#: includes/classes/class-meta-boxes.php:265
+#: includes/classes/class-meta-boxes.php:299, fuzzy
 msgid "301 (Permanent)"
-msgstr ""
+msgstr "301 (Permanent)"
 
-#: includes/classes/class-meta-boxes.php:272
+#: includes/classes/class-meta-boxes.php:306
 msgid "Sponsored"
 msgstr "Sponsoreret"
 
-#: includes/classes/class-meta-boxes.php:273
+#: includes/classes/class-meta-boxes.php:307
 msgid "Mark links as sponsored content."
 msgstr "Marker links som sponsoreret indhold."
 
-#: includes/classes/class-meta-boxes.php:274
+#: includes/classes/class-meta-boxes.php:308
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -546,15 +589,15 @@ msgstr ""
 "Tilføjer rel=\"sponsoreret\" attribut. Anbefales til affiliate links og "
 "betalte kampagner."
 
-#: includes/classes/class-meta-boxes.php:279
+#: includes/classes/class-meta-boxes.php:313, fuzzy
 msgid "NoFollow"
-msgstr ""
+msgstr "NoFollow"
 
-#: includes/classes/class-meta-boxes.php:280
+#: includes/classes/class-meta-boxes.php:314
 msgid "Prevent search engines from following this link."
 msgstr "Forhindrer søgemaskiner i at følge dette link."
 
-#: includes/classes/class-meta-boxes.php:281
+#: includes/classes/class-meta-boxes.php:315
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -562,304 +605,148 @@ msgstr ""
 "Tilføjer rel=\"nofollow\" attribut. Anbefales til eksterne links og "
 "upålidelige kilder."
 
-#: includes/classes/class-meta-boxes.php:287
+#: includes/classes/class-meta-boxes.php:321
 msgid "Parameter Forwarding"
 msgstr "Parameter Videregivelse"
 
-#: includes/classes/class-meta-boxes.php:288
+#: includes/classes/class-meta-boxes.php:322
 msgid "Pass URL parameters to the target link."
 msgstr "Send URL-parametre til mål-linket."
 
-#: includes/classes/class-meta-boxes.php:289
+#: includes/classes/class-meta-boxes.php:323
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
 msgstr ""
-"Eventuelle parametre, der er tilføjet til den korte URL (f.eks. ?"
-"utm_source=email), vil blive videregivet til mål-URL'en."
+"Eventuelle parametre, der er tilføjet til den korte URL (f.eks. "
+"?utm_source=email), vil blive videregivet til mål-URL'en."
 
-#: includes/classes/class-meta-boxes.php:299
+#: includes/classes/class-meta-boxes.php:333
 msgid "Password Protection"
 msgstr "Adgangskodebeskyttelse"
 
-#: includes/classes/class-meta-boxes.php:300
+#: includes/classes/class-meta-boxes.php:334
 msgid "Secure your shortlink."
 msgstr "Sikre din kortlink."
 
-#: includes/classes/class-meta-boxes.php:301
+#: includes/classes/class-meta-boxes.php:335
 msgid "Users must enter the password to redirect to the target link."
-msgstr ""
-"Brugere skal indtaste adgangskoden for at blive omdirigeret til mål-linket."
+msgstr "Brugere skal indtaste adgangskoden for at blive omdirigeret til mål-linket."
 
-#: includes/classes/class-meta-boxes.php:306
+#: includes/classes/class-meta-boxes.php:340
 msgid "Password"
 msgstr "Adgangskode"
 
-#: includes/classes/class-meta-boxes.php:307
+#: includes/classes/class-meta-boxes.php:341
 msgid "Share this with users."
 msgstr "Del dette med brugerne."
 
-#: includes/classes/class-meta-boxes.php:308
+#: includes/classes/class-meta-boxes.php:342
 msgid "Passwords are case sensitive."
 msgstr "Adgangskoder er store og små bogstaver følsomme."
 
-#: includes/classes/class-meta-boxes.php:309
+#: includes/classes/class-meta-boxes.php:343, fuzzy
 msgid "********"
-msgstr ""
+msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:318
+#: includes/classes/class-meta-boxes.php:352
 msgid "Enable Expiration"
 msgstr "Aktivér Udløb"
 
-#: includes/classes/class-meta-boxes.php:319
+#: includes/classes/class-meta-boxes.php:353
 msgid "Expire automatically."
 msgstr "Udløb automatisk."
 
-#: includes/classes/class-meta-boxes.php:320
+#: includes/classes/class-meta-boxes.php:354
 msgid "Users will not able to redirect to the target URL once expire."
-msgstr ""
-"Brugere vil ikke kunne blive omdirigeret til mål-URL'en, når den udløber."
+msgstr "Brugere vil ikke kunne blive omdirigeret til mål-URL'en, når den udløber."
 
-#: includes/classes/class-meta-boxes.php:325
+#: includes/classes/class-meta-boxes.php:359
 msgid "Expiration Date"
 msgstr "Udløbsdato"
 
-#: includes/classes/class-meta-boxes.php:326
+#: includes/classes/class-meta-boxes.php:360
 msgid "Choose the date this link should expire."
 msgstr "Vælg den dato, hvor dette link skal udløbe."
 
-#: includes/classes/class-meta-boxes.php:338
+#: includes/classes/class-meta-boxes.php:372
 msgid "Expiration Time"
 msgstr "Udløbstid"
 
-#: includes/classes/class-meta-boxes.php:339
+#: includes/classes/class-meta-boxes.php:373
 msgid "Choose the time this link should expire."
 msgstr "Vælg den tid, hvor dette link skal udløbe."
 
-#: includes/classes/class-meta-boxes.php:340
+#: includes/classes/class-meta-boxes.php:374
 msgid "Must be at least 1 minute in the future."
 msgstr "Skal være mindst 1 minut i fremtiden."
 
-#: includes/classes/class-meta-boxes.php:357
+#: includes/classes/class-meta-boxes.php:391
 msgid "Security"
 msgstr "Sikkerhed"
 
-#: includes/classes/class-meta-boxes.php:368
+#: includes/classes/class-meta-boxes.php:402
 msgid "Analytics"
 msgstr "Analyser"
 
-#: includes/classes/class-redirection.php:543
+#: includes/classes/class-redirection.php:599
 msgid "Post not found."
 msgstr "Indlæg ikke fundet."
 
-#: includes/classes/class-redirection.php:585
-msgid "Link Expired"
-msgstr "Linket er udløbet"
-
-#: includes/classes/class-redirection.php:598
+#: includes/classes/class-redirection.php:648
 msgid "This link has expired"
 msgstr "Dette link er udløbet"
 
-#: includes/classes/class-redirection.php:599
+#: includes/classes/class-redirection.php:652
 msgid "You will be redirected shortly."
 msgstr "Du vil blive omdirigeret snart."
 
-#: includes/classes/class-redirection.php:600
+#: includes/classes/class-redirection.php:656
 msgid "Click here if you are not redirected"
 msgstr "Klik her, hvis du ikke bliver omdirigeret"
 
-#: includes/classes/class-redirection.php:716
+#: includes/classes/class-redirection.php:673
+msgid "Link Expired"
+msgstr "Linket er udløbet"
+
+#: includes/classes/class-redirection.php:804
 msgid "This link is not active."
 msgstr "Dette link er ikke aktivt."
 
-#: includes/classes/class-redirection.php:750
+#: includes/classes/class-redirection.php:849
 msgid "This link is expired."
 msgstr "Dette link er udløbet."
 
-#: includes/classes/class-redirection.php:769
+#: includes/classes/class-redirection.php:868
 msgid "Incorrect password. Please try again."
 msgstr "Forkert adgangskode. Prøv venligst igen."
 
-#: includes/classes/class-redirection.php:784
-#: includes/classes/class-redirection.php:789
+#: includes/classes/class-redirection.php:883
+#: includes/classes/class-redirection.php:888
 msgid "Password Protected Link"
 msgstr "Adgangskodebeskyttet link"
 
-#: includes/classes/class-redirection.php:795
+#: includes/classes/class-redirection.php:894
 msgid "Enter password to continue:"
 msgstr "Indtast adgangskode for at fortsætte:"
 
-#: includes/classes/class-redirection.php:797
+#: includes/classes/class-redirection.php:896
 msgid "Submit"
 msgstr "Indsend"
 
-#: includes/classes/class-redirection.php:915
+#: includes/classes/class-redirection.php:1014
 msgid "This link is not containing the right prefix slug."
 msgstr "Dette link indeholder ikke det rigtige præfiks slug."
 
-#: includes/classes/class-revision.php:395
+#: includes/classes/class-revision.php:439
 msgid "Invalid revision ID."
 msgstr "Ugyldig revisions-ID."
 
-#: includes/classes/class-settings.php:102
+#: includes/classes/class-settings.php:187
 msgid "Settings"
 msgstr "Indstillinger"
 
-#: includes/classes/class-settings.php:152
-msgid "Elementor Detected:"
-msgstr "Elementor registreret:"
-
-#: includes/classes/class-settings.php:153
-msgid ""
-"Shortlink prefix is required for proper rendering of Elementor revisions. It "
-"is advisable to keep it enabled."
-msgstr ""
-"Shortlink-præfiks er påkrævet for korrekt gengivelse af Elementor-"
-"revisioner. Det anbefales at holde det aktiveret."
-
-#: includes/classes/class-settings.php:185
-msgid "TinyPress Shortlinks Notice:"
-msgstr "TinyPress Shortlinks Meddelelse:"
-
-#: includes/classes/class-settings.php:186
-msgid ""
-"Elementor is active. Shortlink prefix has been automatically disabled, it is "
-"required for optimal compatibility with Elementor revisions."
-msgstr ""
-"Elementor er aktiv. Shortlink-præfiks er automatisk blevet deaktiveret, det "
-"er nødvendigt for optimal kompatibilitet med Elementor-revisioner."
-
-#: includes/classes/class-settings.php:249
-msgid "Options"
-msgstr "Muligheder"
-
-#: includes/classes/class-settings.php:254
-msgid "Shortlink Prefix"
-msgstr "Shortlink-præfiks"
-
-#: includes/classes/class-settings.php:255
-msgid "Add a prefix between your domain name and shortlink."
-msgstr "Tilføj et præfiks mellem dit domænenavn og kortlink."
-
-#: includes/classes/class-settings.php:262
-msgid "Prefix Slug"
-msgstr "Præfiks Slug"
-
-#: includes/classes/class-settings.php:263
-msgid "Custom prefix slug."
-msgstr "Brugerdefineret præfiks slug."
-
-#: includes/classes/class-settings.php:264
-msgid "This text will be added between your domain name and shortlink."
-msgstr "Denne tekst vil blive tilføjet mellem dit domænenavn og kortlink."
-
-#: includes/classes/class-settings.php:265
-#: includes/classes/class-settings.php:266
-msgid "go"
-msgstr "gå"
-
-#: includes/classes/class-settings.php:272
-msgid "Keyboard Shortcut"
-msgstr "Tastaturgenvej"
-
-#: includes/classes/class-settings.php:273
-msgid "Create shortlinks from anywhere inside your WordPress dashboard."
-msgstr "Opret kortlinks fra hvor som helst i dit WordPress dashboard."
-
-#: includes/classes/class-settings.php:274
-#: includes/classes/class-settings.php:275
-msgid "Ctrl or Cmd + /"
-msgstr "Ctrl eller Cmd + /"
-
-#: includes/classes/class-settings.php:284
-msgid "Remove from Admin Bar"
-msgstr "Fjern fra Admin Bar"
-
-#: includes/classes/class-settings.php:285
-msgid "Hide the \"Shorten\" button from the WordPress admin bar."
-msgstr "Skjul \"Forkort\" knappen fra WordPress admin bar."
-
-#: includes/classes/class-settings.php:291
-msgid "Role Management"
-msgstr "Rollestyring"
-
-#: includes/classes/class-settings.php:296
-msgid "Who Can View Shortlinks"
-msgstr "Hvem kan se kortlinks"
-
-#: includes/classes/class-settings.php:297
-msgid "Only selected user roles can view links."
-msgstr "Kun udvalgte brugerroller kan se links."
-
-#: includes/classes/class-settings.php:305
-msgid "Who Can Create/Edit Shortlinks"
-msgstr "Hvem kan oprette/redigere kortlinks"
-
-#: includes/classes/class-settings.php:306
-msgid "Only selected user roles can create or edit links."
-msgstr "Kun udvalgte brugerroller kan oprette eller redigere links."
-
-#: includes/classes/class-settings.php:315
-msgid "Who Can See Analytics"
-msgstr "Hvem kan se analyser"
-
-#: includes/classes/class-settings.php:316
-msgid "Only selected user roles can see analytics."
-msgstr "Kun udvalgte brugerroller kan se analyser."
-
-#: includes/classes/class-settings.php:325
-msgid "Who Can Control Settings"
-msgstr "Hvem kan kontrollere indstillinger"
-
-#: includes/classes/class-settings.php:326
-msgid "Only selected user roles can control settings."
-msgstr "Kun udvalgte brugerroller kan kontrollere indstillinger."
-
-#: includes/classes/class-settings.php:335
-msgid "Auto-List Links"
-msgstr "Auto-liste links"
-
-#: includes/classes/class-settings.php:340
-msgid "Auto-List Shortlinks"
-msgstr "Auto-liste kortlinks"
-
-#: includes/classes/class-settings.php:341
-msgid ""
-"When enabled, shortlinks will appear in the \"All Links\" table based on the "
-"behavior you configure below."
-msgstr ""
-"Når aktiveret, vil kortlinks vises i \"Alle Links\" tabellen baseret på den "
-"adfærd, du konfigurerer nedenfor."
-
-#: includes/classes/class-settings.php:347
-msgid "Configure Post Types"
-msgstr "Konfigurer posttyper"
-
-#: includes/classes/class-settings.php:348
-msgid "Set when links should be auto-listed for each post type"
-msgstr "Indstil hvornår links skal auto-listes for hver post type"
-
-#: includes/classes/class-settings.php:349
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr ""
-"Tilføj posttyper og konfigurer hvornår deres kortlinks skal vises i \"Alle "
-"Links\" tabellen. Ændringer gemmes automatisk."
-
-#: includes/classes/class-settings.php:356
-msgid "Post Status Visibility"
-msgstr "Post status synlighed"
-
-#: includes/classes/class-settings.php:361
-msgid "Allowed Post Statuses"
-msgstr "Tilladte post statusser"
-
-#: includes/classes/class-settings.php:362
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Vælg hvilke post statusser der kan tilgås via kortlinks"
-
-#: includes/classes/class-settings.php:363
+#: includes/classes/class-settings.php:271
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -867,51 +754,263 @@ msgstr ""
 "Vælg hvilke post statusser der er tilgængelige, når du besøger et "
 "PublishPress kortlink."
 
-#: includes/classes/class-settings.php:366
+#: includes/classes/class-settings.php:287
+#, fuzzy
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "PublishPress Shortlinks Free"
+
+#: includes/classes/class-settings.php:288
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr ""
+"For at bruge kerne PublishPress statusser med Shortlinks, skal du aktivere "
+"Shortlinks post type i PublishPress Statuses arbejdsgangsindstillinger."
+
+#: includes/classes/class-settings.php:307
+msgid "Elementor Detected:"
+msgstr "Elementor registreret:"
+
+#: includes/classes/class-settings.php:308
+msgid ""
+"Shortlink prefix is required for proper rendering of Elementor revisions. "
+"It is advisable to keep it enabled."
+msgstr ""
+"Shortlink-præfiks er påkrævet for korrekt gengivelse af "
+"Elementor-revisioner. Det anbefales at holde det aktiveret."
+
+#: includes/classes/class-settings.php:340
+msgid "TinyPress Shortlinks Notice:"
+msgstr "TinyPress Shortlinks Meddelelse:"
+
+#: includes/classes/class-settings.php:341
+msgid ""
+"Elementor is active. Shortlink prefix has been automatically disabled, it "
+"is required for optimal compatibility with Elementor revisions."
+msgstr ""
+"Elementor er aktiv. Shortlink-præfiks er automatisk blevet deaktiveret, det "
+"er nødvendigt for optimal kompatibilitet med Elementor-revisioner."
+
+#: includes/classes/class-settings.php:404
+msgid "Options"
+msgstr "Muligheder"
+
+#: includes/classes/class-settings.php:409
+msgid "Shortlink Prefix"
+msgstr "Shortlink-præfiks"
+
+#: includes/classes/class-settings.php:410
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "Tilføj et præfiks mellem dit domænenavn og kortlink."
+
+#: includes/classes/class-settings.php:417
+msgid "Prefix Slug"
+msgstr "Præfiks Slug"
+
+#: includes/classes/class-settings.php:418
+msgid "Custom prefix slug."
+msgstr "Brugerdefineret præfiks slug."
+
+#: includes/classes/class-settings.php:419
+msgid "This text will be added between your domain name and shortlink."
+msgstr "Denne tekst vil blive tilføjet mellem dit domænenavn og kortlink."
+
+#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:421
+msgid "go"
+msgstr "gå"
+
+#: includes/classes/class-settings.php:427
+msgid "Keyboard Shortcut"
+msgstr "Tastaturgenvej"
+
+#: includes/classes/class-settings.php:428
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
+msgstr "Opret kortlinks fra hvor som helst i dit WordPress dashboard."
+
+#: includes/classes/class-settings.php:429
+#: includes/classes/class-settings.php:430
+msgid "Ctrl or Cmd + /"
+msgstr "Ctrl eller Cmd + /"
+
+#: includes/classes/class-settings.php:439
+msgid "Remove from Admin Bar"
+msgstr "Fjern fra Admin Bar"
+
+#: includes/classes/class-settings.php:440
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "Skjul \"Forkort\" knappen fra WordPress admin bar."
+
+#: includes/classes/class-settings.php:446
+msgid "Role Management"
+msgstr "Rollestyring"
+
+#: includes/classes/class-settings.php:451
+msgid "Who Can View Shortlinks"
+msgstr "Hvem kan se kortlinks"
+
+#: includes/classes/class-settings.php:452
+msgid "Only selected user roles can view links."
+msgstr "Kun udvalgte brugerroller kan se links."
+
+#: includes/classes/class-settings.php:460
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "Hvem kan oprette/redigere kortlinks"
+
+#: includes/classes/class-settings.php:461
+msgid "Only selected user roles can create or edit links."
+msgstr "Kun udvalgte brugerroller kan oprette eller redigere links."
+
+#: includes/classes/class-settings.php:470
+msgid "Who Can See Analytics"
+msgstr "Hvem kan se analyser"
+
+#: includes/classes/class-settings.php:471
+msgid "Only selected user roles can see analytics."
+msgstr "Kun udvalgte brugerroller kan se analyser."
+
+#: includes/classes/class-settings.php:480
+msgid "Who Can Control Settings"
+msgstr "Hvem kan kontrollere indstillinger"
+
+#: includes/classes/class-settings.php:481
+msgid "Only selected user roles can control settings."
+msgstr "Kun udvalgte brugerroller kan kontrollere indstillinger."
+
+#: includes/classes/class-settings.php:490
+msgid "Auto-Linking"
+msgstr "Automatisk linkning"
+
+#: includes/classes/class-settings.php:495
+msgid "Enable Auto-Linking"
+msgstr "Aktiver Automatisk linkning"
+
+#: includes/classes/class-settings.php:496
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr "Konverter automatisk nøgleord til shortlinks i indholdet."
+
+#: includes/classes/class-settings.php:497
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr ""
+"Når det er aktiveret, vil nøgleord konfigureret i shortlink-indstillingerne "
+"blive automatisk linket i dit indhold."
+
+#: includes/classes/class-settings.php:503
+msgid "Open Auto-Links In"
+msgstr "Åbn Auto-Links I"
+
+#: includes/classes/class-settings.php:504
+msgid "Choose how auto-linked keywords should open."
+msgstr "Vælg hvordan auto-linkede nøgleord skal åbnes."
+
+#: includes/classes/class-settings.php:506
+msgid "Same tab"
+msgstr "Samme fane"
+
+#: includes/classes/class-settings.php:507
+msgid "New tab"
+msgstr "Ny fane"
+
+#: includes/classes/class-settings.php:515
+msgid "Auto-Link Color"
+msgstr "Auto-Link Farve"
+
+#: includes/classes/class-settings.php:516
+msgid "Choose the color for auto-linked keywords."
+msgstr "Vælg farven for automatisk linkede nøgleord."
+
+#: includes/classes/class-settings.php:523
+msgid "Auto-List Links"
+msgstr "Auto-liste links"
+
+#: includes/classes/class-settings.php:528
+msgid "Auto-List Shortlinks"
+msgstr "Auto-liste kortlinks"
+
+#: includes/classes/class-settings.php:529
+msgid ""
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
+msgstr ""
+"Når aktiveret, vil kortlinks vises i \"Alle Links\" tabellen baseret på den "
+"adfærd, du konfigurerer nedenfor."
+
+#: includes/classes/class-settings.php:535
+msgid "Configure Post Types"
+msgstr "Konfigurer posttyper"
+
+#: includes/classes/class-settings.php:536
+msgid "Set when links should be auto-listed for each post type"
+msgstr "Indstil hvornår links skal auto-listes for hver post type"
+
+#: includes/classes/class-settings.php:537
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr ""
+"Tilføj posttyper og konfigurer hvornår deres kortlinks skal vises i \"Alle "
+"Links\" tabellen. Ændringer gemmes automatisk."
+
+#: includes/classes/class-settings.php:544
+#: includes/classes/class-statuses.php:233
+msgid "Post Status Visibility"
+msgstr "Post status synlighed"
+
+#: includes/classes/class-settings.php:549
+msgid "Allowed Post Statuses"
+msgstr "Tilladte post statusser"
+
+#: includes/classes/class-settings.php:550
+msgid "Choose which post statuses can be accessed via shortlinks"
+msgstr "Vælg hvilke post statusser der kan tilgås via kortlinks"
+
+#: includes/classes/class-settings.php:554
 msgid "Published"
 msgstr "Publiceret"
 
-#: includes/classes/class-settings.php:367
+#: includes/classes/class-settings.php:555
 msgid "Draft"
 msgstr "Udkast"
 
-#: includes/classes/class-settings.php:368
+#: includes/classes/class-settings.php:556
 msgid "Pending Review"
 msgstr "Afventer gennemgang"
 
-#: includes/classes/class-settings.php:369
+#: includes/classes/class-settings.php:557
 msgid "Private"
 msgstr "Privat"
 
-#: includes/classes/class-settings.php:377
+#: includes/classes/class-settings.php:565
 msgid "Expired Links"
 msgstr "Udløbet links"
 
-#: includes/classes/class-settings.php:382
+#: includes/classes/class-settings.php:570
 msgid "Default Expired Redirect URL"
 msgstr "Standard udløbet omdirigerings-URL"
 
-#: includes/classes/class-settings.php:383
+#: includes/classes/class-settings.php:571
 msgid "Where should expired shortlinks redirect?"
 msgstr "Hvor skal udløbne kortlinks omdirigere?"
 
-#: includes/classes/class-settings.php:384
+#: includes/classes/class-settings.php:572
 msgid ""
-"When a shortlink expires, visitors will be redirected to this URL instead of "
-"seeing an error. Leave empty to show the default expiration message."
+"When a shortlink expires, visitors will be redirected to this URL instead "
+"of seeing an error. Leave empty to show the default expiration message."
 msgstr ""
 "Når et kortlink udløber, vil besøgende blive omdirigeret til denne URL i "
 "stedet for at se en fejl. Lad være tom for at vise standard udløbsbeskeden."
 
-#: includes/classes/class-settings.php:396
+#: includes/classes/class-settings.php:584
 msgid "Revisions"
 msgstr "Revisioner"
 
-#: includes/classes/class-settings.php:401
+#: includes/classes/class-settings.php:589
 msgid "Revision Link Visibility"
 msgstr "Synlighed af revisionslinks"
 
-#: includes/classes/class-settings.php:402
+#: includes/classes/class-settings.php:590
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -919,54 +1018,53 @@ msgstr ""
 "Når aktiveret, vil revisionskortlinks vises i \"Alle Kortlinks\" tabellen "
 "baseret på den adfærd, du konfigurerer nedenfor."
 
-#: includes/classes/class-settings.php:404
+#: includes/classes/class-settings.php:592
 msgid "When Revision is Created"
 msgstr "Når revisionen oprettes"
 
-#: includes/classes/class-settings.php:406
+#: includes/classes/class-settings.php:594
 msgid "When Revision is Created or Link is First Used"
 msgstr "Når revisionen oprettes eller linket bruges første gang"
 
-#: includes/classes/class-settings.php:414
+#: includes/classes/class-settings.php:602
 msgid "Show Shortlink in Revision Table"
 msgstr "Vis kortlink i revisionsoversigt"
 
-#: includes/classes/class-settings.php:415
-msgid ""
-"Display shortlink column when viewing revisions in PublishPress Revisions."
-msgstr ""
-"Vis kortlink-kolonne, når der ses på revisioner i PublishPress Revisions."
+#: includes/classes/class-settings.php:603
+msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
+msgstr "Vis kortlink-kolonne, når der ses på revisioner i PublishPress Revisions."
 
-#: includes/classes/class-settings.php:421
+#: includes/classes/class-settings.php:609
 msgid "Revision Visibility for Visitors"
 msgstr "Revisionssynlighed for besøgende"
 
-#: includes/classes/class-settings.php:422
+#: includes/classes/class-settings.php:610
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr "Tillad udloggede besøgende at se revisionsindhold via kortlinks."
 
-#: includes/classes/class-settings.php:423
+#: includes/classes/class-settings.php:611
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
-"previews. When enabled, revision shortlinks will render the revision content "
-"directly for logged-out visitors instead of redirecting to the preview URL."
+"previews. When enabled, revision shortlinks will render the revision "
+"content directly for logged-out visitors instead of redirecting to the "
+"preview URL."
 msgstr ""
 "Som standard blokerer PublishPress Revisions besøgende fra at se "
 "revisionsforhåndsvisninger. Når det er aktiveret, vil revisionskortlinks "
 "vise revisionsindholdet direkte for udloggede besøgende i stedet for at "
 "omdirigere til forhåndsvisnings-URL'en."
 
-#: includes/classes/class-settings.php:444
+#: includes/classes/class-settings.php:632, fuzzy
 msgid "Dummy"
-msgstr ""
+msgstr "Dummy"
 
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:676
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Ingen posttyper er konfigureret endnu. Klik på \"Tilføj posttype\" for at "
 "komme i gang."
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:708
 msgid "Add Post Type"
 msgstr "Tilføj posttype"
 
@@ -974,68 +1072,69 @@ msgstr "Tilføj posttype"
 msgid "Log entry deleted successfully."
 msgstr "Logposten blev slettet successfully."
 
-#: includes/classes/class-table-logs.php:79
+#: includes/classes/class-table-logs.php:80
+#. translators: %d: number of log entries deleted
 #, php-format
 msgid "%d log entries deleted successfully."
 msgstr "%d logposter blev slettet successfully."
 
-#: includes/classes/class-table-logs.php:83
+#: includes/classes/class-table-logs.php:84
 msgid "All logs have been cleared."
 msgstr "Alle logs er blevet ryddet."
 
-#: includes/classes/class-table-logs.php:162
+#: includes/classes/class-table-logs.php:163
 msgid "Title"
 msgstr "Titel"
 
-#: includes/classes/class-table-logs.php:164
+#: includes/classes/class-table-logs.php:165
 msgid "Details"
 msgstr "Detaljer"
 
-#: includes/classes/class-table-logs.php:198
+#: includes/classes/class-table-logs.php:199
 msgid "Are you sure you want to delete this log entry?"
 msgstr "Er du sikker på, at du vil slette denne logpost?"
 
-#: includes/classes/class-table-logs.php:249
+#: includes/classes/class-table-logs.php:250, fuzzy
 msgid "Tablet"
-msgstr ""
+msgstr "Tablet"
 
-#: includes/classes/class-table-logs.php:251
+#: includes/classes/class-table-logs.php:252
 msgid "Mobile"
 msgstr "Mobil"
 
-#: includes/classes/class-table-logs.php:253
+#: includes/classes/class-table-logs.php:254, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "Desktop"
 
+#: includes/classes/class-table-logs.php:308
 #. translators: 1: user display name, 2: location name, 3: visit date/time
-#: includes/classes/class-table-logs.php:307
 #, php-format
 msgid "%1$s from %2$s visited at %3$s"
 msgstr "%1$s fra %2$s besøgte den %3$s"
 
+#: includes/classes/class-table-logs.php:311
 #. translators: 1: user display name, 2: visit date/time
-#: includes/classes/class-table-logs.php:310
 #, php-format
 msgid "%1$s visited at %2$s"
 msgstr "%1$s besøgte den %2$s"
 
+#: includes/classes/class-table-logs.php:315
 #. translators: 1: location name, 2: visit date/time
-#: includes/classes/class-table-logs.php:314
 #, php-format
 msgid "From %1$s, visited at %2$s"
 msgstr "Fra %1$s, besøgt den %2$s"
 
+#: includes/classes/class-table-logs.php:318
 #. translators: %s: visit date/time
-#: includes/classes/class-table-logs.php:317
 #, php-format
 msgid "Visited at %s"
 msgstr "Besøgt den %s"
 
+#: includes/classes/class-table-logs.php:330
 #. translators: %s: device type and browser name, e.g. "Mobile Chrome"
-#: includes/classes/class-table-logs.php:329
-#, php-format
+#, fuzzy, php-format
 msgid "via %s"
-msgstr ""
+msgstr "via %s"
 
 #: includes/functions.php:169
 msgid "Edit shortlink settings"
@@ -1046,8 +1145,7 @@ msgid "Target url not found."
 msgstr "Mål-URL blev ikke fundet."
 
 #: includes/functions.php:223
-msgid ""
-"Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
+msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr "Ugyldigt URL-skema. Kun http, https, ftp, ftps og mailto er tilladt."
 
 #: includes/functions.php:229
@@ -1058,10 +1156,11 @@ msgstr "Ugyldig URL."
 msgid "Tiny slug could not created."
 msgstr "Tiny slug kunne ikke oprettes."
 
-#: includes/functions.php:251
-#, php-format
+#: includes/functions.php:252
+#. translators: %s: link ID number
+#, fuzzy, php-format
 msgid "Link - %s"
-msgstr ""
+msgstr "Link - %s"
 
 #: templates/admin-modal-new-link.php:12
 msgid "Shortlink will appear here"
@@ -1083,7 +1182,8 @@ msgstr "Luk"
 msgid "Create Shortlink"
 msgstr "Opret kortlink"
 
-#: templates/admin/analytics.php:45 templates/admin/analytics.php:64
+#: templates/admin/analytics.php:45
+#: templates/admin/analytics.php:64
 msgid "Reset Today's Analytics"
 msgstr "Nulstil dagens analyser"
 
@@ -1123,20 +1223,21 @@ msgstr "Sidste 1 måned"
 msgid "Last 1 Year"
 msgstr "Sidste 1 år"
 
-#: templates/admin/footer.php:14
+#: templates/admin/footer.php:16
+#. translators: %1$s: plugin name, %2$s: star rating icon
 #, php-format
 msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
 msgstr "Hvis du kan lide %1$s, vil du venligst give os en %2$s vurdering. Tak!"
 
-#: templates/admin/footer.php:21
+#: templates/admin/footer.php:24
 msgid "About"
 msgstr "Om"
 
-#: templates/admin/footer.php:26
+#: templates/admin/footer.php:29
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: templates/admin/footer.php:30
+#: templates/admin/footer.php:33
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -1178,10 +1279,10 @@ msgstr "Detaljeret dokumentation er også tilgængelig på plugin-webstedet."
 msgid "View Knowledge Base"
 msgstr "Se vidensbase"
 
-#: tinypress.php:79
+#: tinypress.php:98
 msgid "This plugin can be deleted."
 msgstr "Dette plugin kan slettes."
 
-#: tinypress.php:287
+#: tinypress.php:355
 msgid "Copied."
 msgstr "Kopieret."

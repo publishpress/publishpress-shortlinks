@@ -308,14 +308,14 @@ class WP_List_Table_Logs extends WP_List_Table
                 $details_text = sprintf(__('%1$s from %2$s visited at %3$s', 'tinypress'), $user_display_name, $user_location_name, $user_visited_time);
             } else {
                 /* translators: 1: user display name, 2: visit date/time */
-                $details_text = sprintf(__('%1$s visited at %2$s', 'tinypress'), $user_display_name, $user_visited_time);
+                $details_text = sprintf(__('%1$s visited at %2$s', 'tinypress'), $user_display_name, $user_visited_time, '');
             }
         } elseif (! empty($user_location_name)) {
             /* translators: 1: location name, 2: visit date/time */
-            $details_text = sprintf(__('From %1$s, visited at %2$s', 'tinypress'), $user_location_name, $user_visited_time);
+            $details_text = sprintf(__('From %1$s, visited at %2$s', 'tinypress'), $user_location_name, $user_visited_time, '');
         } else {
             /* translators: %s: visit date/time */
-            $details_text = sprintf(__('Visited at %s', 'tinypress'), $user_visited_time);
+            $details_text = sprintf(__('Visited at %s', 'tinypress'), $user_visited_time, '', '');
         }
 
         // Device + browser from stored user agent
@@ -327,7 +327,7 @@ class WP_List_Table_Logs extends WP_List_Table
             if (! empty($ua_label)) {
                 $device_html = '<span style="display:block;margin-top:3px;font-size:11px;color:#888;">' .
                     /* translators: %s: device type and browser name, e.g. "Mobile Chrome" */
-                    esc_html(sprintf(__('via %s', 'tinypress'), $ua_label)) .
+                    esc_html(sprintf(__('via %s', 'tinypress'), $ua_label, '', '')) .
                     '</span>';
             }
         }

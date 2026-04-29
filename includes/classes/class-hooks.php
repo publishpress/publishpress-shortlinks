@@ -209,6 +209,9 @@ if (! class_exists('TINYPRESS_Hooks')) {
                 'labels'              => array(
                     'menu_name' => esc_html__('Shortlinks', 'tinypress'),
                     'all_items' => esc_html__('All Shortlinks', 'tinypress'),
+                    'add_new' => esc_html__('Add Shortlink', 'tinypress'),
+                    'add_new_item' => esc_html__('Add Shortlink', 'tinypress'),
+                    'search_items' => esc_html__('Search Shortlinks', 'tinypress'),
                 ),
                 'menu_icon'           => 'dashicons-admin-links',
                 'supports'            => array( '' ),

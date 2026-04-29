@@ -10,23 +10,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-08 17:09+0000\n"
+"PO-Revision-Date: 2026-04-29 12:57+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: fi\n"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:4, fuzzy
 #. Plugin Name of the plugin
 msgid "PublishPress Shortlinks Free"
 msgstr "PublishPress Shortlinks Free"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:5, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/shortlinks/"
 msgstr "https://publishpress.com/shortlinks/"
 
-#: tinypress.php
+#: tinypress.php:6
 #. Description of the plugin
 msgid ""
 "Create custom links for your posts. These links are brandable, trackable, "
@@ -35,12 +35,12 @@ msgstr ""
 "Luo mukautettuja linkkejä viesteillesi. Nämä linkit ovat brändättävissä, "
 "seurattavissa ja niillä voi olla mukautetut katseluoikeudet."
 
-#: tinypress.php, fuzzy
+#: tinypress.php:9
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: tinypress.php, fuzzy
+#: tinypress.php:10, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -125,7 +125,7 @@ msgid "Bulk Management"
 msgstr "Bulk Management"
 
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:194, fuzzy
+#: includes/classes/class-autolist-ajax.php:200, fuzzy
 msgid "Permission denied"
 msgstr "Permission denied"
 
@@ -133,104 +133,105 @@ msgstr "Permission denied"
 msgid "Post type is required"
 msgstr "Post type is required"
 
-#: includes/classes/class-autolist-ajax.php:52
-#, fuzzy, php-format
-msgid "\"%s\" is not a registered post type"
-msgstr "\"%s\" is not a registered post type"
+#: includes/classes/class-autolist-ajax.php:53
+#. translators: %s: post type name
+msgid "\"%%s\" is not a registered post type"
+msgstr "\"%%s\" ei ole rekisteröity post type"
 
-#: includes/classes/class-autolist-ajax.php:59
-#, fuzzy, php-format
-msgid "\"%s\" is not a public post type"
-msgstr "\"%s\" is not a public post type"
+#: includes/classes/class-autolist-ajax.php:61
+#. translators: %s: post type name
+msgid "\"%%s\" is not a public post type"
+msgstr "\"%%s\" ei ole julkinen post type"
 
-#: includes/classes/class-autolist-ajax.php:65
-#, fuzzy, php-format
-msgid "\"%s\" cannot be used for auto-listing"
-msgstr "\"%s\" cannot be used for auto-listing"
+#: includes/classes/class-autolist-ajax.php:68
+#. translators: %s: post type name
+msgid "\"%%s\" cannot be used for auto-listing"
+msgstr "\"%%s\" ei voi käyttää automaattiseen luetteloon"
 
-#: includes/classes/class-autolist-ajax.php:74
-#, fuzzy, php-format
-msgid "\"%s\" is already configured"
-msgstr "\"%s\" is already configured"
+#: includes/classes/class-autolist-ajax.php:78
+#. translators: %s: post type name
+msgid "\"%%s\" is already configured"
+msgstr "\"%%s\" on jo määritetty"
 
-#: includes/classes/class-autolist-ajax.php:80
-#, fuzzy, php-format
-msgid "Valid: %s"
-msgstr "Valid: %s"
+#: includes/classes/class-autolist-ajax.php:85
+#. translators: %s: post type label
+msgid "Valid: %%s"
+msgstr "Voimassa: %%s"
 
-#: includes/classes/class-autolist-ajax.php:94, fuzzy
+#: includes/classes/class-autolist-ajax.php:99, fuzzy
 msgid "Permission denied - you must be an administrator"
 msgstr "Permission denied - you must be an administrator"
 
-#: includes/classes/class-autolist-ajax.php:102, fuzzy
+#: includes/classes/class-autolist-ajax.php:107, fuzzy
 msgid "Invalid configuration format - expected array"
 msgstr "Invalid configuration format - expected array"
 
-#: includes/classes/class-autolist-ajax.php:123, fuzzy
+#: includes/classes/class-autolist-ajax.php:128, fuzzy
 msgid "Configuration unchanged (already saved)"
 msgstr "Configuration unchanged (already saved)"
 
-#: includes/classes/class-autolist-ajax.php:127, fuzzy
+#: includes/classes/class-autolist-ajax.php:132, fuzzy
 msgid "Failed to save configuration to database"
 msgstr "Failed to save configuration to database"
 
-#: includes/classes/class-autolist-ajax.php:132, fuzzy
+#: includes/classes/class-autolist-ajax.php:137, fuzzy
 msgid "Configuration saved successfully"
 msgstr "Configuration saved successfully"
 
-#: includes/classes/class-autolist-ajax.php:138
+#: includes/classes/class-autolist-ajax.php:144
+#. translators: %s: error message
 #, fuzzy, php-format
 msgid "Error: %s"
 msgstr "Error: %s"
 
-#: includes/classes/class-autolist-ajax.php:283, fuzzy
+#: includes/classes/class-autolist-ajax.php:289, fuzzy
 msgid "Validating..."
 msgstr "Validating..."
 
-#: includes/classes/class-autolist-ajax.php:284, fuzzy
+#: includes/classes/class-autolist-ajax.php:290, fuzzy
 msgid "Saving..."
 msgstr "Saving..."
 
-#: includes/classes/class-autolist-ajax.php:285, fuzzy
+#: includes/classes/class-autolist-ajax.php:291, fuzzy
 msgid "Saved!"
 msgstr "Saved!"
 
-#: includes/classes/class-autolist-ajax.php:286, fuzzy
+#: includes/classes/class-autolist-ajax.php:292, fuzzy
 msgid "Error"
 msgstr "Error"
 
-#: includes/classes/class-autolist-ajax.php:287, fuzzy
+#: includes/classes/class-autolist-ajax.php:293, fuzzy
 msgid "Are you sure you want to remove this post type?"
 msgstr "Are you sure you want to remove this post type?"
 
-#: includes/classes/class-autolist-ajax.php:288, fuzzy
+#: includes/classes/class-autolist-ajax.php:294, fuzzy
 msgid "Select a post type"
 msgstr "Select a post type"
 
-#: includes/classes/class-autolist-ajax.php:289
-#: includes/classes/class-settings.php:407
-#: includes/classes/class-settings.php:503
+#: includes/classes/class-autolist-ajax.php:295
+#: includes/classes/class-settings.php:595
+#: includes/classes/class-settings.php:691
 msgid "Never"
 msgstr "Ei koskaan"
 
-#: includes/classes/class-autolist-ajax.php:290
-#: includes/classes/class-settings.php:405
-#: includes/classes/class-settings.php:505
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-settings.php:593
+#: includes/classes/class-settings.php:693
 msgid "When Link is First Used"
 msgstr "Kun linkkiä käytetään ensimmäisen kerran"
 
-#: includes/classes/class-autolist-ajax.php:291
-#: includes/classes/class-settings.php:507
+#: includes/classes/class-autolist-ajax.php:297
+#: includes/classes/class-settings.php:695
 msgid "When Post is Published"
 msgstr "Kun julkaisu julkaistaan"
 
-#: includes/classes/class-autolist-ajax.php:292
-#: includes/classes/class-settings.php:506
+#: includes/classes/class-autolist-ajax.php:298
+#: includes/classes/class-settings.php:694
 msgid "When Post is Created"
 msgstr "Kun julkaisu luodaan"
 
-#: includes/classes/class-autolist-ajax.php:293
-#: includes/classes/class-settings.php:504
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:692
 msgid "When Link is First Used or Post Created"
 msgstr "Kun linkkiä käytetään ensimmäisen kerran tai julkaisu luodaan"
 
@@ -239,9 +240,9 @@ msgid "Invalid post ID or post type."
 msgstr "Virheellinen julkaisu ID tai post type."
 
 #: includes/classes/class-columns-link.php:49
-#: includes/classes/class-columns-link.php:277
+#: includes/classes/class-columns-link.php:279
 #: includes/classes/class-hooks.php:207
-#: includes/classes/class-table-logs.php:163
+#: includes/classes/class-table-logs.php:164
 #: templates/admin-modal-new-link.php:29, fuzzy
 msgid "Shortlink"
 msgstr "Shortlink"
@@ -290,7 +291,7 @@ msgid "Submitted for approval"
 msgstr "Lähetetty hyväksyttäväksi"
 
 #: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:370
+#: includes/classes/class-settings.php:558
 msgid "Scheduled"
 msgstr "Aikataulutettu"
 
@@ -306,40 +307,42 @@ msgstr "Tarvitsee työtä"
 msgid "Rejected"
 msgstr "Hylätty"
 
-#: includes/classes/class-columns-link.php:206
+#: includes/classes/class-columns-link.php:207
+#. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "Muutos: %s"
 
-#: includes/classes/class-columns-link.php:222
+#: includes/classes/class-columns-link.php:224
+#. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "Klikattu %s kertaa"
 
-#: includes/classes/class-columns-link.php:228
-#: includes/classes/class-table-logs.php:196
+#: includes/classes/class-columns-link.php:230
+#: includes/classes/class-table-logs.php:197
 msgid "Edit"
 msgstr "Muokata"
 
-#: includes/classes/class-columns-link.php:229
-#: includes/classes/class-table-logs.php:177
-#: includes/classes/class-table-logs.php:198
+#: includes/classes/class-columns-link.php:231
+#: includes/classes/class-table-logs.php:178
+#: includes/classes/class-table-logs.php:199
 msgid "Delete"
 msgstr "Poista"
 
-#: includes/classes/class-columns-link.php:276
+#: includes/classes/class-columns-link.php:278
 msgid "Link Title"
 msgstr "Linkin otsikko"
 
-#: includes/classes/class-columns-link.php:278
+#: includes/classes/class-columns-link.php:280
 msgid "Link Type"
 msgstr "Linkin tyyppi"
 
-#: includes/classes/class-columns-link.php:279
+#: includes/classes/class-columns-link.php:281
 msgid "Stats"
 msgstr "Tilastot"
 
-#: includes/classes/class-columns-link.php:280
+#: includes/classes/class-columns-link.php:282
 msgid "Actions"
 msgstr "Toiminnot"
 
@@ -395,51 +398,60 @@ msgstr "Lyhennä"
 msgid "All Shortlinks"
 msgstr "Kaikki lyhytlinkit"
 
-#: includes/classes/class-hooks.php:226
+#: includes/classes/class-hooks.php:212
+#: includes/classes/class-hooks.php:213
+msgid "Add Shortlink"
+msgstr "Lisää lyhytlinkki"
+
+#: includes/classes/class-hooks.php:214
+msgid "Search Shortlinks"
+msgstr "Etsi lyhytlinkkejä"
+
+#: includes/classes/class-hooks.php:229
 msgid "Category"
 msgstr "Kategoria"
 
-#: includes/classes/class-hooks.php:227
+#: includes/classes/class-hooks.php:230
 msgid "Categories"
 msgstr "Kategoriat"
 
-#: includes/classes/class-hooks.php:253
-#: includes/classes/class-hooks.php:254
+#: includes/classes/class-hooks.php:256
+#: includes/classes/class-hooks.php:257
 msgid "Logs"
 msgstr "Lokit"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "All Logs"
 msgstr "Kaikki lokit"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Are you sure you want to clear all logs?"
 msgstr "Oletko varma, että haluat tyhjentää kaikki lokit?"
 
-#: includes/classes/class-hooks.php:282
+#: includes/classes/class-hooks.php:285
 msgid "Clear Logs"
 msgstr "Tyhjennä lokit"
 
-#: includes/classes/class-hooks.php:503
+#: includes/classes/class-hooks.php:506
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Anteeksi, sinulla ei ole oikeutta käyttää lyhytlinkkejä."
 
-#: includes/classes/class-hooks.php:504
-#: includes/classes/class-hooks.php:525
-#: includes/classes/class-hooks.php:536
-#: includes/classes/class-hooks.php:557
+#: includes/classes/class-hooks.php:507
+#: includes/classes/class-hooks.php:528
+#: includes/classes/class-hooks.php:539
+#: includes/classes/class-hooks.php:560
 msgid "Access Denied"
 msgstr "Pääsy kielletty"
 
-#: includes/classes/class-hooks.php:524
+#: includes/classes/class-hooks.php:527
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Anteeksi, sinulla ei ole oikeutta luoda lyhytlinkkejä."
 
-#: includes/classes/class-hooks.php:535
+#: includes/classes/class-hooks.php:538
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Anteeksi, sinulla ei ole oikeutta muokata lyhytlinkkejä."
 
-#: includes/classes/class-hooks.php:556
+#: includes/classes/class-hooks.php:559
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Anteeksi, sinulla ei ole oikeutta käyttää lyhytlinkkien asetuksia."
 
@@ -448,12 +460,12 @@ msgid "Side"
 msgstr "Sivu"
 
 #: includes/classes/class-meta-boxes.php:187
-#: tinypress.php:380
+#: tinypress.php:448
 msgid "PublishPress Shortlinks"
 msgstr "PublishPress lyhytlinkit"
 
 #: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:246
+#: includes/classes/class-settings.php:401
 msgid "General"
 msgstr "Yleinen"
 
@@ -503,43 +515,71 @@ msgstr "Poista käytöstä"
 msgid "Notes"
 msgstr "Huomautukset"
 
-#: includes/classes/class-meta-boxes.php:254
+#: includes/classes/class-meta-boxes.php:251
+msgid "All"
+msgstr "Kaikki"
+
+#: includes/classes/class-meta-boxes.php:263
+msgid "Auto-linking"
+msgstr "Automaattinen linkitys"
+
+#: includes/classes/class-meta-boxes.php:268
+msgid "Keywords"
+msgstr "Avainsanat"
+
+#: includes/classes/class-meta-boxes.php:269
+msgid ""
+"Add keywords separated by commas or on separate lines. Each keyword will "
+"link to this shortlink."
+msgstr ""
+"Lisää avainsanoja pilkuilla erottamalla tai erillisille riveille. Jokainen "
+"avainsana linkittää tämän lyhytilinkkiin."
+
+#: includes/classes/class-meta-boxes.php:274, fuzzy
+msgid "Post Types"
+msgstr "Post Types"
+
+#: includes/classes/class-meta-boxes.php:275
+msgid "Where should these keywords be auto-linked?"
+msgstr "Missä näitä avainsanoja tulisi automaattisesti linkittää?"
+
+#: includes/classes/class-meta-boxes.php:288
 msgid "Redirection"
 msgstr "Uudelleenohjaus"
 
-#: includes/classes/class-meta-boxes.php:259
+#: includes/classes/class-meta-boxes.php:293
 msgid "Redirection Method"
 msgstr "Uudelleenohjausmenetelmä"
 
-#: includes/classes/class-meta-boxes.php:260
+#: includes/classes/class-meta-boxes.php:294
 msgid "Select redirection method"
 msgstr "Valitse uudelleenohjausmenetelmä"
 
-#: includes/classes/class-meta-boxes.php:261
+#: includes/classes/class-meta-boxes.php:295
 msgid "Select a method"
 msgstr "Valitse menetelmä"
 
-#: includes/classes/class-meta-boxes.php:263
+#: includes/classes/class-meta-boxes.php:297
 msgid "307 (Temporary)"
 msgstr "307 (Tilapäinen)"
 
-#: includes/classes/class-meta-boxes.php:264
+#: includes/classes/class-meta-boxes.php:298
 msgid "302 (Temporary)"
 msgstr "302 (Tilapäinen)"
 
-#: includes/classes/class-meta-boxes.php:265
+#: includes/classes/class-meta-boxes.php:299
 msgid "301 (Permanent)"
 msgstr "301 (Pysyvä)"
 
-#: includes/classes/class-meta-boxes.php:272
+#: includes/classes/class-meta-boxes.php:306
 msgid "Sponsored"
 msgstr "Sponsorointi"
 
-#: includes/classes/class-meta-boxes.php:273
+#: includes/classes/class-meta-boxes.php:307
 msgid "Mark links as sponsored content."
 msgstr "Merkitse linkit sponsoroinniksi sisällöksi."
 
-#: includes/classes/class-meta-boxes.php:274
+#: includes/classes/class-meta-boxes.php:308
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -547,15 +587,15 @@ msgstr ""
 "Lisää rel=\"sponsored\" -attribuutti. Suositeltavaa affiliate-linkeille ja "
 "maksetuille mainoksille."
 
-#: includes/classes/class-meta-boxes.php:279, fuzzy
+#: includes/classes/class-meta-boxes.php:313, fuzzy
 msgid "NoFollow"
 msgstr "NoFollow"
 
-#: includes/classes/class-meta-boxes.php:280
+#: includes/classes/class-meta-boxes.php:314
 msgid "Prevent search engines from following this link."
 msgstr "Estä hakukoneita seuraamasta tätä linkkiä."
 
-#: includes/classes/class-meta-boxes.php:281
+#: includes/classes/class-meta-boxes.php:315
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -563,15 +603,15 @@ msgstr ""
 "Lisää rel=\"nofollow\" -attribuutti. Suositeltavaa ulkoisille linkeille ja "
 "epäluotettaville lähteille."
 
-#: includes/classes/class-meta-boxes.php:287
+#: includes/classes/class-meta-boxes.php:321
 msgid "Parameter Forwarding"
 msgstr "Parametrin välitys"
 
-#: includes/classes/class-meta-boxes.php:288
+#: includes/classes/class-meta-boxes.php:322
 msgid "Pass URL parameters to the target link."
 msgstr "Siirrä URL-parametreja kohdelinkkiin."
 
-#: includes/classes/class-meta-boxes.php:289
+#: includes/classes/class-meta-boxes.php:323
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -579,136 +619,156 @@ msgstr ""
 "Kaikki lyhyt-URL:iin lisätyt parametrit (esim., ?utm_source=email) "
 "siirretään kohde-URL:iin."
 
-#: includes/classes/class-meta-boxes.php:299
+#: includes/classes/class-meta-boxes.php:333
 msgid "Password Protection"
 msgstr "Salasanalla suojaaminen"
 
-#: includes/classes/class-meta-boxes.php:300
+#: includes/classes/class-meta-boxes.php:334
 msgid "Secure your shortlink."
 msgstr "Varmista lyhytlinkkisi."
 
-#: includes/classes/class-meta-boxes.php:301
+#: includes/classes/class-meta-boxes.php:335
 msgid "Users must enter the password to redirect to the target link."
 msgstr "Käyttäjien on syötettävä salasana ohjatakseen kohdelinkkiin."
 
-#: includes/classes/class-meta-boxes.php:306
+#: includes/classes/class-meta-boxes.php:340
 msgid "Password"
 msgstr "Salasana"
 
-#: includes/classes/class-meta-boxes.php:307
+#: includes/classes/class-meta-boxes.php:341
 msgid "Share this with users."
 msgstr "Jaa tämä käyttäjien kanssa."
 
-#: includes/classes/class-meta-boxes.php:308
+#: includes/classes/class-meta-boxes.php:342
 msgid "Passwords are case sensitive."
 msgstr "Salasanat ovat kirjainkooltaan herkkiä."
 
-#: includes/classes/class-meta-boxes.php:309, fuzzy
+#: includes/classes/class-meta-boxes.php:343, fuzzy
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:318
+#: includes/classes/class-meta-boxes.php:352
 msgid "Enable Expiration"
 msgstr "Ota vanhentuminen käyttöön"
 
-#: includes/classes/class-meta-boxes.php:319
+#: includes/classes/class-meta-boxes.php:353
 msgid "Expire automatically."
 msgstr "Vanhene automaattisesti."
 
-#: includes/classes/class-meta-boxes.php:320
+#: includes/classes/class-meta-boxes.php:354
 msgid "Users will not able to redirect to the target URL once expire."
 msgstr "Käyttäjät eivät voi ohjata kohde-URL:iin vanhentumisen jälkeen."
 
-#: includes/classes/class-meta-boxes.php:325
+#: includes/classes/class-meta-boxes.php:359
 msgid "Expiration Date"
 msgstr "Vanhentumispäivämäärä"
 
-#: includes/classes/class-meta-boxes.php:326
+#: includes/classes/class-meta-boxes.php:360
 msgid "Choose the date this link should expire."
 msgstr "Valitse päivämäärä, jolloin tämän linkin tulisi vanhentua."
 
-#: includes/classes/class-meta-boxes.php:338
+#: includes/classes/class-meta-boxes.php:372
 msgid "Expiration Time"
 msgstr "Vanhentumisaika"
 
-#: includes/classes/class-meta-boxes.php:339
+#: includes/classes/class-meta-boxes.php:373
 msgid "Choose the time this link should expire."
 msgstr "Valitse aika, jolloin tämän linkin tulisi vanhentua."
 
-#: includes/classes/class-meta-boxes.php:340
+#: includes/classes/class-meta-boxes.php:374
 msgid "Must be at least 1 minute in the future."
 msgstr "Sen on oltava vähintään 1 minuutti tulevaisuudessa."
 
-#: includes/classes/class-meta-boxes.php:357
+#: includes/classes/class-meta-boxes.php:391
 msgid "Security"
 msgstr "Turvallisuus"
 
-#: includes/classes/class-meta-boxes.php:368
+#: includes/classes/class-meta-boxes.php:402
 msgid "Analytics"
 msgstr "Analytiikka"
 
-#: includes/classes/class-redirection.php:543
+#: includes/classes/class-redirection.php:599
 msgid "Post not found."
 msgstr "Viestiä ei löytynyt."
 
-#: includes/classes/class-redirection.php:585
-msgid "Link Expired"
-msgstr "Linkki on vanhentunut"
-
-#: includes/classes/class-redirection.php:598
+#: includes/classes/class-redirection.php:648
 msgid "This link has expired"
 msgstr "Tämä linkki on vanhentunut"
 
-#: includes/classes/class-redirection.php:599
+#: includes/classes/class-redirection.php:652
 msgid "You will be redirected shortly."
 msgstr "Sinut ohjataan pian."
 
-#: includes/classes/class-redirection.php:600
+#: includes/classes/class-redirection.php:656
 msgid "Click here if you are not redirected"
 msgstr "Klikkaa tästä, jos et siirry automaattisesti"
 
-#: includes/classes/class-redirection.php:716
+#: includes/classes/class-redirection.php:673
+msgid "Link Expired"
+msgstr "Linkki on vanhentunut"
+
+#: includes/classes/class-redirection.php:804
 msgid "This link is not active."
 msgstr "Tämä linkki ei ole aktiivinen."
 
-#: includes/classes/class-redirection.php:750
+#: includes/classes/class-redirection.php:849
 msgid "This link is expired."
 msgstr "Tämä linkki on vanhentunut."
 
-#: includes/classes/class-redirection.php:769
+#: includes/classes/class-redirection.php:868
 msgid "Incorrect password. Please try again."
 msgstr "Virheellinen salasana. Yritä uudelleen."
 
-#: includes/classes/class-redirection.php:784
-#: includes/classes/class-redirection.php:789
+#: includes/classes/class-redirection.php:883
+#: includes/classes/class-redirection.php:888
 msgid "Password Protected Link"
 msgstr "Salasanalla suojattu linkki"
 
-#: includes/classes/class-redirection.php:795
+#: includes/classes/class-redirection.php:894
 msgid "Enter password to continue:"
 msgstr "Syötä salasana jatkaaksesi:"
 
-#: includes/classes/class-redirection.php:797
+#: includes/classes/class-redirection.php:896
 msgid "Submit"
 msgstr "Lähetä"
 
-#: includes/classes/class-redirection.php:915
+#: includes/classes/class-redirection.php:1014
 msgid "This link is not containing the right prefix slug."
 msgstr "Tämä linkki ei sisällä oikeaa etuliitteen slugia."
 
-#: includes/classes/class-revision.php:395
+#: includes/classes/class-revision.php:439
 msgid "Invalid revision ID."
 msgstr "Virheellinen revision ID."
 
-#: includes/classes/class-settings.php:102
+#: includes/classes/class-settings.php:187
 msgid "Settings"
 msgstr "Asetukset"
 
-#: includes/classes/class-settings.php:152
+#: includes/classes/class-settings.php:271
+msgid ""
+"Select which post statuses are accessible when visiting a PublishPress "
+"shortlink."
+msgstr ""
+"Valitse, mitkä postin tilat ovat saavutettavissa vieraillessasi "
+"PublishPressin lyhyellä linkillä."
+
+#: includes/classes/class-settings.php:287
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "PublishPress Statuses -laajennus havaittu:"
+
+#: includes/classes/class-settings.php:288
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr ""
+"Käyttääksesi ydin PublishPress -tiloja Shortlinksin kanssa, ota käyttöön "
+"Shortlinks post type PublishPress Statuses -työnkulun asetuksissa."
+
+#: includes/classes/class-settings.php:307
 msgid "Elementor Detected:"
 msgstr "Elementor havaittu:"
 
-#: includes/classes/class-settings.php:153
+#: includes/classes/class-settings.php:308
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
@@ -716,11 +776,11 @@ msgstr ""
 "Lyhytlinkin etuliite on tarpeen Elementor-revision oikeaa renderöintiä "
 "varten. On suositeltavaa pitää se käytössä."
 
-#: includes/classes/class-settings.php:185
+#: includes/classes/class-settings.php:340
 msgid "TinyPress Shortlinks Notice:"
 msgstr "TinyPress Lyhytlinkkien ilmoitus:"
 
-#: includes/classes/class-settings.php:186
+#: includes/classes/class-settings.php:341
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
@@ -729,101 +789,145 @@ msgstr ""
 "käytöstä, se on tarpeen optimaalisen yhteensopivuuden takaamiseksi "
 "Elementor-revisioiden kanssa."
 
-#: includes/classes/class-settings.php:249
+#: includes/classes/class-settings.php:404
 msgid "Options"
 msgstr "Vaihtoehdot"
 
-#: includes/classes/class-settings.php:254
+#: includes/classes/class-settings.php:409
 msgid "Shortlink Prefix"
 msgstr "Lyhytlinkin etuliite"
 
-#: includes/classes/class-settings.php:255
+#: includes/classes/class-settings.php:410
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Lisää etuliite verkkotunnuksesi ja lyhyen linkin väliin."
 
-#: includes/classes/class-settings.php:262
+#: includes/classes/class-settings.php:417
 msgid "Prefix Slug"
 msgstr "Etuliite Slug"
 
-#: includes/classes/class-settings.php:263
+#: includes/classes/class-settings.php:418
 msgid "Custom prefix slug."
 msgstr "Mukautettu etuliite slug."
 
-#: includes/classes/class-settings.php:264
+#: includes/classes/class-settings.php:419
 msgid "This text will be added between your domain name and shortlink."
 msgstr "Tämä teksti lisätään verkkotunnuksesi ja lyhyen linkin väliin."
 
-#: includes/classes/class-settings.php:265
-#: includes/classes/class-settings.php:266
+#: includes/classes/class-settings.php:420
+#: includes/classes/class-settings.php:421
 msgid "go"
 msgstr "siirry"
 
-#: includes/classes/class-settings.php:272
+#: includes/classes/class-settings.php:427
 msgid "Keyboard Shortcut"
 msgstr "Näppäinyhdistelmä"
 
-#: includes/classes/class-settings.php:273
+#: includes/classes/class-settings.php:428
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr "Luo lyhyitä linkkejä mistä tahansa WordPressin hallintapaneelissa."
 
-#: includes/classes/class-settings.php:274
-#: includes/classes/class-settings.php:275
+#: includes/classes/class-settings.php:429
+#: includes/classes/class-settings.php:430
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl tai Cmd + /"
 
-#: includes/classes/class-settings.php:284
+#: includes/classes/class-settings.php:439
 msgid "Remove from Admin Bar"
 msgstr "Poista hallintapalkista"
 
-#: includes/classes/class-settings.php:285
+#: includes/classes/class-settings.php:440
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "Piilota \"Lyhennä\" -painike WordPressin hallintapalkista."
 
-#: includes/classes/class-settings.php:291
+#: includes/classes/class-settings.php:446
 msgid "Role Management"
 msgstr "Roolien Hallinta"
 
-#: includes/classes/class-settings.php:296
+#: includes/classes/class-settings.php:451
 msgid "Who Can View Shortlinks"
 msgstr "Kuka voi nähdä lyhyet linkit"
 
-#: includes/classes/class-settings.php:297
+#: includes/classes/class-settings.php:452
 msgid "Only selected user roles can view links."
 msgstr "Vain valitut käyttäjäroolit voivat nähdä linkit."
 
-#: includes/classes/class-settings.php:305
+#: includes/classes/class-settings.php:460
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Kuka voi luoda/muokata lyhyitä linkkejä"
 
-#: includes/classes/class-settings.php:306
+#: includes/classes/class-settings.php:461
 msgid "Only selected user roles can create or edit links."
 msgstr "Vain valitut käyttäjäroolit voivat luoda tai muokata linkkejä."
 
-#: includes/classes/class-settings.php:315
+#: includes/classes/class-settings.php:470
 msgid "Who Can See Analytics"
 msgstr "Kuka voi nähdä analytiikkaa"
 
-#: includes/classes/class-settings.php:316
+#: includes/classes/class-settings.php:471
 msgid "Only selected user roles can see analytics."
 msgstr "Vain valitut käyttäjäroolit voivat nähdä analytiikkaa."
 
-#: includes/classes/class-settings.php:325
+#: includes/classes/class-settings.php:480
 msgid "Who Can Control Settings"
 msgstr "Kuka voi hallita asetuksia"
 
-#: includes/classes/class-settings.php:326
+#: includes/classes/class-settings.php:481
 msgid "Only selected user roles can control settings."
 msgstr "Vain valitut käyttäjäroolit voivat hallita asetuksia."
 
-#: includes/classes/class-settings.php:335
+#: includes/classes/class-settings.php:490
+msgid "Auto-Linking"
+msgstr "Automaattinen linkitys"
+
+#: includes/classes/class-settings.php:495
+msgid "Enable Auto-Linking"
+msgstr "Ota käyttöön automaattinen linkitys"
+
+#: includes/classes/class-settings.php:496
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr "Muunna avainsanat automaattisesti lyhytilinkiksi postin sisällössä."
+
+#: includes/classes/class-settings.php:497
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr ""
+"Kun se on käytössä, lyhytilinkkien asetuksissa määritetyt avainsanat "
+"linkitetään automaattisesti sisältösi."
+
+#: includes/classes/class-settings.php:503
+msgid "Open Auto-Links In"
+msgstr "Avaa automaattiset linkit"
+
+#: includes/classes/class-settings.php:504
+msgid "Choose how auto-linked keywords should open."
+msgstr "Valitse, miten automaattisesti linkitetyt avainsanat tulisi avata."
+
+#: includes/classes/class-settings.php:506
+msgid "Same tab"
+msgstr "Sama välilehti"
+
+#: includes/classes/class-settings.php:507
+msgid "New tab"
+msgstr "Uusi välilehti"
+
+#: includes/classes/class-settings.php:515
+msgid "Auto-Link Color"
+msgstr "Automaattisen linkin väri"
+
+#: includes/classes/class-settings.php:516
+msgid "Choose the color for auto-linked keywords."
+msgstr "Valitse väri automaattisesti linkitetyille avainsanoille."
+
+#: includes/classes/class-settings.php:523
 msgid "Auto-List Links"
 msgstr "Automaattinen linkkilista"
 
-#: includes/classes/class-settings.php:340
+#: includes/classes/class-settings.php:528
 msgid "Auto-List Shortlinks"
 msgstr "Auto-List Lyhyet Linkit"
 
-#: includes/classes/class-settings.php:341
+#: includes/classes/class-settings.php:529
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
@@ -831,17 +935,17 @@ msgstr ""
 "Kun otettu käyttöön, lyhyet linkit näkyvät \"Kaikki Linkit\" -taulukossa "
 "sen käyttäytymisen perusteella, jonka määrität alla."
 
-#: includes/classes/class-settings.php:347
+#: includes/classes/class-settings.php:535
 msgid "Configure Post Types"
 msgstr "Määritä Post Tyyppi"
 
-#: includes/classes/class-settings.php:348
+#: includes/classes/class-settings.php:536
 msgid "Set when links should be auto-listed for each post type"
 msgstr ""
 "Aseta, milloin linkit tulisi automaattisesti listata jokaiselle post "
 "tyypille"
 
-#: includes/classes/class-settings.php:349
+#: includes/classes/class-settings.php:537
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -849,55 +953,48 @@ msgstr ""
 "Lisää post tyyppejä ja määritä, milloin niiden lyhyet linkit tulee näyttää "
 "\"Kaikki Linkit\" -taulukossa. Muutokset tallennetaan automaattisesti."
 
-#: includes/classes/class-settings.php:356
+#: includes/classes/class-settings.php:544
+#: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "Postin Tila Näkyvyys"
 
-#: includes/classes/class-settings.php:361
+#: includes/classes/class-settings.php:549
 msgid "Allowed Post Statuses"
 msgstr "Sallitut Postin Tilat"
 
-#: includes/classes/class-settings.php:362
+#: includes/classes/class-settings.php:550
 msgid "Choose which post statuses can be accessed via shortlinks"
 msgstr "Valitse, mitkä postin tilat ovat saavutettavissa lyhyiden linkkien kautta"
 
-#: includes/classes/class-settings.php:363
-msgid ""
-"Select which post statuses are accessible when visiting a PublishPress "
-"shortlink."
-msgstr ""
-"Valitse, mitkä postin tilat ovat saavutettavissa vieraillessasi "
-"PublishPressin lyhyellä linkillä."
-
-#: includes/classes/class-settings.php:366
+#: includes/classes/class-settings.php:554
 msgid "Published"
 msgstr "Julkaistu"
 
-#: includes/classes/class-settings.php:367
+#: includes/classes/class-settings.php:555
 msgid "Draft"
 msgstr "Luonnos"
 
-#: includes/classes/class-settings.php:368
+#: includes/classes/class-settings.php:556
 msgid "Pending Review"
 msgstr "Odottaa Tarkistusta"
 
-#: includes/classes/class-settings.php:369
+#: includes/classes/class-settings.php:557
 msgid "Private"
 msgstr "Yksityinen"
 
-#: includes/classes/class-settings.php:377
+#: includes/classes/class-settings.php:565
 msgid "Expired Links"
 msgstr "Vanhentuneet Linkit"
 
-#: includes/classes/class-settings.php:382
+#: includes/classes/class-settings.php:570
 msgid "Default Expired Redirect URL"
 msgstr "Oletus Vanhentunut Suuntaus URL"
 
-#: includes/classes/class-settings.php:383
+#: includes/classes/class-settings.php:571
 msgid "Where should expired shortlinks redirect?"
 msgstr "Minne vanhentuneet lyhyet linkit tulisi ohjata?"
 
-#: includes/classes/class-settings.php:384
+#: includes/classes/class-settings.php:572
 msgid ""
 "When a shortlink expires, visitors will be redirected to this URL instead "
 "of seeing an error. Leave empty to show the default expiration message."
@@ -906,15 +1003,15 @@ msgstr ""
 "sijaan, että he näkisivät virheen. Jätä tyhjäksi, jotta voit näyttää "
 "oletusvanhenemaviestin."
 
-#: includes/classes/class-settings.php:396
+#: includes/classes/class-settings.php:584
 msgid "Revisions"
 msgstr "Muokkaukset"
 
-#: includes/classes/class-settings.php:401
+#: includes/classes/class-settings.php:589
 msgid "Revision Link Visibility"
 msgstr "Muokkaus Linkin Näkyvyys"
 
-#: includes/classes/class-settings.php:402
+#: includes/classes/class-settings.php:590
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -922,35 +1019,35 @@ msgstr ""
 "Kun otettu käyttöön, muokkaus lyhyet linkit näkyvät \"Kaikki Lyhyet "
 "Linkit\" -taulukossa sen käyttäytymisen perusteella, jonka määrität alla."
 
-#: includes/classes/class-settings.php:404
+#: includes/classes/class-settings.php:592
 msgid "When Revision is Created"
 msgstr "Kun muutos on luotu"
 
-#: includes/classes/class-settings.php:406
+#: includes/classes/class-settings.php:594
 msgid "When Revision is Created or Link is First Used"
 msgstr "Kun muutos on luotu tai linkkiä käytetään ensimmäisen kerran"
 
-#: includes/classes/class-settings.php:414
+#: includes/classes/class-settings.php:602
 msgid "Show Shortlink in Revision Table"
 msgstr "Näytä lyhytlinkki muutos-taulukossa"
 
-#: includes/classes/class-settings.php:415
+#: includes/classes/class-settings.php:603
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "Näytä lyhytlinkki-sarake, kun tarkastelet muutoksia PublishPress "
 "Muutoksissa."
 
-#: includes/classes/class-settings.php:421
+#: includes/classes/class-settings.php:609
 msgid "Revision Visibility for Visitors"
 msgstr "Muutosnäkymä vierailijoille"
 
-#: includes/classes/class-settings.php:422
+#: includes/classes/class-settings.php:610
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Salli kirjautumattomien vierailijoiden nähdä muutos sisältö lyhytlinkkien "
 "kautta."
 
-#: includes/classes/class-settings.php:423
+#: includes/classes/class-settings.php:611
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -962,17 +1059,17 @@ msgstr ""
 "muutos sisällön suoraan kirjautumattomille vierailijoille sen sijaan, että "
 "ohjattaisiin esikatselu URL-osoitteeseen."
 
-#: includes/classes/class-settings.php:444, fuzzy
+#: includes/classes/class-settings.php:632, fuzzy
 msgid "Dummy"
 msgstr "Dummy"
 
-#: includes/classes/class-settings.php:488
+#: includes/classes/class-settings.php:676
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Postityyppejä ei ole vielä määritetty. Napsauta \"Lisää postityyppi\" "
 "aloittaaksesi."
 
-#: includes/classes/class-settings.php:520
+#: includes/classes/class-settings.php:708
 msgid "Add Post Type"
 msgstr "Lisää postityyppi"
 
@@ -980,64 +1077,65 @@ msgstr "Lisää postityyppi"
 msgid "Log entry deleted successfully."
 msgstr "Lokimerkintä poistettu onnistuneesti."
 
-#: includes/classes/class-table-logs.php:79
+#: includes/classes/class-table-logs.php:80
+#. translators: %d: number of log entries deleted
 #, php-format
 msgid "%d log entries deleted successfully."
 msgstr "%d lokimerkintää poistettu onnistuneesti."
 
-#: includes/classes/class-table-logs.php:83
+#: includes/classes/class-table-logs.php:84
 msgid "All logs have been cleared."
 msgstr "Kaikki lokit on tyhjennetty."
 
-#: includes/classes/class-table-logs.php:162
+#: includes/classes/class-table-logs.php:163
 msgid "Title"
 msgstr "Otsikko"
 
-#: includes/classes/class-table-logs.php:164
+#: includes/classes/class-table-logs.php:165
 msgid "Details"
 msgstr "Yksityiskohdat"
 
-#: includes/classes/class-table-logs.php:198
+#: includes/classes/class-table-logs.php:199
 msgid "Are you sure you want to delete this log entry?"
 msgstr "Oletko varma, että haluat poistaa tämän lokimerkinnän?"
 
-#: includes/classes/class-table-logs.php:249
+#: includes/classes/class-table-logs.php:250
 msgid "Tablet"
 msgstr "Tabletti"
 
-#: includes/classes/class-table-logs.php:251
+#: includes/classes/class-table-logs.php:252
 msgid "Mobile"
 msgstr "Mobiili"
 
-#: includes/classes/class-table-logs.php:253
+#: includes/classes/class-table-logs.php:254
 msgid "Desktop"
 msgstr "Työpöytä"
 
-#: includes/classes/class-table-logs.php:307
+#: includes/classes/class-table-logs.php:308
 #. translators: 1: user display name, 2: location name, 3: visit date/time
 #, php-format
 msgid "%1$s from %2$s visited at %3$s"
 msgstr "%1$s vieraili %2$s:ssä %3$s"
 
-#: includes/classes/class-table-logs.php:310
+#: includes/classes/class-table-logs.php:311
 #. translators: 1: user display name, 2: visit date/time
 #, php-format
 msgid "%1$s visited at %2$s"
 msgstr "%1$s vieraili %2$s"
 
-#: includes/classes/class-table-logs.php:314
+#: includes/classes/class-table-logs.php:315
 #. translators: 1: location name, 2: visit date/time
 #, php-format
 msgid "From %1$s, visited at %2$s"
 msgstr "Paikasta %1$s, vieraili %2$s"
 
-#: includes/classes/class-table-logs.php:317
+#: includes/classes/class-table-logs.php:318
 #. translators: %s: visit date/time
 #, php-format
 msgid "Visited at %s"
 msgstr "Vieraili %s"
 
-#: includes/classes/class-table-logs.php:329
+#: includes/classes/class-table-logs.php:330
 #. translators: %s: device type and browser name, e.g. "Mobile Chrome"
 #, php-format
 msgid "via %s"
@@ -1065,7 +1163,8 @@ msgstr "Virheellinen URL."
 msgid "Tiny slug could not created."
 msgstr "Pientä slugia ei voitu luoda."
 
-#: includes/functions.php:251
+#: includes/functions.php:252
+#. translators: %s: link ID number
 #, php-format
 msgid "Link - %s"
 msgstr "Linkki - %s"
@@ -1131,20 +1230,21 @@ msgstr "Viimeinen 1 kuukausi"
 msgid "Last 1 Year"
 msgstr "Viimeinen 1 vuosi"
 
-#: templates/admin/footer.php:14
+#: templates/admin/footer.php:16
+#. translators: %1$s: plugin name, %2$s: star rating icon
 #, php-format
 msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
 msgstr "Jos pidät %1$s:stä, jätä meille %2$s-arvio. Kiitos!"
 
-#: templates/admin/footer.php:21
+#: templates/admin/footer.php:24
 msgid "About"
 msgstr "Tietoja"
 
-#: templates/admin/footer.php:26
+#: templates/admin/footer.php:29
 msgid "Documentation"
 msgstr "Dokumentaatio"
 
-#: templates/admin/footer.php:30
+#: templates/admin/footer.php:33
 msgid "Contact"
 msgstr "Ota yhteyttä"
 
@@ -1186,10 +1286,10 @@ msgstr ""
 msgid "View Knowledge Base"
 msgstr "Näytä tietopohja"
 
-#: tinypress.php:79
+#: tinypress.php:98
 msgid "This plugin can be deleted."
 msgstr "Tämä laajennus voidaan poistaa."
 
-#: tinypress.php:287
+#: tinypress.php:355
 msgid "Copied."
 msgstr "Kopioitu."
