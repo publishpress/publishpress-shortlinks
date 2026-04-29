@@ -51,9 +51,15 @@
             "@build:mo",
             "@build:l10n-php"
         ],
+        "build:lang-batches": [
+            "@build:mo-batches",
+            "@build:l10n-php-batches"
+        ],
         "build:mo": "vendor/publishpress/dev-workspace/scripts/run.sh wp i18n make-mo ./languages ./languages --allow-root",
         "build:po-json": "vendor/publishpress/dev-workspace/scripts/run.sh bash ./vendor/publishpress/dev-workspace/scripts/lang-make-json.sh",
         "build:l10n-php": "vendor/publishpress/dev-workspace/scripts/run.sh wp i18n make-php ./languages --allow-root",
+        "build:l10n-php-batches": "vendor/publishpress/dev-workspace/scripts/run.sh bash ./vendor/publishpress/dev-workspace/scripts/lang-make-php-batches.sh ./languages",
+        "build:mo-batches": "vendor/publishpress/dev-workspace/scripts/run.sh bash ./vendor/publishpress/dev-workspace/scripts/lang-make-mo-batches.sh ./languages",
         "fix:php": [
             "php-cs-fixer fix .",
             "@fix:cs"
@@ -67,6 +73,7 @@
         "build:mo": "Generates the MO files for translation files.",
         "build:po-json": "Generates the JSON files for translations of JavaScript files.",
         "build:l10n-php": "Generates the PHP language files for performant translations (WP 6.5+).",
+        "build:l10n-php-batches": "Generates the PHP language files by processing each language individually (workaround for wp-cli limitations).",
         "fix:php": "Fixes the PHP files.",
         "translate:repair-plurals": "Repairs plural translations in language files."
     },
