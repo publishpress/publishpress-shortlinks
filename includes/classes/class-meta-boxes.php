@@ -188,7 +188,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                     'post_type' => 'tinypress_link',
                     'data_type' => 'unserialize',
                     'context'   => 'normal',
-                    'nav'       => 'inline',
+                    'nav'       => 'normal',
                     'preview'   => true,
                 )
             );
