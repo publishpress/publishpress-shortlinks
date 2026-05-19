@@ -17,9 +17,6 @@ class ShortlinksCoreAdmin
 
             add_action('admin_menu', [$this, 'tinypress_add_upgrade_menu_link'], 999);
 
-            add_action('admin_menu', [$this, 'tinypress_add_import_export_teaser'], 21);
-            add_action('admin_enqueue_scripts', [$this, 'enqueue_teaser_assets']);
-
             add_filter('tinypress_security_metabox_fields', [$this, 'add_security_expired_teaser_fields']);
             add_filter('tinypress_global_security_fields', [$this, 'add_global_security_expired_teaser_fields']);
 
@@ -184,82 +181,4 @@ class ShortlinksCoreAdmin
         $this->render_pro_nudge();
     }
 
-    /**
-     * Enqueue teaser CSS on our pages.
-     */
-    public function enqueue_teaser_assets()
-    {
-        $screen = get_current_screen();
-        if (! $screen) {
-            return;
-        }
-
-        if ($screen->id === 'tinypress_link_page_tinypress-import-export') {
-            wp_enqueue_style(
-                'tinypress-import-export-core',
-                TINYPRESS_PLUGIN_URL . 'includes-core/assets/css/import-export-core.css',
-                array(),
-                TINYPRESS_PLUGIN_VERSION
-            );
-        }
-    }
-
-    /**
-     * Add Import/Export teaser submenu for Free users.
-     */
-    public function tinypress_add_import_export_teaser()
-    {
-        add_submenu_page(
-            'edit.php?post_type=tinypress_link',
-            esc_html__('Import / Export', 'tinypress'),
-            esc_html__('Import / Export', 'tinypress'),
-            'manage_options',
-            'tinypress-import-export',
-            [$this, 'render_import_export_teaser']
-        );
-    }
-
-    /**
-     * Render the Import/Export teaser page.
-     */
-    public function render_import_export_teaser()
-    {
-        $upgrade_url = defined('TINYPRESS_LINK_PRO_BANNER') ? TINYPRESS_LINK_PRO_BANNER : 'https://publishpress.com/links/shortlinks-banner';
-        ?>
-        <div class="wrap tinypress-pro-teaser-wrap">
-            <h1><?php esc_html_e('Import / Export Shortlinks', 'tinypress'); ?></h1>
-            <div class="tinypress-teaser-layout">
-                <div class="tinypress-teaser-main">
-                    <div class="tinypress-pro-teaser">
-                        <span class="dashicons dashicons-database-import"></span>
-                        <h2><?php esc_html_e('Bulk Import & Export', 'tinypress'); ?></h2>
-                        <p><?php esc_html_e('Import and export your shortlinks in bulk using CSV files. Migrate from other plugins or manage links across multiple sites.', 'tinypress'); ?></p>
-                        <div class="tinypress-pro-features">
-                            <div class="tinypress-pro-feature-item">
-                                <span class="dashicons dashicons-yes"></span>
-                                <?php esc_html_e('CSV Export', 'tinypress'); ?>
-                            </div>
-                            <div class="tinypress-pro-feature-item">
-                                <span class="dashicons dashicons-yes"></span>
-                                <?php esc_html_e('CSV Import', 'tinypress'); ?>
-                            </div>
-                            <div class="tinypress-pro-feature-item">
-                                <span class="dashicons dashicons-yes"></span>
-                                <?php esc_html_e('Bulk Management', 'tinypress'); ?>
-                            </div>
-                        </div>
-                        <a href="<?php echo esc_url($upgrade_url); ?>" class="tinypress-teaser-upgrade-btn" target="_blank">
-                            <?php esc_html_e('Upgrade to Pro', 'tinypress'); ?>
-                        </a>
-                    </div>
-                </div>
-                <div class="tinypress-teaser-sidebar">
-                    <?php if (! class_exists('PublishPress_Shortlinks_Pro_Init')) {
-                        include TINYPRESS_PLUGIN_DIR . 'templates/admin/settings/supports.php';
-                    } ?>
-                </div>
-            </div>
-        </div>
-        <?php
-    }
 }

@@ -322,6 +322,7 @@ if (! defined('TINYPRESS_LOADED')) {
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-reviews.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-revision.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-statuses.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-import-export.php';
 
                 new TINYPRESS_Hooks();
                 new TINYPRESS_Settings();
@@ -330,6 +331,7 @@ if (! defined('TINYPRESS_LOADED')) {
                 new TINYPRESS_AutoList();
                 TINYPRESS_Autolist_Ajax::instance();
                 SHORTLINKS_Reviews::instance();
+                TINYPRESS_Import_Export::get_instance();
             
                 // Initialize metaboxes early for proper registration
                 add_action('init', function () {
