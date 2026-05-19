@@ -562,21 +562,6 @@ if (! class_exists('TINYPRESS_Settings')) {
                         ),
                     ),
                     array(
-                        'title'  => esc_html__('Expired Links', 'tinypress'),
-                        'fields' => apply_filters('tinypress_expired_links_fields', array(
-                            array(
-                                'id'          => 'tinypress_expired_redirect_url',
-                                'type'        => 'text',
-                                'title'       => esc_html__('Default Expired Redirect URL', 'tinypress'),
-                                'subtitle'    => esc_html__('Where should expired shortlinks redirect?', 'tinypress'),
-                                'desc'        => esc_html__('When a shortlink expires, visitors will be redirected to this URL instead of seeing an error. Leave empty to show the default expiration message.', 'tinypress'),
-                                'placeholder' => esc_html(home_url('/')),
-                                'default'     => '',
-                                'attributes'  => array( 'disabled' => true ),
-                            ),
-                        )),
-                    ),
-                    array(
                         'title'  => esc_html__('Redirection', 'tinypress'),
                         'fields' => array(
                             array(
@@ -619,7 +604,6 @@ if (! class_exists('TINYPRESS_Settings')) {
                     ),
                     array(
                         'title'  => esc_html__('Security', 'tinypress'),
-                        'desc'   => esc_html__('Default security settings for shortlinks. Individual links can override these settings.', 'tinypress'),
                         'fields' => apply_filters('tinypress_global_security_fields', array(
                             array(
                                 'id'       => 'tinypress_global_password_protection',
