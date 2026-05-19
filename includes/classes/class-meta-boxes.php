@@ -206,10 +206,12 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
             
             // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only check for post ID
             if (isset($_GET['post'])) {
+                // phpcs:ignore WordPress.Security.NonceVerification.Missing
                 return absint($_GET['post']);
             }
             // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Read-only check for post ID
             if (isset($_POST['post_ID'])) {
+                // phpcs:ignore WordPress.Security.NonceVerification.Missing
                 return absint($_POST['post_ID']);
             }
             
