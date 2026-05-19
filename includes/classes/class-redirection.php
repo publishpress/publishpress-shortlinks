@@ -923,20 +923,12 @@ if (! class_exists('TINYPRESS_Redirection')) {
                         $expired_redirect_url = apply_filters('tinypress_link_expired_redirect', '', $link_id);
 
                         if (! empty($expired_redirect_url)) {
-                            $per_link_notice = Utils::get_meta('expired_show_notice', $link_id);
-                            $show_notice = $per_link_notice !== '' ? (bool) $per_link_notice : (bool) Utils::get_option('tinypress_expired_show_notice', false);
+                            $show_notice = apply_filters('tinypress_link_expired_show_notice', false, $link_id);
 
                             if ($show_notice) {
-                                $per_link_message = Utils::get_meta('expired_notice_message', $link_id);
-                                $per_link_title = Utils::get_meta('expired_notice_title', $link_id);
-                                $per_link_cta = Utils::get_meta('expired_notice_cta_text', $link_id);
-                                $global_message = Utils::get_option('tinypress_expired_notice_message', '');
-                                $global_title = Utils::get_option('tinypress_expired_notice_title', '');
-                                $global_cta = Utils::get_option('tinypress_expired_notice_cta_text', '');
-
-                                $notice_message = $per_link_message !== '' ? $per_link_message : $global_message;
-                                $notice_title = $per_link_title !== '' ? $per_link_title : $global_title;
-                                $cta_text = $per_link_cta !== '' ? $per_link_cta : $global_cta;
+                                $notice_title = apply_filters('tinypress_link_expired_notice_title', '', $link_id);
+                                $notice_message = apply_filters('tinypress_link_expired_notice_message', '', $link_id);
+                                $cta_text = apply_filters('tinypress_link_expired_notice_cta_text', '', $link_id);
 
                                 $this->display_expired_notice_page($expired_redirect_url, $notice_title, $notice_message, $cta_text);
                                 die();

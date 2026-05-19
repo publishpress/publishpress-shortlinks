@@ -95,6 +95,7 @@ body.post-type-tinypress_link #submitdiv #major-publishing-actions {
     border: none;
     background: transparent;
     padding: 0;
+    padding-left: 25px !important;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -105,6 +106,7 @@ body.post-type-tinypress_link #submitdiv #major-publishing-actions {
 body.post-type-tinypress_link #tinypress_link_catdiv .inside,
 body.post-type-tinypress_link #tagsdiv-tinypress_link_tags .inside {
     padding: 0;
+    padding-left: 25px !important;
     width: 100%;
     display: inline-block;
 }
@@ -1094,6 +1096,32 @@ body.tinypress_link_page_settings #wpcontent {
     padding-bottom: 120px;
 }
 
+body.tinypress_link_page_settings .wpdk_settings-field-switcher .wpdk_settings-title {
+    float: none;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+body.tinypress_link_page_settings .wpdk_settings-field-switcher .wpdk_settings-fieldset {
+    float: none;
+    width: 100%;
+    clear: both;
+}
+
+body.tinypress_link_page_settings .wpdk_settings-field-switcher .wpdk_settings--switcher {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+body.tinypress_link_page_settings .wpdk_settings-field-switcher .wpdk_settings--label {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0;
+    margin-left: 8px;
+}
+
 body.tinypress_link_page_settings #wpwrap,
 body.edit-php.post-type-tinypress_link #wpwrap,
 body.post-new-php.post-type-tinypress_link #wpwrap,
@@ -1646,6 +1674,7 @@ body.post-type-tinypress_link .wpdk_settings-field.tinypress-use-global-checkbox
     gap: 8px 20px;
     padding: 20px 0 !important;
     margin: 0 !important;
+    margin-top: 20px !important;
     border-bottom: 1px solid #e5e5e5 !important;
     background: transparent !important;
 }
@@ -1794,7 +1823,6 @@ body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-callback 
 }
 
 body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on) {
-    display: block;
     padding: 20px 0;
     margin: 0;
     border-bottom: 1px solid #e5e5e5;
