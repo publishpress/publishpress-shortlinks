@@ -30,6 +30,8 @@ if (! class_exists('WPDK_Settings_Field_switcher')) {
 
             echo $this->field_before();
 
+            echo '<div class="wpdk_settings--switcher-wrapper">';
+
             echo '<div class="wpdk_settings--switcher' . esc_attr($active) . '"' . $text_width . '>';
             echo '<span class="wpdk_settings--on">' . esc_attr($text_on) . '</span>';
             echo '<span class="wpdk_settings--off">' . esc_attr($text_off) . '</span>';
@@ -38,6 +40,8 @@ if (! class_exists('WPDK_Settings_Field_switcher')) {
             echo '</div>';
 
             echo ( ! empty($this->field['label']) ) ? '<span class="wpdk_settings--label">' . esc_attr($this->field['label']) . '</span>' : '';
+
+            echo '</div>';
 
             echo $this->field_after();
         }

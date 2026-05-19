@@ -24,6 +24,7 @@ class ShortlinksCoreAdmin
 
             add_filter('tinypress_expired_links_fields', [$this, 'add_expired_links_teaser_fields']);
             add_filter('tinypress_security_metabox_fields', [$this, 'add_security_expired_teaser_fields']);
+            add_filter('tinypress_global_security_fields', [$this, 'add_global_security_expired_teaser_fields']);
 
             add_action('tinypress_admin_class_before_assets_register', [$this, 'tinypress_load_admin_core_assets']);
             add_action('tinypress_admin_class_after_styles_enqueue', [$this, 'tinypress_load_admin_core_styles']);
@@ -152,6 +153,28 @@ class ShortlinksCoreAdmin
             'type'       => 'content',
             'title'      => esc_html__('Expired Redirect Settings', 'tinypress'),
             'dependency' => array( 'enable_expiration', '==', '1' ),
+            'content'    => '<div style="opacity:0.5;pointer-events:none;">'
+                . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Expired Redirect URL', 'tinypress') . '</strong></p>'
+                . '<input type="text" disabled placeholder="' . esc_attr(home_url('/')) . '" style="width:100%;max-width:400px;" />'
+                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Show Expiration Notice', 'tinypress') . '</strong></p>'
+                . '<label style="display:inline-flex;align-items:center;gap:8px;">'
+                . '<input type="checkbox" disabled />'
+                . esc_html__('Display a brief notice before redirecting.', 'tinypress')
+                . '</label></div>' . $nudge,
+        );
+
+        return $fields;
+    }
+
+    public function add_global_security_expired_teaser_fields($fields)
+    {
+        $nudge = $this->get_pro_nudge_html();
+
+        $fields[] = array(
+            'id'         => 'tinypress_global_expired_redirect_pro_teaser',
+            'type'       => 'content',
+            'title'      => esc_html__('Expired Redirect Settings', 'tinypress'),
+            'dependency' => array( 'tinypress_global_enable_expiration', '==', '1' ),
             'content'    => '<div style="opacity:0.5;pointer-events:none;">'
                 . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Expired Redirect URL', 'tinypress') . '</strong></p>'
                 . '<input type="text" disabled placeholder="' . esc_attr(home_url('/')) . '" style="width:100%;max-width:400px;" />'

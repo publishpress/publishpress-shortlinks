@@ -33,7 +33,11 @@ if (! class_exists('WPDK_Settings_Field_select')) {
                 'query_args'  => array(),
             ));
 
-            $this->value = ( is_array($this->value) ) ? $this->value : array_filter((array) $this->value);
+            if ($this->value === '' || $this->value === null) {
+                $this->value = array('');
+            } else {
+                $this->value = ( is_array($this->value) ) ? $this->value : array_filter((array) $this->value);
+            }
 
             echo $this->field_before();
 
