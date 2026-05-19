@@ -91,6 +91,62 @@ if (! class_exists('TINYPRESS_Redirection')) {
             return Utils::get_option($key, $default);
         }
 
+        /**
+         * Resolve a dropdown setting with global fallback
+         *
+         * @param string $setting_key The per-link meta key
+         * @param int $link_id The link post ID
+         * @param string $global_key The global settings key
+         * @param mixed $system_default The system default if global is also not set
+         * @return mixed The resolved value
+         */
+        private function resolve_dropdown_setting($setting_key, $link_id, $global_key, $system_default)
+        {
+            $link_value = Utils::get_meta($setting_key, $link_id);
+
+            if ($link_value !== null && $link_value !== '') {
+                return $link_value;
+            }
+
+            $global_value = $this->get_settings_value($global_key, null);
+            if ($global_value !== null && $global_value !== '') {
+                return $global_value;
+            }
+            
+            return $system_default;
+        }
+
+        /**
+         * Resolve a toggle setting with global fallback
+         *
+         * @param string $setting_key The per-link toggle meta key
+         * @param string $use_global_key The per-link "use global" checkbox meta key
+         * @param int $link_id The link post ID
+         * @param string $global_key The global settings key
+         * @param mixed $system_default The system default if global is also not set
+         * @return mixed The resolved value
+         */
+        private function resolve_toggle_setting($setting_key, $use_global_key, $link_id, $global_key, $system_default)
+        {
+            $use_global = Utils::get_meta($use_global_key, $link_id);
+            
+            $is_using_global = false;
+            if (is_array($use_global) && in_array('1', $use_global)) {
+                $is_using_global = true;
+            } elseif ($use_global === '1' || $use_global === 1 || $use_global === true) {
+                $is_using_global = true;
+            } elseif ($use_global === null) {
+                $is_using_global = true;
+            }
+            
+            if ($is_using_global) {
+                $global_value = $this->get_settings_value($global_key, $system_default);
+                return $global_value ? '1' : '';
+            }
+
+            return Utils::get_meta($setting_key, $link_id);
+        }
+
 
         /**
          * Build a manual preview URL for revisions when rvy_preview_url() fails.
@@ -528,11 +584,36 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
             }
 
-            $redirection_method   = Utils::get_meta('redirection_method', $link_id);
-            $redirection_method   = $redirection_method ? $redirection_method : 302;
-            $no_follow            = Utils::get_meta('redirection_no_follow', $link_id);
-            $sponsored            = Utils::get_meta('redirection_sponsored', $link_id);
-            $parameter_forwarding = Utils::get_meta('redirection_parameter_forwarding', $link_id);
+            $redirection_method = $this->resolve_dropdown_setting(
+                'redirection_method',
+                $link_id,
+                'tinypress_global_redirection_method',
+                302
+            );
+            
+            $no_follow = $this->resolve_toggle_setting(
+                'redirection_no_follow',
+                'redirection_no_follow_use_global',
+                $link_id,
+                'tinypress_global_no_follow',
+                true
+            );
+            
+            $sponsored = $this->resolve_toggle_setting(
+                'redirection_sponsored',
+                'redirection_sponsored_use_global',
+                $link_id,
+                'tinypress_global_sponsored',
+                false
+            );
+            
+            $parameter_forwarding = $this->resolve_toggle_setting(
+                'redirection_parameter_forwarding',
+                'redirection_parameter_forwarding_use_global',
+                $link_id,
+                'tinypress_global_parameter_forwarding',
+                false
+            );
 
             if ('1' == $parameter_forwarding) {
                 $parameters = wp_unslash($_GET); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Front-end redirect; forwarding URL query parameters to target
@@ -786,8 +867,28 @@ if (! class_exists('TINYPRESS_Redirection')) {
         {
 
             $current_url          = site_url($this->get_request_uri());
-            $password_protection  = Utils::get_meta('password_protection', $link_id);
-            $link_password        = Utils::get_meta('link_password', $link_id);
+            
+            $password_protection  = $this->resolve_toggle_setting(
+                'password_protection',
+                'password_protection_use_global',
+                $link_id,
+                'tinypress_global_password_protection',
+                false
+            );
+            
+            $link_password = Utils::get_meta('link_password', $link_id);
+            if (empty($link_password)) {
+                $link_password = $this->get_settings_value('tinypress_global_link_password', '');
+            }
+
+            $enable_expiration = $this->resolve_toggle_setting(
+                'enable_expiration',
+                'enable_expiration_use_global',
+                $link_id,
+                'tinypress_global_enable_expiration',
+                false
+            );
+            
             $expiration_date      = Utils::get_meta('expiration_date', $link_id);
             $link_status          = Utils::get_meta('link_status', $link_id, '1');
             $password_check_nonce = wp_create_nonce('password_check');
@@ -805,7 +906,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
 
                 // Check if the link is expired or not
-                if (! empty($expiration_date)) {
+                if ('1' == $enable_expiration && ! empty($expiration_date)) {
                     $expiration_time = Utils::get_meta('expiration_time', $link_id);
 
                     if (! empty($expiration_time)) {

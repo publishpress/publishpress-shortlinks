@@ -121,6 +121,46 @@
         });
 
         tinypressSyncAutolinkAllCheckbox();
+
+        $(document).on('change', '.tinypress-use-global-checkbox input[type="checkbox"]', function () {
+            var $checkbox = $(this);
+            var $checkboxField = $checkbox.closest('.wpdk_settings-field');
+            var checkboxFieldId = $checkboxField.attr('data-field-id') || $checkboxField.find('input[type="checkbox"]').attr('data-depend-id');
+            
+            var $controlledField = $checkboxField.next('.tinypress-global-controlled');
+            
+            if ($controlledField.length) {
+                if ($checkbox.is(':checked')) {
+                    $controlledField.addClass('is-greyed-out');
+                } else {
+                    $controlledField.removeClass('is-greyed-out');
+                }
+            }
+
+            var checkboxName = $checkbox.attr('name');
+            if (checkboxName) {
+                var fieldMatch = checkboxName.match(/\[([^_]+_[^_]+)_use_global\]/);
+                if (fieldMatch && fieldMatch[1]) {
+                    var settingName = fieldMatch[1];
+                    var $section = $checkboxField.closest('.wpdk_settings-section');
+
+                    var $childFields = $section.find('.tinypress-global-controlled-child').filter(function() {
+                        var fieldName = $(this).find('input, select').attr('name');
+                        return fieldName && fieldName.includes('[' + settingName + '_');
+                    });
+                    
+                    if ($checkbox.is(':checked')) {
+                        $childFields.addClass('is-greyed-out');
+                    } else {
+                        $childFields.removeClass('is-greyed-out');
+                    }
+                }
+            }
+        });
+
+        $('.tinypress-use-global-checkbox input[type="checkbox"]:checked').each(function() {
+            $(this).trigger('change');
+        });
     });
 
 

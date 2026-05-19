@@ -176,6 +176,140 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
 
 
         /**
+         * Get global setting value
+         *
+         * @param string $key Setting key
+         * @param mixed $default Default value
+         * @return mixed
+         */
+        private function get_global_setting($key, $default = null)
+        {
+            $settings = get_option('tinypress_settings', array());
+            if (is_array($settings) && array_key_exists($key, $settings)) {
+                return $settings[$key];
+            }
+            return $default;
+        }
+
+        /**
+         * Get current post ID being edited
+         *
+         * @return int|null
+         */
+        private function get_current_post_id()
+        {
+            global $post;
+            
+            if ($post && $post->ID) {
+                return $post->ID;
+            }
+            
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only check for post ID
+            if (isset($_GET['post'])) {
+                return absint($_GET['post']); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+            }
+            // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Read-only check for post ID
+            if (isset($_POST['post_ID'])) {
+                // phpcs:ignore WordPress.Security.NonceVerification.Missing
+                return absint($_POST['post_ID']);
+            }
+            
+            return null;
+        }
+
+        /**
+         * Check if a post has an existing saved value for a meta key
+         *
+         * @param string $meta_key The meta key to check
+         * @return bool True if the post has an existing saved value
+         */
+        private function post_has_saved_value($meta_key)
+        {
+            $post_id = $this->get_current_post_id();
+            
+            if (!$post_id) {
+                return false;
+            }
+            
+            $meta_exists = metadata_exists('post', $post_id, $meta_key);
+            
+            return $meta_exists;
+        }
+
+        private function get_use_global_default($setting_key)
+        {
+            if ($this->post_has_saved_value($setting_key)) {
+                return array();
+            }
+            
+            // New shortlink or no saved value - use global settings
+            return array('1');
+        }
+
+        /**
+         * Get default value for redirection method dropdown
+         * 
+         * - If post has existing saved value: return that value
+         * - If post is new or has no saved value: return empty string (use global)
+         *
+         * @return string Default value for the dropdown
+         */
+        private function get_redirection_method_default()
+        {
+            $post_id = $this->get_current_post_id();
+            
+            if ($post_id && metadata_exists('post', $post_id, 'redirection_method')) {
+                $saved_value = get_post_meta($post_id, 'redirection_method', true);
+                if (in_array($saved_value, array('301', '302', '307', 301, 302, 307), true)) {
+                    return $saved_value;
+                }
+            }
+            
+            return '';
+        }
+
+        private function get_use_global_label($global_key, $default_value = false)
+        {
+            $global_value = $this->get_global_setting($global_key, $default_value);
+            $current_state = $global_value ? esc_html__('ON', 'tinypress') : esc_html__('OFF', 'tinypress');
+            
+            return sprintf(
+                /* translators: %s: current global setting value (ON/OFF) */
+                esc_html__('Use global settings (currently: %s)', 'tinypress'),
+                $current_state
+            );
+        }
+
+        /**
+         * Get redirection method options with "Use global" as first option
+         *
+         * @return array
+         */
+        private function get_redirection_method_options()
+        {
+            $global_value = $this->get_global_setting('tinypress_global_redirection_method', 302);
+            
+            $method_labels = array(
+                307 => '307',
+                302 => '302',
+                301 => '301',
+            );
+            
+            $current_label = isset($method_labels[$global_value]) ? $method_labels[$global_value] : '302';
+            
+            return array(
+                ''  => sprintf(
+                    /* translators: %s: current global redirection method */
+                    esc_html__('Use global settings (currently: %s)', 'tinypress'),
+                    $current_label
+                ),
+                307 => esc_html__('307 (Temporary)', 'tinypress'),
+                302 => esc_html__('302 (Temporary)', 'tinypress'),
+                301 => esc_html__('301 (Permanent)', 'tinypress'),
+            );
+        }
+
+        /**
          * Generate meta box for slider data
          */
         private function generate_tinypress_meta_box()
@@ -293,46 +427,93 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                             'title'       => esc_html__('Redirection Method', 'tinypress'),
                             'subtitle'    => esc_html__('Select redirection method', 'tinypress'),
                             'placeholder' => esc_html__('Select a method', 'tinypress'),
-                            'options'     => array(
-                                307 => esc_html__('307 (Temporary)', 'tinypress'),
-                                302 => esc_html__('302 (Temporary)', 'tinypress'),
-                                301 => esc_html__('301 (Permanent)', 'tinypress'),
-                            ),
-                            'default'     => 302,
+                            'options'     => $this->get_redirection_method_options(),
+                            'default'     => $this->get_redirection_method_default(),
                         ),
                         array(
-                            'id'       => 'redirection_sponsored',
-                            'type'     => 'switcher',
+                            'id'       => 'redirection_sponsored_use_global',
+                            'type'     => 'checkbox',
                             'title'    => esc_html__('Sponsored', 'tinypress'),
                             'subtitle' => esc_html__('Mark links as sponsored content.', 'tinypress'),
-                            'label'    => esc_html__('Adds rel="sponsored" attribute. Recommended for affiliate links and paid promotions.', 'tinypress'),
+                            'options'  => array(
+                                '1' => $this->get_use_global_label('tinypress_global_sponsored', false),
+                            ),
+                            'default'  => $this->get_use_global_default('redirection_sponsored'),
+                            'class'    => 'tinypress-use-global-checkbox',
                         ),
                         array(
-                            'id'       => 'redirection_no_follow',
-                            'type'     => 'switcher',
+                            'id'           => 'redirection_sponsored',
+                            'type'         => 'switcher',
+                            'title'        => '',
+                            'label'        => esc_html__('Adds rel="sponsored" attribute. Recommended for affiliate links and paid promotions.', 'tinypress'),
+                            'default'      => false,
+                            'class'        => 'tinypress-global-controlled',
+                            'dependency'   => array('redirection_sponsored_use_global', 'not-any', '1'),
+                        ),
+                        array(
+                            'id'       => 'redirection_no_follow_use_global',
+                            'type'     => 'checkbox',
                             'title'    => esc_html__('NoFollow', 'tinypress'),
                             'subtitle' => esc_html__('Prevent search engines from following this link.', 'tinypress'),
-                            'label'    => esc_html__('Adds rel="nofollow" attribute. Recommended for external links and untrusted sources.', 'tinypress'),
-                            'default'  => true,
+                            'options'  => array(
+                                '1' => $this->get_use_global_label('tinypress_global_no_follow', true),
+                            ),
+                            'default'  => $this->get_use_global_default('redirection_no_follow'),
+                            'class'    => 'tinypress-use-global-checkbox',
+                        ),
+                        array(
+                            'id'           => 'redirection_no_follow',
+                            'type'         => 'switcher',
+                            'title'        => '',
+                            'label'        => esc_html__('Adds rel="nofollow" attribute. Recommended for external links and untrusted sources.', 'tinypress'),
+                            'default'      => true,
+                            'class'        => 'tinypress-global-controlled',
+                            'dependency'   => array('redirection_no_follow_use_global', 'not-any', '1'),
+                        ),
+                        array(
+                            'id'       => 'redirection_parameter_forwarding_use_global',
+                            'type'     => 'checkbox',
+                            'title'    => esc_html__('Parameter Forwarding', 'tinypress'),
+                            'subtitle' => esc_html__('Pass URL parameters to the target link.', 'tinypress'),
+                            'options'  => array(
+                                '1' => $this->get_use_global_label('tinypress_global_parameter_forwarding', false),
+                            ),
+                            'default'  => $this->get_use_global_default('redirection_parameter_forwarding'),
+                            'class'    => 'tinypress-use-global-checkbox',
                         ),
                         array(
                             'id'           => 'redirection_parameter_forwarding',
                             'type'         => 'switcher',
-                            'title'        => esc_html__('Parameter Forwarding', 'tinypress'),
-                            'subtitle'     => esc_html__('Pass URL parameters to the target link.', 'tinypress'),
+                            'title'        => '',
                             'label'        => esc_html__('Any parameters added to the short URL (e.g., ?utm_source=email) will be forwarded to the target URL.', 'tinypress'),
+                            'default'      => false,
+                            'class'        => 'tinypress-global-controlled',
+                            'dependency'   => array('redirection_parameter_forwarding_use_global', 'not-any', '1'),
                         ),
                     ),
                 )
             );
-// Security Settings section.
+            // Security Settings section.
             $security_fields = array(
+                array(
+                    'id'       => 'password_protection_use_global',
+                    'type'     => 'checkbox',
+                    'title'    => esc_html__('Password Protection', 'tinypress'),
+                    'subtitle' => esc_html__('Secure your shortlink.', 'tinypress'),
+                    'options'  => array(
+                        '1' => $this->get_use_global_label('tinypress_global_password_protection', false),
+                    ),
+                    'default'  => $this->get_use_global_default('password_protection'),
+                    'class'    => 'tinypress-use-global-checkbox',
+                ),
                 array(
                     'id'           => 'password_protection',
                     'type'         => 'switcher',
-                    'title'        => esc_html__('Password Protection', 'tinypress'),
-                    'subtitle'     => esc_html__('Secure your shortlink.', 'tinypress'),
+                    'title'        => '',
                     'label'        => esc_html__('Users must enter the password to redirect to the target link.', 'tinypress'),
+                    'default'      => false,
+                    'class'        => 'tinypress-global-controlled',
+                    'dependency'   => array('password_protection_use_global', 'not-any', '1'),
                 ),
                 array(
                     'id'           => 'link_password',
@@ -345,13 +526,27 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                         'minlength' => 6,
                     ),
                     'dependency'   => array( 'password_protection', '==', '1' ),
+                    'class'        => 'tinypress-global-controlled-child',
+                ),
+                array(
+                    'id'       => 'enable_expiration_use_global',
+                    'type'     => 'checkbox',
+                    'title'    => esc_html__('Enable Expiration', 'tinypress'),
+                    'subtitle' => esc_html__('Expire automatically.', 'tinypress'),
+                    'options'  => array(
+                        '1' => $this->get_use_global_label('tinypress_global_enable_expiration', false),
+                    ),
+                    'default'  => $this->get_use_global_default('enable_expiration'),
+                    'class'    => 'tinypress-use-global-checkbox',
                 ),
                 array(
                     'id'           => 'enable_expiration',
                     'type'         => 'switcher',
-                    'title'        => esc_html__('Enable Expiration', 'tinypress'),
-                    'subtitle'     => esc_html__('Expire automatically.', 'tinypress'),
-                    'label'        => esc_html__('Users will not able to redirect to the target URL once expire.', 'tinypress'),
+                    'title'        => '',
+                    'label'        => esc_html__('Users will not be able to redirect to the target URL once expired.', 'tinypress'),
+                    'default'      => false,
+                    'class'        => 'tinypress-global-controlled',
+                    'dependency'   => array('enable_expiration_use_global', 'not-any', '1'),
                 ),
                 array(
                     'id'           => 'expiration_date',
@@ -365,6 +560,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                         'minDate'         => 'today',
                     ),
                     'dependency'   => array( 'enable_expiration', '==', '1' ),
+                    'class'        => 'tinypress-global-controlled-child',
                 ),
                 array(
                     'id'           => 'expiration_time',
@@ -381,6 +577,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                         'minuteIncrement' => 1,
                     ),
                     'dependency'   => array( 'enable_expiration', '==', '1' ),
+                    'class'        => 'tinypress-global-controlled-child',
                 ),
             );
             $security_fields = apply_filters('tinypress_security_metabox_fields', $security_fields);

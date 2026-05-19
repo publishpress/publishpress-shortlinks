@@ -103,7 +103,12 @@ body.post-type-tinypress_link #submitdiv #major-publishing-actions {
 }
 
 body.post-type-tinypress_link #tinypress_link_catdiv .inside,
-body.post-type-tinypress_link #tagsdiv-tinypress_link_tags .inside,
+body.post-type-tinypress_link #tagsdiv-tinypress_link_tags .inside {
+    padding: 0;
+    width: 100%;
+    display: inline-block;
+}
+
 body.post-type-tinypress_link #tinypress-meta-side .inside {
     padding: 0;
     width: 100%;
@@ -1429,7 +1434,7 @@ body.post-type-tinypress_link .wpdk_settings-fieldset {
     body.post-type-tinypress_link .wpdk_settings-metabox {
         margin-top: 0;
     }
-
+    
     body.post-type-tinypress_link #submitdiv {
         position: static;
         margin-bottom: 10px;
@@ -1590,5 +1595,320 @@ body.post-type-tinypress_link .wpdk_settings-content.loading {
     
     body.post-type-tinypress_link .wpdk_settings-nav-normal + .wpdk_settings-content {
         margin-left: 0;
+    }
+}
+
+.tinypress-global-controlled.is-greyed-out {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.tinypress-global-controlled.is-greyed-out .wpdk_settings-switcher,
+.tinypress-global-controlled.is-greyed-out .wpdk_settings-desc,
+.tinypress-global-controlled.is-greyed-out input,
+.tinypress-global-controlled.is-greyed-out select {
+    cursor: not-allowed;
+}
+
+.tinypress-global-controlled-child.is-greyed-out {
+    opacity: 0.6 !important;
+    pointer-events: none !important;
+}
+
+.wpdk_settings-field.tinypress-global-controlled .wpdk_settings-title {
+    display: none;
+}
+
+body.post-type-tinypress_link .wpdk_settings-depend-hidden.wpdk_settings-depend-on {
+    display: none !important;
+}
+
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field {
+    padding: 20px 0;
+    margin: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:last-child {
+    border-bottom: none;
+}
+
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-field .wpdk_settings-fieldset {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.tinypress-use-global-checkbox:not(.wpdk_settings-depend-on) {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 8px 20px;
+    padding: 20px 0 !important;
+    margin: 0 !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+    background: transparent !important;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.tinypress-use-global-checkbox .wpdk_settings-title {
+    grid-column: 1;
+    grid-row: 1;
+    float: none !important;
+    width: auto !important;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.tinypress-use-global-checkbox .wpdk_settings-title h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1d2327;
+    margin: 0 0 4px 0;
+    line-height: 1.4;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.tinypress-use-global-checkbox .wpdk_settings-subtitle-text {
+    font-size: 13px;
+    color: #646970;
+    margin: 0;
+    line-height: 1.5;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.tinypress-use-global-checkbox .wpdk_settings-fieldset {
+    grid-column: 1;
+    grid-row: 2;
+    float: none !important;
+    width: auto !important;
+}
+
+body.post-type-tinypress_link .tinypress-use-global-checkbox .wpdk_settings-checkbox label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px;
+    color: #50575e;
+    padding: 6px 10px;
+    background: #f6f7f7;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+body.post-type-tinypress_link .tinypress-use-global-checkbox .wpdk_settings-checkbox label:hover {
+    background: #f0f0f1;
+}
+
+body.post-type-tinypress_link .tinypress-use-global-checkbox .wpdk_settings-checkbox input[type="checkbox"] {
+    margin: 0 8px 0 0 !important;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.tinypress-use-global-checkbox .clear {
+    display: none;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher.tinypress-global-controlled:not(.wpdk_settings-depend-on) {
+    margin-top: -100px !important;
+    margin-left: 50% !important;
+    width: 50% !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-sizing: border-box;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher.tinypress-global-controlled .wpdk_settings--switcher-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher.tinypress-global-controlled .wpdk_settings--switcher-wrapper .wpdk_settings--switcher {
+    float: none !important;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher.tinypress-global-controlled .wpdk_settings--switcher-wrapper .wpdk_settings--label {
+    float: none !important;
+    font-size: 13px;
+    color: #646970;
+    margin: 0 !important;
+    line-height: 1.5;
+    max-width: 100%;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.tinypress-global-controlled .clear {
+    display: none;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.tinypress-global-controlled-child:not(.wpdk_settings-depend-on) {
+    padding: 16px 0 16px 20px !important;
+    margin: 0 !important;
+    border: none !important;
+    border-left: 3px solid #e5e5e5 !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+    background: #fafafa !important;
+    clear: both;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.tinypress-use-global-checkbox:has(~ .tinypress-global-controlled-child:not(.wpdk_settings-depend-on)) {
+    border-bottom: none !important;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.tinypress-global-controlled-child .wpdk_settings-title {
+    margin-bottom: 8px;
+    float: none;
+    width: auto;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.tinypress-global-controlled-child .wpdk_settings-fieldset {
+    background: transparent !important;
+    float: none;
+    width: auto;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-datetime.tinypress-global-controlled-child:not(.wpdk_settings-depend-on) {
+    padding: 16px 0 16px 20px !important;
+    border-left: 3px solid #e5e5e5 !important;
+    background: #fafafa !important;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-select {
+    padding: 20px 0;
+    margin: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-select .wpdk_settings-title {
+    margin-bottom: 10px;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-select select {
+    min-width: 320px;
+    max-width: 100%;
+    padding: 8px 12px;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-text:not(.tinypress-global-controlled-child),
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-textarea,
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-callback {
+    padding: 20px 0;
+    margin: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on) {
+    display: block;
+    padding: 20px 0;
+    margin: 0;
+    border-bottom: 1px solid #e5e5e5;
+    overflow: hidden;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on) .wpdk_settings-title {
+    float: left;
+    width: 50%;
+    padding-right: 20px;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on) .wpdk_settings-title h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1d2327;
+    margin: 0 0 4px 0;
+    line-height: 1.4;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on) .wpdk_settings-subtitle-text {
+    font-size: 13px;
+    color: #646970;
+    margin: 0;
+    line-height: 1.5;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on) .wpdk_settings-fieldset {
+    float: right;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on) .wpdk_settings--switcher-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on) .wpdk_settings--switcher-wrapper .wpdk_settings--switcher {
+    float: none !important;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on) .wpdk_settings--switcher-wrapper .wpdk_settings--label {
+    float: none !important;
+    font-size: 13px;
+    color: #646970;
+    max-width: 100%;
+    margin: 0;
+    float: none;
+    line-height: 1.5;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-checkbox:not(.tinypress-use-global-checkbox) {
+    padding: 20px 0;
+    margin: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-checkbox:not(.tinypress-use-global-checkbox) .wpdk_settings-checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-checkbox:not(.tinypress-use-global-checkbox) .wpdk_settings-checkbox label {
+    padding: 6px 12px;
+    background: #f6f7f7;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+@media screen and (max-width: 782px) {
+    body.post-type-tinypress_link .wpdk_settings-field.tinypress-use-global-checkbox:not(.wpdk_settings-depend-on) {
+        min-height: auto;
+    }
+    
+    body.post-type-tinypress_link .wpdk_settings-field.tinypress-use-global-checkbox .wpdk_settings-title {
+        float: none;
+        width: 100%;
+        padding-right: 0;
+    }
+    
+    body.post-type-tinypress_link .wpdk_settings-field.tinypress-use-global-checkbox .wpdk_settings-fieldset {
+        float: none;
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 12px;
+    }
+    
+    body.post-type-tinypress_link .wpdk_settings-field.tinypress-global-controlled:not(.wpdk_settings-depend-on) {
+        float: none;
+        width: 100%;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on) .wpdk_settings-title {
+        float: none;
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 12px;
+    }
+    
+    body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on) .wpdk_settings-fieldset {
+        float: none;
+        width: 100%;
+    }
+    
+    body.post-type-tinypress_link .wpdk_settings-field.tinypress-global-controlled-child {
+        padding-left: 15px !important;
+        margin-left: 0 !important;
     }
 }
