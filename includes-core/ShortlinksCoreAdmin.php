@@ -180,5 +180,4 @@ class ShortlinksCoreAdmin
     {
         $this->render_pro_nudge();
     }
-
 }
