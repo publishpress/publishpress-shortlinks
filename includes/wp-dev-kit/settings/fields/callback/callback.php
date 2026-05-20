@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -24,7 +25,7 @@ if (! class_exists('WPDK_Settings_Field_callback')) {
         {
 
             if (isset($this->field['function']) && is_callable($this->field['function'])) {
-                $args = ( isset($this->field['args']) ) ? $this->field['args'] : null;
+                $args = (isset($this->field['args'])) ? $this->field['args'] : null;
 
                 call_user_func($this->field['function'], $this->field);
             }

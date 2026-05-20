@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
@@ -92,8 +93,8 @@ if (! class_exists('WPDK_Settings_Comment_Metabox')) {
         public function get_default($field)
         {
 
-            $default = ( isset($field['default']) ) ? $field['default'] : '';
-            $default = ( isset($this->args['defaults'][ $field['id'] ]) ) ? $this->args['defaults'][ $field['id'] ] : $default;
+            $default = (isset($field['default'])) ? $field['default'] : '';
+            $default = (isset($this->args['defaults'][ $field['id'] ])) ? $this->args['defaults'][ $field['id'] ] : $default;
 
             return $default;
         }
@@ -107,15 +108,15 @@ if (! class_exists('WPDK_Settings_Comment_Metabox')) {
             if (! empty($comment_id) && ! empty($field['id'])) {
                 if ($this->args['data_type'] !== 'serialize') {
                     $meta  = get_comment_meta($comment_id, $field['id']);
-                    $value = ( isset($meta[0]) ) ? $meta[0] : null;
+                    $value = (isset($meta[0])) ? $meta[0] : null;
                 } else {
                     $meta  = get_comment_meta($comment_id, $this->unique, true);
-                    $value = ( isset($meta[ $field['id'] ]) ) ? $meta[ $field['id'] ] : null;
+                    $value = (isset($meta[ $field['id'] ])) ? $meta[ $field['id'] ] : null;
                 }
             }
 
-            $default = ( isset($field['id']) ) ? $this->get_default($field) : '';
-            $value   = ( isset($value) ) ? $value : $default;
+            $default = (isset($field['id'])) ? $this->get_default($field) : '';
+            $value   = (isset($value)) ? $value : $default;
 
             return $value;
         }
@@ -124,12 +125,12 @@ if (! class_exists('WPDK_Settings_Comment_Metabox')) {
         public function add_comment_meta_box_content($comment, $callback)
         {
 
-            $has_nav  = ( count($this->sections) > 1 ) ? true : false;
-            $show_all = ( ! $has_nav ) ? ' wpdk_settings-show-all' : '';
-            $errors   = ( is_object($comment) ) ? get_comment_meta($comment->comment_ID, '_pb_settings_errors_' . $this->unique, true) : array();
-            $errors   = ( ! empty($errors) ) ? $errors : array();
-            $theme    = ( $this->args['theme'] ) ? ' wpdk_settings-theme-' . $this->args['theme'] : '';
-            $nav_type = ( $this->args['nav'] === 'inline' ) ? 'inline' : 'normal';
+            $has_nav  = (count($this->sections) > 1) ? true : false;
+            $show_all = (! $has_nav) ? ' wpdk_settings-show-all' : '';
+            $errors   = (is_object($comment)) ? get_comment_meta($comment->comment_ID, '_pb_settings_errors_' . $this->unique, true) : array();
+            $errors   = (! empty($errors)) ? $errors : array();
+            $theme    = ($this->args['theme']) ? ' wpdk_settings-theme-' . $this->args['theme'] : '';
+            $nav_type = ($this->args['nav'] === 'inline') ? 'inline' : 'normal';
 
             if (is_object($comment) && ! empty($errors)) {
                 delete_comment_meta($comment->comment_ID, '_pb_settings_errors_' . $this->unique);
@@ -149,8 +150,8 @@ if (! class_exists('WPDK_Settings_Comment_Metabox')) {
                 $tab_key = 1;
 
                 foreach ($this->sections as $section) {
-                    $tab_icon  = ( ! empty($section['icon']) ) ? '<i class="wpdk_settings-tab-icon ' . esc_attr($section['icon']) . '"></i>' : '';
-                    $tab_error = ( ! empty($errors['sections'][ $tab_key ]) ) ? '<i class="wpdk_settings-label-error wpdk_settings-error">!</i>' : '';
+                    $tab_icon  = (! empty($section['icon'])) ? '<i class="wpdk_settings-tab-icon ' . esc_attr($section['icon']) . '"></i>' : '';
+                    $tab_error = (! empty($errors['sections'][ $tab_key ])) ? '<i class="wpdk_settings-label-error wpdk_settings-error">!</i>' : '';
 
                     echo '<li><a href="#">' . esc_html($tab_icon . $section['title'] . $tab_error) . '</a></li>';
 
@@ -169,15 +170,15 @@ if (! class_exists('WPDK_Settings_Comment_Metabox')) {
             $section_key = 1;
 
             foreach ($this->sections as $section) {
-                $section_onload = ( ! $has_nav ) ? ' wpdk_settings-onload' : '';
-                $section_class  = ( ! empty($section['class']) ) ? ' ' . $section['class'] : '';
-                $section_title  = ( ! empty($section['title']) ) ? $section['title'] : '';
-                $section_icon   = ( ! empty($section['icon']) ) ? '<i class="wpdk_settings-section-icon ' . esc_attr($section['icon']) . '"></i>' : '';
+                $section_onload = (! $has_nav) ? ' wpdk_settings-onload' : '';
+                $section_class  = (! empty($section['class'])) ? ' ' . $section['class'] : '';
+                $section_title  = (! empty($section['title'])) ? $section['title'] : '';
+                $section_icon   = (! empty($section['icon'])) ? '<i class="wpdk_settings-section-icon ' . esc_attr($section['icon']) . '"></i>' : '';
 
                 echo '<div class="wpdk_settings-section hidden' . esc_attr($section_onload . $section_class) . '">';
 
-                echo ( $section_title || $section_icon ) ? '<div class="wpdk_settings-section-title"><h3>' . esc_html($section_icon . $section_title) . '</h3></div>' : '';
-                echo ( ! empty($section['description']) ) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . esc_html($section['description']) . '</div>' : '';
+                echo ($section_title || $section_icon) ? '<div class="wpdk_settings-section-title"><h3>' . esc_html($section_icon . $section_title) . '</h3></div>' : '';
+                echo (! empty($section['description'])) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . esc_html($section['description']) . '</div>' : '';
 
                 if (! empty($section['fields'])) {
                     foreach ($section['fields'] as $field) {
@@ -214,7 +215,7 @@ if (! class_exists('WPDK_Settings_Comment_Metabox')) {
 
             echo '</div>';
 
-            echo ( $has_nav && $nav_type === 'normal' ) ? '<div class="wpdk_settings-nav-background"></div>' : '';
+            echo ($has_nav && $nav_type === 'normal') ? '<div class="wpdk_settings-nav-background"></div>' : '';
 
             echo '<div class="clear"></div>';
 
@@ -231,15 +232,15 @@ if (! class_exists('WPDK_Settings_Comment_Metabox')) {
             $data     = array();
             $errors   = array();
             $noncekey = 'pb_settings_comment_metabox_nonce' . $this->unique;
-            $nonce    = ( ! empty($_POST[ $noncekey ]) ) ? sanitize_text_field(wp_unslash($_POST[ $noncekey ])) : '';
+            $nonce    = (! empty($_POST[ $noncekey ])) ? sanitize_text_field(wp_unslash($_POST[ $noncekey ])) : '';
 
-            if (( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) || ! wp_verify_nonce($nonce, 'pb_settings_comment_metabox_nonce')) {
+            if ((defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) || ! wp_verify_nonce($nonce, 'pb_settings_comment_metabox_nonce')) {
                 return $comment_id;
             }
 
             // XSS ok.
             // No worries, This "POST" requests is sanitizing in the below foreach.
-            $request = ( ! empty($_POST[ $this->unique ]) ) ? map_deep(wp_unslash($_POST[ $this->unique ]), 'sanitize_text_field') : array();
+            $request = (! empty($_POST[ $this->unique ])) ? map_deep(wp_unslash($_POST[ $this->unique ]), 'sanitize_text_field') : array();
 
             if (! empty($request)) {
                 foreach ($this->sections as $section) {

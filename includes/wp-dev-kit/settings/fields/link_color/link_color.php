@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -53,7 +54,7 @@ if (! class_exists('WPDK_Settings_Field_link_color')) {
 
             foreach ($color_props as $color_prop_key => $color_prop_value) {
                 if (! empty($args[$color_prop_key])) {
-                    $default_attr = ( ! empty($this->field['default'][$color_prop_key]) ) ? ' data-default-color="' . esc_attr($this->field['default'][$color_prop_key]) . '"' : '';
+                    $default_attr = (! empty($this->field['default'][$color_prop_key])) ? ' data-default-color="' . esc_attr($this->field['default'][$color_prop_key]) . '"' : '';
 
                     echo '<div class="wpdk_settings--left wpdk_settings-field-color">';
                     echo '<div class="wpdk_settings--title">' . esc_attr($color_prop_value) . '</div>';
@@ -69,25 +70,25 @@ if (! class_exists('WPDK_Settings_Field_link_color')) {
         {
 
             $output    = '';
-            $elements  = ( is_array($this->field['output']) ) ? $this->field['output'] : array_filter((array) $this->field['output']);
-            $important = ( ! empty($this->field['output_important']) ) ? '!important' : '';
+            $elements  = (is_array($this->field['output'])) ? $this->field['output'] : array_filter((array) $this->field['output']);
+            $important = (! empty($this->field['output_important'])) ? '!important' : '';
 
             if (! empty($elements) && isset($this->value) && $this->value !== '') {
                 foreach ($elements as $element) {
                     if (isset($this->value['color']) && $this->value['color']   !== '') {
-                        $output .= $element . '{color:' .         $this->value['color']   . $important . ';}'; 
+                        $output .= $element . '{color:' .         $this->value['color']   . $important . ';}';
                     }
                     if (isset($this->value['hover']) && $this->value['hover']   !== '') {
-                        $output .= $element . ':hover{color:' .   $this->value['hover']   . $important . ';}'; 
+                        $output .= $element . ':hover{color:' .   $this->value['hover']   . $important . ';}';
                     }
                     if (isset($this->value['active']) && $this->value['active']  !== '') {
-                          $output .= $element . ':active{color:' .  $this->value['active']  . $important . ';}'; 
+                        $output .= $element . ':active{color:' .  $this->value['active']  . $important . ';}';
                     }
                     if (isset($this->value['visited']) && $this->value['visited'] !== '') {
-                          $output .= $element . ':visited{color:' . $this->value['visited'] . $important . ';}'; 
+                        $output .= $element . ':visited{color:' . $this->value['visited'] . $important . ';}';
                     }
                     if (isset($this->value['focus']) && $this->value['focus']   !== '') {
-                        $output .= $element . ':focus{color:' .   $this->value['focus']   . $important . ';}'; 
+                        $output .= $element . ':focus{color:' .   $this->value['focus']   . $important . ';}';
                     }
                 }
             }

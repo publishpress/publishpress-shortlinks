@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
@@ -65,8 +66,8 @@ if (! class_exists('WPDK_Settings_Nav_Menu_Options')) {
         public function get_default($field)
         {
 
-            $default = ( isset($field['default']) ) ? $field['default'] : '';
-            $default = ( isset($this->args['defaults'][ $field['id'] ]) ) ? $this->args['defaults'][ $field['id'] ] : $default;
+            $default = (isset($field['default'])) ? $field['default'] : '';
+            $default = (isset($this->args['defaults'][ $field['id'] ])) ? $this->args['defaults'][ $field['id'] ] : $default;
 
             return $default;
         }
@@ -80,15 +81,15 @@ if (! class_exists('WPDK_Settings_Nav_Menu_Options')) {
             if (! empty($menu_item_id) && ! empty($field['id'])) {
                 if ($this->args['data_type'] !== 'serialize') {
                     $meta  = get_post_meta($menu_item_id, $field['id']);
-                    $value = ( isset($meta[0]) ) ? $meta[0] : null;
+                    $value = (isset($meta[0])) ? $meta[0] : null;
                 } else {
                     $meta  = get_post_meta($menu_item_id, $this->unique, true);
-                    $value = ( isset($meta[ $field['id'] ]) ) ? $meta[ $field['id'] ] : null;
+                    $value = (isset($meta[ $field['id'] ])) ? $meta[ $field['id'] ] : null;
                 }
             }
 
-            $default = ( isset($field['id']) ) ? $this->get_default($field) : '';
-            $value   = ( isset($value) ) ? $value : $default;
+            $default = (isset($field['id'])) ? $this->get_default($field) : '';
+            $value   = (isset($value)) ? $value : $default;
 
             return $value;
         }
@@ -97,9 +98,9 @@ if (! class_exists('WPDK_Settings_Nav_Menu_Options')) {
         public function wp_nav_menu_item_custom_fields($menu_item_id, $item, $depth, $args)
         {
 
-            $errors = ( ! empty($menu_item_id) ) ? get_post_meta($menu_item_id, '_pb_settings_errors_' . $this->unique, true) : array();
-            $errors = ( ! empty($errors) ) ? $errors : array();
-            $class  = ( $this->args['class'] ) ? ' ' . $this->args['class'] : '';
+            $errors = (! empty($menu_item_id)) ? get_post_meta($menu_item_id, '_pb_settings_errors_' . $this->unique, true) : array();
+            $errors = (! empty($errors)) ? $errors : array();
+            $class  = ($this->args['class']) ? ' ' . $this->args['class'] : '';
 
             if (! empty($errors)) {
                 delete_post_meta($menu_item_id, '_pb_settings_errors_' . $this->unique);
@@ -108,13 +109,13 @@ if (! class_exists('WPDK_Settings_Nav_Menu_Options')) {
             echo '<div class="pb_settings wpdk_settings-nav-menu-options' . esc_attr($class) . '">';
 
             foreach ($this->sections as $section) {
-                $section_icon  = ( ! empty($section['icon']) ) ? '<i class="wpdk_settings-nav-menu-icon ' . esc_attr($section['icon']) . '"></i>' : '';
-                $section_title = ( ! empty($section['title']) ) ? $section['title'] : '';
+                $section_icon  = (! empty($section['icon'])) ? '<i class="wpdk_settings-nav-menu-icon ' . esc_attr($section['icon']) . '"></i>' : '';
+                $section_title = (! empty($section['title'])) ? $section['title'] : '';
 
                 echo '<div class="wpdk_settings-fields">';
 
-                echo ( $section_title || $section_icon ) ? '<div class="wpdk_settings-nav-menu-title"><h4>' . esc_html($section_icon . $section_title) . '</h4></div>' : '';
-                echo ( ! empty($section['description']) ) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . esc_html($section['description']) . '</div>' : '';
+                echo ($section_title || $section_icon) ? '<div class="wpdk_settings-nav-menu-title"><h4>' . esc_html($section_icon . $section_title) . '</h4></div>' : '';
+                echo (! empty($section['description'])) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . esc_html($section['description']) . '</div>' : '';
 
                 if (! empty($section['fields'])) {
                     foreach ($section['fields'] as $field) {
@@ -143,15 +144,15 @@ if (! class_exists('WPDK_Settings_Nav_Menu_Options')) {
             $data     = array();
             $errors   = array();
             $noncekey = 'update-nav-menu-nonce';
-            $nonce    = ( ! empty($_POST[ $noncekey ]) ) ? sanitize_text_field(wp_unslash($_POST[ $noncekey ])) : '';
+            $nonce    = (! empty($_POST[ $noncekey ])) ? sanitize_text_field(wp_unslash($_POST[ $noncekey ])) : '';
 
-            if (( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) || ! wp_verify_nonce($nonce, 'update-nav_menu')) {
+            if ((defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) || ! wp_verify_nonce($nonce, 'update-nav_menu')) {
                 return $menu_item_db_id;
             }
 
             // XSS ok.
             // No worries, This "POST" requests is sanitizing in the below foreach.
-            $request = ( ! empty($_POST[ $this->unique ][ $menu_item_db_id ]) ) ? map_deep(wp_unslash($_POST[ $this->unique ][ $menu_item_db_id ]), 'sanitize_text_field') : array();
+            $request = (! empty($_POST[ $this->unique ][ $menu_item_db_id ])) ? map_deep(wp_unslash($_POST[ $this->unique ][ $menu_item_db_id ]), 'sanitize_text_field') : array();
 
             if (! empty($request)) {
                 foreach ($this->sections as $section) {

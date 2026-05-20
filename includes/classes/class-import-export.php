@@ -605,8 +605,8 @@ if (! class_exists('TINYPRESS_Import_Export')) {
 
             if (! $detected_target_url) {
                 fclose($handle);
-                wp_send_json_error(array( 
-                    'message' => esc_html__('CSV must contain a column for target URL (e.g., "url", "target_url", "destination_url").', 'tinypress') 
+                wp_send_json_error(array(
+                    'message' => esc_html__('CSV must contain a column for target URL (e.g., "url", "target_url", "destination_url").', 'tinypress')
                 ));
             }
 
@@ -614,7 +614,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             $failed   = 0;
             $errors   = array();
 
-            while (( $row = fgetcsv($handle, 0, ',', '"', '\\') ) !== false) {
+            while (($row = fgetcsv($handle, 0, ',', '"', '\\')) !== false) {
                 $data = $this->normalize_import_row($row, $col_map);
 
                 $target_url = $this->validate_target_url($data['target_url']);
@@ -713,7 +713,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                         update_post_meta($link_id, 'enable_expiration_use_global', array());
                         $expiration_enabled = $this->import_field_exists($data, 'expiration_enabled')
                             ? $this->parse_boolean($data['expiration_enabled'])
-                            : ( $this->import_field_exists($data, 'expiration_date') && '' !== $data['expiration_date'] );
+                            : ($this->import_field_exists($data, 'expiration_date') && '' !== $data['expiration_date']);
                         update_post_meta($link_id, 'enable_expiration', $expiration_enabled ? '1' : '0');
                     }
                 } else {
@@ -754,7 +754,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                     $imported
                 );
             }
-            
+
             if ($failed > 0) {
                 if (! empty($message)) {
                     $message .= ' | ';
@@ -864,7 +864,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             $headers_lower = array_map(function ($header) {
                 return strtolower(trim((string) $header));
             }, $headers);
-            
+
             // Column name variations mapping
             $column_aliases = array(
                 'target_url'       => array( 'target_url', 'target', 'url', 'destination_url', 'destination', 'redirect_url', 'link_url', 'forward_url' ),
@@ -969,8 +969,8 @@ if (! class_exists('TINYPRESS_Import_Export')) {
 
             if (! $detected_target_url) {
                 fclose($handle);
-                wp_send_json_error(array( 
-                    'message' => esc_html__('CSV must contain a column for target URL (e.g., "url", "target_url", "destination_url").', 'tinypress') 
+                wp_send_json_error(array(
+                    'message' => esc_html__('CSV must contain a column for target URL (e.g., "url", "target_url", "destination_url").', 'tinypress')
                 ));
             }
 
@@ -978,7 +978,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             $total_rows    = 0;
             $preview_limit = 10;
 
-            while (( $row = fgetcsv($handle, 0, ',', '"', '\\') ) !== false) {
+            while (($row = fgetcsv($handle, 0, ',', '"', '\\')) !== false) {
                 $data = $this->normalize_import_row($row, $col_map);
 
                 if (is_wp_error($this->validate_target_url($data['target_url']))) {
@@ -1128,7 +1128,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                         </div>
                         <div class="tinypress-ie-card-body">
                             <?php if ($pretty_links_active) : ?>
-                                <p><?php esc_html_e('Download all your shortlinks as a CSV file. Choose a format below:' , 'tinypress'); ?></p>
+                                <p><?php esc_html_e('Download all your shortlinks as a CSV file. Choose a format below:', 'tinypress'); ?></p>
                                 <p class="tinypress-ie-count">
                                     <?php
                                     printf(
@@ -1163,7 +1163,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                                 <p class="tinypress-ie-count">
                                     <?php
                                     printf(
-                                        /* translators: %d: number of shortlinks */
+                                    /* translators: %d: number of shortlinks */
                                         esc_html__('%d shortlink(s) will be exported.', 'tinypress'),
                                         (int) $count
                                     );

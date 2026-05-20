@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -66,7 +67,7 @@ if (! class_exists('WPDK_Settings_Field_border')) {
             'none'      => esc_html__('None')
             );
 
-            $default_value = ( ! empty($this->field['default']) ) ? wp_parse_args($this->field['default'], $default_value) : $default_value;
+            $default_value = (! empty($this->field['default'])) ? wp_parse_args($this->field['default'], $default_value) : $default_value;
 
             $value = wp_parse_args($this->value, $default_value);
 
@@ -75,12 +76,12 @@ if (! class_exists('WPDK_Settings_Field_border')) {
             echo '<div class="wpdk_settings--inputs" data-depend-id="' . esc_attr($this->field['id']) . '">';
 
             if (! empty($args['all'])) {
-                $placeholder = ( ! empty($args['all_placeholder']) ) ? ' placeholder="' . esc_attr($args['all_placeholder']) . '"' : '';
+                $placeholder = (! empty($args['all_placeholder'])) ? ' placeholder="' . esc_attr($args['all_placeholder']) . '"' : '';
 
                 echo '<div class="wpdk_settings--input">';
-                echo ( ! empty($args['all_icon']) ) ? '<span class="wpdk_settings--label wpdk_settings--icon">' . $args['all_icon'] . '</span>' : '';
+                echo (! empty($args['all_icon'])) ? '<span class="wpdk_settings--label wpdk_settings--icon">' . $args['all_icon'] . '</span>' : '';
                 echo '<input type="number" name="' . esc_attr($this->field_name('[all]')) . '" value="' . esc_attr($value['all']) . '"' . $placeholder . ' class="wpdk_settings-input-number wpdk_settings--is-unit" step="any" />';
-                echo ( ! empty($args['unit']) ) ? '<span class="wpdk_settings--label wpdk_settings--unit">' . esc_attr($args['unit']) . '</span>' : '';
+                echo (! empty($args['unit'])) ? '<span class="wpdk_settings--label wpdk_settings--unit">' . esc_attr($args['unit']) . '</span>' : '';
                 echo '</div>';
             } else {
                 $properties = array();
@@ -91,15 +92,15 @@ if (! class_exists('WPDK_Settings_Field_border')) {
                     }
                 }
 
-                $properties = ( $properties === array( 'right', 'left' ) ) ? array_reverse($properties) : $properties;
+                $properties = ($properties === array( 'right', 'left' )) ? array_reverse($properties) : $properties;
 
                 foreach ($properties as $property) {
-                    $placeholder = ( ! empty($args[$property . '_placeholder']) ) ? ' placeholder="' . esc_attr($args[$property . '_placeholder']) . '"' : '';
+                    $placeholder = (! empty($args[$property . '_placeholder'])) ? ' placeholder="' . esc_attr($args[$property . '_placeholder']) . '"' : '';
 
                     echo '<div class="wpdk_settings--input">';
-                    echo ( ! empty($args[$property . '_icon']) ) ? '<span class="wpdk_settings--label wpdk_settings--icon">' . $args[$property . '_icon'] . '</span>' : '';
+                    echo (! empty($args[$property . '_icon'])) ? '<span class="wpdk_settings--label wpdk_settings--icon">' . $args[$property . '_icon'] . '</span>' : '';
                     echo '<input type="number" name="' . esc_attr($this->field_name('[' . $property . ']')) . '" value="' . esc_attr($value[$property]) . '"' . $placeholder . ' class="wpdk_settings-input-number wpdk_settings--is-unit" step="any" />';
-                    echo ( ! empty($args['unit']) ) ? '<span class="wpdk_settings--label wpdk_settings--unit">' . esc_attr($args['unit']) . '</span>' : '';
+                    echo (! empty($args['unit'])) ? '<span class="wpdk_settings--label wpdk_settings--unit">' . esc_attr($args['unit']) . '</span>' : '';
                     echo '</div>';
                 }
             }
@@ -108,7 +109,7 @@ if (! class_exists('WPDK_Settings_Field_border')) {
                 echo '<div class="wpdk_settings--input">';
                 echo '<select name="' . esc_attr($this->field_name('[style]')) . '">';
                 foreach ($border_props as $border_prop_key => $border_prop_value) {
-                    $selected = ( $value['style'] === $border_prop_key ) ? ' selected' : '';
+                    $selected = ($value['style'] === $border_prop_key) ? ' selected' : '';
                     echo '<option value="' . esc_attr($border_prop_key) . '"' . esc_attr($selected) . '>' . esc_attr($border_prop_value) . '</option>';
                 }
                 echo '</select>';
@@ -118,7 +119,7 @@ if (! class_exists('WPDK_Settings_Field_border')) {
             echo '</div>';
 
             if (! empty($args['color'])) {
-                $default_color_attr = ( ! empty($default_value['color']) ) ? ' data-default-color="' . esc_attr($default_value['color']) . '"' : '';
+                $default_color_attr = (! empty($default_value['color'])) ? ' data-default-color="' . esc_attr($default_value['color']) . '"' : '';
                 echo '<div class="wpdk_settings--color">';
                 echo '<div class="wpdk_settings-field-color">';
                 echo '<input type="text" name="' . esc_attr($this->field_name('[color]')) . '" value="' . esc_attr($value['color']) . '" class="wpdk_settings-color"' . $default_color_attr . ' />';
@@ -133,33 +134,33 @@ if (! class_exists('WPDK_Settings_Field_border')) {
         {
 
             $output    = '';
-            $unit      = ( ! empty($this->value['unit']) ) ? $this->value['unit'] : 'px';
-            $important = ( ! empty($this->field['output_important']) ) ? '!important' : '';
-            $element   = ( is_array($this->field['output']) ) ? join(',', $this->field['output']) : $this->field['output'];
+            $unit      = (! empty($this->value['unit'])) ? $this->value['unit'] : 'px';
+            $important = (! empty($this->field['output_important'])) ? '!important' : '';
+            $element   = (is_array($this->field['output'])) ? join(',', $this->field['output']) : $this->field['output'];
 
-          // properties
-            $top     = ( isset($this->value['top'])    && $this->value['top']    !== '' ) ? $this->value['top']    : '';
-            $right   = ( isset($this->value['right'])  && $this->value['right']  !== '' ) ? $this->value['right']  : '';
-            $bottom  = ( isset($this->value['bottom']) && $this->value['bottom'] !== '' ) ? $this->value['bottom'] : '';
-            $left    = ( isset($this->value['left'])   && $this->value['left']   !== '' ) ? $this->value['left']   : '';
-            $style   = ( isset($this->value['style'])  && $this->value['style']  !== '' ) ? $this->value['style']  : '';
-            $color   = ( isset($this->value['color'])  && $this->value['color']  !== '' ) ? $this->value['color']  : '';
-            $all     = ( isset($this->value['all'])    && $this->value['all']    !== '' ) ? $this->value['all']    : '';
+            // properties
+            $top     = (isset($this->value['top'])    && $this->value['top']    !== '') ? $this->value['top'] : '';
+            $right   = (isset($this->value['right'])  && $this->value['right']  !== '') ? $this->value['right'] : '';
+            $bottom  = (isset($this->value['bottom']) && $this->value['bottom'] !== '') ? $this->value['bottom'] : '';
+            $left    = (isset($this->value['left'])   && $this->value['left']   !== '') ? $this->value['left'] : '';
+            $style   = (isset($this->value['style'])  && $this->value['style']  !== '') ? $this->value['style'] : '';
+            $color   = (isset($this->value['color'])  && $this->value['color']  !== '') ? $this->value['color'] : '';
+            $all     = (isset($this->value['all'])    && $this->value['all']    !== '') ? $this->value['all'] : '';
 
-            if (! empty($this->field['all']) && ( $all !== '' || $color !== '' )) {
+            if (! empty($this->field['all']) && ($all !== '' || $color !== '')) {
                 $output  = $element . '{';
-                $output .= ( $all   !== '' ) ? 'border-width:' . $all . $unit . $important . ';' : '';
-                $output .= ( $color !== '' ) ? 'border-color:' . $color . $important . ';'       : '';
-                $output .= ( $style !== '' ) ? 'border-style:' . $style . $important . ';'       : '';
+                $output .= ($all   !== '') ? 'border-width:' . $all . $unit . $important . ';' : '';
+                $output .= ($color !== '') ? 'border-color:' . $color . $important . ';' : '';
+                $output .= ($style !== '') ? 'border-style:' . $style . $important . ';' : '';
                 $output .= '}';
             } elseif ($top !== '' || $right !== '' || $bottom !== '' || $left !== '' || $color !== '') {
                 $output  = $element . '{';
-                $output .= ( $top    !== '' ) ? 'border-top-width:' . $top . $unit . $important . ';'       : '';
-                $output .= ( $right  !== '' ) ? 'border-right-width:' . $right . $unit . $important . ';'   : '';
-                $output .= ( $bottom !== '' ) ? 'border-bottom-width:' . $bottom . $unit . $important . ';' : '';
-                $output .= ( $left   !== '' ) ? 'border-left-width:' . $left . $unit . $important . ';'     : '';
-                $output .= ( $color  !== '' ) ? 'border-color:' . $color . $important . ';'                 : '';
-                $output .= ( $style  !== '' ) ? 'border-style:' . $style . $important . ';'                 : '';
+                $output .= ($top    !== '') ? 'border-top-width:' . $top . $unit . $important . ';' : '';
+                $output .= ($right  !== '') ? 'border-right-width:' . $right . $unit . $important . ';' : '';
+                $output .= ($bottom !== '') ? 'border-bottom-width:' . $bottom . $unit . $important . ';' : '';
+                $output .= ($left   !== '') ? 'border-left-width:' . $left . $unit . $important . ';' : '';
+                $output .= ($color  !== '') ? 'border-color:' . $color . $important . ';' : '';
+                $output .= ($style  !== '') ? 'border-style:' . $style . $important . ';' : '';
                 $output .= '}';
             }
 

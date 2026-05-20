@@ -4,7 +4,7 @@ use WPDK\Utils;
 
 /**
  * Class Link Columns
- * 
+ *
  * Note: This class uses WordPress naming conventions instead of strict PSR-1/PSR-2 standards.
  */
 // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
@@ -263,7 +263,7 @@ class TINYPRESS_Column_link
         $site_host = preg_replace('/^www\./', '', $site_host);
         $target_host = preg_replace('/^www\./', '', $target_host);
 
-        return ( $site_host === $target_host ) ? 'internal' : 'external';
+        return ($site_host === $target_host) ? 'internal' : 'external';
     }
 
     /**

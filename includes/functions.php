@@ -149,7 +149,7 @@ if (! function_exists('tinypress_get_tiny_slug_copier')) {
                 echo '<input type="text" class="tinypress-tiny-slug" name="tinypress_meta_main[tiny_slug]" value="' . esc_attr($tiny_slug) . '" placeholder="ad34o">';
             } else {
                 echo '<input type="text" class="tinypress-tiny-slug" name="tinypress_meta_side_' . esc_attr($post->post_type) . '[tiny_slug]" value="' . esc_attr($tiny_slug) . '" placeholder="ad34o">';
-            
+
                 $link_posts = get_posts(array(
                 'post_type'      => 'tinypress_link',
                 'posts_per_page' => 1,
@@ -163,7 +163,7 @@ if (! function_exists('tinypress_get_tiny_slug_copier')) {
                 ),
                 'fields'         => 'ids'
                 ));
-            
+
                 if (! empty($link_posts)) {
                     $edit_url = get_edit_post_link($link_posts[0]);
                     echo '<a href="' . esc_url($edit_url) . '" target="_blank" class="tinypress-settings-link">' . esc_html__('Edit shortlink settings', 'tinypress') . '</a>';
@@ -312,12 +312,12 @@ if (! function_exists('tinypress_get_tinyurl')) {
 
         // added the tiny slug
         $tiny_slug = Utils::get_meta('tiny_slug', $tinypress_link_id);
-        
+
         if (empty($tiny_slug)) {
             $tiny_slug = tinypress_create_url_slug();
             update_post_meta($tinypress_link_id, 'tiny_slug', $tiny_slug);
         }
-        
+
         $tinyurl_parts[] = $tiny_slug;
 
         return apply_filters('TINYPRESS/Filters/get_tinyurl', implode('/', $tinyurl_parts), $tinypress_link_id, $tinyurl_parts);

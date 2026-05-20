@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -29,9 +30,9 @@ if (! class_exists('WPDK_Settings_Field_image_select')) {
             'options'  => array(),
             ));
 
-            $inline = ( $args['inline'] ) ? ' wpdk_settings--inline-list' : '';
+            $inline = ($args['inline']) ? ' wpdk_settings--inline-list' : '';
 
-            $value = ( is_array($this->value) ) ? $this->value : array_filter((array) $this->value);
+            $value = (is_array($this->value)) ? $this->value : array_filter((array) $this->value);
 
             echo $this->field_before();
 
@@ -41,15 +42,15 @@ if (! class_exists('WPDK_Settings_Field_image_select')) {
                 $num = 1;
 
                 foreach ($args['options'] as $key => $option) {
-                    $type    = ( $args['multiple'] ) ? 'checkbox' : 'radio';
-                    $extra   = ( $args['multiple'] ) ? '[]' : '';
-                    $active  = ( in_array($key, $value) ) ? ' wpdk_settings--active' : '';
-                    $checked = ( in_array($key, $value) ) ? ' checked' : '';
+                    $type    = ($args['multiple']) ? 'checkbox' : 'radio';
+                    $extra   = ($args['multiple']) ? '[]' : '';
+                    $active  = (in_array($key, $value)) ? ' wpdk_settings--active' : '';
+                    $checked = (in_array($key, $value)) ? ' checked' : '';
 
                     echo '<div class="wpdk_settings--sibling wpdk_settings--image' . esc_attr($active) . '">';
                     echo '<figure>';
-                      echo '<img src="' . esc_url($option) . '" alt="img-' . esc_attr($num++) . '" />';
-                      echo '<input type="' . esc_attr($type) . '" name="' . esc_attr($this->field_name($extra)) . '" value="' . esc_attr($key) . '"' . $this->field_attributes() . esc_attr($checked) . '/>';
+                    echo '<img src="' . esc_url($option) . '" alt="img-' . esc_attr($num++) . '" />';
+                    echo '<input type="' . esc_attr($type) . '" name="' . esc_attr($this->field_name($extra)) . '" value="' . esc_attr($key) . '"' . $this->field_attributes() . esc_attr($checked) . '/>';
                     echo '</figure>';
                     echo '</div>';
                 }
@@ -65,8 +66,8 @@ if (! class_exists('WPDK_Settings_Field_image_select')) {
 
             $output    = '';
             $bg_image  = array();
-            $important = ( ! empty($this->field['output_important']) ) ? '!important' : '';
-            $elements  = ( is_array($this->field['output']) ) ? join(',', $this->field['output']) : $this->field['output'];
+            $important = (! empty($this->field['output_important'])) ? '!important' : '';
+            $elements  = (is_array($this->field['output'])) ? join(',', $this->field['output']) : $this->field['output'];
 
             if (! empty($elements) && isset($this->value) && $this->value !== '') {
                 $output = $elements . '{background-image:url(' . $this->value . ')' . $important . ';}';

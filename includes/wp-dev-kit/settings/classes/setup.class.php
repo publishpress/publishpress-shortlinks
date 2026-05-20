@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 /**
@@ -171,7 +172,7 @@ if (! class_exists('WPDK_Settings')) {
             // Setup taxonomy option framework
             $params = array();
             if (class_exists('WPDK_Settings_Taxonomy_Options') && ! empty(self::$args['taxonomy_options'])) {
-                $taxonomy = ( isset($_GET['taxonomy']) ) ? sanitize_text_field(wp_unslash($_GET['taxonomy'])) : '';
+                $taxonomy = (isset($_GET['taxonomy'])) ? sanitize_text_field(wp_unslash($_GET['taxonomy'])) : '';
                 foreach (self::$args['taxonomy_options'] as $key => $value) {
                     if (! empty(self::$args['sections'][ $key ]) && ! isset(self::$inited[ $key ])) {
                         $params['args']       = $value;
@@ -262,7 +263,7 @@ if (! class_exists('WPDK_Settings')) {
                             'parent' => 'primary_' . $section_index,
                             'icon'   => Utils::get_args_option('icon', $section),
                         ),
-                        $section 
+                        $section
                     ));
                 }
             }
@@ -344,11 +345,11 @@ if (! class_exists('WPDK_Settings')) {
             $theme_dir      = str_replace('//', '/', wp_normalize_path(get_parent_theme_file_path()));
             $plugin_dir     = str_replace('//', '/', wp_normalize_path(WP_PLUGIN_DIR));
             $plugin_dir     = str_replace('/opt/bitnami', '/bitnami', $plugin_dir);
-            $located_plugin = ( preg_match('#' . self::sanitize_dirname($plugin_dir) . '#', self::sanitize_dirname($dirname)) ) ? true : false;
-            $directory      = ( $located_plugin ) ? $plugin_dir : $theme_dir;
-            $directory_uri  = ( $located_plugin ) ? WP_PLUGIN_URL : get_parent_theme_file_uri();
+            $located_plugin = (preg_match('#' . self::sanitize_dirname($plugin_dir) . '#', self::sanitize_dirname($dirname))) ? true : false;
+            $directory      = ($located_plugin) ? $plugin_dir : $theme_dir;
+            $directory_uri  = ($located_plugin) ? WP_PLUGIN_URL : get_parent_theme_file_uri();
             $foldername     = str_replace($directory, '', $dirname);
-            $protocol_uri   = ( is_ssl() ) ? 'https' : 'http';
+            $protocol_uri   = (is_ssl()) ? 'https' : 'http';
             $directory_uri  = set_url_scheme($directory_uri, $protocol_uri);
 
             self::$dir = $dirname;
@@ -554,13 +555,13 @@ if (! class_exists('WPDK_Settings')) {
 
                 if (! empty(self::$shortcode_instances)) {
                     foreach (self::$shortcode_instances as $argument) {
-                        if (( $argument['show_in_editor'] && $wpscreen->base === 'post' ) || $argument['show_in_custom']) {
+                        if (($argument['show_in_editor'] && $wpscreen->base === 'post') || $argument['show_in_custom']) {
                             self::$enqueue = true;
                         }
                     }
                 }
 
-                if (! empty(self::$args['widget_options']) && ( $wpscreen->id === 'widgets' || $wpscreen->id === 'customize' )) {
+                if (! empty(self::$args['widget_options']) && ($wpscreen->id === 'widgets' || $wpscreen->id === 'customize')) {
                     self::$enqueue = true;
                 }
 
@@ -572,7 +573,7 @@ if (! class_exists('WPDK_Settings')) {
                     self::$enqueue = true;
                 }
 
-                if (! empty(self::$args['profile_options']) && ( $wpscreen->id === 'profile' || $wpscreen->id === 'user-edit' )) {
+                if (! empty(self::$args['profile_options']) && ($wpscreen->id === 'profile' || $wpscreen->id === 'user-edit')) {
                     self::$enqueue = true;
                 }
 
@@ -661,7 +662,7 @@ if (! class_exists('WPDK_Settings')) {
                     $fonts = array();
 
                     foreach (self::$webfonts['enqueue'] as $family => $styles) {
-                        $fonts[] = $family . ( ( ! empty($styles) ) ? ':' . implode(',', $styles) : '' );
+                        $fonts[] = $family . ((! empty($styles)) ? ':' . implode(',', $styles) : '');
                     }
 
                     if (! empty($fonts)) {
@@ -681,7 +682,7 @@ if (! class_exists('WPDK_Settings')) {
                     $fonts = array();
 
                     foreach (self::$webfonts['async'] as $family => $styles) {
-                        $fonts[] = $family . ( ( ! empty($styles) ) ? ':' . implode(',', $styles) : '' );
+                        $fonts[] = $family . ((! empty($styles)) ? ':' . implode(',', $styles) : '');
                     }
 
                     wp_enqueue_script('wpdk_settings-google-web-fonts', esc_url('//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js'), array(), null);
@@ -727,11 +728,11 @@ if (! class_exists('WPDK_Settings')) {
 
             $depend           = '';
             $visible          = '';
-            $unique           = ( ! empty($unique) ) ? $unique : '';
-            $class            = ( ! empty($field['class']) ) ? ' ' . esc_attr($field['class']) : '';
-            $is_pseudo        = ( ! empty($field['pseudo']) ) ? ' wpdk_settings-pseudo-field' : '';
-            $field_type       = ( ! empty($field['type']) ) ? esc_attr($field['type']) : '';
-            $availability     = ( ! empty($field['availability']) ) ? esc_attr($field['availability']) : '';
+            $unique           = (! empty($unique)) ? $unique : '';
+            $class            = (! empty($field['class'])) ? ' ' . esc_attr($field['class']) : '';
+            $is_pseudo        = (! empty($field['pseudo'])) ? ' wpdk_settings-pseudo-field' : '';
+            $field_type       = (! empty($field['type'])) ? esc_attr($field['type']) : '';
+            $availability     = (! empty($field['availability'])) ? esc_attr($field['availability']) : '';
             $has_availability = empty($availability) ? '' : ' availability ' . $availability;
 
             if (! empty($field['dependency'])) {
@@ -743,19 +744,19 @@ if (! class_exists('WPDK_Settings')) {
                     $data_global     = implode('|', array_column($dependency, 3));
                     $depend_visible  = implode('|', array_column($dependency, 4));
                 } else {
-                    $data_controller = ( ! empty($dependency[0]) ) ? $dependency[0] : '';
-                    $data_condition  = ( ! empty($dependency[1]) ) ? $dependency[1] : '';
-                    $data_value      = ( ! empty($dependency[2]) ) ? $dependency[2] : '';
-                    $data_global     = ( ! empty($dependency[3]) ) ? $dependency[3] : '';
-                    $depend_visible  = ( ! empty($dependency[4]) ) ? $dependency[4] : '';
+                    $data_controller = (! empty($dependency[0])) ? $dependency[0] : '';
+                    $data_condition  = (! empty($dependency[1])) ? $dependency[1] : '';
+                    $data_value      = (! empty($dependency[2])) ? $dependency[2] : '';
+                    $data_global     = (! empty($dependency[3])) ? $dependency[3] : '';
+                    $depend_visible  = (! empty($dependency[4])) ? $dependency[4] : '';
                 }
 
                 $depend .= ' data-controller="' . esc_attr($data_controller) . '"';
                 $depend .= ' data-condition="' . esc_attr($data_condition) . '"';
                 $depend .= ' data-value="' . esc_attr($data_value) . '"';
-                $depend .= ( ! empty($data_global) ) ? ' data-depend-global="true"' : '';
+                $depend .= (! empty($data_global)) ? ' data-depend-global="true"' : '';
 
-                $visible = ( ! empty($depend_visible) ) ? ' wpdk_settings-depend-visible' : ' wpdk_settings-depend-hidden';
+                $visible = (! empty($depend_visible)) ? ' wpdk_settings-depend-visible' : ' wpdk_settings-depend-hidden';
             }
 
             // These attributes has been sanitized above.
@@ -765,14 +766,14 @@ if (! class_exists('WPDK_Settings')) {
                 if (! empty($field['title'])) {
                     echo '<div class="wpdk_settings-title">';
                     echo '<h4>' . esc_html($field['title']) . '</h4>';
-                    echo ( ! empty($field['subtitle']) ) ? '<div class="wpdk_settings-subtitle-text">' . wp_kses_post($field['subtitle']) . '</div>' : '';
+                    echo (! empty($field['subtitle'])) ? '<div class="wpdk_settings-subtitle-text">' . wp_kses_post($field['subtitle']) . '</div>' : '';
                     echo '</div>';
                 }
 
-                echo ( ! empty($field['title']) ) ? '<div class="wpdk_settings-fieldset">' : '';
+                echo (! empty($field['title'])) ? '<div class="wpdk_settings-fieldset">' : '';
 
-                $value = ( ! isset($value) && isset($field['default']) ) ? $field['default'] : $value;
-                $value = ( isset($field['value']) ) ? $field['value'] : $value;
+                $value = (! isset($value) && isset($field['default'])) ? $field['default'] : $value;
+                $value = (isset($field['value'])) ? $field['value'] : $value;
 
                 $classname = 'WPDK_Settings_Field_' . $field_type;
 
@@ -780,7 +781,7 @@ if (! class_exists('WPDK_Settings')) {
                     $instance = new $classname($field, $value, $unique, $where, $parent);
                     $instance->render();
 
-                    do_action('WPDK_Settings/after_field/field_' . ( $field['id'] ?? '' ));
+                    do_action('WPDK_Settings/after_field/field_' . ($field['id'] ?? ''));
                 } else {
                     echo '<p>' . esc_html__('Field not found!') . '</p>';
                 }
@@ -788,7 +789,7 @@ if (! class_exists('WPDK_Settings')) {
                 echo '<p>' . esc_html__('Field not found!') . '</p>';
             }
 
-            echo ( ! empty($field['title']) ) ? '</div>' : '';
+            echo (! empty($field['title'])) ? '</div>' : '';
 
             if (! empty($has_availability)) {
                 $notice_url = '';

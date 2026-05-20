@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -30,7 +31,7 @@ if (! class_exists('WPDK_Settings_Field_slider')) {
             'unit' => '',
             ));
 
-            $is_unit = ( ! empty($args['unit']) ) ? ' wpdk_settings--is-unit' : '';
+            $is_unit = (! empty($args['unit'])) ? ' wpdk_settings--is-unit' : '';
 
             echo $this->field_before();
 
@@ -38,7 +39,7 @@ if (! class_exists('WPDK_Settings_Field_slider')) {
             echo '<div class="wpdk_settings-slider-ui"></div>';
             echo '<div class="wpdk_settings--input">';
             echo '<input type="number" name="' . esc_attr($this->field_name()) . '" value="' . esc_attr($this->value) . '"' . $this->field_attributes(array( 'class' => 'wpdk_settings-input-number' . esc_attr($is_unit) )) . ' data-min="' . esc_attr($args['min']) . '" data-max="' . esc_attr($args['max']) . '" data-step="' . esc_attr($args['step']) . '" step="any" />';
-            echo ( ! empty($args['unit']) ) ? '<span class="wpdk_settings--unit">' . esc_attr($args['unit']) . '</span>' : '';
+            echo (! empty($args['unit'])) ? '<span class="wpdk_settings--unit">' . esc_attr($args['unit']) . '</span>' : '';
             echo '</div>';
             echo '</div>';
 
@@ -57,16 +58,16 @@ if (! class_exists('WPDK_Settings_Field_slider')) {
         {
 
             $output    = '';
-            $elements  = ( is_array($this->field['output']) ) ? $this->field['output'] : array_filter((array) $this->field['output']);
-            $important = ( ! empty($this->field['output_important']) ) ? '!important' : '';
-            $mode      = ( ! empty($this->field['output_mode']) ) ? $this->field['output_mode'] : 'width';
-            $unit      = ( ! empty($this->field['unit']) ) ? $this->field['unit'] : 'px';
+            $elements  = (is_array($this->field['output'])) ? $this->field['output'] : array_filter((array) $this->field['output']);
+            $important = (! empty($this->field['output_important'])) ? '!important' : '';
+            $mode      = (! empty($this->field['output_mode'])) ? $this->field['output_mode'] : 'width';
+            $unit      = (! empty($this->field['unit'])) ? $this->field['unit'] : 'px';
 
             if (! empty($elements) && isset($this->value) && $this->value !== '') {
                 foreach ($elements as $key_property => $element) {
                     if (is_numeric($key_property)) {
                         if ($mode) {
-                              $output = implode(',', $elements) . '{' . $mode . ':' . $this->value . $unit . $important . ';}';
+                            $output = implode(',', $elements) . '{' . $mode . ':' . $this->value . $unit . $important . ';}';
                         }
                         break;
                     } else {

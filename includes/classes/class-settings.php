@@ -27,7 +27,7 @@ if (! class_exists('TINYPRESS_Settings')) {
         public function __construct()
         {
             add_action('plugins_loaded', array( $this, 'register_custom_statuses_filters' ), 1);
-            
+
             add_action('init', array( $this, 'create_settings_page' ), 5);
             add_filter('pb_settings_tinypress_settings_save', array( $this, 'sanitize_autolist_settings' ), 10, 2);
             add_action('pb_settings_options_before', array( $this, 'add_settings_wrapper_start' ));
@@ -45,14 +45,14 @@ if (! class_exists('TINYPRESS_Settings')) {
             if (!class_exists('TINYPRESS_Statuses')) {
                 return $sections;
             }
-            
+
             $statuses_instance = TINYPRESS_Statuses::instance();
             if (!$statuses_instance || !method_exists($statuses_instance, 'get_custom_statuses')) {
                 return $sections;
             }
-            
+
             $custom_statuses = $statuses_instance->get_custom_statuses();
-            
+
             if (empty($custom_statuses)) {
                 return $sections;
             }
@@ -72,7 +72,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                                         } else {
                                             $label = ucfirst(str_replace(array('-', '_'), ' ', $status_name));
                                         }
-                                        
+
                                         $sections[$tab_key]['sections'][$section_key]['fields'][$field_key]['options'][$status_name] = $label;
                                     }
                                     return $sections;
@@ -81,7 +81,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                         }
                     }
                 }
-                
+
                 if (isset($tab['fields']) && is_array($tab['fields'])) {
                     foreach ($tab['fields'] as $field_key => $field) {
                         if (isset($field['id']) && $field['id'] === 'tinypress_allowed_post_statuses') {
@@ -94,7 +94,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                                 } else {
                                     $label = ucfirst(str_replace(array('-', '_'), ' ', $status_name));
                                 }
-                                
+
                                 $sections[$tab_key]['fields'][$field_key]['options'][$status_name] = $label;
                             }
                             return $sections;
@@ -102,7 +102,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                     }
                 }
             }
-            
+
             return $sections;
         }
 
@@ -132,14 +132,14 @@ if (! class_exists('TINYPRESS_Settings')) {
             }
 
             $post_types = $request['tinypress_autolist_post_types'];
-            
+
             if (! is_array($post_types)) {
                 return $request;
             }
 
             $all_post_types = get_post_types(array( 'public' => true ), 'names');
             $valid_post_types = array_diff($all_post_types, array( 'attachment', 'tinypress_link' ));
-            
+
             // Track seen post types to prevent duplicates
             $seen = array();
             $sanitized = array();
@@ -732,7 +732,7 @@ if (! class_exists('TINYPRESS_Settings')) {
         {
             $all_settings = get_option('tinypress_settings', array());
             $config = isset($all_settings['tinypress_autolist_post_types']) ? $all_settings['tinypress_autolist_post_types'] : array();
-            
+
             if (empty($config)) {
                 $config = array(
                     array(
@@ -745,7 +745,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                     )
                 );
             }
-            
+
             // Enqueue CSS
             wp_enqueue_style(
                 'tinypress-autolist-ajax',
@@ -753,7 +753,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                 array(),
                 TINYPRESS_PLUGIN_VERSION
             );
-            
+
             ?>
             <div class="tinypress-save-indicator"></div>
             <div class="tinypress-autolist-wrapper">

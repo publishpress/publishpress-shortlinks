@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -28,10 +29,10 @@ if (! class_exists('WPDK_Settings_Field_fieldset')) {
             echo '<div class="wpdk_settings-fieldset-content" data-depend-id="' . esc_attr($this->field['id']) . '">';
 
             foreach ($this->field['fields'] as $field) {
-                $field_id      = ( isset($field['id']) ) ? $field['id'] : '';
-                $field_default = ( isset($field['default']) ) ? $field['default'] : '';
-                $field_value   = ( isset($this->value[$field_id]) ) ? $this->value[$field_id] : $field_default;
-                $unique_id     = ( ! empty($this->unique) ) ? $this->unique . '[' . $this->field['id'] . ']' : $this->field['id'];
+                $field_id      = (isset($field['id'])) ? $field['id'] : '';
+                $field_default = (isset($field['default'])) ? $field['default'] : '';
+                $field_value   = (isset($this->value[$field_id])) ? $this->value[$field_id] : $field_default;
+                $unique_id     = (! empty($this->unique)) ? $this->unique . '[' . $this->field['id'] . ']' : $this->field['id'];
 
                 WPDK_Settings::field($field, $field_value, $unique_id, 'field/fieldset');
             }

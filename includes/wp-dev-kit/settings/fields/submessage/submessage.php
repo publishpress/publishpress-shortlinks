@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -23,7 +24,7 @@ if (! class_exists('WPDK_Settings_Field_submessage')) {
         public function render()
         {
 
-            $style = ( ! empty($this->field['style']) ) ? $this->field['style'] : 'normal';
+            $style = (! empty($this->field['style'])) ? $this->field['style'] : 'normal';
 
             echo '<div class="wpdk_settings-submessage wpdk_settings-submessage-' . esc_attr($style) . '">' . $this->field['content'] . '</div>';
         }

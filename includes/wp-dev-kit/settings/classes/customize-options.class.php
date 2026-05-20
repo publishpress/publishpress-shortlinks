@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -15,7 +16,7 @@ if (! defined('ABSPATH')) {
 if (! class_exists('WPDK_Settings_Customize_Options')) {
     class WPDK_Settings_Customize_Options extends WPDK_Settings_Abstract
     {
-      // constans
+        // constans
         public $unique      = '';
         public $abstract    = 'customize';
         public $options     = array();
@@ -34,7 +35,7 @@ if (! class_exists('WPDK_Settings_Customize_Options')) {
         'defaults'        => array()
         );
 
-      // run customize construct
+        // run customize construct
         public function __construct($key, $params)
         {
 
@@ -49,16 +50,16 @@ if (! class_exists('WPDK_Settings_Customize_Options')) {
             add_action('customize_register', array( $this, 'add_customize_options' ));
             add_action('customize_save_after', array( $this, 'add_customize_save_after' ));
 
-          // Get options for enqueue actions
+            // Get options for enqueue actions
             if (is_customize_preview()) {
                 add_action('wp_enqueue_scripts', array( $this, 'get_options' ));
             }
 
-          // wp enqeueu for typography and output css
+            // wp enqeueu for typography and output css
             parent::__construct();
         }
 
-      // instance
+        // instance
         public static function instance($key, $params = array())
         {
             return new self($key, $params);
@@ -71,17 +72,17 @@ if (! class_exists('WPDK_Settings_Customize_Options')) {
             do_action("pb_settings_{$this->unique}_save_after", $this->get_options(), $this, $wp_customize);
         }
 
-      // get default value
+        // get default value
         public function get_default($field)
         {
 
-            $default = ( isset($field['default']) ) ? $field['default'] : '';
-            $default = ( isset($this->args['defaults'][$field['id']]) ) ? $this->args['defaults'][$field['id']] : $default;
+            $default = (isset($field['default'])) ? $field['default'] : '';
+            $default = (isset($this->args['defaults'][$field['id']])) ? $this->args['defaults'][$field['id']] : $default;
 
             return $default;
         }
 
-      // get option
+        // get option
         public function get_options()
         {
 
@@ -98,7 +99,7 @@ if (! class_exists('WPDK_Settings_Customize_Options')) {
             return $this->options;
         }
 
-      // save defaults and set new fields value to main options
+        // save defaults and set new fields value to main options
         public function save_defaults()
         {
 
@@ -107,7 +108,7 @@ if (! class_exists('WPDK_Settings_Customize_Options')) {
             if (! empty($this->pre_fields)) {
                 foreach ($this->pre_fields as $field) {
                     if (! empty($field['id'])) {
-                        $this->options[$field['id']] = ( isset($this->options[$field['id']]) ) ? $this->options[$field['id']] : $this->get_default($field);
+                        $this->options[$field['id']] = (isset($this->options[$field['id']])) ? $this->options[$field['id']] : $this->get_default($field);
                     }
                 }
             }
@@ -173,25 +174,25 @@ if (! class_exists('WPDK_Settings_Customize_Options')) {
 
                 foreach ($sections as $section) {
                     if (! empty($section['subs'])) {
-                        $panel_id = ( isset($section['id']) ) ? $section['id'] : $this->unique . '-panel-' . $this->priority;
+                        $panel_id = (isset($section['id'])) ? $section['id'] : $this->unique . '-panel-' . $this->priority;
 
                         $wp_customize->add_panel(new WP_Customize_Panel_WPDK_Settings($wp_customize, $panel_id, array(
-                          'title'       => ( isset($section['title']) ) ? $section['title'] : null,
-                          'description' => ( isset($section['description']) ) ? $section['description'] : null,
-                          'priority'    => ( isset($section['priority']) ) ? $section['priority'] : null,
+                          'title'       => (isset($section['title'])) ? $section['title'] : null,
+                          'description' => (isset($section['description'])) ? $section['description'] : null,
+                          'priority'    => (isset($section['priority'])) ? $section['priority'] : null,
                         )));
 
-                          $this->priority++;
+                        $this->priority++;
 
                         foreach ($section['subs'] as $sub_section) {
-                              $section_id = ( isset($sub_section['id']) ) ? $sub_section['id'] : $this->unique . '-section-' . $this->priority;
+                            $section_id = (isset($sub_section['id'])) ? $sub_section['id'] : $this->unique . '-section-' . $this->priority;
 
-                              $this->add_section($wp_customize, $section_id, $sub_section, $panel_id);
+                            $this->add_section($wp_customize, $section_id, $sub_section, $panel_id);
 
-                              $this->priority++;
+                            $this->priority++;
                         }
                     } else {
-                        $section_id = ( isset($section['id']) ) ? $section['id'] : $this->unique . '-section-' . $this->priority;
+                        $section_id = (isset($section['id'])) ? $section['id'] : $this->unique . '-section-' . $this->priority;
 
                         $this->add_section($wp_customize, $section_id, $section, false);
 
@@ -201,7 +202,7 @@ if (! class_exists('WPDK_Settings_Customize_Options')) {
             }
         }
 
-      // add customize section
+        // add customize section
         public function add_section($wp_customize, $section_id, $section_args, $panel_id)
         {
 
@@ -209,10 +210,10 @@ if (! class_exists('WPDK_Settings_Customize_Options')) {
                 $section_id = $section_args['assign'];
             } else {
                 $wp_customize->add_section(new WP_Customize_Section_WPDK_Settings($wp_customize, $section_id, array(
-                'title'       => ( isset($section_args['title']) ) ? $section_args['title'] : '',
-                'description' => ( isset($section_args['description']) ) ? $section_args['description'] : '',
-                'priority'    => ( isset($section_args['priority']) ) ? $section_args['priority'] : '',
-                'panel'       => ( $panel_id ) ? $panel_id : '',
+                'title'       => (isset($section_args['title'])) ? $section_args['title'] : '',
+                'description' => (isset($section_args['description'])) ? $section_args['description'] : '',
+                'priority'    => (isset($section_args['priority'])) ? $section_args['priority'] : '',
+                'panel'       => ($panel_id) ? $panel_id : '',
                 )));
             }
 
@@ -224,18 +225,18 @@ if (! class_exists('WPDK_Settings_Customize_Options')) {
                         $field['default'] = $this->get_default($field);
                     }
 
-                    $field_id        = ( isset($field['id']) ) ? $field['id'] : '_nonce-' . $section_id . '-' . $field_key;
-                    $setting_args    = ( isset($field['setting_args']) ) ? $field['setting_args'] : array();
-                    $control_args    = ( isset($field['control_args']) ) ? $field['control_args'] : array();
-                    $field_transport = ( isset($field['transport']) ) ? $field['transport'] : $this->args['transport'];
-                    $field_sanitize  = ( isset($field['sanitize']) ) ? $field['sanitize'] : '';
-                    $field_validate  = ( isset($field['validate']) ) ? $field['validate'] : '';
-                    $field_default   = ( isset($field['default']) ) ? $field['default'] : '';
-                    $field_customize = ( ( isset($field['selectors']) || isset($field['selector']) ) && ! isset($field['transport']) ) ? true : false;
-                    $has_selective   = ( isset($field['selective_refresh']) && isset($wp_customize->selective_refresh) ) ? true : false;
+                    $field_id        = (isset($field['id'])) ? $field['id'] : '_nonce-' . $section_id . '-' . $field_key;
+                    $setting_args    = (isset($field['setting_args'])) ? $field['setting_args'] : array();
+                    $control_args    = (isset($field['control_args'])) ? $field['control_args'] : array();
+                    $field_transport = (isset($field['transport'])) ? $field['transport'] : $this->args['transport'];
+                    $field_sanitize  = (isset($field['sanitize'])) ? $field['sanitize'] : '';
+                    $field_validate  = (isset($field['validate'])) ? $field['validate'] : '';
+                    $field_default   = (isset($field['default'])) ? $field['default'] : '';
+                    $field_customize = ((isset($field['selectors']) || isset($field['selector'])) && ! isset($field['transport'])) ? true : false;
+                    $has_selective   = (isset($field['selective_refresh']) && isset($wp_customize->selective_refresh)) ? true : false;
 
                     $setting_id = $this->unique . '[' . $field_id . ']';
-                    $transport  = ( $has_selective || $field_customize ) ? 'postMessage' : $field_transport;
+                    $transport  = ($has_selective || $field_customize) ? 'postMessage' : $field_transport;
 
                     $wp_customize->add_setting(
                         $setting_id,
@@ -261,7 +262,7 @@ if (! class_exists('WPDK_Settings_Customize_Options')) {
                     ));
 
                     if ($has_selective) {
-                              $wp_customize->selective_refresh->add_partial($setting_id, $field['selective_refresh']);
+                        $wp_customize->selective_refresh->add_partial($setting_id, $field['selective_refresh']);
                     }
 
                     $field_key++;

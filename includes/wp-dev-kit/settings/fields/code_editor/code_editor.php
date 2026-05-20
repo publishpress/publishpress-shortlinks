@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -34,7 +35,7 @@ if (! class_exists('WPDK_Settings_Field_code_editor')) {
             'cdnURL'        => $this->cdn_url . $this->version,
             );
 
-            $settings = ( ! empty($this->field['settings']) ) ? $this->field['settings'] : array();
+            $settings = (! empty($this->field['settings'])) ? $this->field['settings'] : array();
             $settings = wp_parse_args($settings, $default_settings);
 
             echo $this->field_before();
@@ -45,11 +46,11 @@ if (! class_exists('WPDK_Settings_Field_code_editor')) {
         public function enqueue()
         {
 
-            $page = ( ! empty($_GET[ 'page' ]) ) ? sanitize_text_field(wp_unslash($_GET[ 'page' ])) : '';
+            $page = (! empty($_GET[ 'page' ])) ? sanitize_text_field(wp_unslash($_GET[ 'page' ])) : '';
 
-          // Do not loads CodeMirror in revslider page.
+            // Do not loads CodeMirror in revslider page.
             if (in_array($page, array( 'revslider' ))) {
-                return; 
+                return;
             }
 
             if (! wp_script_is('wpdk_settings-codemirror')) {

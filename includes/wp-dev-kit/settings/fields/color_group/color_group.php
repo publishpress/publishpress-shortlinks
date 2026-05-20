@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -23,14 +24,14 @@ if (! class_exists('WPDK_Settings_Field_color_group')) {
         public function render()
         {
 
-            $options = ( ! empty($this->field['options']) ) ? $this->field['options'] : array();
+            $options = (! empty($this->field['options'])) ? $this->field['options'] : array();
 
             echo $this->field_before();
 
             if (! empty($options)) {
                 foreach ($options as $key => $option) {
-                    $color_value  = ( ! empty($this->value[$key]) ) ? $this->value[$key] : '';
-                    $default_attr = ( ! empty($this->field['default'][$key]) ) ? ' data-default-color="' . esc_attr($this->field['default'][$key]) . '"' : '';
+                    $color_value  = (! empty($this->value[$key])) ? $this->value[$key] : '';
+                    $default_attr = (! empty($this->field['default'][$key])) ? ' data-default-color="' . esc_attr($this->field['default'][$key]) . '"' : '';
 
                     echo '<div class="wpdk_settings--left wpdk_settings-field-color">';
                     echo '<div class="wpdk_settings--title">' . $option . '</div>';

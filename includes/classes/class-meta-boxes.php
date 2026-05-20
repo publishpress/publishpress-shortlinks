@@ -12,7 +12,7 @@ defined('ABSPATH') || exit;
 if (! class_exists('TINYPRESS_Meta_boxes')) {
     /**
      * Class TINYPRESS_Meta_boxes
-     * 
+     *
      * Note: This class uses WordPress naming conventions instead of strict PSR-1/PSR-2 standards.
      */
     // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
@@ -85,11 +85,11 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         public function add_shortlinks_metabox()
         {
             global $post;
-            
+
             if (! $post) {
                 return;
             }
-          
+
             add_meta_box('tinypress_shortlinks_' . $post->post_type, esc_html__('Shortlinks', 'tinypress'), array( $this, 'render_native_shortlinks_metabox' ), $post->post_type, 'side', 'high');
         }
 
@@ -103,21 +103,21 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         public function render_native_shortlinks_metabox($post)
         {
             wp_nonce_field('tinypress_shortlinks_nonce', 'tinypress_shortlinks_nonce_' . $post->post_type);
-          
+
             $args = array(
                 'default' => $this->tinypress_default_slug,
             );
-         
+
             // Hook for Pro to add content before shortlink field
             do_action('tinypress_metabox_before_shortlink_field', $post);
-           
+
             // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tinypress_get_tiny_slug_copier() returns properly escaped HTML
             echo tinypress_get_tiny_slug_copier($post->ID, true, $args);
-          
+
             // Hook for Pro to add content after shortlink field
             do_action('tinypress_metabox_after_shortlink_field', $post);
         }
-       
+
         /**
          * Save native shortlinks metabox data
          *
@@ -128,8 +128,8 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         public function save_native_shortlinks_metabox($post_id, $post)
         {
             if (
-                ! isset($_POST['tinypress_shortlinks_nonce_' . $post->post_type]) || 
-                 ! wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['tinypress_shortlinks_nonce_' . $post->post_type])), 'tinypress_shortlinks_nonce') 
+                ! isset($_POST['tinypress_shortlinks_nonce_' . $post->post_type]) ||
+                 ! wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['tinypress_shortlinks_nonce_' . $post->post_type])), 'tinypress_shortlinks_nonce')
             ) {
                 return;
             }
@@ -145,10 +145,10 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
             $meta_key = 'tinypress_meta_side_' . $post->post_type;
             if (isset($_POST[ $meta_key ]['tiny_slug'])) {
                 $tiny_slug = sanitize_text_field($_POST[ $meta_key ]['tiny_slug']);
-             
+
                 // Save directly as 'tiny_slug' meta key for compatibility with the rest of the plugin
                 update_post_meta($post_id, 'tiny_slug', $tiny_slug);
-               
+
                 // Also save in the nested format for backward compatibility with WPDK
                 $meta_data = get_post_meta($post_id, $meta_key, true);
                 if (! is_array($meta_data)) {
@@ -165,7 +165,8 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
          * @param $value mixed The value from textarea
          * @return string Formatted keywords string
          */
-        public function sanitize_autolink_keywords($value) {
+        public function sanitize_autolink_keywords($value)
+        {
             if (is_array($value)) {
                 return implode("\n", array_map('trim', array_filter($value)));
             }
@@ -180,7 +181,8 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
          * @param $post_id int The post ID
          * @return string Formatted keywords string
          */
-        public function format_autolink_keywords_for_display($value, $post_id = null) {
+        public function format_autolink_keywords_for_display($value, $post_id = null)
+        {
             if (is_array($value)) {
                 return implode("\n", array_map('trim', array_filter($value)));
             }
@@ -197,12 +199,12 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         public function render_autolink_keywords_textarea($args)
         {
             global $post;
-            
+
             $value = '';
 
             $meta_key = 'tinypress_meta_side_' . $post->post_type;
             $nested_data = get_post_meta($post->ID, $meta_key, true);
-            
+
             if (is_array($nested_data) && isset($nested_data['autolink_keywords'])) {
                 $value = $nested_data['autolink_keywords'];
             } else {
@@ -258,11 +260,11 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         private function get_current_post_id()
         {
             global $post;
-            
+
             if ($post && $post->ID) {
                 return $post->ID;
             }
-            
+
             // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only check for post ID
             if (isset($_GET['post'])) {
                 return absint($_GET['post']); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -272,7 +274,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                 // phpcs:ignore WordPress.Security.NonceVerification.Missing
                 return absint($_POST['post_ID']);
             }
-            
+
             return null;
         }
 
@@ -285,13 +287,13 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         private function post_has_saved_value($meta_key)
         {
             $post_id = $this->get_current_post_id();
-            
+
             if (!$post_id) {
                 return false;
             }
-            
+
             $meta_exists = metadata_exists('post', $post_id, $meta_key);
-            
+
             return $meta_exists;
         }
 
@@ -300,14 +302,14 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
             if ($this->post_has_saved_value($setting_key)) {
                 return array();
             }
-            
+
             // New shortlink or no saved value - use global settings
             return array('1');
         }
 
         /**
          * Get default value for redirection method dropdown
-         * 
+         *
          * - If post has existing saved value: return that value
          * - If post is new or has no saved value: return empty string (use global)
          *
@@ -316,14 +318,14 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         private function get_redirection_method_default()
         {
             $post_id = $this->get_current_post_id();
-            
+
             if ($post_id && metadata_exists('post', $post_id, 'redirection_method')) {
                 $saved_value = get_post_meta($post_id, 'redirection_method', true);
                 if (in_array($saved_value, array('301', '302', '307', 301, 302, 307), true)) {
                     return $saved_value;
                 }
             }
-            
+
             return '';
         }
 
@@ -331,7 +333,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         {
             $global_value = $this->get_global_setting($global_key, $default_value);
             $current_state = $global_value ? esc_html__('ON', 'tinypress') : esc_html__('OFF', 'tinypress');
-            
+
             return sprintf(
                 /* translators: %s: current global setting value (ON/OFF) */
                 esc_html__('Use global settings (currently: %s)', 'tinypress'),
@@ -347,15 +349,15 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         private function get_redirection_method_options()
         {
             $global_value = $this->get_global_setting('tinypress_global_redirection_method', 302);
-            
+
             $method_labels = array(
                 307 => '307',
                 302 => '302',
                 301 => '301',
             );
-            
+
             $current_label = isset($method_labels[$global_value]) ? $method_labels[$global_value] : '302';
-            
+
             return array(
                 ''  => sprintf(
                     /* translators: %s: current global redirection method */

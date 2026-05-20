@@ -83,7 +83,7 @@ if (! class_exists('WPDK_Settings_Shortcoder')) {
 
             foreach ($sections as $key => $section) {
                 if (! empty($section['parent'])) {
-                    $section['priority']             = ( isset($section['priority']) ) ? $section['priority'] : $count;
+                    $section['priority']             = (isset($section['priority'])) ? $section['priority'] : $count;
                     $parents[ $section['parent'] ][] = $section;
                     unset($sections[ $key ]);
                 }
@@ -91,7 +91,7 @@ if (! class_exists('WPDK_Settings_Shortcoder')) {
             }
 
             foreach ($sections as $key => $section) {
-                $section['priority'] = ( isset($section['priority']) ) ? $section['priority'] : $count;
+                $section['priority'] = (isset($section['priority'])) ? $section['priority'] : $count;
                 if (! empty($section['id']) && ! empty($parents[ $section['id'] ])) {
                     $section['subs'] = wp_list_sort($parents[ $section['id'] ], array( 'priority' => 'ASC' ), 'ASC', true);
                 }
@@ -125,8 +125,8 @@ if (! class_exists('WPDK_Settings_Shortcoder')) {
         public function get_default($field)
         {
 
-            $default = ( isset($field['default']) ) ? $field['default'] : '';
-            $default = ( isset($this->args['defaults'][ $field['id'] ]) ) ? $this->args['defaults'][ $field['id'] ] : $default;
+            $default = (isset($field['default'])) ? $field['default'] : '';
+            $default = (isset($this->args['defaults'][ $field['id'] ])) ? $this->args['defaults'][ $field['id'] ] : $default;
 
             return $default;
         }
@@ -138,10 +138,10 @@ if (! class_exists('WPDK_Settings_Shortcoder')) {
                 return;
             }
 
-            $class        = ( $this->args['class'] ) ? ' ' . esc_attr($this->args['class']) : '';
-            $has_select   = ( count($this->pre_tabs) > 1 ) ? true : false;
-            $single_usage = ( ! $has_select ) ? ' wpdk_settings-shortcode-single' : '';
-            $hide_header  = ( ! $has_select ) ? ' hidden' : '';
+            $class        = ($this->args['class']) ? ' ' . esc_attr($this->args['class']) : '';
+            $has_select   = (count($this->pre_tabs) > 1) ? true : false;
+            $single_usage = (! $has_select) ? ' wpdk_settings-shortcode-single' : '';
+            $hide_header  = (! $has_select) ? ' hidden' : '';
 
             ?>
             <div id="wpdk_settings-modal-<?php echo esc_attr($this->unique); ?>" class="wp-core-ui wpdk_settings-modal wpdk_settings-shortcode hidden<?php echo esc_attr($single_usage . $class); ?>" data-modal-id="<?php echo esc_attr($this->unique); ?>" data-nonce="<?php echo esc_attr(wp_create_nonce('pb_settings_shortcode_nonce')); ?>">
@@ -156,41 +156,41 @@ if (! class_exists('WPDK_Settings_Shortcoder')) {
                             <?php
 
                             echo '<div class="wpdk_settings-modal-header' . esc_attr($hide_header) . '">';
-                            echo '<select>';
-                            echo ( $has_select ) ? '<option value="">' . esc_attr($this->args['select_title']) . '</option>' : '';
+            echo '<select>';
+            echo ($has_select) ? '<option value="">' . esc_attr($this->args['select_title']) . '</option>' : '';
 
-                            $tab_key = 1;
+            $tab_key = 1;
 
-                            foreach ($this->pre_tabs as $tab) {
-                                if (! empty($tab['subs'])) {
-                                    echo '<optgroup label="' . esc_attr($tab['title']) . '">';
+            foreach ($this->pre_tabs as $tab) {
+                if (! empty($tab['subs'])) {
+                    echo '<optgroup label="' . esc_attr($tab['title']) . '">';
 
-                                    foreach ($tab['subs'] as $sub) {
-                                        $view      = ( ! empty($sub['view']) ) ? ' data-view="' . esc_attr($sub['view']) . '"' : '';
-                                        $shortcode = ( ! empty($sub['shortcode']) ) ? ' data-shortcode="' . esc_attr($sub['shortcode']) . '"' : '';
-                                        $group     = ( ! empty($sub['group_shortcode']) ) ? ' data-group="' . esc_attr($sub['group_shortcode']) . '"' : '';
+                    foreach ($tab['subs'] as $sub) {
+                        $view      = (! empty($sub['view'])) ? ' data-view="' . esc_attr($sub['view']) . '"' : '';
+                        $shortcode = (! empty($sub['shortcode'])) ? ' data-shortcode="' . esc_attr($sub['shortcode']) . '"' : '';
+                        $group     = (! empty($sub['group_shortcode'])) ? ' data-group="' . esc_attr($sub['group_shortcode']) . '"' : '';
 
-                                        echo '<option value="' . esc_attr($tab_key) . '"' . esc_attr($view . $shortcode . $group) . '>' . esc_attr($sub['title']) . '</option>';
+                        echo '<option value="' . esc_attr($tab_key) . '"' . esc_attr($view . $shortcode . $group) . '>' . esc_attr($sub['title']) . '</option>';
 
-                                        $tab_key++;
-                                    }
+                        $tab_key++;
+                    }
 
-                                    echo '</optgroup>';
-                                } else {
-                                    $view      = ( ! empty($tab['view']) ) ? ' data-view="' . esc_attr($tab['view']) . '"' : '';
-                                    $shortcode = ( ! empty($tab['shortcode']) ) ? ' data-shortcode="' . esc_attr($tab['shortcode']) . '"' : '';
-                                    $group     = ( ! empty($tab['group_shortcode']) ) ? ' data-group="' . esc_attr($tab['group_shortcode']) . '"' : '';
+                    echo '</optgroup>';
+                } else {
+                    $view      = (! empty($tab['view'])) ? ' data-view="' . esc_attr($tab['view']) . '"' : '';
+                    $shortcode = (! empty($tab['shortcode'])) ? ' data-shortcode="' . esc_attr($tab['shortcode']) . '"' : '';
+                    $group     = (! empty($tab['group_shortcode'])) ? ' data-group="' . esc_attr($tab['group_shortcode']) . '"' : '';
 
-                                    echo '<option value="' . esc_attr($tab_key) . '"' . esc_attr($view . $shortcode . $group) . '>' . esc_attr($tab['title']) . '</option>';
+                    echo '<option value="' . esc_attr($tab_key) . '"' . esc_attr($view . $shortcode . $group) . '>' . esc_attr($tab['title']) . '</option>';
 
-                                    $tab_key++;
-                                }
-                            }
+                    $tab_key++;
+                }
+            }
 
-                            echo '</select>';
-                            echo '</div>';
+            echo '</select>';
+            echo '</div>';
 
-                            ?>
+            ?>
                             <div class="wpdk_settings-modal-content">
                                 <div class="wpdk_settings-modal-loading">
                                     <div class="wpdk_settings-loading"></div>
@@ -210,14 +210,14 @@ if (! class_exists('WPDK_Settings_Shortcoder')) {
 
             ob_start();
 
-            $nonce         = ( ! empty($_POST['nonce']) ) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
-            $shortcode_key = ( ! empty($_POST['shortcode_key']) ) ? sanitize_text_field(wp_unslash($_POST['shortcode_key'])) : '';
+            $nonce         = (! empty($_POST['nonce'])) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
+            $shortcode_key = (! empty($_POST['shortcode_key'])) ? sanitize_text_field(wp_unslash($_POST['shortcode_key'])) : '';
 
             if (! empty($shortcode_key) && wp_verify_nonce($nonce, 'pb_settings_shortcode_nonce')) {
                 $unallows  = array( 'group', 'repeater', 'sorter' );
                 $section   = $this->pre_sections[ $shortcode_key - 1 ];
-                $shortcode = ( ! empty($section['shortcode']) ) ? $section['shortcode'] : '';
-                $view      = ( ! empty($section['view']) ) ? $section['view'] : 'normal';
+                $shortcode = (! empty($section['shortcode'])) ? $section['shortcode'] : '';
+                $view      = (! empty($section['view'])) ? $section['view'] : 'normal';
 
                 if (! empty($section)) {
                     //
@@ -225,7 +225,7 @@ if (! class_exists('WPDK_Settings_Shortcoder')) {
                     if (! empty($section['fields']) && $view !== 'repeater') {
                         echo '<div class="wpdk_settings-fields">';
 
-                        echo ( ! empty($section['description']) ) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . esc_html($section['description']) . '</div>' : '';
+                        echo (! empty($section['description'])) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . esc_html($section['description']) . '</div>' : '';
 
                         foreach ($section['fields'] as $field) {
                             if (in_array($field['type'], $unallows)) {
@@ -233,9 +233,9 @@ if (! class_exists('WPDK_Settings_Shortcoder')) {
                             }
 
                             // Extra tag improves for spesific fields (border, spacing, dimensions etc...)
-                            $field['tag_prefix'] = ( ! empty($field['tag_prefix']) ) ? $field['tag_prefix'] . '_' : '';
+                            $field['tag_prefix'] = (! empty($field['tag_prefix'])) ? $field['tag_prefix'] . '_' : '';
 
-                            $field_default = ( isset($field['id']) ) ? $this->get_default($field) : '';
+                            $field_default = (isset($field['id'])) ? $this->get_default($field) : '';
 
                             WPDK_Settings::field($field, $field_default, $shortcode, 'shortcode');
                         }
@@ -245,12 +245,12 @@ if (! class_exists('WPDK_Settings_Shortcoder')) {
 
                     //
                     // View: group and repeater fields
-                    $repeatable_fields = ( $view === 'repeater' && ! empty($section['fields']) ) ? $section['fields'] : array();
-                    $repeatable_fields = ( $view === 'group' && ! empty($section['group_fields']) ) ? $section['group_fields'] : $repeatable_fields;
+                    $repeatable_fields = ($view === 'repeater' && ! empty($section['fields'])) ? $section['fields'] : array();
+                    $repeatable_fields = ($view === 'group' && ! empty($section['group_fields'])) ? $section['group_fields'] : $repeatable_fields;
 
                     if (! empty($repeatable_fields)) {
-                        $button_title    = ( ! empty($section['button_title']) ) ? ' ' . $section['button_title'] : esc_html__('Add New');
-                        $inner_shortcode = ( ! empty($section['group_shortcode']) ) ? $section['group_shortcode'] : $shortcode;
+                        $button_title    = (! empty($section['button_title'])) ? ' ' . $section['button_title'] : esc_html__('Add New');
+                        $inner_shortcode = (! empty($section['group_shortcode'])) ? $section['group_shortcode'] : $shortcode;
 
                         echo '<div class="wpdk_settings--repeatable">';
 
@@ -266,9 +266,9 @@ if (! class_exists('WPDK_Settings_Shortcoder')) {
                             }
 
                             // Extra tag improves for spesific fields (border, spacing, dimensions etc...)
-                            $field['tag_prefix'] = ( ! empty($field['tag_prefix']) ) ? $field['tag_prefix'] . '_' : '';
+                            $field['tag_prefix'] = (! empty($field['tag_prefix'])) ? $field['tag_prefix'] . '_' : '';
 
-                            $field_default = ( isset($field['id']) ) ? $this->get_default($field) : '';
+                            $field_default = (isset($field['id'])) ? $this->get_default($field) : '';
 
                             WPDK_Settings::field($field, $field_default, $inner_shortcode . '[0]', 'shortcode');
                         }
