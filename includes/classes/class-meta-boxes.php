@@ -160,6 +160,65 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         }
 
 
+        /** Sanitize autolink keywords from textarea
+         *
+         * @param $value mixed The value from textarea
+         * @return string Formatted keywords string
+         */
+        public function sanitize_autolink_keywords($value) {
+            if (is_array($value)) {
+                return implode("\n", array_map('trim', array_filter($value)));
+            }
+            return (string) $value;
+        }
+
+        /**
+         * Format autolink keywords for display in textarea
+         * Handles retrieval when meta value is stored as array from imports
+         *
+         * @param $value mixed The meta value
+         * @param $post_id int The post ID
+         * @return string Formatted keywords string
+         */
+        public function format_autolink_keywords_for_display($value, $post_id = null) {
+            if (is_array($value)) {
+                return implode("\n", array_map('trim', array_filter($value)));
+            }
+            return (string) $value;
+        }
+
+        /**
+         * Render autolink keywords textarea
+         * Handles conversion of array format (from imports) to string format for display
+         *
+         * @param array $args The field arguments from WPDK
+         * @return void
+         */
+        public function render_autolink_keywords_textarea($args)
+        {
+            global $post;
+            
+            $value = '';
+
+            $meta_key = 'tinypress_meta_side_' . $post->post_type;
+            $nested_data = get_post_meta($post->ID, $meta_key, true);
+            
+            if (is_array($nested_data) && isset($nested_data['autolink_keywords'])) {
+                $value = $nested_data['autolink_keywords'];
+            } else {
+                $value = get_post_meta($post->ID, 'autolink_keywords', true);
+            }
+
+            if (is_array($value)) {
+                $value = implode("\n", array_map('trim', array_filter($value)));
+            } else {
+                $value = (string) $value;
+            }
+
+            $field_name = 'tinypress_meta_side_' . $post->post_type . '[autolink_keywords]';
+            echo '<textarea name="' . esc_attr($field_name) . '" id="autolink_keywords" rows="5" style="width:100%">' . esc_textarea($value) . '</textarea>';
+        }
+
         /**
          * Render short URL field
          *
@@ -398,7 +457,8 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                     'fields' => array(
                         array(
                             'id'       => 'autolink_keywords',
-                            'type'     => 'textarea',
+                            'type'     => 'callback',
+                            'function' => array($this, 'render_autolink_keywords_textarea'),
                             'title'    => esc_html__('Keywords', 'tinypress'),
                             'subtitle' => esc_html__('Add keywords separated by commas or on separate lines. Each keyword will link to this shortlink.', 'tinypress'),
                         ),

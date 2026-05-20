@@ -281,7 +281,14 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                     continue;
                 }
 
-                $keywords_raw = (string) Utils::get_meta('autolink_keywords', $link_id);
+                $keywords_raw = Utils::get_meta('autolink_keywords', $link_id);
+
+                if (is_array($keywords_raw)) {
+                    $keywords_raw = implode("\n", $keywords_raw);
+                } else {
+                    $keywords_raw = (string) $keywords_raw;
+                }
+                
                 $keywords = $this->parse_keywords($keywords_raw);
                 if (empty($keywords)) {
                     continue;

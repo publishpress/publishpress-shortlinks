@@ -200,19 +200,18 @@ if (! function_exists('tinypress_get_roles')) {
     }
 }
 
-
-if (! function_exists('tinypress_create_shorten_url')) {
+if (! function_exists('tinypress_validate_target_url')) {
     /**
-     * Create shorten url
+     * Validate and sanitize a target URL for shortlink creation/import.
      *
-     * @param $args
-     *
-     * @return int|mixed|WP_Error|null
+     * @param string $target_url Raw target URL.
+     * @return string|WP_Error
      */
-    function tinypress_create_shorten_url($args = array())
+    function tinypress_validate_target_url($target_url)
     {
+        $target_url = trim((string) $target_url);
 
-        if (empty($target_url = Utils::get_args_option('target_url', $args))) {
+        if (empty($target_url)) {
             return new WP_Error(404, esc_html__('Target url not found.', 'tinypress'));
         }
 
@@ -227,6 +226,28 @@ if (! function_exists('tinypress_create_shorten_url')) {
 
         if (empty($target_url)) {
             return new WP_Error('invalid_url', esc_html__('Invalid URL.', 'tinypress'));
+        }
+
+        return $target_url;
+    }
+}
+
+
+if (! function_exists('tinypress_create_shorten_url')) {
+    /**
+     * Create shorten url
+     *
+     * @param $args
+     *
+     * @return int|mixed|WP_Error|null
+     */
+    function tinypress_create_shorten_url($args = array())
+    {
+
+        $target_url = tinypress_validate_target_url(Utils::get_args_option('target_url', $args));
+
+        if (is_wp_error($target_url)) {
+            return $target_url;
         }
 
         if (empty($tiny_slug = Utils::get_args_option('tiny_slug', $args, tinypress_create_url_slug()))) {
