@@ -95,8 +95,8 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                     'see_less'       => esc_html__('Show Less', 'tinypress'),
                     'preview'        => esc_html__('Preview', 'tinypress'),
                     'import_csv'     => esc_html__('Import CSV', 'tinypress'),
-                    'import_success' => esc_html__('%d successfully imported', 'tinypress'),
-                    'import_failure' => esc_html__('%d failed to import', 'tinypress'),
+                    'import_success' => esc_html__('%d shortlinks successfully imported', 'tinypress'),
+                    'import_failure' => esc_html__('%d shortlinks failed to import', 'tinypress'),
                     'slug_error'     => esc_html__('Error(s) for TinyPress Slug:', 'tinypress'),
                 ),
             ));
@@ -264,6 +264,13 @@ if (! class_exists('TINYPRESS_Import_Export')) {
         {
             $autolink_keywords = get_post_meta($post_id, 'autolink_keywords', true);
 
+            if (empty($autolink_keywords)) {
+                $nested_data = get_post_meta($post_id, 'tinypress_meta_side_tinypress_link', true);
+                if (is_array($nested_data) && isset($nested_data['autolink_keywords'])) {
+                    $autolink_keywords = $nested_data['autolink_keywords'];
+                }
+            }
+
             if (is_array($autolink_keywords)) {
                 return implode(',', array_map('trim', $autolink_keywords));
             }
@@ -299,15 +306,10 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 'short_slug',
                 'post_status',
                 'link_status',
-                'redirect_method_mode',
                 'redirect_method',
-                'nofollow_mode',
                 'nofollow',
-                'sponsored_mode',
                 'sponsored',
-                'parameter_forwarding_mode',
                 'parameter_forwarding',
-                'expiration_mode',
                 'expiration_enabled',
                 'expiration_date',
                 'expiration_time',
@@ -378,27 +380,16 @@ if (! class_exists('TINYPRESS_Import_Export')) {
          * @param int    $link_id Link post ID.
          * @param array  $data Normalized row.
          * @param string $value_field Value field key.
-         * @param string $mode_field Mode field key.
          * @param string $setting_key Per-link setting key.
          * @param string $use_global_key Per-link use-global key.
          */
-        private function apply_imported_toggle($link_id, array $data, $value_field, $mode_field, $setting_key, $use_global_key)
+        private function apply_imported_toggle($link_id, array $data, $value_field, $setting_key, $use_global_key)
         {
-            $mode = $this->import_field_exists($data, $mode_field) ? $this->parse_setting_mode($data[ $mode_field ]) : '';
+            update_post_meta($link_id, $use_global_key, array());
 
-            if ('use_global' === $mode) {
-                update_post_meta($link_id, $use_global_key, array( '1' ));
-                delete_post_meta($link_id, $setting_key);
-                return;
-            }
-
-            if ('custom' === $mode || $this->import_field_exists($data, $value_field)) {
-                update_post_meta($link_id, $use_global_key, array());
+            if ($this->import_field_exists($data, $value_field)) {
                 update_post_meta($link_id, $setting_key, $this->parse_boolean($data[ $value_field ]) ? '1' : '0');
-                return;
             }
-
-            update_post_meta($link_id, $use_global_key, array( '1' ));
         }
 
         /**
@@ -442,15 +433,10 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                     'short_slug',
                     'post_status',
                     'link_status',
-                    'redirect_method_mode',
                     'redirect_method',
-                    'nofollow_mode',
                     'nofollow',
-                    'sponsored_mode',
                     'sponsored',
-                    'parameter_forwarding_mode',
                     'parameter_forwarding',
-                    'expiration_mode',
                     'expiration_enabled',
                     'expiration_date',
                     'expiration_time',
@@ -522,15 +508,10 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                         get_post_meta($link->ID, 'tiny_slug', true),
                         $link->post_status,
                         '1' === (string) $link_status ? 'enabled' : 'disabled',
-                        $redirect_method['mode'],
                         $redirect_method['value'],
-                        $nofollow['mode'],
                         $nofollow['value'],
-                        $sponsored['mode'],
                         $sponsored['value'],
-                        $parameter_forwarding['mode'],
                         $parameter_forwarding['value'],
-                        $expiration['mode'],
                         $expiration['value'],
                         $expiration_date,
                         $expiration_time,
@@ -611,6 +592,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             }
 
             $imported = 0;
+            $updated  = 0;
             $failed   = 0;
             $errors   = array();
 
@@ -630,7 +612,8 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 $label = $this->import_field_exists($data, 'label') && '' !== $data['label'] ? sanitize_text_field($data['label']) : $target_url;
                 $slug  = $this->import_field_exists($data, 'short_slug') && '' !== $data['short_slug'] ? sanitize_title($data['short_slug']) : '';
 
-                // If slug provided, check for uniqueness
+                $link_id = null;
+
                 if (! empty($slug)) {
                     global $wpdb;
                     // phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching
@@ -639,86 +622,65 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                         $slug
                     ));
                     if ($existing) {
-                        // Slug already exists - mark as failed with detailed reason
+                        $link_id = (int) $existing;
+                        $is_update = true;
+                    }
+                }
+
+                if (!$link_id) {
+                    if (empty($slug)) {
+                        $slug = tinypress_create_url_slug();
+                    }
+
+                    $post_status = $this->parse_post_status($this->import_field_exists($data, 'post_status') ? $data['post_status'] : null);
+                    $link_status = $this->parse_link_status($this->import_field_exists($data, 'link_status') ? $data['link_status'] : null);
+
+                    $link_id = wp_insert_post(array(
+                        'post_title'  => $label,
+                        'post_type'   => 'tinypress_link',
+                        'post_status' => $post_status,
+                        'post_author' => get_current_user_id(),
+                    ));
+
+                    if (is_wp_error($link_id) || empty($link_id)) {
                         $failed++;
                         $errors[] = array(
-                            'slug'   => $slug,
+                            'slug'   => ! empty($slug) ? $slug : 'unknown',
                             'reason' => sprintf(
-                                /* translators: %s: slug */
-                                __('This shortlink slug is already taken: %s', 'tinypress'),
-                                $slug
+                                /* translators: %s: error message */
+                                __('Failed to create shortlink: %s', 'tinypress'),
+                                is_wp_error($link_id) ? $link_id->get_error_message() : esc_html__('Unknown error.', 'tinypress')
                             ),
                         );
                         continue;
                     }
-                }
-
-                if (empty($slug)) {
-                    $slug = tinypress_create_url_slug();
-                }
-
-                $post_status = $this->parse_post_status($this->import_field_exists($data, 'post_status') ? $data['post_status'] : null);
-                $link_status = $this->parse_link_status($this->import_field_exists($data, 'link_status') ? $data['link_status'] : null);
-
-                $link_id = wp_insert_post(array(
-                    'post_title'  => $label,
-                    'post_type'   => 'tinypress_link',
-                    'post_status' => $post_status,
-                    'post_author' => get_current_user_id(),
-                ));
-
-                if (is_wp_error($link_id) || empty($link_id)) {
-                    $failed++;
-                    $errors[] = array(
-                        'slug'   => ! empty($slug) ? $slug : 'unknown',
-                        'reason' => sprintf(
-                            /* translators: %s: error message */
-                            __('Failed to create shortlink: %s', 'tinypress'),
-                            is_wp_error($link_id) ? $link_id->get_error_message() : esc_html__('Unknown error.', 'tinypress')
-                        ),
-                    );
-                    continue;
+                    $is_update = false;
+                } else {
+                    wp_update_post(array(
+                        'ID'         => $link_id,
+                        'post_title' => $label,
+                    ));
                 }
 
                 update_post_meta($link_id, 'target_url', $target_url);
                 update_post_meta($link_id, 'tiny_slug', $slug);
-                update_post_meta($link_id, 'link_status', $link_status);
+                update_post_meta($link_id, 'link_status', $link_status ?? $this->parse_link_status(null));
 
-                $redirect_mode = $this->import_field_exists($data, 'redirect_method_mode') ? $this->parse_setting_mode($data['redirect_method_mode']) : '';
-                if ('use_global' === $redirect_mode) {
-                    update_post_meta($link_id, 'redirection_method', '');
-                } elseif ('custom' === $redirect_mode && ! $this->import_field_exists($data, 'redirect_method')) {
-                    update_post_meta($link_id, 'redirection_method', 302);
-                } elseif ($this->import_field_exists($data, 'redirect_method')) {
-                    update_post_meta($link_id, 'redirection_method', '' === $data['redirect_method'] ? '' : $this->parse_redirect_method($data['redirect_method'], 302));
+                if ($this->import_field_exists($data, 'redirect_method') && '' !== $data['redirect_method']) {
+                    update_post_meta($link_id, 'redirection_method', $this->parse_redirect_method($data['redirect_method'], 302));
                 } else {
                     update_post_meta($link_id, 'redirection_method', '');
                 }
 
-                $this->apply_imported_toggle($link_id, $data, 'nofollow', 'nofollow_mode', 'redirection_no_follow', 'redirection_no_follow_use_global');
-                $this->apply_imported_toggle($link_id, $data, 'sponsored', 'sponsored_mode', 'redirection_sponsored', 'redirection_sponsored_use_global');
-                $this->apply_imported_toggle($link_id, $data, 'parameter_forwarding', 'parameter_forwarding_mode', 'redirection_parameter_forwarding', 'redirection_parameter_forwarding_use_global');
+                $this->apply_imported_toggle($link_id, $data, 'nofollow', 'redirection_no_follow', 'redirection_no_follow_use_global');
+                $this->apply_imported_toggle($link_id, $data, 'sponsored', 'redirection_sponsored', 'redirection_sponsored_use_global');
+                $this->apply_imported_toggle($link_id, $data, 'parameter_forwarding', 'redirection_parameter_forwarding', 'redirection_parameter_forwarding_use_global');
 
-                $has_expiration_fields = $this->import_field_exists($data, 'expiration_mode')
-                    || $this->import_field_exists($data, 'expiration_enabled')
-                    || $this->import_field_exists($data, 'expiration_date')
-                    || $this->import_field_exists($data, 'expiration_time');
-
-                if ($has_expiration_fields) {
-                    $expiration_mode = $this->import_field_exists($data, 'expiration_mode') ? $this->parse_setting_mode($data['expiration_mode']) : '';
-                    if ('use_global' === $expiration_mode) {
-                        update_post_meta($link_id, 'enable_expiration_use_global', array( '1' ));
-                        delete_post_meta($link_id, 'enable_expiration');
-                    } else {
-                        update_post_meta($link_id, 'enable_expiration_use_global', array());
-                        $expiration_enabled = $this->import_field_exists($data, 'expiration_enabled')
-                            ? $this->parse_boolean($data['expiration_enabled'])
-                            : ($this->import_field_exists($data, 'expiration_date') && '' !== $data['expiration_date']);
-                        update_post_meta($link_id, 'enable_expiration', $expiration_enabled ? '1' : '0');
-                    }
-                } else {
-                    update_post_meta($link_id, 'enable_expiration_use_global', array( '1' ));
-                }
+                update_post_meta($link_id, 'enable_expiration_use_global', array());
+                $expiration_enabled = $this->import_field_exists($data, 'expiration_enabled')
+                    ? $this->parse_boolean($data['expiration_enabled'])
+                    : ($this->import_field_exists($data, 'expiration_date') && '' !== $data['expiration_date']);
+                update_post_meta($link_id, 'enable_expiration', $expiration_enabled ? '1' : '0');
 
                 if ($this->import_field_exists($data, 'expiration_date')) {
                     update_post_meta($link_id, 'expiration_date', sanitize_text_field($data['expiration_date']));
@@ -740,7 +702,11 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                     update_post_meta($link_id, 'autolink_keywords', ! empty($keywords) ? implode("\n", $keywords) : '');
                 }
 
-                $imported++;
+                if ($is_update) {
+                    $updated++;
+                } else {
+                    $imported++;
+                }
             }
 
             fclose($handle);
@@ -750,8 +716,19 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             if ($imported > 0) {
                 $message .= sprintf(
                     /* translators: %d: number of successfully imported shortlinks */
-                    esc_html__('%d successfully imported', 'tinypress'),
+                    esc_html__('%d shortlinks successfully imported', 'tinypress'),
                     $imported
+                );
+            }
+
+            if ($updated > 0) {
+                if (! empty($message)) {
+                    $message .= ' | ';
+                }
+                $message .= sprintf(
+                    /* translators: %d: number of updated shortlinks */
+                    esc_html__('%d shortlinks updated', 'tinypress'),
+                    $updated
                 );
             }
 
@@ -761,13 +738,14 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 }
                 $message .= sprintf(
                     /* translators: %d: number of failed imports */
-                    esc_html__('%d failed to import', 'tinypress'),
+                    esc_html__('%d shortlinks failed to import', 'tinypress'),
                     $failed
                 );
             }
 
             wp_send_json_success(array(
                 'imported' => $imported,
+                'updated'  => $updated,
                 'failed'   => $failed,
                 'errors'   => $errors,
                 'message'  => $message,
@@ -872,15 +850,10 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 'short_slug'       => array( 'short_slug', 'slug', 'short_code', 'short_link', 'code' ),
                 'post_status'      => array( 'post_status', 'wp_status' ),
                 'link_status'      => array( 'status', 'link_status', 'enabled', 'active' ),
-                'redirect_method_mode' => array( 'redirect_method_mode', 'redirect_mode', 'redirect_type_mode' ),
                 'redirect_method'  => array( 'redirect_method', 'redirect_type', 'method' ),
-                'nofollow_mode'    => array( 'nofollow_mode', 'no_follow_mode' ),
                 'nofollow'         => array( 'nofollow', 'no_follow', 'rel_nofollow' ),
-                'sponsored_mode'   => array( 'sponsored_mode' ),
                 'sponsored'        => array( 'sponsored', 'is_sponsored' ),
-                'parameter_forwarding_mode' => array( 'parameter_forwarding_mode', 'param_forwarding_mode', 'forward_params_mode' ),
                 'parameter_forwarding' => array( 'parameter_forwarding', 'param_forwarding', 'forward_params' ),
-                'expiration_mode'   => array( 'expiration_mode', 'enable_expiration_mode' ),
                 'expiration_enabled' => array( 'expiration_enabled', 'enable_expiration', 'expires', 'is_expiring' ),
                 'expiration_date'   => array( 'expiration_date', 'expires_at', 'expiry_date' ),
                 'expiration_time'   => array( 'expiration_time', 'expiry_time' ),
@@ -1058,15 +1031,10 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 'short_slug'               => esc_html__('Short Slug', 'tinypress'),
                 'post_status'              => esc_html__('Post Status', 'tinypress'),
                 'link_status'              => esc_html__('Link Status', 'tinypress'),
-                'redirect_method_mode'     => esc_html__('Redirect Method Mode', 'tinypress'),
                 'redirect_method'          => esc_html__('Redirect Method', 'tinypress'),
-                'nofollow_mode'            => esc_html__('NoFollow Mode', 'tinypress'),
                 'nofollow'                 => esc_html__('NoFollow', 'tinypress'),
-                'sponsored_mode'           => esc_html__('Sponsored Mode', 'tinypress'),
                 'sponsored'                => esc_html__('Sponsored', 'tinypress'),
-                'parameter_forwarding_mode' => esc_html__('Parameter Forwarding Mode', 'tinypress'),
                 'parameter_forwarding'     => esc_html__('Parameter Forwarding', 'tinypress'),
-                'expiration_mode'          => esc_html__('Expiration Mode', 'tinypress'),
                 'expiration_enabled'       => esc_html__('Expiration Enabled', 'tinypress'),
                 'expiration_date'          => esc_html__('Expiration Date', 'tinypress'),
                 'expiration_time'          => esc_html__('Expiration Time', 'tinypress'),
@@ -1120,7 +1088,6 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 <h1><?php esc_html_e('Import / Export Shortlinks', 'tinypress'); ?></h1>
 
                 <div class="tinypress-ie-grid">
-                    <!-- Export Card -->
                     <div class="tinypress-ie-card">
                         <div class="tinypress-ie-card-header">
                             <span class="dashicons dashicons-download"></span>
@@ -1140,12 +1107,12 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                                 </p>
 
                                 <div class="tinypress-export-buttons">
-                                    <div class="tinypress-export-option">
-                                        <h4><?php esc_html_e('TinyPress Format', 'tinypress'); ?></h4>
+                                    <div class="tinypress-export-option shortlinks-export">
+                                        <h4><?php esc_html_e('Shortlinks Format', 'tinypress'); ?></h4>
                                         <p class="description"><?php esc_html_e('Full format with TinyPress fields and global-setting modes. Password protection settings are not exported.', 'tinypress'); ?></p>
                                         <a href="<?php echo esc_url($export_url); ?>" class="button button-primary">
                                             <span class="dashicons dashicons-download"></span>
-                                            <?php esc_html_e('Export', 'tinypress'); ?>
+                                            <?php esc_html_e('Export CSV', 'tinypress'); ?>
                                         </a>
                                     </div>
 
@@ -1170,7 +1137,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                                     ?>
                                 </p>
 
-                                <a href="<?php echo esc_url($export_url); ?>" class="button button-primary button-large">
+                                <a href="<?php echo esc_url($export_url); ?>" class="tinypress-import-export button button-primary button-large">
                                     <span class="dashicons dashicons-download"></span>
                                     <?php esc_html_e('Export CSV', 'tinypress'); ?>
                                 </a>
@@ -1178,7 +1145,6 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                         </div>
                     </div>
 
-                    <!-- Import Card -->
                     <div class="tinypress-ie-card">
                         <div class="tinypress-ie-card-header">
                             <span class="dashicons dashicons-upload"></span>
@@ -1191,7 +1157,6 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                                 <code>label</code>, <code>target_url</code>, <code>short_slug</code>, <code>post_status</code>, <code>link_status</code>, <code>redirect_method_mode</code>, <code>redirect_method</code>, <code>nofollow_mode</code>, <code>nofollow</code>, <code>sponsored_mode</code>, <code>sponsored</code>, <code>parameter_forwarding_mode</code>, <code>parameter_forwarding</code>, <code>expiration_mode</code>, <code>expiration_enabled</code>, <code>expiration_date</code>, <code>expiration_time</code>, <code>expired_redirect_url</code>, <code>notes</code>, <code>autolink_keywords</code>
                             </p>
                             
-                            <!-- File Input Section -->
                             <div id="tinypress-file-input-section">
                                 <form id="tinypress-import-form" enctype="multipart/form-data">
                                     <input type="file" name="csv_file" id="tinypress-csv-file" accept=".csv">
