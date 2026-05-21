@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -32,7 +33,7 @@ if (! class_exists('WPDK_Settings_Field_accordion')) {
             foreach ($this->field['accordions'] as $key => $accordion) {
                 echo '<div class="wpdk_settings-accordion-item">';
 
-                $icon = ( ! empty($accordion['icon']) ) ? 'wpdk_settings--icon ' . $accordion['icon'] : 'wpdk_settings-accordion-icon fas fa-angle-right';
+                $icon = (! empty($accordion['icon'])) ? 'wpdk_settings--icon ' . $accordion['icon'] : 'wpdk_settings-accordion-icon fas fa-angle-right';
 
                 echo '<h4 class="wpdk_settings-accordion-title">';
                 echo '<i class="' . esc_attr($icon) . '"></i>';
@@ -43,13 +44,13 @@ if (! class_exists('WPDK_Settings_Field_accordion')) {
 
                 foreach ($accordion['fields'] as $field) {
                     if (in_array($field['type'], $unallows)) {
-                        $field['_notice'] = true; 
+                        $field['_notice'] = true;
                     }
 
-                    $field_id      = ( isset($field['id']) ) ? $field['id'] : '';
-                    $field_default = ( isset($field['default']) ) ? $field['default'] : '';
-                    $field_value   = ( isset($this->value[$field_id]) ) ? $this->value[$field_id] : $field_default;
-                    $unique_id     = ( ! empty($this->unique) ) ? $this->unique . '[' . $this->field['id'] . ']' : $this->field['id'];
+                    $field_id      = (isset($field['id'])) ? $field['id'] : '';
+                    $field_default = (isset($field['default'])) ? $field['default'] : '';
+                    $field_value   = (isset($this->value[$field_id])) ? $this->value[$field_id] : $field_default;
+                    $unique_id     = (! empty($this->unique)) ? $this->unique . '[' . $this->field['id'] . ']' : $this->field['id'];
 
                     WPDK_Settings::field($field, $field_value, $unique_id, 'field/accordion');
                 }

@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -33,7 +34,7 @@ if (! class_exists('WPDK_Settings_Field_textarea')) {
         {
 
             if (! empty($this->field['shortcoder'])) {
-                $instances = ( is_array($this->field['shortcoder']) ) ? $this->field['shortcoder'] : array_filter((array) $this->field['shortcoder']);
+                $instances = (is_array($this->field['shortcoder'])) ? $this->field['shortcoder'] : array_filter((array) $this->field['shortcoder']);
 
                 foreach ($instances as $instance_key) {
                     if (isset(WPDK_Settings::$shortcode_instances[$instance_key])) {

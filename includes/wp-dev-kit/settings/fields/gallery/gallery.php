@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -29,7 +30,7 @@ if (! class_exists('WPDK_Settings_Field_gallery')) {
             'clear_title' => esc_html__('Clear'),
             ));
 
-            $hidden = ( empty($this->value) ) ? ' hidden' : '';
+            $hidden = (empty($this->value)) ? ' hidden' : '';
 
             echo $this->field_before();
 

@@ -1,5 +1,6 @@
 .tinypress-import-export-wrap {
 	max-width: 1100px;
+	margin-bottom: 120px;
 }
 
 .tinypress-ie-grid {
@@ -46,6 +47,7 @@
 
 .tinypress-ie-card-body {
 	padding: 20px;
+	padding-bottom: 30px;
 }
 
 .tinypress-ie-card-body p {
@@ -93,9 +95,403 @@
 }
 
 #tinypress-import-result.success {
+	background: transparent;
+	border: none;
+	color: inherit;
+	padding: 0;
+}
+
+#tinypress-import-result.error {
+	background: #fef5f1;
+	border: 1px solid #d63638;
+	color: #8b2e2e;
+}
+
+#tinypress-import-result.error ul.import-errors {
+	margin: 10px 0 0 20px;
+	padding: 0;
+}
+
+#tinypress-import-result.error ul.import-errors li {
+	list-style-type: disc;
+	margin: 5px 0;
+}
+
+.tinypress-import-success {
 	background: #edfaef;
 	border: 1px solid #46b450;
 	color: #1e4620;
+	padding: 12px 16px;
+	border-radius: 4px;
+	margin-bottom: 12px;
+}
+
+.tinypress-import-success strong {
+	display: block;
+	font-weight: 600;
+}
+
+.tinypress-import-failure {
+	background: #fef5f1;
+	border: 1px solid #d63638;
+	color: #8b2e2e;
+	padding: 12px 16px;
+	border-radius: 4px;
+}
+
+.tinypress-import-failure strong {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 16px;
+}
+
+.tinypress-error-list {
+	margin: 0;
+	padding: 0;
+}
+
+.tinypress-error-item {
+	margin-bottom: 12px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid rgba(211, 62, 56, 0.2);
+}
+
+.tinypress-error-item:last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
+.tinypress-error-header {
+	font-size: 13px;
+	font-weight: 600;
+	color: #8b2e2e;
+	margin-bottom: 6px;
+	line-height: 1.5;
+}
+
+.tinypress-error-header strong {
+	color: #5a1f1e;
+	font-family: monospace;
+	font-weight: 700;
+	background: rgba(211, 62, 56, 0.1);
+	padding: 2px 6px;
+	border-radius: 3px;
+}
+
+.tinypress-error-message {
+	font-size: 13px;
+	color: #8b2e2e;
+	margin: 6px 0 0 0;
+	line-height: 1.6;
+	padding-left: 12px;
+	border-left: 2px solid rgba(211, 62, 56, 0.3);
+}
+
+.button .dashicons {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 4px;
+	line-height: 1;
+}
+
+.button.button-hero .dashicons {
+	margin-right: 6px;
+}
+
+.tinypress-export-buttons {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	margin: 20px 0;
+}
+
+.tinypress-export-buttons.single-export {
+	grid-template-columns: 1fr;
+	max-width: 400px;
+}
+
+.tinypress-export-option {
+	border: 1px solid #e0e0e0;
+	padding: 16px;
+	border-radius: 4px;
+	background: #f9f9f9;
+}
+
+.tinypress-export-option h4 {
+	margin: 0 0 8px 0;
+	font-size: 14px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.tinypress-export-option .description {
+	margin: 0 0 12px 0;
+	font-size: 13px;
+	color: #666;
+}
+
+.tinypress-export-option .button {
+	width: 100%;
+	text-align: center;
+}
+
+.tinypress-ie-card-body > a.button.button-primary.button-large {
+	display: inline-block;
+	margin-top: 12px;
+	min-width: 180px;
+}
+
+@media (max-width: 782px) {
+	.tinypress-export-buttons {
+		grid-template-columns: 1fr;
+	}
+	
+	.tinypress-export-buttons.single-export {
+		grid-template-columns: 1fr;
+	}
+}
+
+.tinypress-progress-container {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin: 16px 0;
+}
+
+.tinypress-progress-bar {
+	flex: 1;
+	height: 24px;
+	background: #e0e0e0;
+	border-radius: 4px;
+	overflow: hidden;
+	border: 1px solid #c3c4c7;
+}
+
+.tinypress-progress-fill {
+	height: 100%;
+	background: linear-gradient(90deg, #2271b1, #0a4a8f);
+	transition: width 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+#tinypress-progress-text {
+	min-width: 50px;
+	text-align: right;
+	font-weight: 600;
+	color: #2271b1;
+}
+
+#tinypress-preview-section {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-top: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.tinypress-preview-header {
+	margin-bottom: 16px;
+}
+
+.tinypress-preview-header h3 {
+	margin: 0 0 8px 0;
+	font-size: 16px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.tinypress-preview-header p {
+	margin: 0;
+	color: #50575e;
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.tinypress-field-mapping-info {
+	background: #f0f7ff;
+	border-left: 4px solid #2271b1;
+	padding: 12px;
+	border-radius: 0 4px 4px 0;
+	margin-top: 12px;
+	font-size: 13px;
+	color: #1d2327;
+	line-height: 1.5;
+}
+
+.tinypress-preview-table-wrapper {
+	overflow-x: auto;
+	margin-bottom: 16px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	background: #fff;
+	max-height: 400px;
+	overflow-y: auto;
+	transition: max-height 0.3s ease;
+}
+
+.tinypress-preview-table-wrapper.expanded {
+	max-height: none;
+}
+
+.tinypress-preview-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 13px;
+}
+
+.tinypress-preview-table thead {
+	background: #f6f7f7;
+	border-bottom: 2px solid #c3c4c7;
+}
+
+.tinypress-preview-table th {
+	padding: 12px;
+	text-align: left;
+	font-weight: 600;
+	color: #1d2327;
+	border-right: 1px solid #c3c4c7;
+}
+
+.tinypress-preview-table th:last-child {
+	border-right: none;
+}
+
+.tinypress-preview-table tbody tr {
+	border-bottom: 1px solid #e0e0e0;
+	transition: background-color 0.2s ease;
+}
+
+.tinypress-preview-table tbody tr:hover {
+	background: #f6f7f7;
+}
+
+.tinypress-preview-table td {
+	padding: 12px;
+	border-right: 1px solid #e0e0e0;
+	color: #50575e;
+	word-break: break-word;
+	max-width: 300px;
+}
+
+.tinypress-preview-table td:last-child {
+	border-right: none;
+}
+
+.tinypress-preview-actions {
+	display: flex;
+	gap: 12px;
+	justify-content: flex-end;
+	padding-top: 16px;
+	border-top: 1px solid #e0e0e0;
+}
+
+.tinypress-preview-actions button {
+	min-width: 140px;
+}
+
+#tinypress-expand-container {
+	text-align: center;
+	padding: 12px;
+	background: #f6f7f7;
+	border-top: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+#tinypress-expand-table-btn {
+	padding: 6px 16px;
+}
+
+#tinypress-file-input-section {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+#tinypress-file-selected-actions {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+	align-items: center;
+	margin: 16px 0;
+}
+
+#tinypress-file-selected-actions button {
+	white-space: nowrap;
+}
+
+#tinypress-import-form {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+#tinypress-csv-file {
+	flex: 1;
+	min-width: 200px;
+}
+
+#tinypress-preview-btn,
+#tinypress-confirm-import-btn {
+	white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+	.tinypress-progress-container {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	#tinypress-progress-text {
+		text-align: left;
+	}
+
+	.tinypress-preview-table-wrapper {
+		font-size: 12px;
+		max-height: 300px;
+	}
+
+	.tinypress-preview-table th,
+	.tinypress-preview-table td {
+		padding: 8px;
+		max-width: 200px;
+	}
+
+	.tinypress-preview-actions {
+		flex-direction: column-reverse;
+	}
+
+	.tinypress-preview-actions button {
+		width: 100%;
+	}
+
+	#tinypress-file-selected-actions {
+		flex-direction: column;
+	}
+
+	#tinypress-file-selected-actions button {
+		width: 100%;
+	}
+
+	#tinypress-import-form {
+		flex-direction: column;
+	}
+
+	#tinypress-csv-file {
+		min-width: auto;
+	}
+
+	#tinypress-preview-btn,
+	#tinypress-confirm-import-btn {
+		width: 100%;
+	}
 }
 
 #tinypress-import-result.error {
@@ -114,10 +510,32 @@
 	list-style-type: disc;
 }
 
-.tinypress-ie-card-body .button-hero .dashicons {
+.tinypress-ie-card-body .button-hero .dashicons,
+.tinypress-import-export.button-large .dashicons {
 	font-size: 20px !important;
 	width: 20px !important;
 	height: 20px !important;
+	line-height: 20px !important;
+	margin-right: 8px !important;
+	color: white !important;
+	vertical-align: text-bottom !important;
+	display: inline-block !important;
+}
+
+.tinypress-import-export.button-large .dashicons {
+	font-size: 20px !important;
+	width: 20px !important;
+	height: 15px !important;
+	margin-right: 8px !important;
+	color: white !important;
+	vertical-align: text-bottom !important;
+	display: inline-block !important;
+}
+
+.tinypress-export-option.shortlinks-export .dashicons {
+	font-size: 20px !important;
+	width: 20px !important;
+	height: 17px !important;
 	line-height: 20px !important;
 	margin-right: 8px !important;
 	color: white !important;

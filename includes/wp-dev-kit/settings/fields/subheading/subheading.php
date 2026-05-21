@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -23,7 +24,7 @@ if (! class_exists('WPDK_Settings_Field_subheading')) {
         public function render()
         {
 
-            echo ( ! empty($this->field['content']) ) ? $this->field['content'] : '';
+            echo (! empty($this->field['content'])) ? $this->field['content'] : '';
         }
     }
 }

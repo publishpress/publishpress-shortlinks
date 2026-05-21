@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -42,28 +43,28 @@ if (! class_exists('WPDK_Settings_Field_dimensions')) {
             );
 
             $value   = wp_parse_args($this->value, $default_values);
-            $unit    = ( count($args['units']) === 1 && ! empty($args['unit']) ) ? $args['units'][0] : '';
-            $is_unit = ( ! empty($unit) ) ? ' wpdk_settings--is-unit' : '';
+            $unit    = (count($args['units']) === 1 && ! empty($args['unit'])) ? $args['units'][0] : '';
+            $is_unit = (! empty($unit)) ? ' wpdk_settings--is-unit' : '';
 
             echo $this->field_before();
 
             echo '<div class="wpdk_settings--inputs" data-depend-id="' . esc_attr($this->field['id']) . '">';
 
             if (! empty($args['width'])) {
-                $placeholder = ( ! empty($args['width_placeholder']) ) ? ' placeholder="' . esc_attr($args['width_placeholder']) . '"' : '';
+                $placeholder = (! empty($args['width_placeholder'])) ? ' placeholder="' . esc_attr($args['width_placeholder']) . '"' : '';
                 echo '<div class="wpdk_settings--input">';
-                echo ( ! empty($args['width_icon']) ) ? '<span class="wpdk_settings--label wpdk_settings--icon">' . $args['width_icon'] . '</span>' : '';
+                echo (! empty($args['width_icon'])) ? '<span class="wpdk_settings--label wpdk_settings--icon">' . $args['width_icon'] . '</span>' : '';
                 echo '<input type="number" name="' . esc_attr($this->field_name('[width]')) . '" value="' . esc_attr($value['width']) . '"' . $placeholder . ' class="wpdk_settings-input-number' . esc_attr($is_unit) . '" step="any" />';
-                echo ( ! empty($unit) ) ? '<span class="wpdk_settings--label wpdk_settings--unit">' . esc_attr($args['units'][0]) . '</span>' : '';
+                echo (! empty($unit)) ? '<span class="wpdk_settings--label wpdk_settings--unit">' . esc_attr($args['units'][0]) . '</span>' : '';
                 echo '</div>';
             }
 
             if (! empty($args['height'])) {
-                $placeholder = ( ! empty($args['height_placeholder']) ) ? ' placeholder="' . esc_attr($args['height_placeholder']) . '"' : '';
+                $placeholder = (! empty($args['height_placeholder'])) ? ' placeholder="' . esc_attr($args['height_placeholder']) . '"' : '';
                 echo '<div class="wpdk_settings--input">';
-                echo ( ! empty($args['height_icon']) ) ? '<span class="wpdk_settings--label wpdk_settings--icon">' . $args['height_icon'] . '</span>' : '';
+                echo (! empty($args['height_icon'])) ? '<span class="wpdk_settings--label wpdk_settings--icon">' . $args['height_icon'] . '</span>' : '';
                 echo '<input type="number" name="' . esc_attr($this->field_name('[height]')) . '" value="' . esc_attr($value['height']) . '"' . $placeholder . ' class="wpdk_settings-input-number' . esc_attr($is_unit) . '" step="any" />';
-                echo ( ! empty($unit) ) ? '<span class="wpdk_settings--label wpdk_settings--unit">' . esc_attr($args['units'][0]) . '</span>' : '';
+                echo (! empty($unit)) ? '<span class="wpdk_settings--label wpdk_settings--unit">' . esc_attr($args['units'][0]) . '</span>' : '';
                 echo '</div>';
             }
 
@@ -71,7 +72,7 @@ if (! class_exists('WPDK_Settings_Field_dimensions')) {
                 echo '<div class="wpdk_settings--input">';
                 echo '<select name="' . esc_attr($this->field_name('[unit]')) . '">';
                 foreach ($args['units'] as $unit) {
-                    $selected = ( $value['unit'] === $unit ) ? ' selected' : '';
+                    $selected = ($value['unit'] === $unit) ? ' selected' : '';
                     echo '<option value="' . esc_attr($unit) . '"' . esc_attr($selected) . '>' . esc_attr($unit) . '</option>';
                 }
                 echo '</select>';
@@ -87,12 +88,12 @@ if (! class_exists('WPDK_Settings_Field_dimensions')) {
         {
 
             $output    = '';
-            $element   = ( is_array($this->field['output']) ) ? join(',', $this->field['output']) : $this->field['output'];
-            $prefix    = ( ! empty($this->field['output_prefix']) ) ? $this->field['output_prefix'] . '-' : '';
-            $important = ( ! empty($this->field['output_important']) ) ? '!important' : '';
-            $unit      = ( ! empty($this->value['unit']) ) ? $this->value['unit'] : 'px';
-            $width     = ( isset($this->value['width']) && $this->value['width'] !== '' ) ? $prefix . 'width:' . $this->value['width'] . $unit . $important . ';' : '';
-            $height    = ( isset($this->value['height']) && $this->value['height'] !== '' ) ? $prefix . 'height:' . $this->value['height'] . $unit . $important . ';' : '';
+            $element   = (is_array($this->field['output'])) ? join(',', $this->field['output']) : $this->field['output'];
+            $prefix    = (! empty($this->field['output_prefix'])) ? $this->field['output_prefix'] . '-' : '';
+            $important = (! empty($this->field['output_important'])) ? '!important' : '';
+            $unit      = (! empty($this->value['unit'])) ? $this->value['unit'] : 'px';
+            $width     = (isset($this->value['width']) && $this->value['width'] !== '') ? $prefix . 'width:' . $this->value['width'] . $unit . $important . ';' : '';
+            $height    = (isset($this->value['height']) && $this->value['height'] !== '') ? $prefix . 'height:' . $this->value['height'] . $unit . $important . ';' : '';
 
             if ($width !== '' || $height !== '') {
                 $output = $element . '{' . $width . $height . '}';

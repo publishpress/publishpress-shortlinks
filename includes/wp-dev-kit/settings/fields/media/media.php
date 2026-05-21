@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -45,7 +46,7 @@ if (! class_exists('WPDK_Settings_Field_media')) {
             'description' => ''
             );
 
-          // fallback
+            // fallback
             if (is_numeric($this->value)) {
                 $this->value  = array(
                 'id'        => $this->value,
@@ -56,19 +57,19 @@ if (! class_exists('WPDK_Settings_Field_media')) {
 
             $this->value = wp_parse_args($this->value, $default_values);
 
-            $library     = ( is_array($args['library']) ) ? $args['library'] : array_filter((array) $args['library']);
-            $library     = ( ! empty($library) ) ? implode(',', $library) : '';
-            $preview_src = ( $args['preview_size'] !== 'thumbnail' ) ? $this->value['url'] : $this->value['thumbnail'];
-            $hidden_url  = ( empty($args['url']) ) ? ' hidden' : '';
-            $hidden_auto = ( empty($this->value['url']) ) ? ' hidden' : '';
-            $placeholder = ( empty($this->field['placeholder']) ) ? ' placeholder="' .  esc_html__('Not selected') . '"' : '';
+            $library     = (is_array($args['library'])) ? $args['library'] : array_filter((array) $args['library']);
+            $library     = (! empty($library)) ? implode(',', $library) : '';
+            $preview_src = ($args['preview_size'] !== 'thumbnail') ? $this->value['url'] : $this->value['thumbnail'];
+            $hidden_url  = (empty($args['url'])) ? ' hidden' : '';
+            $hidden_auto = (empty($this->value['url'])) ? ' hidden' : '';
+            $placeholder = (empty($this->field['placeholder'])) ? ' placeholder="' .  esc_html__('Not selected') . '"' : '';
 
             echo $this->field_before();
 
             if (! empty($args['preview'])) {
-                $preview_width  = ( ! empty($args['preview_width']) ) ? 'max-width:' . esc_attr($args['preview_width']) . 'px;' : '';
-                $preview_height = ( ! empty($args['preview_height']) ) ? 'max-height:' . esc_attr($args['preview_height']) . 'px;' : '';
-                $preview_style  = ( ! empty($preview_width) || ! empty($preview_height) ) ? ' style="' . esc_attr($preview_width . $preview_height) . '"' : '';
+                $preview_width  = (! empty($args['preview_width'])) ? 'max-width:' . esc_attr($args['preview_width']) . 'px;' : '';
+                $preview_height = (! empty($args['preview_height'])) ? 'max-height:' . esc_attr($args['preview_height']) . 'px;' : '';
+                $preview_style  = (! empty($preview_width) || ! empty($preview_height)) ? ' style="' . esc_attr($preview_width . $preview_height) . '"' : '';
 
                 echo '<div class="wpdk_settings--preview' . esc_attr($hidden_auto) . '">';
                 echo '<div class="wpdk_settings-image-preview"' . $preview_style . '>';
@@ -80,7 +81,7 @@ if (! class_exists('WPDK_Settings_Field_media')) {
             echo '<div class="wpdk_settings--placeholder">';
             echo '<input type="text" name="' . esc_attr($this->field_name('[url]')) . '" value="' . esc_attr($this->value['url']) . '" class="wpdk_settings--url' . esc_attr($hidden_url) . '" readonly="readonly"' . $this->field_attributes() . $placeholder . ' />';
             echo '<a href="#" class="button button-primary wpdk_settings--button" data-library="' . esc_attr($library) . '" data-preview-size="' . esc_attr($args['preview_size']) . '">' . $args['button_title'] . '</a>';
-            echo ( empty($args['preview']) ) ? '<a href="#" class="button button-secondary wpdk_settings-warning-primary wpdk_settings--remove' . esc_attr($hidden_auto) . '">' . $args['remove_title'] . '</a>' : '';
+            echo (empty($args['preview'])) ? '<a href="#" class="button button-secondary wpdk_settings-warning-primary wpdk_settings--remove' . esc_attr($hidden_auto) . '">' . $args['remove_title'] . '</a>' : '';
             echo '</div>';
 
             echo '<input type="hidden" name="' . esc_attr($this->field_name('[id]')) . '" value="' . esc_attr($this->value['id']) . '" class="wpdk_settings--id"/>';

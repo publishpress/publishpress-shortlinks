@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
@@ -23,8 +24,8 @@ if (! class_exists('WPDK_Settings_Field_text')) {
         public function render()
         {
 
-            $field_id    = ( ! empty($this->field['id']) ) ? $this->field['id'] : '';
-            $type        = ( ! empty($this->field['attributes']['type']) ) ? $this->field['attributes']['type'] : 'text';
+            $field_id    = (! empty($this->field['id'])) ? $this->field['id'] : '';
+            $type        = (! empty($this->field['attributes']['type'])) ? $this->field['attributes']['type'] : 'text';
             $field_name  = $this->field_name();
             $field_value = $this->value;
 

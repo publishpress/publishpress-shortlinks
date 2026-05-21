@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -23,7 +24,7 @@ if (! class_exists('WPDK_Settings_Field_palette')) {
         public function render()
         {
 
-            $palette = ( ! empty($this->field['options']) ) ? $this->field['options'] : array();
+            $palette = (! empty($this->field['options'])) ? $this->field['options'] : array();
 
             echo $this->field_before();
 
@@ -31,14 +32,14 @@ if (! class_exists('WPDK_Settings_Field_palette')) {
                 echo '<div class="wpdk_settings-siblings wpdk_settings--palettes">';
 
                 foreach ($palette as $key => $colors) {
-                    $active  = ( $key === $this->value ) ? ' wpdk_settings--active' : '';
-                    $checked = ( $key === $this->value ) ? ' checked' : '';
+                    $active  = ($key === $this->value) ? ' wpdk_settings--active' : '';
+                    $checked = ($key === $this->value) ? ' checked' : '';
 
                     echo '<div class="wpdk_settings--sibling wpdk_settings--palette' . esc_attr($active) . '">';
 
                     if (! empty($colors)) {
                         foreach ($colors as $color) {
-                              echo '<span style="background-color: ' . esc_attr($color) . ';"></span>';
+                            echo '<span style="background-color: ' . esc_attr($color) . ';"></span>';
                         }
                     }
 

@@ -11,7 +11,7 @@ defined('ABSPATH') || exit;
 if (! class_exists('TINYPRESS_Functions')) {
     /**
      * Class TINYPRESS_Functions
-     * 
+     *
      * Note: This class uses WordPress naming conventions instead of strict PSR-1/PSR-2 standards.
      */
     // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
@@ -19,13 +19,13 @@ if (! class_exists('TINYPRESS_Functions')) {
     {
         public static $text_hint = null;
         public static $text_copied = null;
-    /**
-             * @var TINYPRESS_Meta_boxes
-             */
+        /**
+                 * @var TINYPRESS_Meta_boxes
+                 */
         public $tinypress_metaboxes = null;
-    /**
-             * @var TINYPRESS_Column_link
-             */
+        /**
+                 * @var TINYPRESS_Column_link
+                 */
         public $tinypress_columns = null;
         public static $connect_url = null;
 

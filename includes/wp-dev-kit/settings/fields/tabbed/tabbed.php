@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -29,8 +30,8 @@ if (! class_exists('WPDK_Settings_Field_tabbed')) {
 
             echo '<div class="wpdk_settings-tabbed-nav" data-depend-id="' . esc_attr($this->field['id']) . '">';
             foreach ($this->field['tabs'] as $key => $tab) {
-                $tabbed_icon   = ( ! empty($tab['icon']) ) ? '<i class="wpdk_settings--icon ' . esc_attr($tab['icon']) . '"></i>' : '';
-                $tabbed_active = ( empty($key) ) ? 'wpdk_settings-tabbed-active' : '';
+                $tabbed_icon   = (! empty($tab['icon'])) ? '<i class="wpdk_settings--icon ' . esc_attr($tab['icon']) . '"></i>' : '';
+                $tabbed_active = (empty($key)) ? 'wpdk_settings-tabbed-active' : '';
 
                 echo '<a href="#" class="' . esc_attr($tabbed_active) . '"">' . $tabbed_icon . esc_attr($tab['title']) . '</a>';
             }
@@ -38,19 +39,19 @@ if (! class_exists('WPDK_Settings_Field_tabbed')) {
 
             echo '<div class="wpdk_settings-tabbed-contents">';
             foreach ($this->field['tabs'] as $key => $tab) {
-                $tabbed_hidden = ( ! empty($key) ) ? ' hidden' : '';
+                $tabbed_hidden = (! empty($key)) ? ' hidden' : '';
 
                 echo '<div class="wpdk_settings-tabbed-content' . esc_attr($tabbed_hidden) . '">';
 
                 foreach ($tab['fields'] as $field) {
                     if (in_array($field['type'], $unallows)) {
-                        $field['_notice'] = true; 
+                        $field['_notice'] = true;
                     }
 
-                    $field_id      = ( isset($field['id']) ) ? $field['id'] : '';
-                    $field_default = ( isset($field['default']) ) ? $field['default'] : '';
-                    $field_value   = ( isset($this->value[$field_id]) ) ? $this->value[$field_id] : $field_default;
-                    $unique_id     = ( ! empty($this->unique) ) ? $this->unique . '[' . $this->field['id'] . ']' : $this->field['id'];
+                    $field_id      = (isset($field['id'])) ? $field['id'] : '';
+                    $field_default = (isset($field['default'])) ? $field['default'] : '';
+                    $field_value   = (isset($this->value[$field_id])) ? $this->value[$field_id] : $field_default;
+                    $unique_id     = (! empty($this->unique)) ? $this->unique . '[' . $this->field['id'] . ']' : $this->field['id'];
 
                     WPDK_Settings::field($field, $field_value, $unique_id, 'field/tabbed');
                 }

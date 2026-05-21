@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
@@ -36,7 +37,7 @@ if (! class_exists('WPDK_Settings_Field_select')) {
             if ($this->value === '' || $this->value === null) {
                 $this->value = array('');
             } else {
-                $this->value = ( is_array($this->value) ) ? $this->value : array_filter((array) $this->value);
+                $this->value = (is_array($this->value)) ? $this->value : array_filter((array) $this->value);
             }
 
             echo $this->field_before();
@@ -50,17 +51,17 @@ if (! class_exists('WPDK_Settings_Field_select')) {
                     }
                 }
 
-                $chosen_rtl       = ( is_rtl() ) ? ' chosen-rtl' : '';
-                $multiple_name    = ( $args['multiple'] ) ? '[]' : '';
-                $multiple_attr    = ( $args['multiple'] ) ? ' multiple="multiple"' : '';
-                $chosen_sortable  = ( $args['chosen'] && $args['sortable'] ) ? ' wpdk_settings-chosen-sortable' : '';
-                $chosen_ajax      = ( $args['chosen'] && $args['ajax'] ) ? ' wpdk_settings-chosen-ajax' : '';
-                $placeholder_attr = ( $args['chosen'] && $args['placeholder'] ) ? ' data-placeholder="' . esc_attr($args['placeholder']) . '"' : '';
-                $field_class      = ( $args['chosen'] ) ? ' class="wpdk_settings-chosen' . esc_attr($chosen_rtl . $chosen_sortable . $chosen_ajax) . '"' : '';
+                $chosen_rtl       = (is_rtl()) ? ' chosen-rtl' : '';
+                $multiple_name    = ($args['multiple']) ? '[]' : '';
+                $multiple_attr    = ($args['multiple']) ? ' multiple="multiple"' : '';
+                $chosen_sortable  = ($args['chosen'] && $args['sortable']) ? ' wpdk_settings-chosen-sortable' : '';
+                $chosen_ajax      = ($args['chosen'] && $args['ajax']) ? ' wpdk_settings-chosen-ajax' : '';
+                $placeholder_attr = ($args['chosen'] && $args['placeholder']) ? ' data-placeholder="' . esc_attr($args['placeholder']) . '"' : '';
+                $field_class      = ($args['chosen']) ? ' class="wpdk_settings-chosen' . esc_attr($chosen_rtl . $chosen_sortable . $chosen_ajax) . '"' : '';
                 $field_name       = $this->field_name($multiple_name);
                 $field_attr       = $this->field_attributes();
                 $maybe_options    = $this->field['options'];
-                $chosen_data_attr = ( $args['chosen'] && ! empty($args['settings']) ) ? ' data-chosen-settings="' . esc_attr(json_encode($args['settings'])) . '"' : '';
+                $chosen_data_attr = ($args['chosen'] && ! empty($args['settings'])) ? ' data-chosen-settings="' . esc_attr(json_encode($args['settings'])) . '"' : '';
 
                 if (is_string($maybe_options) && ! empty($args['chosen']) && ! empty($args['ajax'])) {
                     $options = $this->field_wp_query_data_title($maybe_options, $this->value);
@@ -70,7 +71,7 @@ if (! class_exists('WPDK_Settings_Field_select')) {
                     $options = $maybe_options;
                 }
 
-                if (( is_array($options) && ! empty($options) ) || ( ! empty($args['chosen']) && ! empty($args['ajax']) )) {
+                if ((is_array($options) && ! empty($options)) || (! empty($args['chosen']) && ! empty($args['ajax']))) {
                     if (! empty($args['chosen']) && ! empty($args['multiple'])) {
                         echo '<select name="' . $field_name . '" class="wpdk_settings-hide-select hidden"' . $multiple_attr . $field_attr . '>';
                         foreach ($this->value as $option_key) {
@@ -93,25 +94,25 @@ if (! class_exists('WPDK_Settings_Field_select')) {
                         }
                     }
 
-//                  foreach ( $options as $option_key => $option ) {
-//
-//                      if ( is_array( $option ) && ! empty( $option ) ) {
-//
-//                          echo '<optgroup label="' . esc_attr( $option_key ) . '">';
-//
-//                          foreach ( $option as $sub_key => $sub_value ) {
-//                              $selected = ( in_array( $sub_key, $this->value ) ) ? ' selected' : '';
-//                              echo '<option value="' . esc_attr( $sub_key ) . '" ' . esc_attr( $selected ) . '>' . esc_attr( $sub_value ) . '</option>';
-//                          }
-//
-//                          echo '</optgroup>';
-//
-//                      } else {
-//                          $selected = ( in_array( $option_key, $this->value ) ) ? ' selected' : '';
-//                          echo '<option value="' . esc_attr( $option_key ) . '" ' . esc_attr( $selected ) . '>' . esc_attr( $option ) . '</option>';
-//                      }
-//
-//                  }
+                    //                  foreach ( $options as $option_key => $option ) {
+                    //
+                    //                      if ( is_array( $option ) && ! empty( $option ) ) {
+                    //
+                    //                          echo '<optgroup label="' . esc_attr( $option_key ) . '">';
+                    //
+                    //                          foreach ( $option as $sub_key => $sub_value ) {
+                    //                              $selected = ( in_array( $sub_key, $this->value ) ) ? ' selected' : '';
+                    //                              echo '<option value="' . esc_attr( $sub_key ) . '" ' . esc_attr( $selected ) . '>' . esc_attr( $sub_value ) . '</option>';
+                    //                          }
+                    //
+                    //                          echo '</optgroup>';
+                    //
+                    //                      } else {
+                    //                          $selected = ( in_array( $option_key, $this->value ) ) ? ' selected' : '';
+                    //                          echo '<option value="' . esc_attr( $option_key ) . '" ' . esc_attr( $selected ) . '>' . esc_attr( $option ) . '</option>';
+                    //                      }
+                    //
+                    //                  }
 
                     foreach ($options as $option_key => $option) {
                         $availability = isset($option['availability']) ? $option['availability'] : '';
@@ -124,7 +125,7 @@ if (! class_exists('WPDK_Settings_Field_select')) {
                             $is_disabled = empty($availability) ? '' : 'disabled';
                         }
 
-                        $selected = ( in_array($option_key, $this->value) ) ? ' selected' : '';
+                        $selected = (in_array($option_key, $this->value)) ? ' selected' : '';
                         if ($is_disabled || isset($option['label'])) {
                             echo '<option value="' . esc_attr($option_key) . '" ' . esc_attr($selected) . ' ' . esc_attr($is_disabled) . '>' . esc_attr($option['label']) . '</option>';
                         } else {
@@ -134,7 +135,7 @@ if (! class_exists('WPDK_Settings_Field_select')) {
 
                     echo '</select>';
                 } else {
-                    echo ( ! empty($this->field['empty_message']) ) ? esc_attr($this->field['empty_message']) : esc_html__('No data available.');
+                    echo (! empty($this->field['empty_message'])) ? esc_attr($this->field['empty_message']) : esc_html__('No data available.');
                 }
             }
 

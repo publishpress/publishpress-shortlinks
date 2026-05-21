@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -47,11 +48,11 @@ if (! class_exists('WPDK_Settings_Field_map')) {
             'scrollWheelZoom' => false,
             );
 
-            $settings = ( ! empty($this->field['settings']) ) ? $this->field['settings'] : array();
+            $settings = (! empty($this->field['settings'])) ? $this->field['settings'] : array();
             $settings = wp_parse_args($settings, $default_settings);
 
-            $style_attr  = ( ! empty($args['height']) ) ? ' style="min-height:' . esc_attr($args['height']) . ';"' : '';
-            $placeholder = ( ! empty($args['placeholder']) ) ? array( 'placeholder' => $args['placeholder'] ) : '';
+            $style_attr  = (! empty($args['height'])) ? ' style="min-height:' . esc_attr($args['height']) . ';"' : '';
+            $placeholder = (! empty($args['placeholder'])) ? array( 'placeholder' => $args['placeholder'] ) : '';
 
             echo $this->field_before();
 

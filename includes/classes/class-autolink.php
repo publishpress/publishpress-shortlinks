@@ -8,7 +8,7 @@ defined('ABSPATH') || exit;
 if (! class_exists('TINYPRESS_AutoLink')) {
     /**
      * TINYPRESS_AutoLink Class
-     * 
+     *
      * @since 1.6.0
      */
     class TINYPRESS_AutoLink
@@ -68,7 +68,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
         /**
          * Initialize admin hooks for cache invalidation
-         * 
+         *
          * @return void
          */
         private function init_admin_hooks()
@@ -81,7 +81,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
         /**
          * Initialize frontend hooks for content filtering
-         * 
+         *
          * @return void
          */
         private function init_frontend_hooks()
@@ -108,7 +108,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
             $enabled = isset($settings['tinypress_autolink_enabled']) ? (string) $settings['tinypress_autolink_enabled'] : '1';
             $is_enabled = ('1' === $enabled);
-            
+
             return apply_filters('tinypress_autolink_is_enabled', $is_enabled);
         }
 
@@ -120,7 +120,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
             delete_transient(self::CACHE_KEY);
             wp_cache_delete(self::CACHE_KEY, self::CACHE_GROUP);
-            
+
             do_action('tinypress_autolink_cache_invalidated', $post_id);
         }
 
@@ -138,7 +138,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             }
 
             $autolink_keys = array('autolink_keywords', 'autolink_post_types', 'link_status');
-            
+
             if (in_array($meta_key, $autolink_keys, true)) {
                 $this->invalidate_cache($post_id);
             }
@@ -146,7 +146,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
         /**
          * Filter content to add autolinks
-         * 
+         *
          * @param string $content Post content
          * @return string Filtered content with autolinks
          */
@@ -168,13 +168,13 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
             $content = apply_filters('tinypress_autolink_before_process', $content, $post, $rules);
             $processed = $this->auto_link_html($content, $rules);
-            
+
             return apply_filters('tinypress_autolink_after_process', $processed, $content, $post, $rules);
         }
 
         /**
          * Determine if content should be processed for autolinking
-         * 
+         *
          * @param mixed $content Content to check
          * @return bool
          */
@@ -238,7 +238,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             }
 
             $rules = $this->build_rules();
-            
+
             set_transient(self::CACHE_KEY, $rules, self::CACHE_EXPIRATION);
             wp_cache_set(self::CACHE_KEY, $rules, self::CACHE_GROUP);
 
@@ -250,7 +250,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             $rules = array();
 
             $allowed_statuses = $this->get_allowed_post_statuses();
-            
+
             $link_ids = get_posts(array(
                 'post_type'      => 'tinypress_link',
                 'post_status'    => $allowed_statuses,
@@ -281,7 +281,14 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                     continue;
                 }
 
-                $keywords_raw = (string) Utils::get_meta('autolink_keywords', $link_id);
+                $keywords_raw = Utils::get_meta('autolink_keywords', $link_id);
+
+                if (is_array($keywords_raw)) {
+                    $keywords_raw = implode("\n", $keywords_raw);
+                } else {
+                    $keywords_raw = (string) $keywords_raw;
+                }
+
                 $keywords = $this->parse_keywords($keywords_raw);
                 if (empty($keywords)) {
                     continue;
@@ -307,7 +314,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 }
 
                 $href = tinypress_get_tinyurl($link_id);
-                
+
                 if (empty($href) || ! is_string($href)) {
                     continue;
                 }
@@ -343,7 +350,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             $allowed = (is_array($settings) && isset($settings['tinypress_allowed_post_statuses']))
                 ? $settings['tinypress_allowed_post_statuses']
                 : Utils::get_option('tinypress_allowed_post_statuses', array('publish'));
-            
+
             if (! is_array($allowed)) {
                 $allowed = array('publish');
             }
@@ -357,7 +364,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
         /**
          * Parse keywords from raw input string
-         * 
+         *
          * @param string $raw Raw keyword input (comma or newline separated)
          * @return array Parsed and sanitized keywords
          */
@@ -378,10 +385,10 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 }
 
                 $items = preg_split('/\s*,\s*/', $line, -1, PREG_SPLIT_NO_EMPTY);
-                
+
                 foreach ($items as $item) {
                     $item = trim($item);
-                    
+
                     if ($item === '' || strlen($item) < 2) {
                         continue;
                     }
@@ -394,7 +401,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                     $keywords_lower = array_map(function ($k) {
                         return mb_strtolower($k, 'UTF-8');
                     }, $keywords);
-                    
+
                     if (! in_array($item_lower, $keywords_lower, true)) {
                         $keywords[] = $item;
                     }
@@ -423,7 +430,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             try {
                 $dom = new DOMDocument();
                 $dom->encoding = 'UTF-8';
-                
+
                 $wrapped = '<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><div id="tinypress-autolink-root">' . $html . '</div></body></html>';
 
                 $loaded = @$dom->loadHTML($wrapped, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
@@ -438,13 +445,13 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
                 $xpath = new DOMXPath($dom);
                 $text_nodes = $xpath->query('.//text()[normalize-space(.) != ""]', $root);
-                
+
                 if (! $text_nodes || $text_nodes->length === 0) {
                     throw new Exception('No text nodes found');
                 }
 
                 $nodes_to_process = iterator_to_array($text_nodes);
-                
+
                 foreach ($nodes_to_process as $text_node) {
                     if (! $text_node instanceof DOMText) {
                         continue;
@@ -484,7 +491,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             $parent = $text_node->parentNode;
             while ($parent && $parent instanceof DOMElement) {
                 $node_name = strtolower($parent->nodeName);
-                
+
                 if (in_array($node_name, $excluded, true)) {
                     return true;
                 }
@@ -492,7 +499,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 if ($parent->hasAttribute('data-no-autolink')) {
                     return true;
                 }
-                
+
                 $parent = $parent->parentNode;
             }
 
@@ -501,7 +508,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
         /**
          * Replace keywords with links in a text node
-         * 
+         *
          * @param DOMDocument $dom       DOM document
          * @param DOMText     $text_node Text node to process
          * @param array       $rules     Autolink rules
@@ -515,13 +522,13 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             }
 
             $keyword_map = $this->build_keyword_map($rules);
-            
+
             if (empty($keyword_map)) {
                 return null;
             }
 
             $parts = $this->process_text_with_keywords($text, $keyword_map);
-            
+
             if (! $this->has_links($parts)) {
                 return null;
             }
@@ -531,7 +538,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
         /**
          * Build keyword map from rules with priority
-         * 
+         *
          * @param array $rules Autolink rules
          * @return array Keyword map
          */
@@ -546,7 +553,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 foreach ($rule['keywords'] as $keyword) {
                     $keyword_lower = mb_strtolower($keyword, 'UTF-8');
                     $keyword_len = mb_strlen($keyword, 'UTF-8');
-                    
+
                     if (! isset($keyword_map[$keyword_lower]) || $keyword_len > $keyword_map[$keyword_lower]['priority']) {
                         $keyword_map[$keyword_lower] = array(
                             'text'     => $keyword,
@@ -567,7 +574,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
         /**
          * Process text with keywords to create parts array
-         * 
+         *
          * @param string $text        Text to process
          * @param array  $keyword_map Keyword map
          * @return array Parts array
@@ -591,7 +598,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                     }
 
                     $subject = $part['value'];
-                    
+
                     if ($subject === '' || false === mb_stripos($subject, $keyword, 0, 'UTF-8')) {
                         $new_parts[] = $part;
                         continue;

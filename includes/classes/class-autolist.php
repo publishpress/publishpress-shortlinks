@@ -14,7 +14,7 @@ defined('ABSPATH') || exit;
 if (! class_exists('TINYPRESS_AutoList')) {
     /**
      * Class TINYPRESS_AutoList
-     * 
+     *
      * Note: This class uses WordPress naming conventions instead of strict PSR-1/PSR-2 standards.
      */
     // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore

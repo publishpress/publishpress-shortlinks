@@ -13,7 +13,7 @@ defined('ABSPATH') || exit;
 if (! class_exists('TINYPRESS_Hooks')) {
     /**
      * Class TINYPRESS_Hooks
-     * 
+     *
      * Note: This class uses WordPress naming conventions instead of strict PSR-1/PSR-2 standards.
      */
     // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
@@ -60,7 +60,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
             if (empty($nonce) || ! wp_verify_nonce($nonce, 'tinypress_popup_create_url')) {
                 wp_send_json_error(array( 'message' => esc_html__('Security check failed.', 'tinypress') ));
             }
-        
+
             if (! self::current_user_can_create()) {
                 wp_send_json_error(array( 'message' => esc_html__('You do not have permission to create shortlinks.', 'tinypress') ));
             }
@@ -233,16 +233,16 @@ if (! class_exists('TINYPRESS_Hooks')) {
                 )
             );
 
-// phpcs:disable Squiz.PHP.CommentedOutCode.Found -- Intentionally kept for potential future tags taxonomy feature
-//          $tinypress_wpdk->utils()->register_taxonomy( 'tinypress_link_tags', 'tinypress_link',
-//              apply_filters( 'TINYPRESS/Filters/link_tags_args',
-//                  array(
-//                      'singular' => esc_html__( 'Tag', 'tinypress' ),
-//                      'plural'   => esc_html__( 'Tags', 'tinypress' ),
-//                  )
-//              )
-//          );
-// phpcs:enable Squiz.PHP.CommentedOutCode.Found
+            // phpcs:disable Squiz.PHP.CommentedOutCode.Found -- Intentionally kept for potential future tags taxonomy feature
+            //          $tinypress_wpdk->utils()->register_taxonomy( 'tinypress_link_tags', 'tinypress_link',
+            //              apply_filters( 'TINYPRESS/Filters/link_tags_args',
+            //                  array(
+            //                      'singular' => esc_html__( 'Tag', 'tinypress' ),
+            //                      'plural'   => esc_html__( 'Tags', 'tinypress' ),
+            //                  )
+            //              )
+            //          );
+            // phpcs:enable Squiz.PHP.CommentedOutCode.Found
         }
 
 

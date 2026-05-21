@@ -42,7 +42,7 @@ class Client
      * @param $plugin_reference
      * @param $file
      */
-    function __construct($plugin_name, $text_domain, $plugin_reference, $file)
+    public function __construct($plugin_name, $text_domain, $plugin_reference, $file)
     {
 
         if (! class_exists(__NAMESPACE__ . '\Settings')) {
@@ -90,7 +90,7 @@ class Client
     /**
      * Manage permanent dismissible of any notice
      */
-    function manage_permanent_dismissible()
+    public function manage_permanent_dismissible()
     {
 
         $query_args = wp_unslash(array_map('sanitize_text_field', $_GET));

@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -62,7 +63,7 @@ if (! class_exists('WPDK_Settings_Field_background')) {
             'background-gradient-direction' => '',
             );
 
-            $default_value = ( ! empty($this->field['default']) ) ? wp_parse_args($this->field['default'], $default_value) : $default_value;
+            $default_value = (! empty($this->field['default'])) ? wp_parse_args($this->field['default'], $default_value) : $default_value;
 
             $this->value = wp_parse_args($this->value, $default_value);
 
@@ -70,12 +71,12 @@ if (! class_exists('WPDK_Settings_Field_background')) {
 
             echo '<div class="wpdk_settings--background-colors">';
 
-          //
-          // Background Color
+            //
+            // Background Color
             if (! empty($args['background_color'])) {
                 echo '<div class="wpdk_settings--color">';
 
-                echo ( ! empty($args['background_gradient']) ) ? '<div class="wpdk_settings--title">' . esc_html__('From') . '</div>' : '';
+                echo (! empty($args['background_gradient'])) ? '<div class="wpdk_settings--title">' . esc_html__('From') . '</div>' : '';
 
                 WPDK_Settings::field(array(
                 'id'      => 'background-color',
@@ -86,12 +87,12 @@ if (! class_exists('WPDK_Settings_Field_background')) {
                 echo '</div>';
             }
 
-          //
-          // Background Gradient Color
+            //
+            // Background Gradient Color
             if (! empty($args['background_gradient_color']) && ! empty($args['background_gradient'])) {
                 echo '<div class="wpdk_settings--color">';
 
-                echo ( ! empty($args['background_gradient']) ) ? '<div class="wpdk_settings--title">' . esc_html__('To') . '</div>' : '';
+                echo (! empty($args['background_gradient'])) ? '<div class="wpdk_settings--title">' . esc_html__('To') . '</div>' : '';
 
                 WPDK_Settings::field(array(
                 'id'      => 'background-gradient-color',
@@ -102,12 +103,12 @@ if (! class_exists('WPDK_Settings_Field_background')) {
                 echo '</div>';
             }
 
-          //
-          // Background Gradient Direction
+            //
+            // Background Gradient Direction
             if (! empty($args['background_gradient_direction']) && ! empty($args['background_gradient'])) {
                 echo '<div class="wpdk_settings--color">';
 
-                echo ( ! empty($args['background_gradient']) ) ? '<div class="wpdk_settings---title">' . esc_html__('Direction') . '</div>' : '';
+                echo (! empty($args['background_gradient'])) ? '<div class="wpdk_settings---title">' . esc_html__('Direction') . '</div>' : '';
 
                 WPDK_Settings::field(array(
                 'id'          => 'background-gradient-direction',
@@ -126,8 +127,8 @@ if (! class_exists('WPDK_Settings_Field_background')) {
 
             echo '</div>';
 
-          //
-          // Background Image
+            //
+            // Background Image
             if (! empty($args['background_image'])) {
                 echo '<div class="wpdk_settings--background-image">';
 
@@ -144,13 +145,13 @@ if (! class_exists('WPDK_Settings_Field_background')) {
                 echo '</div>';
             }
 
-            $auto_class   = ( ! empty($args['background_auto_attributes']) ) ? ' wpdk_settings--auto-attributes' : '';
-            $hidden_class = ( ! empty($args['background_auto_attributes']) && empty($this->value['background-image']['url']) ) ? ' wpdk_settings--attributes-hidden' : '';
+            $auto_class   = (! empty($args['background_auto_attributes'])) ? ' wpdk_settings--auto-attributes' : '';
+            $hidden_class = (! empty($args['background_auto_attributes']) && empty($this->value['background-image']['url'])) ? ' wpdk_settings--attributes-hidden' : '';
 
             echo '<div class="wpdk_settings--background-attributes' . esc_attr($auto_class . $hidden_class) . '">';
 
-          //
-          // Background Position
+            //
+            // Background Position
             if (! empty($args['background_position'])) {
                 WPDK_Settings::field(array(
                 'id'              => 'background-position',
@@ -170,8 +171,8 @@ if (! class_exists('WPDK_Settings_Field_background')) {
                 ), $this->value['background-position'], $this->field_name(), 'field/background');
             }
 
-          //
-          // Background Repeat
+            //
+            // Background Repeat
             if (! empty($args['background_repeat'])) {
                 WPDK_Settings::field(array(
                 'id'          => 'background-repeat',
@@ -186,8 +187,8 @@ if (! class_exists('WPDK_Settings_Field_background')) {
                 ), $this->value['background-repeat'], $this->field_name(), 'field/background');
             }
 
-          //
-          // Background Attachment
+            //
+            // Background Attachment
             if (! empty($args['background_attachment'])) {
                 WPDK_Settings::field(array(
                 'id'       => 'background-attachment',
@@ -200,8 +201,8 @@ if (! class_exists('WPDK_Settings_Field_background')) {
                 ), $this->value['background-attachment'], $this->field_name(), 'field/background');
             }
 
-        //
-        // Background Size
+            //
+            // Background Size
             if (! empty($args['background_size'])) {
                 WPDK_Settings::field(array(
                 'id'        => 'background-size',
@@ -215,8 +216,8 @@ if (! class_exists('WPDK_Settings_Field_background')) {
                 ), $this->value['background-size'], $this->field_name(), 'field/background');
             }
 
-        //
-        // Background Origin
+            //
+            // Background Origin
             if (! empty($args['background_origin'])) {
                 WPDK_Settings::field(array(
                 'id'            => 'background-origin',
@@ -230,8 +231,8 @@ if (! class_exists('WPDK_Settings_Field_background')) {
                 ), $this->value['background-origin'], $this->field_name(), 'field/background');
             }
 
-        //
-        // Background Clip
+            //
+            // Background Clip
             if (! empty($args['background_clip'])) {
                 WPDK_Settings::field(array(
                 'id'            => 'background-clip',
@@ -245,8 +246,8 @@ if (! class_exists('WPDK_Settings_Field_background')) {
                 ), $this->value['background-clip'], $this->field_name(), 'field/background');
             }
 
-        //
-        // Background Blend Mode
+            //
+            // Background Blend Mode
             if (! empty($args['background_blend_mode'])) {
                 WPDK_Settings::field(array(
                 'id'            => 'background-blend-mode',
@@ -277,18 +278,18 @@ if (! class_exists('WPDK_Settings_Field_background')) {
 
             $output    = '';
             $bg_image  = array();
-            $important = ( ! empty($this->field['output_important']) ) ? '!important' : '';
-            $element   = ( is_array($this->field['output']) ) ? join(',', $this->field['output']) : $this->field['output'];
+            $important = (! empty($this->field['output_important'])) ? '!important' : '';
+            $element   = (is_array($this->field['output'])) ? join(',', $this->field['output']) : $this->field['output'];
 
-          // Background image and gradient
-            $background_color        = ( ! empty($this->value['background-color']) ) ? $this->value['background-color']              : '';
-            $background_gd_color     = ( ! empty($this->value['background-gradient-color']) ) ? $this->value['background-gradient-color']     : '';
-            $background_gd_direction = ( ! empty($this->value['background-gradient-direction']) ) ? $this->value['background-gradient-direction'] : '';
-            $background_image        = ( ! empty($this->value['background-image']['url']) ) ? $this->value['background-image']['url']       : '';
+            // Background image and gradient
+            $background_color        = (! empty($this->value['background-color'])) ? $this->value['background-color'] : '';
+            $background_gd_color     = (! empty($this->value['background-gradient-color'])) ? $this->value['background-gradient-color'] : '';
+            $background_gd_direction = (! empty($this->value['background-gradient-direction'])) ? $this->value['background-gradient-direction'] : '';
+            $background_image        = (! empty($this->value['background-image']['url'])) ? $this->value['background-image']['url'] : '';
 
 
             if ($background_color && $background_gd_color) {
-                $gd_direction   = ( $background_gd_direction ) ? $background_gd_direction . ',' : '';
+                $gd_direction   = ($background_gd_direction) ? $background_gd_direction . ',' : '';
                 $bg_image[] = 'linear-gradient(' . $gd_direction . $background_color . ',' . $background_gd_color . ')';
                 unset($this->value['background-color']);
             }
@@ -301,7 +302,7 @@ if (! class_exists('WPDK_Settings_Field_background')) {
                 $output .= 'background-image:' . implode(',', $bg_image) . $important . ';';
             }
 
-          // Common background properties
+            // Common background properties
             $properties = array( 'color', 'position', 'repeat', 'attachment', 'size', 'origin', 'clip', 'blend-mode' );
 
             foreach ($properties as $property) {
