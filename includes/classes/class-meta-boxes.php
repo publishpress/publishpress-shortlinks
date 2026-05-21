@@ -43,7 +43,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
             }
 
             add_filter('pb_settings_tinypress_meta_main_save', array($this, 'ensure_autolink_keywords_saved'), 10, 3);
-            
+
             add_action('add_meta_boxes', array( $this, 'add_side_meta_box' ), 0);
             add_action('WPDK_Settings/meta_section/analytics', array( $this, 'render_analytics' ));
         }
@@ -82,7 +82,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
 
                 update_post_meta($object_id, 'autolink_keywords', $keywords);
             }
-            
+
             return $value;
         }
 
@@ -215,7 +215,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                 if (is_array($keywords)) {
                     $keywords = implode("\n", array_map('trim', array_filter($keywords)));
                 }
-                
+
                 update_post_meta($post_id, 'autolink_keywords', $keywords);
             }
         }
@@ -227,7 +227,8 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
          * @param $value mixed The value from textarea
          * @return string Formatted keywords string
          */
-        public function sanitize_autolink_keywords($value) {
+        public function sanitize_autolink_keywords($value)
+        {
             if (is_array($value)) {
                 return implode("\n", array_map('trim', array_filter($value)));
             }
@@ -242,7 +243,8 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
          * @param $post_id int The post ID
          * @return string Formatted keywords string
          */
-        public function format_autolink_keywords_for_display($value, $post_id = null) {
+        public function format_autolink_keywords_for_display($value, $post_id = null)
+        {
             if (is_array($value)) {
                 return implode("\n", array_map('trim', array_filter($value)));
             }
@@ -329,7 +331,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
             if ($this->post_has_saved_value($setting_key)) {
                 return array();
             }
-            
+
             return array('1');
         }
 
