@@ -480,6 +480,37 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                 $post_type_options[$post_type] = $post_type_obj->labels->singular_name . ' (' . $post_type . ')';
             }
 
+            $current_post_id = isset($_GET['post']) ? intval($_GET['post']) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+            $is_internal_link = false;
+
+            if ($current_post_id > 0) {
+                $target_url = Utils::get_meta('target_url', $current_post_id);
+                if (! empty($target_url)) {
+                    $site_url = get_site_url();
+                    $site_host = wp_parse_url($site_url, PHP_URL_HOST);
+                    $target_host = wp_parse_url($target_url, PHP_URL_HOST);
+
+                    $site_host = preg_replace('/^www\./', '', $site_host);
+                    $target_host = preg_replace('/^www\./', '', $target_host);
+
+                    $is_internal_link = ($site_host === $target_host);
+                }
+            }
+
+            $alt_text_options = array(
+                'shortlink_label' => esc_html__('Shortlink Label', 'tinypress'),
+                'custom'          => esc_html__('Custom Text', 'tinypress'),
+            );
+            if ($is_internal_link) {
+                $alt_text_options = array(
+                    'post_title'      => esc_html__('Post Title', 'tinypress'),
+                    'shortlink_label' => esc_html__('Shortlink Label', 'tinypress'),
+                    'custom'          => esc_html__('Custom Text', 'tinypress'),
+                );
+            }
+
+            $alt_text_default = $is_internal_link ? 'post_title' : 'shortlink_label';
+
             WPDK_Settings::createSection(
                 $this->tinypress_metabox_main,
                 array(
@@ -490,6 +521,23 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                             'type'     => 'textarea',
                             'title'    => esc_html__('Keywords', 'tinypress'),
                             'subtitle' => esc_html__('Add keywords separated by commas or on separate lines. Each keyword will link to this shortlink.', 'tinypress'),
+                        ),
+                        array(
+                            'id'       => 'autolink_alt_text',
+                            'type'     => 'select',
+                            'title'    => esc_html__('Link Alt Text', 'tinypress'),
+                            'subtitle' => esc_html__('Set the alt text for the linked keywords in the frontend of the site.', 'tinypress'),
+                            'options'  => $alt_text_options,
+                            'default'  => $alt_text_default,
+                        ),
+                        array(
+                            'id'       => 'autolink_alt_text_custom',
+                            'type'     => 'text',
+                            'title'    => esc_html__('Custom Alt Text', 'tinypress'),
+                            'subtitle' => esc_html__('Enter custom alt text for the linked keywords. This is only used if "Custom Text" is selected above.', 'tinypress'),
+                            'dependency' => array(
+                                array('autolink_alt_text', '==', 'custom'),
+                            ),
                         ),
                         array(
                             'id'       => 'autolink_post_types',
