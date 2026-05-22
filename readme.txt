@@ -40,7 +40,7 @@ PublishPress Shortlinks is the best link manager available for WordPress. With P
 
 ## Automatically create shortlinks for your posts
 
-PublishPress Shortlinks will automatically generate links for all your posts and pages. This makes it really easy to have shareable links for content. These shortlinks are available from the Posts screen and the Post Edit screen.
+PublishPress Shortlinks will automatically generate links for all your posts and pages. This makes it really easy to have shareable links for content. These URLs are available from the Posts screen and the Post Edit screen.
 
 [Get started with PublishPress Shortlinks](https://publishpress.com/knowledge-base/introduction-shortlinks/).
 
