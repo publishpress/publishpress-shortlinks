@@ -137,7 +137,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 return;
             }
 
-            $autolink_keys = array('autolink_keywords', 'autolink_post_types', 'link_status');
+            $autolink_keys = array('autolink_keywords', 'autolink_post_types', 'autolink_alt_text', 'autolink_alt_text_custom', 'link_status');
 
             if (in_array($meta_key, $autolink_keys, true)) {
                 $this->invalidate_cache($post_id);
@@ -330,12 +330,19 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                     $rel[] = 'sponsored';
                 }
 
+                $alt_text_source = Utils::get_meta('autolink_alt_text', $link_id);
+                $alt_text_custom = Utils::get_meta('autolink_alt_text_custom', $link_id);
+                $link_post_id = Utils::get_meta('link_post_id', $link_id);
+
                 $rule = array(
-                    'link_id'    => (int) $link_id,
-                    'href'       => esc_url($href),
-                    'keywords'   => $keywords,
-                    'post_types' => array_values(array_unique(array_map('sanitize_key', $post_types))),
-                    'rel'        => $rel,
+                    'link_id'           => (int) $link_id,
+                    'href'              => esc_url($href),
+                    'keywords'          => $keywords,
+                    'post_types'        => array_values(array_unique(array_map('sanitize_key', $post_types))),
+                    'rel'               => $rel,
+                    'alt_text_source'   => (string) $alt_text_source ? (string) $alt_text_source : 'post_title',
+                    'alt_text_custom'   => (string) $alt_text_custom ? (string) $alt_text_custom : '',
+                    'link_post_id'      => (int) $link_post_id ? (int) $link_post_id : 0,
                 );
 
                 $rules[] = apply_filters('tinypress_autolink_rule', $rule, $link_id);
@@ -549,6 +556,10 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             foreach ($rules as $rule) {
                 $href = $rule['href'];
                 $rel = $rule['rel'];
+                $link_id = isset($rule['link_id']) ? $rule['link_id'] : 0;
+                $alt_text_source = isset($rule['alt_text_source']) ? $rule['alt_text_source'] : 'post_title';
+                $alt_text_custom = isset($rule['alt_text_custom']) ? $rule['alt_text_custom'] : '';
+                $link_post_id = isset($rule['link_post_id']) ? $rule['link_post_id'] : 0;
 
                 foreach ($rule['keywords'] as $keyword) {
                     $keyword_lower = mb_strtolower($keyword, 'UTF-8');
@@ -556,10 +567,14 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
                     if (! isset($keyword_map[$keyword_lower]) || $keyword_len > $keyword_map[$keyword_lower]['priority']) {
                         $keyword_map[$keyword_lower] = array(
-                            'text'     => $keyword,
-                            'href'     => $href,
-                            'rel'      => $rel,
-                            'priority' => $keyword_len,
+                            'text'              => $keyword,
+                            'href'              => $href,
+                            'rel'               => $rel,
+                            'priority'          => $keyword_len,
+                            'link_id'           => $link_id,
+                            'alt_text_source'   => $alt_text_source,
+                            'alt_text_custom'   => $alt_text_custom,
+                            'link_post_id'      => $link_post_id,
                         );
                     }
                 }
@@ -587,6 +602,10 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 $keyword = $keyword_data['text'];
                 $href = $keyword_data['href'];
                 $rel = $keyword_data['rel'];
+                $link_id = isset($keyword_data['link_id']) ? $keyword_data['link_id'] : 0;
+                $alt_text_source = isset($keyword_data['alt_text_source']) ? $keyword_data['alt_text_source'] : 'post_title';
+                $alt_text_custom = isset($keyword_data['alt_text_custom']) ? $keyword_data['alt_text_custom'] : '';
+                $link_post_id = isset($keyword_data['link_post_id']) ? $keyword_data['link_post_id'] : 0;
                 $pattern = $this->build_keyword_pattern($keyword);
 
                 $new_parts = array();
@@ -618,10 +637,14 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
                         if ($i % 2 === 1) {
                             $new_parts[] = array(
-                                'type'  => 'link',
-                                'value' => $piece,
-                                'href'  => $href,
-                                'rel'   => $rel,
+                                'type'              => 'link',
+                                'value'             => $piece,
+                                'href'              => $href,
+                                'rel'               => $rel,
+                                'link_id'           => $link_id,
+                                'alt_text_source'   => $alt_text_source,
+                                'alt_text_custom'   => $alt_text_custom,
+                                'link_post_id'      => $link_post_id,
                             );
                         } else {
                             $new_parts[] = array('type' => 'text', 'value' => $piece);
@@ -681,11 +704,50 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
                 $a->setAttribute('class', 'tinypress-autolink');
 
+                $alt_text = $this->get_alt_text($part);
+                if (! empty($alt_text)) {
+                    $a->setAttribute('title', esc_attr($alt_text));
+                }
+
                 $a->appendChild($dom->createTextNode($part['value']));
                 $fragment->appendChild($a);
             }
 
             return $fragment;
+        }
+
+        /**
+         * Determine the alt text to use for a link
+         *
+         * @param array $part The part containing link data
+         * @return string The alt text to display
+         */
+        private function get_alt_text($part)
+        {
+            $alt_text_source = isset($part['alt_text_source']) ? $part['alt_text_source'] : 'post_title';
+            $alt_text_custom = isset($part['alt_text_custom']) ? $part['alt_text_custom'] : '';
+            $link_post_id = isset($part['link_post_id']) ? $part['link_post_id'] : 0;
+            $link_id = isset($part['link_id']) ? $part['link_id'] : 0;
+
+            if ('custom' === $alt_text_source && ! empty($alt_text_custom)) {
+                return $alt_text_custom;
+            }
+
+            if ('post_title' === $alt_text_source && $link_post_id > 0) {
+                $post = get_post($link_post_id);
+                if ($post && ! empty($post->post_title)) {
+                    return $post->post_title;
+                }
+            }
+
+            if ($link_id > 0) {
+                $shortlink = get_post($link_id);
+                if ($shortlink && ! empty($shortlink->post_title)) {
+                    return $shortlink->post_title;
+                }
+            }
+
+            return '';
         }
 
         private function build_keyword_pattern($keyword)
