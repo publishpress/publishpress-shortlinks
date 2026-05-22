@@ -120,7 +120,7 @@ if (! defined('TINYPRESS_LOADED')) {
             /**
              * TINYPRESS_Main constructor.
              */
-            function __construct()
+            public function __construct()
             {
 
                 self::$_script_version = defined('WP_DEBUG') && WP_DEBUG ? current_time('U') : TINYPRESS_PLUGIN_VERSION;
@@ -147,7 +147,7 @@ if (! defined('TINYPRESS_LOADED')) {
              *
              * @return void
              */
-            function flush_rewrite_rules()
+            public function flush_rewrite_rules()
             {
                 global $wp_rewrite;
                 $wp_rewrite->flush_rules(true); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.flush_rules_flush_rules -- Only called on plugin activation, not on every page load
@@ -159,17 +159,17 @@ if (! defined('TINYPRESS_LOADED')) {
              *
              * @return void
              */
-            function create_data_table()
+            public function create_data_table()
             {
 
                 global $wpdb;
                 $table_name = TINYPRESS_TABLE_REPORTS;
-            
+
                 $db_version = get_option('tinypress_db_version', '0');
 
                 // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
                 $table_exists = $wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $wpdb->esc_like($table_name))) === $table_name;
-            
+
                 if ($table_exists && version_compare($db_version, TINYPRESS_PLUGIN_VERSION, '>=')) {
                     return;
                 }
@@ -189,16 +189,16 @@ if (! defined('TINYPRESS_LOADED')) {
   PRIMARY KEY  (id)
 ) " . $wpdb->get_charset_collate() . ";";
 
-            // Use dbDelta for both table creation and schema updates
+                // Use dbDelta for both table creation and schema updates
                 dbDelta($sql_create_table);
-        
-            // Update the database version
+
+                // Update the database version
                 update_option('tinypress_db_version', TINYPRESS_PLUGIN_VERSION);
             }
-            function set_default_settings()
+            public function set_default_settings()
             {
                 $settings = get_option('tinypress_settings', array());
-            
+
                 if (! is_array($settings)) {
                     $settings = array();
                 }
@@ -210,7 +210,7 @@ if (! defined('TINYPRESS_LOADED')) {
                 if (! isset($settings['tinypress_autolist_enabled'])) {
                     $settings['tinypress_autolist_enabled'] = '1';
                 }
-            
+
                 if (! isset($settings['tinypress_autolist_post_types']) || empty($settings['tinypress_autolist_post_types'])) {
                     $settings['tinypress_autolist_post_types'] = array(
                     array(
@@ -223,7 +223,7 @@ if (! defined('TINYPRESS_LOADED')) {
                     )
                     );
                 }
-            
+
                 if (! isset($settings['tinypress_allowed_post_statuses'])) {
                     $settings['tinypress_allowed_post_statuses'] = array( 'publish', 'draft', 'pending', 'private', 'future' );
 
@@ -277,16 +277,16 @@ if (! defined('TINYPRESS_LOADED')) {
                 if (! isset($settings['tinypress_revision_visitor_access'])) {
                     $settings['tinypress_revision_visitor_access'] = '1';
                 }
-            
+
                 update_option('tinypress_settings', $settings);
             }
-        
+
             /**
              * Initialize default settings on init (for upgrades from older versions)
              *
              * @return void
              */
-            function initialize_default_settings()
+            public function initialize_default_settings()
             {
                 $this->set_default_settings();
             }
@@ -295,7 +295,7 @@ if (! defined('TINYPRESS_LOADED')) {
             /**
              * Load Text Domain
              */
-            function load_text_domain()
+            public function load_text_domain()
             {
                 $locale = determine_locale();
                 if ('en_US' !== $locale) {
@@ -307,7 +307,7 @@ if (! defined('TINYPRESS_LOADED')) {
             /**
              * Include Classes and Functions
              */
-            function define_classes_functions()
+            public function define_classes_functions()
             {
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-hooks.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-functions.php';
@@ -332,12 +332,12 @@ if (! defined('TINYPRESS_LOADED')) {
                 TINYPRESS_Autolist_Ajax::instance();
                 SHORTLINKS_Reviews::instance();
                 TINYPRESS_Import_Export::get_instance();
-            
+
                 // Initialize metaboxes early for proper registration
                 add_action('init', function () {
                     new TINYPRESS_Meta_boxes();
                 }, 1);
-            
+
                 // Initialize columns late to catch all registered post types
                 add_action('init', function () {
                     new TINYPRESS_Column_link();
@@ -350,7 +350,7 @@ if (! defined('TINYPRESS_LOADED')) {
              *
              * @return mixed|void
              */
-            function localize_scripts()
+            public function localize_scripts()
             {
                 return apply_filters('tinypress/filters/localize_scripts', array(
                 'ajax_url'  => admin_url('admin-ajax.php'),
@@ -362,7 +362,7 @@ if (! defined('TINYPRESS_LOADED')) {
             /**
              * Load Admin Scripts
              */
-            function admin_scripts()
+            public function admin_scripts()
             {
                 $screen = get_current_screen();
 
@@ -371,7 +371,7 @@ if (! defined('TINYPRESS_LOADED')) {
                 wp_register_script('qrcode', TINYPRESS_PLUGIN_URL . 'assets/admin/js/qrcode.min.js', array( 'jquery' ), self::$_script_version, true);
                 wp_register_script('tinypress-analytics', TINYPRESS_PLUGIN_URL . 'assets/admin/js/analytics.js', array( 'jquery', 'apexcharts' ), self::$_script_version, true);
                 wp_register_script('tinypress-qr-code', TINYPRESS_PLUGIN_URL . 'assets/admin/js/qr-code.js', array( 'jquery', 'qrcode' ), self::$_script_version, true);
-            
+
                 // Main scripts - always enqueue on shortlinks pages
                 wp_enqueue_script('tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/js/scripts.js', array( 'jquery' ), self::$_script_version, true);
                 wp_localize_script('tinypress', 'tinypress', $this->localize_scripts());
@@ -390,7 +390,7 @@ if (! defined('TINYPRESS_LOADED')) {
             /**
              * Load Scripts
              */
-            function define_scripts()
+            public function define_scripts()
             {
                 add_action('admin_enqueue_scripts', array( $this, 'admin_scripts' ));
             }
@@ -442,7 +442,7 @@ if (! defined('TINYPRESS_LOADED')) {
             public function print_default_footer($echo = true)
             {
                 $html = '';
-            
+
                 $show_footer = apply_filters('tinypress_show_footer', true);
 
                 if ($show_footer) {
@@ -502,7 +502,7 @@ if (! defined('TINYPRESS_LOADED')) {
                     return true;
                 }
 
-                if (( $current_screen->base === 'post' || $current_screen->base === 'post-new' ) && $current_screen->post_type === 'tinypress_link') {
+                if (($current_screen->base === 'post' || $current_screen->base === 'post-new') && $current_screen->post_type === 'tinypress_link') {
                     return true;
                 }
 
