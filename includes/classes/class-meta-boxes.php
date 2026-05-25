@@ -669,7 +669,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                     'id'       => 'enable_expiration_use_global',
                     'type'     => 'checkbox',
                     'title'    => esc_html__('Enable Expiration', 'tinypress'),
-                    'subtitle' => esc_html__('Expire automatically.', 'tinypress'),
+                    'subtitle' => esc_html__('Set an expiration date and time for shortlinks.', 'tinypress'),
                     'options'  => array(
                         '1' => $this->get_use_global_label('tinypress_global_enable_expiration', false),
                     ),
@@ -680,7 +680,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                     'id'           => 'enable_expiration',
                     'type'         => 'switcher',
                     'title'        => '',
-                    'label'        => esc_html__('Users will not be able to redirect to the target URL once expired.', 'tinypress'),
+                    'label'        => esc_html__('After the expiration date and time pass, visitors will no longer be able to access the shortlink.', 'tinypress'),
                     'default'      => false,
                     'class'        => 'tinypress-global-controlled',
                     'dependency'   => array('enable_expiration_use_global', 'not-any', '1'),
@@ -689,7 +689,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                     'id'           => 'expiration_date',
                     'type'         => 'datetime',
                     'title'        => esc_html__('Expiration Date', 'tinypress'),
-                    'subtitle'     => esc_html__('Choose the date this link should expire.', 'tinypress'),
+                    'subtitle'     => esc_html__('Select the date when this shortlink should stop working.', 'tinypress'),
                     'settings'     => array(
                         'dateFormat'      => 'd-m-Y',
                         'enableTime'      => false,
@@ -703,8 +703,8 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                     'id'           => 'expiration_time',
                     'type'         => 'datetime',
                     'title'        => esc_html__('Expiration Time', 'tinypress'),
-                    'subtitle'     => esc_html__('Choose the time this link should expire.', 'tinypress'),
-                    'desc'         => esc_html__('Must be at least 1 minute in the future.', 'tinypress'),
+                    'subtitle'     => esc_html__('Select the time when the shortlink should expire.', 'tinypress'),
+                    'desc'         => esc_html__('Must be at least 1 minute in the future. Combined with the date above to set the exact expiration moment.', 'tinypress'),
                     'settings'     => array(
                         'noCalendar'      => true,
                         'enableTime'      => true,

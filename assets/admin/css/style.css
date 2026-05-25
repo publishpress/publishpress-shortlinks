@@ -1387,7 +1387,6 @@ body.post-type-tinypress_link .wpdk_settings-section-title h3 {
 
 body.post-type-tinypress_link .wpdk_settings-field {
     padding-bottom: 24px;
-    border-bottom: 1px solid #f6f7f7;
 }
 
 body.post-type-tinypress_link .wpdk_settings-field:last-child {
@@ -1408,10 +1407,7 @@ body.post-type-tinypress_link .wpdk_settings-title h4 {
 }
 
 body.post-type-tinypress_link .wpdk_settings-fieldset {
-    background: #f9f9f9;
     padding: 20px;
-    border-radius: 4px;
-    border: 1px solid #e5e5e5;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1625,8 +1621,6 @@ body.post-type-tinypress_link .wpdk_settings-depend-hidden.wpdk_settings-depend-
 
 body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field {
     padding: 20px 0;
-    height: 120px;
-    border-bottom: 1px solid #e5e5e5;
 }
 
 body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:last-child {
@@ -1646,7 +1640,6 @@ body.post-type-tinypress_link .wpdk_settings-field.tinypress-use-global-checkbox
     gap: 8px 20px;
     padding: 20px 0 !important;
     margin: 0 !important;
-    border-bottom: 1px solid #e5e5e5 !important;
     background: transparent !important;
 }
 
@@ -1737,15 +1730,6 @@ body.post-type-tinypress_link .wpdk_settings-field.tinypress-global-controlled .
     display: none;
 }
 
-body.post-type-tinypress_link .wpdk_settings-field.tinypress-global-controlled-child:not(.wpdk_settings-depend-on) {
-    padding: 16px 0 16px 20px !important;
-    margin: 0 !important;
-    border: none !important;
-    border-left: 3px solid #e5e5e5 !important;
-    border-bottom: 1px solid #e5e5e5 !important;
-    background: #fafafa !important;
-}
-
 body.post-type-tinypress_link .wpdk_settings-field.tinypress-use-global-checkbox:has(~ .tinypress-global-controlled-child:not(.wpdk_settings-depend-on)) {
     border-bottom: none !important;
 }
@@ -1762,16 +1746,9 @@ body.post-type-tinypress_link .wpdk_settings-field.tinypress-global-controlled-c
     width: auto;
 }
 
-body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-datetime.tinypress-global-controlled-child:not(.wpdk_settings-depend-on) {
-    padding: 16px 0 16px 20px !important;
-    border-left: 3px solid #e5e5e5 !important;
-    background: #fafafa !important;
-}
-
 body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-select {
     padding: 20px 0;
     margin: 0;
-    border-bottom: 1px solid #e5e5e5;
 }
 
 body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-select .wpdk_settings-title {
@@ -1789,13 +1766,11 @@ body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-textarea,
 body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-callback {
     padding: 20px 0;
     margin: 0;
-    border-bottom: 1px solid #e5e5e5;
 }
 
 body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on) {
     padding: 20px 0;
     margin: 0;
-    border-bottom: 1px solid #e5e5e5;
     overflow: hidden;
 }
 
@@ -1852,7 +1827,6 @@ body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher:
 body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-checkbox:not(.tinypress-use-global-checkbox) {
     padding: 20px 0;
     margin: 0;
-    border-bottom: 1px solid #e5e5e5;
 }
 
 body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-checkbox:not(.tinypress-use-global-checkbox) .wpdk_settings-checkbox {
@@ -1909,4 +1883,32 @@ body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-checkbox:
         padding-left: 15px !important;
         margin-left: 0 !important;
     }
+}
+.shortlinks-settings-layout.wpdk_settings-nav-background {
+    min-width: 180px !important;
+}
+
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(select[data-depend-id='redirection_method']),
+body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-text:not(.tinypress-global-controlled-child):has(input[type="text"][data-depend-id='post_title']),
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(textarea[data-depend-id='autolink_keywords']) {
+    height: 120px !important;
+}
+
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(input[type="text"][data-depend-id='post_title']),
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(input[type="text"][data-depend-id='target_url']),
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(input.tinypress-tiny-slug),
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(input[data-depend-id='link_status']),
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(textarea[data-depend-id='autolink_keywords']),
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(select[data-depend-id='autolink_alt_text']),
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(input[type="text"][data-depend-id='autolink_alt_text_custom']),
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(select[data-depend-id='redirection_method']),
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(input[data-depend-id='redirection_sponsored_use_global']),
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(input[data-depend-id='redirection_sponsored']),
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(input[data-depend-id='redirection_no_follow_use_global']),
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(input[data-depend-id='redirection_no_follow']),
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(input[data-depend-id='password_protection_use_global']),
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(input[data-depend-id='password_protection']),
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field:has(input[type="text"][data-depend-id='link_password']) {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 10px !important;
 }

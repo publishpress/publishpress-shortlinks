@@ -654,7 +654,7 @@ if (! class_exists('WPDK_Settings_Options')) {
 
             echo '</div>';
 
-            echo ($has_nav && $nav_type === 'normal') ? '<div class="wpdk_settings-nav-background"></div>' : '';
+            echo ($has_nav && $nav_type === 'normal') ? '<div class="shortlinks-settings-layout wpdk_settings-nav-background"></div>' : '';
 
             echo '</div>';
 
