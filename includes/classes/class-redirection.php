@@ -147,6 +147,57 @@ if (! class_exists('TINYPRESS_Redirection')) {
             return Utils::get_meta($setting_key, $link_id);
         }
 
+        /**
+         * Get the expiration date for a link, checking global settings if needed.
+         *
+         * @param int $link_id The tinypress_link post ID.
+         * @return string The expiration date, or empty string if not set.
+         */
+        private function get_expiration_date($link_id)
+        {
+            $use_global = Utils::get_meta('enable_expiration_use_global', $link_id);
+
+            $is_using_global = false;
+            if (is_array($use_global) && in_array('1', $use_global)) {
+                $is_using_global = true;
+            } elseif ($use_global === '1' || $use_global === 1 || $use_global === true) {
+                $is_using_global = true;
+            } elseif ($use_global === null) {
+                $is_using_global = true;
+            }
+
+            if ($is_using_global) {
+                return $this->get_settings_value('tinypress_global_expiration_date', '');
+            }
+
+            return Utils::get_meta('expiration_date', $link_id);
+        }
+
+        /**
+         * Get the expiration time for a link, checking global settings if needed.
+         *
+         * @param int $link_id The tinypress_link post ID.
+         * @return string The expiration time, or empty string if not set.
+         */
+        private function get_expiration_time($link_id)
+        {
+            $use_global = Utils::get_meta('enable_expiration_use_global', $link_id);
+
+            $is_using_global = false;
+            if (is_array($use_global) && in_array('1', $use_global)) {
+                $is_using_global = true;
+            } elseif ($use_global === '1' || $use_global === 1 || $use_global === true) {
+                $is_using_global = true;
+            } elseif ($use_global === null) {
+                $is_using_global = true;
+            }
+
+            if ($is_using_global) {
+                return $this->get_settings_value('tinypress_global_expiration_time', '');
+            }
+
+            return Utils::get_meta('expiration_time', $link_id);
+        }
 
         /**
          * Build a manual preview URL for revisions when rvy_preview_url() fails.
@@ -756,10 +807,10 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 <style>
                     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #f0f0f1; color: #3c434a; }
                     .notice-box { text-align: center; background: #fff; padding: 40px 50px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.1); max-width: 480px; }
-                    .notice-box h1 { font-size: 22px; margin: 0 0 12px; }
-                    .notice-box p { font-size: 14px; color: #646970; margin: 0 0 20px; }
-                    .notice-box a { color: #2271b1; text-decoration: none; font-weight: 500; }
-                    .notice-box a:hover { text-decoration: underline; }
+                    .notice-title { font-size: 22px; font-weight: 600; margin: 0 0 16px; color: #1e1e1e; }
+                    .notice-message { font-size: 14px; color: #646970; margin: 0 0 24px; line-height: 1.6; }
+                    .notice-box a { display: inline-block; padding: 10px 20px; background-color: #2271b1; color: #fff; text-decoration: none; font-weight: 500; border-radius: 4px; margin-top: 8px; }
+                    .notice-box a:hover { background-color: #135e96; }
                 </style>
             </head>
             <body>
@@ -889,7 +940,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 false
             );
 
-            $expiration_date      = Utils::get_meta('expiration_date', $link_id);
+            $expiration_date      = $this->get_expiration_date($link_id);
             $link_status          = Utils::get_meta('link_status', $link_id, '1');
             $password_check_nonce = wp_create_nonce('password_check');
 
@@ -907,7 +958,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
                 // Check if the link is expired or not
                 if ('1' == $enable_expiration && ! empty($expiration_date)) {
-                    $expiration_time = Utils::get_meta('expiration_time', $link_id);
+                    $expiration_time = $this->get_expiration_time($link_id);
 
                     if (! empty($expiration_time)) {
                         $expiration_timestamp = DateTime::createFromFormat('d-m-Y g:i A', $expiration_date . ' ' . $expiration_time);
