@@ -133,11 +133,13 @@ class ShortlinksCoreAdmin
             'dependency' => array( 'enable_expiration', '==', '1' ),
             'content'    => '<div style="opacity:0.5;pointer-events:none;">'
                 . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Expired Redirect URL', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Choose where visitors should go when they click an expired link.', 'tinypress') . '</p>'
                 . '<input type="text" disabled placeholder="' . esc_attr(home_url('/')) . '" style="width:100%;max-width:400px;" />'
                 . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Show Expiration Notice', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Display a custom notice page before automatically redirecting visitors.', 'tinypress') . '</p>'
                 . '<label style="display:inline-flex;align-items:center;gap:8px;">'
                 . '<input type="checkbox" disabled />'
-                . esc_html__('Display a brief notice before redirecting.', 'tinypress')
+                . esc_html__('Show a notice page for expired shortlinks briefly before redirecting.', 'tinypress')
                 . '</label></div>' . $nudge,
         );
 
@@ -155,11 +157,13 @@ class ShortlinksCoreAdmin
             'dependency' => array( 'tinypress_global_enable_expiration', '==', '1' ),
             'content'    => '<div style="opacity:0.5;pointer-events:none;">'
                 . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Expired Redirect URL', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Set the default destination for all expired shortlinks.', 'tinypress') . '</p>'
                 . '<input type="text" disabled placeholder="' . esc_attr(home_url('/')) . '" style="width:100%;max-width:400px;" />'
                 . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Show Expiration Notice', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Display a custom notice page before automatically redirecting visitors.', 'tinypress') . '</p>'
                 . '<label style="display:inline-flex;align-items:center;gap:8px;">'
                 . '<input type="checkbox" disabled />'
-                . esc_html__('Display a brief notice before redirecting.', 'tinypress')
+                . esc_html__('Show a notice page for expired shortlinks briefly before redirecting. You can customize the content of this message.', 'tinypress')
                 . '</label></div>' . $nudge,
         );
 
