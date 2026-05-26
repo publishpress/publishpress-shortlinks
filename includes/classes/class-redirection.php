@@ -23,6 +23,12 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
         private $visitor_preview_enabled = false;
 
+        private $non_public_notice_post = null;
+
+        private $non_public_notice_rendered = false;
+
+        private $shortlink_force_404 = false;
+
         /**
          * Flag to prevent redirection_controller from running twice
          *
@@ -443,15 +449,8 @@ if (! class_exists('TINYPRESS_Redirection')) {
                         $visitor_access = Utils::get_option('tinypress_revision_visitor_access', '1');
 
                         if ('1' != $visitor_access) {
-                            global $wp_query;
-                            $wp_query->set_404();
-                            status_header(404);
-                            nocache_headers();
-                            $template_404 = get_query_template('404');
-                            if ($template_404) {
-                                include($template_404);
-                            }
-                            die();
+                            $this->set_shortlink_404();
+                            return false;
                         }
 
                         $has_revision_statuses = defined('PUBLISHPRESS_STATUSES_PRO_VERSION');
@@ -469,15 +468,8 @@ if (! class_exists('TINYPRESS_Redirection')) {
                             }
 
                             if (! in_array($revision_status, $allowed_statuses)) {
-                                global $wp_query; // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.VariableRedeclaration
-                                $wp_query->set_404();
-                                status_header(404);
-                                nocache_headers();
-                                $template_404 = get_query_template('404');
-                                if ($template_404) {
-                                    include($template_404);
-                                }
-                                die();
+                                $this->set_shortlink_404();
+                                return false;
                             }
                         }
                         // If PP Statuses Pro is NOT active, visitor_access
@@ -612,15 +604,8 @@ if (! class_exists('TINYPRESS_Redirection')) {
                         $is_status_allowed = in_array($post_status, $allowed_statuses);
 
                         if (! $is_status_allowed) {
-                            global $wp_query; // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.VariableRedeclaration -- Must re-declare to access in this scope
-                            $wp_query->set_404();
-                            status_header(404);
-                            nocache_headers();
-                            $template_404 = get_query_template('404');
-                            if ($template_404) {
-                                include($template_404);
-                            }
-                            die();
+                            $this->set_shortlink_404();
+                            return false;
                         }
                     }
 
@@ -731,6 +716,12 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 wp_die(esc_html__('Post not found.', 'tinypress'));
             }
 
+            if ($this->should_show_non_public_notice($post)) {
+                $this->non_public_notice_post = $post;
+                $this->enqueue_non_public_notice_assets();
+                add_action('wp_body_open', array( $this, 'render_non_public_notice' ), 1);
+            }
+
             // Set up the query to display this post
             $wp_query->is_single = true;
             $wp_query->is_singular = true;
@@ -762,6 +753,143 @@ if (! class_exists('TINYPRESS_Redirection')) {
             } else {
                 wp_die(esc_html($post->post_title), esc_html($post->post_title), array( 'response' => 200 ));
             }
+        }
+
+        private function set_shortlink_404()
+        {
+            global $wp_query, $post;
+
+            if ($wp_query instanceof WP_Query) {
+                $wp_query->set_404();
+                $wp_query->posts             = array();
+                $wp_query->post              = null;
+                $wp_query->post_count        = 0;
+                $wp_query->queried_object    = null;
+                $wp_query->queried_object_id = 0;
+            }
+
+            $post = null;
+            $this->shortlink_force_404 = true;
+
+            status_header(404);
+            nocache_headers();
+        }
+
+        private function should_show_non_public_notice($post)
+        {
+            if (! $post instanceof WP_Post) {
+                return false;
+            }
+
+            $post_status = get_post_status($post);
+
+            if ('publish' === $post_status) {
+                return false;
+            }
+
+            $enabled = $this->get_settings_value('tinypress_non_public_notice_enabled', '1');
+
+            if ('1' !== (string) $enabled) {
+                return false;
+            }
+
+            $enabled_statuses = $this->get_settings_value('tinypress_non_public_notice_statuses', array());
+
+            if (! is_array($enabled_statuses)) {
+                $enabled_statuses = array_filter((array) $enabled_statuses);
+            }
+
+            if (empty($enabled_statuses) && function_exists('tinypress_get_non_public_notice_default_statuses')) {
+                $enabled_statuses = tinypress_get_non_public_notice_default_statuses();
+            }
+
+            return in_array($post_status, $enabled_statuses, true);
+        }
+
+        private function enqueue_non_public_notice_assets()
+        {
+            wp_enqueue_style(
+                'tinypress-frontend',
+                TINYPRESS_PLUGIN_URL . 'assets/frontend/css/frontend.css',
+                array(),
+                TINYPRESS_PLUGIN_VERSION
+            );
+        }
+
+        public function render_non_public_notice()
+        {
+            if ($this->non_public_notice_rendered || ! $this->non_public_notice_post) {
+                return;
+            }
+
+            $this->non_public_notice_rendered = true;
+
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- HTML is escaped by get_non_public_notice_html().
+            echo $this->get_non_public_notice_html();
+        }
+
+        private function get_non_public_notice_html()
+        {
+            $post = $this->non_public_notice_post;
+            $status = get_post_status($post);
+            $message = $this->get_non_public_notice_message($post);
+            $color = $this->get_non_public_notice_color($status);
+
+            return sprintf(
+                '<div id="tinypress-non-public-notice" class="tinypress-non-public-notice tinypress-non-public-notice-%1$s" style="--tinypress-non-public-notice-bg:%2$s;" role="status"><div class="tinypress-non-public-notice__inner">%3$s</div></div>',
+                esc_attr(sanitize_html_class($status)),
+                esc_attr($color),
+                wp_kses_post($message)
+            );
+        }
+
+        private function get_non_public_notice_message($post)
+        {
+            $status = get_post_status($post);
+            $messages = $this->get_settings_value('tinypress_non_public_status_messages', array());
+            $default_messages = function_exists('tinypress_get_non_public_notice_default_messages')
+                ? tinypress_get_non_public_notice_default_messages()
+                : array();
+
+            if (! is_array($messages)) {
+                $messages = array();
+            }
+
+            $message = isset($messages[$status]) && '' !== trim($messages[$status])
+                ? $messages[$status]
+                : (isset($default_messages[$status]) ? $default_messages[$status] : esc_html__('This post is in {status} status. It is not visible to the public.', 'tinypress'));
+
+            $date_format = get_option('date_format');
+            $time_format = get_option('time_format');
+            $timestamp = get_post_time('U', false, $post);
+            $date = $timestamp ? date_i18n($date_format . ' ' . $time_format, $timestamp) : '';
+            $status_label = function_exists('tinypress_get_post_status_display_label')
+                ? tinypress_get_post_status_display_label($status)
+                : ucfirst(str_replace(array( '-', '_' ), ' ', $status));
+
+            $replacements = array(
+                '{status}' => esc_html($status_label),
+                '{date}'   => esc_html($date),
+                '{title}'  => esc_html(get_the_title($post)),
+            );
+
+            $message = strtr($message, $replacements);
+
+            return apply_filters('tinypress_non_public_notice_message', $message, $post, $status);
+        }
+
+        private function get_non_public_notice_color($status)
+        {
+            $colors = array(
+                'draft'   => '#999999',
+                'pending' => '#35b194',
+                'private' => '#635b93',
+                'future'  => '#799999',
+            );
+
+            $color = isset($colors[$status]) ? $colors[$status] : '#35b194';
+
+            return apply_filters('tinypress_non_public_notice_color', $color, $status, $this->non_public_notice_post);
         }
 
 
@@ -997,7 +1125,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
             // If password protection is not enabled, redirect directly
             if ('1' != $password_protection) {
-                $this->redirect_url($link_id);
+                return $this->redirect_url($link_id);
             }
 
             // Password protection is enabled — check if password was submitted
@@ -1007,7 +1135,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 $submitted_password = sanitize_text_field(wp_unslash($_POST['tinypress_password']));
 
                 if (wp_verify_nonce($submitted_nonce, 'tinypress_password_check_' . $link_id) && $submitted_password === $link_password) {
-                    $this->redirect_url($link_id);
+                    return $this->redirect_url($link_id);
                 } else {
                     $error_message = esc_html__('Incorrect password. Please try again.', 'tinypress');
                 }
@@ -1083,7 +1211,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
             $this->track_redirection($tracking_id);
 
-            $this->do_redirection($link_id);
+            return $this->do_redirection($link_id);
         }
 
 
@@ -1159,7 +1287,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                     }
 
                     $this->redirection_done = true;
-                    $this->check_protection($link_id);
+                    return $this->check_protection($link_id);
                 }
             }
         }
@@ -1397,6 +1525,10 @@ if (! class_exists('TINYPRESS_Redirection')) {
         public function fix_shortlink_title($title, $sep = '')
         {
             if (! is_404()) {
+                return $title;
+            }
+
+            if ($this->shortlink_force_404) {
                 return $title;
             }
 

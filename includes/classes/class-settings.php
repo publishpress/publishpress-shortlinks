@@ -42,20 +42,11 @@ if (! class_exists('TINYPRESS_Settings')) {
 
         public function inject_custom_statuses($sections)
         {
-            if (!class_exists('TINYPRESS_Statuses')) {
+            if (! function_exists('tinypress_get_supported_post_status_options')) {
                 return $sections;
             }
 
-            $statuses_instance = TINYPRESS_Statuses::instance();
-            if (!$statuses_instance || !method_exists($statuses_instance, 'get_custom_statuses')) {
-                return $sections;
-            }
-
-            $custom_statuses = $statuses_instance->get_custom_statuses();
-
-            if (empty($custom_statuses)) {
-                return $sections;
-            }
+            $status_options = tinypress_get_supported_post_status_options(true);
 
             foreach ($sections as $tab_key => $tab) {
                 if (isset($tab['sections']) && is_array($tab['sections'])) {
@@ -63,18 +54,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                         if (isset($section['fields']) && is_array($section['fields'])) {
                             foreach ($section['fields'] as $field_key => $field) {
                                 if (isset($field['id']) && $field['id'] === 'tinypress_allowed_post_statuses') {
-                                    foreach ($custom_statuses as $status_name => $status_obj) {
-                                        $label = '';
-                                        if (!empty($status_obj->label)) {
-                                            $label = $status_obj->label;
-                                        } elseif (!empty($status_obj->labels) && is_object($status_obj->labels) && !empty($status_obj->labels->name)) {
-                                            $label = $status_obj->labels->name;
-                                        } else {
-                                            $label = ucfirst(str_replace(array('-', '_'), ' ', $status_name));
-                                        }
-
-                                        $sections[$tab_key]['sections'][$section_key]['fields'][$field_key]['options'][$status_name] = $label;
-                                    }
+                                    $sections[$tab_key]['sections'][$section_key]['fields'][$field_key]['options'] = $status_options;
                                     return $sections;
                                 }
                             }
@@ -85,18 +65,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                 if (isset($tab['fields']) && is_array($tab['fields'])) {
                     foreach ($tab['fields'] as $field_key => $field) {
                         if (isset($field['id']) && $field['id'] === 'tinypress_allowed_post_statuses') {
-                            foreach ($custom_statuses as $status_name => $status_obj) {
-                                $label = '';
-                                if (!empty($status_obj->label)) {
-                                    $label = $status_obj->label;
-                                } elseif (!empty($status_obj->labels) && is_object($status_obj->labels) && !empty($status_obj->labels->name)) {
-                                    $label = $status_obj->labels->name;
-                                } else {
-                                    $label = ucfirst(str_replace(array('-', '_'), ' ', $status_name));
-                                }
-
-                                $sections[$tab_key]['fields'][$field_key]['options'][$status_name] = $label;
-                            }
+                            $sections[$tab_key]['fields'][$field_key]['options'] = $status_options;
                             return $sections;
                         }
                     }
@@ -125,6 +94,46 @@ if (! class_exists('TINYPRESS_Settings')) {
                 $allowed_statuses = array_values(array_filter(array_map('sanitize_key', $allowed_statuses)));
 
                 $request['tinypress_allowed_post_statuses'] = $allowed_statuses;
+            }
+
+            if (isset($request['tinypress_non_public_notice_statuses'])) {
+                $notice_statuses = $request['tinypress_non_public_notice_statuses'];
+
+                if (! is_array($notice_statuses)) {
+                    $notice_statuses = array();
+                }
+
+                $supported_statuses = function_exists('tinypress_get_supported_post_status_options')
+                    ? array_keys(tinypress_get_supported_post_status_options(false))
+                    : array( 'draft', 'pending', 'private', 'future' );
+
+                $notice_statuses = array_values(array_intersect(
+                    array_filter(array_map('sanitize_key', $notice_statuses)),
+                    $supported_statuses
+                ));
+
+                $request['tinypress_non_public_notice_statuses'] = $notice_statuses;
+            }
+
+            if (isset($request['tinypress_non_public_status_messages'])) {
+                $messages = $request['tinypress_non_public_status_messages'];
+
+                if (! is_array($messages)) {
+                    $messages = array();
+                }
+
+                $supported_statuses = function_exists('tinypress_get_supported_post_status_options')
+                    ? array_keys(tinypress_get_supported_post_status_options(false))
+                    : array( 'draft', 'pending', 'private', 'future' );
+                $sanitized_messages = array();
+
+                foreach ($supported_statuses as $status) {
+                    if (isset($messages[$status])) {
+                        $sanitized_messages[$status] = wp_kses_post($messages[$status]);
+                    }
+                }
+
+                $request['tinypress_non_public_status_messages'] = $sanitized_messages;
             }
 
             if (! isset($request['tinypress_autolist_post_types'])) {
@@ -173,6 +182,41 @@ if (! class_exists('TINYPRESS_Settings')) {
             $request['tinypress_autolist_post_types'] = $sanitized;
 
             return $request;
+        }
+
+        public function render_non_public_notice_messages_field()
+        {
+            $settings = get_option('tinypress_settings', array());
+            $saved_messages = isset($settings['tinypress_non_public_status_messages']) && is_array($settings['tinypress_non_public_status_messages'])
+                ? $settings['tinypress_non_public_status_messages']
+                : array();
+            $default_messages = function_exists('tinypress_get_non_public_notice_default_messages')
+                ? tinypress_get_non_public_notice_default_messages()
+                : array();
+            $status_options = function_exists('tinypress_get_supported_post_status_options')
+                ? tinypress_get_supported_post_status_options(false)
+                : array(
+                    'draft'   => esc_html__('Draft', 'tinypress'),
+                    'pending' => esc_html__('Pending Review', 'tinypress'),
+                    'private' => esc_html__('Private', 'tinypress'),
+                    'future'  => esc_html__('Scheduled', 'tinypress'),
+                );
+
+            echo '<div class="tinypress-status-message-fields">';
+            echo '<p class="description">' . esc_html__('Customize the notice shown for each enabled non-published status. Available placeholders: {status}, {date}, {title}.', 'tinypress') . '</p>';
+
+            foreach ($status_options as $status => $label) {
+                $message = isset($saved_messages[$status])
+                    ? $saved_messages[$status]
+                    : (isset($default_messages[$status]) ? $default_messages[$status] : '');
+
+                echo '<div class="tinypress-status-message-row" style="margin: 0 0 14px;">';
+                echo '<label for="tinypress_non_public_status_message_' . esc_attr($status) . '" style="display:block;font-weight:600;margin-bottom:4px;">' . esc_html($label) . '</label>';
+                echo '<textarea id="tinypress_non_public_status_message_' . esc_attr($status) . '" name="tinypress_settings[tinypress_non_public_status_messages][' . esc_attr($status) . ']" rows="2" style="width:100%;max-width:680px;">' . esc_textarea($message) . '</textarea>';
+                echo '</div>';
+            }
+
+            echo '</div>';
         }
 
         /**
@@ -396,6 +440,23 @@ if (! class_exists('TINYPRESS_Settings')) {
             $user_roles = tinypress_get_roles();
 
             $post_type_options = $this->get_post_type_options();
+            $post_status_options = function_exists('tinypress_get_supported_post_status_options')
+                ? tinypress_get_supported_post_status_options(true)
+                : array(
+                    'publish' => esc_html__('Published', 'tinypress'),
+                    'draft'   => esc_html__('Draft', 'tinypress'),
+                    'pending' => esc_html__('Pending Review', 'tinypress'),
+                    'private' => esc_html__('Private', 'tinypress'),
+                    'future'  => esc_html__('Scheduled', 'tinypress'),
+                );
+            $non_public_status_options = function_exists('tinypress_get_supported_post_status_options')
+                ? tinypress_get_supported_post_status_options(false)
+                : array(
+                    'draft'   => esc_html__('Draft', 'tinypress'),
+                    'pending' => esc_html__('Pending Review', 'tinypress'),
+                    'private' => esc_html__('Private', 'tinypress'),
+                    'future'  => esc_html__('Scheduled', 'tinypress'),
+                );
 
             $field_sections['settings'] = array(
                 'title'    => esc_html__('General', 'tinypress'),
@@ -554,14 +615,34 @@ if (! class_exists('TINYPRESS_Settings')) {
                                 'subtitle' => esc_html__('Choose which post statuses can be accessed via shortlinks', 'tinypress'),
                                 'desc'     => $this->get_allowed_post_statuses_field_description(),
                                 'inline'   => true,
-                                'options'  => array(
-                                    'publish' => esc_html__('Published', 'tinypress'),
-                                    'draft'   => esc_html__('Draft', 'tinypress'),
-                                    'pending' => esc_html__('Pending Review', 'tinypress'),
-                                    'private' => esc_html__('Private', 'tinypress'),
-                                    'future'  => esc_html__('Scheduled', 'tinypress'),
-                                ),
+                                'options'  => $post_status_options,
                                 'default'  => array( 'publish', 'draft', 'pending', 'private', 'future' ),
+                            ),
+                            array(
+                                'id'       => 'tinypress_non_public_notice_enabled',
+                                'type'     => 'switcher',
+                                'title'    => esc_html__('Unpublished Content Notice', 'tinypress'),
+                                'label'    => esc_html__('Show a frontend notice when an internal shortlink displays a post that is not published.', 'tinypress'),
+                                'default'  => false,
+                            ),
+                            array(
+                                'id'         => 'tinypress_non_public_notice_statuses',
+                                'type'       => 'checkbox',
+                                'title'      => esc_html__('Notice Post Statuses', 'tinypress'),
+                                'subtitle'   => esc_html__('Choose which non-published statuses display the frontend notice.', 'tinypress'),
+                                'desc'       => esc_html__('This notice only applies to internal shortlinks that render post content directly. External shortlinks are not affected.', 'tinypress'),
+                                'inline'     => true,
+                                'options'    => $non_public_status_options,
+                                'default'    => function_exists('tinypress_get_non_public_notice_default_statuses') ? tinypress_get_non_public_notice_default_statuses() : array( 'draft', 'pending', 'private', 'future' ),
+                                'dependency' => array( 'tinypress_non_public_notice_enabled', '==', '1' ),
+                            ),
+                            array(
+                                'id'         => 'tinypress_non_public_status_messages',
+                                'type'       => 'callback',
+                                'title'      => esc_html__('Notice Messages', 'tinypress'),
+                                'function'   => array( $this, 'render_non_public_notice_messages_field' ),
+                                'default'    => function_exists('tinypress_get_non_public_notice_default_messages') ? tinypress_get_non_public_notice_default_messages() : array(),
+                                'dependency' => array( 'tinypress_non_public_notice_enabled', '==', '1' ),
                             ),
                         ),
                     ),

@@ -200,6 +200,124 @@ if (! function_exists('tinypress_get_roles')) {
     }
 }
 
+if (! function_exists('tinypress_get_post_status_display_label')) {
+    /**
+     * Get a readable label for a post status.
+     *
+     * @param string $status Post status key.
+     * @return string
+     */
+    function tinypress_get_post_status_display_label($status)
+    {
+        $core_labels = array(
+            'publish' => esc_html__('Published', 'tinypress'),
+            'draft'   => esc_html__('Draft', 'tinypress'),
+            'pending' => esc_html__('Pending Review', 'tinypress'),
+            'private' => esc_html__('Private', 'tinypress'),
+            'future'  => esc_html__('Scheduled', 'tinypress'),
+        );
+
+        if (isset($core_labels[$status])) {
+            return $core_labels[$status];
+        }
+
+        if (function_exists('tinypress_get_status_label')) {
+            return tinypress_get_status_label($status);
+        }
+
+        $status_obj = get_post_status_object($status);
+        if ($status_obj && ! empty($status_obj->label)) {
+            return $status_obj->label;
+        }
+
+        return ucfirst(str_replace(array( '-', '_' ), ' ', $status));
+    }
+}
+
+if (! function_exists('tinypress_get_supported_post_status_options')) {
+    /**
+     * Get core and PublishPress Statuses-supported post status options.
+     *
+     * @param bool $include_publish Include the published status option.
+     * @return array
+     */
+    function tinypress_get_supported_post_status_options($include_publish = true)
+    {
+        $options = array(
+            'publish' => esc_html__('Published', 'tinypress'),
+            'draft'   => esc_html__('Draft', 'tinypress'),
+            'pending' => esc_html__('Pending Review', 'tinypress'),
+            'private' => esc_html__('Private', 'tinypress'),
+            'future'  => esc_html__('Scheduled', 'tinypress'),
+        );
+
+        if (! $include_publish) {
+            unset($options['publish']);
+        }
+
+        if (class_exists('TINYPRESS_Statuses')) {
+            $statuses_instance = TINYPRESS_Statuses::instance();
+            if ($statuses_instance && method_exists($statuses_instance, 'get_custom_statuses')) {
+                $custom_statuses = $statuses_instance->get_custom_statuses();
+
+                foreach ($custom_statuses as $status_name => $status_obj) {
+                    if (! empty($status_obj->label)) {
+                        $options[$status_name] = $status_obj->label;
+                    } elseif (! empty($status_obj->labels) && is_object($status_obj->labels) && ! empty($status_obj->labels->name)) {
+                        $options[$status_name] = $status_obj->labels->name;
+                    } else {
+                        $options[$status_name] = ucfirst(str_replace(array( '-', '_' ), ' ', $status_name));
+                    }
+                }
+            }
+        }
+
+        return apply_filters('tinypress_supported_post_status_options', $options, $include_publish);
+    }
+}
+
+if (! function_exists('tinypress_get_non_public_notice_default_statuses')) {
+    /**
+     * Get default statuses enabled for non-public frontend notices.
+     *
+     * @return array
+     */
+    function tinypress_get_non_public_notice_default_statuses()
+    {
+        return apply_filters(
+            'tinypress_non_public_notice_default_statuses',
+            array_keys(tinypress_get_supported_post_status_options(false))
+        );
+    }
+}
+
+if (! function_exists('tinypress_get_non_public_notice_default_messages')) {
+    /**
+     * Get default messages for non-public frontend notices.
+     *
+     * Supported placeholders: {status}, {date}, {title}.
+     *
+     * @return array
+     */
+    function tinypress_get_non_public_notice_default_messages()
+    {
+        $messages = array(
+            'draft'   => esc_html__('This post is in {status} status. It is not visible to the public.', 'tinypress'),
+            'pending' => esc_html__('This post is in {status} status. It is not visible to the public.', 'tinypress'),
+            'private' => esc_html__('This post is in {status} status. It is not visible to the public.', 'tinypress'),
+            'future'  => esc_html__('This post is in {status} status. It will become visible to the public on {date}.', 'tinypress'),
+        );
+
+        foreach (tinypress_get_supported_post_status_options(false) as $status => $label) {
+            if (! isset($messages[$status])) {
+                $messages[$status] = esc_html__('This post is in {status} status. It is not visible to the public.', 'tinypress');
+            }
+        }
+
+        return apply_filters('tinypress_non_public_notice_default_messages', $messages);
+    }
+}
+
 if (! function_exists('tinypress_validate_target_url')) {
     /**
      * Validate and sanitize a target URL for shortlink creation/import.

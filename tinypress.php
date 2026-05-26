@@ -270,6 +270,27 @@ if (! defined('TINYPRESS_LOADED')) {
                     }
                 }
 
+                if (! isset($settings['tinypress_non_public_notice_enabled'])) {
+                    $settings['tinypress_non_public_notice_enabled'] = '0';
+                }
+
+                if (! isset($settings['tinypress_non_public_notice_statuses'])) {
+                    $settings['tinypress_non_public_notice_statuses'] = function_exists('tinypress_get_non_public_notice_default_statuses')
+                        ? tinypress_get_non_public_notice_default_statuses()
+                        : array( 'draft', 'pending', 'private', 'future' );
+                }
+
+                if (! isset($settings['tinypress_non_public_status_messages'])) {
+                    $settings['tinypress_non_public_status_messages'] = function_exists('tinypress_get_non_public_notice_default_messages')
+                        ? tinypress_get_non_public_notice_default_messages()
+                        : array(
+                            'draft'   => esc_html__('This post is in {status} status. It is not visible to the public.', 'tinypress'),
+                            'pending' => esc_html__('This post is in {status} status. It is not visible to the public.', 'tinypress'),
+                            'private' => esc_html__('This post is in {status} status. It is not visible to the public.', 'tinypress'),
+                            'future'  => esc_html__('This post is in {status} status. It will become visible to the public on {date}.', 'tinypress'),
+                        );
+                }
+
                 if (! isset($settings['tinypress_role_view'])) {
                     $settings['tinypress_role_view'] = array( 'administrator', 'editor', 'author', 'contributor', 'subscriber', 'revisor' );
                 }
