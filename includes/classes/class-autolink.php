@@ -73,10 +73,11 @@ if (! class_exists('TINYPRESS_AutoLink')) {
          */
         private function init_admin_hooks()
         {
-            add_action('save_post_tinypress_link', array($this, 'invalidate_cache'), 10, 1);
+            add_action('save_post_tinypress_link', array($this, 'invalidate_cache'), 999, 1);
             add_action('delete_post', array($this, 'invalidate_cache_on_delete'), 10, 1);
             add_action('trashed_post', array($this, 'invalidate_cache_on_delete'), 10, 1);
             add_action('updated_post_meta', array($this, 'invalidate_cache_on_meta_update'), 10, 4);
+            add_action('added_post_meta', array($this, 'invalidate_cache_on_meta_update'), 10, 4);
         }
 
         /**
@@ -137,7 +138,17 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 return;
             }
 
-            $autolink_keys = array('autolink_keywords', 'autolink_post_types', 'autolink_alt_text', 'autolink_alt_text_custom', 'link_status');
+            $autolink_keys = array(
+                'autolink_keywords',
+                'autolink_post_types',
+                'autolink_alt_text',
+                'autolink_alt_text_custom',
+                'link_status',
+                'autolink_min_usage',
+                'autolink_min_usage_use_global',
+                'autolink_max_links',
+                'autolink_max_links_use_global',
+            );
 
             if (in_array($meta_key, $autolink_keys, true)) {
                 $this->invalidate_cache($post_id);
@@ -404,12 +415,8 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                         continue;
                     }
 
-                    $item_lower = mb_strtolower($item, 'UTF-8');
-                    $keywords_lower = array_map(function ($k) {
-                        return mb_strtolower($k, 'UTF-8');
-                    }, $keywords);
-
-                    if (! in_array($item_lower, $keywords_lower, true)) {
+                    // Keep exact duplicates out, but allow case variations (e.g., "WordPress" and "wordpress")
+                    if (! in_array($item, $keywords, true)) {
                         $keywords[] = $item;
                     }
                 }
@@ -560,13 +567,18 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 $alt_text_source = isset($rule['alt_text_source']) ? $rule['alt_text_source'] : 'post_title';
                 $alt_text_custom = isset($rule['alt_text_custom']) ? $rule['alt_text_custom'] : '';
                 $link_post_id = isset($rule['link_post_id']) ? $rule['link_post_id'] : 0;
+                $case_sensitive = isset($rule['case_sensitive']) ? (bool) $rule['case_sensitive'] : false;
+
+                $whole_word = isset($rule['whole_word']) ? (bool) $rule['whole_word'] : true;
+                $match_plurals = isset($rule['match_plurals']) ? (bool) $rule['match_plurals'] : false;
 
                 foreach ($rule['keywords'] as $keyword) {
-                    $keyword_lower = mb_strtolower($keyword, 'UTF-8');
+                    // Use exact keyword as key when case sensitive, otherwise lowercase
+                    $map_key = $case_sensitive ? $keyword : mb_strtolower($keyword, 'UTF-8');
                     $keyword_len = mb_strlen($keyword, 'UTF-8');
 
-                    if (! isset($keyword_map[$keyword_lower]) || $keyword_len > $keyword_map[$keyword_lower]['priority']) {
-                        $keyword_map[$keyword_lower] = array(
+                    if (! isset($keyword_map[$map_key]) || $keyword_len > $keyword_map[$map_key]['priority']) {
+                        $keyword_map[$map_key] = array(
                             'text'              => $keyword,
                             'href'              => $href,
                             'rel'               => $rel,
@@ -575,6 +587,9 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                             'alt_text_source'   => $alt_text_source,
                             'alt_text_custom'   => $alt_text_custom,
                             'link_post_id'      => $link_post_id,
+                            'case_sensitive'    => $case_sensitive,
+                            'whole_word'        => $whole_word,
+                            'match_plurals'     => $match_plurals,
                         );
                     }
                 }
@@ -606,7 +621,10 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 $alt_text_source = isset($keyword_data['alt_text_source']) ? $keyword_data['alt_text_source'] : 'post_title';
                 $alt_text_custom = isset($keyword_data['alt_text_custom']) ? $keyword_data['alt_text_custom'] : '';
                 $link_post_id = isset($keyword_data['link_post_id']) ? $keyword_data['link_post_id'] : 0;
-                $pattern = $this->build_keyword_pattern($keyword);
+                $case_sensitive = isset($keyword_data['case_sensitive']) ? (bool) $keyword_data['case_sensitive'] : false;
+                $whole_word = isset($keyword_data['whole_word']) ? (bool) $keyword_data['whole_word'] : true;
+                $match_plurals = isset($keyword_data['match_plurals']) ? (bool) $keyword_data['match_plurals'] : false;
+                $pattern = $this->build_keyword_pattern($keyword, $case_sensitive, $whole_word, $match_plurals);
 
                 $new_parts = array();
 
@@ -618,7 +636,12 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
                     $subject = $part['value'];
 
-                    if ($subject === '' || false === mb_stripos($subject, $keyword, 0, 'UTF-8')) {
+                    // Quick check if keyword exists in subject
+                    $keyword_exists = $case_sensitive 
+                        ? (false !== mb_strpos($subject, $keyword, 0, 'UTF-8'))
+                        : (false !== mb_stripos($subject, $keyword, 0, 'UTF-8'));
+                    
+                    if ($subject === '' || !$keyword_exists) {
                         $new_parts[] = $part;
                         continue;
                     }
@@ -750,7 +773,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             return '';
         }
 
-        private function build_keyword_pattern($keyword)
+        private function build_keyword_pattern($keyword, $case_sensitive = false, $whole_word = true, $match_plurals = false)
         {
             $keyword = (string) $keyword;
             if ($keyword === '') {
@@ -758,13 +781,55 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             }
 
             $quoted = preg_quote($keyword, '/');
-            $is_single_word = (bool) preg_match('/^[\p{L}\p{N}_-]+$/u', $keyword);
+            $flags = $case_sensitive ? 'u' : 'iu';
 
-            if ($is_single_word) {
-                return '/(\b' . $quoted . '\b)/iu';
+            if ($match_plurals) {
+                $plural_pattern = $this->build_plural_pattern($keyword);
+                if ($plural_pattern !== $quoted) {
+                    $quoted = '(?:' . $quoted . '|' . $plural_pattern . ')';
+                }
             }
 
-            return '/(\b' . $quoted . '\b)/iu';
+            // Apply word boundary based on whole_word setting
+            if ($whole_word) {
+                return '/(\b' . $quoted . '\b)/' . $flags;
+            } else {
+                return '/(' . $quoted . ')/' . $flags;
+            }
+        }
+
+        /**
+         * Build a pattern that matches common plural forms
+         *
+         * @param string $keyword The keyword to pluralize
+         * @return string The plural pattern
+         */
+        private function build_plural_pattern($keyword)
+        {
+            $keyword = (string) $keyword;
+            $quoted = preg_quote($keyword, '/');
+            
+            // Common English plural rules
+            $last_char = mb_substr($keyword, -1, 1, 'UTF-8');
+            $last_two = mb_substr($keyword, -2, 2, 'UTF-8');
+            
+            // Words ending in s, x, z, ch, sh - add 'es'
+            if (in_array($last_char, array('s', 'x', 'z'), true) || 
+                in_array($last_two, array('ch', 'sh'), true)) {
+                return preg_quote($keyword . 'es', '/');
+            }
+            
+            // Words ending in consonant + y - change y to ies
+            if ($last_char === 'y' && mb_strlen($keyword, 'UTF-8') > 1) {
+                $second_last = mb_substr($keyword, -2, 1, 'UTF-8');
+                if (!in_array(mb_strtolower($second_last, 'UTF-8'), array('a', 'e', 'i', 'o', 'u'), true)) {
+                    $base = mb_substr($keyword, 0, -1, 'UTF-8');
+                    return preg_quote($base . 'ies', '/');
+                }
+            }
+            
+            // Default - just add 's'
+            return preg_quote($keyword . 's', '/');
         }
     }
 }

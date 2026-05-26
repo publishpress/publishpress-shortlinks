@@ -20,6 +20,10 @@ class ShortlinksCoreAdmin
             add_filter('tinypress_security_metabox_fields', [$this, 'add_security_expired_teaser_fields']);
             add_filter('tinypress_global_security_fields', [$this, 'add_global_security_expired_teaser_fields']);
 
+            add_filter('tinypress_autolink_metabox_fields', [$this, 'add_autolink_metabox_teaser_fields']);
+            add_filter('tinypress_global_autolink_fields', [$this, 'add_global_autolink_teaser_fields']);
+            add_filter('tinypress_autolink_exceptions_fields', [$this, 'add_autolink_exceptions_teaser_fields']);
+
             add_action('tinypress_admin_class_before_assets_register', [$this, 'tinypress_load_admin_core_assets']);
             add_action('tinypress_admin_class_after_styles_enqueue', [$this, 'tinypress_load_admin_core_styles']);
 
@@ -183,5 +187,116 @@ class ShortlinksCoreAdmin
     public function render_pro_nudge_settings()
     {
         $this->render_pro_nudge();
+    }
+
+    /**
+     * Add autolink teaser fields to per-link metabox for free version
+     *
+     * @param array $fields Existing autolink metabox fields.
+     * @return array
+     */
+    public function add_autolink_metabox_teaser_fields($fields)
+    {
+        $nudge = $this->get_pro_nudge_html();
+
+        $fields[] = array(
+            'id'         => 'autolink_pro_teaser',
+            'type'       => 'content',
+            'title'      => esc_html__('Advanced Auto-Link Settings', 'tinypress'),
+            'content'    => '<div style="opacity:0.5;pointer-events:none;">'
+                . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Minimum Keyword Usage', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Keyword must appear this many times before being autolinked.', 'tinypress') . '</p>'
+                . '<input type="number" disabled value="1" style="width:80px;" />'
+                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Maximum Keywords Linked', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Maximum number of times this keyword should be autolinked per post.', 'tinypress') . '</p>'
+                . '<input type="number" disabled value="0" style="width:80px;" />'
+                . '</div>' . $nudge,
+        );
+
+        return $fields;
+    }
+
+    /**
+     * Add autolink teaser fields to global settings for free version
+     *
+     * @param array $fields Existing global autolink fields.
+     * @return array
+     */
+    public function add_global_autolink_teaser_fields($fields)
+    {
+        $nudge = $this->get_pro_nudge_html();
+
+        $fields[] = array(
+            'id'         => 'tinypress_global_autolink_pro_teaser',
+            'type'       => 'content',
+            'title'      => esc_html__('Advanced Auto-Link Settings', 'tinypress'),
+            'dependency' => array('tinypress_autolink_enabled', '==', '1'),
+            'content'    => '<div style="opacity:0.5;pointer-events:none;">'
+                . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Minimum Keyword Usage', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Default minimum times a keyword must appear before being autolinked.', 'tinypress') . '</p>'
+                . '<input type="number" disabled value="1" style="width:80px;" />'
+                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Maximum Keywords Linked', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Default maximum times a keyword should be autolinked per post.', 'tinypress') . '</p>'
+                . '<input type="number" disabled value="0" style="width:80px;" />'
+                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Maximum Links Per Post', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Total maximum autolinks allowed per post/page.', 'tinypress') . '</p>'
+                . '<input type="number" disabled value="0" style="width:80px;" />'
+                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Minimum Character Length', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Keywords shorter than this will not be autolinked.', 'tinypress') . '</p>'
+                . '<input type="number" disabled value="0" style="width:80px;" />'
+                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Maximum Character Length', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Keywords longer than this will not be autolinked.', 'tinypress') . '</p>'
+                . '<input type="number" disabled value="0" style="width:80px;" />'
+                . '</div>' . $nudge,
+        );
+
+        return $fields;
+    }
+
+    /**
+     * Add autolink exceptions teaser fields for free version
+     *
+     * @param array $fields Existing fields.
+     * @return array
+     */
+    public function add_autolink_exceptions_teaser_fields($fields)
+    {
+        $nudge = $this->get_pro_nudge_html();
+
+        $fields[] = array(
+            'id'      => 'tinypress_autolink_exceptions_teaser',
+            'type'    => 'content',
+            'title'   => esc_html__('Auto-Link Exceptions', 'tinypress'),
+            'content' => '<div style="opacity:0.5;pointer-events:none;">'
+                . '<p style="margin:0 0 12px;"><strong>' . esc_html__('Exclude Terms from Auto Links', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('These terms will never be autolinked.', 'tinypress') . '</p>'
+                . '<textarea disabled rows="2" style="width:100%;max-width:400px;" placeholder="WordPress, Website, Click here"></textarea>'
+                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Prevent Auto Links Inside Classes or IDs', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Content inside elements with these classes or IDs will not have autolinks applied.', 'tinypress') . '</p>'
+                . '<textarea disabled rows="2" style="width:100%;max-width:400px;" placeholder=".notag, #main-header"></textarea>'
+                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Prevent Auto Links Inside Elements', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Terms inside these HTML tags will not have autolinks applied.', 'tinypress') . '</p>'
+                . '<div style="display:flex;gap:10px;flex-wrap:wrap;">'
+                . '<label><input type="checkbox" disabled> H1</label>'
+                . '<label><input type="checkbox" disabled> H2</label>'
+                . '<label><input type="checkbox" disabled> H3</label>'
+                . '<label><input type="checkbox" disabled> H4</label>'
+                . '<label><input type="checkbox" disabled> H5</label>'
+                . '<label><input type="checkbox" disabled> H6</label>'
+                . '<label><input type="checkbox" disabled checked> script</label>'
+                . '<label><input type="checkbox" disabled checked> style</label>'
+                . '<label><input type="checkbox" disabled checked> pre</label>'
+                . '<label><input type="checkbox" disabled checked> code</label>'
+                . '</div>'
+                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Prevent Auto Links on Shortcodes', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Terms inside these shortcodes will not have autolinks applied.', 'tinypress') . '</p>'
+                . '<textarea disabled rows="2" style="width:100%;max-width:400px;" placeholder="read_more, gallery"></textarea>'
+                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Prevent Auto Links on Blocks', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Terms inside these Gutenberg blocks will not have autolinks applied.', 'tinypress') . '</p>'
+                . '<select disabled style="width:100%;max-width:400px;"><option>' . esc_html__('Search and select blocks...', 'tinypress') . '</option></select>'
+                . '</div>' . $nudge,
+        );
+
+        return $fields;
     }
 }
