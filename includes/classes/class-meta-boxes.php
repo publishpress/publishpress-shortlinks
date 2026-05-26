@@ -511,44 +511,47 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
 
             $alt_text_default = $is_internal_link ? 'post_title' : 'shortlink_label';
 
+            $autolink_fields = array(
+                array(
+                    'id'       => 'autolink_keywords',
+                    'type'     => 'textarea',
+                    'title'    => esc_html__('Keywords', 'tinypress'),
+                    'subtitle' => esc_html__('Add keywords separated by commas or on separate lines. Each keyword will link to this shortlink.', 'tinypress'),
+                ),
+                array(
+                    'id'       => 'autolink_alt_text',
+                    'type'     => 'select',
+                    'title'    => esc_html__('Link Alt Text', 'tinypress'),
+                    'subtitle' => esc_html__('Set the alt text for the linked keywords in the frontend of the site.', 'tinypress'),
+                    'options'  => $alt_text_options,
+                    'default'  => $alt_text_default,
+                ),
+                array(
+                    'id'       => 'autolink_alt_text_custom',
+                    'type'     => 'text',
+                    'title'    => esc_html__('Custom Alt Text', 'tinypress'),
+                    'subtitle' => esc_html__('Enter custom alt text for the linked keywords. This is only used if "Custom Text" is selected above.', 'tinypress'),
+                    'dependency' => array(
+                        array('autolink_alt_text', '==', 'custom'),
+                    ),
+                ),
+                array(
+                    'id'       => 'autolink_post_types',
+                    'type'     => 'checkbox',
+                    'title'    => esc_html__('Post Types', 'tinypress'),
+                    'subtitle' => esc_html__('Where should these keywords be auto-linked?', 'tinypress'),
+                    'inline'   => true,
+                    'options'  => $post_type_options,
+                    'default'  => array('post', 'page'),
+                ),
+            );
+            $autolink_fields = apply_filters('tinypress_autolink_metabox_fields', $autolink_fields);
+
             WPDK_Settings::createSection(
                 $this->tinypress_metabox_main,
                 array(
                     'title'  => esc_html__('Auto-linking', 'tinypress'),
-                    'fields' => array(
-                        array(
-                            'id'       => 'autolink_keywords',
-                            'type'     => 'textarea',
-                            'title'    => esc_html__('Keywords', 'tinypress'),
-                            'subtitle' => esc_html__('Add keywords separated by commas or on separate lines. Each keyword will link to this shortlink.', 'tinypress'),
-                        ),
-                        array(
-                            'id'       => 'autolink_alt_text',
-                            'type'     => 'select',
-                            'title'    => esc_html__('Link Alt Text', 'tinypress'),
-                            'subtitle' => esc_html__('Set the alt text for the linked keywords in the frontend of the site.', 'tinypress'),
-                            'options'  => $alt_text_options,
-                            'default'  => $alt_text_default,
-                        ),
-                        array(
-                            'id'       => 'autolink_alt_text_custom',
-                            'type'     => 'text',
-                            'title'    => esc_html__('Custom Alt Text', 'tinypress'),
-                            'subtitle' => esc_html__('Enter custom alt text for the linked keywords. This is only used if "Custom Text" is selected above.', 'tinypress'),
-                            'dependency' => array(
-                                array('autolink_alt_text', '==', 'custom'),
-                            ),
-                        ),
-                        array(
-                            'id'       => 'autolink_post_types',
-                            'type'     => 'checkbox',
-                            'title'    => esc_html__('Post Types', 'tinypress'),
-                            'subtitle' => esc_html__('Where should these keywords be auto-linked?', 'tinypress'),
-                            'inline'   => true,
-                            'options'  => $post_type_options,
-                            'default'  => array('post', 'page'),
-                        ),
-                    ),
+                    'fields' => $autolink_fields,
                 )
             );
 

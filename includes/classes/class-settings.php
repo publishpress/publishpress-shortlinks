@@ -488,7 +488,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                     ),
                     array(
                         'title'  => esc_html__('Auto-Linking', 'tinypress'),
-                        'fields' => array(
+                        'fields' => apply_filters('tinypress_global_autolink_fields', array(
                             array(
                                 'id'       => 'tinypress_autolink_enabled',
                                 'type'     => 'switcher',
@@ -517,7 +517,11 @@ if (! class_exists('TINYPRESS_Settings')) {
                                 'default'    => '#3b11e4',
                                 'dependency' => array( 'tinypress_autolink_enabled', '==', '1' ),
                             ),
-                        ),
+                        )),
+                    ),
+                    array(
+                        'title'  => esc_html__('Auto-Link Exceptions', 'tinypress'),
+                        'fields' => apply_filters('tinypress_autolink_exceptions_fields', array()),
                     ),
                     array(
                         'title'  => esc_html__('Auto-List Links', 'tinypress'),
@@ -713,6 +717,8 @@ if (! class_exists('TINYPRESS_Settings')) {
             if (! empty($extra_post_status) && ! empty($extra_post_status['title'])) {
                 $field_sections['settings']['sections'][] = $extra_post_status;
             }
+
+            $field_sections = apply_filters('tinypress_settings_tabs', $field_sections);
 
             // Dummy tab used to force WPDK to render the left sidebar navigation.
             if (count($field_sections) === 1 && isset($field_sections['settings'])) {
