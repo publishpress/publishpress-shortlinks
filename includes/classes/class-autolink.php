@@ -814,8 +814,10 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             $last_two = mb_substr($keyword, -2, 2, 'UTF-8');
             
             // Words ending in s, x, z, ch, sh - add 'es'
-            if (in_array($last_char, array('s', 'x', 'z'), true) || 
-                in_array($last_two, array('ch', 'sh'), true)) {
+            if (
+                in_array($last_char, array('s', 'x', 'z'), true) 
+                || in_array($last_two, array('ch', 'sh'), true)
+            ) {
                 return preg_quote($keyword . 'es', '/');
             }
             
