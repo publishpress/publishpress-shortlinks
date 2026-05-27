@@ -24,6 +24,10 @@ class ShortlinksCoreAdmin
             add_filter('tinypress_global_autolink_fields', [$this, 'add_global_autolink_teaser_fields']);
             add_filter('tinypress_autolink_exceptions_fields', [$this, 'add_autolink_exceptions_teaser_fields']);
 
+            add_action('admin_menu', [$this, 'tinypress_add_link_checker_teaser_menu'], 25);
+            add_filter('TINYPRESS/Filters/link_columns', [$this, 'add_link_checker_teaser_column'], 20, 2);
+            add_action('manage_tinypress_link_posts_custom_column', [$this, 'render_link_checker_teaser_column'], 10, 2);
+
             add_action('tinypress_admin_class_before_assets_register', [$this, 'tinypress_load_admin_core_assets']);
             add_action('tinypress_admin_class_after_styles_enqueue', [$this, 'tinypress_load_admin_core_styles']);
 
@@ -67,6 +71,7 @@ class ShortlinksCoreAdmin
             'tinypress_link_page_tinypress-logs',
             'edit-tinypress_link_category',
             'tinypress_link_page_tinypress-import-export',
+            'tinypress_link_page_tinypress-link-checker',
         ];
 
         $show = false;
@@ -107,6 +112,18 @@ class ShortlinksCoreAdmin
         );
     }
 
+    public function tinypress_add_link_checker_teaser_menu()
+    {
+        add_submenu_page(
+            'edit.php?post_type=tinypress_link',
+            esc_html__('Link Health', 'tinypress'),
+            esc_html__('Link Health', 'tinypress'),
+            'edit_posts',
+            'tinypress-link-checker',
+            [$this, 'render_link_checker_teaser_page']
+        );
+    }
+
     private function get_pro_nudge_html()
     {
         return '<div class="tinypress-pro-nudge-wrapper" style="margin-top:10px;">'
@@ -124,6 +141,105 @@ class ShortlinksCoreAdmin
     {
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- HTML built with esc_html__ calls in get_pro_nudge_html
         echo $this->get_pro_nudge_html();
+    }
+
+    public function add_link_checker_teaser_column($columns)
+    {
+        $new_columns = array();
+
+        foreach ($columns as $key => $label) {
+            $new_columns[$key] = $label;
+
+            if ('link-type' === $key) {
+                $new_columns['link-health'] = esc_html__('Health', 'tinypress');
+            }
+        }
+
+        if (! isset($new_columns['link-health'])) {
+            $new_columns['link-health'] = esc_html__('Health', 'tinypress');
+        }
+
+        return $new_columns;
+    }
+
+    public function render_link_checker_teaser_column($column_id, $post_id)
+    {
+        if ('link-health' !== $column_id) {
+            return;
+        }
+
+        echo '<div class="tinypress-link-checker-teaser-column">';
+        echo '<span class="tinypress-link-checker-teaser-badge" style="display:inline-flex;align-items:center;gap:4px;background:#f0f0f1;color:#646970;padding:2px 8px;border-radius:3px;font-size:12px;font-weight:600;">';
+        echo '<span class="dashicons dashicons-lock" style="font-size:14px;width:14px;height:14px;"></span>';
+        echo esc_html__('Pro', 'tinypress');
+        echo '</span>';
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- HTML built with esc_html__ calls in get_pro_nudge_html
+        echo $this->get_pro_nudge_html();
+        echo '</div>';
+    }
+
+    public function render_link_checker_teaser_page()
+    {
+        $upgrade_url = defined('TINYPRESS_LINK_PRO_MENU') ? TINYPRESS_LINK_PRO_MENU : 'https://publishpress.com/links/shortlinks-menu';
+        ?>
+        <div class="wrap tinypress-link-checker-teaser-wrap">
+            <h1><?php esc_html_e('Link Health', 'tinypress'); ?></h1>
+            <p class="description">
+                <?php esc_html_e('Check whether your shortlinks redirect visitors to working destination pages.', 'tinypress'); ?>
+            </p>
+
+            <div style="opacity:0.55;pointer-events:none;margin-top:16px;">
+                <p>
+                    <button type="button" class="button button-primary">
+                        <span class="dashicons dashicons-update"></span>
+                        <?php esc_html_e('Check Visible Links', 'tinypress'); ?>
+                    </button>
+                    <button type="button" class="button">
+                        <span class="dashicons dashicons-admin-site-alt3"></span>
+                        <?php esc_html_e('Check All Links', 'tinypress'); ?>
+                    </button>
+                </p>
+
+                <table class="widefat striped" style="max-width:1100px;">
+                    <thead>
+                        <tr>
+                            <th><?php esc_html_e('Shortlink', 'tinypress'); ?></th>
+                            <th><?php esc_html_e('Target URL', 'tinypress'); ?></th>
+                            <th><?php esc_html_e('Status', 'tinypress'); ?></th>
+                            <th><?php esc_html_e('HTTP', 'tinypress'); ?></th>
+                            <th><?php esc_html_e('Redirects', 'tinypress'); ?></th>
+                            <th><?php esc_html_e('Final URL', 'tinypress'); ?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><?php echo esc_html(home_url('/go/example')); ?></td>
+                            <td><?php echo esc_html('https://example.com/landing-page'); ?></td>
+                            <td><span style="display:inline-block;background:#e7f5ec;color:#116329;padding:2px 8px;border-radius:3px;font-weight:600;"><?php esc_html_e('Working', 'tinypress'); ?></span></td>
+                            <td>200</td>
+                            <td>1</td>
+                            <td><?php echo esc_html('https://example.com/landing-page'); ?></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo esc_html(home_url('/go/deleted-offer')); ?></td>
+                            <td><?php echo esc_html('https://example.com/deleted-offer'); ?></td>
+                            <td><span style="display:inline-block;background:#fcf0f1;color:#8a2424;padding:2px 8px;border-radius:3px;font-weight:600;"><?php esc_html_e('Broken', 'tinypress'); ?></span></td>
+                            <td>404</td>
+                            <td>1</td>
+                            <td><?php echo esc_html('https://example.com/deleted-offer'); ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <?php $this->render_pro_nudge(); ?>
+            <p>
+                <a href="<?php echo esc_url($upgrade_url); ?>" class="button button-primary" target="_blank" rel="noopener noreferrer">
+                    <?php esc_html_e('Upgrade to Pro', 'tinypress'); ?>
+                </a>
+            </p>
+        </div>
+        <?php
     }
 
     public function add_security_expired_teaser_fields($fields)
