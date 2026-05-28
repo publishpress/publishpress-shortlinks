@@ -63,7 +63,12 @@ if (! function_exists('tinypress_create_url_slug')) {
 
         $given_string = empty($given_string) ? tinypress_generate_random_string() : $given_string;
         // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Collision check for unique slug generation; must query directly
-        $post_id      = $wpdb->get_var($wpdb->prepare("SELECT post_id FROM {$wpdb->postmeta} WHERE meta_value like %s", $given_string));
+        $post_id      = $wpdb->get_var(
+            $wpdb->prepare(
+                "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'tiny_slug' AND meta_value = %s LIMIT 1",
+                $given_string
+            )
+        );
 
         if (! empty($post_id)) {
             $given_string = tinypress_create_url_slug();
