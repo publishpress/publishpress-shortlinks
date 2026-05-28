@@ -132,9 +132,12 @@ if (! class_exists('TINYPRESS_Import_Export')) {
         private function sanitize_csv_cell($value)
         {
             $value = (string) $value;
-            if ('' !== $value && in_array($value[0], array( '=', '+', '-', '@', "\t", "\r" ), true)) {
+            $trimmed_value = ltrim($value, " \t\r\n");
+
+            if ('' !== $trimmed_value && in_array($trimmed_value[0], array( '=', '+', '-', '@' ), true)) {
                 $value = "\t" . $value;
             }
+
             return $value;
         }
 
