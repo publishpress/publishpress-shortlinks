@@ -118,7 +118,7 @@ class ShortlinksCoreAdmin
             'edit.php?post_type=tinypress_link',
             esc_html__('Link Health', 'tinypress'),
             esc_html__('Link Health', 'tinypress'),
-            'edit_posts',
+            'tinypress_view_shortlink_analytics',
             'tinypress-link-checker',
             [$this, 'render_link_checker_teaser_page']
         );
@@ -173,14 +173,11 @@ class ShortlinksCoreAdmin
         echo '<span class="dashicons dashicons-lock" style="font-size:14px;width:14px;height:14px;"></span>';
         echo esc_html__('Pro', 'tinypress');
         echo '</span>';
-        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- HTML built with esc_html__ calls in get_pro_nudge_html
-        echo $this->get_pro_nudge_html();
         echo '</div>';
     }
 
     public function render_link_checker_teaser_page()
     {
-        $upgrade_url = defined('TINYPRESS_LINK_PRO_MENU') ? TINYPRESS_LINK_PRO_MENU : 'https://publishpress.com/links/shortlinks-menu';
         ?>
         <div class="wrap tinypress-link-checker-teaser-wrap">
             <h1><?php esc_html_e('Link Health', 'tinypress'); ?></h1>
@@ -188,56 +185,54 @@ class ShortlinksCoreAdmin
                 <?php esc_html_e('Check whether your shortlinks redirect visitors to working destination pages.', 'tinypress'); ?>
             </p>
 
-            <div style="opacity:0.55;pointer-events:none;margin-top:16px;">
-                <p>
-                    <button type="button" class="button button-primary">
-                        <span class="dashicons dashicons-update"></span>
-                        <?php esc_html_e('Check Visible Links', 'tinypress'); ?>
-                    </button>
-                    <button type="button" class="button">
-                        <span class="dashicons dashicons-admin-site-alt3"></span>
-                        <?php esc_html_e('Check All Links', 'tinypress'); ?>
-                    </button>
-                </p>
+            <div style="position:relative;max-width:1100px;margin-top:16px;">
+                <div style="opacity:0.55;pointer-events:none;">
+                    <p>
+                        <button type="button" class="button button-primary">
+                            <span class="dashicons dashicons-update"></span>
+                            <?php esc_html_e('Check Visible Links', 'tinypress'); ?>
+                        </button>
+                        <button type="button" class="button">
+                            <span class="dashicons dashicons-admin-site-alt3"></span>
+                            <?php esc_html_e('Check All Links', 'tinypress'); ?>
+                        </button>
+                    </p>
 
-                <table class="widefat striped" style="max-width:1100px;">
-                    <thead>
-                        <tr>
-                            <th><?php esc_html_e('Shortlink', 'tinypress'); ?></th>
-                            <th><?php esc_html_e('Target URL', 'tinypress'); ?></th>
-                            <th><?php esc_html_e('Status', 'tinypress'); ?></th>
-                            <th><?php esc_html_e('HTTP', 'tinypress'); ?></th>
-                            <th><?php esc_html_e('Redirects', 'tinypress'); ?></th>
-                            <th><?php esc_html_e('Final URL', 'tinypress'); ?></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><?php echo esc_html(home_url('/go/example')); ?></td>
-                            <td><?php echo esc_html('https://example.com/landing-page'); ?></td>
-                            <td><span style="display:inline-block;background:#e7f5ec;color:#116329;padding:2px 8px;border-radius:3px;font-weight:600;"><?php esc_html_e('Working', 'tinypress'); ?></span></td>
-                            <td>200</td>
-                            <td>1</td>
-                            <td><?php echo esc_html('https://example.com/landing-page'); ?></td>
-                        </tr>
-                        <tr>
-                            <td><?php echo esc_html(home_url('/go/deleted-offer')); ?></td>
-                            <td><?php echo esc_html('https://example.com/deleted-offer'); ?></td>
-                            <td><span style="display:inline-block;background:#fcf0f1;color:#8a2424;padding:2px 8px;border-radius:3px;font-weight:600;"><?php esc_html_e('Broken', 'tinypress'); ?></span></td>
-                            <td>404</td>
-                            <td>1</td>
-                            <td><?php echo esc_html('https://example.com/deleted-offer'); ?></td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table class="widefat striped">
+                        <thead>
+                            <tr>
+                                <th><?php esc_html_e('Shortlink', 'tinypress'); ?></th>
+                                <th><?php esc_html_e('Target URL', 'tinypress'); ?></th>
+                                <th><?php esc_html_e('Status', 'tinypress'); ?></th>
+                                <th><?php esc_html_e('HTTP', 'tinypress'); ?></th>
+                                <th><?php esc_html_e('Redirects', 'tinypress'); ?></th>
+                                <th><?php esc_html_e('Final URL', 'tinypress'); ?></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><?php echo esc_html(home_url('/go/example')); ?></td>
+                                <td><?php echo esc_html('https://example.com/landing-page'); ?></td>
+                                <td><span style="display:inline-block;background:#e7f5ec;color:#116329;padding:2px 8px;border-radius:3px;font-weight:600;"><?php esc_html_e('Working', 'tinypress'); ?></span></td>
+                                <td>200</td>
+                                <td>1</td>
+                                <td><?php echo esc_html('https://example.com/landing-page'); ?></td>
+                            </tr>
+                            <tr>
+                                <td><?php echo esc_html(home_url('/go/deleted-offer')); ?></td>
+                                <td><?php echo esc_html('https://example.com/deleted-offer'); ?></td>
+                                <td><span style="display:inline-block;background:#fcf0f1;color:#8a2424;padding:2px 8px;border-radius:3px;font-weight:600;"><?php esc_html_e('Broken', 'tinypress'); ?></span></td>
+                                <td>404</td>
+                                <td>1</td>
+                                <td><?php echo esc_html('https://example.com/deleted-offer'); ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;">
+                    <?php $this->render_pro_nudge(); ?>
+                </div>
             </div>
-
-            <?php $this->render_pro_nudge(); ?>
-            <p>
-                <a href="<?php echo esc_url($upgrade_url); ?>" class="button button-primary" target="_blank" rel="noopener noreferrer">
-                    <?php esc_html_e('Upgrade to Pro', 'tinypress'); ?>
-                </a>
-            </p>
         </div>
         <?php
     }

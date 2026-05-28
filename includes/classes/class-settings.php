@@ -232,7 +232,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                 'menu_slug'       => 'settings',
                 'menu_type'       => 'submenu',
                 'menu_parent'     => 'edit.php?post_type=tinypress_link',
-                'menu_capability' => 'edit_posts',
+                'menu_capability' => 'tinypress_manage_shortlink_settings',
                 'database'        => 'option',
                 'theme'           => 'light',
                 'show_search'     => false,

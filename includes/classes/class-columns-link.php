@@ -215,6 +215,10 @@ class TINYPRESS_Column_link
                 break;
 
             case 'click-count':
+                if (! current_user_can('tinypress_view_shortlink_analytics')) {
+                    break;
+                }
+
                 global $wpdb;
 
                 // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table query; TINYPRESS_TABLE_REPORTS is a safe constant; result varies per post and is not reused
@@ -278,9 +282,13 @@ class TINYPRESS_Column_link
             'link-title'   => esc_html__('Link Title', 'tinypress'),
             'short-link'   => esc_html__('Shortlink', 'tinypress'),
             'link-type'    => esc_html__('Link Type', 'tinypress'),
-            'click-count'  => esc_html__('Stats', 'tinypress'),
-            'link-actions' => esc_html__('Actions', 'tinypress'),
         );
+
+        if (current_user_can('tinypress_view_shortlink_analytics')) {
+            $new_columns['click-count'] = esc_html__('Stats', 'tinypress');
+        }
+
+        $new_columns['link-actions'] = esc_html__('Actions', 'tinypress');
 
         return apply_filters('TINYPRESS/Filters/link_columns', $new_columns, $columns);
     }
