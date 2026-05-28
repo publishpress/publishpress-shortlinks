@@ -1425,7 +1425,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 $submitted_nonce = sanitize_text_field(wp_unslash($_POST['tinypress_pw_nonce']));
                 $submitted_password = sanitize_text_field(wp_unslash($_POST['tinypress_password']));
 
-                if (wp_verify_nonce($submitted_nonce, 'tinypress_password_check_' . $link_id) && $submitted_password === $link_password) {
+                if (wp_verify_nonce($submitted_nonce, 'tinypress_password_check_' . $link_id) && hash_equals((string) $link_password, (string) $submitted_password)) {
                     return $this->redirect_url($link_id);
                 } else {
                     $error_message = esc_html__('Incorrect password. Please try again.', 'tinypress');
