@@ -55,6 +55,10 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
          */
         public function render_analytics()
         {
+            if (! current_user_can('tinypress_view_shortlink_analytics')) {
+                return;
+            }
+
             include TINYPRESS_PLUGIN_DIR . 'templates/admin/analytics.php';
         }
 
@@ -730,15 +734,16 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                 )
             );
 
-            // Analytics section.
-            WPDK_Settings::createSection(
-                $this->tinypress_metabox_main,
-                array(
-                    'id'       => 'analytics',
-                    'external' => true,
-                    'title'    => esc_html__('Analytics', 'tinypress'),
-                )
-            );
+            if (current_user_can('tinypress_view_shortlink_analytics')) {
+                WPDK_Settings::createSection(
+                    $this->tinypress_metabox_main,
+                    array(
+                        'id'       => 'analytics',
+                        'external' => true,
+                        'title'    => esc_html__('Analytics', 'tinypress'),
+                    )
+                );
+            }
         }
     }
 

@@ -27,7 +27,7 @@ class WP_List_Table_Logs extends WP_List_Table
 
     private function current_user_can_manage_logs()
     {
-        return current_user_can('edit_posts');
+        return current_user_can('tinypress_view_shortlink_analytics');
     }
 
     private function delete_logs_by_ids($ids)
