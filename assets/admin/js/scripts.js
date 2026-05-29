@@ -213,8 +213,8 @@
             success: function (response) {
                 if (response.success) {
                     setTimeout(function () {
-                        el_response_area.find('.tiny-slug-preview .preview').html(response.data.tiny_url);
-                        el_response_area.find('.item-val.long-url').html(response.data.long_url);
+                        el_response_area.find('.tiny-slug-preview .preview').text(response.data.tiny_url);
+                        el_response_area.find('.item-val.long-url').text(response.data.long_url);
                     }, 1500);
                 }
             },

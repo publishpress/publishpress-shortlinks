@@ -80,8 +80,14 @@ if (! class_exists('TINYPRESS_Hooks')) {
                 wp_send_json_error(array( 'message' => esc_html__('Invalid or empty URL', 'tinypress') ));
             }
 
+            $validated_long_url = function_exists('tinypress_validate_target_url') ? tinypress_validate_target_url($long_url) : esc_url_raw($long_url);
+
+            if (is_wp_error($validated_long_url)) {
+                wp_send_json_error(array( 'message' => $validated_long_url->get_error_message() ));
+            }
+
             $url_args = array(
-                'target_url' => $long_url,
+                'target_url' => $validated_long_url,
                 'tiny_slug'  => $tiny_slug,
             );
             $tiny_url = tinypress_create_shorten_url($url_args);
@@ -93,7 +99,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
             wp_send_json_success(
                 array(
                     'tiny_url' => $tiny_url,
-                    'long_url' => $long_url,
+                    'long_url' => $validated_long_url,
                     'message'  => esc_html__('Shortlink created successfully.', 'tinypress')
                 )
             );
@@ -568,7 +574,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
         }
 
         /**
-         * Block direct URL access to tinypress_link screens for restricted users.
+         * Block direct URL access to the All Shortlinks listing for restricted users.
          */
         public function block_direct_access()
         {
