@@ -121,6 +121,51 @@
         });
 
         tinypressSyncAutolinkAllCheckbox();
+
+        $(document).on('change', '.tinypress-use-global-checkbox input[type="checkbox"]', function () {
+            var $checkbox = $(this);
+            var $checkboxField = $checkbox.closest('.wpdk_settings-field');
+            
+            var $controlledField = $checkboxField.next('.tinypress-global-controlled');
+            
+            if ($controlledField.length) {
+                if ($checkbox.is(':checked')) {
+                    $controlledField.addClass('is-greyed-out');
+                } else {
+                    $controlledField.removeClass('is-greyed-out');
+                }
+            }
+            
+            // Find and update child dependency fields
+            var $section = $checkboxField.closest('.wpdk_settings-section');
+            
+            if ($controlledField.length && $section.length) {
+                var $sectionFields = $section.find('.wpdk_settings-field');
+                var controlledFieldIndex = $sectionFields.index($controlledField);
+
+                var $childFields = $();
+                for (var i = controlledFieldIndex + 1; i < $sectionFields.length; i++) {
+                    var $field = $sectionFields.eq(i);
+                    if ($field.hasClass('tinypress-use-global-checkbox') || $field.hasClass('tinypress-global-controlled')) {
+                        break;
+                    }
+                    if ($field.hasClass('tinypress-global-controlled-child')) {
+                        $childFields = $childFields.add($field);
+                    }
+                }
+                
+                if ($checkbox.is(':checked')) {
+                    $childFields.addClass('is-greyed-out');
+                } else {
+                    $childFields.removeClass('is-greyed-out');
+                }
+            }
+        });
+
+        // Initialize greyed-out state on page load
+        $('.tinypress-use-global-checkbox input[type="checkbox"]:checked').each(function() {
+            $(this).trigger('change');
+        });
     });
 
 
@@ -168,8 +213,8 @@
             success: function (response) {
                 if (response.success) {
                     setTimeout(function () {
-                        el_response_area.find('.tiny-slug-preview .preview').html(response.data.tiny_url);
-                        el_response_area.find('.item-val.long-url').html(response.data.long_url);
+                        el_response_area.find('.tiny-slug-preview .preview').text(response.data.tiny_url);
+                        el_response_area.find('.item-val.long-url').text(response.data.long_url);
                     }, 1500);
                 }
             },

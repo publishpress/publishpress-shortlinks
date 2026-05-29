@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
@@ -40,8 +41,8 @@ if (! class_exists('WPDK_Settings_Field_repeater')) {
                 echo '<div class="wpdk_settings-repeater-item wpdk_settings-repeater-hidden" data-depend-id="' . esc_attr($this->field['id']) . '">';
                 echo '<div class="wpdk_settings-repeater-content">';
                 foreach ($this->field['fields'] as $field) {
-                    $field_default = ( isset($field['default']) ) ? $field['default'] : '';
-                    $field_unique  = ( ! empty($this->unique) ) ? $this->unique . '[' . $this->field['id'] . '][0]' : $this->field['id'] . '[0]';
+                    $field_default = (isset($field['default'])) ? $field['default'] : '';
+                    $field_unique  = (! empty($this->unique)) ? $this->unique . '[' . $this->field['id'] . '][0]' : $this->field['id'] . '[0]';
 
                     WPDK_Settings::field($field, $field_default, '___' . $field_unique, 'field/repeater');
                 }
@@ -74,8 +75,8 @@ if (! class_exists('WPDK_Settings_Field_repeater')) {
                         echo '<div class="wpdk_settings-repeater-item">';
                         echo '<div class="wpdk_settings-repeater-content">';
                         foreach ($this->field['fields'] as $field) {
-                            $field_unique = ( ! empty($this->unique) ) ? $this->unique . '[' . $this->field['id'] . '][' . $key . ']' : $this->field['id'] . '[' . $key . ']';
-                            $field_value  = ( isset($field['id']) && isset($this->value[ $key ][ $field['id'] ]) ) ? $this->value[ $key ][ $field['id'] ] : '';
+                            $field_unique = (! empty($this->unique)) ? $this->unique . '[' . $this->field['id'] . '][' . $key . ']' : $this->field['id'] . '[' . $key . ']';
+                            $field_value  = (isset($field['id']) && isset($this->value[ $key ][ $field['id'] ])) ? $this->value[ $key ][ $field['id'] ] : '';
 
                             WPDK_Settings::field($field, $field_value, $field_unique, 'field/repeater');
                         }

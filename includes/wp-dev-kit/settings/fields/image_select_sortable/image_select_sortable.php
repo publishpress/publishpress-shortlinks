@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
@@ -29,8 +30,8 @@ if (! class_exists('WPDK_Settings_Field_image_select_sortable')) {
                 'inline'   => false,
                 'options'  => array(),
             ));
-            $inline  = ( $args['inline'] ) ? ' wpdk_settings--inline-list' : '';
-            $value   = ( is_array($this->value) ) ? $this->value : array_filter((array) $this->value);
+            $inline  = ($args['inline']) ? ' wpdk_settings--inline-list' : '';
+            $value   = (is_array($this->value)) ? $this->value : array_filter((array) $this->value);
             $options = array();
 
             foreach ($value as $_value) {
@@ -51,10 +52,10 @@ if (! class_exists('WPDK_Settings_Field_image_select_sortable')) {
                 $num = 1;
 
                 foreach ($options as $key => $option) {
-                    $type    = ( $args['multiple'] ) ? 'checkbox' : 'radio';
-                    $extra   = ( $args['multiple'] ) ? '[' . $num . ']' : '';
-                    $active  = ( in_array($key, $value) ) ? ' wpdk_settings--active' : '';
-                    $checked = ( in_array($key, $value) ) ? ' checked' : '';
+                    $type    = ($args['multiple']) ? 'checkbox' : 'radio';
+                    $extra   = ($args['multiple']) ? '[' . $num . ']' : '';
+                    $active  = (in_array($key, $value)) ? ' wpdk_settings--active' : '';
+                    $checked = (in_array($key, $value)) ? ' checked' : '';
 
                     echo '<div class="wpdk_settings--sibling-wrap">';
                     echo '<span class="sortable"><i class="fa fa-arrows" aria-hidden="true"></i></span>';
@@ -78,8 +79,8 @@ if (! class_exists('WPDK_Settings_Field_image_select_sortable')) {
 
             $output    = '';
             $bg_image  = array();
-            $important = ( ! empty($this->field['output_important']) ) ? '!important' : '';
-            $elements  = ( is_array($this->field['output']) ) ? join(',', $this->field['output']) : $this->field['output'];
+            $important = (! empty($this->field['output_important'])) ? '!important' : '';
+            $elements  = (is_array($this->field['output'])) ? join(',', $this->field['output']) : $this->field['output'];
 
             if (! empty($elements) && isset($this->value) && $this->value !== '') {
                 $output = $elements . '{background-image:url(' . $this->value . ')' . $important . ';}';

@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
-"PO-Revision-Date: 2026-04-29 12:57+0000\n"
+"PO-Revision-Date: 2026-05-29 08:39+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
@@ -46,7 +46,7 @@ msgstr "PublishPress"
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: includes-core/ShortlinksCoreAdmin.php:86
+#: includes-core/ShortlinksCoreAdmin.php:90
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
@@ -54,80 +54,260 @@ msgstr ""
 "Folosești PublishPress Shortlinks Free. Versiunea Pro are mai multe funcții "
 "și suport. "
 
-#: includes-core/ShortlinksCoreAdmin.php:87
-#: includes-core/ShortlinksCoreAdmin.php:104
-#: includes-core/ShortlinksCoreAdmin.php:105
-#: includes-core/ShortlinksCoreAdmin.php:271
+#: includes-core/ShortlinksCoreAdmin.php:91
+#: includes-core/ShortlinksCoreAdmin.php:108
+#: includes-core/ShortlinksCoreAdmin.php:109
 msgid "Upgrade to Pro"
 msgstr "Upgrade la Pro"
 
-#: includes-core/ShortlinksCoreAdmin.php:117
-#: includes-core/ShortlinksCoreAdmin.php:196
+#: includes-core/ShortlinksCoreAdmin.php:119
+#: includes-core/ShortlinksCoreAdmin.php:120
+#: includes-core/ShortlinksCoreAdmin.php:183
+msgid "Link Health"
+msgstr "Link Sănătate"
+
+#: includes-core/ShortlinksCoreAdmin.php:133
 msgid "Pro Feature"
 msgstr "Funcție Pro"
 
-#: includes-core/ShortlinksCoreAdmin.php:120
-#: includes-core/ShortlinksCoreAdmin.php:199
+#: includes-core/ShortlinksCoreAdmin.php:136
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "Această funcție este disponibilă în PublishPress Shortlinks Pro."
 
-#: includes-core/ShortlinksCoreAdmin.php:135
-#: includes-core/ShortlinksCoreAdmin.php:158
-msgid "Show Expiration Notice"
-msgstr "Afișează notificarea de expirare"
+#: includes-core/ShortlinksCoreAdmin.php:154
+#: includes-core/ShortlinksCoreAdmin.php:159
+msgid "Health"
+msgstr "Sănătate"
 
-#: includes-core/ShortlinksCoreAdmin.php:139
-msgid "Display a brief notice before redirecting expired links."
-msgstr "Afișează o notificare scurtă înainte de a redirecționa linkurile expirate."
+#: includes-core/ShortlinksCoreAdmin.php:174, fuzzy
+msgid "Pro"
+msgstr "Pro"
 
-#: includes-core/ShortlinksCoreAdmin.php:153
+#: includes-core/ShortlinksCoreAdmin.php:185
+msgid ""
+"Check whether your shortlinks redirect visitors to working destination "
+"pages."
+msgstr ""
+"Verifică dacă linkurile tale scurte redirecționează vizitatorii către "
+"pagini de destinație funcționale."
+
+#: includes-core/ShortlinksCoreAdmin.php:193
+msgid "Check Visible Links"
+msgstr "Verifică Linkurile Vizibile"
+
+#: includes-core/ShortlinksCoreAdmin.php:197
+msgid "Check All Links"
+msgstr "Verifică Toate Linkurile"
+
+#: includes-core/ShortlinksCoreAdmin.php:204
+#: includes/classes/class-columns-link.php:51
+#: includes/classes/class-columns-link.php:372
+#: includes/classes/class-gutenberg-shortlink.php:159
+#: includes/classes/class-hooks.php:231
+#: includes/classes/class-table-logs.php:164
+#: templates/admin-modal-new-link.php:29, fuzzy
+msgid "Shortlink"
+msgstr "Shortlink"
+
+#: includes-core/ShortlinksCoreAdmin.php:205
+#: includes/classes/class-gutenberg-shortlink.php:169
+#: includes/classes/class-import-export.php:1033
+msgid "Target URL"
+msgstr "URL-ul Țintă"
+
+#: includes-core/ShortlinksCoreAdmin.php:206
+#: includes/classes/class-meta-boxes.php:460
+msgid "Status"
+msgstr "Stare"
+
+#: includes-core/ShortlinksCoreAdmin.php:207, fuzzy
+msgid "HTTP"
+msgstr "HTTP"
+
+#: includes-core/ShortlinksCoreAdmin.php:208
+msgid "Redirects"
+msgstr "Redirecționări"
+
+#: includes-core/ShortlinksCoreAdmin.php:209
+msgid "Final URL"
+msgstr "URL-ul Final"
+
+#: includes-core/ShortlinksCoreAdmin.php:216
+msgid "Working"
+msgstr "Funcțional"
+
+#: includes-core/ShortlinksCoreAdmin.php:224
+msgid "Broken"
+msgstr "Defect"
+
+#: includes-core/ShortlinksCoreAdmin.php:247
+#: includes-core/ShortlinksCoreAdmin.php:271
 msgid "Expired Redirect Settings"
 msgstr "Setări redirecționare expirate"
 
-#: includes-core/ShortlinksCoreAdmin.php:156
+#: includes-core/ShortlinksCoreAdmin.php:250
+#: includes-core/ShortlinksCoreAdmin.php:274
+#: includes/classes/class-import-export.php:1044
 msgid "Expired Redirect URL"
 msgstr "URL redirecționare expirat"
 
-#: includes-core/ShortlinksCoreAdmin.php:161
-msgid "Display a brief notice before redirecting."
-msgstr "Afișează o notificare scurtă înainte de a redirecționa."
+#: includes-core/ShortlinksCoreAdmin.php:251
+msgid "Choose where visitors should go when they click an expired link."
+msgstr "Alege unde ar trebui să meargă vizitatorii când fac clic pe un link expirat."
 
-#: includes-core/ShortlinksCoreAdmin.php:233
-#: includes-core/ShortlinksCoreAdmin.php:234, fuzzy
-msgid "Import / Export"
-msgstr "Import / Export"
-
-#: includes-core/ShortlinksCoreAdmin.php:249, fuzzy
-msgid "Import / Export Shortlinks"
-msgstr "Import / Export Shortlinks"
+#: includes-core/ShortlinksCoreAdmin.php:253
+#: includes-core/ShortlinksCoreAdmin.php:277
+msgid "Show Expiration Notice"
+msgstr "Afișează notificarea de expirare"
 
 #: includes-core/ShortlinksCoreAdmin.php:254
-msgid "Bulk Import & Export"
-msgstr "Import & Export în masă"
-
-#: includes-core/ShortlinksCoreAdmin.php:255
-msgid ""
-"Import and export your shortlinks in bulk using CSV files. Migrate from "
-"other plugins or manage links across multiple sites."
+#: includes-core/ShortlinksCoreAdmin.php:278
+msgid "Display a custom notice page before automatically redirecting visitors."
 msgstr ""
-"Importă și exportă linkurile tale scurtate în masă folosind fișiere CSV. "
-"Migratează de la alte pluginuri sau gestionează linkurile pe mai multe "
-"site-uri."
+"Afișează o pagină de notificare personalizată înainte de a redirecționa "
+"automat vizitatorii."
 
-#: includes-core/ShortlinksCoreAdmin.php:259
-msgid "CSV Export"
-msgstr "Export CSV"
+#: includes-core/ShortlinksCoreAdmin.php:257
+msgid "Show a notice page for expired shortlinks briefly before redirecting."
+msgstr ""
+"Afișează o pagină de notificare pentru linkurile scurte expirate pe scurt "
+"înainte de a redirecționa."
 
-#: includes-core/ShortlinksCoreAdmin.php:263
-msgid "CSV Import"
-msgstr "Import CSV"
+#: includes-core/ShortlinksCoreAdmin.php:275
+msgid "Set the default destination for all expired shortlinks."
+msgstr "Setează destinația implicită pentru toate linkurile scurte expirate."
 
-#: includes-core/ShortlinksCoreAdmin.php:267
-msgid "Bulk Management"
-msgstr "Gestionare în masă"
+#: includes-core/ShortlinksCoreAdmin.php:281
+msgid ""
+"Show a notice page for expired shortlinks briefly before redirecting. You "
+"can customize the content of this message."
+msgstr ""
+"Afișează o pagină de notificare pentru linkurile scurte expirate pe scurt "
+"înainte de a redirecționa. Poți personaliza conținutul acestui mesaj."
+
+#: includes-core/ShortlinksCoreAdmin.php:316
+#: includes-core/ShortlinksCoreAdmin.php:343
+msgid "Advanced Auto-Link Settings"
+msgstr "Setări Avansate pentru Auto-Link"
+
+#: includes-core/ShortlinksCoreAdmin.php:318
+#: includes-core/ShortlinksCoreAdmin.php:346
+msgid "Minimum Keyword Usage"
+msgstr "Utilizarea Minimă a Cuvintelor Cheie"
+
+#: includes-core/ShortlinksCoreAdmin.php:319
+msgid "Keyword must appear this many times before being autolinked."
+msgstr ""
+"Cuvântul cheie trebuie să apară de acest număr de ori înainte de a fi legat "
+"automat."
+
+#: includes-core/ShortlinksCoreAdmin.php:321
+#: includes-core/ShortlinksCoreAdmin.php:349
+msgid "Maximum Keywords Linked"
+msgstr "Cuvinte cheie maxime legate"
+
+#: includes-core/ShortlinksCoreAdmin.php:322
+msgid "Maximum number of times this keyword should be autolinked per post."
+msgstr ""
+"Numărul maxim de ori în care acest cuvânt cheie ar trebui să fie legat "
+"automat per postare."
+
+#: includes-core/ShortlinksCoreAdmin.php:347
+msgid "Default minimum times a keyword must appear before being autolinked."
+msgstr ""
+"Numărul minim implicit de ori în care un cuvânt cheie trebuie să apară "
+"înainte de a fi legat automat."
+
+#: includes-core/ShortlinksCoreAdmin.php:350
+msgid "Default maximum times a keyword should be autolinked per post."
+msgstr ""
+"Numărul maxim implicit de ori în care un cuvânt cheie ar trebui să fie "
+"legat automat per postare."
+
+#: includes-core/ShortlinksCoreAdmin.php:352
+msgid "Maximum Links Per Post"
+msgstr "Maxim linkuri per postare"
+
+#: includes-core/ShortlinksCoreAdmin.php:353
+msgid "Total maximum autolinks allowed per post/page."
+msgstr "Numărul total maxim de legături automate permise per postare/pagină."
+
+#: includes-core/ShortlinksCoreAdmin.php:355
+msgid "Minimum Character Length"
+msgstr "Lungimea minimă a caracterelor"
+
+#: includes-core/ShortlinksCoreAdmin.php:356
+msgid "Keywords shorter than this will not be autolinked."
+msgstr "Cuvintele cheie mai scurte decât aceasta nu vor fi legate automat."
+
+#: includes-core/ShortlinksCoreAdmin.php:358
+msgid "Maximum Character Length"
+msgstr "Lungimea maximă a caracterelor"
+
+#: includes-core/ShortlinksCoreAdmin.php:359
+msgid "Keywords longer than this will not be autolinked."
+msgstr "Cuvintele cheie mai lungi decât aceasta nu vor fi legate automat."
+
+#: includes-core/ShortlinksCoreAdmin.php:380
+#: includes/classes/class-settings.php:584
+msgid "Auto-Link Exceptions"
+msgstr "Excepții pentru legături automate"
+
+#: includes-core/ShortlinksCoreAdmin.php:382
+msgid "Exclude Terms from Auto Links"
+msgstr "Excluderea termenilor din legături automate"
+
+#: includes-core/ShortlinksCoreAdmin.php:383
+msgid "These terms will never be autolinked."
+msgstr "Acești termeni nu vor fi niciodată legați automat."
+
+#: includes-core/ShortlinksCoreAdmin.php:385
+msgid "Prevent Auto Links Inside Classes or IDs"
+msgstr "Prevenirea legăturilor automate în interiorul claselor sau ID-urilor"
+
+#: includes-core/ShortlinksCoreAdmin.php:386
+msgid ""
+"Content inside elements with these classes or IDs will not have autolinks "
+"applied."
+msgstr ""
+"Conținutul din elemente cu aceste clase sau ID-uri nu va avea legături "
+"automate aplicate."
+
+#: includes-core/ShortlinksCoreAdmin.php:388
+msgid "Prevent Auto Links Inside Elements"
+msgstr "Prevenirea legăturilor automate în interiorul elementelor"
+
+#: includes-core/ShortlinksCoreAdmin.php:389
+msgid "Terms inside these HTML tags will not have autolinks applied."
+msgstr "Termenii din aceste etichete HTML nu vor avea legături automate aplicate."
+
+#: includes-core/ShortlinksCoreAdmin.php:402
+msgid "Prevent Auto Links on Shortcodes"
+msgstr "Prevenirea legăturilor automate pe shortcode-uri"
+
+#: includes-core/ShortlinksCoreAdmin.php:403
+msgid "Terms inside these shortcodes will not have autolinks applied."
+msgstr "Termenii din aceste shortcode-uri nu vor avea legături automate aplicate."
+
+#: includes-core/ShortlinksCoreAdmin.php:405
+msgid "Prevent Auto Links on Blocks"
+msgstr "Prevenirea legăturilor automate pe blocuri"
+
+#: includes-core/ShortlinksCoreAdmin.php:406
+msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
+msgstr ""
+"Termenii din aceste blocuri Gutenberg nu vor avea link-uri automate "
+"aplicate."
+
+#: includes-core/ShortlinksCoreAdmin.php:407
+msgid "Search and select blocks..."
+msgstr "Caută și selectează blocuri..."
 
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:200
+#: includes/classes/class-autolist-ajax.php:204
+#: includes/classes/class-gutenberg-shortlink.php:234
+#: includes/classes/class-gutenberg-shortlink.php:285
+#: includes/classes/class-gutenberg-shortlink.php:329
 msgid "Permission denied"
 msgstr "Permisiune refuzată"
 
@@ -180,60 +360,61 @@ msgstr "Eșec la salvarea configurației în baza de date"
 msgid "Configuration saved successfully"
 msgstr "Configurare salvată cu succes"
 
-#: includes/classes/class-autolist-ajax.php:144
+#: includes/classes/class-autolist-ajax.php:149
 #. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "Eroare: %s"
 
-#: includes/classes/class-autolist-ajax.php:289
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Validating..."
 msgstr "Validare..."
 
-#: includes/classes/class-autolist-ajax.php:290
+#: includes/classes/class-autolist-ajax.php:294
 msgid "Saving..."
 msgstr "Salvare..."
 
-#: includes/classes/class-autolist-ajax.php:291
+#: includes/classes/class-autolist-ajax.php:295
 msgid "Saved!"
 msgstr "Salvat!"
 
-#: includes/classes/class-autolist-ajax.php:292
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-gutenberg-shortlink.php:175
 msgid "Error"
 msgstr "Eroare"
 
-#: includes/classes/class-autolist-ajax.php:293
+#: includes/classes/class-autolist-ajax.php:297
 msgid "Are you sure you want to remove this post type?"
 msgstr "Ești sigur că vrei să elimini acest post type?"
 
-#: includes/classes/class-autolist-ajax.php:294
+#: includes/classes/class-autolist-ajax.php:298
 msgid "Select a post type"
 msgstr "Selectează un post type"
 
-#: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:595
-#: includes/classes/class-settings.php:691
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:766
+#: includes/classes/class-settings.php:864
 msgid "Never"
 msgstr "Niciodată"
 
-#: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:593
-#: includes/classes/class-settings.php:693
+#: includes/classes/class-autolist-ajax.php:300
+#: includes/classes/class-settings.php:764
+#: includes/classes/class-settings.php:866
 msgid "When Link is First Used"
 msgstr "Când linkul este folosit prima dată"
 
-#: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:695
+#: includes/classes/class-autolist-ajax.php:301
+#: includes/classes/class-settings.php:868
 msgid "When Post is Published"
 msgstr "Când postarea este publicată"
 
-#: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:694
+#: includes/classes/class-autolist-ajax.php:302
+#: includes/classes/class-settings.php:867
 msgid "When Post is Created"
 msgstr "Când postarea este creată"
 
-#: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:692
+#: includes/classes/class-autolist-ajax.php:303
+#: includes/classes/class-settings.php:865
 msgid "When Link is First Used or Post Created"
 msgstr "Când linkul este folosit prima dată sau postarea este creată"
 
@@ -241,110 +422,117 @@ msgstr "Când linkul este folosit prima dată sau postarea este creată"
 msgid "Invalid post ID or post type."
 msgstr "ID-ul postării sau tipul de postare este invalid."
 
-#: includes/classes/class-columns-link.php:49
-#: includes/classes/class-columns-link.php:279
-#: includes/classes/class-hooks.php:207
-#: includes/classes/class-table-logs.php:164
-#: templates/admin-modal-new-link.php:29, fuzzy
-msgid "Shortlink"
-msgstr "Shortlink"
-
-#: includes/classes/class-columns-link.php:71
+#: includes/classes/class-columns-link.php:73
 msgid "No shortlink"
 msgstr "Fără shortlink"
 
-#: includes/classes/class-columns-link.php:92
-#: includes/classes/class-hooks.php:208
-#: includes/classes/class-hooks.php:210
-#: includes/classes/class-meta-boxes.php:93, fuzzy
+#: includes/classes/class-columns-link.php:94
+#: includes/classes/class-hooks.php:232
+#: includes/classes/class-hooks.php:234
+#: includes/classes/class-meta-boxes.php:130, fuzzy
 msgid "Shortlinks"
 msgstr "Shortlinks"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:178
+#: includes/classes/class-columns-link.php:315
 msgid "Internal"
 msgstr "Intern"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:178
+#: includes/classes/class-columns-link.php:316
 msgid "External"
 msgstr "Extern"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:179
 msgid "This links to your post"
 msgstr "Acesta se leagă de postarea ta"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:179
 msgid "This links to an external website"
 msgstr "Acesta se leagă de un site extern"
 
-#: includes/classes/class-columns-link.php:189
+#: includes/classes/class-columns-link.php:183
+#: includes/classes/class-columns-link.php:317
 msgid "Revision"
 msgstr "Revizie"
 
-#: includes/classes/class-columns-link.php:190
+#: includes/classes/class-columns-link.php:184
 msgid "This links to a revision"
 msgstr "Acesta se leagă de o revizie"
 
-#: includes/classes/class-columns-link.php:198
+#: includes/classes/class-columns-link.php:193
 msgid "Not yet submitted"
 msgstr "Încă nu a fost trimis"
 
-#: includes/classes/class-columns-link.php:199
+#: includes/classes/class-columns-link.php:194
 msgid "Submitted for approval"
 msgstr "Trimis pentru aprobat"
 
-#: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:558
+#: includes/classes/class-columns-link.php:195
+#: includes/classes/class-settings.php:202
+#: includes/classes/class-settings.php:450
+#: includes/classes/class-settings.php:458
+#: includes/functions.php:229
+#: includes/functions.php:263
 msgid "Scheduled"
 msgstr "Programat"
 
-#: includes/classes/class-columns-link.php:201
+#: includes/classes/class-columns-link.php:196
 msgid "Deferred"
 msgstr "Amânat"
 
-#: includes/classes/class-columns-link.php:202
+#: includes/classes/class-columns-link.php:197
 msgid "Needs work"
 msgstr "Necesită muncă"
 
-#: includes/classes/class-columns-link.php:203
+#: includes/classes/class-columns-link.php:198
 msgid "Rejected"
 msgstr "Respins"
 
-#: includes/classes/class-columns-link.php:207
+#: includes/classes/class-columns-link.php:202
 #. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "Revizuire: %s"
 
-#: includes/classes/class-columns-link.php:224
+#: includes/classes/class-columns-link.php:223
 #. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "Apăsat de %s ori"
 
-#: includes/classes/class-columns-link.php:230
+#: includes/classes/class-columns-link.php:229
 #: includes/classes/class-table-logs.php:197
 msgid "Edit"
 msgstr "Editează"
 
-#: includes/classes/class-columns-link.php:231
+#: includes/classes/class-columns-link.php:230
 #: includes/classes/class-table-logs.php:178
 #: includes/classes/class-table-logs.php:199
 msgid "Delete"
 msgstr "Șterge"
 
-#: includes/classes/class-columns-link.php:278
+#: includes/classes/class-columns-link.php:312
+msgid "Filter by link type"
+msgstr "Filtrează după tipul de link"
+
+#: includes/classes/class-columns-link.php:314
+msgid "All link types"
+msgstr "Toate tipurile de linkuri"
+
+#: includes/classes/class-columns-link.php:371
 msgid "Link Title"
 msgstr "Titlul linkului"
 
-#: includes/classes/class-columns-link.php:280
+#: includes/classes/class-columns-link.php:373
 msgid "Link Type"
 msgstr "Tipul linkului"
 
-#: includes/classes/class-columns-link.php:281
+#: includes/classes/class-columns-link.php:377
 msgid "Stats"
 msgstr "Statistici"
 
-#: includes/classes/class-columns-link.php:282
+#: includes/classes/class-columns-link.php:380
 msgid "Actions"
 msgstr "Acțiuni"
 
@@ -356,178 +544,605 @@ msgstr "Click pentru a copia"
 msgid "Copied"
 msgstr "Copiat"
 
-#: includes/classes/class-hooks.php:61
-msgid "Security check failed."
-msgstr "Verificarea de securitate a eșuat."
+#: includes/classes/class-gutenberg-shortlink.php:160
+msgid "Search shortlinks..."
+msgstr "Caută link-uri scurte..."
 
-#: includes/classes/class-hooks.php:65
-msgid "You do not have permission to create shortlinks."
-msgstr "Nu ai permisiunea de a crea linkuri scurte."
+#: includes/classes/class-gutenberg-shortlink.php:161
+msgid "Insert Shortlink"
+msgstr "Inserează link scurt"
 
-#: includes/classes/class-hooks.php:72
-msgid "Invalid or empty URL"
-msgstr "URL invalid sau gol"
+#: includes/classes/class-gutenberg-shortlink.php:162
+msgid "Create New Shortlink"
+msgstr "Creează un link scurt nou"
 
-#: includes/classes/class-hooks.php:89
+#: includes/classes/class-gutenberg-shortlink.php:163
+#: includes/classes/class-settings.php:465
+msgid "Options"
+msgstr "Opțiuni"
+
+#: includes/classes/class-gutenberg-shortlink.php:164
+msgid "Open in New Tab"
+msgstr "Deschide într-o filă nouă"
+
+#: includes/classes/class-gutenberg-shortlink.php:165, fuzzy
+msgid "Nofollow"
+msgstr "Nofollow"
+
+#: includes/classes/class-gutenberg-shortlink.php:166
+msgid "Sponsored Link"
+msgstr "Link sponsorizat"
+
+#: includes/classes/class-gutenberg-shortlink.php:167
+msgid "Label"
+msgstr "Etichetă"
+
+#: includes/classes/class-gutenberg-shortlink.php:168
+msgid "Optional shortlink label"
+msgstr "Etichetă opțională pentru link scurt"
+
+#: includes/classes/class-gutenberg-shortlink.php:170
+msgid "Create"
+msgstr "Creează"
+
+#: includes/classes/class-gutenberg-shortlink.php:171
+#: includes/classes/class-import-export.php:1219
+msgid "Cancel"
+msgstr "Anulează"
+
+#: includes/classes/class-gutenberg-shortlink.php:172
+#: templates/admin-modal-new-link.php:37
+msgid "Close"
+msgstr "Închide"
+
+#: includes/classes/class-gutenberg-shortlink.php:173
+msgid "Creating..."
+msgstr "Se creează..."
+
+#: includes/classes/class-gutenberg-shortlink.php:174
+#: includes/classes/class-gutenberg-shortlink.php:317
+#: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "Link scurt creat cu succes."
 
-#: includes/classes/class-hooks.php:98
+#: includes/classes/class-gutenberg-shortlink.php:176
+msgid "Please enter a valid URL"
+msgstr "Te rog să introduci o adresă URL validă"
+
+#: includes/classes/class-gutenberg-shortlink.php:177
+msgid "No shortlinks found"
+msgstr "Nu au fost găsite link-uri scurte"
+
+#: includes/classes/class-gutenberg-shortlink.php:243
+msgid "Search term is required"
+msgstr "Termenul de căutare este necesar"
+
+#: includes/classes/class-gutenberg-shortlink.php:258
+#: includes/functions.php:403
+#. translators: %s: link ID number
+#, fuzzy, php-format
+msgid "Link - %s"
+msgstr "Link - %s"
+
+#: includes/classes/class-gutenberg-shortlink.php:294
+msgid "Target URL is required"
+msgstr "URL-ul țintă este necesar"
+
+#: includes/classes/class-gutenberg-shortlink.php:336
+msgid "Invalid shortlink ID"
+msgstr "ID-ul link-ului scurt este invalid"
+
+#: includes/classes/class-gutenberg-shortlink.php:342
+msgid "Shortlink not found"
+msgstr "Link scurt nu a fost găsit"
+
+#: includes/classes/class-hooks.php:69
+#: includes/classes/class-import-export.php:119
+msgid "Security check failed."
+msgstr "Verificarea de securitate a eșuat."
+
+#: includes/classes/class-hooks.php:73
+msgid "You do not have permission to create shortlinks."
+msgstr "Nu ai permisiunea de a crea linkuri scurte."
+
+#: includes/classes/class-hooks.php:80
+msgid "Invalid or empty URL"
+msgstr "URL invalid sau gol"
+
+#: includes/classes/class-hooks.php:112
 msgid "Invalid nonce verification."
 msgstr "Verificarea nonce-ului este invalidă."
 
-#: includes/classes/class-hooks.php:102
+#: includes/classes/class-hooks.php:116
 msgid "You do not have permission to reset analytics."
 msgstr "Nu ai permisiunea de a reseta analitica."
 
-#: includes/classes/class-hooks.php:109
+#: includes/classes/class-hooks.php:123
 msgid "Invalid post ID."
 msgstr "ID-ul postării este invalid."
 
-#: includes/classes/class-hooks.php:140
+#: includes/classes/class-hooks.php:129
+msgid "Invalid shortlink ID."
+msgstr "ID-ul linkului scurt este invalid."
+
+#: includes/classes/class-hooks.php:133
+msgid "You do not have permission to reset analytics for this shortlink."
+msgstr "Nu aveți permisiunea de a reseta analizele pentru acest link scurt."
+
+#: includes/classes/class-hooks.php:164
 msgid "Analytics reset successfully."
 msgstr "Analitica a fost resetată cu succes."
 
-#: includes/classes/class-hooks.php:142
+#: includes/classes/class-hooks.php:166
 msgid "Failed to reset analytics."
 msgstr "Eșec la resetarea analiticii."
 
-#: includes/classes/class-hooks.php:168
+#: includes/classes/class-hooks.php:192
 msgid "Shorten"
 msgstr "Scurtare"
 
-#: includes/classes/class-hooks.php:211
+#: includes/classes/class-hooks.php:235
 msgid "All Shortlinks"
 msgstr "Toate link-urile scurtate"
 
-#: includes/classes/class-hooks.php:212
-#: includes/classes/class-hooks.php:213
+#: includes/classes/class-hooks.php:236
+#: includes/classes/class-hooks.php:237
 msgid "Add Shortlink"
 msgstr "Adaugă link scurt"
 
-#: includes/classes/class-hooks.php:214
+#: includes/classes/class-hooks.php:238
 msgid "Search Shortlinks"
 msgstr "Caută linkuri scurte"
 
-#: includes/classes/class-hooks.php:229
+#: includes/classes/class-hooks.php:256
 msgid "Category"
 msgstr "Categorie"
 
-#: includes/classes/class-hooks.php:230
+#: includes/classes/class-hooks.php:257
 msgid "Categories"
 msgstr "Categorii"
 
-#: includes/classes/class-hooks.php:256
-#: includes/classes/class-hooks.php:257
+#: includes/classes/class-hooks.php:283
+#: includes/classes/class-hooks.php:284
 msgid "Logs"
 msgstr "Jurnale"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "All Logs"
 msgstr "Toate jurnalele"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Are you sure you want to clear all logs?"
 msgstr "Ești sigur că vrei să ștergi toate jurnalele?"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Clear Logs"
 msgstr "Șterge jurnalele"
 
-#: includes/classes/class-hooks.php:506
+#: includes/classes/class-hooks.php:606
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Ne pare rău, nu ai permisiunea de a accesa link-urile scurtate."
 
-#: includes/classes/class-hooks.php:507
-#: includes/classes/class-hooks.php:528
-#: includes/classes/class-hooks.php:539
-#: includes/classes/class-hooks.php:560
+#: includes/classes/class-hooks.php:607
+#: includes/classes/class-hooks.php:628
+#: includes/classes/class-hooks.php:639
+#: includes/classes/class-hooks.php:660
 msgid "Access Denied"
 msgstr "Acces interzis"
 
-#: includes/classes/class-hooks.php:527
+#: includes/classes/class-hooks.php:627
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Ne pare rău, nu ai permisiunea de a crea link-uri scurtate."
 
-#: includes/classes/class-hooks.php:538
+#: includes/classes/class-hooks.php:638
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Ne pare rău, nu ai permisiunea de a edita link-urile scurtate."
 
-#: includes/classes/class-hooks.php:559
+#: includes/classes/class-hooks.php:659
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Ne pare rău, nu ai permisiunea de a accesa setările link-urilor scurtate."
 
-#: includes/classes/class-meta-boxes.php:76
-msgid "Side"
-msgstr "Lateral"
+#: includes/classes/class-import-export.php:48
+#: includes/classes/class-import-export.php:49, fuzzy
+msgid "Import / Export"
+msgstr "Import / Export"
 
-#: includes/classes/class-meta-boxes.php:187
-#: tinypress.php:448
-msgid "PublishPress Shortlinks"
-msgstr "Link-urile scurtate PublishPress"
+#: includes/classes/class-import-export.php:87
+msgid "Importing..."
+msgstr "Se importă..."
 
-#: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:401, fuzzy
-msgid "General"
-msgstr "General"
+#: includes/classes/class-import-export.php:88
+msgid "Import complete!"
+msgstr "Import complet!"
 
-#: includes/classes/class-meta-boxes.php:205
-msgid "Label *"
-msgstr "Etichetă *"
+#: includes/classes/class-import-export.php:89
+msgid "Import failed. Please check the file and try again."
+msgstr "Importul a eșuat. Vă rugăm să verificați fișierul și să încercați din nou."
 
-#: includes/classes/class-meta-boxes.php:207
-msgid "For admin purpose only."
-msgstr "Doar pentru scopuri administrative."
+#: includes/classes/class-import-export.php:90
+msgid "Please select a CSV file."
+msgstr "Vă rugăm să selectați un fișier CSV."
 
-#: includes/classes/class-meta-boxes.php:216
-msgid "Target URL *"
-msgstr "URL țintă *"
+#: includes/classes/class-import-export.php:91
+msgid "This will import shortlinks from the CSV file. Continue?"
+msgstr "Acest lucru va importa linkuri scurte din fișierul CSV. Continuați?"
 
-#: includes/classes/class-meta-boxes.php:226
-msgid "Short String *"
-msgstr "Șir scurt *"
+#: includes/classes/class-import-export.php:92
+msgid "Previewing..."
+msgstr "Se previzualizează..."
 
-#: includes/classes/class-meta-boxes.php:227
-msgid "Short string of this URL."
-msgstr "Șir scurt al acestui URL."
+#: includes/classes/class-import-export.php:93
+msgid "Preview failed."
+msgstr "Previzualizarea a eșuat."
 
-#: includes/classes/class-meta-boxes.php:233
-msgid "Status"
-msgstr "Stare"
+#: includes/classes/class-import-export.php:94
+#: includes/classes/class-import-export.php:1214
+msgid "See More Rows"
+msgstr "Vezi mai multe rânduri"
 
-#: includes/classes/class-meta-boxes.php:234
-msgid "Disable the shortlink instantly."
-msgstr "Dezactivează linkul scurt imediat."
+#: includes/classes/class-import-export.php:95
+msgid "Show Less"
+msgstr "Arată mai puțin"
 
-#: includes/classes/class-meta-boxes.php:235
-msgid "After disabling the link will not active but the settings will be reserved."
-msgstr "După dezactivare, linkul nu va fi activ, dar setările vor fi rezervate."
+#: includes/classes/class-import-export.php:96
+#: includes/classes/class-import-export.php:1177
+msgid "Preview"
+msgstr "Previzualizare"
 
-#: includes/classes/class-meta-boxes.php:236
-msgid "Enable"
-msgstr "Activare"
+#: includes/classes/class-import-export.php:97
+#: includes/classes/class-import-export.php:1168
+#: includes/classes/class-import-export.php:1181
+msgid "Import CSV"
+msgstr "Importați CSV"
 
-#: includes/classes/class-meta-boxes.php:237
-msgid "Disable"
-msgstr "Dezactivare"
+#: includes/classes/class-import-export.php:98
+#: includes/classes/class-import-export.php:722
+#. translators: %d: number of successfully imported shortlinks
+#, php-format
+msgid "%d shortlinks successfully imported"
+msgstr "%d linkuri scurte importate cu succes"
 
-#: includes/classes/class-meta-boxes.php:244
+#: includes/classes/class-import-export.php:99
+#: includes/classes/class-import-export.php:744
+#. translators: %d: number of failed imports
+#, php-format
+msgid "%d shortlinks failed to import"
+msgstr "%d linkuri scurte nu au fost importate"
+
+#: includes/classes/class-import-export.php:100
+msgid "Error(s) for TinyPress Slug:"
+msgstr "Eroare(e) pentru TinyPress Slug:"
+
+#: includes/classes/class-import-export.php:115
+#: includes/classes/class-import-export.php:543
+#: includes/classes/class-import-export.php:898
+#: includes/classes/class-import-export.php:1028
+msgid "Unauthorized."
+msgstr "Neautorizat."
+
+#: includes/classes/class-import-export.php:296
+#: includes/functions.php:358
+msgid "Invalid URL."
+msgstr "URL invalid."
+
+#: includes/classes/class-import-export.php:548
+#: includes/classes/class-import-export.php:903
+msgid "No file uploaded or upload error."
+msgstr "Nu a fost încărcat niciun fișier sau a apărut o eroare la încărcare."
+
+#: includes/classes/class-import-export.php:557
+#: includes/classes/class-import-export.php:912
+msgid "Please upload a CSV file."
+msgstr "Vă rugăm să încărcați un fișier CSV."
+
+#: includes/classes/class-import-export.php:563
+#: includes/classes/class-import-export.php:918
+msgid "Could not read the file."
+msgstr "Nu s-a putut citi fișierul."
+
+#: includes/classes/class-import-export.php:570
+#: includes/classes/class-import-export.php:925
+msgid "Empty CSV file."
+msgstr "Fișier CSV gol."
+
+#: includes/classes/class-import-export.php:593
+#: includes/classes/class-import-export.php:949
+msgid ""
+"CSV must contain a column for target URL (e.g., \"url\", \"target_url\", "
+"\"destination_url\")."
+msgstr ""
+"CSV-ul trebuie să conțină o coloană pentru URL-ul țintă (de exemplu, "
+"\"url\", \"target_url\", \"destination_url\")."
+
+#: includes/classes/class-import-export.php:654
+#. translators: %s: error message
+#, php-format
+msgid "Failed to create shortlink: %s"
+msgstr "Nu s-a reușit crearea link-ului scurt: %s"
+
+#: includes/classes/class-import-export.php:655
+msgid "Unknown error."
+msgstr "Eroare necunoscută."
+
+#: includes/classes/class-import-export.php:733
+#. translators: %d: number of updated shortlinks
+#, php-format
+msgid "%d shortlinks updated"
+msgstr "%d link-uri scurte actualizate"
+
+#: includes/classes/class-import-export.php:986
+#. translators: 1: original column name, 2: mapped field name
+#, fuzzy, php-format
+msgid "\"%1$s\" → %2$s"
+msgstr "\"%1$s\" → %2$s"
+
+#: includes/classes/class-import-export.php:997
+#. translators: %s: field mappings
+#, php-format
+msgid "Field mappings: %s"
+msgstr "Mapările câmpurilor: %s"
+
+#: includes/classes/class-import-export.php:1013
+#. translators: 1: number of preview rows, 2: total number of importable rows
+#, php-format
+msgid "Showing %1$d preview row(s) from %2$d importable row(s)."
+msgstr ""
+"Se afișează %1$d rânduri de previzualizare din %2$d rânduri care pot fi "
+"importate."
+
+#: includes/classes/class-import-export.php:1032
+msgid "Link Label"
+msgstr "Eticheta Linkului"
+
+#: includes/classes/class-import-export.php:1034
+msgid "Short Slug"
+msgstr "Slug Scurt"
+
+#: includes/classes/class-import-export.php:1035
+msgid "Post Status"
+msgstr "Starea Postării"
+
+#: includes/classes/class-import-export.php:1036
+msgid "Link Status"
+msgstr "Starea Linkului"
+
+#: includes/classes/class-import-export.php:1037
+msgid "Redirect Method"
+msgstr "Metoda Redirecționării"
+
+#: includes/classes/class-import-export.php:1038
+#: includes/classes/class-meta-boxes.php:600
+#: includes/classes/class-settings.php:673, fuzzy
+msgid "NoFollow"
+msgstr "NoFollow"
+
+#: includes/classes/class-import-export.php:1039
+#: includes/classes/class-meta-boxes.php:580
+#: includes/classes/class-settings.php:665
+msgid "Sponsored"
+msgstr "Sponsorizat"
+
+#: includes/classes/class-import-export.php:1040
+#: includes/classes/class-meta-boxes.php:620
+#: includes/classes/class-settings.php:681
+msgid "Parameter Forwarding"
+msgstr "Redirecționarea parametrilor"
+
+#: includes/classes/class-import-export.php:1041
+msgid "Expiration Enabled"
+msgstr "Expirare Activată"
+
+#: includes/classes/class-import-export.php:1042
+#: includes/classes/class-meta-boxes.php:698
+#: includes/classes/class-settings.php:722
+msgid "Expiration Date"
+msgstr "Data expirării"
+
+#: includes/classes/class-import-export.php:1043
+#: includes/classes/class-meta-boxes.php:712
+#: includes/classes/class-settings.php:735
+msgid "Expiration Time"
+msgstr "Ora expirării"
+
+#: includes/classes/class-import-export.php:1045
+#: includes/classes/class-meta-boxes.php:471
 msgid "Notes"
 msgstr "Note"
 
-#: includes/classes/class-meta-boxes.php:251
+#: includes/classes/class-import-export.php:1046
+msgid "Autolink Keywords"
+msgstr "Cuvinte cheie Autolink"
+
+#: includes/classes/class-import-export.php:1091, fuzzy
+msgid "Import / Export Shortlinks"
+msgstr "Import / Export Shortlinks"
+
+#: includes/classes/class-import-export.php:1097
+msgid "Export"
+msgstr "Exportă"
+
+#: includes/classes/class-import-export.php:1101
+msgid "Download all your shortlinks as a CSV file. Choose a format below:"
+msgstr ""
+"Descarcă toate link-urile tale scurte ca fișier CSV. Alege un format mai "
+"jos:"
+
+#: includes/classes/class-import-export.php:1106
+#: includes/classes/class-import-export.php:1137
+#. translators: %d: number of shortlinks
+#, php-format
+msgid "%d shortlink(s) will be exported."
+msgstr "%d link-uri scurte vor fi exportate."
+
+#: includes/classes/class-import-export.php:1114
+msgid "Shortlinks Format"
+msgstr "Formatul Link-urilor Scurte"
+
+#: includes/classes/class-import-export.php:1115
+msgid ""
+"Full format with TinyPress fields and global-setting modes. Password "
+"protection settings are not exported."
+msgstr ""
+"Format complet cu câmpurile TinyPress și modurile de setare globală. "
+"Setările de protecție prin parolă nu sunt exportate."
+
+#: includes/classes/class-import-export.php:1118
+#: includes/classes/class-import-export.php:1145, fuzzy
+msgid "Export CSV"
+msgstr "Export CSV"
+
+#: includes/classes/class-import-export.php:1123
+msgid "Pretty Links Format"
+msgstr "Format Pretty Links"
+
+#: includes/classes/class-import-export.php:1124
+msgid "Compatible format for importing into Pretty Links plugin."
+msgstr "Format compatibil pentru importul în pluginul Pretty Links."
+
+#: includes/classes/class-import-export.php:1127
+msgid "Export for Pretty Links"
+msgstr "Export pentru Pretty Links"
+
+#: includes/classes/class-import-export.php:1132
+msgid ""
+"Download all your shortlinks as a CSV file. The export includes labels, "
+"target URLs, slugs, redirect settings, global-setting modes, and more. "
+"Password protection settings are not exported."
+msgstr ""
+"Descarcă toate linkurile tale scurte ca fișier CSV. Exportul include "
+"etichete, URL-uri țintă, slugs, setări de redirecționare, moduri de setare "
+"globală și altele. Setările de protecție prin parolă nu sunt exportate."
+
+#: includes/classes/class-import-export.php:1154
+#: includes/classes/class-import-export.php:1223
+msgid "Import"
+msgstr "Importă"
+
+#: includes/classes/class-import-export.php:1157
+msgid ""
+"Upload a CSV file to bulk-create shortlinks. The CSV must contain at "
+"minimum a \"target_url\" column. Password protection settings are "
+"intentionally not imported."
+msgstr ""
+"Încarcă un fișier CSV pentru a crea în masă linkuri scurte. CSV-ul trebuie "
+"să conțină cel puțin o coloană \"target_url\". Setările de protecție prin "
+"parolă nu sunt importate intenționat."
+
+#: includes/classes/class-import-export.php:1159
+msgid "Supported columns:"
+msgstr "Coloane acceptate:"
+
+#: includes/classes/class-import-export.php:1184
+msgid "Change File"
+msgstr "Schimbă fișierul"
+
+#: includes/classes/class-import-export.php:1201
+msgid "Import Preview"
+msgstr "Previzualizare import"
+
+#: includes/classes/class-meta-boxes.php:113
+msgid "Side"
+msgstr "Lateral"
+
+#: includes/classes/class-meta-boxes.php:367
+msgid "ON"
+msgstr "ACTIVEAZĂ"
+
+#: includes/classes/class-meta-boxes.php:367
+msgid "OFF"
+msgstr "DEZACTIVEAZĂ"
+
+#: includes/classes/class-meta-boxes.php:371
+#: includes/classes/class-meta-boxes.php:396
+#. translators: %s: current global setting value
+#, php-format
+msgid "Use global settings (currently: %s)"
+msgstr "Utilizează setările globale (în prezent: %s)"
+
+#: includes/classes/class-meta-boxes.php:399
+#: includes/classes/class-settings.php:656
+msgid "307 (Temporary)"
+msgstr "307 (Temporar)"
+
+#: includes/classes/class-meta-boxes.php:400
+#: includes/classes/class-settings.php:657
+msgid "302 (Temporary)"
+msgstr "302 (Temporar)"
+
+#: includes/classes/class-meta-boxes.php:401
+#: includes/classes/class-settings.php:658, fuzzy
+msgid "301 (Permanent)"
+msgstr "301 (Permanent)"
+
+#: includes/classes/class-meta-boxes.php:414
+#: tinypress.php:472
+msgid "PublishPress Shortlinks"
+msgstr "Link-urile scurtate PublishPress"
+
+#: includes/classes/class-meta-boxes.php:427
+#: includes/classes/class-settings.php:462, fuzzy
+msgid "General"
+msgstr "General"
+
+#: includes/classes/class-meta-boxes.php:432
+msgid "Label *"
+msgstr "Etichetă *"
+
+#: includes/classes/class-meta-boxes.php:434
+msgid "For admin purpose only."
+msgstr "Doar pentru scopuri administrative."
+
+#: includes/classes/class-meta-boxes.php:443
+msgid "Target URL *"
+msgstr "URL țintă *"
+
+#: includes/classes/class-meta-boxes.php:453
+msgid "Short String *"
+msgstr "Șir scurt *"
+
+#: includes/classes/class-meta-boxes.php:454
+msgid "Short string of this URL."
+msgstr "Șir scurt al acestui URL."
+
+#: includes/classes/class-meta-boxes.php:461
+msgid "Disable the shortlink instantly."
+msgstr "Dezactivează linkul scurt imediat."
+
+#: includes/classes/class-meta-boxes.php:462
+msgid "After disabling the link will not active but the settings will be reserved."
+msgstr "După dezactivare, linkul nu va fi activ, dar setările vor fi rezervate."
+
+#: includes/classes/class-meta-boxes.php:463
+msgid "Enable"
+msgstr "Activare"
+
+#: includes/classes/class-meta-boxes.php:464
+msgid "Disable"
+msgstr "Dezactivare"
+
+#: includes/classes/class-meta-boxes.php:478
 msgid "All"
 msgstr "Toate"
 
-#: includes/classes/class-meta-boxes.php:263
-msgid "Auto-linking"
-msgstr "Legare automată"
+#: includes/classes/class-meta-boxes.php:505
+#: includes/classes/class-meta-boxes.php:511
+msgid "Shortlink Label"
+msgstr "Etichetă link scurt"
 
-#: includes/classes/class-meta-boxes.php:268
+#: includes/classes/class-meta-boxes.php:506
+#: includes/classes/class-meta-boxes.php:512
+msgid "Custom Text"
+msgstr "Text personalizat"
+
+#: includes/classes/class-meta-boxes.php:510
+msgid "Post Title"
+msgstr "Titlul postării"
+
+#: includes/classes/class-meta-boxes.php:522
 msgid "Keywords"
 msgstr "Cuvinte cheie"
 
-#: includes/classes/class-meta-boxes.php:269
+#: includes/classes/class-meta-boxes.php:523
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
@@ -535,51 +1150,64 @@ msgstr ""
 "Adăugați cuvinte cheie separate prin virgule sau pe linii separate. Fiecare "
 "cuvânt cheie va fi legat la acest link scurt."
 
-#: includes/classes/class-meta-boxes.php:274
+#: includes/classes/class-meta-boxes.php:528
+msgid "Link Alt Text"
+msgstr "Text alternativ link"
+
+#: includes/classes/class-meta-boxes.php:529
+msgid "Set the alt text for the linked keywords in the frontend of the site."
+msgstr ""
+"Setează textul alternativ pentru cuvintele cheie legate în frontendul "
+"site-ului."
+
+#: includes/classes/class-meta-boxes.php:536
+msgid "Custom Alt Text"
+msgstr "Text alternativ personalizat"
+
+#: includes/classes/class-meta-boxes.php:537
+msgid ""
+"Enter custom alt text for the linked keywords. This is only used if "
+"\"Custom Text\" is selected above."
+msgstr ""
+"Introduceți text alternativ personalizat pentru cuvintele cheie legate. "
+"Acesta este utilizat doar dacă \"Text Personalizat\" este selectat mai sus."
+
+#: includes/classes/class-meta-boxes.php:545
 msgid "Post Types"
 msgstr "Tipuri de postare"
 
-#: includes/classes/class-meta-boxes.php:275
+#: includes/classes/class-meta-boxes.php:546
 msgid "Where should these keywords be auto-linked?"
 msgstr "Unde ar trebui să fie legate automat aceste cuvinte cheie?"
 
-#: includes/classes/class-meta-boxes.php:288
+#: includes/classes/class-meta-boxes.php:557
+msgid "Auto-linking"
+msgstr "Legare automată"
+
+#: includes/classes/class-meta-boxes.php:566
+#: includes/classes/class-settings.php:648
 msgid "Redirection"
 msgstr "Redirecționare"
 
-#: includes/classes/class-meta-boxes.php:293
+#: includes/classes/class-meta-boxes.php:571
+#: includes/classes/class-settings.php:653
 msgid "Redirection Method"
 msgstr "Metodă de redirecționare"
 
-#: includes/classes/class-meta-boxes.php:294
+#: includes/classes/class-meta-boxes.php:572
 msgid "Select redirection method"
 msgstr "Selectați metoda de redirecționare"
 
-#: includes/classes/class-meta-boxes.php:295
+#: includes/classes/class-meta-boxes.php:573
 msgid "Select a method"
 msgstr "Selectați o metodă"
 
-#: includes/classes/class-meta-boxes.php:297
-msgid "307 (Temporary)"
-msgstr "307 (Temporar)"
-
-#: includes/classes/class-meta-boxes.php:298
-msgid "302 (Temporary)"
-msgstr "302 (Temporar)"
-
-#: includes/classes/class-meta-boxes.php:299, fuzzy
-msgid "301 (Permanent)"
-msgstr "301 (Permanent)"
-
-#: includes/classes/class-meta-boxes.php:306
-msgid "Sponsored"
-msgstr "Sponsorizat"
-
-#: includes/classes/class-meta-boxes.php:307
+#: includes/classes/class-meta-boxes.php:581
 msgid "Mark links as sponsored content."
 msgstr "Marcați linkurile ca fiind conținut sponsorizat."
 
-#: includes/classes/class-meta-boxes.php:308
+#: includes/classes/class-meta-boxes.php:592
+#: includes/classes/class-settings.php:667
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -587,15 +1215,12 @@ msgstr ""
 "Adaugă atributul rel=\"sponsored\". Recomandat pentru linkuri de afiliere "
 "și promoții plătite."
 
-#: includes/classes/class-meta-boxes.php:313, fuzzy
-msgid "NoFollow"
-msgstr "NoFollow"
-
-#: includes/classes/class-meta-boxes.php:314
+#: includes/classes/class-meta-boxes.php:601
 msgid "Prevent search engines from following this link."
 msgstr "Previne motoarele de căutare să urmeze acest link."
 
-#: includes/classes/class-meta-boxes.php:315
+#: includes/classes/class-meta-boxes.php:612
+#: includes/classes/class-settings.php:675
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -603,15 +1228,12 @@ msgstr ""
 "Adaugă atributul rel=\"nofollow\". Recomandat pentru linkuri externe și "
 "surse de încredere scăzută."
 
-#: includes/classes/class-meta-boxes.php:321
-msgid "Parameter Forwarding"
-msgstr "Redirecționarea parametrilor"
-
-#: includes/classes/class-meta-boxes.php:322
+#: includes/classes/class-meta-boxes.php:621
 msgid "Pass URL parameters to the target link."
 msgstr "Transmiteți parametrii URL către linkul țintă."
 
-#: includes/classes/class-meta-boxes.php:323
+#: includes/classes/class-meta-boxes.php:632
+#: includes/classes/class-settings.php:683
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -619,134 +1241,193 @@ msgstr ""
 "Orice parametri adăugați la URL-ul scurt (de exemplu, ?utm_source=email) "
 "vor fi redirecționați către URL-ul țintă."
 
-#: includes/classes/class-meta-boxes.php:333
+#: includes/classes/class-meta-boxes.php:645
+#: includes/classes/class-settings.php:694
 msgid "Password Protection"
 msgstr "Protecția prin parolă"
 
-#: includes/classes/class-meta-boxes.php:334
+#: includes/classes/class-meta-boxes.php:646
 msgid "Secure your shortlink."
 msgstr "Asigurați-vă scurtlinkul."
 
-#: includes/classes/class-meta-boxes.php:335
+#: includes/classes/class-meta-boxes.php:657
 msgid "Users must enter the password to redirect to the target link."
 msgstr ""
 "Utilizatorii trebuie să introducă parola pentru a redirecționa către linkul "
 "țintă."
 
-#: includes/classes/class-meta-boxes.php:340
+#: includes/classes/class-meta-boxes.php:665
 msgid "Password"
 msgstr "Parolă"
 
-#: includes/classes/class-meta-boxes.php:341
+#: includes/classes/class-meta-boxes.php:666
 msgid "Share this with users."
 msgstr "Împărtășește asta cu utilizatorii."
 
-#: includes/classes/class-meta-boxes.php:342
+#: includes/classes/class-meta-boxes.php:667
 msgid "Passwords are case sensitive."
 msgstr "Parolele sunt sensibile la majuscule."
 
-#: includes/classes/class-meta-boxes.php:343, fuzzy
+#: includes/classes/class-meta-boxes.php:668
+#: includes/classes/class-settings.php:705, fuzzy
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:352
+#: includes/classes/class-meta-boxes.php:678
+#: includes/classes/class-settings.php:714
 msgid "Enable Expiration"
 msgstr "Activare expirare"
 
-#: includes/classes/class-meta-boxes.php:353
-msgid "Expire automatically."
-msgstr "Expirare automată."
+#: includes/classes/class-meta-boxes.php:679
+msgid "Set an expiration date and time for shortlinks."
+msgstr "Stabiliți o dată și o oră de expirare pentru linkurile scurte."
 
-#: includes/classes/class-meta-boxes.php:354
-msgid "Users will not able to redirect to the target URL once expire."
-msgstr "Utilizatorii nu vor putea redirecționa către URL-ul țintă odată ce expiră."
+#: includes/classes/class-meta-boxes.php:690
+#: includes/classes/class-settings.php:716
+msgid ""
+"After the expiration date and time pass, visitors will no longer be able to "
+"access the shortlink."
+msgstr ""
+"După ce data și ora de expirare trec, vizitatorii nu vor mai putea accesa "
+"linkul scurt."
 
-#: includes/classes/class-meta-boxes.php:359
-msgid "Expiration Date"
-msgstr "Data expirării"
+#: includes/classes/class-meta-boxes.php:699
+msgid "Select the date when this shortlink should stop working."
+msgstr "Selectați data când acest link scurt ar trebui să înceteze să funcționeze."
 
-#: includes/classes/class-meta-boxes.php:360
-msgid "Choose the date this link should expire."
-msgstr "Alegeți data la care acest link ar trebui să expire."
+#: includes/classes/class-meta-boxes.php:713
+msgid "Select the time when the shortlink should expire."
+msgstr "Selectați ora când linkul scurt ar trebui să expire."
 
-#: includes/classes/class-meta-boxes.php:372
-msgid "Expiration Time"
-msgstr "Ora expirării"
+#: includes/classes/class-meta-boxes.php:714
+#: includes/classes/class-settings.php:737
+msgid ""
+"Must be at least 1 minute in the future. Combined with the date above to "
+"set the exact expiration moment."
+msgstr ""
+"Trebuie să fie cu cel puțin 1 minut în viitor. Combinat cu data de mai sus "
+"pentru a stabili momentul exact al expirării."
 
-#: includes/classes/class-meta-boxes.php:373
-msgid "Choose the time this link should expire."
-msgstr "Alegeți ora la care acest link ar trebui să expire."
-
-#: includes/classes/class-meta-boxes.php:374
-msgid "Must be at least 1 minute in the future."
-msgstr "Trebuie să fie cu cel puțin 1 minut în viitor."
-
-#: includes/classes/class-meta-boxes.php:391
+#: includes/classes/class-meta-boxes.php:732
+#: includes/classes/class-settings.php:689
 msgid "Security"
 msgstr "Securitate"
 
-#: includes/classes/class-meta-boxes.php:402
+#: includes/classes/class-meta-boxes.php:743
 msgid "Analytics"
 msgstr "Analitică"
 
-#: includes/classes/class-redirection.php:599
+#: includes/classes/class-redirection.php:1024
 msgid "Post not found."
 msgstr "Postare nerecunoscută."
 
-#: includes/classes/class-redirection.php:648
+#: includes/classes/class-redirection.php:1168
+#: includes/functions.php:317
+#: includes/functions.php:318
+#: includes/functions.php:319
+#: includes/functions.php:325
+#: tinypress.php:287
+#: tinypress.php:288
+#: tinypress.php:289
+msgid "This post is in {status} status. It is not visible to the public."
+msgstr "Această postare este în starea {status}. Nu este vizibilă publicului."
+
+#: includes/classes/class-redirection.php:1216
 msgid "This link has expired"
 msgstr "Acest link a expirat"
 
-#: includes/classes/class-redirection.php:652
+#: includes/classes/class-redirection.php:1220
 msgid "You will be redirected shortly."
 msgstr "Veți fi redirecționat în curând."
 
-#: includes/classes/class-redirection.php:656
+#: includes/classes/class-redirection.php:1224
 msgid "Click here if you are not redirected"
 msgstr "Faceți clic aici dacă nu sunteți redirecționat"
 
-#: includes/classes/class-redirection.php:673
+#: includes/classes/class-redirection.php:1241
 msgid "Link Expired"
 msgstr "Link Expirat"
 
-#: includes/classes/class-redirection.php:804
+#: includes/classes/class-redirection.php:1392
 msgid "This link is not active."
 msgstr "Acest link nu este activ."
 
-#: includes/classes/class-redirection.php:849
+#: includes/classes/class-redirection.php:1429
 msgid "This link is expired."
 msgstr "Acest link a expirat."
 
-#: includes/classes/class-redirection.php:868
+#: includes/classes/class-redirection.php:1448
 msgid "Incorrect password. Please try again."
 msgstr "Parolă incorectă. Vă rugăm să încercați din nou."
 
-#: includes/classes/class-redirection.php:883
-#: includes/classes/class-redirection.php:888
+#: includes/classes/class-redirection.php:1463
+#: includes/classes/class-redirection.php:1468
 msgid "Password Protected Link"
 msgstr "Link protejat prin parolă"
 
-#: includes/classes/class-redirection.php:894
+#: includes/classes/class-redirection.php:1474
 msgid "Enter password to continue:"
 msgstr "Introduceți parola pentru a continua:"
 
-#: includes/classes/class-redirection.php:896
+#: includes/classes/class-redirection.php:1476
 msgid "Submit"
 msgstr "Trimiteți"
 
-#: includes/classes/class-redirection.php:1014
+#: includes/classes/class-redirection.php:1600
 msgid "This link is not containing the right prefix slug."
 msgstr "Acest link nu conține prefixul corect slug."
+
+#: includes/classes/class-redirection.php:1641
+msgid "Too many invalid shortlink requests. Please try again later."
+msgstr ""
+"Prea multe cereri invalide pentru linkuri scurte. Vă rugăm să încercați din "
+"nou mai târziu."
+
+#: includes/classes/class-redirection.php:1642
+msgid "Too Many Requests"
+msgstr "Prea multe cereri"
 
 #: includes/classes/class-revision.php:439
 msgid "Invalid revision ID."
 msgstr "ID de revizie invalid."
 
-#: includes/classes/class-settings.php:187
+#: includes/classes/class-settings.php:199
+#: includes/classes/class-settings.php:447
+#: includes/classes/class-settings.php:455
+#: includes/functions.php:226
+#: includes/functions.php:260
+msgid "Draft"
+msgstr "Brouillon"
+
+#: includes/classes/class-settings.php:200
+#: includes/classes/class-settings.php:448
+#: includes/classes/class-settings.php:456
+#: includes/functions.php:227
+#: includes/functions.php:261
+msgid "Pending Review"
+msgstr "În așteptare revizuire"
+
+#: includes/classes/class-settings.php:201
+#: includes/classes/class-settings.php:449
+#: includes/classes/class-settings.php:457
+#: includes/functions.php:228
+#: includes/functions.php:262
+msgid "Private"
+msgstr "Privat"
+
+#: includes/classes/class-settings.php:206
+msgid ""
+"Customize the notice shown for each enabled non-published status. Available "
+"placeholders: {status}, {date}, {title}."
+msgstr ""
+"Personalizați notificarea afișată pentru fiecare stare nepublicată "
+"activată. Locuri rezervate disponibile: {status}, {date}, {title}."
+
+#: includes/classes/class-settings.php:231
 msgid "Settings"
 msgstr "Setări"
 
-#: includes/classes/class-settings.php:271
+#: includes/classes/class-settings.php:315
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -754,12 +1435,12 @@ msgstr ""
 "Selectează ce statuturi de posturi sunt accesibile atunci când vizitezi un "
 "scurtlink PublishPress."
 
-#: includes/classes/class-settings.php:287
+#: includes/classes/class-settings.php:331
 #, fuzzy
 msgid "PublishPress Statuses Plugin Detected:"
 msgstr "PublishPress Shortlinks Free"
 
-#: includes/classes/class-settings.php:288
+#: includes/classes/class-settings.php:332
 msgid ""
 "To use core PublishPress statuses with Shortlinks, Please enable the "
 "Shortlinks post type in PublishPress Statuses workflow settings."
@@ -768,11 +1449,11 @@ msgstr ""
 "să activați tipul de postare Shortlinks în setările fluxului de lucru "
 "PublishPress Statuses."
 
-#: includes/classes/class-settings.php:307
+#: includes/classes/class-settings.php:351
 msgid "Elementor Detected:"
 msgstr "Elementor Detectat:"
 
-#: includes/classes/class-settings.php:308
+#: includes/classes/class-settings.php:352
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
@@ -780,11 +1461,11 @@ msgstr ""
 "Prefixul scurt este necesar pentru o redare corectă a reviziilor Elementor. "
 "Este recomandat să-l mențineți activat."
 
-#: includes/classes/class-settings.php:340
+#: includes/classes/class-settings.php:384
 msgid "TinyPress Shortlinks Notice:"
 msgstr "Notificare Shortlinks TinyPress:"
 
-#: includes/classes/class-settings.php:341
+#: includes/classes/class-settings.php:385
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
@@ -792,105 +1473,107 @@ msgstr ""
 "Elementor este activ. Prefixul scurt a fost dezactivat automat, este "
 "necesar pentru o compatibilitate optimă cu reviziile Elementor."
 
-#: includes/classes/class-settings.php:404
-msgid "Options"
-msgstr "Opțiuni"
+#: includes/classes/class-settings.php:446
+#: includes/functions.php:225
+#: includes/functions.php:259
+msgid "Published"
+msgstr "Publicat"
 
-#: includes/classes/class-settings.php:409
+#: includes/classes/class-settings.php:470
 msgid "Shortlink Prefix"
 msgstr "Prefix scurt"
 
-#: includes/classes/class-settings.php:410
+#: includes/classes/class-settings.php:471
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Adăugați un prefix între numele domeniului dvs. și scurtlink."
 
-#: includes/classes/class-settings.php:417, fuzzy
+#: includes/classes/class-settings.php:478, fuzzy
 msgid "Prefix Slug"
 msgstr "Prefix Slug"
 
-#: includes/classes/class-settings.php:418
+#: includes/classes/class-settings.php:479
 msgid "Custom prefix slug."
 msgstr "Slug prefix personalizat."
 
-#: includes/classes/class-settings.php:419
+#: includes/classes/class-settings.php:480
 msgid "This text will be added between your domain name and shortlink."
 msgstr "Acest text va fi adăugat între numele domeniului dvs. și scurtlink."
 
-#: includes/classes/class-settings.php:420
-#: includes/classes/class-settings.php:421
+#: includes/classes/class-settings.php:481
+#: includes/classes/class-settings.php:482
 msgid "go"
 msgstr "merge"
 
-#: includes/classes/class-settings.php:427
+#: includes/classes/class-settings.php:488
 msgid "Keyboard Shortcut"
 msgstr "Comandă rapidă de tastatură"
 
-#: includes/classes/class-settings.php:428
+#: includes/classes/class-settings.php:489
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr "Creează scurtlinkuri din orice loc din dashboard-ul WordPress."
 
-#: includes/classes/class-settings.php:429
-#: includes/classes/class-settings.php:430
+#: includes/classes/class-settings.php:490
+#: includes/classes/class-settings.php:491
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl sau Cmd + /"
 
-#: includes/classes/class-settings.php:439
+#: includes/classes/class-settings.php:500
 msgid "Remove from Admin Bar"
 msgstr "Elimină din bara de admin"
 
-#: includes/classes/class-settings.php:440
+#: includes/classes/class-settings.php:501
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "Ascunde butonul \"Scurtează\" din bara de admin WordPress."
 
-#: includes/classes/class-settings.php:446
+#: includes/classes/class-settings.php:507
 msgid "Role Management"
 msgstr "Gestionarea rolurilor"
 
-#: includes/classes/class-settings.php:451
+#: includes/classes/class-settings.php:512
 msgid "Who Can View Shortlinks"
 msgstr "Cine poate vizualiza scurtlinkuri"
 
-#: includes/classes/class-settings.php:452
+#: includes/classes/class-settings.php:513
 msgid "Only selected user roles can view links."
 msgstr "Numai rolurile de utilizator selectate pot vizualiza linkurile."
 
-#: includes/classes/class-settings.php:460
+#: includes/classes/class-settings.php:521
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Cine poate crea/editare scurtlinkuri"
 
-#: includes/classes/class-settings.php:461
+#: includes/classes/class-settings.php:522
 msgid "Only selected user roles can create or edit links."
 msgstr "Numai rolurile de utilizator selectate pot crea sau edita linkuri."
 
-#: includes/classes/class-settings.php:470
+#: includes/classes/class-settings.php:531
 msgid "Who Can See Analytics"
 msgstr "Cine poate vedea analitice"
 
-#: includes/classes/class-settings.php:471
+#: includes/classes/class-settings.php:532
 msgid "Only selected user roles can see analytics."
 msgstr "Numai rolurile de utilizator selectate pot vedea analitice."
 
-#: includes/classes/class-settings.php:480
+#: includes/classes/class-settings.php:541
 msgid "Who Can Control Settings"
 msgstr "Cine poate controla setările"
 
-#: includes/classes/class-settings.php:481
+#: includes/classes/class-settings.php:542
 msgid "Only selected user roles can control settings."
 msgstr "Numai rolurile de utilizator selectate pot controla setările."
 
-#: includes/classes/class-settings.php:490
+#: includes/classes/class-settings.php:551
 msgid "Auto-Linking"
 msgstr "Legare automată"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:556
 msgid "Enable Auto-Linking"
 msgstr "Activare legare automată"
 
-#: includes/classes/class-settings.php:496
+#: includes/classes/class-settings.php:557
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr "Convertiți automat cuvintele cheie în linkuri scurte în conținutul postării."
 
-#: includes/classes/class-settings.php:497
+#: includes/classes/class-settings.php:558
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
@@ -898,39 +1581,39 @@ msgstr ""
 "Când este activat, cuvintele cheie configurate în setările linkului scurt "
 "vor fi legate automat în conținutul dvs."
 
-#: includes/classes/class-settings.php:503
+#: includes/classes/class-settings.php:564
 msgid "Open Auto-Links In"
 msgstr "Deschideți linkurile automate în"
 
-#: includes/classes/class-settings.php:504
+#: includes/classes/class-settings.php:565
 msgid "Choose how auto-linked keywords should open."
 msgstr "Alegeți cum ar trebui să se deschidă cuvintele cheie legate automat."
 
-#: includes/classes/class-settings.php:506
+#: includes/classes/class-settings.php:567
 msgid "Same tab"
 msgstr "Aceeași tab"
 
-#: includes/classes/class-settings.php:507
+#: includes/classes/class-settings.php:568
 msgid "New tab"
 msgstr "Tab nou"
 
-#: includes/classes/class-settings.php:515
+#: includes/classes/class-settings.php:576
 msgid "Auto-Link Color"
 msgstr "Culoare legătură automată"
 
-#: includes/classes/class-settings.php:516
+#: includes/classes/class-settings.php:577
 msgid "Choose the color for auto-linked keywords."
 msgstr "Alege culoarea pentru cuvintele cheie legate automat."
 
-#: includes/classes/class-settings.php:523
+#: includes/classes/class-settings.php:588
 msgid "Auto-List Links"
 msgstr "Listare automată a linkurilor"
 
-#: includes/classes/class-settings.php:528, fuzzy
+#: includes/classes/class-settings.php:593, fuzzy
 msgid "Auto-List Shortlinks"
 msgstr "Auto-List Shortlinks"
 
-#: includes/classes/class-settings.php:529
+#: includes/classes/class-settings.php:594
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
@@ -938,17 +1621,17 @@ msgstr ""
 "Când este activat, scurtlinkurile vor apărea în tabelul \"Toate Linkurile\" "
 "pe baza comportamentului pe care îl configurezi mai jos."
 
-#: includes/classes/class-settings.php:535
+#: includes/classes/class-settings.php:600
 msgid "Configure Post Types"
 msgstr "Configurează tipurile de posturi"
 
-#: includes/classes/class-settings.php:536
+#: includes/classes/class-settings.php:601
 msgid "Set when links should be auto-listed for each post type"
 msgstr ""
 "Setează când ar trebui să fie listate automat linkurile pentru fiecare tip "
 "de postare"
 
-#: includes/classes/class-settings.php:537
+#: includes/classes/class-settings.php:602
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -957,65 +1640,106 @@ msgstr ""
 "scurtlinkurile lor în tabelul \"Toate Linkurile\". Modificările sunt "
 "salvate automat."
 
-#: includes/classes/class-settings.php:544
+#: includes/classes/class-settings.php:609
 #: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "Vizibilitatea statutului postului"
 
-#: includes/classes/class-settings.php:549
+#: includes/classes/class-settings.php:614
 msgid "Allowed Post Statuses"
 msgstr "Statuturi de posturi permise"
 
-#: includes/classes/class-settings.php:550
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Alege ce statuturi de posturi pot fi accesate prin scurtlinkuri"
+#: includes/classes/class-settings.php:623
+msgid "Unpublished Content Notice"
+msgstr "Notificare conținut nepublicat"
 
-#: includes/classes/class-settings.php:554
-msgid "Published"
-msgstr "Publicat"
-
-#: includes/classes/class-settings.php:555
-msgid "Draft"
-msgstr "Brouillon"
-
-#: includes/classes/class-settings.php:556
-msgid "Pending Review"
-msgstr "În așteptare revizuire"
-
-#: includes/classes/class-settings.php:557
-msgid "Private"
-msgstr "Privat"
-
-#: includes/classes/class-settings.php:565
-msgid "Expired Links"
-msgstr "Linkuri expirate"
-
-#: includes/classes/class-settings.php:570
-msgid "Default Expired Redirect URL"
-msgstr "URL-ul de redirecționare implicit pentru expirare"
-
-#: includes/classes/class-settings.php:571
-msgid "Where should expired shortlinks redirect?"
-msgstr "Unde ar trebui să redirecționeze scurtlinkurile expirate?"
-
-#: includes/classes/class-settings.php:572
+#: includes/classes/class-settings.php:624
 msgid ""
-"When a shortlink expires, visitors will be redirected to this URL instead "
-"of seeing an error. Leave empty to show the default expiration message."
+"Show a frontend notice when an internal shortlink displays a post that is "
+"not published."
 msgstr ""
-"Când un scurtlink expiră, vizitatorii vor fi redirecționați către acest URL "
-"în loc să vadă o eroare. Lasă gol pentru a arăta mesajul de expirare "
-"implicit."
+"Afișați o notificare pe frontend atunci când un link scurt intern afișează "
+"o postare care nu este publicată."
 
-#: includes/classes/class-settings.php:584
+#: includes/classes/class-settings.php:630
+msgid "Notice Post Statuses"
+msgstr "Notificări despre stările postării"
+
+#: includes/classes/class-settings.php:631
+msgid ""
+"This notice only applies to internal shortlinks that render post content "
+"directly. External shortlinks are not affected."
+msgstr ""
+"Această notificare se aplică doar linkurilor scurte interne care redau "
+"conținutul postărilor direct. Linkurile scurte externe nu sunt afectate."
+
+#: includes/classes/class-settings.php:640
+msgid "Notice Messages"
+msgstr "Mesaje de notificare"
+
+#: includes/classes/class-settings.php:654
+msgid "Default redirection method for shortlinks"
+msgstr "Metoda implicită de redirecționare pentru linkuri scurte"
+
+#: includes/classes/class-settings.php:666
+msgid "Mark links as sponsored content"
+msgstr "Marcați linkurile ca fiind conținut sponsorizat"
+
+#: includes/classes/class-settings.php:674
+msgid "Prevent search engines from following links"
+msgstr "Preveniți motoarele de căutare să urmărească linkurile"
+
+#: includes/classes/class-settings.php:682
+msgid "Pass URL parameters to target links"
+msgstr "Transmiteți parametrii URL către linkurile țintă"
+
+#: includes/classes/class-settings.php:695
+msgid "Secure your shortlinks"
+msgstr "Asigurați-vă linkurile scurte"
+
+#: includes/classes/class-settings.php:696
+msgid "Users must enter a password to redirect to the target link."
+msgstr ""
+"Utilizatorii trebuie să introducă o parolă pentru a fi redirecționați către "
+"linkul țintă."
+
+#: includes/classes/class-settings.php:702
+msgid "Default Password"
+msgstr "Parola implicită"
+
+#: includes/classes/class-settings.php:703
+msgid "Default password for protected links"
+msgstr "Parola implicită pentru linkuri protejate"
+
+#: includes/classes/class-settings.php:704
+msgid ""
+"This password will be used for links that have password protection enabled "
+"via global settings. Passwords are case sensitive."
+msgstr ""
+"Această parolă va fi utilizată pentru linkurile care au protecție cu parolă "
+"activată prin setările globale. Parolele sunt sensibile la majuscule."
+
+#: includes/classes/class-settings.php:715
+msgid "Set an expiration date and time for shortlinks"
+msgstr "Setați o dată și o oră de expirare pentru linkurile scurte"
+
+#: includes/classes/class-settings.php:723
+msgid "Select the date when this shortlink should stop working"
+msgstr "Selectați data când acest link scurt ar trebui să înceteze să funcționeze"
+
+#: includes/classes/class-settings.php:736
+msgid "Select the time when the shortlink should expire"
+msgstr "Selectați ora când linkul scurt ar trebui să expire"
+
+#: includes/classes/class-settings.php:755
 msgid "Revisions"
 msgstr "Revizuiri"
 
-#: includes/classes/class-settings.php:589
+#: includes/classes/class-settings.php:760
 msgid "Revision Link Visibility"
 msgstr "Vizibilitatea linkurilor de revizuire"
 
-#: includes/classes/class-settings.php:590
+#: includes/classes/class-settings.php:761
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -1024,35 +1748,35 @@ msgstr ""
 "\"Toate Scurtlinkurile\" pe baza comportamentului pe care îl configurezi "
 "mai jos."
 
-#: includes/classes/class-settings.php:592
+#: includes/classes/class-settings.php:763
 msgid "When Revision is Created"
 msgstr "Când este creată revizia"
 
-#: includes/classes/class-settings.php:594
+#: includes/classes/class-settings.php:765
 msgid "When Revision is Created or Link is First Used"
 msgstr "Când este creată revizia sau când este folosit primul link"
 
-#: includes/classes/class-settings.php:602
+#: includes/classes/class-settings.php:773
 msgid "Show Shortlink in Revision Table"
 msgstr "Afișați linkul scurt în tabelul reviziilor"
 
-#: includes/classes/class-settings.php:603
+#: includes/classes/class-settings.php:774
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "Afișați coloana linkului scurt atunci când vizualizați reviziile în "
 "PublishPress Revisions."
 
-#: includes/classes/class-settings.php:609
+#: includes/classes/class-settings.php:780
 msgid "Revision Visibility for Visitors"
 msgstr "Vizibilitatea reviziei pentru vizitatori"
 
-#: includes/classes/class-settings.php:610
+#: includes/classes/class-settings.php:781
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Permiteți vizitatorilor deconectați să vizualizeze conținutul reviziei prin "
 "linkuri scurte."
 
-#: includes/classes/class-settings.php:611
+#: includes/classes/class-settings.php:782
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1064,17 +1788,17 @@ msgstr ""
 "ale reviziilor vor reda conținutul reviziei direct pentru vizitatorii "
 "deconectați în loc să redirecționeze către URL-ul de previzualizare."
 
-#: includes/classes/class-settings.php:632, fuzzy
+#: includes/classes/class-settings.php:805, fuzzy
 msgid "Dummy"
 msgstr "Dummy"
 
-#: includes/classes/class-settings.php:676
+#: includes/classes/class-settings.php:849
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Nu sunt încă configurate tipuri de postări. Faceți clic pe \"Adăugați tip "
 "de postare\" pentru a începe."
 
-#: includes/classes/class-settings.php:708
+#: includes/classes/class-settings.php:881
 msgid "Add Post Type"
 msgstr "Adăugați tip de postare"
 
@@ -1146,31 +1870,30 @@ msgstr "A vizitat la %s"
 msgid "via %s"
 msgstr "prin %s"
 
-#: includes/functions.php:169
+#: includes/functions.php:181
 msgid "Edit shortlink settings"
 msgstr "Editează setările linkului scurt"
 
-#: includes/functions.php:216
+#: includes/functions.php:320
+#: tinypress.php:290
+msgid ""
+"This post is in {status} status. It will become visible to the public on "
+"{date}."
+msgstr ""
+"Această postare este în starea {status}. Va deveni vizibilă publicului pe "
+"{date}."
+
+#: includes/functions.php:345
 msgid "Target url not found."
 msgstr "URL-ul țintă nu a fost găsit."
 
-#: includes/functions.php:223
+#: includes/functions.php:352
 msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr "Schema URL invalidă. Numai http, https, ftp, ftps și mailto sunt permise."
 
-#: includes/functions.php:229
-msgid "Invalid URL."
-msgstr "URL invalid."
-
-#: includes/functions.php:233
+#: includes/functions.php:384
 msgid "Tiny slug could not created."
 msgstr "Slug-ul mic nu a putut fi creat."
-
-#: includes/functions.php:252
-#. translators: %s: link ID number
-#, fuzzy, php-format
-msgid "Link - %s"
-msgstr "Link - %s"
 
 #: templates/admin-modal-new-link.php:12
 msgid "Shortlink will appear here"
@@ -1184,32 +1907,28 @@ msgstr "Introdu un URL lung și creează un link scurt"
 msgid "Long URL"
 msgstr "URL lung"
 
-#: templates/admin-modal-new-link.php:37
-msgid "Close"
-msgstr "Închide"
-
 #: templates/admin-modal-new-link.php:38
 msgid "Create Shortlink"
 msgstr "Creează link scurt"
 
-#: templates/admin/analytics.php:45
-#: templates/admin/analytics.php:64
+#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:68
 msgid "Reset Today's Analytics"
 msgstr "Resetează analizele de astăzi"
 
-#: templates/admin/analytics.php:46
+#: templates/admin/analytics.php:50
 msgid "Reset Week's Analytics"
 msgstr "Resetează analizele săptămânii"
 
-#: templates/admin/analytics.php:47
+#: templates/admin/analytics.php:51
 msgid "Reset Month's Analytics"
 msgstr "Resetează analizele lunii"
 
-#: templates/admin/analytics.php:48
+#: templates/admin/analytics.php:52
 msgid "Reset Year's Analytics"
 msgstr "Resetează analizele anului"
 
-#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:53
 msgid ""
 "Are you sure you want to reset the analytics for this period? This action "
 "cannot be undone."
@@ -1217,19 +1936,19 @@ msgstr ""
 "Ești sigur că vrei să resetezi analizele pentru această perioadă? Această "
 "acțiune nu poate fi anulată."
 
-#: templates/admin/analytics.php:57
+#: templates/admin/analytics.php:61
 msgid "Today"
 msgstr "Astăzi"
 
-#: templates/admin/analytics.php:58
+#: templates/admin/analytics.php:62
 msgid "Last 7 Days"
 msgstr "Ultimele 7 Zile"
 
-#: templates/admin/analytics.php:59
+#: templates/admin/analytics.php:63
 msgid "Last 1 Month"
 msgstr "Ultima 1 Lună"
 
-#: templates/admin/analytics.php:60
+#: templates/admin/analytics.php:64
 msgid "Last 1 Year"
 msgstr "Ultimul 1 An"
 
@@ -1293,6 +2012,6 @@ msgstr "Vezi Baza de Cunoștințe"
 msgid "This plugin can be deleted."
 msgstr "Acest plugin poate fi șters."
 
-#: tinypress.php:355
+#: tinypress.php:379
 msgid "Copied."
 msgstr "Copiat."

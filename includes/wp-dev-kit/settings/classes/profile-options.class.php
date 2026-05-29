@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
@@ -57,8 +58,8 @@ if (! class_exists('WPDK_Settings_Profile_Options')) {
         public function get_default($field)
         {
 
-            $default = ( isset($field['default']) ) ? $field['default'] : '';
-            $default = ( isset($this->args['defaults'][ $field['id'] ]) ) ? $this->args['defaults'][ $field['id'] ] : $default;
+            $default = (isset($field['default'])) ? $field['default'] : '';
+            $default = (isset($this->args['defaults'][ $field['id'] ])) ? $this->args['defaults'][ $field['id'] ] : $default;
 
             return $default;
         }
@@ -72,15 +73,15 @@ if (! class_exists('WPDK_Settings_Profile_Options')) {
             if (! empty($user_id) && ! empty($field['id'])) {
                 if ($this->args['data_type'] !== 'serialize') {
                     $meta  = get_user_meta($user_id, $field['id']);
-                    $value = ( isset($meta[0]) ) ? $meta[0] : null;
+                    $value = (isset($meta[0])) ? $meta[0] : null;
                 } else {
                     $meta  = get_user_meta($user_id, $this->unique, true);
-                    $value = ( isset($meta[ $field['id'] ]) ) ? $meta[ $field['id'] ] : null;
+                    $value = (isset($meta[ $field['id'] ])) ? $meta[ $field['id'] ] : null;
                 }
             }
 
-            $default = ( isset($field['id']) ) ? $this->get_default($field) : '';
-            $value   = ( isset($value) ) ? $value : $default;
+            $default = (isset($field['id'])) ? $this->get_default($field) : '';
+            $value   = (isset($value)) ? $value : $default;
 
             return $value;
         }
@@ -89,11 +90,11 @@ if (! class_exists('WPDK_Settings_Profile_Options')) {
         public function render_profile_form_fields($profileuser)
         {
 
-            $is_profile = ( is_object($profileuser) && isset($profileuser->ID) ) ? true : false;
-            $profile_id = ( $is_profile ) ? $profileuser->ID : 0;
-            $errors     = ( ! empty($profile_id) ) ? get_user_meta($profile_id, '_pb_settings_errors_' . $this->unique, true) : array();
-            $errors     = ( ! empty($errors) ) ? $errors : array();
-            $class      = ( $this->args['class'] ) ? '' . $this->args['class'] : '';
+            $is_profile = (is_object($profileuser) && isset($profileuser->ID)) ? true : false;
+            $profile_id = ($is_profile) ? $profileuser->ID : 0;
+            $errors     = (! empty($profile_id)) ? get_user_meta($profile_id, '_pb_settings_errors_' . $this->unique, true) : array();
+            $errors     = (! empty($errors)) ? $errors : array();
+            $class      = ($this->args['class']) ? '' . $this->args['class'] : '';
 
             if (! empty($errors)) {
                 delete_user_meta($profile_id, '_pb_settings_errors_' . $this->unique);
@@ -104,11 +105,11 @@ if (! class_exists('WPDK_Settings_Profile_Options')) {
             wp_nonce_field('pb_settings_profile_nonce', 'pb_settings_profile_nonce' . $this->unique);
 
             foreach ($this->sections as $section) {
-                $section_icon  = ( ! empty($section['icon']) ) ? '<i class="wpdk_settings-section-icon ' . esc_attr($section['icon']) . '"></i>' : '';
-                $section_title = ( ! empty($section['title']) ) ? $section['title'] : '';
+                $section_icon  = (! empty($section['icon'])) ? '<i class="wpdk_settings-section-icon ' . esc_attr($section['icon']) . '"></i>' : '';
+                $section_title = (! empty($section['title'])) ? $section['title'] : '';
 
-                echo ( $section_title || $section_icon ) ? '<h2>' . esc_html($section_icon . $section_title) . '</h2>' : '';
-                echo ( ! empty($section['description']) ) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . esc_html($section['description']) . '</div>' : '';
+                echo ($section_title || $section_icon) ? '<h2>' . esc_html($section_icon . $section_title) . '</h2>' : '';
+                echo (! empty($section['description'])) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . esc_html($section['description']) . '</div>' : '';
 
                 if (! empty($section['fields'])) {
                     foreach ($section['fields'] as $field) {
@@ -136,16 +137,16 @@ if (! class_exists('WPDK_Settings_Profile_Options')) {
             $data     = array();
             $errors   = array();
             $noncekey = 'pb_settings_profile_nonce' . $this->unique;
-            $nonce    = ( ! empty($_POST[ $noncekey ]) ) ? sanitize_text_field(wp_unslash($_POST[ $noncekey ])) : '';
+            $nonce    = (! empty($_POST[ $noncekey ])) ? sanitize_text_field(wp_unslash($_POST[ $noncekey ])) : '';
 
-            if (( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) || ! wp_verify_nonce($nonce, 'pb_settings_profile_nonce')) {
+            if ((defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) || ! wp_verify_nonce($nonce, 'pb_settings_profile_nonce')) {
                 return $user_id;
             }
 
             // XSS ok.
             // No worries, This "POST" requests is sanitizing in the below foreach.
 
-            $request = ( ! empty($_POST[ $this->unique ]) ) ? map_deep(wp_unslash($_POST[ $this->unique ]), 'sanitize_text_field') : array();
+            $request = (! empty($_POST[ $this->unique ])) ? map_deep(wp_unslash($_POST[ $this->unique ]), 'sanitize_text_field') : array();
             if (! empty($request)) {
                 foreach ($this->sections as $section) {
                     if (! empty($section['fields'])) {

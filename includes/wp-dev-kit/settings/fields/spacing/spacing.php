@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -54,20 +55,20 @@ if (! class_exists('WPDK_Settings_Field_spacing')) {
             );
 
             $value   = wp_parse_args($this->value, $default_values);
-            $unit    = ( count($args['units']) === 1 && ! empty($args['unit']) ) ? $args['units'][0] : '';
-            $is_unit = ( ! empty($unit) ) ? ' wpdk_settings--is-unit' : '';
+            $unit    = (count($args['units']) === 1 && ! empty($args['unit'])) ? $args['units'][0] : '';
+            $is_unit = (! empty($unit)) ? ' wpdk_settings--is-unit' : '';
 
             echo $this->field_before();
 
             echo '<div class="wpdk_settings--inputs" data-depend-id="' . esc_attr($this->field['id']) . '">';
 
             if (! empty($args['all'])) {
-                $placeholder = ( ! empty($args['all_placeholder']) ) ? ' placeholder="' . esc_attr($args['all_placeholder']) . '"' : '';
+                $placeholder = (! empty($args['all_placeholder'])) ? ' placeholder="' . esc_attr($args['all_placeholder']) . '"' : '';
 
                 echo '<div class="wpdk_settings--input">';
-                echo ( ! empty($args['all_icon']) ) ? '<span class="wpdk_settings--label wpdk_settings--icon">' . $args['all_icon'] . '</span>' : '';
+                echo (! empty($args['all_icon'])) ? '<span class="wpdk_settings--label wpdk_settings--icon">' . $args['all_icon'] . '</span>' : '';
                 echo '<input type="number" name="' . esc_attr($this->field_name('[all]')) . '" value="' . esc_attr($value['all']) . '"' . $placeholder . ' class="wpdk_settings-input-number' . esc_attr($is_unit) . '" step="any" />';
-                echo ( $unit ) ? '<span class="wpdk_settings--label wpdk_settings--unit">' . esc_attr($args['units'][0]) . '</span>' : '';
+                echo ($unit) ? '<span class="wpdk_settings--label wpdk_settings--unit">' . esc_attr($args['units'][0]) . '</span>' : '';
                 echo '</div>';
             } else {
                 $properties = array();
@@ -78,15 +79,15 @@ if (! class_exists('WPDK_Settings_Field_spacing')) {
                     }
                 }
 
-                $properties = ( $properties === array( 'right', 'left' ) ) ? array_reverse($properties) : $properties;
+                $properties = ($properties === array( 'right', 'left' )) ? array_reverse($properties) : $properties;
 
                 foreach ($properties as $property) {
-                    $placeholder = ( ! empty($args[$property . '_placeholder']) ) ? ' placeholder="' . esc_attr($args[$property . '_placeholder']) . '"' : '';
+                    $placeholder = (! empty($args[$property . '_placeholder'])) ? ' placeholder="' . esc_attr($args[$property . '_placeholder']) . '"' : '';
 
                     echo '<div class="wpdk_settings--input">';
-                    echo ( ! empty($args[$property . '_icon']) ) ? '<span class="wpdk_settings--label wpdk_settings--icon">' . $args[$property . '_icon'] . '</span>' : '';
+                    echo (! empty($args[$property . '_icon'])) ? '<span class="wpdk_settings--label wpdk_settings--icon">' . $args[$property . '_icon'] . '</span>' : '';
                     echo '<input type="number" name="' . esc_attr($this->field_name('[' . $property . ']')) . '" value="' . esc_attr($value[$property]) . '"' . $placeholder . ' class="wpdk_settings-input-number' . esc_attr($is_unit) . '" step="any" />';
-                    echo ( $unit ) ? '<span class="wpdk_settings--label wpdk_settings--unit">' . esc_attr($args['units'][0]) . '</span>' : '';
+                    echo ($unit) ? '<span class="wpdk_settings--label wpdk_settings--unit">' . esc_attr($args['units'][0]) . '</span>' : '';
                     echo '</div>';
                 }
             }
@@ -95,7 +96,7 @@ if (! class_exists('WPDK_Settings_Field_spacing')) {
                 echo '<div class="wpdk_settings--input">';
                 echo '<select name="' . esc_attr($this->field_name('[unit]')) . '">';
                 foreach ($args['units'] as $unit) {
-                    $selected = ( $value['unit'] === $unit ) ? ' selected' : '';
+                    $selected = ($value['unit'] === $unit) ? ' selected' : '';
                     echo '<option value="' . esc_attr($unit) . '"' . esc_attr($selected) . '>' . esc_attr($unit) . '</option>';
                 }
                 echo '</select>';
@@ -111,11 +112,11 @@ if (! class_exists('WPDK_Settings_Field_spacing')) {
         {
 
             $output    = '';
-            $element   = ( is_array($this->field['output']) ) ? join(',', $this->field['output']) : $this->field['output'];
-            $important = ( ! empty($this->field['output_important']) ) ? '!important' : '';
-            $unit      = ( ! empty($this->value['unit']) ) ? $this->value['unit'] : 'px';
+            $element   = (is_array($this->field['output'])) ? join(',', $this->field['output']) : $this->field['output'];
+            $important = (! empty($this->field['output_important'])) ? '!important' : '';
+            $unit      = (! empty($this->value['unit'])) ? $this->value['unit'] : 'px';
 
-            $mode = ( ! empty($this->field['output_mode']) ) ? $this->field['output_mode'] : 'padding';
+            $mode = (! empty($this->field['output_mode'])) ? $this->field['output_mode'] : 'padding';
 
             if ($mode === 'border-radius' || $mode === 'radius') {
                 $top    = 'border-top-left-radius';
@@ -142,10 +143,10 @@ if (! class_exists('WPDK_Settings_Field_spacing')) {
                 $output .= $left   . ':' . $this->value['all'] . $unit . $important . ';';
                 $output .= '}';
             } else {
-                $top    = ( isset($this->value['top']) && $this->value['top']    !== '' ) ? $top    . ':' . $this->value['top']    . $unit . $important . ';' : '';
-                $right  = ( isset($this->value['right']) && $this->value['right']  !== '' ) ? $right  . ':' . $this->value['right']  . $unit . $important . ';' : '';
-                $bottom = ( isset($this->value['bottom']) && $this->value['bottom'] !== '' ) ? $bottom . ':' . $this->value['bottom'] . $unit . $important . ';' : '';
-                $left   = ( isset($this->value['left']) && $this->value['left']   !== '' ) ? $left   . ':' . $this->value['left']   . $unit . $important . ';' : '';
+                $top    = (isset($this->value['top']) && $this->value['top']    !== '') ? $top    . ':' . $this->value['top']    . $unit . $important . ';' : '';
+                $right  = (isset($this->value['right']) && $this->value['right']  !== '') ? $right  . ':' . $this->value['right']  . $unit . $important . ';' : '';
+                $bottom = (isset($this->value['bottom']) && $this->value['bottom'] !== '') ? $bottom . ':' . $this->value['bottom'] . $unit . $important . ';' : '';
+                $left   = (isset($this->value['left']) && $this->value['left']   !== '') ? $left   . ':' . $this->value['left']   . $unit . $important . ';' : '';
 
                 if ($top !== '' || $right !== '' || $bottom !== '' || $left !== '') {
                     $output = $element . '{' . $top . $right . $bottom . $left . '}';

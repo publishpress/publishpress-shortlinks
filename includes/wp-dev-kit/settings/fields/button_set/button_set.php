@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
@@ -29,24 +30,24 @@ if (! class_exists('WPDK_Settings_Field_button_set')) {
                 'query_args' => array(),
             ));
 
-            $value = ( is_array($this->value) ) ? $this->value : array_filter((array) $this->value);
+            $value = (is_array($this->value)) ? $this->value : array_filter((array) $this->value);
 
             echo $this->field_before();
 
             if (isset($this->field['options'])) {
                 $options = $this->field['options'];
-                $options = ( is_array($options) ) ? $options : array_filter($this->field_data($options, false, $args['query_args']));
+                $options = (is_array($options)) ? $options : array_filter($this->field_data($options, false, $args['query_args']));
 
                 if (is_array($options) && ! empty($options)) {
                     echo '<div class="wpdk_settings-siblings wpdk_settings--button-group" data-multiple="' . esc_attr($args['multiple']) . '">';
 
                     foreach ($options as $key => $option) {
-                        $type         = ( $args['multiple'] ) ? 'checkbox' : 'radio';
-                        $extra        = ( $args['multiple'] ) ? '[]' : '';
-                        $active       = ( in_array($key, $value) || ( empty($value) && empty($key) ) ) ? ' wpdk_settings--active' : '';
-                        $checked      = ( in_array($key, $value) || ( empty($value) && empty($key) ) ) ? ' checked' : '';
+                        $type         = ($args['multiple']) ? 'checkbox' : 'radio';
+                        $extra        = ($args['multiple']) ? '[]' : '';
+                        $active       = (in_array($key, $value) || (empty($value) && empty($key))) ? ' wpdk_settings--active' : '';
+                        $checked      = (in_array($key, $value) || (empty($value) && empty($key))) ? ' checked' : '';
                         $availability = isset($option['availability']) ? $option['availability'] : '';
-                        
+
                         if (false === $availability) {
                             $is_disabled = 'disabled';
                         } elseif (true === $availability) {
@@ -63,7 +64,7 @@ if (! class_exists('WPDK_Settings_Field_button_set')) {
 
                     echo '</div>';
                 } else {
-                    echo ( ! empty($this->field['empty_message']) ) ? esc_attr($this->field['empty_message']) : esc_html__('No data available.');
+                    echo (! empty($this->field['empty_message'])) ? esc_attr($this->field['empty_message']) : esc_html__('No data available.');
                 }
             }
 

@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -23,7 +24,7 @@ if (! class_exists('WPDK_Settings_Field_color')) {
         public function render()
         {
 
-            $default_attr = ( ! empty($this->field['default']) ) ? ' data-default-color="' . esc_attr($this->field['default']) . '"' : '';
+            $default_attr = (! empty($this->field['default'])) ? ' data-default-color="' . esc_attr($this->field['default']) . '"' : '';
 
             echo $this->field_before();
             echo '<input type="text" name="' . esc_attr($this->field_name()) . '" value="' . esc_attr($this->value) . '" class="wpdk_settings-color"' . $default_attr . $this->field_attributes() . '/>';
@@ -34,9 +35,9 @@ if (! class_exists('WPDK_Settings_Field_color')) {
         {
 
             $output    = '';
-            $elements  = ( is_array($this->field['output']) ) ? $this->field['output'] : array_filter((array) $this->field['output']);
-            $important = ( ! empty($this->field['output_important']) ) ? '!important' : '';
-            $mode      = ( ! empty($this->field['output_mode']) ) ? $this->field['output_mode'] : 'color';
+            $elements  = (is_array($this->field['output'])) ? $this->field['output'] : array_filter((array) $this->field['output']);
+            $important = (! empty($this->field['output_important'])) ? '!important' : '';
+            $mode      = (! empty($this->field['output_mode'])) ? $this->field['output_mode'] : 'color';
 
             if (! empty($elements) && isset($this->value) && $this->value !== '') {
                 foreach ($elements as $key_property => $element) {

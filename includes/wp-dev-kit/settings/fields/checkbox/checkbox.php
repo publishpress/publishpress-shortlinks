@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -28,25 +29,25 @@ if (! class_exists('WPDK_Settings_Field_checkbox')) {
             'query_args' => array(),
             ));
 
-            $inline_class = ( $args['inline'] ) ? ' class="wpdk_settings--inline-list"' : '';
+            $inline_class = ($args['inline']) ? ' class="wpdk_settings--inline-list"' : '';
 
             echo $this->field_before();
 
             if (isset($this->field['options'])) {
-                $value   = ( is_array($this->value) ) ? $this->value : array_filter((array) $this->value);
+                $value   = (is_array($this->value)) ? $this->value : array_filter((array) $this->value);
                 $options = $this->field['options'];
-                $options = ( is_array($options) ) ? $options : array_filter($this->field_data($options, false, $args['query_args']));
+                $options = (is_array($options)) ? $options : array_filter($this->field_data($options, false, $args['query_args']));
 
                 if (is_array($options) && ! empty($options)) {
                     echo '<ul' . $inline_class . '>';
 
                     foreach ($options as $option_key => $option_value) {
                         if (is_array($option_value) && ! empty($option_value)) {
-                              echo '<li>';
+                            echo '<li>';
                             echo '<ul>';
-                              echo '<li><strong>' . esc_attr($option_key) . '</strong></li>';
+                            echo '<li><strong>' . esc_attr($option_key) . '</strong></li>';
                             foreach ($option_value as $sub_key => $sub_value) {
-                                $checked = ( in_array($sub_key, $value) ) ? ' checked' : '';
+                                $checked = (in_array($sub_key, $value)) ? ' checked' : '';
                                 echo '<li>';
                                 echo '<label>';
                                 echo '<input type="checkbox" name="' . esc_attr($this->field_name('[]')) . '" value="' . esc_attr($sub_key) . '"' . $this->field_attributes() . esc_attr($checked) . '/>';
@@ -54,10 +55,10 @@ if (! class_exists('WPDK_Settings_Field_checkbox')) {
                                 echo '</label>';
                                 echo '</li>';
                             }
-                              echo '</ul>';
-                              echo '</li>';
+                            echo '</ul>';
+                            echo '</li>';
                         } else {
-                            $checked = ( in_array($option_key, $value) ) ? ' checked' : '';
+                            $checked = (in_array($option_key, $value)) ? ' checked' : '';
 
                             echo '<li>';
                             echo '<label>';
@@ -70,13 +71,13 @@ if (! class_exists('WPDK_Settings_Field_checkbox')) {
 
                     echo '</ul>';
                 } else {
-                    echo ( ! empty($this->field['empty_message']) ) ? esc_attr($this->field['empty_message']) : esc_html__('No data available.');
+                    echo (! empty($this->field['empty_message'])) ? esc_attr($this->field['empty_message']) : esc_html__('No data available.');
                 }
             } else {
                 echo '<label class="wpdk_settings-checkbox">';
                 echo '<input type="hidden" name="' . esc_attr($this->field_name()) . '" value="' . $this->value . '" class="wpdk_settings--input"' . $this->field_attributes() . '/>';
                 echo '<input type="checkbox" name="_pseudo" class="wpdk_settings--checkbox"' . esc_attr(checked($this->value, 1, false)) . $this->field_attributes() . '/>';
-                echo ( ! empty($this->field['label']) ) ? '<span class="wpdk_settings--text">' . esc_attr($this->field['label']) . '</span>' : '';
+                echo (! empty($this->field['label'])) ? '<span class="wpdk_settings--text">' . esc_attr($this->field['label']) . '</span>' : '';
                 echo '</label>';
             }
 

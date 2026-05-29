@@ -1,0 +1,390 @@
+.block-editor-format-toolbar__link-container .tinypress-shortlink-icon,
+.components-toolbar__control[aria-label*="Shortlink"] svg {
+  color: #FFCC00 !important;
+  fill: #FFCC00 !important;
+}
+
+.components-toolbar__control[aria-label*="Shortlink"] svg path {
+  fill: #FFCC00 !important;
+}
+#tinypress-shortlink-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100000;
+}
+
+.tinypress-shortlink-modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.tinypress-shortlink-modal-content {
+  position: absolute;
+  top: 96px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 460px;
+  background-color: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 4px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  max-height: min(680px, calc(100vh - 128px));
+  overflow: hidden;
+}
+
+.tinypress-shortlink-modal-header {
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tinypress-shortlink-modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.tinypress-shortlink-modal-close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  color: #666;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.tinypress-shortlink-modal-close:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.tinypress-shortlink-modal-body {
+  padding: 12px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.tinypress-shortlink-search-section {
+  margin-bottom: 16px;
+}
+
+.tinypress-shortlink-search-wrapper {
+  display: flex;
+  gap: 0;
+  margin-bottom: 8px;
+}
+
+.tinypress-shortlink-search-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-right: 0;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.tinypress-shortlink-search-input:focus {
+  border-color: #0073aa;
+  box-shadow: 0 0 0 1px #0073aa;
+}
+
+.tinypress-shortlink-insert-btn,
+.tinypress-shortlink-toggle-options {
+  width: 40px;
+  min-width: 40px;
+  padding: 6px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-left: 0;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tinypress-shortlink-toggle-options {
+  border-radius: 0 4px 4px 0;
+}
+
+.tinypress-shortlink-insert-btn:hover,
+.tinypress-shortlink-toggle-options:hover {
+  background-color: #f6f7f7;
+  border-color: #999;
+}
+
+.tinypress-shortlink-insert-btn .dashicons,
+.tinypress-shortlink-toggle-options .dashicons {
+  font-size: 18px;
+  width: auto;
+  height: auto;
+}
+
+.tinypress-shortlink-advanced-panel {
+  margin-top: 12px;
+}
+
+.tinypress-shortlink-options {
+  padding: 12px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.tinypress-shortlink-options label {
+  display: block;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.tinypress-shortlink-options label:last-child {
+  margin-bottom: 0;
+}
+
+.tinypress-shortlink-options input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.tinypress-shortlink-results-wrapper {
+  margin-bottom: 12px;
+  min-height: 40px;
+}
+
+.tinypress-shortlink-loading {
+  text-align: center;
+  padding: 20px;
+}
+
+.tinypress-shortlink-loading .spinner {
+  margin: auto;
+}
+
+.tinypress-shortlink-no-results,
+.tinypress-shortlink-error,
+.tinypress-shortlink-success {
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.tinypress-shortlink-error {
+  background-color: #fee;
+  color: #c00;
+  border-radius: 4px;
+  border: 1px solid #fcc;
+}
+
+.tinypress-shortlink-success {
+  background-color: #edfaef;
+  color: #1e7e34;
+  border-radius: 4px;
+  border: 1px solid #b7e4c0;
+}
+
+.tinypress-shortlink-results {
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.tinypress-shortlink-result-item {
+  width: 100%;
+  appearance: none;
+  background: #fff;
+  border: 0;
+  padding: 10px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  display: block;
+  text-align: left;
+  transition: background-color 0.2s;
+}
+
+.tinypress-shortlink-result-item:hover,
+.tinypress-shortlink-result-item.is-selected {
+  background-color: #f5f5f5;
+}
+
+.tinypress-shortlink-result-item.is-selected {
+  box-shadow: inset 3px 0 0 #0073aa;
+}
+
+.tinypress-shortlink-result-item:last-child {
+  border-bottom: none;
+}
+
+.tinypress-shortlink-result-title {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tinypress-shortlink-result-url {
+  display: block;
+  font-size: 13px;
+  color: #0073aa;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tinypress-shortlink-result-target {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tinypress-shortlink-create-section {
+  padding-top: 12px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.tinypress-shortlink-create-section h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.tinypress-shortlink-form-group {
+  margin-bottom: 12px;
+}
+
+.tinypress-shortlink-form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #666;
+}
+
+.tinypress-shortlink-form-group input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.tinypress-shortlink-form-group input:focus {
+  border-color: #0073aa;
+  box-shadow: 0 0 0 1px #0073aa;
+}
+
+.tinypress-shortlink-create-btn {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: #0073aa;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.tinypress-shortlink-create-btn:hover:not(:disabled) {
+  background-color: #005a87;
+}
+
+.tinypress-shortlink-create-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tinypress-shortlink-modal-footer {
+  padding: 12px 16px;
+  border-top: 1px solid #e0e0e0;
+  text-align: right;
+}
+
+.tinypress-shortlink-modal-close-btn {
+  padding: 6px 16px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.tinypress-shortlink-modal-close-btn:hover {
+  background-color: #e0e0e0;
+  border-color: #999;
+}
+
+.tinypress-shortlink {
+  color: #008000;
+  text-decoration: underline dotted;
+}
+
+.tinypress-shortlink:hover {
+  opacity: 0.8;
+}
+
+.wp-block-editor__block-toolbar .wp-block-editor-rich-text__inline-toolbar {
+  z-index: 10;
+}
+
+@media (max-width: 600px) {
+  .tinypress-shortlink-modal-content {
+    width: 95%;
+    max-width: none;
+  }
+
+  .tinypress-shortlink-search-wrapper {
+    flex-wrap: nowrap;
+  }
+
+  .tinypress-shortlink-search-input {
+    min-width: 0;
+  }
+
+  .tinypress-shortlink-insert-btn,
+  .tinypress-shortlink-toggle-options {
+    flex: 0 0 40px;
+  }
+}
+

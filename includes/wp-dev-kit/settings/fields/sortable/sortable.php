@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -30,12 +31,12 @@ if (! class_exists('WPDK_Settings_Field_sortable')) {
             $pre_sortby = array();
             $pre_fields = array();
 
-          // Add array-keys to defined fields for sort by
+            // Add array-keys to defined fields for sort by
             foreach ($this->field['fields'] as $key => $field) {
                 $pre_fields[$field['id']] = $field;
             }
 
-          // Set sort by by saved-value or default-value
+            // Set sort by by saved-value or default-value
             if (! empty($this->value)) {
                 foreach ($this->value as $key => $value) {
                     $pre_sortby[$key] = $pre_fields[$key];
@@ -57,9 +58,9 @@ if (! class_exists('WPDK_Settings_Field_sortable')) {
 
                 echo '<div class="wpdk_settings-sortable-content">';
 
-                $field_default = ( isset($this->field['default'][$key]) ) ? $this->field['default'][$key] : '';
-                $field_value   = ( isset($this->value[$key]) ) ? $this->value[$key] : $field_default;
-                $unique_id     = ( ! empty($this->unique) ) ? $this->unique . '[' . $this->field['id'] . ']' : $this->field['id'];
+                $field_default = (isset($this->field['default'][$key])) ? $this->field['default'][$key] : '';
+                $field_value   = (isset($this->value[$key])) ? $this->value[$key] : $field_default;
+                $unique_id     = (! empty($this->unique)) ? $this->unique . '[' . $this->field['id'] . ']' : $this->field['id'];
 
                 WPDK_Settings::field($field, $field_value, $unique_id, 'field/sortable');
 

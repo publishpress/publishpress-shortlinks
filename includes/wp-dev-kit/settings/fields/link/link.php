@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -37,9 +38,9 @@ if (! class_exists('WPDK_Settings_Field_link')) {
 
             $value = wp_parse_args($this->value, $default_values);
 
-            $hidden = ( ! empty($value['url']) || ! empty($value['url']) || ! empty($value['url']) ) ? ' hidden' : '';
+            $hidden = (! empty($value['url']) || ! empty($value['url']) || ! empty($value['url'])) ? ' hidden' : '';
 
-            $maybe_hidden = ( empty($hidden) ) ? ' hidden' : '';
+            $maybe_hidden = (empty($hidden)) ? ' hidden' : '';
 
             echo $this->field_before();
 

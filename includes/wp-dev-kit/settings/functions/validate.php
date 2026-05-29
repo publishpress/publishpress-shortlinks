@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *

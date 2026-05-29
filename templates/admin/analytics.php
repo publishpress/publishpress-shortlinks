@@ -6,6 +6,10 @@
 
 use WPDK\Utils;
 
+if (! current_user_can('tinypress_view_shortlink_analytics')) {
+    return;
+}
+
 $post_id = get_the_ID();
 
 global $wpdb;

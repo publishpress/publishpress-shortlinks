@@ -37,6 +37,12 @@ if (! function_exists('tinypress_generate_random_string')) {
      */
     function tinypress_generate_random_string($length = 5)
     {
+        $length = absint(apply_filters('tinypress_random_string_length', $length));
+
+        if ($length < 1) {
+            $length = 5;
+        }
+
         $characters       = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString     = '';
@@ -57,16 +63,22 @@ if (! function_exists('tinypress_create_url_slug')) {
      *
      * @return mixed|string
      */
-    function tinypress_create_url_slug($given_string = '')
+    function tinypress_create_url_slug($given_string = '', $length = 0)
     {
         global $wpdb;
 
-        $given_string = empty($given_string) ? tinypress_generate_random_string() : $given_string;
+        $length       = $length ? absint($length) : absint(apply_filters('tinypress_random_slug_length', 5));
+        $given_string = empty($given_string) ? tinypress_generate_random_string($length) : $given_string;
         // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Collision check for unique slug generation; must query directly
-        $post_id      = $wpdb->get_var($wpdb->prepare("SELECT post_id FROM {$wpdb->postmeta} WHERE meta_value like %s", $given_string));
+        $post_id      = $wpdb->get_var(
+            $wpdb->prepare(
+                "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'tiny_slug' AND meta_value = %s LIMIT 1",
+                $given_string
+            )
+        );
 
         if (! empty($post_id)) {
-            $given_string = tinypress_create_url_slug();
+            $given_string = tinypress_create_url_slug('', $length);
         }
 
         return $given_string;
@@ -149,7 +161,7 @@ if (! function_exists('tinypress_get_tiny_slug_copier')) {
                 echo '<input type="text" class="tinypress-tiny-slug" name="tinypress_meta_main[tiny_slug]" value="' . esc_attr($tiny_slug) . '" placeholder="ad34o">';
             } else {
                 echo '<input type="text" class="tinypress-tiny-slug" name="tinypress_meta_side_' . esc_attr($post->post_type) . '[tiny_slug]" value="' . esc_attr($tiny_slug) . '" placeholder="ad34o">';
-            
+
                 $link_posts = get_posts(array(
                 'post_type'      => 'tinypress_link',
                 'posts_per_page' => 1,
@@ -163,7 +175,7 @@ if (! function_exists('tinypress_get_tiny_slug_copier')) {
                 ),
                 'fields'         => 'ids'
                 ));
-            
+
                 if (! empty($link_posts)) {
                     $edit_url = get_edit_post_link($link_posts[0]);
                     echo '<a href="' . esc_url($edit_url) . '" target="_blank" class="tinypress-settings-link">' . esc_html__('Edit shortlink settings', 'tinypress') . '</a>';
@@ -200,19 +212,136 @@ if (! function_exists('tinypress_get_roles')) {
     }
 }
 
-
-if (! function_exists('tinypress_create_shorten_url')) {
+if (! function_exists('tinypress_get_post_status_display_label')) {
     /**
-     * Create shorten url
+     * Get a readable label for a post status.
      *
-     * @param $args
-     *
-     * @return int|mixed|WP_Error|null
+     * @param string $status Post status key.
+     * @return string
      */
-    function tinypress_create_shorten_url($args = array())
+    function tinypress_get_post_status_display_label($status)
     {
+        $core_labels = array(
+            'publish' => esc_html__('Published', 'tinypress'),
+            'draft'   => esc_html__('Draft', 'tinypress'),
+            'pending' => esc_html__('Pending Review', 'tinypress'),
+            'private' => esc_html__('Private', 'tinypress'),
+            'future'  => esc_html__('Scheduled', 'tinypress'),
+        );
 
-        if (empty($target_url = Utils::get_args_option('target_url', $args))) {
+        if (isset($core_labels[$status])) {
+            return $core_labels[$status];
+        }
+
+        if (function_exists('tinypress_get_status_label')) {
+            return tinypress_get_status_label($status);
+        }
+
+        $status_obj = get_post_status_object($status);
+        if ($status_obj && ! empty($status_obj->label)) {
+            return $status_obj->label;
+        }
+
+        return ucfirst(str_replace(array( '-', '_' ), ' ', $status));
+    }
+}
+
+if (! function_exists('tinypress_get_supported_post_status_options')) {
+    /**
+     * Get core and PublishPress Statuses-supported post status options.
+     *
+     * @param bool $include_publish Include the published status option.
+     * @return array
+     */
+    function tinypress_get_supported_post_status_options($include_publish = true)
+    {
+        $options = array(
+            'publish' => esc_html__('Published', 'tinypress'),
+            'draft'   => esc_html__('Draft', 'tinypress'),
+            'pending' => esc_html__('Pending Review', 'tinypress'),
+            'private' => esc_html__('Private', 'tinypress'),
+            'future'  => esc_html__('Scheduled', 'tinypress'),
+        );
+
+        if (! $include_publish) {
+            unset($options['publish']);
+        }
+
+        if (class_exists('TINYPRESS_Statuses')) {
+            $statuses_instance = TINYPRESS_Statuses::instance();
+            if ($statuses_instance && method_exists($statuses_instance, 'get_custom_statuses')) {
+                $custom_statuses = $statuses_instance->get_custom_statuses();
+
+                foreach ($custom_statuses as $status_name => $status_obj) {
+                    if (! empty($status_obj->label)) {
+                        $options[$status_name] = $status_obj->label;
+                    } elseif (! empty($status_obj->labels) && is_object($status_obj->labels) && ! empty($status_obj->labels->name)) {
+                        $options[$status_name] = $status_obj->labels->name;
+                    } else {
+                        $options[$status_name] = ucfirst(str_replace(array( '-', '_' ), ' ', $status_name));
+                    }
+                }
+            }
+        }
+
+        return apply_filters('tinypress_supported_post_status_options', $options, $include_publish);
+    }
+}
+
+if (! function_exists('tinypress_get_non_public_notice_default_statuses')) {
+    /**
+     * Get default statuses enabled for non-public frontend notices.
+     *
+     * @return array
+     */
+    function tinypress_get_non_public_notice_default_statuses()
+    {
+        return apply_filters(
+            'tinypress_non_public_notice_default_statuses',
+            array_keys(tinypress_get_supported_post_status_options(false))
+        );
+    }
+}
+
+if (! function_exists('tinypress_get_non_public_notice_default_messages')) {
+    /**
+     * Get default messages for non-public frontend notices.
+     *
+     * Supported placeholders: {status}, {date}, {title}.
+     *
+     * @return array
+     */
+    function tinypress_get_non_public_notice_default_messages()
+    {
+        $messages = array(
+            'draft'   => esc_html__('This post is in {status} status. It is not visible to the public.', 'tinypress'),
+            'pending' => esc_html__('This post is in {status} status. It is not visible to the public.', 'tinypress'),
+            'private' => esc_html__('This post is in {status} status. It is not visible to the public.', 'tinypress'),
+            'future'  => esc_html__('This post is in {status} status. It will become visible to the public on {date}.', 'tinypress'),
+        );
+
+        foreach (tinypress_get_supported_post_status_options(false) as $status => $label) {
+            if (! isset($messages[$status])) {
+                $messages[$status] = esc_html__('This post is in {status} status. It is not visible to the public.', 'tinypress');
+            }
+        }
+
+        return apply_filters('tinypress_non_public_notice_default_messages', $messages);
+    }
+}
+
+if (! function_exists('tinypress_validate_target_url')) {
+    /**
+     * Validate and sanitize a target URL for shortlink creation/import.
+     *
+     * @param string $target_url Raw target URL.
+     * @return string|WP_Error
+     */
+    function tinypress_validate_target_url($target_url)
+    {
+        $target_url = trim((string) $target_url);
+
+        if (empty($target_url)) {
             return new WP_Error(404, esc_html__('Target url not found.', 'tinypress'));
         }
 
@@ -227,6 +356,28 @@ if (! function_exists('tinypress_create_shorten_url')) {
 
         if (empty($target_url)) {
             return new WP_Error('invalid_url', esc_html__('Invalid URL.', 'tinypress'));
+        }
+
+        return $target_url;
+    }
+}
+
+
+if (! function_exists('tinypress_create_shorten_url')) {
+    /**
+     * Create shorten url
+     *
+     * @param $args
+     *
+     * @return int|mixed|WP_Error|null
+     */
+    function tinypress_create_shorten_url($args = array())
+    {
+
+        $target_url = tinypress_validate_target_url(Utils::get_args_option('target_url', $args));
+
+        if (is_wp_error($target_url)) {
+            return $target_url;
         }
 
         if (empty($tiny_slug = Utils::get_args_option('tiny_slug', $args, tinypress_create_url_slug()))) {
@@ -291,12 +442,12 @@ if (! function_exists('tinypress_get_tinyurl')) {
 
         // added the tiny slug
         $tiny_slug = Utils::get_meta('tiny_slug', $tinypress_link_id);
-        
+
         if (empty($tiny_slug)) {
             $tiny_slug = tinypress_create_url_slug();
             update_post_meta($tinypress_link_id, 'tiny_slug', $tiny_slug);
         }
-        
+
         $tinyurl_parts[] = $tiny_slug;
 
         return apply_filters('TINYPRESS/Filters/get_tinyurl', implode('/', $tinyurl_parts), $tinypress_link_id, $tinyurl_parts);

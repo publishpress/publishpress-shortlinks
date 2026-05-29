@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
@@ -35,13 +36,13 @@ if (! class_exists('WPDK_Settings_Field_group')) {
                 'accordion_title_by_prefix' => ' ',
             ));
 
-            $title_prefix    = ( ! empty($args['accordion_title_prefix']) ) ? $args['accordion_title_prefix'] : '';
-            $title_number    = ( ! empty($args['accordion_title_number']) ) ? true : false;
-            $title_auto      = ( ! empty($args['accordion_title_auto']) ) ? true : false;
-            $title_first     = ( isset($this->field['fields'][0]['id']) ) ? $this->field['fields'][0]['id'] : $this->field['fields'][1]['id'];
-            $title_by        = ( is_array($args['accordion_title_by']) ) ? $args['accordion_title_by'] : (array) $args['accordion_title_by'];
-            $title_by        = ( empty($title_by) ) ? array( $title_first ) : $title_by;
-            $title_by_prefix = ( ! empty($args['accordion_title_by_prefix']) ) ? $args['accordion_title_by_prefix'] : '';
+            $title_prefix    = (! empty($args['accordion_title_prefix'])) ? $args['accordion_title_prefix'] : '';
+            $title_number    = (! empty($args['accordion_title_number'])) ? true : false;
+            $title_auto      = (! empty($args['accordion_title_auto'])) ? true : false;
+            $title_first     = (isset($this->field['fields'][0]['id'])) ? $this->field['fields'][0]['id'] : $this->field['fields'][1]['id'];
+            $title_by        = (is_array($args['accordion_title_by'])) ? $args['accordion_title_by'] : (array) $args['accordion_title_by'];
+            $title_by        = (empty($title_by)) ? array( $title_first ) : $title_by;
+            $title_by_prefix = (! empty($args['accordion_title_by_prefix'])) ? $args['accordion_title_by_prefix'] : '';
 
             if (preg_match('/' . preg_quote('[' . $this->field['id'] . ']') . '/', $this->unique)) {
                 echo '<div class="wpdk_settings-notice wpdk_settings-notice-danger">' . esc_html__('Error: Field ID conflict.') . '</div>';
@@ -58,16 +59,16 @@ if (! class_exists('WPDK_Settings_Field_group')) {
 
                 echo '<h4 class="wpdk_settings-cloneable-title">';
                 echo '<span class="wpdk_settings-cloneable-text">';
-                echo ( $title_number ) ? '<span class="wpdk_settings-cloneable-title-number"></span>' : '';
-                echo ( $title_prefix ) ? '<span class="wpdk_settings-cloneable-title-prefix">' . esc_attr($title_prefix) . '</span>' : '';
-                echo ( $title_auto ) ? '<span class="wpdk_settings-cloneable-value"><span class="wpdk_settings-cloneable-placeholder"></span></span>' : '';
+                echo ($title_number) ? '<span class="wpdk_settings-cloneable-title-number"></span>' : '';
+                echo ($title_prefix) ? '<span class="wpdk_settings-cloneable-title-prefix">' . esc_attr($title_prefix) . '</span>' : '';
+                echo ($title_auto) ? '<span class="wpdk_settings-cloneable-value"><span class="wpdk_settings-cloneable-placeholder"></span></span>' : '';
                 echo '</span>';
                 echo '</h4>';
 
                 echo '<div class="wpdk_settings-cloneable-content">';
                 foreach ($this->field['fields'] as $field) {
-                    $field_default = ( isset($field['default']) ) ? $field['default'] : '';
-                    $field_unique  = ( ! empty($this->unique) ) ? $this->unique . '[' . $this->field['id'] . '][0]' : $this->field['id'] . '[0]';
+                    $field_default = (isset($field['default'])) ? $field['default'] : '';
+                    $field_unique  = (! empty($this->unique)) ? $this->unique . '[' . $this->field['id'] . '][0]' : $this->field['id'] . '[0]';
 
                     WPDK_Settings::field($field, $field_default, '___' . $field_unique, 'field/group');
                 }
@@ -95,7 +96,7 @@ if (! class_exists('WPDK_Settings_Field_group')) {
                             $title = join($title_by_prefix, $titles);
                         }
 
-                        $title = ( is_array($title) ) ? reset($title) : $title;
+                        $title = (is_array($title)) ? reset($title) : $title;
 
                         echo '<div class="wpdk_settings-cloneable-item">';
 
@@ -107,17 +108,17 @@ if (! class_exists('WPDK_Settings_Field_group')) {
 
                         echo '<h4 class="wpdk_settings-cloneable-title">';
                         echo '<span class="wpdk_settings-cloneable-text">';
-                        echo ( $title_number ) ? '<span class="wpdk_settings-cloneable-title-number">' . esc_attr($num + 1) . '.</span>' : '';
-                        echo ( $title_prefix ) ? '<span class="wpdk_settings-cloneable-title-prefix">' . esc_attr($title_prefix) . '</span>' : '';
-                        echo ( $title_auto ) ? '<span class="wpdk_settings-cloneable-value">' . esc_attr($title) . '</span>' : '';
+                        echo ($title_number) ? '<span class="wpdk_settings-cloneable-title-number">' . esc_attr($num + 1) . '.</span>' : '';
+                        echo ($title_prefix) ? '<span class="wpdk_settings-cloneable-title-prefix">' . esc_attr($title_prefix) . '</span>' : '';
+                        echo ($title_auto) ? '<span class="wpdk_settings-cloneable-value">' . esc_attr($title) . '</span>' : '';
                         echo '</span>';
                         echo '</h4>';
 
                         echo '<div class="wpdk_settings-cloneable-content">';
 
                         foreach ($this->field['fields'] as $field) {
-                            $field_unique = ( ! empty($this->unique) ) ? $this->unique . '[' . $this->field['id'] . '][' . $key . ']' : $this->field['id'] . '[' . $key . ']';
-                            $field_value  = ( isset($field['id']) && isset($value[ $field['id'] ]) ) ? $value[ $field['id'] ] : '';
+                            $field_unique = (! empty($this->unique)) ? $this->unique . '[' . $this->field['id'] . '][' . $key . ']' : $this->field['id'] . '[' . $key . ']';
+                            $field_value  = (isset($field['id']) && isset($value[ $field['id'] ])) ? $value[ $field['id'] ] : '';
 
                             WPDK_Settings::field($field, $field_value, $field_unique, 'field/group');
                         }

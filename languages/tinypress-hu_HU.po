@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
-"PO-Revision-Date: 2026-04-29 12:57+0000\n"
+"PO-Revision-Date: 2026-05-29 08:29+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -45,7 +45,7 @@ msgstr "PublishPress"
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: includes-core/ShortlinksCoreAdmin.php:86
+#: includes-core/ShortlinksCoreAdmin.php:90
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
@@ -53,79 +53,262 @@ msgstr ""
 "A PublishPress Shortlinks Free-t használod. A Pro verzió több funkciót és "
 "támogatást kínál. "
 
-#: includes-core/ShortlinksCoreAdmin.php:87
-#: includes-core/ShortlinksCoreAdmin.php:104
-#: includes-core/ShortlinksCoreAdmin.php:105
-#: includes-core/ShortlinksCoreAdmin.php:271
+#: includes-core/ShortlinksCoreAdmin.php:91
+#: includes-core/ShortlinksCoreAdmin.php:108
+#: includes-core/ShortlinksCoreAdmin.php:109
 msgid "Upgrade to Pro"
 msgstr "Frissítés Pro verzióra"
 
-#: includes-core/ShortlinksCoreAdmin.php:117
-#: includes-core/ShortlinksCoreAdmin.php:196
+#: includes-core/ShortlinksCoreAdmin.php:119
+#: includes-core/ShortlinksCoreAdmin.php:120
+#: includes-core/ShortlinksCoreAdmin.php:183
+msgid "Link Health"
+msgstr "Link Egészség"
+
+#: includes-core/ShortlinksCoreAdmin.php:133
 msgid "Pro Feature"
 msgstr "Pro funkció"
 
-#: includes-core/ShortlinksCoreAdmin.php:120
-#: includes-core/ShortlinksCoreAdmin.php:199
+#: includes-core/ShortlinksCoreAdmin.php:136
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "Ez a funkció a PublishPress Shortlinks Pro-ban érhető el."
 
-#: includes-core/ShortlinksCoreAdmin.php:135
-#: includes-core/ShortlinksCoreAdmin.php:158
-msgid "Show Expiration Notice"
-msgstr "Lejárati értesítés megjelenítése"
+#: includes-core/ShortlinksCoreAdmin.php:154
+#: includes-core/ShortlinksCoreAdmin.php:159
+msgid "Health"
+msgstr "Egészség"
 
-#: includes-core/ShortlinksCoreAdmin.php:139
-msgid "Display a brief notice before redirecting expired links."
-msgstr "Egy rövid értesítést jelenít meg a lejárt linkek átirányítása előtt."
+#: includes-core/ShortlinksCoreAdmin.php:174, fuzzy
+msgid "Pro"
+msgstr "Pro"
 
-#: includes-core/ShortlinksCoreAdmin.php:153
+#: includes-core/ShortlinksCoreAdmin.php:185
+msgid ""
+"Check whether your shortlinks redirect visitors to working destination "
+"pages."
+msgstr ""
+"Ellenőrizze, hogy a rövidlinkek átirányítják-e a látogatókat működő "
+"céloldalakra."
+
+#: includes-core/ShortlinksCoreAdmin.php:193
+msgid "Check Visible Links"
+msgstr "Látható Linkek Ellenőrzése"
+
+#: includes-core/ShortlinksCoreAdmin.php:197
+msgid "Check All Links"
+msgstr "Összes Link Ellenőrzése"
+
+#: includes-core/ShortlinksCoreAdmin.php:204
+#: includes/classes/class-columns-link.php:51
+#: includes/classes/class-columns-link.php:372
+#: includes/classes/class-gutenberg-shortlink.php:159
+#: includes/classes/class-hooks.php:231
+#: includes/classes/class-table-logs.php:164
+#: templates/admin-modal-new-link.php:29
+msgid "Shortlink"
+msgstr "Rövidlink"
+
+#: includes-core/ShortlinksCoreAdmin.php:205
+#: includes/classes/class-gutenberg-shortlink.php:169
+#: includes/classes/class-import-export.php:1033
+msgid "Target URL"
+msgstr "Cél URL"
+
+#: includes-core/ShortlinksCoreAdmin.php:206
+#: includes/classes/class-meta-boxes.php:460
+msgid "Status"
+msgstr "Állapot"
+
+#: includes-core/ShortlinksCoreAdmin.php:207, fuzzy
+msgid "HTTP"
+msgstr "HTTP"
+
+#: includes-core/ShortlinksCoreAdmin.php:208
+msgid "Redirects"
+msgstr "Átirányítások"
+
+#: includes-core/ShortlinksCoreAdmin.php:209
+msgid "Final URL"
+msgstr "Végső URL"
+
+#: includes-core/ShortlinksCoreAdmin.php:216
+msgid "Working"
+msgstr "Működő"
+
+#: includes-core/ShortlinksCoreAdmin.php:224
+msgid "Broken"
+msgstr "Törött"
+
+#: includes-core/ShortlinksCoreAdmin.php:247
+#: includes-core/ShortlinksCoreAdmin.php:271
 msgid "Expired Redirect Settings"
 msgstr "Lejárt átirányítás beállításai"
 
-#: includes-core/ShortlinksCoreAdmin.php:156
+#: includes-core/ShortlinksCoreAdmin.php:250
+#: includes-core/ShortlinksCoreAdmin.php:274
+#: includes/classes/class-import-export.php:1044
 msgid "Expired Redirect URL"
 msgstr "Lejárt átirányítás URL"
 
-#: includes-core/ShortlinksCoreAdmin.php:161
-msgid "Display a brief notice before redirecting."
-msgstr "Egy rövid értesítést jelenít meg az átirányítás előtt."
+#: includes-core/ShortlinksCoreAdmin.php:251
+msgid "Choose where visitors should go when they click an expired link."
+msgstr ""
+"Válassza ki, hova menjenek a látogatók, amikor egy lejárt linkre "
+"kattintanak."
 
-#: includes-core/ShortlinksCoreAdmin.php:233
-#: includes-core/ShortlinksCoreAdmin.php:234
-msgid "Import / Export"
-msgstr "Importálás / Exportálás"
-
-#: includes-core/ShortlinksCoreAdmin.php:249
-msgid "Import / Export Shortlinks"
-msgstr "Rövidlinkek importálása / exportálása"
+#: includes-core/ShortlinksCoreAdmin.php:253
+#: includes-core/ShortlinksCoreAdmin.php:277
+msgid "Show Expiration Notice"
+msgstr "Lejárati értesítés megjelenítése"
 
 #: includes-core/ShortlinksCoreAdmin.php:254
-msgid "Bulk Import & Export"
-msgstr "Tömeges importálás és exportálás"
-
-#: includes-core/ShortlinksCoreAdmin.php:255
-msgid ""
-"Import and export your shortlinks in bulk using CSV files. Migrate from "
-"other plugins or manage links across multiple sites."
+#: includes-core/ShortlinksCoreAdmin.php:278
+msgid "Display a custom notice page before automatically redirecting visitors."
 msgstr ""
-"Importáld és exportáld a rövidlinkjeidet tömegben CSV fájlok segítségével. "
-"Migrálj más pluginokból vagy kezeld a linkeket több webhelyen."
+"Jelenítsen meg egy egyedi értesítési oldalt, mielőtt automatikusan "
+"átirányítaná a látogatókat."
 
-#: includes-core/ShortlinksCoreAdmin.php:259
-msgid "CSV Export"
-msgstr "CSV exportálás"
+#: includes-core/ShortlinksCoreAdmin.php:257
+msgid "Show a notice page for expired shortlinks briefly before redirecting."
+msgstr ""
+"Jelenítsen meg egy értesítési oldalt a lejárt rövidlinkekhez, mielőtt "
+"átirányítaná őket."
 
-#: includes-core/ShortlinksCoreAdmin.php:263
-msgid "CSV Import"
-msgstr "CSV importálás"
+#: includes-core/ShortlinksCoreAdmin.php:275
+msgid "Set the default destination for all expired shortlinks."
+msgstr "Állítsa be az alapértelmezett célhelyet az összes lejárt rövidlinkhez."
 
-#: includes-core/ShortlinksCoreAdmin.php:267
-msgid "Bulk Management"
-msgstr "Tömeges kezelés"
+#: includes-core/ShortlinksCoreAdmin.php:281
+msgid ""
+"Show a notice page for expired shortlinks briefly before redirecting. You "
+"can customize the content of this message."
+msgstr ""
+"Jelenítsen meg egy értesítési oldalt a lejárt rövidlinkekhez, mielőtt "
+"átirányítaná őket. Testreszabhatja ennek az üzenetnek a tartalmát."
+
+#: includes-core/ShortlinksCoreAdmin.php:316
+#: includes-core/ShortlinksCoreAdmin.php:343
+msgid "Advanced Auto-Link Settings"
+msgstr "Fejlett Automatikus Linkbeállítások"
+
+#: includes-core/ShortlinksCoreAdmin.php:318
+#: includes-core/ShortlinksCoreAdmin.php:346
+msgid "Minimum Keyword Usage"
+msgstr "Minimum Kulcsszó Használat"
+
+#: includes-core/ShortlinksCoreAdmin.php:319
+msgid "Keyword must appear this many times before being autolinked."
+msgstr ""
+"A kulcsszónak ennyiszer kell megjelennie, mielőtt automatikusan linkké "
+"válik."
+
+#: includes-core/ShortlinksCoreAdmin.php:321
+#: includes-core/ShortlinksCoreAdmin.php:349
+msgid "Maximum Keywords Linked"
+msgstr "Maximális kulcsszavak kapcsolódva"
+
+#: includes-core/ShortlinksCoreAdmin.php:322
+msgid "Maximum number of times this keyword should be autolinked per post."
+msgstr ""
+"A maximális szám, ahányszor ez a kulcsszó automatikusan legyen "
+"összekapcsolva egy bejegyzésben."
+
+#: includes-core/ShortlinksCoreAdmin.php:347
+msgid "Default minimum times a keyword must appear before being autolinked."
+msgstr ""
+"Alapértelmezett minimális szám, ahányszor egy kulcsszónak meg kell "
+"jelennie, mielőtt automatikusan összekapcsolnák."
+
+#: includes-core/ShortlinksCoreAdmin.php:350
+msgid "Default maximum times a keyword should be autolinked per post."
+msgstr ""
+"Alapértelmezett maximális szám, ahányszor egy kulcsszót automatikusan össze "
+"kell kapcsolni egy bejegyzésben."
+
+#: includes-core/ShortlinksCoreAdmin.php:352
+msgid "Maximum Links Per Post"
+msgstr "Maximális linkek bejegyzésenként"
+
+#: includes-core/ShortlinksCoreAdmin.php:353
+msgid "Total maximum autolinks allowed per post/page."
+msgstr "Összes maximális automatikus link, amely megengedett egy bejegyzésen/lapon."
+
+#: includes-core/ShortlinksCoreAdmin.php:355
+msgid "Minimum Character Length"
+msgstr "Minimális karakterhossz"
+
+#: includes-core/ShortlinksCoreAdmin.php:356
+msgid "Keywords shorter than this will not be autolinked."
+msgstr "A rövidebb kulcsszavakat nem fogják automatikusan összekapcsolni."
+
+#: includes-core/ShortlinksCoreAdmin.php:358
+msgid "Maximum Character Length"
+msgstr "Maximális karakterhossz"
+
+#: includes-core/ShortlinksCoreAdmin.php:359
+msgid "Keywords longer than this will not be autolinked."
+msgstr "A hosszabb kulcsszavakat nem fogják automatikusan összekapcsolni."
+
+#: includes-core/ShortlinksCoreAdmin.php:380
+#: includes/classes/class-settings.php:584
+msgid "Auto-Link Exceptions"
+msgstr "Automatikus link kivételek"
+
+#: includes-core/ShortlinksCoreAdmin.php:382
+msgid "Exclude Terms from Auto Links"
+msgstr "Kifejezések kizárása az automatikus linkekből"
+
+#: includes-core/ShortlinksCoreAdmin.php:383
+msgid "These terms will never be autolinked."
+msgstr "Ezeket a kifejezéseket soha nem fogják automatikusan összekapcsolni."
+
+#: includes-core/ShortlinksCoreAdmin.php:385
+msgid "Prevent Auto Links Inside Classes or IDs"
+msgstr "Automatikus linkek megakadályozása osztályokban vagy azonosítókban"
+
+#: includes-core/ShortlinksCoreAdmin.php:386
+msgid ""
+"Content inside elements with these classes or IDs will not have autolinks "
+"applied."
+msgstr ""
+"A tartalom az ilyen osztályú vagy azonosítójú elemekben nem kap automatikus "
+"linkeket."
+
+#: includes-core/ShortlinksCoreAdmin.php:388
+msgid "Prevent Auto Links Inside Elements"
+msgstr "Automatikus linkek megakadályozása elemekben"
+
+#: includes-core/ShortlinksCoreAdmin.php:389
+msgid "Terms inside these HTML tags will not have autolinks applied."
+msgstr "A kifejezések ezekben a HTML tagekben nem kapnak automatikus linkeket."
+
+#: includes-core/ShortlinksCoreAdmin.php:402
+msgid "Prevent Auto Links on Shortcodes"
+msgstr "Automatikus linkek megakadályozása rövidkódokon"
+
+#: includes-core/ShortlinksCoreAdmin.php:403
+msgid "Terms inside these shortcodes will not have autolinks applied."
+msgstr "A kifejezések ezekben a rövidkódokban nem kapnak automatikus linkeket."
+
+#: includes-core/ShortlinksCoreAdmin.php:405
+msgid "Prevent Auto Links on Blocks"
+msgstr "Automatikus linkek megakadályozása blokkokon"
+
+#: includes-core/ShortlinksCoreAdmin.php:406
+msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
+msgstr ""
+"A Gutenberg blokkokban található kifejezésekre nem lesz automatikus link "
+"alkalmazva."
+
+#: includes-core/ShortlinksCoreAdmin.php:407
+msgid "Search and select blocks..."
+msgstr "Blokkok keresése és kiválasztása..."
 
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:200
+#: includes/classes/class-autolist-ajax.php:204
+#: includes/classes/class-gutenberg-shortlink.php:234
+#: includes/classes/class-gutenberg-shortlink.php:285
+#: includes/classes/class-gutenberg-shortlink.php:329
 msgid "Permission denied"
 msgstr "Hozzáférés megtagadva"
 
@@ -178,60 +361,61 @@ msgstr "Nem sikerült a konfigurációt elmenteni az adatbázisba"
 msgid "Configuration saved successfully"
 msgstr "A konfiguráció sikeresen elmentve"
 
-#: includes/classes/class-autolist-ajax.php:144
+#: includes/classes/class-autolist-ajax.php:149
 #. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "Hiba: %s"
 
-#: includes/classes/class-autolist-ajax.php:289
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Validating..."
 msgstr "Érvényesítés..."
 
-#: includes/classes/class-autolist-ajax.php:290
+#: includes/classes/class-autolist-ajax.php:294
 msgid "Saving..."
 msgstr "Mentés..."
 
-#: includes/classes/class-autolist-ajax.php:291
+#: includes/classes/class-autolist-ajax.php:295
 msgid "Saved!"
 msgstr "Elmentve!"
 
-#: includes/classes/class-autolist-ajax.php:292
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-gutenberg-shortlink.php:175
 msgid "Error"
 msgstr "Hiba"
 
-#: includes/classes/class-autolist-ajax.php:293
+#: includes/classes/class-autolist-ajax.php:297
 msgid "Are you sure you want to remove this post type?"
 msgstr "Biztosan el akarod távolítani ezt a post type-ot?"
 
-#: includes/classes/class-autolist-ajax.php:294
+#: includes/classes/class-autolist-ajax.php:298
 msgid "Select a post type"
 msgstr "Válassz egy post type-ot"
 
-#: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:595
-#: includes/classes/class-settings.php:691
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:766
+#: includes/classes/class-settings.php:864
 msgid "Never"
 msgstr "Soha"
 
-#: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:593
-#: includes/classes/class-settings.php:693
+#: includes/classes/class-autolist-ajax.php:300
+#: includes/classes/class-settings.php:764
+#: includes/classes/class-settings.php:866
 msgid "When Link is First Used"
 msgstr "Amikor a link először van használva"
 
-#: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:695
+#: includes/classes/class-autolist-ajax.php:301
+#: includes/classes/class-settings.php:868
 msgid "When Post is Published"
 msgstr "Amikor a bejegyzés közzé van téve"
 
-#: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:694
+#: includes/classes/class-autolist-ajax.php:302
+#: includes/classes/class-settings.php:867
 msgid "When Post is Created"
 msgstr "Amikor a bejegyzés létrejön"
 
-#: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:692
+#: includes/classes/class-autolist-ajax.php:303
+#: includes/classes/class-settings.php:865
 msgid "When Link is First Used or Post Created"
 msgstr "Amikor a link először van használva vagy a bejegyzés létrejön"
 
@@ -239,110 +423,117 @@ msgstr "Amikor a link először van használva vagy a bejegyzés létrejön"
 msgid "Invalid post ID or post type."
 msgstr "Érvénytelen bejegyzés ID vagy bejegyzés típus."
 
-#: includes/classes/class-columns-link.php:49
-#: includes/classes/class-columns-link.php:279
-#: includes/classes/class-hooks.php:207
-#: includes/classes/class-table-logs.php:164
-#: templates/admin-modal-new-link.php:29
-msgid "Shortlink"
-msgstr "Rövidlink"
-
-#: includes/classes/class-columns-link.php:71
+#: includes/classes/class-columns-link.php:73
 msgid "No shortlink"
 msgstr "Nincs rövidlink"
 
-#: includes/classes/class-columns-link.php:92
-#: includes/classes/class-hooks.php:208
-#: includes/classes/class-hooks.php:210
-#: includes/classes/class-meta-boxes.php:93
+#: includes/classes/class-columns-link.php:94
+#: includes/classes/class-hooks.php:232
+#: includes/classes/class-hooks.php:234
+#: includes/classes/class-meta-boxes.php:130
 msgid "Shortlinks"
 msgstr "Rövidlinkek"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:178
+#: includes/classes/class-columns-link.php:315
 msgid "Internal"
 msgstr "Belső"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:178
+#: includes/classes/class-columns-link.php:316
 msgid "External"
 msgstr "Külső"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:179
 msgid "This links to your post"
 msgstr "Ez a bejegyzésedre mutat"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:179
 msgid "This links to an external website"
 msgstr "Ez egy külső weboldalra mutat"
 
-#: includes/classes/class-columns-link.php:189
+#: includes/classes/class-columns-link.php:183
+#: includes/classes/class-columns-link.php:317
 msgid "Revision"
 msgstr "Javítás"
 
-#: includes/classes/class-columns-link.php:190
+#: includes/classes/class-columns-link.php:184
 msgid "This links to a revision"
 msgstr "Ez a javításhoz mutat"
 
-#: includes/classes/class-columns-link.php:198
+#: includes/classes/class-columns-link.php:193
 msgid "Not yet submitted"
 msgstr "Még nem benyújtva"
 
-#: includes/classes/class-columns-link.php:199
+#: includes/classes/class-columns-link.php:194
 msgid "Submitted for approval"
 msgstr "Benyújtva jóváhagyásra"
 
-#: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:558
+#: includes/classes/class-columns-link.php:195
+#: includes/classes/class-settings.php:202
+#: includes/classes/class-settings.php:450
+#: includes/classes/class-settings.php:458
+#: includes/functions.php:229
+#: includes/functions.php:263
 msgid "Scheduled"
 msgstr "Ütemezett"
 
-#: includes/classes/class-columns-link.php:201
+#: includes/classes/class-columns-link.php:196
 msgid "Deferred"
 msgstr "Elhalasztott"
 
-#: includes/classes/class-columns-link.php:202
+#: includes/classes/class-columns-link.php:197
 msgid "Needs work"
 msgstr "Munkára van szükség"
 
-#: includes/classes/class-columns-link.php:203
+#: includes/classes/class-columns-link.php:198
 msgid "Rejected"
 msgstr "Elutasítva"
 
-#: includes/classes/class-columns-link.php:207
+#: includes/classes/class-columns-link.php:202
 #. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "Felülvizsgálat: %s"
 
-#: includes/classes/class-columns-link.php:224
+#: includes/classes/class-columns-link.php:223
 #. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "Kattintva %s alkalommal"
 
-#: includes/classes/class-columns-link.php:230
+#: includes/classes/class-columns-link.php:229
 #: includes/classes/class-table-logs.php:197
 msgid "Edit"
 msgstr "Szerkesztés"
 
-#: includes/classes/class-columns-link.php:231
+#: includes/classes/class-columns-link.php:230
 #: includes/classes/class-table-logs.php:178
 #: includes/classes/class-table-logs.php:199
 msgid "Delete"
 msgstr "Törlés"
 
-#: includes/classes/class-columns-link.php:278
+#: includes/classes/class-columns-link.php:312
+msgid "Filter by link type"
+msgstr "Szűrés linktípus szerint"
+
+#: includes/classes/class-columns-link.php:314
+msgid "All link types"
+msgstr "Minden linktípus"
+
+#: includes/classes/class-columns-link.php:371
 msgid "Link Title"
 msgstr "Link címe"
 
-#: includes/classes/class-columns-link.php:280
+#: includes/classes/class-columns-link.php:373
 msgid "Link Type"
 msgstr "Link típusa"
 
-#: includes/classes/class-columns-link.php:281
+#: includes/classes/class-columns-link.php:377
 msgid "Stats"
 msgstr "Statisztikák"
 
-#: includes/classes/class-columns-link.php:282
+#: includes/classes/class-columns-link.php:380
 msgid "Actions"
 msgstr "Műveletek"
 
@@ -354,178 +545,604 @@ msgstr "Kattintás a másoláshoz"
 msgid "Copied"
 msgstr "Másolva"
 
-#: includes/classes/class-hooks.php:61
-msgid "Security check failed."
-msgstr "A biztonsági ellenőrzés nem sikerült."
+#: includes/classes/class-gutenberg-shortlink.php:160
+msgid "Search shortlinks..."
+msgstr "Rövidlinkek keresése..."
 
-#: includes/classes/class-hooks.php:65
-msgid "You do not have permission to create shortlinks."
-msgstr "Nincs jogosultsága rövidlinkek létrehozására."
+#: includes/classes/class-gutenberg-shortlink.php:161
+msgid "Insert Shortlink"
+msgstr "Rövidlink beszúrása"
 
-#: includes/classes/class-hooks.php:72
-msgid "Invalid or empty URL"
-msgstr "Érvénytelen vagy üres URL"
+#: includes/classes/class-gutenberg-shortlink.php:162
+msgid "Create New Shortlink"
+msgstr "Új rövidlink létrehozása"
 
-#: includes/classes/class-hooks.php:89
+#: includes/classes/class-gutenberg-shortlink.php:163
+#: includes/classes/class-settings.php:465
+msgid "Options"
+msgstr "Opciók"
+
+#: includes/classes/class-gutenberg-shortlink.php:164
+msgid "Open in New Tab"
+msgstr "Megnyitás új lapon"
+
+#: includes/classes/class-gutenberg-shortlink.php:165, fuzzy
+msgid "Nofollow"
+msgstr "Nofollow"
+
+#: includes/classes/class-gutenberg-shortlink.php:166
+msgid "Sponsored Link"
+msgstr "Szponzorált link"
+
+#: includes/classes/class-gutenberg-shortlink.php:167
+msgid "Label"
+msgstr "Címke"
+
+#: includes/classes/class-gutenberg-shortlink.php:168
+msgid "Optional shortlink label"
+msgstr "Opcionális rövidlink címke"
+
+#: includes/classes/class-gutenberg-shortlink.php:170
+msgid "Create"
+msgstr "Létrehozás"
+
+#: includes/classes/class-gutenberg-shortlink.php:171
+#: includes/classes/class-import-export.php:1219
+msgid "Cancel"
+msgstr "Mégse"
+
+#: includes/classes/class-gutenberg-shortlink.php:172
+#: templates/admin-modal-new-link.php:37
+msgid "Close"
+msgstr "Bezárás"
+
+#: includes/classes/class-gutenberg-shortlink.php:173
+msgid "Creating..."
+msgstr "Létrehozás folyamatban..."
+
+#: includes/classes/class-gutenberg-shortlink.php:174
+#: includes/classes/class-gutenberg-shortlink.php:317
+#: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "Rövidlink sikeresen létrehozva."
 
-#: includes/classes/class-hooks.php:98
+#: includes/classes/class-gutenberg-shortlink.php:176
+msgid "Please enter a valid URL"
+msgstr "Kérjük, adjon meg egy érvényes URL-t"
+
+#: includes/classes/class-gutenberg-shortlink.php:177
+msgid "No shortlinks found"
+msgstr "Nincs található rövidlink"
+
+#: includes/classes/class-gutenberg-shortlink.php:243
+msgid "Search term is required"
+msgstr "A keresési kifejezés megadása kötelező"
+
+#: includes/classes/class-gutenberg-shortlink.php:258
+#: includes/functions.php:403
+#. translators: %s: link ID number
+#, fuzzy, php-format
+msgid "Link - %s"
+msgstr "Link - %s"
+
+#: includes/classes/class-gutenberg-shortlink.php:294
+msgid "Target URL is required"
+msgstr "A cél-URL megadása kötelező"
+
+#: includes/classes/class-gutenberg-shortlink.php:336
+msgid "Invalid shortlink ID"
+msgstr "Érvénytelen rövidlink azonosító"
+
+#: includes/classes/class-gutenberg-shortlink.php:342
+msgid "Shortlink not found"
+msgstr "A rövidlink nem található"
+
+#: includes/classes/class-hooks.php:69
+#: includes/classes/class-import-export.php:119
+msgid "Security check failed."
+msgstr "A biztonsági ellenőrzés nem sikerült."
+
+#: includes/classes/class-hooks.php:73
+msgid "You do not have permission to create shortlinks."
+msgstr "Nincs jogosultsága rövidlinkek létrehozására."
+
+#: includes/classes/class-hooks.php:80
+msgid "Invalid or empty URL"
+msgstr "Érvénytelen vagy üres URL"
+
+#: includes/classes/class-hooks.php:112
 msgid "Invalid nonce verification."
 msgstr "Érvénytelen nonce ellenőrzés."
 
-#: includes/classes/class-hooks.php:102
+#: includes/classes/class-hooks.php:116
 msgid "You do not have permission to reset analytics."
 msgstr "Nincs jogosultsága az analitika visszaállítására."
 
-#: includes/classes/class-hooks.php:109
+#: includes/classes/class-hooks.php:123
 msgid "Invalid post ID."
 msgstr "Érvénytelen bejegyzés ID."
 
-#: includes/classes/class-hooks.php:140
+#: includes/classes/class-hooks.php:129
+msgid "Invalid shortlink ID."
+msgstr "Érvénytelen rövidlink azonosító."
+
+#: includes/classes/class-hooks.php:133
+msgid "You do not have permission to reset analytics for this shortlink."
+msgstr "Nincs jogosultsága az elemzések visszaállítására ehhez a rövidlinkhez."
+
+#: includes/classes/class-hooks.php:164
 msgid "Analytics reset successfully."
 msgstr "Az analitika sikeresen visszaállítva."
 
-#: includes/classes/class-hooks.php:142
+#: includes/classes/class-hooks.php:166
 msgid "Failed to reset analytics."
 msgstr "Az analitika visszaállítása nem sikerült."
 
-#: includes/classes/class-hooks.php:168
+#: includes/classes/class-hooks.php:192
 msgid "Shorten"
 msgstr "Rövidítés"
 
-#: includes/classes/class-hooks.php:211
+#: includes/classes/class-hooks.php:235
 msgid "All Shortlinks"
 msgstr "Összes rövidlink"
 
-#: includes/classes/class-hooks.php:212
-#: includes/classes/class-hooks.php:213
+#: includes/classes/class-hooks.php:236
+#: includes/classes/class-hooks.php:237
 msgid "Add Shortlink"
 msgstr "Rövidlink hozzáadása"
 
-#: includes/classes/class-hooks.php:214
+#: includes/classes/class-hooks.php:238
 msgid "Search Shortlinks"
 msgstr "Rövidlinkek keresése"
 
-#: includes/classes/class-hooks.php:229
+#: includes/classes/class-hooks.php:256
 msgid "Category"
 msgstr "Kategória"
 
-#: includes/classes/class-hooks.php:230
+#: includes/classes/class-hooks.php:257
 msgid "Categories"
 msgstr "Kategóriák"
 
-#: includes/classes/class-hooks.php:256
-#: includes/classes/class-hooks.php:257
+#: includes/classes/class-hooks.php:283
+#: includes/classes/class-hooks.php:284
 msgid "Logs"
 msgstr "Naplók"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "All Logs"
 msgstr "Összes napló"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Are you sure you want to clear all logs?"
 msgstr "Biztosan törölni szeretné az összes naplót?"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Clear Logs"
 msgstr "Naplók törlése"
 
-#: includes/classes/class-hooks.php:506
+#: includes/classes/class-hooks.php:606
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Sajnálom, nem engedélyezett a rövidlinkek elérése."
 
-#: includes/classes/class-hooks.php:507
-#: includes/classes/class-hooks.php:528
-#: includes/classes/class-hooks.php:539
-#: includes/classes/class-hooks.php:560
+#: includes/classes/class-hooks.php:607
+#: includes/classes/class-hooks.php:628
+#: includes/classes/class-hooks.php:639
+#: includes/classes/class-hooks.php:660
 msgid "Access Denied"
 msgstr "Hozzáférés megtagadva"
 
-#: includes/classes/class-hooks.php:527
+#: includes/classes/class-hooks.php:627
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Sajnálom, nem engedélyezett rövidlinkek létrehozása."
 
-#: includes/classes/class-hooks.php:538
+#: includes/classes/class-hooks.php:638
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Sajnálom, nem engedélyezett a rövidlinkek szerkesztése."
 
-#: includes/classes/class-hooks.php:559
+#: includes/classes/class-hooks.php:659
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Sajnálom, nem engedélyezett a rövidlink beállítások elérése."
 
-#: includes/classes/class-meta-boxes.php:76
-msgid "Side"
-msgstr "Oldal"
+#: includes/classes/class-import-export.php:48
+#: includes/classes/class-import-export.php:49
+msgid "Import / Export"
+msgstr "Importálás / Exportálás"
 
-#: includes/classes/class-meta-boxes.php:187
-#: tinypress.php:448
-msgid "PublishPress Shortlinks"
-msgstr "PublishPress rövidlinkek"
+#: includes/classes/class-import-export.php:87
+msgid "Importing..."
+msgstr "Importálás..."
 
-#: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:401
-msgid "General"
-msgstr "Általános"
+#: includes/classes/class-import-export.php:88
+msgid "Import complete!"
+msgstr "Importálás befejezve!"
 
-#: includes/classes/class-meta-boxes.php:205
-msgid "Label *"
-msgstr "Címke *"
+#: includes/classes/class-import-export.php:89
+msgid "Import failed. Please check the file and try again."
+msgstr "Az importálás meghiúsult. Kérjük, ellenőrizze a fájlt, és próbálja újra."
 
-#: includes/classes/class-meta-boxes.php:207
-msgid "For admin purpose only."
-msgstr "Csak adminisztrációs célokra."
+#: includes/classes/class-import-export.php:90
+msgid "Please select a CSV file."
+msgstr "Kérjük, válasszon egy CSV fájlt."
 
-#: includes/classes/class-meta-boxes.php:216
-msgid "Target URL *"
-msgstr "Cél URL *"
+#: includes/classes/class-import-export.php:91
+msgid "This will import shortlinks from the CSV file. Continue?"
+msgstr "Ez a CSV fájlból importálja a rövidlinkeket. Folytatja?"
 
-#: includes/classes/class-meta-boxes.php:226
-msgid "Short String *"
-msgstr "Rövid szöveg *"
+#: includes/classes/class-import-export.php:92
+msgid "Previewing..."
+msgstr "Előnézet..."
 
-#: includes/classes/class-meta-boxes.php:227
-msgid "Short string of this URL."
-msgstr "Ez az URL rövid szövege."
+#: includes/classes/class-import-export.php:93
+msgid "Preview failed."
+msgstr "Az előnézet meghiúsult."
 
-#: includes/classes/class-meta-boxes.php:233
-msgid "Status"
-msgstr "Állapot"
+#: includes/classes/class-import-export.php:94
+#: includes/classes/class-import-export.php:1214
+msgid "See More Rows"
+msgstr "További sorok megtekintése"
 
-#: includes/classes/class-meta-boxes.php:234
-msgid "Disable the shortlink instantly."
-msgstr "A rövidlink azonnali letiltása."
+#: includes/classes/class-import-export.php:95
+msgid "Show Less"
+msgstr "Kevesebb megjelenítése"
 
-#: includes/classes/class-meta-boxes.php:235
-msgid "After disabling the link will not active but the settings will be reserved."
-msgstr "A link letiltása után nem lesz aktív, de a beállítások megmaradnak."
+#: includes/classes/class-import-export.php:96
+#: includes/classes/class-import-export.php:1177
+msgid "Preview"
+msgstr "Előnézet"
 
-#: includes/classes/class-meta-boxes.php:236
-msgid "Enable"
-msgstr "Engedélyezés"
+#: includes/classes/class-import-export.php:97
+#: includes/classes/class-import-export.php:1168
+#: includes/classes/class-import-export.php:1181
+msgid "Import CSV"
+msgstr "CSV importálása"
 
-#: includes/classes/class-meta-boxes.php:237
-msgid "Disable"
-msgstr "Letiltás"
+#: includes/classes/class-import-export.php:98
+#: includes/classes/class-import-export.php:722
+#. translators: %d: number of successfully imported shortlinks
+#, php-format
+msgid "%d shortlinks successfully imported"
+msgstr "%d rövidlink sikeresen importálva"
 
-#: includes/classes/class-meta-boxes.php:244
+#: includes/classes/class-import-export.php:99
+#: includes/classes/class-import-export.php:744
+#. translators: %d: number of failed imports
+#, php-format
+msgid "%d shortlinks failed to import"
+msgstr "%d rövidlink importálása meghiúsult"
+
+#: includes/classes/class-import-export.php:100
+msgid "Error(s) for TinyPress Slug:"
+msgstr "Hiba(ák) a TinyPress Slug esetében:"
+
+#: includes/classes/class-import-export.php:115
+#: includes/classes/class-import-export.php:543
+#: includes/classes/class-import-export.php:898
+#: includes/classes/class-import-export.php:1028
+msgid "Unauthorized."
+msgstr "Jogosulatlan."
+
+#: includes/classes/class-import-export.php:296
+#: includes/functions.php:358
+msgid "Invalid URL."
+msgstr "Érvénytelen URL."
+
+#: includes/classes/class-import-export.php:548
+#: includes/classes/class-import-export.php:903
+msgid "No file uploaded or upload error."
+msgstr "Nincs feltöltött fájl vagy feltöltési hiba."
+
+#: includes/classes/class-import-export.php:557
+#: includes/classes/class-import-export.php:912
+msgid "Please upload a CSV file."
+msgstr "Kérjük, töltsön fel egy CSV fájlt."
+
+#: includes/classes/class-import-export.php:563
+#: includes/classes/class-import-export.php:918
+msgid "Could not read the file."
+msgstr "A fájl olvasása nem sikerült."
+
+#: includes/classes/class-import-export.php:570
+#: includes/classes/class-import-export.php:925
+msgid "Empty CSV file."
+msgstr "Üres CSV fájl."
+
+#: includes/classes/class-import-export.php:593
+#: includes/classes/class-import-export.php:949
+msgid ""
+"CSV must contain a column for target URL (e.g., \"url\", \"target_url\", "
+"\"destination_url\")."
+msgstr ""
+"A CSV-nek tartalmaznia kell egy oszlopot a cél URL-nek (pl.: \"url\", "
+"\"cél_url\", \"rendelkezésre álló_url\")."
+
+#: includes/classes/class-import-export.php:654
+#. translators: %s: error message
+#, php-format
+msgid "Failed to create shortlink: %s"
+msgstr "A rövidlink létrehozása nem sikerült: %s"
+
+#: includes/classes/class-import-export.php:655
+msgid "Unknown error."
+msgstr "Ismeretlen hiba."
+
+#: includes/classes/class-import-export.php:733
+#. translators: %d: number of updated shortlinks
+#, php-format
+msgid "%d shortlinks updated"
+msgstr "%d rövidlink frissítve"
+
+#: includes/classes/class-import-export.php:986
+#. translators: 1: original column name, 2: mapped field name
+#, fuzzy, php-format
+msgid "\"%1$s\" → %2$s"
+msgstr "\"%1$s\" → %2$s"
+
+#: includes/classes/class-import-export.php:997
+#. translators: %s: field mappings
+#, php-format
+msgid "Field mappings: %s"
+msgstr "Mezőtérképek: %s"
+
+#: includes/classes/class-import-export.php:1013
+#. translators: 1: number of preview rows, 2: total number of importable rows
+#, php-format
+msgid "Showing %1$d preview row(s) from %2$d importable row(s)."
+msgstr "%1$d előnézeti sor(ok) látható %2$d importálható sorból."
+
+#: includes/classes/class-import-export.php:1032
+msgid "Link Label"
+msgstr "Link címke"
+
+#: includes/classes/class-import-export.php:1034
+msgid "Short Slug"
+msgstr "Rövid slug"
+
+#: includes/classes/class-import-export.php:1035
+msgid "Post Status"
+msgstr "Bejegyzés állapot"
+
+#: includes/classes/class-import-export.php:1036
+msgid "Link Status"
+msgstr "Link állapot"
+
+#: includes/classes/class-import-export.php:1037
+msgid "Redirect Method"
+msgstr "Átirányítási módszer"
+
+#: includes/classes/class-import-export.php:1038
+#: includes/classes/class-meta-boxes.php:600
+#: includes/classes/class-settings.php:673, fuzzy
+msgid "NoFollow"
+msgstr "NoFollow"
+
+#: includes/classes/class-import-export.php:1039
+#: includes/classes/class-meta-boxes.php:580
+#: includes/classes/class-settings.php:665
+msgid "Sponsored"
+msgstr "Szponzorált"
+
+#: includes/classes/class-import-export.php:1040
+#: includes/classes/class-meta-boxes.php:620
+#: includes/classes/class-settings.php:681
+msgid "Parameter Forwarding"
+msgstr "Paraméter továbbítás"
+
+#: includes/classes/class-import-export.php:1041
+msgid "Expiration Enabled"
+msgstr "Lejárat engedélyezve"
+
+#: includes/classes/class-import-export.php:1042
+#: includes/classes/class-meta-boxes.php:698
+#: includes/classes/class-settings.php:722
+msgid "Expiration Date"
+msgstr "Lejárati dátum"
+
+#: includes/classes/class-import-export.php:1043
+#: includes/classes/class-meta-boxes.php:712
+#: includes/classes/class-settings.php:735
+msgid "Expiration Time"
+msgstr "Lejárati idő"
+
+#: includes/classes/class-import-export.php:1045
+#: includes/classes/class-meta-boxes.php:471
 msgid "Notes"
 msgstr "Megjegyzések"
 
-#: includes/classes/class-meta-boxes.php:251
+#: includes/classes/class-import-export.php:1046
+msgid "Autolink Keywords"
+msgstr "Autolink kulcsszavak"
+
+#: includes/classes/class-import-export.php:1091
+msgid "Import / Export Shortlinks"
+msgstr "Rövidlinkek importálása / exportálása"
+
+#: includes/classes/class-import-export.php:1097
+msgid "Export"
+msgstr "Exportálás"
+
+#: includes/classes/class-import-export.php:1101
+msgid "Download all your shortlinks as a CSV file. Choose a format below:"
+msgstr ""
+"Töltse le az összes rövidlinkjét CSV fájl formátumban. Válasszon egy "
+"formátumot az alábbiakból:"
+
+#: includes/classes/class-import-export.php:1106
+#: includes/classes/class-import-export.php:1137
+#. translators: %d: number of shortlinks
+#, php-format
+msgid "%d shortlink(s) will be exported."
+msgstr "%d rövidlink fog exportálódni."
+
+#: includes/classes/class-import-export.php:1114
+msgid "Shortlinks Format"
+msgstr "Rövidlinkek formátuma"
+
+#: includes/classes/class-import-export.php:1115
+msgid ""
+"Full format with TinyPress fields and global-setting modes. Password "
+"protection settings are not exported."
+msgstr ""
+"Teljes formátum TinyPress mezőkkel és globális beállítási módokkal. A "
+"jelszóvédelem beállításai nem kerülnek exportálásra."
+
+#: includes/classes/class-import-export.php:1118
+#: includes/classes/class-import-export.php:1145
+msgid "Export CSV"
+msgstr "CSV exportálása"
+
+#: includes/classes/class-import-export.php:1123
+msgid "Pretty Links Format"
+msgstr "Szép Linkek formátum"
+
+#: includes/classes/class-import-export.php:1124
+msgid "Compatible format for importing into Pretty Links plugin."
+msgstr "Kompatibilis formátum a Szép Linkek bővítménybe való importáláshoz."
+
+#: includes/classes/class-import-export.php:1127
+msgid "Export for Pretty Links"
+msgstr "Exportálás a Szép Linkekhez"
+
+#: includes/classes/class-import-export.php:1132
+msgid ""
+"Download all your shortlinks as a CSV file. The export includes labels, "
+"target URLs, slugs, redirect settings, global-setting modes, and more. "
+"Password protection settings are not exported."
+msgstr ""
+"Töltse le az összes rövidlinkjét CSV fájl formátumban. Az export "
+"tartalmazza a címkéket, a cél URL-eket, a slugokat, az átirányítási "
+"beállításokat, a globális beállítási módokat és még sok mást. A "
+"jelszóvédelem beállításai nem kerülnek exportálásra."
+
+#: includes/classes/class-import-export.php:1154
+#: includes/classes/class-import-export.php:1223
+msgid "Import"
+msgstr "Importálás"
+
+#: includes/classes/class-import-export.php:1157
+msgid ""
+"Upload a CSV file to bulk-create shortlinks. The CSV must contain at "
+"minimum a \"target_url\" column. Password protection settings are "
+"intentionally not imported."
+msgstr ""
+"Töltse fel a CSV fájlt a rövidlinkek tömeges létrehozásához. A CSV-nek "
+"legalább egy \"target_url\" oszlopot kell tartalmaznia. A jelszóvédelem "
+"beállításait szándékosan nem importálják."
+
+#: includes/classes/class-import-export.php:1159
+msgid "Supported columns:"
+msgstr "Támogatott oszlopok:"
+
+#: includes/classes/class-import-export.php:1184
+msgid "Change File"
+msgstr "Fájl módosítása"
+
+#: includes/classes/class-import-export.php:1201
+msgid "Import Preview"
+msgstr "Importálási előnézet"
+
+#: includes/classes/class-meta-boxes.php:113
+msgid "Side"
+msgstr "Oldal"
+
+#: includes/classes/class-meta-boxes.php:367
+msgid "ON"
+msgstr "BE"
+
+#: includes/classes/class-meta-boxes.php:367
+msgid "OFF"
+msgstr "KI"
+
+#: includes/classes/class-meta-boxes.php:371
+#: includes/classes/class-meta-boxes.php:396
+#. translators: %s: current global setting value
+#, php-format
+msgid "Use global settings (currently: %s)"
+msgstr "Globális beállítások használata (jelenleg: %s)"
+
+#: includes/classes/class-meta-boxes.php:399
+#: includes/classes/class-settings.php:656
+msgid "307 (Temporary)"
+msgstr "307 (Ideiglenes)"
+
+#: includes/classes/class-meta-boxes.php:400
+#: includes/classes/class-settings.php:657
+msgid "302 (Temporary)"
+msgstr "302 (Ideiglenes)"
+
+#: includes/classes/class-meta-boxes.php:401
+#: includes/classes/class-settings.php:658
+msgid "301 (Permanent)"
+msgstr "301 (Állandó)"
+
+#: includes/classes/class-meta-boxes.php:414
+#: tinypress.php:472
+msgid "PublishPress Shortlinks"
+msgstr "PublishPress rövidlinkek"
+
+#: includes/classes/class-meta-boxes.php:427
+#: includes/classes/class-settings.php:462
+msgid "General"
+msgstr "Általános"
+
+#: includes/classes/class-meta-boxes.php:432
+msgid "Label *"
+msgstr "Címke *"
+
+#: includes/classes/class-meta-boxes.php:434
+msgid "For admin purpose only."
+msgstr "Csak adminisztrációs célokra."
+
+#: includes/classes/class-meta-boxes.php:443
+msgid "Target URL *"
+msgstr "Cél URL *"
+
+#: includes/classes/class-meta-boxes.php:453
+msgid "Short String *"
+msgstr "Rövid szöveg *"
+
+#: includes/classes/class-meta-boxes.php:454
+msgid "Short string of this URL."
+msgstr "Ez az URL rövid szövege."
+
+#: includes/classes/class-meta-boxes.php:461
+msgid "Disable the shortlink instantly."
+msgstr "A rövidlink azonnali letiltása."
+
+#: includes/classes/class-meta-boxes.php:462
+msgid "After disabling the link will not active but the settings will be reserved."
+msgstr "A link letiltása után nem lesz aktív, de a beállítások megmaradnak."
+
+#: includes/classes/class-meta-boxes.php:463
+msgid "Enable"
+msgstr "Engedélyezés"
+
+#: includes/classes/class-meta-boxes.php:464
+msgid "Disable"
+msgstr "Letiltás"
+
+#: includes/classes/class-meta-boxes.php:478
 msgid "All"
 msgstr "Minden"
 
-#: includes/classes/class-meta-boxes.php:263
-msgid "Auto-linking"
-msgstr "Automatikus linkelés"
+#: includes/classes/class-meta-boxes.php:505
+#: includes/classes/class-meta-boxes.php:511
+msgid "Shortlink Label"
+msgstr "Rövidlink címke"
 
-#: includes/classes/class-meta-boxes.php:268
+#: includes/classes/class-meta-boxes.php:506
+#: includes/classes/class-meta-boxes.php:512
+msgid "Custom Text"
+msgstr "Egyedi szöveg"
+
+#: includes/classes/class-meta-boxes.php:510
+msgid "Post Title"
+msgstr "Bejegyzés címe"
+
+#: includes/classes/class-meta-boxes.php:522
 msgid "Keywords"
 msgstr "Kulcsszavak"
 
-#: includes/classes/class-meta-boxes.php:269
+#: includes/classes/class-meta-boxes.php:523
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
@@ -533,51 +1150,64 @@ msgstr ""
 "Adjon hozzá kulcsszavakat vesszővel elválasztva vagy külön sorokban. Minden "
 "kulcsszó ehhez a rövidlinkhez fog kapcsolódni."
 
-#: includes/classes/class-meta-boxes.php:274, fuzzy
+#: includes/classes/class-meta-boxes.php:528
+msgid "Link Alt Text"
+msgstr "Link alternatív szöveg"
+
+#: includes/classes/class-meta-boxes.php:529
+msgid "Set the alt text for the linked keywords in the frontend of the site."
+msgstr ""
+"Állítsa be az alternatív szöveget a linkelt kulcsszavakhoz a webhely "
+"előoldalán."
+
+#: includes/classes/class-meta-boxes.php:536
+msgid "Custom Alt Text"
+msgstr "Egyedi alternatív szöveg"
+
+#: includes/classes/class-meta-boxes.php:537
+msgid ""
+"Enter custom alt text for the linked keywords. This is only used if "
+"\"Custom Text\" is selected above."
+msgstr ""
+"Adjon meg egyedi alternatív szöveget a hivatkozott kulcsszavakhoz. Ez csak "
+"akkor használatos, ha a „Egyedi szöveg” van kiválasztva fent."
+
+#: includes/classes/class-meta-boxes.php:545, fuzzy
 msgid "Post Types"
 msgstr "Post Types"
 
-#: includes/classes/class-meta-boxes.php:275
+#: includes/classes/class-meta-boxes.php:546
 msgid "Where should these keywords be auto-linked?"
 msgstr "Hol kellene automatikusan linkelni ezeket a kulcsszavakat?"
 
-#: includes/classes/class-meta-boxes.php:288
+#: includes/classes/class-meta-boxes.php:557
+msgid "Auto-linking"
+msgstr "Automatikus linkelés"
+
+#: includes/classes/class-meta-boxes.php:566
+#: includes/classes/class-settings.php:648
 msgid "Redirection"
 msgstr "Átirányítás"
 
-#: includes/classes/class-meta-boxes.php:293
+#: includes/classes/class-meta-boxes.php:571
+#: includes/classes/class-settings.php:653
 msgid "Redirection Method"
 msgstr "Átirányítási módszer"
 
-#: includes/classes/class-meta-boxes.php:294
+#: includes/classes/class-meta-boxes.php:572
 msgid "Select redirection method"
 msgstr "Válassza ki az átirányítási módszert"
 
-#: includes/classes/class-meta-boxes.php:295
+#: includes/classes/class-meta-boxes.php:573
 msgid "Select a method"
 msgstr "Válasszon egy módszert"
 
-#: includes/classes/class-meta-boxes.php:297
-msgid "307 (Temporary)"
-msgstr "307 (Ideiglenes)"
-
-#: includes/classes/class-meta-boxes.php:298
-msgid "302 (Temporary)"
-msgstr "302 (Ideiglenes)"
-
-#: includes/classes/class-meta-boxes.php:299
-msgid "301 (Permanent)"
-msgstr "301 (Állandó)"
-
-#: includes/classes/class-meta-boxes.php:306
-msgid "Sponsored"
-msgstr "Szponzorált"
-
-#: includes/classes/class-meta-boxes.php:307
+#: includes/classes/class-meta-boxes.php:581
 msgid "Mark links as sponsored content."
 msgstr "Linkek megjelölése szponzorált tartalomként."
 
-#: includes/classes/class-meta-boxes.php:308
+#: includes/classes/class-meta-boxes.php:592
+#: includes/classes/class-settings.php:667
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -585,15 +1215,12 @@ msgstr ""
 "Hozzáadja a rel=\"sponsored\" attribútumot. Ajánlott affiliate linkekhez és "
 "fizetett hirdetésekhez."
 
-#: includes/classes/class-meta-boxes.php:313, fuzzy
-msgid "NoFollow"
-msgstr "NoFollow"
-
-#: includes/classes/class-meta-boxes.php:314
+#: includes/classes/class-meta-boxes.php:601
 msgid "Prevent search engines from following this link."
 msgstr "Megakadályozza, hogy a keresőmotorok kövessék ezt a linket."
 
-#: includes/classes/class-meta-boxes.php:315
+#: includes/classes/class-meta-boxes.php:612
+#: includes/classes/class-settings.php:675
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -601,15 +1228,12 @@ msgstr ""
 "Hozzáadja a rel=\"nofollow\" attribútumot. Ajánlott külső linkekhez és "
 "megbízhatatlan forrásokhoz."
 
-#: includes/classes/class-meta-boxes.php:321
-msgid "Parameter Forwarding"
-msgstr "Paraméter továbbítás"
-
-#: includes/classes/class-meta-boxes.php:322
+#: includes/classes/class-meta-boxes.php:621
 msgid "Pass URL parameters to the target link."
 msgstr "URL paraméterek átadása a cél linknek."
 
-#: includes/classes/class-meta-boxes.php:323
+#: includes/classes/class-meta-boxes.php:632
+#: includes/classes/class-settings.php:683
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -617,134 +1241,193 @@ msgstr ""
 "Bármely paraméter, amelyet a rövid URL-hez adnak (pl. ?utm_source=email), "
 "továbbításra kerül a cél URL-re."
 
-#: includes/classes/class-meta-boxes.php:333
+#: includes/classes/class-meta-boxes.php:645
+#: includes/classes/class-settings.php:694
 msgid "Password Protection"
 msgstr "Jelszóvédelem"
 
-#: includes/classes/class-meta-boxes.php:334
+#: includes/classes/class-meta-boxes.php:646
 msgid "Secure your shortlink."
 msgstr "Biztosítsa a rövidlinket."
 
-#: includes/classes/class-meta-boxes.php:335
+#: includes/classes/class-meta-boxes.php:657
 msgid "Users must enter the password to redirect to the target link."
 msgstr ""
 "A felhasználóknak be kell írniuk a jelszót, hogy átirányítsanak a cél "
 "linkhez."
 
-#: includes/classes/class-meta-boxes.php:340
+#: includes/classes/class-meta-boxes.php:665
 msgid "Password"
 msgstr "Jelszó"
 
-#: includes/classes/class-meta-boxes.php:341
+#: includes/classes/class-meta-boxes.php:666
 msgid "Share this with users."
 msgstr "Ossza meg ezt a felhasználókkal."
 
-#: includes/classes/class-meta-boxes.php:342
+#: includes/classes/class-meta-boxes.php:667
 msgid "Passwords are case sensitive."
 msgstr "A jelszavak kis- és nagybetű érzékenyek."
 
-#: includes/classes/class-meta-boxes.php:343, fuzzy
+#: includes/classes/class-meta-boxes.php:668
+#: includes/classes/class-settings.php:705, fuzzy
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:352
+#: includes/classes/class-meta-boxes.php:678
+#: includes/classes/class-settings.php:714
 msgid "Enable Expiration"
 msgstr "Lejárat engedélyezése"
 
-#: includes/classes/class-meta-boxes.php:353
-msgid "Expire automatically."
-msgstr "Automatikusan lejár."
+#: includes/classes/class-meta-boxes.php:679
+msgid "Set an expiration date and time for shortlinks."
+msgstr "Állítson be lejárati dátumot és időt a rövidlinkekhez."
 
-#: includes/classes/class-meta-boxes.php:354
-msgid "Users will not able to redirect to the target URL once expire."
-msgstr "A felhasználók nem tudnak átirányítani a cél URL-re, ha lejár."
+#: includes/classes/class-meta-boxes.php:690
+#: includes/classes/class-settings.php:716
+msgid ""
+"After the expiration date and time pass, visitors will no longer be able to "
+"access the shortlink."
+msgstr ""
+"A lejárati dátum és idő után a látogatók már nem tudják elérni a "
+"rövidlinket."
 
-#: includes/classes/class-meta-boxes.php:359
-msgid "Expiration Date"
-msgstr "Lejárati dátum"
+#: includes/classes/class-meta-boxes.php:699
+msgid "Select the date when this shortlink should stop working."
+msgstr "Válassza ki a dátumot, amikor ez a rövidlink meg kell, hogy szűnjön működni."
 
-#: includes/classes/class-meta-boxes.php:360
-msgid "Choose the date this link should expire."
-msgstr "Válassza ki a dátumot, amikor ennek a linknek le kell járnia."
+#: includes/classes/class-meta-boxes.php:713
+msgid "Select the time when the shortlink should expire."
+msgstr "Válassza ki az időt, amikor a rövidlink lejár."
 
-#: includes/classes/class-meta-boxes.php:372
-msgid "Expiration Time"
-msgstr "Lejárati idő"
+#: includes/classes/class-meta-boxes.php:714
+#: includes/classes/class-settings.php:737
+msgid ""
+"Must be at least 1 minute in the future. Combined with the date above to "
+"set the exact expiration moment."
+msgstr ""
+"Legalább 1 perccel a jövőben kell lennie. A fent említett dátummal együtt "
+"állítja be a pontos lejárati pillanatot."
 
-#: includes/classes/class-meta-boxes.php:373
-msgid "Choose the time this link should expire."
-msgstr "Válassza ki az időt, amikor ennek a linknek le kell járnia."
-
-#: includes/classes/class-meta-boxes.php:374
-msgid "Must be at least 1 minute in the future."
-msgstr "Legalább 1 perccel a jövőben kell lennie."
-
-#: includes/classes/class-meta-boxes.php:391
+#: includes/classes/class-meta-boxes.php:732
+#: includes/classes/class-settings.php:689
 msgid "Security"
 msgstr "Biztonság"
 
-#: includes/classes/class-meta-boxes.php:402
+#: includes/classes/class-meta-boxes.php:743
 msgid "Analytics"
 msgstr "Elemzés"
 
-#: includes/classes/class-redirection.php:599
+#: includes/classes/class-redirection.php:1024
 msgid "Post not found."
 msgstr "A bejegyzés nem található."
 
-#: includes/classes/class-redirection.php:648
+#: includes/classes/class-redirection.php:1168
+#: includes/functions.php:317
+#: includes/functions.php:318
+#: includes/functions.php:319
+#: includes/functions.php:325
+#: tinypress.php:287
+#: tinypress.php:288
+#: tinypress.php:289
+msgid "This post is in {status} status. It is not visible to the public."
+msgstr ""
+"Ez a bejegyzés {status} állapotban van. Nincs látható a nyilvánosság "
+"számára."
+
+#: includes/classes/class-redirection.php:1216
 msgid "This link has expired"
 msgstr "Ez a link lejárt"
 
-#: includes/classes/class-redirection.php:652
+#: includes/classes/class-redirection.php:1220
 msgid "You will be redirected shortly."
 msgstr "Hamarosan átirányítjuk."
 
-#: includes/classes/class-redirection.php:656
+#: includes/classes/class-redirection.php:1224
 msgid "Click here if you are not redirected"
 msgstr "Kattintson ide, ha nem irányítják át"
 
-#: includes/classes/class-redirection.php:673
+#: includes/classes/class-redirection.php:1241
 msgid "Link Expired"
 msgstr "A link lejárt"
 
-#: includes/classes/class-redirection.php:804
+#: includes/classes/class-redirection.php:1392
 msgid "This link is not active."
 msgstr "Ez a link nem aktív."
 
-#: includes/classes/class-redirection.php:849
+#: includes/classes/class-redirection.php:1429
 msgid "This link is expired."
 msgstr "Ez a link lejárt."
 
-#: includes/classes/class-redirection.php:868
+#: includes/classes/class-redirection.php:1448
 msgid "Incorrect password. Please try again."
 msgstr "Helytelen jelszó. Kérjük, próbálja újra."
 
-#: includes/classes/class-redirection.php:883
-#: includes/classes/class-redirection.php:888
+#: includes/classes/class-redirection.php:1463
+#: includes/classes/class-redirection.php:1468
 msgid "Password Protected Link"
 msgstr "Jelszóval védett link"
 
-#: includes/classes/class-redirection.php:894
+#: includes/classes/class-redirection.php:1474
 msgid "Enter password to continue:"
 msgstr "Adja meg a jelszót a folytatáshoz:"
 
-#: includes/classes/class-redirection.php:896
+#: includes/classes/class-redirection.php:1476
 msgid "Submit"
 msgstr "Beküldés"
 
-#: includes/classes/class-redirection.php:1014
+#: includes/classes/class-redirection.php:1600
 msgid "This link is not containing the right prefix slug."
 msgstr "Ez a link nem tartalmazza a megfelelő prefix slugot."
+
+#: includes/classes/class-redirection.php:1641
+msgid "Too many invalid shortlink requests. Please try again later."
+msgstr "Túl sok érvénytelen rövidlink kérés. Kérem, próbálja meg később."
+
+#: includes/classes/class-redirection.php:1642
+msgid "Too Many Requests"
+msgstr "Túl sok kérés"
 
 #: includes/classes/class-revision.php:439
 msgid "Invalid revision ID."
 msgstr "Érvénytelen revízió azonosító."
 
-#: includes/classes/class-settings.php:187
+#: includes/classes/class-settings.php:199
+#: includes/classes/class-settings.php:447
+#: includes/classes/class-settings.php:455
+#: includes/functions.php:226
+#: includes/functions.php:260
+msgid "Draft"
+msgstr "Vázlat"
+
+#: includes/classes/class-settings.php:200
+#: includes/classes/class-settings.php:448
+#: includes/classes/class-settings.php:456
+#: includes/functions.php:227
+#: includes/functions.php:261
+msgid "Pending Review"
+msgstr "Függőben lévő felülvizsgálat"
+
+#: includes/classes/class-settings.php:201
+#: includes/classes/class-settings.php:449
+#: includes/classes/class-settings.php:457
+#: includes/functions.php:228
+#: includes/functions.php:262
+msgid "Private"
+msgstr "Privát"
+
+#: includes/classes/class-settings.php:206
+msgid ""
+"Customize the notice shown for each enabled non-published status. Available "
+"placeholders: {status}, {date}, {title}."
+msgstr ""
+"Testreszabhatja a megjelenített értesítést minden engedélyezett nem "
+"közzétett állapothoz. Elérhető helyettesítők: {status}, {date}, {title}."
+
+#: includes/classes/class-settings.php:231
 msgid "Settings"
 msgstr "Beállítások"
 
-#: includes/classes/class-settings.php:271
+#: includes/classes/class-settings.php:315
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -752,12 +1435,12 @@ msgstr ""
 "Válassza ki, hogy mely post állapotok érhetők el a PublishPress rövidlink "
 "meglátogatásakor."
 
-#: includes/classes/class-settings.php:287
+#: includes/classes/class-settings.php:331
 #, fuzzy
 msgid "PublishPress Statuses Plugin Detected:"
 msgstr "PublishPress Shortlinks Free"
 
-#: includes/classes/class-settings.php:288
+#: includes/classes/class-settings.php:332
 msgid ""
 "To use core PublishPress statuses with Shortlinks, Please enable the "
 "Shortlinks post type in PublishPress Statuses workflow settings."
@@ -766,11 +1449,11 @@ msgstr ""
 "Shortlinks funkcióhoz engedélyezze a Shortlinks post type-ot a PublishPress "
 "Statuses munkafolyamat beállításaiban."
 
-#: includes/classes/class-settings.php:307
+#: includes/classes/class-settings.php:351
 msgid "Elementor Detected:"
 msgstr "Elementor észlelve:"
 
-#: includes/classes/class-settings.php:308
+#: includes/classes/class-settings.php:352
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
@@ -778,11 +1461,11 @@ msgstr ""
 "A rövidlink prefix szükséges az Elementor revíziók megfelelő "
 "megjelenítéséhez. Ajánlott, hogy ezt engedélyezve tartsa."
 
-#: includes/classes/class-settings.php:340
+#: includes/classes/class-settings.php:384
 msgid "TinyPress Shortlinks Notice:"
 msgstr "TinyPress rövidlink értesítés:"
 
-#: includes/classes/class-settings.php:341
+#: includes/classes/class-settings.php:385
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
@@ -790,107 +1473,109 @@ msgstr ""
 "Az Elementor aktív. A rövidlink prefix automatikusan le lett tiltva, "
 "szükséges az Elementor revíziókkal való optimális kompatibilitáshoz."
 
-#: includes/classes/class-settings.php:404
-msgid "Options"
-msgstr "Opciók"
+#: includes/classes/class-settings.php:446
+#: includes/functions.php:225
+#: includes/functions.php:259
+msgid "Published"
+msgstr "Közzétéve"
 
-#: includes/classes/class-settings.php:409
+#: includes/classes/class-settings.php:470
 msgid "Shortlink Prefix"
 msgstr "Rövidlink prefix"
 
-#: includes/classes/class-settings.php:410
+#: includes/classes/class-settings.php:471
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Adj egy előtagot a domain neved és a rövidlinked közé."
 
-#: includes/classes/class-settings.php:417
+#: includes/classes/class-settings.php:478
 msgid "Prefix Slug"
 msgstr "Előtag slug"
 
-#: includes/classes/class-settings.php:418
+#: includes/classes/class-settings.php:479
 msgid "Custom prefix slug."
 msgstr "Egyedi előtag slug."
 
-#: includes/classes/class-settings.php:419
+#: includes/classes/class-settings.php:480
 msgid "This text will be added between your domain name and shortlink."
 msgstr "Ez a szöveg a domain neved és a rövidlinked közé lesz hozzáadva."
 
-#: includes/classes/class-settings.php:420
-#: includes/classes/class-settings.php:421
+#: includes/classes/class-settings.php:481
+#: includes/classes/class-settings.php:482
 msgid "go"
 msgstr "menj"
 
-#: includes/classes/class-settings.php:427
+#: includes/classes/class-settings.php:488
 msgid "Keyboard Shortcut"
 msgstr "Billentyűparancs"
 
-#: includes/classes/class-settings.php:428
+#: includes/classes/class-settings.php:489
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr "Rövidlinkek létrehozása a WordPress dashboardod bármely részéből."
 
-#: includes/classes/class-settings.php:429
-#: includes/classes/class-settings.php:430
+#: includes/classes/class-settings.php:490
+#: includes/classes/class-settings.php:491
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl vagy Cmd + /"
 
-#: includes/classes/class-settings.php:439
+#: includes/classes/class-settings.php:500
 msgid "Remove from Admin Bar"
 msgstr "Eltávolítás az Admin Sávból"
 
-#: includes/classes/class-settings.php:440
+#: includes/classes/class-settings.php:501
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "A \"Rövidítés\" gomb elrejtése a WordPress admin sávból."
 
-#: includes/classes/class-settings.php:446
+#: includes/classes/class-settings.php:507
 msgid "Role Management"
 msgstr "Szerepkör kezelés"
 
-#: includes/classes/class-settings.php:451
+#: includes/classes/class-settings.php:512
 msgid "Who Can View Shortlinks"
 msgstr "Ki láthatja a rövidlinkeket"
 
-#: includes/classes/class-settings.php:452
+#: includes/classes/class-settings.php:513
 msgid "Only selected user roles can view links."
 msgstr "Csak a kiválasztott felhasználói szerepkörök láthatják a linkeket."
 
-#: includes/classes/class-settings.php:460
+#: includes/classes/class-settings.php:521
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Ki hozhat létre/szerkeszthet rövidlinkeket"
 
-#: includes/classes/class-settings.php:461
+#: includes/classes/class-settings.php:522
 msgid "Only selected user roles can create or edit links."
 msgstr ""
 "Csak a kiválasztott felhasználói szerepkörök hozhatnak létre vagy "
 "szerkeszthetnek linkeket."
 
-#: includes/classes/class-settings.php:470
+#: includes/classes/class-settings.php:531
 msgid "Who Can See Analytics"
 msgstr "Ki láthatja az analitikát"
 
-#: includes/classes/class-settings.php:471
+#: includes/classes/class-settings.php:532
 msgid "Only selected user roles can see analytics."
 msgstr "Csak a kiválasztott felhasználói szerepkörök láthatják az analitikát."
 
-#: includes/classes/class-settings.php:480
+#: includes/classes/class-settings.php:541
 msgid "Who Can Control Settings"
 msgstr "Ki vezérelheti a beállításokat"
 
-#: includes/classes/class-settings.php:481
+#: includes/classes/class-settings.php:542
 msgid "Only selected user roles can control settings."
 msgstr "Csak a kiválasztott felhasználói szerepkörök vezérelhetik a beállításokat."
 
-#: includes/classes/class-settings.php:490
+#: includes/classes/class-settings.php:551
 msgid "Auto-Linking"
 msgstr "Automatikus Linkelés"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:556
 msgid "Enable Auto-Linking"
 msgstr "Automatikus Linkelés engedélyezése"
 
-#: includes/classes/class-settings.php:496
+#: includes/classes/class-settings.php:557
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr "Automatikusan konvertálja a kulcsszavakat rövidlinkekké a post tartalmában."
 
-#: includes/classes/class-settings.php:497
+#: includes/classes/class-settings.php:558
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
@@ -898,39 +1583,39 @@ msgstr ""
 "Ha engedélyezve van, a rövidlink beállításokban konfigurált kulcsszavak "
 "automatikusan linkelve lesznek a tartalmában."
 
-#: includes/classes/class-settings.php:503
+#: includes/classes/class-settings.php:564
 msgid "Open Auto-Links In"
 msgstr "Automatikus Linkek Megnyitása"
 
-#: includes/classes/class-settings.php:504
+#: includes/classes/class-settings.php:565
 msgid "Choose how auto-linked keywords should open."
 msgstr "Válassza ki, hogyan nyílhatnak meg az automatikusan linkelt kulcsszavak."
 
-#: includes/classes/class-settings.php:506
+#: includes/classes/class-settings.php:567
 msgid "Same tab"
 msgstr "Ugyanabban a fülben"
 
-#: includes/classes/class-settings.php:507
+#: includes/classes/class-settings.php:568
 msgid "New tab"
 msgstr "Új fülben"
 
-#: includes/classes/class-settings.php:515
+#: includes/classes/class-settings.php:576
 msgid "Auto-Link Color"
 msgstr "Automatikus Link Szín"
 
-#: includes/classes/class-settings.php:516
+#: includes/classes/class-settings.php:577
 msgid "Choose the color for auto-linked keywords."
 msgstr "Válaszd ki a színt az automatikusan összekapcsolt kulcsszavakhoz."
 
-#: includes/classes/class-settings.php:523
+#: includes/classes/class-settings.php:588
 msgid "Auto-List Links"
 msgstr "Automatikus lista linkekből"
 
-#: includes/classes/class-settings.php:528
+#: includes/classes/class-settings.php:593
 msgid "Auto-List Shortlinks"
 msgstr "Automatikus lista rövidlinkek"
 
-#: includes/classes/class-settings.php:529
+#: includes/classes/class-settings.php:594
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
@@ -938,17 +1623,17 @@ msgstr ""
 "Ha engedélyezve van, a rövidlinkek megjelennek az \"Összes Link\" "
 "táblázatban az alább konfigurált viselkedés alapján."
 
-#: includes/classes/class-settings.php:535
+#: includes/classes/class-settings.php:600
 msgid "Configure Post Types"
 msgstr "Post típusok konfigurálása"
 
-#: includes/classes/class-settings.php:536
+#: includes/classes/class-settings.php:601
 msgid "Set when links should be auto-listed for each post type"
 msgstr ""
 "Állítsa be, mikor kell automatikusan listázni a linkeket minden post típus "
 "esetén"
 
-#: includes/classes/class-settings.php:537
+#: includes/classes/class-settings.php:602
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -957,65 +1642,105 @@ msgstr ""
 "rövidlinkjeik az \"Összes Link\" táblázatban. A változtatások automatikusan "
 "mentésre kerülnek."
 
-#: includes/classes/class-settings.php:544
+#: includes/classes/class-settings.php:609
 #: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "Post állapot láthatóság"
 
-#: includes/classes/class-settings.php:549
+#: includes/classes/class-settings.php:614
 msgid "Allowed Post Statuses"
 msgstr "Engedélyezett Post állapotok"
 
-#: includes/classes/class-settings.php:550
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Válassza ki, hogy mely post állapotok érhetők el rövidlinkeken keresztül"
+#: includes/classes/class-settings.php:623
+msgid "Unpublished Content Notice"
+msgstr "Nem közzétett tartalom értesítése"
 
-#: includes/classes/class-settings.php:554
-msgid "Published"
-msgstr "Közzétéve"
-
-#: includes/classes/class-settings.php:555
-msgid "Draft"
-msgstr "Vázlat"
-
-#: includes/classes/class-settings.php:556
-msgid "Pending Review"
-msgstr "Függőben lévő felülvizsgálat"
-
-#: includes/classes/class-settings.php:557
-msgid "Private"
-msgstr "Privát"
-
-#: includes/classes/class-settings.php:565
-msgid "Expired Links"
-msgstr "Lejárt linkek"
-
-#: includes/classes/class-settings.php:570
-msgid "Default Expired Redirect URL"
-msgstr "Alapértelmezett lejárt átirányítási URL"
-
-#: includes/classes/class-settings.php:571
-msgid "Where should expired shortlinks redirect?"
-msgstr "Hová kell átirányítani a lejárt rövidlinkeket?"
-
-#: includes/classes/class-settings.php:572
+#: includes/classes/class-settings.php:624
 msgid ""
-"When a shortlink expires, visitors will be redirected to this URL instead "
-"of seeing an error. Leave empty to show the default expiration message."
+"Show a frontend notice when an internal shortlink displays a post that is "
+"not published."
 msgstr ""
-"Amikor egy rövidlink lejár, a látogatók erre az URL-re lesznek átirányítva "
-"a hibaüzenet helyett. Hagyja üresen, hogy az alapértelmezett lejárati "
-"üzenetet mutassa."
+"Mutasson egy előtér értesítést, amikor egy belső rövidlink olyan bejegyzést "
+"mutat be, amely nincs közzétéve."
 
-#: includes/classes/class-settings.php:584
+#: includes/classes/class-settings.php:630
+msgid "Notice Post Statuses"
+msgstr "Értesítési bejegyzés állapotok"
+
+#: includes/classes/class-settings.php:631
+msgid ""
+"This notice only applies to internal shortlinks that render post content "
+"directly. External shortlinks are not affected."
+msgstr ""
+"Ez az értesítés csak a belső rövidlinkekre vonatkozik, amelyek közvetlenül "
+"bejegyzés tartalmat jelenítenek meg. A külső rövidlinkeket nem érinti."
+
+#: includes/classes/class-settings.php:640
+msgid "Notice Messages"
+msgstr "Értesítési üzenetek"
+
+#: includes/classes/class-settings.php:654
+msgid "Default redirection method for shortlinks"
+msgstr "Alapértelmezett átirányítási módszer a rövidlinkekhez"
+
+#: includes/classes/class-settings.php:666
+msgid "Mark links as sponsored content"
+msgstr "Jelölje meg a linkeket szponzorált tartalomként"
+
+#: includes/classes/class-settings.php:674
+msgid "Prevent search engines from following links"
+msgstr "Megakadályozza, hogy a keresőmotorok kövessék a linkeket"
+
+#: includes/classes/class-settings.php:682
+msgid "Pass URL parameters to target links"
+msgstr "URL paraméterek átadása a cél linkekhez"
+
+#: includes/classes/class-settings.php:695
+msgid "Secure your shortlinks"
+msgstr "Biztosítsa a rövidlinkjeit"
+
+#: includes/classes/class-settings.php:696
+msgid "Users must enter a password to redirect to the target link."
+msgstr "A felhasználóknak jelszót kell megadniuk a cél linkre való átirányításhoz."
+
+#: includes/classes/class-settings.php:702
+msgid "Default Password"
+msgstr "Alapértelmezett jelszó"
+
+#: includes/classes/class-settings.php:703
+msgid "Default password for protected links"
+msgstr "Alapértelmezett jelszó védett linkekhez"
+
+#: includes/classes/class-settings.php:704
+msgid ""
+"This password will be used for links that have password protection enabled "
+"via global settings. Passwords are case sensitive."
+msgstr ""
+"Ez a jelszó a globális beállítások által engedélyezett jelszóvédelemmel "
+"rendelkező linkekhez lesz használva. A jelszavak kis- és nagybetű "
+"érzékenyek."
+
+#: includes/classes/class-settings.php:715
+msgid "Set an expiration date and time for shortlinks"
+msgstr "Állítson be lejárati dátumot és időt a rövid linkekhez"
+
+#: includes/classes/class-settings.php:723
+msgid "Select the date when this shortlink should stop working"
+msgstr "Válassza ki azt a dátumot, amikor ez a rövid link megszűnik működni"
+
+#: includes/classes/class-settings.php:736
+msgid "Select the time when the shortlink should expire"
+msgstr "Válassza ki azt az időt, amikor a rövid link lejár"
+
+#: includes/classes/class-settings.php:755
 msgid "Revisions"
 msgstr "Módosítások"
 
-#: includes/classes/class-settings.php:589
+#: includes/classes/class-settings.php:760
 msgid "Revision Link Visibility"
 msgstr "Módosítási link láthatóság"
 
-#: includes/classes/class-settings.php:590
+#: includes/classes/class-settings.php:761
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -1023,35 +1748,35 @@ msgstr ""
 "Ha engedélyezve van, a módosítási rövidlinkek megjelennek az \"Összes "
 "Rövidlink\" táblázatban az alább konfigurált viselkedés alapján."
 
-#: includes/classes/class-settings.php:592
+#: includes/classes/class-settings.php:763
 msgid "When Revision is Created"
 msgstr "Amikor a verzió létrejön"
 
-#: includes/classes/class-settings.php:594
+#: includes/classes/class-settings.php:765
 msgid "When Revision is Created or Link is First Used"
 msgstr "Amikor a verzió létrejön vagy a link először használatba kerül"
 
-#: includes/classes/class-settings.php:602
+#: includes/classes/class-settings.php:773
 msgid "Show Shortlink in Revision Table"
 msgstr "Rövidlink megjelenítése a verzió táblázatban"
 
-#: includes/classes/class-settings.php:603
+#: includes/classes/class-settings.php:774
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "Rövidlink oszlop megjelenítése a PublishPress Revisions verzióinak "
 "megtekintésekor."
 
-#: includes/classes/class-settings.php:609
+#: includes/classes/class-settings.php:780
 msgid "Revision Visibility for Visitors"
 msgstr "Verzió láthatóság a látogatók számára"
 
-#: includes/classes/class-settings.php:610
+#: includes/classes/class-settings.php:781
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Engedélyezze a kijelentkezett látogatók számára, hogy rövidlinkeken "
 "keresztül megtekinthessék a verzió tartalmát."
 
-#: includes/classes/class-settings.php:611
+#: includes/classes/class-settings.php:782
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1064,17 +1789,17 @@ msgstr ""
 "tartalmát a kijelentkezett látogatók számára, ahelyett, hogy átirányítanák "
 "az előnézeti URL-re."
 
-#: includes/classes/class-settings.php:632, fuzzy
+#: includes/classes/class-settings.php:805, fuzzy
 msgid "Dummy"
 msgstr "Dummy"
 
-#: includes/classes/class-settings.php:676
+#: includes/classes/class-settings.php:849
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Még nincs konfigurálva post type. Kattintson az \"Add Post Type\" gombra a "
 "kezdéshez."
 
-#: includes/classes/class-settings.php:708
+#: includes/classes/class-settings.php:881
 msgid "Add Post Type"
 msgstr "Post Type hozzáadása"
 
@@ -1146,31 +1871,30 @@ msgstr "Meglátogatta %s időpontban"
 msgid "via %s"
 msgstr "via %s"
 
-#: includes/functions.php:169
+#: includes/functions.php:181
 msgid "Edit shortlink settings"
 msgstr "Rövid link beállításainak szerkesztése"
 
-#: includes/functions.php:216
+#: includes/functions.php:320
+#: tinypress.php:290
+msgid ""
+"This post is in {status} status. It will become visible to the public on "
+"{date}."
+msgstr ""
+"Ez a bejegyzés {status} állapotban van. {date}-tól válik láthatóvá a "
+"nyilvánosság számára."
+
+#: includes/functions.php:345
 msgid "Target url not found."
 msgstr "Cél URL nem található."
 
-#: includes/functions.php:223
+#: includes/functions.php:352
 msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr "Érvénytelen URL séma. Csak http, https, ftp, ftps és mailto engedélyezett."
 
-#: includes/functions.php:229
-msgid "Invalid URL."
-msgstr "Érvénytelen URL."
-
-#: includes/functions.php:233
+#: includes/functions.php:384
 msgid "Tiny slug could not created."
 msgstr "A kis slug nem jöhetett létre."
-
-#: includes/functions.php:252
-#. translators: %s: link ID number
-#, fuzzy, php-format
-msgid "Link - %s"
-msgstr "Link - %s"
 
 #: templates/admin-modal-new-link.php:12
 msgid "Shortlink will appear here"
@@ -1184,32 +1908,28 @@ msgstr "Adjon meg egy hosszú URL-t és készítsen rövid linket"
 msgid "Long URL"
 msgstr "Hosszú URL"
 
-#: templates/admin-modal-new-link.php:37
-msgid "Close"
-msgstr "Bezárás"
-
 #: templates/admin-modal-new-link.php:38
 msgid "Create Shortlink"
 msgstr "Rövid link létrehozása"
 
-#: templates/admin/analytics.php:45
-#: templates/admin/analytics.php:64
+#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:68
 msgid "Reset Today's Analytics"
 msgstr "A mai analitikák visszaállítása"
 
-#: templates/admin/analytics.php:46
+#: templates/admin/analytics.php:50
 msgid "Reset Week's Analytics"
 msgstr "A heti analitikák visszaállítása"
 
-#: templates/admin/analytics.php:47
+#: templates/admin/analytics.php:51
 msgid "Reset Month's Analytics"
 msgstr "A havi analitikák visszaállítása"
 
-#: templates/admin/analytics.php:48
+#: templates/admin/analytics.php:52
 msgid "Reset Year's Analytics"
 msgstr "Az éves analitikák visszaállítása"
 
-#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:53
 msgid ""
 "Are you sure you want to reset the analytics for this period? This action "
 "cannot be undone."
@@ -1217,19 +1937,19 @@ msgstr ""
 "Biztos benne, hogy vissza szeretné állítani az analitikákat erre az "
 "időszakra? Ez a művelet nem vonható vissza."
 
-#: templates/admin/analytics.php:57
+#: templates/admin/analytics.php:61
 msgid "Today"
 msgstr "Ma"
 
-#: templates/admin/analytics.php:58
+#: templates/admin/analytics.php:62
 msgid "Last 7 Days"
 msgstr "Último 7 nap"
 
-#: templates/admin/analytics.php:59
+#: templates/admin/analytics.php:63
 msgid "Last 1 Month"
 msgstr "Último 1 hónap"
 
-#: templates/admin/analytics.php:60
+#: templates/admin/analytics.php:64
 msgid "Last 1 Year"
 msgstr "Último 1 év"
 
@@ -1291,6 +2011,6 @@ msgstr "Tudásbázis megtekintése"
 msgid "This plugin can be deleted."
 msgstr "Ez a bővítmény törölhető."
 
-#: tinypress.php:355
+#: tinypress.php:379
 msgid "Copied."
 msgstr "Másolt."

@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
@@ -70,20 +71,20 @@ if (! class_exists('WP_Customize_Control_WPDK_Settings') && class_exists('WP_Cus
                     $data_global     = implode('|', array_column($dependency, 3));
                     $depend_visible  = implode('|', array_column($dependency, 4));
                 } else {
-                    $data_controller = ( ! empty($dependency[0]) ) ? $dependency[0] : '';
-                    $data_condition  = ( ! empty($dependency[1]) ) ? $dependency[1] : '';
-                    $data_value      = ( ! empty($dependency[2]) ) ? $dependency[2] : '';
-                    $data_global     = ( ! empty($dependency[3]) ) ? $dependency[3] : '';
-                    $depend_visible  = ( ! empty($dependency[4]) ) ? $dependency[4] : '';
+                    $data_controller = (! empty($dependency[0])) ? $dependency[0] : '';
+                    $data_condition  = (! empty($dependency[1])) ? $dependency[1] : '';
+                    $data_value      = (! empty($dependency[2])) ? $dependency[2] : '';
+                    $data_global     = (! empty($dependency[3])) ? $dependency[3] : '';
+                    $depend_visible  = (! empty($dependency[4])) ? $dependency[4] : '';
                 }
 
                 $depend .= ' data-controller="' . esc_attr($data_controller) . '"';
                 $depend .= ' data-condition="' . esc_attr($data_condition) . '"';
                 $depend .= ' data-value="' . esc_attr($data_value) . '"';
-                $depend .= ( ! empty($data_global) ) ? ' data-depend-global="true"' : '';
+                $depend .= (! empty($data_global)) ? ' data-depend-global="true"' : '';
 
                 $visible = ' wpdk_settings-dependency-control';
-                $visible .= ( ! empty($depend_visible) ) ? ' wpdk_settings-depend-visible' : ' wpdk_settings-depend-hidden';
+                $visible .= (! empty($depend_visible)) ? ' wpdk_settings-depend-visible' : ' wpdk_settings-depend-hidden';
             }
 
             $id    = 'customize-control-' . str_replace(array( '[', ']' ), array( '-', '' ), $this->id);
@@ -123,11 +124,11 @@ if (! class_exists('WP_Customize_Control_WPDK_Settings') && class_exists('WP_Cus
                 'typography',
             ));
 
-            $field_id   = ( ! empty($this->field['id']) ) ? $this->field['id'] : '';
-            $custom     = ( ! empty($this->field['customizer']) ) ? true : false;
-            $is_complex = ( in_array($this->field['type'], $complex) ) ? true : false;
-            $class      = ( $is_complex || $custom ) ? ' wpdk_settings-customize-complex' : '';
-            $atts       = ( $is_complex || $custom ) ? ' data-unique-id="' . esc_attr($this->unique) . '" data-option-id="' . esc_attr($field_id) . '"' : '';
+            $field_id   = (! empty($this->field['id'])) ? $this->field['id'] : '';
+            $custom     = (! empty($this->field['customizer'])) ? true : false;
+            $is_complex = (in_array($this->field['type'], $complex)) ? true : false;
+            $class      = ($is_complex || $custom) ? ' wpdk_settings-customize-complex' : '';
+            $atts       = ($is_complex || $custom) ? ' data-unique-id="' . esc_attr($this->unique) . '" data-option-id="' . esc_attr($field_id) . '"' : '';
 
             if (! $is_complex && ! $custom) {
                 $this->field['attributes']['data-customize-setting-link'] = $this->settings['default']->id;
