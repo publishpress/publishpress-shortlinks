@@ -422,7 +422,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
         public static function user_can_settings($user = null)
         {
             if (! defined('PUBLISHPRESS_SHORTLINKS_PRO_VERSION')) {
-                return self::user_has_primitive_cap($user, 'edit_posts');
+                return self::user_has_primitive_cap($user, 'manage_options');
             }
             return self::user_has_role_access('tinypress_role_edit', $user, array( 'administrator', 'editor' ));
         }
