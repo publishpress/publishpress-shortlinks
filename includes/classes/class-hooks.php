@@ -123,6 +123,16 @@ if (! class_exists('TINYPRESS_Hooks')) {
                 wp_send_json_error(esc_html__('Invalid post ID.', 'tinypress'));
             }
 
+            $link = get_post($post_id);
+
+            if (! $link || 'tinypress_link' !== $link->post_type) {
+                wp_send_json_error(esc_html__('Invalid shortlink ID.', 'tinypress'));
+            }
+
+            if (! current_user_can('edit_post', $post_id)) {
+                wp_send_json_error(esc_html__('You do not have permission to reset analytics for this shortlink.', 'tinypress'));
+            }
+
             global $wpdb;
 
             $date_condition = '';
