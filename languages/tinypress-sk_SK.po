@@ -10,11 +10,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
-"PO-Revision-Date: 2026-04-29 12:58+0000\n"
+"PO-Revision-Date: 2026-05-29 08:41+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
-"Language: sk_SK\n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : (n >= 2 && n <= 4) ? 1 : 2;\n"
+"Language: sk-SK\n"
 
 #: tinypress.php:4, fuzzy
 #. Plugin Name of the plugin
@@ -45,7 +45,7 @@ msgstr "PublishPress"
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: includes-core/ShortlinksCoreAdmin.php:86
+#: includes-core/ShortlinksCoreAdmin.php:90
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
@@ -53,79 +53,260 @@ msgstr ""
 "Používate PublishPress Shortlinks Free. Pro verzia má viac funkcií a "
 "podporu. "
 
-#: includes-core/ShortlinksCoreAdmin.php:87
-#: includes-core/ShortlinksCoreAdmin.php:104
-#: includes-core/ShortlinksCoreAdmin.php:105
-#: includes-core/ShortlinksCoreAdmin.php:271
+#: includes-core/ShortlinksCoreAdmin.php:91
+#: includes-core/ShortlinksCoreAdmin.php:108
+#: includes-core/ShortlinksCoreAdmin.php:109
 msgid "Upgrade to Pro"
 msgstr "Prejsť na Pro"
 
-#: includes-core/ShortlinksCoreAdmin.php:117
-#: includes-core/ShortlinksCoreAdmin.php:196
+#: includes-core/ShortlinksCoreAdmin.php:119
+#: includes-core/ShortlinksCoreAdmin.php:120
+#: includes-core/ShortlinksCoreAdmin.php:183
+msgid "Link Health"
+msgstr "Odkaz na zdravotný stav"
+
+#: includes-core/ShortlinksCoreAdmin.php:133
 msgid "Pro Feature"
 msgstr "Pro funkcia"
 
-#: includes-core/ShortlinksCoreAdmin.php:120
-#: includes-core/ShortlinksCoreAdmin.php:199
+#: includes-core/ShortlinksCoreAdmin.php:136
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "Táto funkcia je k dispozícii v PublishPress Shortlinks Pro."
 
-#: includes-core/ShortlinksCoreAdmin.php:135
-#: includes-core/ShortlinksCoreAdmin.php:158
-msgid "Show Expiration Notice"
-msgstr "Zobraziť upozornenie na vypršanie platnosti"
+#: includes-core/ShortlinksCoreAdmin.php:154
+#: includes-core/ShortlinksCoreAdmin.php:159
+msgid "Health"
+msgstr "Zdravie"
 
-#: includes-core/ShortlinksCoreAdmin.php:139
-msgid "Display a brief notice before redirecting expired links."
-msgstr "Zobrazte krátke upozornenie pred presmerovaním na vypršané odkazy."
+#: includes-core/ShortlinksCoreAdmin.php:174, fuzzy
+msgid "Pro"
+msgstr "Pro"
 
-#: includes-core/ShortlinksCoreAdmin.php:153
+#: includes-core/ShortlinksCoreAdmin.php:185
+msgid ""
+"Check whether your shortlinks redirect visitors to working destination "
+"pages."
+msgstr ""
+"Skontrolujte, či vaše skrátené odkazy presmerovávajú návštevníkov na "
+"fungujúce cieľové stránky."
+
+#: includes-core/ShortlinksCoreAdmin.php:193
+msgid "Check Visible Links"
+msgstr "Skontrolovať viditeľné odkazy"
+
+#: includes-core/ShortlinksCoreAdmin.php:197
+msgid "Check All Links"
+msgstr "Skontrolovať všetky odkazy"
+
+#: includes-core/ShortlinksCoreAdmin.php:204
+#: includes/classes/class-columns-link.php:51
+#: includes/classes/class-columns-link.php:372
+#: includes/classes/class-gutenberg-shortlink.php:159
+#: includes/classes/class-hooks.php:231
+#: includes/classes/class-table-logs.php:164
+#: templates/admin-modal-new-link.php:29, fuzzy
+msgid "Shortlink"
+msgstr "Shortlink"
+
+#: includes-core/ShortlinksCoreAdmin.php:205
+#: includes/classes/class-gutenberg-shortlink.php:169
+#: includes/classes/class-import-export.php:1033
+msgid "Target URL"
+msgstr "Cieľová URL"
+
+#: includes-core/ShortlinksCoreAdmin.php:206
+#: includes/classes/class-meta-boxes.php:460
+msgid "Status"
+msgstr "Stav"
+
+#: includes-core/ShortlinksCoreAdmin.php:207, fuzzy
+msgid "HTTP"
+msgstr "HTTP"
+
+#: includes-core/ShortlinksCoreAdmin.php:208
+msgid "Redirects"
+msgstr "Presmerovania"
+
+#: includes-core/ShortlinksCoreAdmin.php:209
+msgid "Final URL"
+msgstr "Konečná URL"
+
+#: includes-core/ShortlinksCoreAdmin.php:216
+msgid "Working"
+msgstr "Fungujúce"
+
+#: includes-core/ShortlinksCoreAdmin.php:224
+msgid "Broken"
+msgstr "Neplatné"
+
+#: includes-core/ShortlinksCoreAdmin.php:247
+#: includes-core/ShortlinksCoreAdmin.php:271
 msgid "Expired Redirect Settings"
 msgstr "Nastavenia vypršaného presmerovania"
 
-#: includes-core/ShortlinksCoreAdmin.php:156
+#: includes-core/ShortlinksCoreAdmin.php:250
+#: includes-core/ShortlinksCoreAdmin.php:274
+#: includes/classes/class-import-export.php:1044
 msgid "Expired Redirect URL"
 msgstr "URL vypršaného presmerovania"
 
-#: includes-core/ShortlinksCoreAdmin.php:161
-msgid "Display a brief notice before redirecting."
-msgstr "Zobrazte krátke upozornenie pred presmerovaním."
+#: includes-core/ShortlinksCoreAdmin.php:251
+msgid "Choose where visitors should go when they click an expired link."
+msgstr ""
+"Vyberte, kam by sa mali návštevníci presmerovať, keď kliknú na neplatný "
+"odkaz."
 
-#: includes-core/ShortlinksCoreAdmin.php:233
-#: includes-core/ShortlinksCoreAdmin.php:234, fuzzy
-msgid "Import / Export"
-msgstr "Import / Export"
-
-#: includes-core/ShortlinksCoreAdmin.php:249, fuzzy
-msgid "Import / Export Shortlinks"
-msgstr "Import / Export Shortlinks"
+#: includes-core/ShortlinksCoreAdmin.php:253
+#: includes-core/ShortlinksCoreAdmin.php:277
+msgid "Show Expiration Notice"
+msgstr "Zobraziť upozornenie na vypršanie platnosti"
 
 #: includes-core/ShortlinksCoreAdmin.php:254
-msgid "Bulk Import & Export"
-msgstr "Hromadný import a export"
-
-#: includes-core/ShortlinksCoreAdmin.php:255
-msgid ""
-"Import and export your shortlinks in bulk using CSV files. Migrate from "
-"other plugins or manage links across multiple sites."
+#: includes-core/ShortlinksCoreAdmin.php:278
+msgid "Display a custom notice page before automatically redirecting visitors."
 msgstr ""
-"Importujte a exportujte svoje shortlinky hromadne pomocou CSV súborov. "
-"Migrácia z iných pluginov alebo správa odkazov na viacerých stránkach."
+"Zobrazte vlastnú stránku s upozornením pred automatickým presmerovaním "
+"návštevníkov."
 
-#: includes-core/ShortlinksCoreAdmin.php:259
-msgid "CSV Export"
-msgstr "CSV export"
+#: includes-core/ShortlinksCoreAdmin.php:257
+msgid "Show a notice page for expired shortlinks briefly before redirecting."
+msgstr ""
+"Krátko zobrazte stránku s upozornením pre neplatné skrátené odkazy pred "
+"presmerovaním."
 
-#: includes-core/ShortlinksCoreAdmin.php:263
-msgid "CSV Import"
-msgstr "CSV import"
+#: includes-core/ShortlinksCoreAdmin.php:275
+msgid "Set the default destination for all expired shortlinks."
+msgstr "Nastavte predvolenú destináciu pre všetky neplatné skrátené odkazy."
 
-#: includes-core/ShortlinksCoreAdmin.php:267
-msgid "Bulk Management"
-msgstr "Hromadné riadenie"
+#: includes-core/ShortlinksCoreAdmin.php:281
+msgid ""
+"Show a notice page for expired shortlinks briefly before redirecting. You "
+"can customize the content of this message."
+msgstr ""
+"Krátko zobrazte stránku s upozornením pre neplatné skrátené odkazy pred "
+"presmerovaním. Môžete prispôsobiť obsah tejto správy."
+
+#: includes-core/ShortlinksCoreAdmin.php:316
+#: includes-core/ShortlinksCoreAdmin.php:343
+msgid "Advanced Auto-Link Settings"
+msgstr "Pokročilé nastavenia automatického prepojenia"
+
+#: includes-core/ShortlinksCoreAdmin.php:318
+#: includes-core/ShortlinksCoreAdmin.php:346
+msgid "Minimum Keyword Usage"
+msgstr "Minimálne použitie kľúčových slov"
+
+#: includes-core/ShortlinksCoreAdmin.php:319
+msgid "Keyword must appear this many times before being autolinked."
+msgstr "Kľúčové slovo musí sa zobraziť toľkokrát, než bude automaticky prepojené."
+
+#: includes-core/ShortlinksCoreAdmin.php:321
+#: includes-core/ShortlinksCoreAdmin.php:349
+msgid "Maximum Keywords Linked"
+msgstr "Maximálne prepojené kľúčové slová"
+
+#: includes-core/ShortlinksCoreAdmin.php:322
+msgid "Maximum number of times this keyword should be autolinked per post."
+msgstr ""
+"Maximálny počet, koľkokrát by malo byť toto kľúčové slovo automaticky "
+"prepojené na príspevok."
+
+#: includes-core/ShortlinksCoreAdmin.php:347
+msgid "Default minimum times a keyword must appear before being autolinked."
+msgstr ""
+"Predvolené minimálne množstvo, koľkokrát sa musí kľúčové slovo objaviť pred "
+"automatickým prepojením."
+
+#: includes-core/ShortlinksCoreAdmin.php:350
+msgid "Default maximum times a keyword should be autolinked per post."
+msgstr ""
+"Predvolené maximálne množstvo, koľkokrát by malo byť kľúčové slovo "
+"automaticky prepojené na príspevok."
+
+#: includes-core/ShortlinksCoreAdmin.php:352
+msgid "Maximum Links Per Post"
+msgstr "Maximálne odkazy na príspevok"
+
+#: includes-core/ShortlinksCoreAdmin.php:353
+msgid "Total maximum autolinks allowed per post/page."
+msgstr ""
+"Celkový maximálny počet automatických odkazov povolených na "
+"príspevok/stránku."
+
+#: includes-core/ShortlinksCoreAdmin.php:355
+msgid "Minimum Character Length"
+msgstr "Minimálna dĺžka znaku"
+
+#: includes-core/ShortlinksCoreAdmin.php:356
+msgid "Keywords shorter than this will not be autolinked."
+msgstr "Kľúčové slová kratšie ako toto nebudú automaticky prepojené."
+
+#: includes-core/ShortlinksCoreAdmin.php:358
+msgid "Maximum Character Length"
+msgstr "Maximálna dĺžka znaku"
+
+#: includes-core/ShortlinksCoreAdmin.php:359
+msgid "Keywords longer than this will not be autolinked."
+msgstr "Kľúčové slová dlhšie ako toto nebudú automaticky prepojené."
+
+#: includes-core/ShortlinksCoreAdmin.php:380
+#: includes/classes/class-settings.php:584
+msgid "Auto-Link Exceptions"
+msgstr "Výnimky pri automatickom prepojení"
+
+#: includes-core/ShortlinksCoreAdmin.php:382
+msgid "Exclude Terms from Auto Links"
+msgstr "Vylúčiť výrazy z automatických odkazov"
+
+#: includes-core/ShortlinksCoreAdmin.php:383
+msgid "These terms will never be autolinked."
+msgstr "Tieto výrazy nebudú nikdy automaticky prepojené."
+
+#: includes-core/ShortlinksCoreAdmin.php:385
+msgid "Prevent Auto Links Inside Classes or IDs"
+msgstr "Zabrániť automatickým odkazom v triedach alebo ID"
+
+#: includes-core/ShortlinksCoreAdmin.php:386
+msgid ""
+"Content inside elements with these classes or IDs will not have autolinks "
+"applied."
+msgstr ""
+"Obsah vo vnútri elementov s týmito triedami alebo ID nebude mať aplikované "
+"automatické odkazy."
+
+#: includes-core/ShortlinksCoreAdmin.php:388
+msgid "Prevent Auto Links Inside Elements"
+msgstr "Zabrániť automatickým odkazom vo vnútri elementov"
+
+#: includes-core/ShortlinksCoreAdmin.php:389
+msgid "Terms inside these HTML tags will not have autolinks applied."
+msgstr "Výrazy vo vnútri týchto HTML tagov nebudú mať aplikované automatické odkazy."
+
+#: includes-core/ShortlinksCoreAdmin.php:402
+msgid "Prevent Auto Links on Shortcodes"
+msgstr "Zabrániť automatickým odkazom na skratky"
+
+#: includes-core/ShortlinksCoreAdmin.php:403
+msgid "Terms inside these shortcodes will not have autolinks applied."
+msgstr "Výrazy vo vnútri týchto skratiek nebudú mať aplikované automatické odkazy."
+
+#: includes-core/ShortlinksCoreAdmin.php:405
+msgid "Prevent Auto Links on Blocks"
+msgstr "Zabrániť automatickým odkazom na bloky"
+
+#: includes-core/ShortlinksCoreAdmin.php:406
+msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
+msgstr "Termíny v týchto Gutenberg blokoch nebudú mať aplikované automatické odkazy."
+
+#: includes-core/ShortlinksCoreAdmin.php:407
+msgid "Search and select blocks..."
+msgstr "Vyhľadať a vybrať bloky..."
 
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:200
+#: includes/classes/class-autolist-ajax.php:204
+#: includes/classes/class-gutenberg-shortlink.php:234
+#: includes/classes/class-gutenberg-shortlink.php:285
+#: includes/classes/class-gutenberg-shortlink.php:329
 msgid "Permission denied"
 msgstr "Prístup zamietnutý"
 
@@ -178,60 +359,61 @@ msgstr "Uloženie konfigurácie do databázy zlyhalo"
 msgid "Configuration saved successfully"
 msgstr "Konfigurácia bola úspešne uložená"
 
-#: includes/classes/class-autolist-ajax.php:144
+#: includes/classes/class-autolist-ajax.php:149
 #. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "Chyba: %s"
 
-#: includes/classes/class-autolist-ajax.php:289
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Validating..."
 msgstr "Validácia..."
 
-#: includes/classes/class-autolist-ajax.php:290
+#: includes/classes/class-autolist-ajax.php:294
 msgid "Saving..."
 msgstr "Ukladanie..."
 
-#: includes/classes/class-autolist-ajax.php:291
+#: includes/classes/class-autolist-ajax.php:295
 msgid "Saved!"
 msgstr "Uložené!"
 
-#: includes/classes/class-autolist-ajax.php:292
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-gutenberg-shortlink.php:175
 msgid "Error"
 msgstr "Chyba"
 
-#: includes/classes/class-autolist-ajax.php:293
+#: includes/classes/class-autolist-ajax.php:297
 msgid "Are you sure you want to remove this post type?"
 msgstr "Ste si istý, že chcete odstrániť tento post type?"
 
-#: includes/classes/class-autolist-ajax.php:294
+#: includes/classes/class-autolist-ajax.php:298
 msgid "Select a post type"
 msgstr "Vyberte post type"
 
-#: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:595
-#: includes/classes/class-settings.php:691
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:766
+#: includes/classes/class-settings.php:864
 msgid "Never"
 msgstr "Nikdy"
 
-#: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:593
-#: includes/classes/class-settings.php:693
+#: includes/classes/class-autolist-ajax.php:300
+#: includes/classes/class-settings.php:764
+#: includes/classes/class-settings.php:866
 msgid "When Link is First Used"
 msgstr "Keď je odkaz prvýkrát použitý"
 
-#: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:695
+#: includes/classes/class-autolist-ajax.php:301
+#: includes/classes/class-settings.php:868
 msgid "When Post is Published"
 msgstr "Keď je príspevok publikovaný"
 
-#: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:694
+#: includes/classes/class-autolist-ajax.php:302
+#: includes/classes/class-settings.php:867
 msgid "When Post is Created"
 msgstr "Keď je príspevok vytvorený"
 
-#: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:692
+#: includes/classes/class-autolist-ajax.php:303
+#: includes/classes/class-settings.php:865
 msgid "When Link is First Used or Post Created"
 msgstr "Keď je odkaz prvýkrát použitý alebo príspevok vytvorený"
 
@@ -239,110 +421,117 @@ msgstr "Keď je odkaz prvýkrát použitý alebo príspevok vytvorený"
 msgid "Invalid post ID or post type."
 msgstr "Neplatné ID príspevku alebo typ príspevku."
 
-#: includes/classes/class-columns-link.php:49
-#: includes/classes/class-columns-link.php:279
-#: includes/classes/class-hooks.php:207
-#: includes/classes/class-table-logs.php:164
-#: templates/admin-modal-new-link.php:29, fuzzy
-msgid "Shortlink"
-msgstr "Shortlink"
-
-#: includes/classes/class-columns-link.php:71
+#: includes/classes/class-columns-link.php:73
 msgid "No shortlink"
 msgstr "Žiadny shortlink"
 
-#: includes/classes/class-columns-link.php:92
-#: includes/classes/class-hooks.php:208
-#: includes/classes/class-hooks.php:210
-#: includes/classes/class-meta-boxes.php:93
+#: includes/classes/class-columns-link.php:94
+#: includes/classes/class-hooks.php:232
+#: includes/classes/class-hooks.php:234
+#: includes/classes/class-meta-boxes.php:130
 msgid "Shortlinks"
 msgstr "Shortlinky"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:178
+#: includes/classes/class-columns-link.php:315
 msgid "Internal"
 msgstr "Interný"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:178
+#: includes/classes/class-columns-link.php:316
 msgid "External"
 msgstr "Externý"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:179
 msgid "This links to your post"
 msgstr "Toto odkazuje na váš príspevok"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:179
 msgid "This links to an external website"
 msgstr "Toto odkazuje na externú webovú stránku"
 
-#: includes/classes/class-columns-link.php:189
+#: includes/classes/class-columns-link.php:183
+#: includes/classes/class-columns-link.php:317
 msgid "Revision"
 msgstr "Revízia"
 
-#: includes/classes/class-columns-link.php:190
+#: includes/classes/class-columns-link.php:184
 msgid "This links to a revision"
 msgstr "Toto odkazuje na revíziu"
 
-#: includes/classes/class-columns-link.php:198
+#: includes/classes/class-columns-link.php:193
 msgid "Not yet submitted"
 msgstr "Ešte nebol predložený"
 
-#: includes/classes/class-columns-link.php:199
+#: includes/classes/class-columns-link.php:194
 msgid "Submitted for approval"
 msgstr "Predložené na schválenie"
 
-#: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:558
+#: includes/classes/class-columns-link.php:195
+#: includes/classes/class-settings.php:202
+#: includes/classes/class-settings.php:450
+#: includes/classes/class-settings.php:458
+#: includes/functions.php:229
+#: includes/functions.php:263
 msgid "Scheduled"
 msgstr "Naplánované"
 
-#: includes/classes/class-columns-link.php:201
+#: includes/classes/class-columns-link.php:196
 msgid "Deferred"
 msgstr "Odložené"
 
-#: includes/classes/class-columns-link.php:202
+#: includes/classes/class-columns-link.php:197
 msgid "Needs work"
 msgstr "Potrebné úpravy"
 
-#: includes/classes/class-columns-link.php:203
+#: includes/classes/class-columns-link.php:198
 msgid "Rejected"
 msgstr "Zamietnuté"
 
-#: includes/classes/class-columns-link.php:207
+#: includes/classes/class-columns-link.php:202
 #. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "Revízia: %s"
 
-#: includes/classes/class-columns-link.php:224
+#: includes/classes/class-columns-link.php:223
 #. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "Kliknuté %s krát"
 
-#: includes/classes/class-columns-link.php:230
+#: includes/classes/class-columns-link.php:229
 #: includes/classes/class-table-logs.php:197
 msgid "Edit"
 msgstr "Upraviť"
 
-#: includes/classes/class-columns-link.php:231
+#: includes/classes/class-columns-link.php:230
 #: includes/classes/class-table-logs.php:178
 #: includes/classes/class-table-logs.php:199
 msgid "Delete"
 msgstr "Odstrániť"
 
-#: includes/classes/class-columns-link.php:278
+#: includes/classes/class-columns-link.php:312
+msgid "Filter by link type"
+msgstr "Filtrovať podľa typu odkazu"
+
+#: includes/classes/class-columns-link.php:314
+msgid "All link types"
+msgstr "Všetky typy odkazov"
+
+#: includes/classes/class-columns-link.php:371
 msgid "Link Title"
 msgstr "Názov odkazu"
 
-#: includes/classes/class-columns-link.php:280
+#: includes/classes/class-columns-link.php:373
 msgid "Link Type"
 msgstr "Typ odkazu"
 
-#: includes/classes/class-columns-link.php:281
+#: includes/classes/class-columns-link.php:377
 msgid "Stats"
 msgstr "Štatistiky"
 
-#: includes/classes/class-columns-link.php:282
+#: includes/classes/class-columns-link.php:380
 msgid "Actions"
 msgstr "Akcie"
 
@@ -354,178 +543,603 @@ msgstr "Kliknite pre skopírovanie"
 msgid "Copied"
 msgstr "Skopírované"
 
-#: includes/classes/class-hooks.php:61
-msgid "Security check failed."
-msgstr "Kontrola bezpečnosti zlyhala."
+#: includes/classes/class-gutenberg-shortlink.php:160
+msgid "Search shortlinks..."
+msgstr "Vyhľadať skratky..."
 
-#: includes/classes/class-hooks.php:65
-msgid "You do not have permission to create shortlinks."
-msgstr "Nemáte oprávnenie vytvárať skratky."
+#: includes/classes/class-gutenberg-shortlink.php:161
+msgid "Insert Shortlink"
+msgstr "Vložiť skratku"
 
-#: includes/classes/class-hooks.php:72
-msgid "Invalid or empty URL"
-msgstr "Neplatná alebo prázdna URL"
+#: includes/classes/class-gutenberg-shortlink.php:162
+msgid "Create New Shortlink"
+msgstr "Vytvoriť novú skratku"
 
-#: includes/classes/class-hooks.php:89
+#: includes/classes/class-gutenberg-shortlink.php:163
+#: includes/classes/class-settings.php:465
+msgid "Options"
+msgstr "Možnosti"
+
+#: includes/classes/class-gutenberg-shortlink.php:164
+msgid "Open in New Tab"
+msgstr "Otvoriť v novom okne"
+
+#: includes/classes/class-gutenberg-shortlink.php:165, fuzzy
+msgid "Nofollow"
+msgstr "Nofollow"
+
+#: includes/classes/class-gutenberg-shortlink.php:166
+msgid "Sponsored Link"
+msgstr "Sponzorovaný odkaz"
+
+#: includes/classes/class-gutenberg-shortlink.php:167
+msgid "Label"
+msgstr "Štítok"
+
+#: includes/classes/class-gutenberg-shortlink.php:168
+msgid "Optional shortlink label"
+msgstr "Voliteľný štítok skratky"
+
+#: includes/classes/class-gutenberg-shortlink.php:170
+msgid "Create"
+msgstr "Vytvoriť"
+
+#: includes/classes/class-gutenberg-shortlink.php:171
+#: includes/classes/class-import-export.php:1219
+msgid "Cancel"
+msgstr "Zrušiť"
+
+#: includes/classes/class-gutenberg-shortlink.php:172
+#: templates/admin-modal-new-link.php:37
+msgid "Close"
+msgstr "Zavrieť"
+
+#: includes/classes/class-gutenberg-shortlink.php:173
+msgid "Creating..."
+msgstr "Vytváranie..."
+
+#: includes/classes/class-gutenberg-shortlink.php:174
+#: includes/classes/class-gutenberg-shortlink.php:317
+#: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "Skratka bola úspešne vytvorená."
 
-#: includes/classes/class-hooks.php:98
+#: includes/classes/class-gutenberg-shortlink.php:176
+msgid "Please enter a valid URL"
+msgstr "Prosím zadajte platnú URL"
+
+#: includes/classes/class-gutenberg-shortlink.php:177
+msgid "No shortlinks found"
+msgstr "Neboli nájdené žiadne skratky"
+
+#: includes/classes/class-gutenberg-shortlink.php:243
+msgid "Search term is required"
+msgstr "Vyhľadávací pojem je povinný"
+
+#: includes/classes/class-gutenberg-shortlink.php:258
+#: includes/functions.php:403
+#. translators: %s: link ID number
+#, php-format
+msgid "Link - %s"
+msgstr "Odkaz - %s"
+
+#: includes/classes/class-gutenberg-shortlink.php:294
+msgid "Target URL is required"
+msgstr "Cieľová URL je povinná"
+
+#: includes/classes/class-gutenberg-shortlink.php:336
+msgid "Invalid shortlink ID"
+msgstr "Neplatné ID skratky"
+
+#: includes/classes/class-gutenberg-shortlink.php:342
+msgid "Shortlink not found"
+msgstr "Krátky odkaz nenájdený"
+
+#: includes/classes/class-hooks.php:69
+#: includes/classes/class-import-export.php:119
+msgid "Security check failed."
+msgstr "Kontrola bezpečnosti zlyhala."
+
+#: includes/classes/class-hooks.php:73
+msgid "You do not have permission to create shortlinks."
+msgstr "Nemáte oprávnenie vytvárať skratky."
+
+#: includes/classes/class-hooks.php:80
+msgid "Invalid or empty URL"
+msgstr "Neplatná alebo prázdna URL"
+
+#: includes/classes/class-hooks.php:112
 msgid "Invalid nonce verification."
 msgstr "Neplatná kontrola nonce."
 
-#: includes/classes/class-hooks.php:102
+#: includes/classes/class-hooks.php:116
 msgid "You do not have permission to reset analytics."
 msgstr "Nemáte oprávnenie resetovať analytiku."
 
-#: includes/classes/class-hooks.php:109
+#: includes/classes/class-hooks.php:123
 msgid "Invalid post ID."
 msgstr "Neplatné ID príspevku."
 
-#: includes/classes/class-hooks.php:140
+#: includes/classes/class-hooks.php:129
+msgid "Invalid shortlink ID."
+msgstr "Neplatný ID krátkeho odkazu."
+
+#: includes/classes/class-hooks.php:133
+msgid "You do not have permission to reset analytics for this shortlink."
+msgstr "Nemáte oprávnenie na obnovenie analytiky pre tento krátky odkaz."
+
+#: includes/classes/class-hooks.php:164
 msgid "Analytics reset successfully."
 msgstr "Analytika bola úspešne resetovaná."
 
-#: includes/classes/class-hooks.php:142
+#: includes/classes/class-hooks.php:166
 msgid "Failed to reset analytics."
 msgstr "Nepodarilo sa resetovať analytiku."
 
-#: includes/classes/class-hooks.php:168
+#: includes/classes/class-hooks.php:192
 msgid "Shorten"
 msgstr "Skrať"
 
-#: includes/classes/class-hooks.php:211
+#: includes/classes/class-hooks.php:235
 msgid "All Shortlinks"
 msgstr "Všetky skrátené odkazy"
 
-#: includes/classes/class-hooks.php:212
-#: includes/classes/class-hooks.php:213
+#: includes/classes/class-hooks.php:236
+#: includes/classes/class-hooks.php:237
 msgid "Add Shortlink"
 msgstr "Pridať skrátený odkaz"
 
-#: includes/classes/class-hooks.php:214
+#: includes/classes/class-hooks.php:238
 msgid "Search Shortlinks"
 msgstr "Hľadať skrátené odkazy"
 
-#: includes/classes/class-hooks.php:229
+#: includes/classes/class-hooks.php:256
 msgid "Category"
 msgstr "Kategória"
 
-#: includes/classes/class-hooks.php:230
+#: includes/classes/class-hooks.php:257
 msgid "Categories"
 msgstr "Kategórie"
 
-#: includes/classes/class-hooks.php:256
-#: includes/classes/class-hooks.php:257
+#: includes/classes/class-hooks.php:283
+#: includes/classes/class-hooks.php:284
 msgid "Logs"
 msgstr "Záznamy"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "All Logs"
 msgstr "Všetky záznamy"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Are you sure you want to clear all logs?"
 msgstr "Ste si istý, že chcete vymazať všetky záznamy?"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Clear Logs"
 msgstr "Vymazať záznamy"
 
-#: includes/classes/class-hooks.php:506
+#: includes/classes/class-hooks.php:606
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Je nám ľúto, nemáte povolenie na prístup k skráteným odkazom."
 
-#: includes/classes/class-hooks.php:507
-#: includes/classes/class-hooks.php:528
-#: includes/classes/class-hooks.php:539
-#: includes/classes/class-hooks.php:560
+#: includes/classes/class-hooks.php:607
+#: includes/classes/class-hooks.php:628
+#: includes/classes/class-hooks.php:639
+#: includes/classes/class-hooks.php:660
 msgid "Access Denied"
 msgstr "Prístup zamietnutý"
 
-#: includes/classes/class-hooks.php:527
+#: includes/classes/class-hooks.php:627
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Je nám ľúto, nemáte povolenie na vytváranie skrátených odkazov."
 
-#: includes/classes/class-hooks.php:538
+#: includes/classes/class-hooks.php:638
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Je nám ľúto, nemáte povolenie na úpravu skrátených odkazov."
 
-#: includes/classes/class-hooks.php:559
+#: includes/classes/class-hooks.php:659
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Je nám ľúto, nemáte povolenie na prístup k nastaveniam skrátených odkazov."
 
-#: includes/classes/class-meta-boxes.php:76
-msgid "Side"
-msgstr "Strana"
+#: includes/classes/class-import-export.php:48
+#: includes/classes/class-import-export.php:49, fuzzy
+msgid "Import / Export"
+msgstr "Import / Export"
 
-#: includes/classes/class-meta-boxes.php:187
-#: tinypress.php:448
-msgid "PublishPress Shortlinks"
-msgstr "Skrátené odkazy PublishPress"
+#: includes/classes/class-import-export.php:87
+msgid "Importing..."
+msgstr "Importujem..."
 
-#: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:401
-msgid "General"
-msgstr "Všeobecné"
+#: includes/classes/class-import-export.php:88
+msgid "Import complete!"
+msgstr "Import dokončený!"
 
-#: includes/classes/class-meta-boxes.php:205
-msgid "Label *"
-msgstr "Názov *"
+#: includes/classes/class-import-export.php:89
+msgid "Import failed. Please check the file and try again."
+msgstr "Import zlyhal. Skontrolujte súbor a skúste to znova."
 
-#: includes/classes/class-meta-boxes.php:207
-msgid "For admin purpose only."
-msgstr "Iba na administratívne účely."
+#: includes/classes/class-import-export.php:90
+msgid "Please select a CSV file."
+msgstr "Vyberte prosím súbor CSV."
 
-#: includes/classes/class-meta-boxes.php:216
-msgid "Target URL *"
-msgstr "Cieľová URL *"
+#: includes/classes/class-import-export.php:91
+msgid "This will import shortlinks from the CSV file. Continue?"
+msgstr "Toto importuje krátke odkazy zo súboru CSV. Pokračovať?"
 
-#: includes/classes/class-meta-boxes.php:226
-msgid "Short String *"
-msgstr "Skrátený reťazec *"
+#: includes/classes/class-import-export.php:92
+msgid "Previewing..."
+msgstr "Náhľad..."
 
-#: includes/classes/class-meta-boxes.php:227
-msgid "Short string of this URL."
-msgstr "Krátky reťazec tejto URL."
+#: includes/classes/class-import-export.php:93
+msgid "Preview failed."
+msgstr "Náhľad zlyhal."
 
-#: includes/classes/class-meta-boxes.php:233
-msgid "Status"
-msgstr "Stav"
+#: includes/classes/class-import-export.php:94
+#: includes/classes/class-import-export.php:1214
+msgid "See More Rows"
+msgstr "Zobraziť viac riadkov"
 
-#: includes/classes/class-meta-boxes.php:234
-msgid "Disable the shortlink instantly."
-msgstr "Okamžite deaktivujte skrátený odkaz."
+#: includes/classes/class-import-export.php:95
+msgid "Show Less"
+msgstr "Zobraziť menej"
 
-#: includes/classes/class-meta-boxes.php:235
-msgid "After disabling the link will not active but the settings will be reserved."
-msgstr "Po deaktivácii odkaz nebude aktívny, ale nastavenia budú rezervované."
+#: includes/classes/class-import-export.php:96
+#: includes/classes/class-import-export.php:1177
+msgid "Preview"
+msgstr "Náhľad"
 
-#: includes/classes/class-meta-boxes.php:236
-msgid "Enable"
-msgstr "Povoliť"
+#: includes/classes/class-import-export.php:97
+#: includes/classes/class-import-export.php:1168
+#: includes/classes/class-import-export.php:1181
+msgid "Import CSV"
+msgstr "Importovať CSV"
 
-#: includes/classes/class-meta-boxes.php:237
-msgid "Disable"
-msgstr "Deaktivovať"
+#: includes/classes/class-import-export.php:98
+#: includes/classes/class-import-export.php:722
+#. translators: %d: number of successfully imported shortlinks
+#, php-format
+msgid "%d shortlinks successfully imported"
+msgstr "%d krátkych odkazov úspešne importovaných"
 
-#: includes/classes/class-meta-boxes.php:244
+#: includes/classes/class-import-export.php:99
+#: includes/classes/class-import-export.php:744
+#. translators: %d: number of failed imports
+#, php-format
+msgid "%d shortlinks failed to import"
+msgstr "%d krátkych odkazov sa nepodarilo importovať"
+
+#: includes/classes/class-import-export.php:100
+msgid "Error(s) for TinyPress Slug:"
+msgstr "Chyba(y) pre TinyPress Slug:"
+
+#: includes/classes/class-import-export.php:115
+#: includes/classes/class-import-export.php:543
+#: includes/classes/class-import-export.php:898
+#: includes/classes/class-import-export.php:1028
+msgid "Unauthorized."
+msgstr "Neoprávnené."
+
+#: includes/classes/class-import-export.php:296
+#: includes/functions.php:358
+msgid "Invalid URL."
+msgstr "Neplatná URL."
+
+#: includes/classes/class-import-export.php:548
+#: includes/classes/class-import-export.php:903
+msgid "No file uploaded or upload error."
+msgstr "Nebolo nahrané žiadne súbor alebo došlo k chybe pri nahrávaní."
+
+#: includes/classes/class-import-export.php:557
+#: includes/classes/class-import-export.php:912
+msgid "Please upload a CSV file."
+msgstr "Nahrajte prosím súbor CSV."
+
+#: includes/classes/class-import-export.php:563
+#: includes/classes/class-import-export.php:918
+msgid "Could not read the file."
+msgstr "Nepodarilo sa prečítať súbor."
+
+#: includes/classes/class-import-export.php:570
+#: includes/classes/class-import-export.php:925
+msgid "Empty CSV file."
+msgstr "Prázdny CSV súbor."
+
+#: includes/classes/class-import-export.php:593
+#: includes/classes/class-import-export.php:949
+msgid ""
+"CSV must contain a column for target URL (e.g., \"url\", \"target_url\", "
+"\"destination_url\")."
+msgstr ""
+"CSV musí obsahovať stĺpec pre cieľovú URL (napr. \"url\", \"target_url\", "
+"\"destination_url\")."
+
+#: includes/classes/class-import-export.php:654
+#. translators: %s: error message
+#, php-format
+msgid "Failed to create shortlink: %s"
+msgstr "Nepodarilo sa vytvoriť krátky odkaz: %s"
+
+#: includes/classes/class-import-export.php:655
+msgid "Unknown error."
+msgstr "Neznáma chyba."
+
+#: includes/classes/class-import-export.php:733
+#. translators: %d: number of updated shortlinks
+#, php-format
+msgid "%d shortlinks updated"
+msgstr "%d krátkych odkazov aktualizovaných"
+
+#: includes/classes/class-import-export.php:986
+#. translators: 1: original column name, 2: mapped field name
+#, fuzzy, php-format
+msgid "\"%1$s\" → %2$s"
+msgstr "\"%1$s\" → %2$s"
+
+#: includes/classes/class-import-export.php:997
+#. translators: %s: field mappings
+#, php-format
+msgid "Field mappings: %s"
+msgstr "Mapovania polí: %s"
+
+#: includes/classes/class-import-export.php:1013
+#. translators: 1: number of preview rows, 2: total number of importable rows
+#, php-format
+msgid "Showing %1$d preview row(s) from %2$d importable row(s)."
+msgstr "Zobrazuje sa %1$d riadok(ov) náhľadu z %2$d importovateľných riadkov."
+
+#: includes/classes/class-import-export.php:1032
+msgid "Link Label"
+msgstr "Označenie odkazu"
+
+#: includes/classes/class-import-export.php:1034
+msgid "Short Slug"
+msgstr "Krátky identifikátor"
+
+#: includes/classes/class-import-export.php:1035
+msgid "Post Status"
+msgstr "Stav príspevku"
+
+#: includes/classes/class-import-export.php:1036
+msgid "Link Status"
+msgstr "Stav odkazu"
+
+#: includes/classes/class-import-export.php:1037
+msgid "Redirect Method"
+msgstr "Metóda presmerovania"
+
+#: includes/classes/class-import-export.php:1038
+#: includes/classes/class-meta-boxes.php:600
+#: includes/classes/class-settings.php:673, fuzzy
+msgid "NoFollow"
+msgstr "NoFollow"
+
+#: includes/classes/class-import-export.php:1039
+#: includes/classes/class-meta-boxes.php:580
+#: includes/classes/class-settings.php:665
+msgid "Sponsored"
+msgstr "Sponzorované"
+
+#: includes/classes/class-import-export.php:1040
+#: includes/classes/class-meta-boxes.php:620
+#: includes/classes/class-settings.php:681
+msgid "Parameter Forwarding"
+msgstr "Preposielanie parametrov"
+
+#: includes/classes/class-import-export.php:1041
+msgid "Expiration Enabled"
+msgstr "Vypršanie povolené"
+
+#: includes/classes/class-import-export.php:1042
+#: includes/classes/class-meta-boxes.php:698
+#: includes/classes/class-settings.php:722
+msgid "Expiration Date"
+msgstr "Dátum vypršania"
+
+#: includes/classes/class-import-export.php:1043
+#: includes/classes/class-meta-boxes.php:712
+#: includes/classes/class-settings.php:735
+msgid "Expiration Time"
+msgstr "Čas vypršania"
+
+#: includes/classes/class-import-export.php:1045
+#: includes/classes/class-meta-boxes.php:471
 msgid "Notes"
 msgstr "Poznámky"
 
-#: includes/classes/class-meta-boxes.php:251
+#: includes/classes/class-import-export.php:1046
+msgid "Autolink Keywords"
+msgstr "Automatické prepojenie kľúčových slov"
+
+#: includes/classes/class-import-export.php:1091, fuzzy
+msgid "Import / Export Shortlinks"
+msgstr "Import / Export Shortlinks"
+
+#: includes/classes/class-import-export.php:1097
+msgid "Export"
+msgstr "Exportovať"
+
+#: includes/classes/class-import-export.php:1101
+msgid "Download all your shortlinks as a CSV file. Choose a format below:"
+msgstr ""
+"Stiahnite si všetky svoje krátke odkazy ako CSV súbor. Vyberte formát "
+"nižšie:"
+
+#: includes/classes/class-import-export.php:1106
+#: includes/classes/class-import-export.php:1137
+#. translators: %d: number of shortlinks
+#, php-format
+msgid "%d shortlink(s) will be exported."
+msgstr "%d krátkych odkazov bude exportovaných."
+
+#: includes/classes/class-import-export.php:1114
+msgid "Shortlinks Format"
+msgstr "Formát krátkych odkazov"
+
+#: includes/classes/class-import-export.php:1115
+msgid ""
+"Full format with TinyPress fields and global-setting modes. Password "
+"protection settings are not exported."
+msgstr ""
+"Úplný formát s poliami TinyPress a režimami globálnych nastavení. "
+"Nastavenia ochrany heslom nie sú exportované."
+
+#: includes/classes/class-import-export.php:1118
+#: includes/classes/class-import-export.php:1145
+msgid "Export CSV"
+msgstr "Exportovať CSV"
+
+#: includes/classes/class-import-export.php:1123
+msgid "Pretty Links Format"
+msgstr "Formát Pretty Links"
+
+#: includes/classes/class-import-export.php:1124
+msgid "Compatible format for importing into Pretty Links plugin."
+msgstr "Kompatibilný formát pre import do pluginu Pretty Links."
+
+#: includes/classes/class-import-export.php:1127
+msgid "Export for Pretty Links"
+msgstr "Export pre Pretty Links"
+
+#: includes/classes/class-import-export.php:1132
+msgid ""
+"Download all your shortlinks as a CSV file. The export includes labels, "
+"target URLs, slugs, redirect settings, global-setting modes, and more. "
+"Password protection settings are not exported."
+msgstr ""
+"Stiahnite si všetky svoje skratky ako súbor CSV. Export obsahuje štítky, "
+"cieľové URL, slugs, nastavenia presmerovania, režimy globálnych nastavení a "
+"ďalšie. Nastavenia ochrany heslom nie sú exportované."
+
+#: includes/classes/class-import-export.php:1154
+#: includes/classes/class-import-export.php:1223
+msgid "Import"
+msgstr "Importovať"
+
+#: includes/classes/class-import-export.php:1157
+msgid ""
+"Upload a CSV file to bulk-create shortlinks. The CSV must contain at "
+"minimum a \"target_url\" column. Password protection settings are "
+"intentionally not imported."
+msgstr ""
+"Nahrajte súbor CSV na hromadné vytvorenie skratiek. CSV musí obsahovať "
+"minimálne stĺpec \"target_url\". Nastavenia ochrany heslom sa úmyselne "
+"neimportujú."
+
+#: includes/classes/class-import-export.php:1159
+msgid "Supported columns:"
+msgstr "Podporované stĺpce:"
+
+#: includes/classes/class-import-export.php:1184
+msgid "Change File"
+msgstr "Zmeniť súbor"
+
+#: includes/classes/class-import-export.php:1201
+msgid "Import Preview"
+msgstr "Náhľad importu"
+
+#: includes/classes/class-meta-boxes.php:113
+msgid "Side"
+msgstr "Strana"
+
+#: includes/classes/class-meta-boxes.php:367, fuzzy
+msgid "ON"
+msgstr "ON"
+
+#: includes/classes/class-meta-boxes.php:367, fuzzy
+msgid "OFF"
+msgstr "OFF"
+
+#: includes/classes/class-meta-boxes.php:371
+#: includes/classes/class-meta-boxes.php:396
+#. translators: %s: current global setting value
+#, php-format
+msgid "Use global settings (currently: %s)"
+msgstr "Použiť globálne nastavenia (aktuálne: %s)"
+
+#: includes/classes/class-meta-boxes.php:399
+#: includes/classes/class-settings.php:656
+msgid "307 (Temporary)"
+msgstr "307 (Dočasné)"
+
+#: includes/classes/class-meta-boxes.php:400
+#: includes/classes/class-settings.php:657
+msgid "302 (Temporary)"
+msgstr "302 (Dočasné)"
+
+#: includes/classes/class-meta-boxes.php:401
+#: includes/classes/class-settings.php:658
+msgid "301 (Permanent)"
+msgstr "301 (Trvalé)"
+
+#: includes/classes/class-meta-boxes.php:414
+#: tinypress.php:472
+msgid "PublishPress Shortlinks"
+msgstr "Skrátené odkazy PublishPress"
+
+#: includes/classes/class-meta-boxes.php:427
+#: includes/classes/class-settings.php:462
+msgid "General"
+msgstr "Všeobecné"
+
+#: includes/classes/class-meta-boxes.php:432
+msgid "Label *"
+msgstr "Názov *"
+
+#: includes/classes/class-meta-boxes.php:434
+msgid "For admin purpose only."
+msgstr "Iba na administratívne účely."
+
+#: includes/classes/class-meta-boxes.php:443
+msgid "Target URL *"
+msgstr "Cieľová URL *"
+
+#: includes/classes/class-meta-boxes.php:453
+msgid "Short String *"
+msgstr "Skrátený reťazec *"
+
+#: includes/classes/class-meta-boxes.php:454
+msgid "Short string of this URL."
+msgstr "Krátky reťazec tejto URL."
+
+#: includes/classes/class-meta-boxes.php:461
+msgid "Disable the shortlink instantly."
+msgstr "Okamžite deaktivujte skrátený odkaz."
+
+#: includes/classes/class-meta-boxes.php:462
+msgid "After disabling the link will not active but the settings will be reserved."
+msgstr "Po deaktivácii odkaz nebude aktívny, ale nastavenia budú rezervované."
+
+#: includes/classes/class-meta-boxes.php:463
+msgid "Enable"
+msgstr "Povoliť"
+
+#: includes/classes/class-meta-boxes.php:464
+msgid "Disable"
+msgstr "Deaktivovať"
+
+#: includes/classes/class-meta-boxes.php:478
 msgid "All"
 msgstr "Všetky"
 
-#: includes/classes/class-meta-boxes.php:263
-msgid "Auto-linking"
-msgstr "Automatické prepojenie"
+#: includes/classes/class-meta-boxes.php:505
+#: includes/classes/class-meta-boxes.php:511
+msgid "Shortlink Label"
+msgstr "Štítok skratky"
 
-#: includes/classes/class-meta-boxes.php:268
+#: includes/classes/class-meta-boxes.php:506
+#: includes/classes/class-meta-boxes.php:512
+msgid "Custom Text"
+msgstr "Vlastný text"
+
+#: includes/classes/class-meta-boxes.php:510
+msgid "Post Title"
+msgstr "Názov príspevku"
+
+#: includes/classes/class-meta-boxes.php:522
 msgid "Keywords"
 msgstr "Kľúčové slová"
 
-#: includes/classes/class-meta-boxes.php:269
+#: includes/classes/class-meta-boxes.php:523
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
@@ -533,51 +1147,64 @@ msgstr ""
 "Pridajte kľúčové slová oddelené čiarkami alebo na samostatných riadkoch. "
 "Každé kľúčové slovo sa prepojí s týmto krátkym odkazom."
 
-#: includes/classes/class-meta-boxes.php:274, fuzzy
+#: includes/classes/class-meta-boxes.php:528
+msgid "Link Alt Text"
+msgstr "Alternatívny text odkazu"
+
+#: includes/classes/class-meta-boxes.php:529
+msgid "Set the alt text for the linked keywords in the frontend of the site."
+msgstr ""
+"Nastavte alternatívny text pre prepojené kľúčové slová na prednej strane "
+"stránky."
+
+#: includes/classes/class-meta-boxes.php:536
+msgid "Custom Alt Text"
+msgstr "Vlastný alternatívny text"
+
+#: includes/classes/class-meta-boxes.php:537
+msgid ""
+"Enter custom alt text for the linked keywords. This is only used if "
+"\"Custom Text\" is selected above."
+msgstr ""
+"Zadajte vlastný alternatívny text pre prepojené kľúčové slová. Tento sa "
+"použije iba ak je vyššie vybraná možnosť \"Vlastný text\"."
+
+#: includes/classes/class-meta-boxes.php:545, fuzzy
 msgid "Post Types"
 msgstr "Post Types"
 
-#: includes/classes/class-meta-boxes.php:275
+#: includes/classes/class-meta-boxes.php:546
 msgid "Where should these keywords be auto-linked?"
 msgstr "Kde by sa mali tieto kľúčové slová automaticky prepojiť?"
 
-#: includes/classes/class-meta-boxes.php:288
+#: includes/classes/class-meta-boxes.php:557
+msgid "Auto-linking"
+msgstr "Automatické prepojenie"
+
+#: includes/classes/class-meta-boxes.php:566
+#: includes/classes/class-settings.php:648
 msgid "Redirection"
 msgstr "Presmerovanie"
 
-#: includes/classes/class-meta-boxes.php:293
+#: includes/classes/class-meta-boxes.php:571
+#: includes/classes/class-settings.php:653
 msgid "Redirection Method"
 msgstr "Metóda presmerovania"
 
-#: includes/classes/class-meta-boxes.php:294
+#: includes/classes/class-meta-boxes.php:572
 msgid "Select redirection method"
 msgstr "Vyberte metódu presmerovania"
 
-#: includes/classes/class-meta-boxes.php:295
+#: includes/classes/class-meta-boxes.php:573
 msgid "Select a method"
 msgstr "Vyberte metódu"
 
-#: includes/classes/class-meta-boxes.php:297
-msgid "307 (Temporary)"
-msgstr "307 (Dočasné)"
-
-#: includes/classes/class-meta-boxes.php:298
-msgid "302 (Temporary)"
-msgstr "302 (Dočasné)"
-
-#: includes/classes/class-meta-boxes.php:299
-msgid "301 (Permanent)"
-msgstr "301 (Trvalé)"
-
-#: includes/classes/class-meta-boxes.php:306
-msgid "Sponsored"
-msgstr "Sponzorované"
-
-#: includes/classes/class-meta-boxes.php:307
+#: includes/classes/class-meta-boxes.php:581
 msgid "Mark links as sponsored content."
 msgstr "Oz označte odkazy ako sponzorovaný obsah."
 
-#: includes/classes/class-meta-boxes.php:308
+#: includes/classes/class-meta-boxes.php:592
+#: includes/classes/class-settings.php:667
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -585,15 +1212,12 @@ msgstr ""
 "Pridáva atribút rel=\"sponsored\". Odporúča sa pre affiliate odkazy a "
 "platené propagácie."
 
-#: includes/classes/class-meta-boxes.php:313, fuzzy
-msgid "NoFollow"
-msgstr "NoFollow"
-
-#: includes/classes/class-meta-boxes.php:314
+#: includes/classes/class-meta-boxes.php:601
 msgid "Prevent search engines from following this link."
 msgstr "Zabráňte vyhľadávačom v sledovaní tohto odkazu."
 
-#: includes/classes/class-meta-boxes.php:315
+#: includes/classes/class-meta-boxes.php:612
+#: includes/classes/class-settings.php:675
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -601,15 +1225,12 @@ msgstr ""
 "Pridáva atribút rel=\"nofollow\". Odporúča sa pre externé odkazy a "
 "nedôveryhodné zdroje."
 
-#: includes/classes/class-meta-boxes.php:321
-msgid "Parameter Forwarding"
-msgstr "Preposielanie parametrov"
-
-#: includes/classes/class-meta-boxes.php:322
+#: includes/classes/class-meta-boxes.php:621
 msgid "Pass URL parameters to the target link."
 msgstr "Prejdite URL parametre na cieľový odkaz."
 
-#: includes/classes/class-meta-boxes.php:323
+#: includes/classes/class-meta-boxes.php:632
+#: includes/classes/class-settings.php:683
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -617,132 +1238,191 @@ msgstr ""
 "Akékoľvek parametre pridané do krátkeho URL (napr. ?utm_source=email) budú "
 "preposlané na cieľové URL."
 
-#: includes/classes/class-meta-boxes.php:333
+#: includes/classes/class-meta-boxes.php:645
+#: includes/classes/class-settings.php:694
 msgid "Password Protection"
 msgstr "Ochrana heslom"
 
-#: includes/classes/class-meta-boxes.php:334
+#: includes/classes/class-meta-boxes.php:646
 msgid "Secure your shortlink."
 msgstr "Zabezpečte svoj krátky odkaz."
 
-#: includes/classes/class-meta-boxes.php:335
+#: includes/classes/class-meta-boxes.php:657
 msgid "Users must enter the password to redirect to the target link."
 msgstr "Používatelia musia zadať heslo, aby sa mohli presmerovať na cieľový odkaz."
 
-#: includes/classes/class-meta-boxes.php:340
+#: includes/classes/class-meta-boxes.php:665
 msgid "Password"
 msgstr "Heslo"
 
-#: includes/classes/class-meta-boxes.php:341
+#: includes/classes/class-meta-boxes.php:666
 msgid "Share this with users."
 msgstr "Zdieľajte to s používateľmi."
 
-#: includes/classes/class-meta-boxes.php:342
+#: includes/classes/class-meta-boxes.php:667
 msgid "Passwords are case sensitive."
 msgstr "Heslá sú citlivé na veľké a malé písmená."
 
-#: includes/classes/class-meta-boxes.php:343, fuzzy
+#: includes/classes/class-meta-boxes.php:668
+#: includes/classes/class-settings.php:705, fuzzy
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:352
+#: includes/classes/class-meta-boxes.php:678
+#: includes/classes/class-settings.php:714
 msgid "Enable Expiration"
 msgstr "Povoliť expiráciu"
 
-#: includes/classes/class-meta-boxes.php:353
-msgid "Expire automatically."
-msgstr "Automaticky vyprší."
+#: includes/classes/class-meta-boxes.php:679
+msgid "Set an expiration date and time for shortlinks."
+msgstr "Nastavte dátum a čas vypršania platnosti pre skrátené odkazy."
 
-#: includes/classes/class-meta-boxes.php:354
-msgid "Users will not able to redirect to the target URL once expire."
-msgstr "Používatelia nebudú môcť presmerovať na cieľové URL po uplynutí platnosti."
+#: includes/classes/class-meta-boxes.php:690
+#: includes/classes/class-settings.php:716
+msgid ""
+"After the expiration date and time pass, visitors will no longer be able to "
+"access the shortlink."
+msgstr ""
+"Po uplynutí dátumu a času vypršania nebudú mať návštevníci prístup k "
+"skrátenému odkazu."
 
-#: includes/classes/class-meta-boxes.php:359
-msgid "Expiration Date"
-msgstr "Dátum vypršania"
+#: includes/classes/class-meta-boxes.php:699
+msgid "Select the date when this shortlink should stop working."
+msgstr "Vyberte dátum, kedy by tento skrátený odkaz mal prestať fungovať."
 
-#: includes/classes/class-meta-boxes.php:360
-msgid "Choose the date this link should expire."
-msgstr "Vyberte dátum, kedy by tento odkaz mal vypršať."
+#: includes/classes/class-meta-boxes.php:713
+msgid "Select the time when the shortlink should expire."
+msgstr "Vyberte čas, kedy by skrátený odkaz mal vypršať."
 
-#: includes/classes/class-meta-boxes.php:372
-msgid "Expiration Time"
-msgstr "Čas vypršania"
+#: includes/classes/class-meta-boxes.php:714
+#: includes/classes/class-settings.php:737
+msgid ""
+"Must be at least 1 minute in the future. Combined with the date above to "
+"set the exact expiration moment."
+msgstr ""
+"Musí byť aspoň 1 minúta v budúcnosti. Kombinujte s vyššie uvedeným dátumom "
+"na nastavenie presného okamihu vypršania."
 
-#: includes/classes/class-meta-boxes.php:373
-msgid "Choose the time this link should expire."
-msgstr "Vyberte čas, kedy by tento odkaz mal vypršať."
-
-#: includes/classes/class-meta-boxes.php:374
-msgid "Must be at least 1 minute in the future."
-msgstr "Musí byť aspoň 1 minútu v budúcnosti."
-
-#: includes/classes/class-meta-boxes.php:391
+#: includes/classes/class-meta-boxes.php:732
+#: includes/classes/class-settings.php:689
 msgid "Security"
 msgstr "Bezpečnosť"
 
-#: includes/classes/class-meta-boxes.php:402
+#: includes/classes/class-meta-boxes.php:743
 msgid "Analytics"
 msgstr "Analytika"
 
-#: includes/classes/class-redirection.php:599
+#: includes/classes/class-redirection.php:1024
 msgid "Post not found."
 msgstr "Príspevok nebol nájdený."
 
-#: includes/classes/class-redirection.php:648
+#: includes/classes/class-redirection.php:1168
+#: includes/functions.php:317
+#: includes/functions.php:318
+#: includes/functions.php:319
+#: includes/functions.php:325
+#: tinypress.php:287
+#: tinypress.php:288
+#: tinypress.php:289
+msgid "This post is in {status} status. It is not visible to the public."
+msgstr "Tento príspevok je v stave {status}. Nie je viditeľný pre verejnosť."
+
+#: includes/classes/class-redirection.php:1216
 msgid "This link has expired"
 msgstr "Tento odkaz vypršal"
 
-#: includes/classes/class-redirection.php:652
+#: includes/classes/class-redirection.php:1220
 msgid "You will be redirected shortly."
 msgstr "Budete čoskoro presmerovaní."
 
-#: includes/classes/class-redirection.php:656
+#: includes/classes/class-redirection.php:1224
 msgid "Click here if you are not redirected"
 msgstr "Kliknite sem, ak nie ste presmerovaní"
 
-#: includes/classes/class-redirection.php:673
+#: includes/classes/class-redirection.php:1241
 msgid "Link Expired"
 msgstr "Odkaz vypršal"
 
-#: includes/classes/class-redirection.php:804
+#: includes/classes/class-redirection.php:1392
 msgid "This link is not active."
 msgstr "Tento odkaz nie je aktívny."
 
-#: includes/classes/class-redirection.php:849
+#: includes/classes/class-redirection.php:1429
 msgid "This link is expired."
 msgstr "Tento odkaz je neplatný."
 
-#: includes/classes/class-redirection.php:868
+#: includes/classes/class-redirection.php:1448
 msgid "Incorrect password. Please try again."
 msgstr "Nesprávne heslo. Skúste to prosím znova."
 
-#: includes/classes/class-redirection.php:883
-#: includes/classes/class-redirection.php:888
+#: includes/classes/class-redirection.php:1463
+#: includes/classes/class-redirection.php:1468
 msgid "Password Protected Link"
 msgstr "Odkaz chránený heslom"
 
-#: includes/classes/class-redirection.php:894
+#: includes/classes/class-redirection.php:1474
 msgid "Enter password to continue:"
 msgstr "Zadajte heslo na pokračovanie:"
 
-#: includes/classes/class-redirection.php:896
+#: includes/classes/class-redirection.php:1476
 msgid "Submit"
 msgstr "Odoslať"
 
-#: includes/classes/class-redirection.php:1014
+#: includes/classes/class-redirection.php:1600
 msgid "This link is not containing the right prefix slug."
 msgstr "Tento odkaz neobsahuje správny prefix slug."
+
+#: includes/classes/class-redirection.php:1641
+msgid "Too many invalid shortlink requests. Please try again later."
+msgstr ""
+"Príliš veľa neplatných požiadaviek na skrátené odkazy. Skúste to prosím "
+"neskôr."
+
+#: includes/classes/class-redirection.php:1642
+msgid "Too Many Requests"
+msgstr "Príliš veľa požiadaviek"
 
 #: includes/classes/class-revision.php:439
 msgid "Invalid revision ID."
 msgstr "Neplatné ID revízie."
 
-#: includes/classes/class-settings.php:187
+#: includes/classes/class-settings.php:199
+#: includes/classes/class-settings.php:447
+#: includes/classes/class-settings.php:455
+#: includes/functions.php:226
+#: includes/functions.php:260
+msgid "Draft"
+msgstr "Koncept"
+
+#: includes/classes/class-settings.php:200
+#: includes/classes/class-settings.php:448
+#: includes/classes/class-settings.php:456
+#: includes/functions.php:227
+#: includes/functions.php:261
+msgid "Pending Review"
+msgstr "Čaká na recenziu"
+
+#: includes/classes/class-settings.php:201
+#: includes/classes/class-settings.php:449
+#: includes/classes/class-settings.php:457
+#: includes/functions.php:228
+#: includes/functions.php:262
+msgid "Private"
+msgstr "Súkromný"
+
+#: includes/classes/class-settings.php:206
+msgid ""
+"Customize the notice shown for each enabled non-published status. Available "
+"placeholders: {status}, {date}, {title}."
+msgstr ""
+"Prispôsobte oznámenie zobrazené pre každý povolený stav, ktorý nie je "
+"publikovaný. Dostupné zástupné symboly: {status}, {date}, {title}."
+
+#: includes/classes/class-settings.php:231
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: includes/classes/class-settings.php:271
+#: includes/classes/class-settings.php:315
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -750,12 +1430,12 @@ msgstr ""
 "Vyberte, ktoré stavy príspevkov sú prístupné pri návšteve skratky "
 "PublishPress."
 
-#: includes/classes/class-settings.php:287
+#: includes/classes/class-settings.php:331
 #, fuzzy
 msgid "PublishPress Statuses Plugin Detected:"
 msgstr "PublishPress Shortlinks Free"
 
-#: includes/classes/class-settings.php:288
+#: includes/classes/class-settings.php:332
 msgid ""
 "To use core PublishPress statuses with Shortlinks, Please enable the "
 "Shortlinks post type in PublishPress Statuses workflow settings."
@@ -764,11 +1444,11 @@ msgstr ""
 "povolte typ príspevku skratky v nastaveniach pracovného postupu stavov "
 "PublishPress."
 
-#: includes/classes/class-settings.php:307
+#: includes/classes/class-settings.php:351
 msgid "Elementor Detected:"
 msgstr "Zistený Elementor:"
 
-#: includes/classes/class-settings.php:308
+#: includes/classes/class-settings.php:352
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
@@ -776,11 +1456,11 @@ msgstr ""
 "Prefix krátkeho odkazu je potrebný na správne zobrazenie revízií Elementor. "
 "Odporúča sa ho ponechať povolený."
 
-#: includes/classes/class-settings.php:340
+#: includes/classes/class-settings.php:384
 msgid "TinyPress Shortlinks Notice:"
 msgstr "Oznámenie o krátkych odkazoch TinyPress:"
 
-#: includes/classes/class-settings.php:341
+#: includes/classes/class-settings.php:385
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
@@ -788,105 +1468,107 @@ msgstr ""
 "Elementor je aktívny. Prefix krátkeho odkazu bol automaticky zakázaný, je "
 "potrebný pre optimálnu kompatibilitu s revíziami Elementor."
 
-#: includes/classes/class-settings.php:404
-msgid "Options"
-msgstr "Možnosti"
+#: includes/classes/class-settings.php:446
+#: includes/functions.php:225
+#: includes/functions.php:259
+msgid "Published"
+msgstr "Publikované"
 
-#: includes/classes/class-settings.php:409
+#: includes/classes/class-settings.php:470
 msgid "Shortlink Prefix"
 msgstr "Prefix krátkeho odkazu"
 
-#: includes/classes/class-settings.php:410
+#: includes/classes/class-settings.php:471
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Pridajte predponu medzi názov domény a skrátený odkaz."
 
-#: includes/classes/class-settings.php:417
+#: includes/classes/class-settings.php:478
 msgid "Prefix Slug"
 msgstr "Predpona skráteného odkazu"
 
-#: includes/classes/class-settings.php:418
+#: includes/classes/class-settings.php:479
 msgid "Custom prefix slug."
 msgstr "Vlastná predpona skráteného odkazu."
 
-#: includes/classes/class-settings.php:419
+#: includes/classes/class-settings.php:480
 msgid "This text will be added between your domain name and shortlink."
 msgstr "Tento text bude pridaný medzi váš názov domény a skrátený odkaz."
 
-#: includes/classes/class-settings.php:420
-#: includes/classes/class-settings.php:421
+#: includes/classes/class-settings.php:481
+#: includes/classes/class-settings.php:482
 msgid "go"
 msgstr "pokračovať"
 
-#: includes/classes/class-settings.php:427
+#: includes/classes/class-settings.php:488
 msgid "Keyboard Shortcut"
 msgstr "Klávesová skratka"
 
-#: includes/classes/class-settings.php:428
+#: includes/classes/class-settings.php:489
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr "Vytvárajte skrátené odkazy odkiaľkoľvek vo vašom WordPress dashboarde."
 
-#: includes/classes/class-settings.php:429
-#: includes/classes/class-settings.php:430
+#: includes/classes/class-settings.php:490
+#: includes/classes/class-settings.php:491
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl alebo Cmd + /"
 
-#: includes/classes/class-settings.php:439
+#: includes/classes/class-settings.php:500
 msgid "Remove from Admin Bar"
 msgstr "Odstrániť z admin panela"
 
-#: includes/classes/class-settings.php:440
+#: includes/classes/class-settings.php:501
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "Skryť tlačidlo \"Skrátiť\" z WordPress admin panela."
 
-#: includes/classes/class-settings.php:446
+#: includes/classes/class-settings.php:507
 msgid "Role Management"
 msgstr "Správa rolí"
 
-#: includes/classes/class-settings.php:451
+#: includes/classes/class-settings.php:512
 msgid "Who Can View Shortlinks"
 msgstr "Kto môže zobraziť skrátené odkazy"
 
-#: includes/classes/class-settings.php:452
+#: includes/classes/class-settings.php:513
 msgid "Only selected user roles can view links."
 msgstr "Iba vybrané používateľské role môžu zobraziť odkazy."
 
-#: includes/classes/class-settings.php:460
+#: includes/classes/class-settings.php:521
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Kto môže vytvárať/upraviť skrátené odkazy"
 
-#: includes/classes/class-settings.php:461
+#: includes/classes/class-settings.php:522
 msgid "Only selected user roles can create or edit links."
 msgstr "Iba vybrané používateľské role môžu vytvárať alebo upravovať odkazy."
 
-#: includes/classes/class-settings.php:470
+#: includes/classes/class-settings.php:531
 msgid "Who Can See Analytics"
 msgstr "Kto môže vidieť analytiku"
 
-#: includes/classes/class-settings.php:471
+#: includes/classes/class-settings.php:532
 msgid "Only selected user roles can see analytics."
 msgstr "Iba vybrané používateľské role môžu vidieť analytiku."
 
-#: includes/classes/class-settings.php:480
+#: includes/classes/class-settings.php:541
 msgid "Who Can Control Settings"
 msgstr "Kto môže ovládať nastavenia"
 
-#: includes/classes/class-settings.php:481
+#: includes/classes/class-settings.php:542
 msgid "Only selected user roles can control settings."
 msgstr "Iba vybrané používateľské role môžu ovládať nastavenia."
 
-#: includes/classes/class-settings.php:490
+#: includes/classes/class-settings.php:551
 msgid "Auto-Linking"
 msgstr "Automatické prepojenie"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:556
 msgid "Enable Auto-Linking"
 msgstr "Povoliť automatické prepojenie"
 
-#: includes/classes/class-settings.php:496
+#: includes/classes/class-settings.php:557
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr "Automaticky previesť kľúčové slová na krátke odkazy v obsahu príspevku."
 
-#: includes/classes/class-settings.php:497
+#: includes/classes/class-settings.php:558
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
@@ -894,39 +1576,39 @@ msgstr ""
 "Keď je povolené, kľúčové slová nakonfigurované v nastaveniach krátkeho "
 "odkazu budú automaticky prepojené vo vašom obsahu."
 
-#: includes/classes/class-settings.php:503
+#: includes/classes/class-settings.php:564
 msgid "Open Auto-Links In"
 msgstr "Otvoriť automatické odkazy v"
 
-#: includes/classes/class-settings.php:504
+#: includes/classes/class-settings.php:565
 msgid "Choose how auto-linked keywords should open."
 msgstr "Vyberte, ako by sa mali otvárať automaticky prepojené kľúčové slová."
 
-#: includes/classes/class-settings.php:506
+#: includes/classes/class-settings.php:567
 msgid "Same tab"
 msgstr "Rovnaká karta"
 
-#: includes/classes/class-settings.php:507
+#: includes/classes/class-settings.php:568
 msgid "New tab"
 msgstr "Nová karta"
 
-#: includes/classes/class-settings.php:515
+#: includes/classes/class-settings.php:576
 msgid "Auto-Link Color"
 msgstr "Farba automatického prepojenia"
 
-#: includes/classes/class-settings.php:516
+#: includes/classes/class-settings.php:577
 msgid "Choose the color for auto-linked keywords."
 msgstr "Vyberte farbu pre automaticky prepojené kľúčové slová."
 
-#: includes/classes/class-settings.php:523
+#: includes/classes/class-settings.php:588
 msgid "Auto-List Links"
 msgstr "Automaticky zoznamovať odkazy"
 
-#: includes/classes/class-settings.php:528, fuzzy
+#: includes/classes/class-settings.php:593, fuzzy
 msgid "Auto-List Shortlinks"
 msgstr "Auto-List Shortlinks"
 
-#: includes/classes/class-settings.php:529
+#: includes/classes/class-settings.php:594
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
@@ -934,17 +1616,17 @@ msgstr ""
 "Keď je povolené, skratky sa objavia v tabuľke \"Všetky odkazy\" na základe "
 "správania, ktoré nastavíte nižšie."
 
-#: includes/classes/class-settings.php:535
+#: includes/classes/class-settings.php:600
 msgid "Configure Post Types"
 msgstr "Nastaviť typy príspevkov"
 
-#: includes/classes/class-settings.php:536
+#: includes/classes/class-settings.php:601
 msgid "Set when links should be auto-listed for each post type"
 msgstr ""
 "Nastavte, kedy by sa mali automaticky zoznamovať odkazy pre každý typ "
 "príspevku"
 
-#: includes/classes/class-settings.php:537
+#: includes/classes/class-settings.php:602
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -952,65 +1634,105 @@ msgstr ""
 "Pridajte typy príspevkov a nastavte, kedy by sa ich skratky mali objaviť v "
 "tabuľke \"Všetky odkazy\". Zmeny sa ukladajú automaticky."
 
-#: includes/classes/class-settings.php:544
+#: includes/classes/class-settings.php:609
 #: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "Viditeľnosť stavu príspevku"
 
-#: includes/classes/class-settings.php:549
+#: includes/classes/class-settings.php:614
 msgid "Allowed Post Statuses"
 msgstr "Povolené stavy príspevku"
 
-#: includes/classes/class-settings.php:550
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Vyberte, ktoré stavy príspevkov môžu byť prístupné prostredníctvom skratiek"
+#: includes/classes/class-settings.php:623
+msgid "Unpublished Content Notice"
+msgstr "Oznámenie o nepublikovanom obsahu"
 
-#: includes/classes/class-settings.php:554
-msgid "Published"
-msgstr "Publikované"
-
-#: includes/classes/class-settings.php:555
-msgid "Draft"
-msgstr "Koncept"
-
-#: includes/classes/class-settings.php:556
-msgid "Pending Review"
-msgstr "Čaká na recenziu"
-
-#: includes/classes/class-settings.php:557
-msgid "Private"
-msgstr "Súkromný"
-
-#: includes/classes/class-settings.php:565
-msgid "Expired Links"
-msgstr "Expirované odkazy"
-
-#: includes/classes/class-settings.php:570
-msgid "Default Expired Redirect URL"
-msgstr "Predvolená URL pre presmerovanie po uplynutí platnosti"
-
-#: includes/classes/class-settings.php:571
-msgid "Where should expired shortlinks redirect?"
-msgstr "Kam by sa mali expirované skratky presmerovať?"
-
-#: includes/classes/class-settings.php:572
+#: includes/classes/class-settings.php:624
 msgid ""
-"When a shortlink expires, visitors will be redirected to this URL instead "
-"of seeing an error. Leave empty to show the default expiration message."
+"Show a frontend notice when an internal shortlink displays a post that is "
+"not published."
 msgstr ""
-"Keď skratka vyprší, návštevníci budú presmerovaní na túto URL namiesto "
-"toho, aby videli chybu. Nechajte prázdne, aby sa zobrazila predvolená "
-"správa o vypršaní."
+"Zobraziť oznámenie na fronte, keď interný skrátený odkaz zobrazuje "
+"príspevok, ktorý nie je publikovaný."
 
-#: includes/classes/class-settings.php:584
+#: includes/classes/class-settings.php:630
+msgid "Notice Post Statuses"
+msgstr "Oznámenie o stavoch príspevkov"
+
+#: includes/classes/class-settings.php:631
+msgid ""
+"This notice only applies to internal shortlinks that render post content "
+"directly. External shortlinks are not affected."
+msgstr ""
+"Toto oznámenie sa vzťahuje iba na interné skrátené odkazy, ktoré priamo "
+"zobrazujú obsah príspevku. Externé skrátené odkazy nie sú ovplyvnené."
+
+#: includes/classes/class-settings.php:640
+msgid "Notice Messages"
+msgstr "Oznámenia o správach"
+
+#: includes/classes/class-settings.php:654
+msgid "Default redirection method for shortlinks"
+msgstr "Predvolená metóda presmerovania pre skrátené odkazy"
+
+#: includes/classes/class-settings.php:666
+msgid "Mark links as sponsored content"
+msgstr "Označte odkazy ako sponzorovaný obsah"
+
+#: includes/classes/class-settings.php:674
+msgid "Prevent search engines from following links"
+msgstr "Zabráňte vyhľadávačom v sledovaní odkazov"
+
+#: includes/classes/class-settings.php:682
+msgid "Pass URL parameters to target links"
+msgstr "Preneste parametre URL na cieľové odkazy"
+
+#: includes/classes/class-settings.php:695
+msgid "Secure your shortlinks"
+msgstr "Zabezpečte svoje skrátené odkazy"
+
+#: includes/classes/class-settings.php:696
+msgid "Users must enter a password to redirect to the target link."
+msgstr "Používatelia musia zadať heslo, aby sa presmerovali na cieľový odkaz."
+
+#: includes/classes/class-settings.php:702
+msgid "Default Password"
+msgstr "Predvolené heslo"
+
+#: includes/classes/class-settings.php:703
+msgid "Default password for protected links"
+msgstr "Predvolené heslo pre chránené odkazy"
+
+#: includes/classes/class-settings.php:704
+msgid ""
+"This password will be used for links that have password protection enabled "
+"via global settings. Passwords are case sensitive."
+msgstr ""
+"Toto heslo sa použije pre odkazy, ktoré majú ochranu heslom povolenú "
+"prostredníctvom globálnych nastavení. Heslá sú citlivé na veľké a malé "
+"písmená."
+
+#: includes/classes/class-settings.php:715
+msgid "Set an expiration date and time for shortlinks"
+msgstr "Nastavte dátum a čas vypršania platnosti pre krátke odkazy"
+
+#: includes/classes/class-settings.php:723
+msgid "Select the date when this shortlink should stop working"
+msgstr "Vyberte dátum, kedy by tento krátky odkaz mal prestať fungovať"
+
+#: includes/classes/class-settings.php:736
+msgid "Select the time when the shortlink should expire"
+msgstr "Vyberte čas, kedy by krátky odkaz mal vypršať"
+
+#: includes/classes/class-settings.php:755
 msgid "Revisions"
 msgstr "Revízie"
 
-#: includes/classes/class-settings.php:589
+#: includes/classes/class-settings.php:760
 msgid "Revision Link Visibility"
 msgstr "Viditeľnosť odkazu revízie"
 
-#: includes/classes/class-settings.php:590
+#: includes/classes/class-settings.php:761
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -1018,35 +1740,35 @@ msgstr ""
 "Keď je povolené, skratky revízií sa objavia v tabuľke \"Všetky skratky\" na "
 "základe správania, ktoré nastavíte nižšie."
 
-#: includes/classes/class-settings.php:592
+#: includes/classes/class-settings.php:763
 msgid "When Revision is Created"
 msgstr "Keď je vytvorená revízia"
 
-#: includes/classes/class-settings.php:594
+#: includes/classes/class-settings.php:765
 msgid "When Revision is Created or Link is First Used"
 msgstr "Keď je vytvorená revízia alebo keď je prvýkrát použitý odkaz"
 
-#: includes/classes/class-settings.php:602
+#: includes/classes/class-settings.php:773
 msgid "Show Shortlink in Revision Table"
 msgstr "Zobraziť skrátený odkaz v tabuľke revízií"
 
-#: includes/classes/class-settings.php:603
+#: includes/classes/class-settings.php:774
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "Zobraziť stĺpec skráteného odkazu pri prezeraní revízií v PublishPress "
 "Revisions."
 
-#: includes/classes/class-settings.php:609
+#: includes/classes/class-settings.php:780
 msgid "Revision Visibility for Visitors"
 msgstr "Viditeľnosť revízie pre návštevníkov"
 
-#: includes/classes/class-settings.php:610
+#: includes/classes/class-settings.php:781
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Povoliť odhláseným návštevníkom prehliadať obsah revízie prostredníctvom "
 "skrátených odkazov."
 
-#: includes/classes/class-settings.php:611
+#: includes/classes/class-settings.php:782
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1057,17 +1779,17 @@ msgstr ""
 "revízií. Po povolení sa skrátené odkazy na revízie zobrazia priamo pre "
 "odhlásených návštevníkov namiesto presmerovania na URL náhľadu."
 
-#: includes/classes/class-settings.php:632, fuzzy
+#: includes/classes/class-settings.php:805, fuzzy
 msgid "Dummy"
 msgstr "Dummy"
 
-#: includes/classes/class-settings.php:676
+#: includes/classes/class-settings.php:849
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Žiadne typy príspevkov zatiaľ nie sú nakonfigurované. Kliknite na \"Pridať "
 "typ príspevku\" a začnite."
 
-#: includes/classes/class-settings.php:708
+#: includes/classes/class-settings.php:881
 msgid "Add Post Type"
 msgstr "Pridať typ príspevku"
 
@@ -1139,31 +1861,28 @@ msgstr "Navštívil dňa %s"
 msgid "via %s"
 msgstr "cez %s"
 
-#: includes/functions.php:169
+#: includes/functions.php:181
 msgid "Edit shortlink settings"
 msgstr "Upraviť nastavenia skráteného odkazu"
 
-#: includes/functions.php:216
+#: includes/functions.php:320
+#: tinypress.php:290
+msgid ""
+"This post is in {status} status. It will become visible to the public on "
+"{date}."
+msgstr "Tento príspevok je v stave {status}. Stane sa verejne viditeľným dňa {date}."
+
+#: includes/functions.php:345
 msgid "Target url not found."
 msgstr "Cieľová URL nebola nájdená."
 
-#: includes/functions.php:223
+#: includes/functions.php:352
 msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr "Neplatný schéma URL. Povolené sú iba http, https, ftp, ftps a mailto."
 
-#: includes/functions.php:229
-msgid "Invalid URL."
-msgstr "Neplatná URL."
-
-#: includes/functions.php:233
+#: includes/functions.php:384
 msgid "Tiny slug could not created."
 msgstr "Tiny slug sa nepodarilo vytvoriť."
-
-#: includes/functions.php:252
-#. translators: %s: link ID number
-#, php-format
-msgid "Link - %s"
-msgstr "Odkaz - %s"
 
 #: templates/admin-modal-new-link.php:12
 msgid "Shortlink will appear here"
@@ -1177,32 +1896,28 @@ msgstr "Zadajte dlhú URL a vytvorte skrátený odkaz"
 msgid "Long URL"
 msgstr "Dlhá URL"
 
-#: templates/admin-modal-new-link.php:37
-msgid "Close"
-msgstr "Zavrieť"
-
 #: templates/admin-modal-new-link.php:38
 msgid "Create Shortlink"
 msgstr "Vytvoriť skrátený odkaz"
 
-#: templates/admin/analytics.php:45
-#: templates/admin/analytics.php:64
+#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:68
 msgid "Reset Today's Analytics"
 msgstr "Resetovať analýzy za dnešný deň"
 
-#: templates/admin/analytics.php:46
+#: templates/admin/analytics.php:50
 msgid "Reset Week's Analytics"
 msgstr "Resetovať analýzy za tento týždeň"
 
-#: templates/admin/analytics.php:47
+#: templates/admin/analytics.php:51
 msgid "Reset Month's Analytics"
 msgstr "Resetovať analýzy za tento mesiac"
 
-#: templates/admin/analytics.php:48
+#: templates/admin/analytics.php:52
 msgid "Reset Year's Analytics"
 msgstr "Resetovať analýzy za tento rok"
 
-#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:53
 msgid ""
 "Are you sure you want to reset the analytics for this period? This action "
 "cannot be undone."
@@ -1210,19 +1925,19 @@ msgstr ""
 "Ste si istý, že chcete resetovať analýzy za toto obdobie? Túto akciu nie je "
 "možné zrušiť."
 
-#: templates/admin/analytics.php:57
+#: templates/admin/analytics.php:61
 msgid "Today"
 msgstr "Dnes"
 
-#: templates/admin/analytics.php:58
+#: templates/admin/analytics.php:62
 msgid "Last 7 Days"
 msgstr "Posledných 7 dní"
 
-#: templates/admin/analytics.php:59
+#: templates/admin/analytics.php:63
 msgid "Last 1 Month"
 msgstr "Posledný 1 mesiac"
 
-#: templates/admin/analytics.php:60
+#: templates/admin/analytics.php:64
 msgid "Last 1 Year"
 msgstr "Posledný 1 rok"
 
@@ -1286,6 +2001,6 @@ msgstr "Zobraziť znalostnú základňu"
 msgid "This plugin can be deleted."
 msgstr "Tento plugin môže byť odstránený."
 
-#: tinypress.php:355
+#: tinypress.php:379
 msgid "Copied."
 msgstr "Skopírované."
