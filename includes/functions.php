@@ -37,6 +37,12 @@ if (! function_exists('tinypress_generate_random_string')) {
      */
     function tinypress_generate_random_string($length = 5)
     {
+        $length = absint(apply_filters('tinypress_random_string_length', $length));
+
+        if ($length < 1) {
+            $length = 5;
+        }
+
         $characters       = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString     = '';
@@ -57,11 +63,12 @@ if (! function_exists('tinypress_create_url_slug')) {
      *
      * @return mixed|string
      */
-    function tinypress_create_url_slug($given_string = '')
+    function tinypress_create_url_slug($given_string = '', $length = 0)
     {
         global $wpdb;
 
-        $given_string = empty($given_string) ? tinypress_generate_random_string() : $given_string;
+        $length       = $length ? absint($length) : absint(apply_filters('tinypress_random_slug_length', 5));
+        $given_string = empty($given_string) ? tinypress_generate_random_string($length) : $given_string;
         // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Collision check for unique slug generation; must query directly
         $post_id      = $wpdb->get_var(
             $wpdb->prepare(
@@ -71,7 +78,7 @@ if (! function_exists('tinypress_create_url_slug')) {
         );
 
         if (! empty($post_id)) {
-            $given_string = tinypress_create_url_slug();
+            $given_string = tinypress_create_url_slug('', $length);
         }
 
         return $given_string;
