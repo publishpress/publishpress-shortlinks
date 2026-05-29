@@ -1569,6 +1569,12 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $tiny_slug_4 = $tiny_slug_3[0] ?? '';
             $link_id     = tinypress()->tiny_slug_to_post_id($tiny_slug_4);
 
+            if ((empty($link_id) || $link_id === 0) && $is_prefix_request && ! empty($tiny_slug_4)) {
+                $this->redirection_done = true;
+                $this->rate_limit_failed_shortlink_request();
+                return;
+            }
+
             if (! empty($link_id) && $link_id !== 0) {
                 $is_shortlink_request = false;
                 $is_definite_shortlink = false;
@@ -1598,6 +1604,44 @@ if (! class_exists('TINYPRESS_Redirection')) {
                     return $this->check_protection($link_id);
                 }
             }
+        }
+
+        /**
+         * Throttle repeated misses against the prefixed shortlink endpoint.
+         *
+         * @return void
+         */
+        private function rate_limit_failed_shortlink_request()
+        {
+            $limit = absint(apply_filters('tinypress_failed_shortlink_rate_limit', 30));
+
+            if ($limit < 1) {
+                return;
+            }
+
+            $window = absint(apply_filters('tinypress_failed_shortlink_rate_limit_window', 10 * MINUTE_IN_SECONDS));
+
+            if ($window < 1) {
+                $window = 10 * MINUTE_IN_SECONDS;
+            }
+
+            $ip_address = function_exists('tinypress_get_ip_address') ? tinypress_get_ip_address() : '0.0.0.0';
+            $cache_key  = 'tinypress_failed_shortlink_' . md5($ip_address);
+            $attempts   = absint(get_transient($cache_key));
+
+            $attempts++;
+            set_transient($cache_key, $attempts, $window);
+
+            if ($attempts <= $limit) {
+                return;
+            }
+
+            status_header(429);
+            wp_die(
+                esc_html__('Too many invalid shortlink requests. Please try again later.', 'tinypress'),
+                esc_html__('Too Many Requests', 'tinypress'),
+                array( 'response' => 429 )
+            );
         }
 
 

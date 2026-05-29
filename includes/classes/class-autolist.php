@@ -126,7 +126,8 @@ if (! class_exists('TINYPRESS_AutoList')) {
 
             $tiny_slug = Utils::get_meta('tiny_slug', $post_id);
             if (empty($tiny_slug)) {
-                $tiny_slug = tinypress_create_url_slug();
+                $slug_length = 'publish' === $post->post_status ? 5 : absint(apply_filters('tinypress_non_public_shortlink_slug_length', 12, $post_id, $post));
+                $tiny_slug   = tinypress_create_url_slug('', $slug_length);
                 update_post_meta($post_id, 'tiny_slug', $tiny_slug);
             }
 
