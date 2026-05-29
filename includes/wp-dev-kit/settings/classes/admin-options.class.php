@@ -229,6 +229,10 @@ if (! class_exists('WPDK_Settings_Options')) {
         public function ajax_save()
         {
 
+            if (! current_user_can($this->args['menu_capability'])) {
+                wp_send_json_error(array( 'error' => esc_html__('You do not have permission to save these settings.') ));
+            }
+
             $result = $this->set_options(true);
 
             if (! $result) {
@@ -268,6 +272,10 @@ if (! class_exists('WPDK_Settings_Options')) {
         // set options
         public function set_options($ajax = false)
         {
+
+            if (! empty($_POST) && ! current_user_can($this->args['menu_capability'])) {
+                return false;
+            }
 
             // XSS ok.
             // No worries, This "POST" requests is sanitizing in the below foreach. see #L337 - #L341
@@ -497,6 +505,10 @@ if (! class_exists('WPDK_Settings_Options')) {
         // option page html output
         public function add_options_html()
         {
+
+            if (! current_user_can($this->args['menu_capability'])) {
+                wp_die(esc_html__('You do not have permission to access these settings.'));
+            }
 
             $has_nav       = (count($this->pre_tabs) > 1) ? true : false;
             $show_all      = (! $has_nav) ? ' wpdk_settings-show-all' : '';
