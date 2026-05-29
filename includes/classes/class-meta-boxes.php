@@ -367,7 +367,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
             $current_state = $global_value ? esc_html__('ON', 'tinypress') : esc_html__('OFF', 'tinypress');
 
             return sprintf(
-                /* translators: %s: current global setting value (ON/OFF) */
+                /* translators: %s: current global setting value */
                 esc_html__('Use global settings (currently: %s)', 'tinypress'),
                 $current_state
             );
@@ -392,7 +392,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
 
             return array(
                 ''  => sprintf(
-                    /* translators: %s: current global redirection method */
+                    /* translators: %s: current global setting value */
                     esc_html__('Use global settings (currently: %s)', 'tinypress'),
                     $current_label
                 ),
