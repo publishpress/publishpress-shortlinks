@@ -1,6 +1,22 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+= [1.7.0] - 02 June, 2026 =
+
+* Feature: Add a broken link scanner, #247
+* Update: Expand the import / export options, #246
+* Update: Move Import / Export to the Free version, #245
+* Update: Allow alt text for autolink keywords, #244
+* Update: Expand Auto-link settings, #241
+* Update: Update descriptions for security settings, #242
+* Update: Improve the import feature, #240
+* Update: Add an easy link tool to Gutenberg. #186
+* Update: Change shortlink page tabs to vertical layout, #72
+* Update: Add a frontend message for unpublished posts, #67
+* Update: Provide global settings for security and redirection settings, #63
+* Fixed: Expiration Pro features not working, #243
+* Fixed: Remove double descriptions for settings, #265
+
 = [1.6.0] - 29 April, 2026 =
 
 * Fixed: Mismatching in Weblate, #206
