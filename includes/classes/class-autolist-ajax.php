@@ -139,10 +139,14 @@ if (! class_exists('TINYPRESS_Autolist_Ajax')) {
                     'count' => count($sanitized)
                 ));
             } catch (Exception $e) {
+                if (defined('WP_DEBUG') && WP_DEBUG) {
+                    // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- Debug logging only when WP_DEBUG is enabled.
+                    error_log('[TinyPress Shortlinks] save_autolist_config exception: ' . $e->getMessage() . ' | ' . $e->getTraceAsString());
+                }
+
                 wp_send_json_error(array(
                     /* translators: %s: error message */
-                    'message' => sprintf(__('Error: %s', 'tinypress'), $e->getMessage()),
-                    'trace' => $e->getTraceAsString()
+                    'message' => sprintf(__('Error: %s', 'tinypress'), $e->getMessage())
                 ));
             }
         }
