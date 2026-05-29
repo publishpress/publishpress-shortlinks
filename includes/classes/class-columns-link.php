@@ -20,6 +20,8 @@ class TINYPRESS_Column_link
         add_filter('manage_tinypress_link_posts_columns', array( $this, 'add_columns' ), 16, 1);
         add_action('manage_tinypress_link_posts_custom_column', array( $this, 'columns_content' ), 10, 2);
         add_filter('post_row_actions', array( $this, 'remove_row_actions' ), 10, 2);
+        add_action('restrict_manage_posts', array( $this, 'render_link_type_filter' ));
+        add_action('pre_get_posts', array( $this, 'filter_links_by_type' ));
 
         foreach (get_post_types(array( 'public' => true )) as $post_type) {
             if (! in_array($post_type, array( 'attachment', 'tinypress_link' ))) {
@@ -176,22 +178,15 @@ class TINYPRESS_Column_link
                 $badge_text = 'internal' === $link_type ? esc_html__('Internal', 'tinypress') : esc_html__('External', 'tinypress');
                 $tooltip_text = 'internal' === $link_type ? esc_html__('This links to your post', 'tinypress') : esc_html__('This links to an external website', 'tinypress');
 
-                $is_revision_type = get_post_meta($post_id, 'is_revision_link', true);
-                $source_post_id_for_type = Utils::get_meta('source_post_id', $post_id);
-
-                if ('1' !== $is_revision_type && ! empty($source_post_id_for_type) && function_exists('rvy_in_revision_workflow')) {
-                    $source_post_for_type = get_post(absint($source_post_id_for_type));
-                    $is_revision_type = $source_post_for_type && rvy_in_revision_workflow($source_post_for_type->ID) ? '1' : '0';
-                }
-
-                if ('1' === $is_revision_type) {
+                if ('revision' === $link_type) {
                     $badge_class = 'revision-badge';
                     $badge_text = esc_html__('Revision', 'tinypress');
                     $tooltip_text = esc_html__('This links to a revision', 'tinypress');
 
                     // Try to get the specific revision status for a more detailed tooltip
+                    $source_post_id_for_type = Utils::get_meta('source_post_id', $post_id);
                     if (! empty($source_post_id_for_type)) {
-                        $source_post_for_type = isset($source_post_for_type) ? $source_post_for_type : get_post($source_post_id_for_type);
+                        $source_post_for_type = get_post($source_post_id_for_type);
                         if ($source_post_for_type && ! empty($source_post_for_type->post_mime_type)) {
                             $revision_status = $source_post_for_type->post_mime_type;
                             $status_labels = array(
@@ -244,14 +239,18 @@ class TINYPRESS_Column_link
     }
 
     /**
-     * Determine if a link is internal or external
+     * Determine if a link is internal, external, or revision.
      *
      * @param int $post_id The post ID of the tinypress_link
      *
-     * @return string 'internal' or 'external'
+     * @return string 'internal', 'external', or 'revision'
      */
     private function get_link_type($post_id)
     {
+        if ($this->is_revision_link($post_id)) {
+            return 'revision';
+        }
+
         $target_url = Utils::get_meta('target_url', $post_id);
 
         if (empty($target_url)) {
@@ -268,6 +267,96 @@ class TINYPRESS_Column_link
         $target_host = preg_replace('/^www\./', '', $target_host);
 
         return ($site_host === $target_host) ? 'internal' : 'external';
+    }
+
+    /**
+     * Check whether a shortlink points to a revision.
+     *
+     * @param int $post_id The tinypress_link post ID.
+     * @return bool True if revision link.
+     */
+    private function is_revision_link($post_id)
+    {
+        $is_revision_link = get_post_meta($post_id, 'is_revision_link', true);
+
+        if ('1' === $is_revision_link) {
+            return true;
+        }
+
+        $source_post_id = Utils::get_meta('source_post_id', $post_id);
+
+        if (empty($source_post_id) || ! function_exists('rvy_in_revision_workflow')) {
+            return false;
+        }
+
+        $source_post = get_post(absint($source_post_id));
+
+        return $source_post && rvy_in_revision_workflow($source_post->ID);
+    }
+
+    /**
+     * Render link type filter on the shortlinks admin list.
+     *
+     * @param string $post_type Current post type.
+     * @return void
+     */
+    public function render_link_type_filter($post_type)
+    {
+        if ('tinypress_link' !== $post_type) {
+            return;
+        }
+
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin list filter.
+        $selected = isset($_GET['tinypress_link_type']) ? sanitize_key(wp_unslash($_GET['tinypress_link_type'])) : '';
+        ?>
+        <label class="screen-reader-text" for="tinypress-link-type-filter"><?php esc_html_e('Filter by link type', 'tinypress'); ?></label>
+        <select id="tinypress-link-type-filter" name="tinypress_link_type">
+            <option value=""><?php esc_html_e('All link types', 'tinypress'); ?></option>
+            <option value="internal" <?php selected($selected, 'internal'); ?>><?php esc_html_e('Internal', 'tinypress'); ?></option>
+            <option value="external" <?php selected($selected, 'external'); ?>><?php esc_html_e('External', 'tinypress'); ?></option>
+            <option value="revision" <?php selected($selected, 'revision'); ?>><?php esc_html_e('Revision', 'tinypress'); ?></option>
+        </select>
+        <?php
+    }
+
+    /**
+     * Filter shortlinks admin list by link type.
+     *
+     * @param WP_Query $query Current query.
+     * @return void
+     */
+    public function filter_links_by_type($query)
+    {
+        global $pagenow;
+
+        if (
+            ! is_admin()
+            || 'edit.php' !== $pagenow
+            || ! $query->is_main_query()
+            || 'tinypress_link' !== $query->get('post_type')
+        ) {
+            return;
+        }
+
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin list filter.
+        $selected = isset($_GET['tinypress_link_type']) ? sanitize_key(wp_unslash($_GET['tinypress_link_type'])) : '';
+
+        if (! in_array($selected, array( 'internal', 'external', 'revision' ), true)) {
+            return;
+        }
+
+        $link_ids = get_posts(array(
+            'post_type'      => 'tinypress_link',
+            'post_status'    => 'any',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+        ));
+
+        $matching_ids = array_filter($link_ids, function ($link_id) use ($selected) {
+            return $selected === $this->get_link_type($link_id);
+        });
+
+        $query->set('post__in', ! empty($matching_ids) ? array_map('absint', $matching_ids) : array( 0 ));
     }
 
     /**
