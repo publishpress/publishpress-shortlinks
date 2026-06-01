@@ -199,57 +199,10 @@
 	margin-right: 6px;
 }
 
-.tinypress-export-buttons {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 20px;
-	margin: 20px 0;
-}
-
-.tinypress-export-buttons.single-export {
-	grid-template-columns: 1fr;
-	max-width: 400px;
-}
-
-.tinypress-export-option {
-	border: 1px solid #e0e0e0;
-	padding: 16px;
-	border-radius: 4px;
-	background: #f9f9f9;
-}
-
-.tinypress-export-option h4 {
-	margin: 0 0 8px 0;
-	font-size: 14px;
-	font-weight: 600;
-	color: #1d2327;
-}
-
-.tinypress-export-option .description {
-	margin: 0 0 12px 0;
-	font-size: 13px;
-	color: #666;
-}
-
-.tinypress-export-option .button {
-	width: 100%;
-	text-align: center;
-}
-
 .tinypress-ie-card-body > a.button.button-primary.button-large {
 	display: inline-block;
 	margin-top: 12px;
 	min-width: 180px;
-}
-
-@media (max-width: 782px) {
-	.tinypress-export-buttons {
-		grid-template-columns: 1fr;
-	}
-	
-	.tinypress-export-buttons.single-export {
-		grid-template-columns: 1fr;
-	}
 }
 
 .tinypress-progress-container {
@@ -526,17 +479,6 @@
 	font-size: 20px !important;
 	width: 20px !important;
 	height: 15px !important;
-	margin-right: 8px !important;
-	color: white !important;
-	vertical-align: text-bottom !important;
-	display: inline-block !important;
-}
-
-.tinypress-export-option.shortlinks-export .dashicons {
-	font-size: 20px !important;
-	width: 20px !important;
-	height: 17px !important;
-	line-height: 20px !important;
 	margin-right: 8px !important;
 	color: white !important;
 	vertical-align: text-bottom !important;
