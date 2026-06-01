@@ -1335,7 +1335,11 @@ body.post-type-tinypress_link .wpdk_settings-nav-normal + .wpdk_settings-content
 body.post-type-tinypress_link .wpdk_settings-nav ul {
     margin: 0;
     padding: 0;
-    border-left: 5px solid var(--wpdk_settings-primary-color);
+    border-left: 0;
+}
+
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav ul {
+    border-left: 4px solid var(--wpdk_settings-primary-color);
 }
 
 body.post-type-tinypress_link .wpdk_settings-nav ul li {
@@ -1481,6 +1485,10 @@ body.post-type-tinypress_link .wpdk_settings-fieldset {
         display: flex;
         flex-wrap: wrap;
         background: #f6f7f7;
+        border-left: 0;
+    }
+
+    body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav ul {
         border-left: 0;
     }
     
