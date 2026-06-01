@@ -150,6 +150,34 @@ body.post-type-tinypress_link #submitdiv #major-publishing-actions .submitdelete
     margin-left: 27px !important;
 }
 
+body.post-type-tinypress_link .tinypress-bottom-trash-actions {
+    clear: both;
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 20px 0 80px;
+    padding: 0;
+    background: transparent !important;
+    border: 0;
+    box-shadow: none;
+}
+
+body.post-type-tinypress_link .tinypress-bottom-trash-actions .submitdelete,
+body.post-type-tinypress_link .tinypress-bottom-trash-actions .submitdelete:active,
+body.post-type-tinypress_link .tinypress-bottom-trash-actions .submitdelete:focus {
+    display: inline-block;
+    background: var(--wpdk_settings-red-color);
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1.4;
+    max-width: 200px;
+    overflow: hidden;
+    box-shadow: none;
+}
+
 body.post-type-tinypress_link .tinypress-pp-statuses-notice {
     background-color: #fff3cd;
     border-left: 4px solid #ffc107;
