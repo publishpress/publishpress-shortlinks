@@ -122,6 +122,43 @@
 
         tinypressSyncAutolinkAllCheckbox();
 
+        function tinypressMoveTrashAction() {
+            if (!$('body').hasClass('post-type-tinypress_link')) {
+                return;
+            }
+
+            var $trashAction = $('#major-publishing-actions .submitdelete');
+
+            if (!$trashAction.length || $('.tinypress-bottom-trash-actions .submitdelete').length) {
+                return;
+            }
+
+            var $settingsPanel = $('.wpdk_settings-metabox').last();
+            var $target = $settingsPanel.closest('.postbox');
+
+            if (!$target.length) {
+                $target = $settingsPanel;
+            }
+
+            if (!$target.length) {
+                $target = $('#post-body-content');
+            }
+
+            if (!$target.length) {
+                return;
+            }
+
+            var $bottomActions = $('.tinypress-bottom-trash-actions');
+            if (!$bottomActions.length) {
+                $bottomActions = $('<div class="tinypress-bottom-trash-actions"></div>');
+            }
+
+            $bottomActions.append($trashAction.detach());
+            $target.after($bottomActions);
+        }
+
+        tinypressMoveTrashAction();
+
         $(document).on('change', '.tinypress-use-global-checkbox input[type="checkbox"]', function () {
             var $checkbox = $(this);
             var $checkboxField = $checkbox.closest('.wpdk_settings-field');
