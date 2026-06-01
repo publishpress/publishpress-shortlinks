@@ -229,6 +229,9 @@ class TINYPRESS_Column_link
                 echo '<a href="' . esc_url(get_edit_post_link($post_id)) . '" class="action action-edit">' . esc_html__('Edit', 'tinypress') . '</a>';
                 echo '<a href="' . esc_url(get_delete_post_link($post_id)) . '" class="action action-delete">' . esc_html__('Delete', 'tinypress') . '</a>';
 
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Filter output is escaped by callbacks.
+                echo apply_filters('TINYPRESS/Filters/link_actions', '', $post_id);
+
                 echo '</div>';
 
                 break;
