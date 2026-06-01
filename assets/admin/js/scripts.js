@@ -159,6 +159,94 @@
 
         tinypressMoveTrashAction();
 
+        function tinypressGetModeChildFields($modeField, $controlledField) {
+            var $section = $modeField.closest('.wpdk_settings-section');
+            var $sectionFields = $section.find('.wpdk_settings-field');
+            var startIndex = $sectionFields.index($controlledField.length ? $controlledField : $modeField);
+            var $childFields = $();
+
+            for (var i = startIndex + 1; i < $sectionFields.length; i++) {
+                var $field = $sectionFields.eq(i);
+                if ($field.hasClass('tinypress-global-mode-select') || $field.hasClass('tinypress-use-global-checkbox') || $field.hasClass('tinypress-global-controlled')) {
+                    break;
+                }
+
+                if ($field.hasClass('tinypress-global-controlled-child')) {
+                    $childFields = $childFields.add($field);
+                }
+            }
+
+            return $childFields;
+        }
+
+        function tinypressShowInheritedNotice($field) {
+            var $notice = $field.find('.tinypress-global-inherited-notice');
+            if (!$notice.length) {
+                $notice = $('<span class="tinypress-global-inherited-notice"></span>');
+                $field.find('.wpdk_settings-fieldset').first().append($notice);
+            }
+
+            $notice.text('This setting is inherited from global settings. Choose another option to override it for this shortlink.');
+        }
+
+        function tinypressSyncGlobalMode($modeField) {
+            var $modeControl = $modeField.find('select[data-depend-id]').first();
+            var mode = $modeControl.val();
+            var $controlledField = $modeField.nextAll('.tinypress-global-controlled').first();
+            var $controlledInput = $controlledField.find('input[type="hidden"][data-depend-id]').first();
+            var $childFields = tinypressGetModeChildFields($modeField, $controlledField);
+            var inheritedTitle = 'This setting is inherited from global settings. Choose another option to override it for this shortlink.';
+
+            $modeControl.attr('title', mode === '1' ? inheritedTitle : '');
+
+            $modeField
+                .toggleClass('is-using-global-mode', mode === '1')
+                .toggleClass('is-enabled-mode', mode === 'enabled')
+                .toggleClass('is-disabled-mode', mode === 'disabled')
+                .toggleClass('is-custom-mode', mode === 'custom');
+
+            if ($controlledInput.length) {
+                $controlledInput.val(mode === 'enabled' ? '1' : '').trigger('change');
+                $controlledField.find('.wpdk_settings--switcher').toggleClass('wpdk_settings--active', mode === 'enabled');
+            }
+
+            $controlledField.add($childFields)
+                .toggleClass('is-inherited-from-global', mode === '1')
+                .toggleClass('is-disabled-by-mode', mode === 'disabled');
+
+            $controlledField.add($childFields).find('input, select, textarea, button')
+                .attr('title', mode === '1' ? inheritedTitle : '')
+                .prop('readonly', mode === '1');
+
+            if (mode === '1') {
+                tinypressShowInheritedNotice($modeField);
+            } else {
+                $modeField.find('.tinypress-global-inherited-notice').remove();
+            }
+        }
+
+        $('.tinypress-global-mode-select').each(function () {
+            tinypressSyncGlobalMode($(this));
+        });
+
+        $(document).on('change', '.tinypress-global-mode-select select[data-depend-id]', function () {
+            tinypressSyncGlobalMode($(this).closest('.tinypress-global-mode-select'));
+        });
+
+        $(document).on('submit', 'form#post', function () {
+            $('.tinypress-global-mode-select').each(function () {
+                tinypressSyncGlobalMode($(this));
+            });
+        });
+
+        $(document).on('focus click', '.is-inherited-from-global input, .is-inherited-from-global select, .is-inherited-from-global textarea, .is-inherited-from-global button', function (event) {
+            var $field = $(this).closest('.wpdk_settings-field');
+            tinypressShowInheritedNotice($field.prevAll('.tinypress-global-mode-select').first());
+            if (!$(this).closest('.tinypress-global-mode-select').length) {
+                event.preventDefault();
+            }
+        });
+
         $(document).on('change', '.tinypress-use-global-checkbox input[type="checkbox"]', function () {
             var $checkbox = $(this);
             var $checkboxField = $checkbox.closest('.wpdk_settings-field');

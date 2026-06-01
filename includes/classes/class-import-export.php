@@ -192,6 +192,10 @@ if (! class_exists('TINYPRESS_Import_Export')) {
         {
             $use_global = get_post_meta($post_id, $use_global_key, true);
 
+            if (in_array($use_global, array( 'enabled', 'disabled' ), true)) {
+                return false;
+            }
+
             if (is_array($use_global) && in_array('1', $use_global, true)) {
                 return true;
             }
@@ -220,6 +224,10 @@ if (! class_exists('TINYPRESS_Import_Export')) {
 
             if ('use_global' === $mode) {
                 $value = $this->get_settings_value($global_key, $default);
+            } elseif ('enabled' === get_post_meta($post_id, $use_global_key, true)) {
+                $value = true;
+            } elseif ('disabled' === get_post_meta($post_id, $use_global_key, true)) {
+                $value = false;
             } else {
                 $value = get_post_meta($post_id, $setting_key, true);
             }

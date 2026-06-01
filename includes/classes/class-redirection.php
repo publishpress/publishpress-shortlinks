@@ -136,6 +136,14 @@ if (! class_exists('TINYPRESS_Redirection')) {
         {
             $use_global = Utils::get_meta($use_global_key, $link_id);
 
+            if ('enabled' === $use_global) {
+                return '1';
+            }
+
+            if ('disabled' === $use_global) {
+                return '';
+            }
+
             $is_using_global = false;
             if (is_array($use_global) && in_array('1', $use_global)) {
                 $is_using_global = true;
@@ -163,6 +171,10 @@ if (! class_exists('TINYPRESS_Redirection')) {
         {
             $use_global = Utils::get_meta('enable_expiration_use_global', $link_id);
 
+            if ('disabled' === $use_global) {
+                return '';
+            }
+
             $is_using_global = false;
             if (is_array($use_global) && in_array('1', $use_global)) {
                 $is_using_global = true;
@@ -188,6 +200,10 @@ if (! class_exists('TINYPRESS_Redirection')) {
         private function get_expiration_time($link_id)
         {
             $use_global = Utils::get_meta('enable_expiration_use_global', $link_id);
+
+            if ('disabled' === $use_global) {
+                return '';
+            }
 
             $is_using_global = false;
             if (is_array($use_global) && in_array('1', $use_global)) {
