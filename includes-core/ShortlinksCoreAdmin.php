@@ -25,8 +25,6 @@ class ShortlinksCoreAdmin
             add_filter('tinypress_autolink_exceptions_fields', [$this, 'add_autolink_exceptions_teaser_fields']);
 
             add_action('admin_menu', [$this, 'tinypress_add_link_checker_teaser_menu'], 25);
-            add_filter('TINYPRESS/Filters/link_columns', [$this, 'add_link_checker_teaser_column'], 20, 2);
-            add_action('manage_tinypress_link_posts_custom_column', [$this, 'render_link_checker_teaser_column'], 10, 2);
 
             add_action('tinypress_admin_class_before_assets_register', [$this, 'tinypress_load_admin_core_assets']);
             add_action('tinypress_admin_class_after_styles_enqueue', [$this, 'tinypress_load_admin_core_styles']);
@@ -141,39 +139,6 @@ class ShortlinksCoreAdmin
     {
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- HTML built with esc_html__ calls in get_pro_nudge_html
         echo $this->get_pro_nudge_html();
-    }
-
-    public function add_link_checker_teaser_column($columns)
-    {
-        $new_columns = array();
-
-        foreach ($columns as $key => $label) {
-            $new_columns[$key] = $label;
-
-            if ('link-type' === $key) {
-                $new_columns['link-health'] = esc_html__('Health', 'tinypress');
-            }
-        }
-
-        if (! isset($new_columns['link-health'])) {
-            $new_columns['link-health'] = esc_html__('Health', 'tinypress');
-        }
-
-        return $new_columns;
-    }
-
-    public function render_link_checker_teaser_column($column_id, $post_id)
-    {
-        if ('link-health' !== $column_id) {
-            return;
-        }
-
-        echo '<div class="tinypress-link-checker-teaser-column">';
-        echo '<span class="tinypress-link-checker-teaser-badge" style="display:inline-flex;align-items:center;gap:4px;background:#f0f0f1;color:#646970;padding:2px 8px;border-radius:3px;font-size:12px;font-weight:600;">';
-        echo '<span class="dashicons dashicons-lock" style="font-size:14px;width:14px;height:14px;"></span>';
-        echo esc_html__('Pro', 'tinypress');
-        echo '</span>';
-        echo '</div>';
     }
 
     public function render_link_checker_teaser_page()
