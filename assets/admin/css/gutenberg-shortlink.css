@@ -1,11 +1,36 @@
 .block-editor-format-toolbar__link-container .tinypress-shortlink-icon,
-.components-toolbar__control[aria-label*="Shortlink"] svg {
-  color: #FFCC00 !important;
-  fill: #FFCC00 !important;
+.components-toolbar__control[aria-label*="Shortlink"] .tinypress-shortlink-editor-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
 }
 
-.components-toolbar__control[aria-label*="Shortlink"] svg path {
-  fill: #FFCC00 !important;
+.components-toolbar__control[aria-label*="Shortlink"][aria-pressed="true"] .tinypress-shortlink-editor-icon rect {
+  fill: #4f4377;
+}
+
+.mce-i-tinypress_shortlink,
+.mce-ico.mce-i-tinypress_shortlink {
+  background-color: #655897;
+  border-radius: 4px;
+}
+
+.quicktags-toolbar input[id$="_tinypress_shortlink"],
+.quicktags-toolbar input[id*="tinypress_shortlink"] {
+  background: #655897 !important;
+  border-color: #4f4377 !important;
+  color: #ffffff !important;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+  font-weight: 600;
+}
+
+.quicktags-toolbar input[id$="_tinypress_shortlink"]:hover,
+.quicktags-toolbar input[id*="tinypress_shortlink"]:hover,
+.quicktags-toolbar input[id$="_tinypress_shortlink"]:focus,
+.quicktags-toolbar input[id*="tinypress_shortlink"]:focus {
+  background: #4f4377 !important;
+  border-color: #FCB223 !important;
+  color: #ffffff !important;
 }
 #tinypress-shortlink-modal {
   display: none;
@@ -387,4 +412,3 @@
     flex: 0 0 40px;
   }
 }
-
