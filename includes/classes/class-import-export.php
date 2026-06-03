@@ -1085,7 +1085,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                             <div id="tinypress-file-input-section">
                                 <form id="tinypress-import-form" enctype="multipart/form-data">
                                     <input type="file" name="csv_file" id="tinypress-csv-file" accept=".csv">
-                                    <button type="submit" class="button button-primary button-hero" id="tinypress-import-btn">
+                                    <button type="submit" class="import-button button-primary button-hero" id="tinypress-import-btn">
                                         <span class="dashicons dashicons-download"></span>
                                         <?php esc_html_e('Import CSV', 'tinypress'); ?>
                                     </button>
@@ -1094,15 +1094,15 @@ if (! class_exists('TINYPRESS_Import_Export')) {
 
                             <!-- File Selected Actions -->
                             <div id="tinypress-file-selected-actions" style="display:none;">
-                                <button type="button" class="button" id="tinypress-preview-btn">
+                                <button type="button" class="import-preview-button button" id="tinypress-preview-btn">
                                     <span class="dashicons dashicons-visibility"></span>
                                     <?php esc_html_e('Preview', 'tinypress'); ?>
                                 </button>
-                                <button type="button" class="button button-primary" id="tinypress-import-selected-btn">
+                                <button type="button" class="import-button button button-primary" id="tinypress-import-selected-btn">
                                     <span class="dashicons dashicons-download"></span>
                                     <?php esc_html_e('Import CSV', 'tinypress'); ?>
                                 </button>
-                                <button type="button" class="button" id="tinypress-change-file-btn">
+                                <button type="button" class="import-preview-button button" id="tinypress-change-file-btn">
                                     <?php esc_html_e('Change File', 'tinypress'); ?>
                                 </button>
                             </div>
@@ -1132,15 +1132,15 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                                     </table>
                                 </div>
                                 <div id="tinypress-expand-container" style="display:none; text-align: center; padding-top: 12px;">
-                                    <button type="button" class="button" id="tinypress-expand-table-btn">
+                                    <button type="button" class="import-preview-button button" id="tinypress-expand-table-btn">
                                         <?php esc_html_e('See More Rows', 'tinypress'); ?>
                                     </button>
                                 </div>
                                 <div class="tinypress-preview-actions">
-                                    <button type="button" class="button" id="tinypress-cancel-import-btn">
+                                    <button type="button" class="import-preview-button button" id="tinypress-cancel-import-btn">
                                         <?php esc_html_e('Cancel', 'tinypress'); ?>
                                     </button>
-                                    <button type="button" class="button button-primary" id="tinypress-confirm-import-btn">
+                                    <button type="button" class="import-button button-primary" id="tinypress-confirm-import-btn">
                                         <span class="dashicons dashicons-download"></span>
                                         <?php esc_html_e('Import', 'tinypress'); ?>
                                     </button>

@@ -199,10 +199,14 @@
 	margin-right: 6px;
 }
 
-.tinypress-ie-card-body > a.button.button-primary.button-large {
-	display: inline-block;
-	margin-top: 12px;
-	min-width: 180px;
+.tinypress-ie-card-body > a.button.button-primary.button-large,
+.import-button {
+	display: inline-flex !important;
+	color: #fff !important;
+	border-radius: 8px !important;
+	font-weight: 600 !important;
+	align-items: center !important;
+	line-height: 1.4 !important;
 }
 
 .tinypress-progress-container {
@@ -345,10 +349,6 @@
 	border-top: 1px solid #e0e0e0;
 }
 
-.tinypress-preview-actions button {
-	min-width: 140px;
-}
-
 #tinypress-expand-container {
 	text-align: center;
 	padding: 12px;
@@ -485,4 +485,12 @@
 	color: white !important;
 	vertical-align: text-bottom !important;
 	display: inline-block !important;
+}
+
+.import-button .dashicons {
+	line-height: 1.2 !important;
+}
+
+.import-preview-button{
+	border-radius: 8px !important;
 }
