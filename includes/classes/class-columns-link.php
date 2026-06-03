@@ -311,6 +311,12 @@ class TINYPRESS_Column_link
 
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin list filter.
         $selected = isset($_GET['tinypress_link_type']) ? sanitize_key(wp_unslash($_GET['tinypress_link_type'])) : '';
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin list filter.
+        $selected_category = isset($_GET['tinypress_link_cat']) ? sanitize_title(wp_unslash($_GET['tinypress_link_cat'])) : '';
+        $category_terms = get_terms(array(
+            'taxonomy'   => 'tinypress_link_cat',
+            'hide_empty' => false,
+        ));
         ?>
         <label class="screen-reader-text" for="tinypress-link-type-filter"><?php esc_html_e('Filter by link type', 'tinypress'); ?></label>
         <select id="tinypress-link-type-filter" name="tinypress_link_type">
@@ -318,6 +324,15 @@ class TINYPRESS_Column_link
             <option value="internal" <?php selected($selected, 'internal'); ?>><?php esc_html_e('Internal', 'tinypress'); ?></option>
             <option value="external" <?php selected($selected, 'external'); ?>><?php esc_html_e('External', 'tinypress'); ?></option>
             <option value="revision" <?php selected($selected, 'revision'); ?>><?php esc_html_e('Revision', 'tinypress'); ?></option>
+        </select>
+        <label class="screen-reader-text" for="tinypress-link-category-filter"><?php esc_html_e('Filter by category', 'tinypress'); ?></label>
+        <select id="tinypress-link-category-filter" name="tinypress_link_cat">
+            <option value=""><?php esc_html_e('All categories', 'tinypress'); ?></option>
+            <?php if (! is_wp_error($category_terms) && ! empty($category_terms)) : ?>
+                <?php foreach ($category_terms as $category_term) : ?>
+                    <option value="<?php echo esc_attr($category_term->slug); ?>" <?php selected($selected_category, $category_term->slug); ?>><?php echo esc_html($category_term->name); ?></option>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </select>
         <?php
     }
@@ -344,22 +359,43 @@ class TINYPRESS_Column_link
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin list filter.
         $selected = isset($_GET['tinypress_link_type']) ? sanitize_key(wp_unslash($_GET['tinypress_link_type'])) : '';
 
-        if (! in_array($selected, array( 'internal', 'external', 'revision' ), true)) {
+        if (in_array($selected, array( 'internal', 'external', 'revision' ), true)) {
+            $link_ids = get_posts(array(
+                'post_type'      => 'tinypress_link',
+                'post_status'    => 'any',
+                'posts_per_page' => -1,
+                'fields'         => 'ids',
+            ));
+
+            $matching_ids = array_filter($link_ids, function ($link_id) use ($selected) {
+                return $selected === $this->get_link_type($link_id);
+            });
+
+            $query->set('post__in', ! empty($matching_ids) ? array_map('absint', $matching_ids) : array( 0 ));
+        }
+
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin list filter.
+        $selected_category = isset($_GET['tinypress_link_cat']) ? sanitize_title(wp_unslash($_GET['tinypress_link_cat'])) : '';
+
+        if ('' === $selected_category) {
             return;
         }
 
-        $link_ids = get_posts(array(
-            'post_type'      => 'tinypress_link',
-            'post_status'    => 'any',
-            'posts_per_page' => -1,
-            'fields'         => 'ids',
-        ));
+        $term = get_term_by('slug', $selected_category, 'tinypress_link_cat');
 
-        $matching_ids = array_filter($link_ids, function ($link_id) use ($selected) {
-            return $selected === $this->get_link_type($link_id);
-        });
+        if (! $term instanceof WP_Term) {
+            $query->set('post__in', array( 0 ));
+            return;
+        }
 
-        $query->set('post__in', ! empty($matching_ids) ? array_map('absint', $matching_ids) : array( 0 ));
+        $tax_query = (array) $query->get('tax_query');
+        $tax_query[] = array(
+            'taxonomy' => 'tinypress_link_cat',
+            'field'    => 'slug',
+            'terms'    => array( $selected_category ),
+        );
+
+        $query->set('tax_query', $tax_query);
     }
 
     /**
