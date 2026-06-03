@@ -40,7 +40,7 @@ function ShortlinkIcon() {
     wp.element.createElement('path', {
       d: 'M9.3 14.7l-1.4 1.4a2.3 2.3 0 0 1-3.3-3.3l3.1-3.1a2.3 2.3 0 0 1 3.3 0',
       fill: 'none',
-      stroke: '#FCB223',
+      stroke: '#FFFFFF',
       strokeWidth: '2.2',
       strokeLinecap: 'round',
       strokeLinejoin: 'round'
@@ -58,7 +58,7 @@ function ShortlinkIcon() {
     wp.element.createElement('path', {
       d: 'M9.8 14.2l4.4-4.4',
       fill: 'none',
-      stroke: '#FCB223',
+      stroke: '#FFFFFF',
       strokeWidth: '2.2',
       strokeLinecap: 'round'
     })
