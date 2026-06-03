@@ -136,10 +136,14 @@ if (! class_exists('TINYPRESS_Settings')) {
                 $request['tinypress_non_public_status_messages'] = $sanitized_messages;
             }
 
+            $save_request = $this->get_settings_save_request_payload();
+            $submitted_options = isset($save_request['tinypress_settings']) && is_array($save_request['tinypress_settings'])
+                ? $save_request['tinypress_settings']
+                : array();
+
             if (
-                isset($request['tinypress_autolink_enabled'])
-                && '1' === (string) $request['tinypress_autolink_enabled']
-                && ! array_key_exists('tinypress_autolink_post_types', $request)
+                $this->is_autolink_section_save_without_post_types($save_request, $args)
+                && ! array_key_exists('tinypress_autolink_post_types', $submitted_options)
             ) {
                 $request['tinypress_autolink_post_types'] = array();
             }
@@ -210,6 +214,67 @@ if (! class_exists('TINYPRESS_Settings')) {
             $request['tinypress_autolist_post_types'] = $sanitized;
 
             return $request;
+        }
+
+        /**
+         * Get normalized settings save request payload from regular or ajax submit.
+         *
+         * @return array
+         */
+        private function get_settings_save_request_payload()
+        {
+            // phpcs:ignore WordPress.Security.NonceVerification.Missing -- payload is already nonce-protected by settings framework.
+            if (! empty($_POST['data'])) {
+                // phpcs:ignore WordPress.Security.NonceVerification.Missing -- read-only payload parsing.
+                $decoded = json_decode(wp_unslash(trim((string) $_POST['data'])), true);
+
+                return is_array($decoded) ? $decoded : array();
+            }
+
+            // phpcs:ignore WordPress.Security.NonceVerification.Missing -- payload is sanitized and validated by settings framework.
+            $payload = map_deep($_POST, 'sanitize_text_field');
+
+            return is_array($payload) ? $payload : array();
+        }
+
+        /**
+         * Check whether the current save action targets the Auto-Linking section.
+         *
+         * @param array $save_request Raw save request payload.
+         * @param mixed $settings_page Settings framework instance.
+         * @return bool
+         */
+        private function is_autolink_section_save_without_post_types($save_request, $settings_page)
+        {
+            if (! is_array($save_request)) {
+                return false;
+            }
+
+            $transient = isset($save_request['pb_settings_transient']) && is_array($save_request['pb_settings_transient'])
+                ? $save_request['pb_settings_transient']
+                : array();
+
+            if (empty($transient['section'])) {
+                return false;
+            }
+
+            $section_index = absint($transient['section']) - 1;
+
+            if ($section_index < 0 || ! is_object($settings_page) || ! isset($settings_page->pre_sections[ $section_index ])) {
+                return false;
+            }
+
+            $section_fields = isset($settings_page->pre_sections[ $section_index ]['fields']) && is_array($settings_page->pre_sections[ $section_index ]['fields'])
+                ? $settings_page->pre_sections[ $section_index ]['fields']
+                : array();
+
+            foreach ($section_fields as $field) {
+                if (isset($field['id']) && 'tinypress_autolink_post_types' === $field['id']) {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public function render_non_public_notice_messages_field()
