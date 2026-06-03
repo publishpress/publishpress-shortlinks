@@ -1289,6 +1289,17 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
             global $wpdb;
 
+            $user_agent = function_exists('wp_get_user_agent') ? (string) wp_get_user_agent() : '';
+            $health_check_header = isset($_SERVER['HTTP_X_PUBLISHPRESS_LINK_HEALTH'])
+                ? sanitize_text_field(wp_unslash($_SERVER['HTTP_X_PUBLISHPRESS_LINK_HEALTH']))
+                : '';
+            $is_link_health_request = (false !== stripos($user_agent, 'PublishPress Shortlinks Link Health/'))
+                || in_array(strtolower($health_check_header), array('1', 'true', 'yes'), true);
+
+            if ($is_link_health_request) {
+                return;
+            }
+
             if (is_user_logged_in()) {
                 $current_user_id = get_current_user_id();
                 $post = get_post($link_id);
@@ -1341,7 +1352,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
             }
 
-            $location_info['user_agent'] = function_exists('wp_get_user_agent') ? sanitize_text_field(wp_get_user_agent()) : '';
+            $location_info['user_agent'] = sanitize_text_field($user_agent);
 
             // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery -- Custom table insert for tracking; no caching needed for write operations
             $wpdb->insert(
