@@ -877,6 +877,98 @@ th#tinypress-link {
     min-height: 420px;
 }
 
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field {
+    display: block;
+    padding: 34px 0;
+    margin: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field:last-child {
+    border-bottom: 0;
+}
+
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings-title,
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings-fieldset {
+    float: none !important;
+    width: 100% !important;
+    max-width: 760px;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings-title h4 {
+    margin: 0 0 8px;
+    color: #1d2327;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings-subtitle-text,
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings-desc,
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings--label {
+    color: #8a8f94;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings-subtitle-text {
+    display: block;
+    margin: 0 0 16px;
+}
+
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings-fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings-desc {
+    order: -1;
+    display: block;
+    max-width: 620px;
+    margin: 0;
+}
+
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings--switcher-wrapper {
+    display: contents;
+}
+
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings--switcher-wrapper .wpdk_settings--label {
+    order: -2;
+    float: none !important;
+    max-width: 620px;
+    margin: 0;
+}
+
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings--switcher-wrapper .wpdk_settings--switcher {
+    order: 0;
+    float: none !important;
+}
+
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field input[type="text"],
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field input[type="number"],
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field input[type="url"],
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field select,
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field textarea {
+    width: 100%;
+    max-width: 620px;
+}
+
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wp-picker-container,
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wp-picker-container .wp-color-result.button {
+    margin: 0;
+}
+
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings-checkbox,
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings-radio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+}
+
 @media screen and (max-width: 700px) {
     .tinypress-settings-layout {
         flex-direction: column;
@@ -1959,6 +2051,44 @@ body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-switcher:
     margin: 0;
     float: none;
     line-height: 1.5;
+}
+
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-field:has(input[data-depend-id='link_status']) {
+    overflow: visible;
+}
+
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-field:has(input[data-depend-id='link_status']) .wpdk_settings-title,
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-field:has(input[data-depend-id='link_status']) .wpdk_settings-fieldset {
+    float: none !important;
+    width: 100% !important;
+    max-width: 620px;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-field:has(input[data-depend-id='link_status']) .wpdk_settings-title {
+    margin-bottom: 12px !important;
+}
+
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-field:has(input[data-depend-id='link_status']) .wpdk_settings-subtitle-text,
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-field:has(input[data-depend-id='link_status']) .wpdk_settings--label {
+    color: #8a8f94;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-field:has(input[data-depend-id='link_status']) .wpdk_settings--switcher-wrapper {
+    display: contents;
+}
+
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-field:has(input[data-depend-id='link_status']) .wpdk_settings--label {
+    display: block;
+    max-width: 620px;
+    margin: 0 0 12px;
+}
+
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-field:has(input[data-depend-id='link_status']) .wpdk_settings--switcher {
+    float: none !important;
 }
 
 body.post-type-tinypress_link .wpdk_settings-field.wpdk_settings-field-checkbox:not(.tinypress-use-global-checkbox) {
