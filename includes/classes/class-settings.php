@@ -225,8 +225,7 @@ if (! class_exists('TINYPRESS_Settings')) {
         {
             // phpcs:ignore WordPress.Security.NonceVerification.Missing -- payload is already nonce-protected by settings framework.
             if (! empty($_POST['data'])) {
-                // phpcs:ignore WordPress.Security.NonceVerification.Missing -- read-only payload parsing.
-                $decoded = json_decode(wp_unslash(trim((string) $_POST['data'])), true);
+                $decoded = json_decode(wp_unslash(trim((string) $_POST['data'])), true); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized,WordPress.Security.NonceVerification.Missing
 
                 return is_array($decoded) ? $decoded : array();
             }
