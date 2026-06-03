@@ -1,6 +1,26 @@
 .tinypress-import-export-wrap {
-	max-width: 1100px;
+	max-width: none;
 	margin-bottom: 120px;
+}
+
+.tinypress-ie-tabs {
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+
+.tinypress-ie-tab-panels {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-top: 0;
+	padding: 24px;
+}
+
+.tinypress-ie-tab-panel {
+	display: none;
+}
+
+.tinypress-ie-tab-panel.is-active {
+	display: block;
 }
 
 .tinypress-ie-grid {
@@ -11,6 +31,10 @@
 }
 
 @media (max-width: 782px) {
+	.tinypress-ie-tab-panels {
+		padding: 16px;
+	}
+
 	.tinypress-ie-grid {
 		grid-template-columns: 1fr;
 	}
@@ -21,6 +45,7 @@
 	border: 1px solid #c3c4c7;
 	border-radius: 4px;
 	overflow: hidden;
+	max-width: 1280px;
 }
 
 .tinypress-ie-card-header {
@@ -282,6 +307,48 @@
 	line-height: 1.5;
 }
 
+.tinypress-field-mapping-info strong {
+	display: block;
+	margin-bottom: 8px;
+}
+
+.tinypress-field-mapping-list {
+	display: grid;
+	gap: 6px;
+	max-width: 720px;
+}
+
+.tinypress-field-mapping-row {
+	display: grid;
+	grid-template-columns: minmax(160px, 1fr) auto minmax(160px, 1fr);
+	align-items: center;
+	gap: 10px;
+	padding: 7px 10px;
+	background: #fff;
+	border: 1px solid #b8d7f0;
+	border-radius: 4px;
+}
+
+.tinypress-field-mapping-row-single {
+	display: block;
+}
+
+.tinypress-field-mapping-original,
+.tinypress-field-mapping-mapped {
+	font-family: Consolas, Monaco, monospace;
+	font-size: 12px;
+	overflow-wrap: anywhere;
+}
+
+.tinypress-field-mapping-original {
+	color: #50575e;
+}
+
+.tinypress-field-mapping-arrow {
+	color: #2271b1;
+	font-weight: 700;
+}
+
 .tinypress-preview-table-wrapper {
 	overflow-x: auto;
 	margin-bottom: 16px;
@@ -298,7 +365,8 @@
 }
 
 .tinypress-preview-table {
-	width: 100%;
+	width: max-content;
+	min-width: 100%;
 	border-collapse: collapse;
 	font-size: 13px;
 }
@@ -337,6 +405,12 @@
 	max-width: 300px;
 }
 
+.tinypress-preview-table th.tinypress-preview-url-column,
+.tinypress-preview-table td.tinypress-preview-url-column {
+	min-width: 420px;
+	max-width: 640px;
+}
+
 .tinypress-preview-table td:last-child {
 	border-right: none;
 }
@@ -348,6 +422,10 @@
 	padding-top: 16px;
 	border-top: 1px solid #e0e0e0;
 }
+
+/* .tinypress-preview-actions button {
+	min-width: 140px;
+} */
 
 #tinypress-expand-container {
 	text-align: center;
@@ -409,6 +487,15 @@
 	.tinypress-preview-table-wrapper {
 		font-size: 12px;
 		max-height: 300px;
+	}
+
+	.tinypress-field-mapping-row {
+		grid-template-columns: 1fr;
+		gap: 4px;
+	}
+
+	.tinypress-field-mapping-arrow {
+		display: none;
 	}
 
 	.tinypress-preview-table th,

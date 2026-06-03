@@ -970,10 +970,21 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 );
             }
 
+            $field_mapping_rows = array();
+            foreach ($mapped_headers as $idx => $mapping) {
+                if ($mapping['original'] !== $mapping['mapped']) {
+                    $field_mapping_rows[] = array(
+                        'original' => (string) $mapping['original'],
+                        'mapped'   => (string) $mapping['mapped'],
+                    );
+                }
+            }
+
             wp_send_json_success(array(
                 'columns'           => $original_header,
                 'mapped_headers'    => $mapped_headers,
                 'field_mappings'    => $field_mappings,
+                'field_mapping_rows' => $field_mapping_rows,
                 'preview'           => $preview_rows,
                 'total_rows'        => $total_rows,
                 'preview_limit'     => $preview_limit,
@@ -1045,7 +1056,17 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             <div class="wrap tinypress-import-export-wrap">
                 <h1><?php esc_html_e('Import / Export Shortlinks', 'tinypress'); ?></h1>
 
-                <div class="tinypress-ie-grid">
+                <h2 class="nav-tab-wrapper tinypress-ie-tabs">
+                    <a href="#tinypress-export-panel" class="nav-tab tinypress-ie-tab nav-tab-active" data-tab="tinypress-export-panel">
+                        <?php esc_html_e('Export', 'tinypress'); ?>
+                    </a>
+                    <a href="#tinypress-import-panel" class="nav-tab tinypress-ie-tab" data-tab="tinypress-import-panel">
+                        <?php esc_html_e('Import', 'tinypress'); ?>
+                    </a>
+                </h2>
+
+                <div class="tinypress-ie-tab-panels">
+                    <div id="tinypress-export-panel" class="tinypress-ie-tab-panel is-active">
                     <div class="tinypress-ie-card">
                         <div class="tinypress-ie-card-header">
                             <span class="dashicons dashicons-upload"></span>
@@ -1069,7 +1090,9 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                             </a>
                         </div>
                     </div>
+                    </div>
 
+                    <div id="tinypress-import-panel" class="tinypress-ie-tab-panel">
                     <div class="tinypress-ie-card">
                         <div class="tinypress-ie-card-header">
                             <span class="dashicons dashicons-download"></span>
@@ -1150,6 +1173,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                             <!-- Import Result Section -->
                             <div id="tinypress-import-result" style="display:none;"></div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
