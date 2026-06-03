@@ -136,6 +136,34 @@ if (! class_exists('TINYPRESS_Settings')) {
                 $request['tinypress_non_public_status_messages'] = $sanitized_messages;
             }
 
+            if (
+                isset($request['tinypress_autolink_enabled'])
+                && '1' === (string) $request['tinypress_autolink_enabled']
+                && ! array_key_exists('tinypress_autolink_post_types', $request)
+            ) {
+                $request['tinypress_autolink_post_types'] = array();
+            }
+
+            if (array_key_exists('tinypress_autolink_post_types', $request)) {
+                $autolink_post_types = $request['tinypress_autolink_post_types'];
+
+                if (! is_array($autolink_post_types)) {
+                    $autolink_post_types = array();
+                }
+
+                $valid_autolink_post_types = array_merge(
+                    array('__all__'),
+                    array_keys($this->get_post_type_options())
+                );
+
+                $autolink_post_types = array_values(array_intersect(
+                    array_filter(array_map('sanitize_key', $autolink_post_types)),
+                    $valid_autolink_post_types
+                ));
+
+                $request['tinypress_autolink_post_types'] = $autolink_post_types;
+            }
+
             if (! isset($request['tinypress_autolist_post_types'])) {
                 return $request;
             }
@@ -440,6 +468,12 @@ if (! class_exists('TINYPRESS_Settings')) {
             $user_roles = tinypress_get_roles();
 
             $post_type_options = $this->get_post_type_options();
+            $autolink_post_type_options = array_merge(
+                array(
+                    '__all__' => esc_html__('All', 'tinypress'),
+                ),
+                $post_type_options
+            );
             $post_status_options = function_exists('tinypress_get_supported_post_status_options')
                 ? tinypress_get_supported_post_status_options(true)
                 : array(
@@ -557,6 +591,16 @@ if (! class_exists('TINYPRESS_Settings')) {
                                 'label'    => esc_html__('Automatically convert keywords to shortlinks in post content.', 'tinypress'),
                                 'desc'     => esc_html__('When enabled, keywords configured in shortlink settings will be automatically linked in your content.', 'tinypress'),
                                 'default'  => true,
+                            ),
+                            array(
+                                'id'         => 'tinypress_autolink_post_types',
+                                'type'       => 'checkbox',
+                                'title'      => esc_html__('Post Types', 'tinypress'),
+                                'subtitle'   => esc_html__('Where should auto-linking be applied?', 'tinypress'),
+                                'inline'     => true,
+                                'options'    => $autolink_post_type_options,
+                                'default'    => array('post', 'page'),
+                                'dependency' => array( 'tinypress_autolink_enabled', '==', '1' ),
                             ),
                             array(
                                 'id'         => 'tinypress_autolink_target',

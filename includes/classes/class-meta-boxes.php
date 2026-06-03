@@ -523,16 +523,6 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                 )
             );
 
-            $post_type_options = array(
-                '__all__' => esc_html__('All', 'tinypress'),
-            );
-            foreach (get_post_types(array('public' => true, 'show_ui' => true), 'objects') as $post_type => $post_type_obj) {
-                if (in_array($post_type, array('attachment', 'tinypress_link'), true)) {
-                    continue;
-                }
-                $post_type_options[$post_type] = $post_type_obj->labels->singular_name . ' (' . $post_type . ')';
-            }
-
             $current_post_id = isset($_GET['post']) ? intval($_GET['post']) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             $is_internal_link = false;
 
@@ -587,15 +577,6 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                     'dependency' => array(
                         array('autolink_alt_text', '==', 'custom'),
                     ),
-                ),
-                array(
-                    'id'       => 'autolink_post_types',
-                    'type'     => 'checkbox',
-                    'title'    => esc_html__('Post Types', 'tinypress'),
-                    'subtitle' => esc_html__('Where should these keywords be auto-linked?', 'tinypress'),
-                    'inline'   => true,
-                    'options'  => $post_type_options,
-                    'default'  => array('post', 'page'),
                 ),
             );
             $autolink_fields = apply_filters('tinypress_autolink_metabox_fields', $autolink_fields);
