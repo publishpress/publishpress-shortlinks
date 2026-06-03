@@ -3,7 +3,7 @@
 /**
  * Plugin Name: PublishPress Shortlinks Free
  * Plugin URI:  https://publishpress.com/shortlinks/
- * Description: Create custom links for your posts. These links are brandable, trackable, and can have custom view permissions.
+ * Description: The best link manager for WordPress. Your links are brandable, trackable, and can have custom view permissions.
  * Version: 1.7.0
  * Text Domain: tinypress
  * Author: PublishPress
