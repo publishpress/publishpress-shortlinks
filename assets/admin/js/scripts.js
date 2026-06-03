@@ -62,6 +62,38 @@
             }
         });
 
+        function tinypressGetUrlParam(name) {
+            if (window.URLSearchParams) {
+                return new URLSearchParams(window.location.search).get(name);
+            }
+
+            var match = new RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+            return match ? decodeURIComponent(match[1].replace(/\+/g, ' ')) : null;
+        }
+
+        function tinypressActivateRequestedMetaboxTab() {
+            if (!$('body').hasClass('post-type-tinypress_link') || tinypressGetUrlParam('tinypress_tab') !== 'analytics') {
+                return;
+            }
+
+            var $nav = $('.wpdk_settings-nav-metabox');
+            if (!$nav.length) {
+                return;
+            }
+
+            var analyticsLabel = (pluginObject.analytics_label || 'Analytics').toLowerCase();
+            var $target = $nav.find('a[data-section]').filter(function () {
+                var label = $.trim($(this).text()).toLowerCase();
+                return label === analyticsLabel || label.indexOf(analyticsLabel) !== -1;
+            }).first();
+
+            if ($target.length) {
+                $target.trigger('click');
+            }
+        }
+
+        tinypressActivateRequestedMetaboxTab();
+
         function tinypressSyncAutolinkAllCheckbox() {
             if (!$('body').hasClass('post-type-tinypress_link')) {
                 return;

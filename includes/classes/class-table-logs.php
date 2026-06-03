@@ -163,6 +163,7 @@ class WP_List_Table_Logs extends WP_List_Table
             'title'      => esc_html__('Title', 'tinypress'),
             'short_link' => esc_html__('Shortlink', 'tinypress'),
             'details'    => esc_html__('Details', 'tinypress'),
+            'actions'    => esc_html__('Actions', 'tinypress'),
         );
     }
 
@@ -231,6 +232,33 @@ class WP_List_Table_Logs extends WP_List_Table
     public function column_short_link($item)
     {
         return tinypress_get_tiny_slug_copier(Utils::get_args_option('post_id', $item), false, array( 'wrapper_class' => 'mini' ));
+    }
+
+    public function column_actions($item)
+    {
+        if (! $this->current_user_can_manage_logs()) {
+            return '';
+        }
+
+        $post_id = absint(Utils::get_args_option('post_id', $item));
+
+        if (empty($post_id)) {
+            return '&mdash;';
+        }
+
+        $analytics_url = get_edit_post_link($post_id, '');
+
+        if (empty($analytics_url)) {
+            return '&mdash;';
+        }
+
+        $analytics_url = add_query_arg('tinypress_tab', 'analytics', $analytics_url);
+
+        return sprintf(
+            '<a href="%s" class="button button-small">%s</a>',
+            esc_url($analytics_url),
+            esc_html__('View Analytics', 'tinypress')
+        );
     }
 
 
