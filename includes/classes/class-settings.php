@@ -75,6 +75,7 @@ if (! class_exists('TINYPRESS_Settings')) {
             return $sections;
         }
 
+
         /**
          * Sanitize autolist settings to prevent duplicates and invalid post types
          *
@@ -309,6 +310,56 @@ if (! class_exists('TINYPRESS_Settings')) {
             }
 
             echo '</div>';
+        }
+
+        /**
+         * Render auto-link post type checkboxes at display time.
+         *
+         * @param array $field Field definition.
+         * @return void
+         */
+        public function render_autolink_post_types_field($field)
+        {
+            $settings = get_option('tinypress_settings', array());
+
+            if (! is_array($settings)) {
+                $settings = array();
+            }
+
+            $selected = array_key_exists('tinypress_autolink_post_types', $settings) && is_array($settings['tinypress_autolink_post_types'])
+                ? array_values(array_map('sanitize_key', $settings['tinypress_autolink_post_types']))
+                : (isset($field['default']) && is_array($field['default']) ? array_values(array_map('sanitize_key', $field['default'])) : array());
+
+            $options = array_merge(
+                array(
+                    '__all__' => esc_html__('All', 'tinypress'),
+                ),
+                $this->get_post_type_options()
+            );
+
+            if (empty($options)) {
+                echo esc_html__('No data available.');
+                return;
+            }
+
+            $is_all_selected = in_array('__all__', $selected, true);
+
+            echo '<ul class="wpdk_settings--inline-list">';
+
+            foreach ($options as $option_key => $option_label) {
+                $option_key = sanitize_key($option_key);
+                $checked    = $is_all_selected || in_array($option_key, $selected, true);
+                $disabled   = $is_all_selected && '__all__' !== $option_key;
+
+                echo '<li>';
+                echo '<label>';
+                echo '<input type="checkbox" name="tinypress_settings[tinypress_autolink_post_types][]" value="' . esc_attr($option_key) . '"' . checked($checked, true, false) . disabled($disabled, true, false) . '/>';
+                echo '<span class="wpdk_settings--text">' . esc_html($option_label) . '</span>';
+                echo '</label>';
+                echo '</li>';
+            }
+
+            echo '</ul>';
         }
 
         /**
@@ -575,13 +626,6 @@ if (! class_exists('TINYPRESS_Settings')) {
 
             $user_roles = tinypress_get_roles();
 
-            $post_type_options = $this->get_post_type_options();
-            $autolink_post_type_options = array_merge(
-                array(
-                    '__all__' => esc_html__('All', 'tinypress'),
-                ),
-                $post_type_options
-            );
             $post_status_options = function_exists('tinypress_get_supported_post_status_options')
                 ? tinypress_get_supported_post_status_options(true)
                 : array(
@@ -702,12 +746,12 @@ if (! class_exists('TINYPRESS_Settings')) {
                             ),
                             array(
                                 'id'         => 'tinypress_autolink_post_types',
-                                'type'       => 'checkbox',
+                                'type'       => 'callback',
                                 'title'      => esc_html__('Post Types', 'tinypress'),
                                 'subtitle'   => esc_html__('Where should auto-linking be applied?', 'tinypress'),
-                                'inline'     => true,
-                                'options'    => $autolink_post_type_options,
+                                'function'   => array( $this, 'render_autolink_post_types_field' ),
                                 'default'    => array('post', 'page'),
+                                'class'      => 'wpdk_settings-field-checkbox tinypress-autolink-post-types-field',
                                 'dependency' => array( 'tinypress_autolink_enabled', '==', '1' ),
                             ),
                             array(

@@ -403,6 +403,38 @@ if (! class_exists('TINYPRESS_Import_Export')) {
         }
 
         /**
+         * Sanitize an imported slug while preserving slash-separated paths.
+         *
+         * @param string $slug Imported slug value.
+         * @return string
+         */
+        private function sanitize_import_slug($slug)
+        {
+            $slug = trim((string) $slug);
+
+            if ('' === $slug) {
+                return '';
+            }
+
+            $parsed_url = wp_parse_url($slug);
+            if (is_array($parsed_url) && ! empty($parsed_url['host'])) {
+                $slug = isset($parsed_url['path']) ? $parsed_url['path'] : '';
+            }
+
+            $slug = str_replace('\\', '/', $slug);
+            $slug = preg_replace('/[?#].*$/', '', $slug);
+            $slug = trim($slug, " \t\n\r\0\x0B/");
+
+            if ('' === $slug) {
+                return '';
+            }
+
+            $slug_parts = array_filter(array_map('sanitize_title', explode('/', $slug)), 'strlen');
+
+            return implode('/', $slug_parts);
+        }
+
+        /**
          * Export all shortlinks as CSV.
          *
          */
@@ -577,14 +609,14 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 if (is_wp_error($target_url)) {
                     $failed++;
                     $errors[] = array(
-                        'slug'   => $this->import_field_exists($data, 'short_slug') ? sanitize_title($data['short_slug']) : 'unknown',
+                        'slug'   => $this->import_field_exists($data, 'short_slug') ? $this->sanitize_import_slug($data['short_slug']) : 'unknown',
                         'reason' => $target_url->get_error_message(),
                     );
                     continue;
                 }
 
                 $label = $this->import_field_exists($data, 'label') && '' !== $data['label'] ? sanitize_text_field($data['label']) : $target_url;
-                $slug  = $this->import_field_exists($data, 'short_slug') && '' !== $data['short_slug'] ? sanitize_title($data['short_slug']) : '';
+                $slug  = $this->import_field_exists($data, 'short_slug') && '' !== $data['short_slug'] ? $this->sanitize_import_slug($data['short_slug']) : '';
 
                 $link_id = null;
 
@@ -1057,16 +1089,16 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 <h1><?php esc_html_e('Import / Export Shortlinks', 'tinypress'); ?></h1>
 
                 <h2 class="nav-tab-wrapper tinypress-ie-tabs">
-                    <a href="#tinypress-export-panel" class="nav-tab tinypress-ie-tab nav-tab-active" data-tab="tinypress-export-panel">
-                        <?php esc_html_e('Export', 'tinypress'); ?>
-                    </a>
-                    <a href="#tinypress-import-panel" class="nav-tab tinypress-ie-tab" data-tab="tinypress-import-panel">
+                    <a href="#tinypress-import-panel" class="nav-tab tinypress-ie-tab nav-tab-active" data-tab="tinypress-import-panel">
                         <?php esc_html_e('Import', 'tinypress'); ?>
+                    </a>
+                    <a href="#tinypress-export-panel" class="nav-tab tinypress-ie-tab" data-tab="tinypress-export-panel">
+                        <?php esc_html_e('Export', 'tinypress'); ?>
                     </a>
                 </h2>
 
                 <div class="tinypress-ie-tab-panels">
-                    <div id="tinypress-export-panel" class="tinypress-ie-tab-panel is-active">
+                    <div id="tinypress-export-panel" class="tinypress-ie-tab-panel">
                     <div class="tinypress-ie-card">
                         <div class="tinypress-ie-card-header">
                             <span class="dashicons dashicons-upload"></span>
@@ -1092,7 +1124,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                     </div>
                     </div>
 
-                    <div id="tinypress-import-panel" class="tinypress-ie-tab-panel">
+                    <div id="tinypress-import-panel" class="tinypress-ie-tab-panel is-active">
                     <div class="tinypress-ie-card">
                         <div class="tinypress-ie-card-header">
                             <span class="dashicons dashicons-download"></span>
