@@ -683,7 +683,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                                 'type'       => 'color',
                                 'title'      => esc_html__('Auto-Link Color', 'tinypress'),
                                 'subtitle'   => esc_html__('Choose the color for auto-linked keywords.', 'tinypress'),
-                                'default'    => '#3b11e4',
+                                'default'    => 'transparent',
                                 'dependency' => array( 'tinypress_autolink_enabled', '==', '1' ),
                             ),
                         )),
