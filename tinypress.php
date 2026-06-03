@@ -95,11 +95,19 @@ if (! defined('TINYPRESS_LOADED')) {
             'plugin_row_meta',
             function ($links, $file) {
                 if ($file === plugin_basename(__FILE__)) {
-                    $links[] = '<strong>' . esc_html__('This plugin can be deleted.', 'tinypress') . '</strong>';
+                    $deletion_notice = esc_html__('This plugin can be deleted.', 'tinypress');
+
+                    foreach ((array) $links as $existing_link) {
+                        if (false !== strpos(wp_strip_all_tags((string) $existing_link), $deletion_notice)) {
+                            return $links;
+                        }
+                    }
+
+                    $links[] = '<strong>' . $deletion_notice . '</strong>';
                 }
                 return $links;
             },
-            10,
+            999,
             2
         );
     }
