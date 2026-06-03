@@ -53,17 +53,46 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
         private function get_all_autolink_post_types()
         {
-            $post_types = get_post_types(array('public' => true, 'show_ui' => true), 'names');
+            $post_types = get_post_types(array(), 'names');
             if (! is_array($post_types)) {
                 return array('post', 'page');
             }
 
-            $post_types = array_values(array_diff($post_types, array('attachment', 'tinypress_link')));
+            $post_types = array_values(array_diff($post_types, $this->get_excluded_autolink_post_types()));
             if (empty($post_types)) {
                 return array('post', 'page');
             }
 
             return array_map('sanitize_key', $post_types);
+        }
+
+        /**
+         * Post types that should not be auto-linked.
+         *
+         * @return array
+         */
+        private function get_excluded_autolink_post_types()
+        {
+            $excluded_post_types = array(
+                'attachment',
+                'revision',
+                'nav_menu_item',
+                'custom_css',
+                'customize_changeset',
+                'oembed_cache',
+                'user_request',
+                'wp_block',
+                'wp_template',
+                'wp_template_part',
+                'wp_global_styles',
+                'wp_navigation',
+                'tinypress_link',
+            );
+
+            return array_values(array_filter(array_map('sanitize_key', apply_filters(
+                'tinypress_autolink_excluded_post_types',
+                $excluded_post_types
+            ))));
         }
 
         /**

@@ -215,6 +215,10 @@ if (! defined('TINYPRESS_LOADED')) {
                     $settings['tinypress_autolink_enabled'] = '1';
                 }
 
+                if (! array_key_exists('tinypress_autolink_post_types', $settings)) {
+                    $settings['tinypress_autolink_post_types'] = array('post', 'page');
+                }
+
                 if (! array_key_exists('tinypress_autolink_color', $settings)) {
                     $settings['tinypress_autolink_color'] = 'transparent';
                 }

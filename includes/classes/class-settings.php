@@ -509,16 +509,60 @@ if (! class_exists('TINYPRESS_Settings')) {
          */
         public function get_post_type_options()
         {
-            $post_types = get_post_types(array( 'public' => true ), 'objects');
+            $post_types = get_post_types(array(), 'objects');
+            $excluded_post_types = $this->get_excluded_autolink_post_types();
             $options = array();
 
             foreach ($post_types as $post_type) {
-                if (! in_array($post_type->name, array( 'attachment', 'tinypress_link' ))) {
-                    $options[ $post_type->name ] = $post_type->labels->singular_name . ' (' . $post_type->name . ')';
+                if (! is_object($post_type) || empty($post_type->name)) {
+                    continue;
                 }
+
+                $post_type_name = sanitize_key($post_type->name);
+
+                if ('' === $post_type_name || in_array($post_type_name, $excluded_post_types, true)) {
+                    continue;
+                }
+
+                $label = ! empty($post_type->labels->singular_name)
+                    ? $post_type->labels->singular_name
+                    : (! empty($post_type->label) ? $post_type->label : $post_type_name);
+
+                $options[ $post_type_name ] = $label . ' (' . $post_type_name . ')';
             }
 
+            uasort($options, 'strnatcasecmp');
+
             return $options;
+        }
+
+        /**
+         * Post types that should not be offered for auto-linking.
+         *
+         * @return array
+         */
+        private function get_excluded_autolink_post_types()
+        {
+            $excluded_post_types = array(
+                'attachment',
+                'revision',
+                'nav_menu_item',
+                'custom_css',
+                'customize_changeset',
+                'oembed_cache',
+                'user_request',
+                'wp_block',
+                'wp_template',
+                'wp_template_part',
+                'wp_global_styles',
+                'wp_navigation',
+                'tinypress_link',
+            );
+
+            return array_values(array_filter(array_map('sanitize_key', apply_filters(
+                'tinypress_autolink_excluded_post_types',
+                $excluded_post_types
+            ))));
         }
 
         /**
