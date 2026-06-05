@@ -50,12 +50,16 @@ if (! class_exists('TINYPRESS_Redirection')) {
             add_action('wp', array( $this, 'redirection_controller' ), 5);
             // Yoast SEO compatibility
             add_filter('wpseo_redirect_bypass_redirect', array( $this, 'yoast_bypass_shortlink_redirect' ), 10, 1);
+            // WordPress canonical redirect compatibility
+            add_filter('redirect_canonical', array( $this, 'bypass_canonical_for_shortlinks' ), 1, 2);
+            // Generic redirect compatibility for plugins that use wp_redirect filters.
+            add_filter('wp_redirect', array( $this, 'bypass_wp_redirect_for_shortlinks' ), 1, 2);
             // Redirection plugin compatibility
             add_filter('redirection_url_target', array( $this, 'redirection_plugin_bypass' ), 10, 2);
 
             add_filter('wp_title', array( $this, 'fix_shortlink_title' ), 10, 2);
             // Main redirection controller
-            add_action('template_redirect', array( $this, 'redirection_controller' ), 0);
+            add_action('template_redirect', array( $this, 'redirection_controller' ), -10000);
             add_action('pre_get_posts', array( $this, 'tinypress_filter_shortlink_preview_visibility' ));
             add_action('wp_footer', array( $this, 'inject_reload_detection' ));
 
@@ -1877,6 +1881,38 @@ if (! class_exists('TINYPRESS_Redirection')) {
             }
 
             return $bypass;
+        }
+
+        /**
+         * WordPress canonical redirect compatibility: do not canonicalize valid shortlink requests.
+         *
+         * @param string|false $redirect_url  The redirect URL, or false to skip redirect.
+         * @param string       $requested_url The requested URL.
+         * @return string|false
+         */
+        public function bypass_canonical_for_shortlinks($redirect_url, $requested_url)
+        {
+            if ($this->is_dedicated_shortlink_request()) {
+                return false;
+            }
+
+            return $redirect_url;
+        }
+
+        /**
+         * Generic redirect compatibility: prevent helper plugins from redirecting valid shortlinks.
+         *
+         * @param string|false $location The redirect location.
+         * @param int          $status   The redirect status code.
+         * @return string|false
+         */
+        public function bypass_wp_redirect_for_shortlinks($location, $status)
+        {
+            if ($this->is_dedicated_shortlink_request()) {
+                return false;
+            }
+
+            return $location;
         }
 
         /**

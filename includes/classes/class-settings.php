@@ -29,7 +29,11 @@ if (! class_exists('TINYPRESS_Settings')) {
             add_action('plugins_loaded', array( $this, 'register_custom_statuses_filters' ), 1);
 
             add_action('init', array( $this, 'create_settings_page' ), 5);
+            add_action('init', array( $this, 'sync_prefix_standalone_options' ), 6);
             add_filter('pb_settings_tinypress_settings_save', array( $this, 'sanitize_autolist_settings' ), 10, 2);
+            add_action('update_option_tinypress_settings', array( $this, 'sync_prefix_standalone_options' ), 1, 2);
+            add_filter('WPDK/Utils/get_optiontinypress_link_prefix', array( $this, 'filter_link_prefix_option' ));
+            add_filter('WPDK/Utils/get_optiontinypress_link_prefix_slug', array( $this, 'filter_link_prefix_slug_option' ));
             add_action('pb_settings_options_before', array( $this, 'add_settings_wrapper_start' ));
             add_action('pb_settings_options_after', array( $this, 'add_settings_wrapper_end' ));
             add_action('admin_notices', array( $this, 'shortlinks_elementor_prefix_notice' ));
@@ -75,6 +79,60 @@ if (! class_exists('TINYPRESS_Settings')) {
             return $sections;
         }
 
+        /**
+         * Keep legacy standalone prefix options in sync with the grouped settings option.
+         *
+         * Some shortlink URL builders intentionally read tinypress_link_prefix and
+         * tinypress_link_prefix_slug directly via get_option(). The settings page
+         * stores these values inside tinypress_settings, so mirror them here.
+         *
+         * @return void
+         */
+        public function sync_prefix_standalone_options($old_value = null, $settings = null)
+        {
+            if (! is_array($settings)) {
+                $settings = get_option('tinypress_settings', array());
+            }
+
+            if (! is_array($settings)) {
+                return;
+            }
+
+            $prefix_settings = tinypress_get_link_prefix_settings($settings);
+
+            if (array_key_exists('tinypress_link_prefix', $settings)) {
+                $prefix_enabled = $prefix_settings['enabled'];
+                $old_option_value = get_option('tinypress_link_prefix', null);
+
+                if ($old_option_value !== $prefix_enabled) {
+                    update_option('tinypress_link_prefix', $prefix_enabled);
+                }
+            }
+
+            if (array_key_exists('tinypress_link_prefix_slug', $settings)) {
+                $prefix_slug = $prefix_settings['slug'];
+                $old_option_value = get_option('tinypress_link_prefix_slug', null);
+
+                if ($old_option_value !== $prefix_slug) {
+                    update_option('tinypress_link_prefix_slug', $prefix_slug);
+                }
+            }
+        }
+
+        public function filter_link_prefix_option($value)
+        {
+            $prefix_settings = tinypress_get_link_prefix_settings();
+
+            return $prefix_settings['enabled'];
+        }
+
+        public function filter_link_prefix_slug_option($value)
+        {
+            $prefix_settings = tinypress_get_link_prefix_settings();
+
+            return $prefix_settings['slug'];
+        }
+
 
         /**
          * Sanitize autolist settings to prevent duplicates and invalid post types
@@ -85,6 +143,18 @@ if (! class_exists('TINYPRESS_Settings')) {
          */
         public function sanitize_autolist_settings($request, $args)
         {
+            if (array_key_exists('tinypress_link_prefix', $request)) {
+                $request['tinypress_link_prefix'] = ('1' === (string) $request['tinypress_link_prefix']) ? '1' : '';
+            }
+
+            if (array_key_exists('tinypress_link_prefix_slug', $request)) {
+                $request['tinypress_link_prefix_slug'] = sanitize_title((string) $request['tinypress_link_prefix_slug']);
+
+                if ('' === $request['tinypress_link_prefix_slug']) {
+                    $request['tinypress_link_prefix_slug'] = 'go';
+                }
+            }
+
             if (isset($request['tinypress_allowed_post_statuses'])) {
                 $allowed_statuses = $request['tinypress_allowed_post_statuses'];
 

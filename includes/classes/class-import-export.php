@@ -624,7 +624,13 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                     global $wpdb;
                     // phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching
                     $existing = $wpdb->get_var($wpdb->prepare(
-                        "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'tiny_slug' AND meta_value = %s LIMIT 1",
+                        "SELECT pm.post_id FROM {$wpdb->postmeta} pm
+                        INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
+                        WHERE pm.meta_key = 'tiny_slug'
+                        AND pm.meta_value = %s
+                        AND p.post_type = 'tinypress_link'
+                        ORDER BY CASE WHEN p.post_status = 'publish' THEN 0 ELSE 1 END, p.ID DESC
+                        LIMIT 1",
                         $slug
                     ));
                     if ($existing) {
