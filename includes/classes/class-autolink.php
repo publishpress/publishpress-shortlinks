@@ -174,6 +174,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 'autolink_alt_text',
                 'autolink_alt_text_custom',
                 'link_status',
+                'target_url',
                 'autolink_min_usage',
                 'autolink_min_usage_use_global',
                 'autolink_max_links',
