@@ -46,7 +46,8 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
 
             add_action('add_meta_boxes', array( $this, 'add_side_meta_box' ), 0);
             add_action('WPDK_Settings/meta_section/analytics', array( $this, 'render_analytics' ));
-            add_action('WPDK_Settings/meta_section/categories_qr', array( $this, 'render_categories_qr_section' ));
+            add_action('WPDK_Settings/meta_section/categories', array( $this, 'render_categories_section' ));
+            add_action('WPDK_Settings/meta_section/qr_code', array( $this, 'render_qr_code_section' ));
         }
 
         /**
@@ -92,29 +93,30 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         }
 
         /**
-         * Render the Categories and QR Code tab content.
+         * Render the Categories tab content.
          *
          * @return void
          */
-        public function render_categories_qr_section()
+        public function render_categories_section()
         {
-            echo '<div class="tinypress-categories-qr-tabs">';
-            echo '<ul class="tinypress-categories-qr-tab-list" role="tablist">';
-            echo '<li><button type="button" class="tinypress-categories-qr-tab is-active" id="tinypress-categories-qr-tab-categories" data-target="tinypress-categories-qr-panel-categories" role="tab" aria-selected="true" aria-controls="tinypress-categories-qr-panel-categories">' . esc_html__('Categories', 'tinypress') . '</button></li>';
-            echo '<li><button type="button" class="tinypress-categories-qr-tab" id="tinypress-categories-qr-tab-qr" data-target="tinypress-categories-qr-panel-qr" role="tab" aria-selected="false" aria-controls="tinypress-categories-qr-panel-qr">' . esc_html__('QR Code', 'tinypress') . '</button></li>';
-            echo '</ul>';
-
-            echo '<div id="tinypress-categories-qr-panel-categories" class="tinypress-categories-qr-panel is-active" role="tabpanel" aria-labelledby="tinypress-categories-qr-tab-categories">';
             $this->render_link_categories_panel();
-            echo '</div>';
-
-            echo '<div id="tinypress-categories-qr-panel-qr" class="tinypress-categories-qr-panel" role="tabpanel" aria-labelledby="tinypress-categories-qr-tab-qr" hidden>';
-            include TINYPRESS_PLUGIN_DIR . 'templates/admin/qr-code.php';
-            echo '</div>';
-
-            echo '</div>';
         }
 
+        /**
+         * Render the QR Code tab content.
+         *
+         * @return void
+         */
+        public function render_qr_code_section()
+        {
+            include TINYPRESS_PLUGIN_DIR . 'templates/admin/qr-code.php';
+        }
+
+        /**
+         * Render the native categories UI inside the tabbed side metabox.
+         *
+         * @return void
+         */
         private function render_link_categories_panel()
         {
             global $post;
@@ -538,7 +540,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                             'id'         => 'link_status',
                             'type'       => 'switcher',
                             'title'      => esc_html__('Status', 'tinypress'),
-                            'subtitle'   => esc_html__('Enable or Disable the shortlink.', 'tinypress'),
+                            'subtitle'   => esc_html__('Enable or disable the shortlink.', 'tinypress'),
                             'text_on'    => esc_html__('Enable', 'tinypress'),
                             'text_off'   => esc_html__('Disable', 'tinypress'),
                             'default'    => true,
@@ -807,9 +809,18 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
             WPDK_Settings::createSection(
                 $this->tinypress_metabox_main,
                 array(
-                    'id'       => 'categories_qr',
+                    'id'       => 'categories',
                     'external' => true,
-                    'title'    => esc_html__('Categories / QR Code', 'tinypress'),
+                    'title'    => esc_html__('Categories', 'tinypress'),
+                )
+            );
+
+            WPDK_Settings::createSection(
+                $this->tinypress_metabox_main,
+                array(
+                    'id'       => 'qr_code',
+                    'external' => true,
+                    'title'    => esc_html__('QR Code', 'tinypress'),
                 )
             );
 

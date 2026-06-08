@@ -391,9 +391,12 @@ if (! defined('TINYPRESS_LOADED')) {
             public function localize_scripts()
             {
                 return apply_filters('tinypress/filters/localize_scripts', array(
-                'ajax_url'        => admin_url('admin-ajax.php'),
-                'copy_text'       => esc_html__('Copied.', 'tinypress'),
-                'analytics_label' => esc_html__('Analytics', 'tinypress'),
+                'ajax_url'                 => admin_url('admin-ajax.php'),
+                'copy_text'                => esc_html__('Copied.', 'tinypress'),
+                'analytics_label'          => esc_html__('Analytics', 'tinypress'),
+                'inherited_notice'         => esc_html__('This setting is inherited from global settings. Choose another option to override it for this shortlink.', 'tinypress'),
+                'working_text'             => esc_html__('Working...', 'tinypress'),
+                'plugin_title'             => esc_html__('PublishPress Shortlinks', 'tinypress'),
                 ));
             }
 

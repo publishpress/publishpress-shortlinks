@@ -12,6 +12,6 @@ wp_localize_script('tinypress-qr-code', 'tinypressQRCode', array(
 
 ?>
 <div id="side-qr-code" class="side-qr-code">
-    <div id="qr-code" class="qr-code"></div>
+    <div id="qr-code" class="qr-code" style="margin-bottom: 5px"></div>
     <a class="qr-download" href=""><?php esc_html_e('Download QR Code', 'tinypress') ?></a>
 </div>

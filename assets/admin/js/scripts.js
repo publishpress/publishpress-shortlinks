@@ -189,7 +189,47 @@
             $target.after($bottomActions);
         }
 
+        function tinypressMovePublishAction() {
+            if (!$('body').hasClass('post-type-tinypress_link')) {
+                return;
+            }
+
+            var $settingsPanel = $('.wpdk_settings-metabox').last();
+            var $submitBox = $('#submitdiv');
+
+            if (!$settingsPanel.length || !$submitBox.length || $submitBox.closest('.tinypress-edit-settings-header').length) {
+                return;
+            }
+
+            var $wrapper = $settingsPanel.children('.wpdk_settings-wrapper').first();
+            var title = $.trim($('#tinypress_meta_main .postbox-header h2, #tinypress_meta_main h2.hndle').first().contents().filter(function () {
+                return this.nodeType === 3;
+            }).text()) || pluginObject.plugin_title || 'PublishPress Shortlinks';
+
+            var $header = $(
+                '<div class="wpdk_settings-header tinypress-edit-settings-header">' +
+                    '<div class="wpdk_settings-header-inner">' +
+                        '<div class="wpdk_settings-header-left"><h1></h1></div>' +
+                        '<div class="wpdk_settings-header-right"><div class="wpdk_settings-buttons"></div></div>' +
+                        '<div class="clear"></div>' +
+                    '</div>' +
+                '</div>'
+            );
+
+            $settingsPanel.addClass('tinypress-edit-settings-panel');
+            $header.find('h1').text(title);
+            $submitBox.addClass('tinypress-header-actions');
+            $header.find('.wpdk_settings-buttons').append($submitBox.detach());
+
+            if ($wrapper.length) {
+                $wrapper.before($header);
+            } else {
+                $settingsPanel.prepend($header);
+            }
+        }
+
         tinypressMoveTrashAction();
+        tinypressMovePublishAction();
 
         function tinypressGetModeChildFields($modeField, $controlledField) {
             var $section = $modeField.closest('.wpdk_settings-section');
@@ -218,7 +258,7 @@
                 $field.find('.wpdk_settings-fieldset').first().append($notice);
             }
 
-            $notice.text('This setting is inherited from global settings. Choose another option to override it for this shortlink.');
+            $notice.text(pluginObject.inherited_notice || 'This setting is inherited from global settings. Choose another option to override it for this shortlink.');
         }
 
         function tinypressSyncGlobalMode($modeField) {
@@ -227,7 +267,7 @@
             var $controlledField = $modeField.nextAll('.tinypress-global-controlled').first();
             var $controlledInput = $controlledField.find('input[type="hidden"][data-depend-id]').first();
             var $childFields = tinypressGetModeChildFields($modeField, $controlledField);
-            var inheritedTitle = 'This setting is inherited from global settings. Choose another option to override it for this shortlink.';
+            var inheritedTitle = pluginObject.inherited_notice || 'This setting is inherited from global settings. Choose another option to override it for this shortlink.';
 
             $modeControl.attr('title', mode === '1' ? inheritedTitle : '');
 
@@ -361,7 +401,7 @@
             context: this,
             url: pluginObject.ajax_url,
             beforeSend: function () {
-                el_submit_btn.addClass('working').text('Working...');
+                el_submit_btn.addClass('working').text(pluginObject.working_text || 'Working...');
             },
             data: {
                 'action': 'tinypress_popup_create_url',
