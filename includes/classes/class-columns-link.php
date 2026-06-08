@@ -22,6 +22,9 @@ class TINYPRESS_Column_link
         add_filter('post_row_actions', array( $this, 'remove_row_actions' ), 10, 2);
         add_action('restrict_manage_posts', array( $this, 'render_link_type_filter' ));
         add_action('pre_get_posts', array( $this, 'filter_links_by_type' ));
+        add_filter('screen_settings', array( $this, 'add_screen_options' ), 10, 2);
+        add_action('admin_footer-edit.php', array( $this, 'render_screen_options_script' ));
+        add_action('wp_ajax_tinypress_save_categories_filter_screen_option', array( $this, 'ajax_save_categories_filter_screen_option' ));
 
         foreach (get_post_types(array( 'public' => true )) as $post_type) {
             if (! in_array($post_type, array( 'attachment', 'tinypress_link' ))) {
@@ -311,12 +314,6 @@ class TINYPRESS_Column_link
 
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin list filter.
         $selected = isset($_GET['tinypress_link_type']) ? sanitize_key(wp_unslash($_GET['tinypress_link_type'])) : '';
-        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin list filter.
-        $selected_category = isset($_GET['tinypress_link_cat']) ? sanitize_title(wp_unslash($_GET['tinypress_link_cat'])) : '';
-        $category_terms = get_terms(array(
-            'taxonomy'   => 'tinypress_link_cat',
-            'hide_empty' => false,
-        ));
         ?>
         <label class="screen-reader-text" for="tinypress-link-type-filter"><?php esc_html_e('Filter by link type', 'tinypress'); ?></label>
         <select id="tinypress-link-type-filter" name="tinypress_link_type">
@@ -325,8 +322,19 @@ class TINYPRESS_Column_link
             <option value="external" <?php selected($selected, 'external'); ?>><?php esc_html_e('External', 'tinypress'); ?></option>
             <option value="revision" <?php selected($selected, 'revision'); ?>><?php esc_html_e('Revision', 'tinypress'); ?></option>
         </select>
-        <label class="screen-reader-text" for="tinypress-link-category-filter"><?php esc_html_e('Filter by category', 'tinypress'); ?></label>
-        <select id="tinypress-link-category-filter" name="tinypress_link_cat">
+        <?php
+
+        $show_category_filter = $this->should_show_category_filter();
+
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin list filter.
+        $selected_category = isset($_GET['tinypress_link_cat']) ? sanitize_title(wp_unslash($_GET['tinypress_link_cat'])) : '';
+        $category_terms = get_terms(array(
+            'taxonomy'   => 'tinypress_link_cat',
+            'hide_empty' => false,
+        ));
+        ?>
+        <label class="screen-reader-text" for="tinypress-link-category-filter" <?php echo $show_category_filter ? '' : 'style="display: none;"'; ?>><?php esc_html_e('Filter by category', 'tinypress'); ?></label>
+        <select id="tinypress-link-category-filter" name="tinypress_link_cat" <?php echo $show_category_filter ? '' : 'style="display: none;"'; ?>>
             <option value=""><?php esc_html_e('All categories', 'tinypress'); ?></option>
             <?php if (! is_wp_error($category_terms) && ! empty($category_terms)) : ?>
                 <?php foreach ($category_terms as $category_term) : ?>
@@ -374,6 +382,10 @@ class TINYPRESS_Column_link
             $query->set('post__in', ! empty($matching_ids) ? array_map('absint', $matching_ids) : array( 0 ));
         }
 
+        if (! $this->should_show_category_filter()) {
+            return;
+        }
+
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin list filter.
         $selected_category = isset($_GET['tinypress_link_cat']) ? sanitize_title(wp_unslash($_GET['tinypress_link_cat'])) : '';
 
@@ -396,6 +408,121 @@ class TINYPRESS_Column_link
         );
 
         $query->set('tax_query', $tax_query);
+    }
+
+    /**
+     * Add Shortlinks filter controls to Screen Options.
+     *
+     * @param string    $settings Existing screen settings HTML.
+     * @param WP_Screen $screen   Current screen.
+     * @return string
+     */
+    public function add_screen_options($settings, $screen)
+    {
+        if (! $this->is_shortlinks_list_screen($screen)) {
+            return $settings;
+        }
+
+        $checked = $this->should_show_category_filter();
+        $nonce = wp_create_nonce('tinypress_categories_filter_screen_option');
+
+        ob_start();
+        ?>
+        <fieldset class="metabox-prefs">
+            <legend><?php esc_html_e('Filters', 'tinypress'); ?></legend>
+            <label for="tinypress-show-categories-filter">
+                <input type="checkbox" id="tinypress-show-categories-filter" name="tinypress_show_categories_filter" value="1" data-nonce="<?php echo esc_attr($nonce); ?>" <?php checked($checked); ?> />
+                <?php esc_html_e('Categories', 'tinypress'); ?>
+            </label>
+        </fieldset>
+        <?php
+
+        return $settings . ob_get_clean();
+    }
+
+    /**
+     * Save the Categories filter Screen Option through AJAX.
+     *
+     * @return void
+     */
+    public function ajax_save_categories_filter_screen_option()
+    {
+        check_ajax_referer('tinypress_categories_filter_screen_option', 'nonce');
+
+        if (! current_user_can('tinypress_view_shortlinks')) {
+            wp_send_json_error(array( 'message' => esc_html__('Permission denied.', 'tinypress') ));
+        }
+
+        // phpcs:disable WordPress.Security.NonceVerification.Missing -- Nonce is verified above.
+        $show_categories = isset($_POST['tinypress_show_categories_filter'])
+            ? sanitize_key(wp_unslash($_POST['tinypress_show_categories_filter']))
+            : '0';
+
+        update_user_meta(get_current_user_id(), 'tinypress_show_categories_filter', '1' === $show_categories ? '1' : '0');
+        // phpcs:enable WordPress.Security.NonceVerification.Missing
+
+        wp_send_json_success();
+    }
+
+    /**
+     * Render instant-save behavior for the custom Categories Screen Option.
+     *
+     * @return void
+     */
+    public function render_screen_options_script()
+    {
+        if (! $this->is_shortlinks_list_screen(get_current_screen())) {
+            return;
+        }
+        ?>
+        <script>
+        (function($) {
+            $(document).on('change', '#tinypress-show-categories-filter', function() {
+                var $checkbox = $(this);
+                var showCategories = $checkbox.is(':checked') ? '1' : '0';
+                var $categoryFilter = $('#tinypress-link-category-filter');
+                var $categoryLabel = $('label[for="tinypress-link-category-filter"]');
+
+                if (showCategories === '1') {
+                    $categoryLabel.show();
+                    $categoryFilter.show();
+                } else {
+                    $categoryFilter.val('').hide();
+                    $categoryLabel.hide();
+                }
+
+                $.post(ajaxurl, {
+                    action: 'tinypress_save_categories_filter_screen_option',
+                    nonce: $checkbox.data('nonce'),
+                    tinypress_show_categories_filter: showCategories
+                });
+            });
+        })(jQuery);
+        </script>
+        <?php
+    }
+
+    /**
+     * Check if the Categories filter should be visible.
+     *
+     * @return bool
+     */
+    private function should_show_category_filter()
+    {
+        $value = get_user_meta(get_current_user_id(), 'tinypress_show_categories_filter', true);
+
+        return '0' !== $value;
+    }
+
+    /**
+     * Check if the current screen is the All Shortlinks list screen.
+     *
+     * @param WP_Screen|null $screen Current screen.
+     * @return bool
+     */
+    private function is_shortlinks_list_screen($screen)
+    {
+        return $screen && 'edit-tinypress_link' === $screen->id;
     }
 
     /**
