@@ -158,7 +158,14 @@ class TINYPRESS_Column_link
         switch ($column_id) {
             case 'link-title':
                 $source_post_id = Utils::get_meta('source_post_id', $post_id);
-                $title_html = '<strong><a class="row-title" href="' . esc_url(get_edit_post_link($post_id)) . '">' . get_the_title($post_id) . '</a></strong>';
+                $edit_link = get_edit_post_link($post_id);
+                $title = get_the_title($post_id);
+
+                if (! empty($edit_link)) {
+                    $title_html = '<strong><a class="row-title" href="' . esc_url($edit_link) . '">' . esc_html($title) . '</a></strong>';
+                } else {
+                    $title_html = '<strong>' . esc_html($title) . '</strong>';
+                }
 
                 $is_revision_link = get_post_meta($post_id, 'is_revision_link', true);
                 if ('1' !== $is_revision_link && ! empty($source_post_id) && function_exists('rvy_in_revision_workflow')) {
@@ -229,8 +236,15 @@ class TINYPRESS_Column_link
             case 'link-actions':
                 echo '<div class="link-actions">';
 
-                echo '<a href="' . esc_url(get_edit_post_link($post_id)) . '" class="action action-edit">' . esc_html__('Edit', 'tinypress') . '</a>';
-                echo '<a href="' . esc_url(get_delete_post_link($post_id)) . '" class="action action-delete">' . esc_html__('Delete', 'tinypress') . '</a>';
+                $edit_link = get_edit_post_link($post_id);
+                if (! empty($edit_link)) {
+                    echo '<a href="' . esc_url($edit_link) . '" class="action action-edit">' . esc_html__('Edit', 'tinypress') . '</a>';
+                }
+
+                $delete_link = get_delete_post_link($post_id);
+                if (! empty($delete_link)) {
+                    echo '<a href="' . esc_url($delete_link) . '" class="action action-delete">' . esc_html__('Delete', 'tinypress') . '</a>';
+                }
 
                 // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Filter output is escaped by callbacks.
                 echo apply_filters('TINYPRESS/Filters/link_actions', '', $post_id);
