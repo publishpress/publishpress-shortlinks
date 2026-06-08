@@ -46,6 +46,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
 
             add_action('add_meta_boxes', array( $this, 'add_side_meta_box' ), 0);
             add_action('WPDK_Settings/meta_section/analytics', array( $this, 'render_analytics' ));
+            add_action('WPDK_Settings/meta_section/categories_qr', array( $this, 'render_categories_qr_section' ));
         }
 
         /**
@@ -91,14 +92,44 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         }
 
         /**
-         * Render Side Meta Box
+         * Render the Categories and QR Code tab content.
          *
          * @return void
          */
-        public function render_side_box()
+        public function render_categories_qr_section()
         {
-            echo '<div class="tinypress-meta-side">';
+            echo '<div class="tinypress-categories-qr-tabs">';
+            echo '<ul class="tinypress-categories-qr-tab-list" role="tablist">';
+            echo '<li><button type="button" class="tinypress-categories-qr-tab is-active" id="tinypress-categories-qr-tab-categories" data-target="tinypress-categories-qr-panel-categories" role="tab" aria-selected="true" aria-controls="tinypress-categories-qr-panel-categories">' . esc_html__('Categories', 'tinypress') . '</button></li>';
+            echo '<li><button type="button" class="tinypress-categories-qr-tab" id="tinypress-categories-qr-tab-qr" data-target="tinypress-categories-qr-panel-qr" role="tab" aria-selected="false" aria-controls="tinypress-categories-qr-panel-qr">' . esc_html__('QR Code', 'tinypress') . '</button></li>';
+            echo '</ul>';
+
+            echo '<div id="tinypress-categories-qr-panel-categories" class="tinypress-categories-qr-panel is-active" role="tabpanel" aria-labelledby="tinypress-categories-qr-tab-categories">';
+            $this->render_link_categories_panel();
+            echo '</div>';
+
+            echo '<div id="tinypress-categories-qr-panel-qr" class="tinypress-categories-qr-panel" role="tabpanel" aria-labelledby="tinypress-categories-qr-tab-qr" hidden>';
             include TINYPRESS_PLUGIN_DIR . 'templates/admin/qr-code.php';
+            echo '</div>';
+
+            echo '</div>';
+        }
+
+        private function render_link_categories_panel()
+        {
+            global $post;
+
+            $taxonomy = get_taxonomy('tinypress_link_cat');
+            if (! $post || ! $taxonomy || ! current_user_can($taxonomy->cap->assign_terms)) {
+                return;
+            }
+
+            echo '<div class="tinypress-side-category-panel">';
+            post_categories_meta_box($post, array(
+                'args' => array(
+                    'taxonomy' => 'tinypress_link_cat',
+                ),
+            ));
             echo '</div>';
         }
 
@@ -110,7 +141,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
          */
         public function add_side_meta_box()
         {
-            add_meta_box('tinypress-meta-side', esc_html__('Side', 'tinypress'), array( $this, 'render_side_box' ), 'tinypress_link', 'side', 'core');
+            remove_meta_box('tinypress_link_catdiv', 'tinypress_link', 'side');
         }
 
 
@@ -770,6 +801,15 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                 array(
                     'title'  => esc_html__('Security', 'tinypress'),
                     'fields' => $security_fields,
+                )
+            );
+
+            WPDK_Settings::createSection(
+                $this->tinypress_metabox_main,
+                array(
+                    'id'       => 'categories_qr',
+                    'external' => true,
+                    'title'    => esc_html__('Categories / QR Code', 'tinypress'),
                 )
             );
 

@@ -235,16 +235,113 @@ body.post-type-tinypress_link #tinypress_link_catdiv #newtinypress_link_cat:focu
  * Meta Side
  */
 
-/* .tinypress-meta-side {
-
+.tinypress-categories-qr-tabs {
+    background: transparent;
 }
 
-.tinypress-meta-side .side-qr-code {
-} */
+.tinypress-categories-qr-tabs .tinypress-categories-qr-tab-list {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 0 0 12px;
+    padding: 0;
+    border-bottom: 1px solid #dcdcde;
+}
+
+.tinypress-categories-qr-tabs .tinypress-categories-qr-tab-list li {
+    margin: 0;
+}
+
+.tinypress-categories-qr-tabs .tinypress-categories-qr-tab {
+    display: block;
+    margin: 0;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-bottom: none;
+    background: transparent;
+    color: #2271b1;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.tinypress-categories-qr-tabs .tinypress-categories-qr-tab.is-active {
+    margin-bottom: -1px;
+    border-color: #dcdcde;
+    background: #fff;
+    color: #1d2327;
+}
+
+.tinypress-categories-qr-tabs .tinypress-categories-qr-tab:focus {
+    outline: 2px solid var(--tinypress-color-primary);
+    outline-offset: -2px;
+    box-shadow: none;
+}
+
+.tinypress-categories-qr-tabs .tinypress-categories-qr-panel {
+    margin: 0;
+}
+
+.tinypress-categories-qr-tabs .tinypress-categories-qr-panel[hidden] {
+    display: none !important;
+}
+
+.tinypress-categories-qr-tabs .tinypress-side-category-panel .categorydiv {
+    margin: 0;
+}
+
+.tinypress-categories-qr-tabs .tinypress-side-category-panel .category-tabs {
+    margin-bottom: 8px;
+}
+
+.tinypress-categories-qr-tabs .tinypress-side-category-panel .category-tabs > li {
+    padding: 10px;
+}
+
+.tinypress-categories-qr-tabs .tinypress-side-category-panel .category-tabs > li > a,
+.tinypress-categories-qr-tabs .tinypress-side-category-panel .category-tabs > li > a:hover,
+.tinypress-categories-qr-tabs .tinypress-side-category-panel .category-tabs > li > a:active {
+    padding: 0;
+    outline: none;
+    box-shadow: none;
+}
+
+.tinypress-categories-qr-tabs .tinypress-side-category-panel .tabs-panel {
+    min-height: 100px;
+}
+
+.tinypress-categories-qr-tabs .tinypress-side-category-panel .taxonomy-add-new,
+.tinypress-categories-qr-tabs .tinypress-side-category-panel .taxonomy-add-new:active,
+.tinypress-categories-qr-tabs .tinypress-side-category-panel .taxonomy-add-new:hover {
+    text-decoration: none;
+    font-weight: 500;
+    outline: none;
+    box-shadow: none;
+}
+
+.tinypress-categories-qr-tabs .tinypress-side-category-panel #newtinypress_link_cat {
+    padding: 10px 8px;
+    border: 1px solid #eee;
+    transition: 0.3s;
+}
+
+.tinypress-categories-qr-tabs .tinypress-side-category-panel #newtinypress_link_cat:active,
+.tinypress-categories-qr-tabs .tinypress-side-category-panel #newtinypress_link_cat:focus {
+    border-color: var(--tinypress-color-primary);
+    box-shadow: none;
+    outline: none;
+}
+
+.tinypress-categories-qr-tabs .side-qr-code {
+    padding: 8px 0;
+}
 
 .tinypress-meta-side .side-qr-code .qr-download,
 .tinypress-meta-side .side-qr-code .qr-download:focus,
-.tinypress-meta-side .side-qr-code .qr-download:active {
+.tinypress-meta-side .side-qr-code .qr-download:active,
+.tinypress-categories-qr-tabs .side-qr-code .qr-download,
+.tinypress-categories-qr-tabs .side-qr-code .qr-download:focus,
+.tinypress-categories-qr-tabs .side-qr-code .qr-download:active {
     display: inline-block;
     background: var(--tinypress-color-primary);
     padding: 12px 18px;
@@ -1423,7 +1520,7 @@ body.post-type-tinypress_link .wpdk_settings-nav-normal {
 }
 
 body.post-type-tinypress_link .wpdk_settings-nav-normal + .wpdk_settings-content {
-    margin-left: 120px !important;
+    margin-left: 160px !important;
     background: #fff;
 }
 
@@ -1643,7 +1740,7 @@ body.post-type-tinypress_link .wpdk_settings-fieldset {
 body.post-type-tinypress_link .wpdk_settings-nav-background {
     background: #f6f7f7;
     border-right: 1px solid #dcdcde;
-    max-width: 120px !important; 
+    max-width: 180px !important; 
 }
 
 body.post-type-tinypress_link .wpdk_settings-field-text input[type="text"],
