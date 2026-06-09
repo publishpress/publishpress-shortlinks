@@ -27,7 +27,7 @@ class WP_List_Table_Logs extends WP_List_Table
 
     private function current_user_can_manage_logs()
     {
-        return current_user_can('edit_posts');
+        return current_user_can('tinypress_view_shortlink_analytics');
     }
 
     private function delete_logs_by_ids($ids)
@@ -104,7 +104,7 @@ class WP_List_Table_Logs extends WP_List_Table
 
         global $wpdb;
 
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; no user input; results used once for display
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; no user input; results used once for display
         $all_posts = $wpdb->get_results("SELECT id,post_id,user_id,user_ip,user_location, datetime FROM " . TINYPRESS_TABLE_REPORTS . " WHERE is_cleared = 0 ORDER BY datetime DESC", ARRAY_A);
         $all_posts = array_map(function ($post) {
 
@@ -140,7 +140,7 @@ class WP_List_Table_Logs extends WP_List_Table
         $this->_column_headers = array( $this->get_columns(), [], [] );
         $current_page          = $this->get_pagenum();
         $total_items           = count($reports_data);
-        $reports_data          = array_slice($reports_data, ( ( $current_page - 1 ) * $this->items_per_page ), $this->items_per_page);
+        $reports_data          = array_slice($reports_data, (($current_page - 1) * $this->items_per_page), $this->items_per_page);
 
         $this->set_pagination_args(array(
             'total_items' => $total_items,
@@ -163,6 +163,7 @@ class WP_List_Table_Logs extends WP_List_Table
             'title'      => esc_html__('Title', 'tinypress'),
             'short_link' => esc_html__('Shortlink', 'tinypress'),
             'details'    => esc_html__('Details', 'tinypress'),
+            'actions'    => esc_html__('Actions', 'tinypress'),
         );
     }
 
@@ -231,6 +232,33 @@ class WP_List_Table_Logs extends WP_List_Table
     public function column_short_link($item)
     {
         return tinypress_get_tiny_slug_copier(Utils::get_args_option('post_id', $item), false, array( 'wrapper_class' => 'mini' ));
+    }
+
+    public function column_actions($item)
+    {
+        if (! $this->current_user_can_manage_logs()) {
+            return '';
+        }
+
+        $post_id = absint(Utils::get_args_option('post_id', $item));
+
+        if (empty($post_id)) {
+            return '&mdash;';
+        }
+
+        $analytics_url = get_edit_post_link($post_id, '');
+
+        if (empty($analytics_url)) {
+            return '&mdash;';
+        }
+
+        $analytics_url = add_query_arg('tinypress_tab', 'analytics', $analytics_url);
+
+        return sprintf(
+            '<a href="%s" class="button button-small">%s</a>',
+            esc_url($analytics_url),
+            esc_html__('View Analytics', 'tinypress')
+        );
     }
 
 

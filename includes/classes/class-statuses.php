@@ -2,7 +2,7 @@
 
 /**
  * PublishPress Statuses Integration Class
- * 
+ *
  * @author deji98
  */
 
@@ -30,34 +30,34 @@ class TINYPRESS_Statuses
     public function __construct()
     {
         add_filter('pb_settings_tinypress_settings_sections', array( $this, 'inject_custom_statuses_into_settings' ), 10, 1);
-        
+
         add_action('admin_init', array( $this, 'modify_wpdk_pre_fields' ), 999);
 
         add_action('created_term', array( $this, 'maybe_invalidate_custom_statuses_cache_for_term' ), 10, 3);
         add_action('edited_term', array( $this, 'maybe_invalidate_custom_statuses_cache_for_term' ), 10, 3);
         add_action('delete_term', array( $this, 'maybe_invalidate_custom_statuses_cache_for_term' ), 10, 4);
     }
-    
+
     public function modify_wpdk_pre_fields()
     {
         global $tinypress_wpdk;
-        
+
         if (!isset($tinypress_wpdk) || !isset($tinypress_wpdk->admin_options)) {
             return;
         }
-        
+
         $admin_options = $tinypress_wpdk->admin_options;
-        
+
         if (!isset($admin_options->pre_fields) || !is_array($admin_options->pre_fields)) {
             return;
         }
-        
+
         if (!$this->is_pp_statuses_active()) {
             return;
         }
-        
+
         $custom_statuses = $this->get_custom_statuses();
-        
+
         if (empty($custom_statuses)) {
             return;
         }
@@ -67,7 +67,7 @@ class TINYPRESS_Statuses
                 if (!isset($admin_options->pre_fields[$key]['options'])) {
                     $admin_options->pre_fields[$key]['options'] = array();
                 }
-                
+
                 foreach ($custom_statuses as $status_name => $status_obj) {
                     $label = '';
                     if (! empty($status_obj->label)) {
@@ -77,10 +77,10 @@ class TINYPRESS_Statuses
                     } else {
                         $label = ucfirst(str_replace(array( '-', '_' ), ' ', $status_name));
                     }
-                    
+
                     $admin_options->pre_fields[$key]['options'][$status_name] = $label;
                 }
-                
+
                 break;
             }
         }
@@ -271,7 +271,7 @@ class TINYPRESS_Statuses
     public static function is_custom_status($status_name)
     {
         $instance = self::instance();
-        
+
         if (! $instance->is_pp_statuses_active()) {
             return false;
         }
@@ -289,16 +289,16 @@ class TINYPRESS_Statuses
     public static function get_status_label($status_name)
     {
         $instance = self::instance();
-        
+
         if (! $instance->is_pp_statuses_active()) {
             return $status_name;
         }
 
         $custom_statuses = $instance->get_custom_statuses();
-        
+
         if (isset($custom_statuses[$status_name])) {
             $status_obj = $custom_statuses[$status_name];
-            
+
             if (! empty($status_obj->label)) {
                 return $status_obj->label;
             } elseif (! empty($status_obj->labels) && is_object($status_obj->labels) && ! empty($status_obj->labels->name)) {

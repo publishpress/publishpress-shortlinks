@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PublishPress Shortlinks 1.2.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
-"POT-Creation-Date: 2026-04-29T12:33:21+00:00\n"
-"PO-Revision-Date: 2026-04-29 15:00+0200\n"
+"POT-Creation-Date: 2026-06-09T08:17:21+00:00\n"
+"PO-Revision-Date: 2026-05-30 14:11+0000\n"
 "Last-Translator: Angelo Giammarresi <info@wocmultimedia.biz>\n"
 "Language-Team: French <https://weblate.publishpress.com/projects/"
 "publishpress-shortlinks/tinypress/fr/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Weblate 5.17.1\n"
 "X-Domain: tinypress\n"
 
 #. Plugin Name of the plugin
@@ -29,8 +29,12 @@ msgstr "https://publishpress.com/shortlinks/"
 
 #. Description of the plugin
 #: tinypress.php:6
+#, fuzzy
+#| msgid ""
+#| "Create custom links for your posts. These links are brandable, trackable, "
+#| "and can have custom view permissions."
 msgid ""
-"Create custom links for your posts. These links are brandable, trackable, "
+"The best link manager for WordPress. Your links are brandable, trackable, "
 "and can have custom view permissions."
 msgstr ""
 "Créez des liens personnalisés pour vos publications. Ces liens sont "
@@ -47,7 +51,7 @@ msgstr "PublishPress"
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: includes-core/ShortlinksCoreAdmin.php:86
+#: includes-core/ShortlinksCoreAdmin.php:88
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more features "
 "and support. "
@@ -55,79 +59,257 @@ msgstr ""
 "Vous utilisez PublishPress Shortlinks Free. La version Pro dispose de plus "
 "de fonctionnalités et de support. "
 
-#: includes-core/ShortlinksCoreAdmin.php:87
-#: includes-core/ShortlinksCoreAdmin.php:104
-#: includes-core/ShortlinksCoreAdmin.php:105
-#: includes-core/ShortlinksCoreAdmin.php:271
+#: includes-core/ShortlinksCoreAdmin.php:89
+#: includes-core/ShortlinksCoreAdmin.php:106
+#: includes-core/ShortlinksCoreAdmin.php:107
 msgid "Upgrade to Pro"
 msgstr "Passer à la version Pro"
 
 #: includes-core/ShortlinksCoreAdmin.php:117
-#: includes-core/ShortlinksCoreAdmin.php:196
+#: includes-core/ShortlinksCoreAdmin.php:118
+#: includes-core/ShortlinksCoreAdmin.php:148
+msgid "Link Health"
+msgstr "Santé des liens"
+
+#: includes-core/ShortlinksCoreAdmin.php:131
 msgid "Pro Feature"
 msgstr "Fonctionnalité Pro"
 
-#: includes-core/ShortlinksCoreAdmin.php:120
-#: includes-core/ShortlinksCoreAdmin.php:199
+#: includes-core/ShortlinksCoreAdmin.php:134
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "Cette fonctionnalité est disponible dans PublishPress Shortlinks Pro."
 
-#: includes-core/ShortlinksCoreAdmin.php:135
+#: includes-core/ShortlinksCoreAdmin.php:150
+msgid ""
+"Check whether your shortlinks redirect visitors to working destination pages."
+msgstr ""
+"Vérifiez si vos liens courts redirigent les internautes vers des pages de "
+"destination qui fonctionnent."
+
 #: includes-core/ShortlinksCoreAdmin.php:158
-msgid "Show Expiration Notice"
-msgstr "Afficher la notification d’expiration"
+msgid "Check Visible Links"
+msgstr "Vérifier les liens visibles"
 
-#: includes-core/ShortlinksCoreAdmin.php:139
-msgid "Display a brief notice before redirecting expired links."
-msgstr "Afficher une brève notification avant de rediriger les liens expirés."
+#: includes-core/ShortlinksCoreAdmin.php:162
+msgid "Check All Links"
+msgstr "Vérifier tous les liens"
 
-#: includes-core/ShortlinksCoreAdmin.php:153
+#: includes-core/ShortlinksCoreAdmin.php:169
+#: includes/classes/class-columns-link.php:54
+#: includes/classes/class-columns-link.php:552
+#: includes/classes/class-gutenberg-shortlink.php:159
+#: includes/classes/class-hooks.php:231
+#: includes/classes/class-table-logs.php:164
+#: templates/admin-modal-new-link.php:29
+msgid "Shortlink"
+msgstr "Lien court"
+
+#: includes-core/ShortlinksCoreAdmin.php:170
+#: includes/classes/class-gutenberg-shortlink.php:169
+#: includes/classes/class-import-export.php:1053
+msgid "Target URL"
+msgstr "URL cible"
+
+#: includes-core/ShortlinksCoreAdmin.php:171
+#: includes/classes/class-meta-boxes.php:542
+msgid "Status"
+msgstr "État"
+
+#: includes-core/ShortlinksCoreAdmin.php:172
+msgid "HTTP"
+msgstr "HTTP"
+
+#: includes-core/ShortlinksCoreAdmin.php:173
+msgid "Redirects"
+msgstr "Redirections"
+
+#: includes-core/ShortlinksCoreAdmin.php:174
+msgid "Final URL"
+msgstr "URL finale"
+
+#: includes-core/ShortlinksCoreAdmin.php:181
+msgid "Working"
+msgstr "Fonctionne"
+
+#: includes-core/ShortlinksCoreAdmin.php:189
+msgid "Broken"
+msgstr "Cassé"
+
+#: includes-core/ShortlinksCoreAdmin.php:212
+#: includes-core/ShortlinksCoreAdmin.php:236
 msgid "Expired Redirect Settings"
 msgstr "Réglages de redirection après l’expiration"
 
-#: includes-core/ShortlinksCoreAdmin.php:156
+#: includes-core/ShortlinksCoreAdmin.php:215
+#: includes-core/ShortlinksCoreAdmin.php:239
+#: includes/classes/class-import-export.php:1064
 msgid "Expired Redirect URL"
 msgstr "URL de redirection après l’expiration"
 
-#: includes-core/ShortlinksCoreAdmin.php:161
-msgid "Display a brief notice before redirecting."
-msgstr "Afficher une brève notification avant de rediriger."
-
-#: includes-core/ShortlinksCoreAdmin.php:233
-#: includes-core/ShortlinksCoreAdmin.php:234
-msgid "Import / Export"
-msgstr "Importer/exporter"
-
-#: includes-core/ShortlinksCoreAdmin.php:249
-msgid "Import / Export Shortlinks"
-msgstr "Importer/exporter les liens courts"
-
-#: includes-core/ShortlinksCoreAdmin.php:254
-msgid "Bulk Import & Export"
-msgstr "Importation et exportation groupées"
-
-#: includes-core/ShortlinksCoreAdmin.php:255
-msgid ""
-"Import and export your shortlinks in bulk using CSV files. Migrate from "
-"other plugins or manage links across multiple sites."
+#: includes-core/ShortlinksCoreAdmin.php:216
+msgid "Choose where visitors should go when they click an expired link."
 msgstr ""
-"Importez et exportez vos liens courts groupés à l’aide de fichiers CSV. "
-"Migrer depuis d’autres extensions ou gérer des liens sur plusieurs sites."
+"Choisir la page vers laquelle rediriger les internautes lorsqu’ils cliquent "
+"sur un lien expiré."
 
-#: includes-core/ShortlinksCoreAdmin.php:259
-msgid "CSV Export"
-msgstr "Exporter CSV"
+#: includes-core/ShortlinksCoreAdmin.php:218
+#: includes-core/ShortlinksCoreAdmin.php:242
+msgid "Show Expiration Notice"
+msgstr "Afficher la notification d’expiration"
 
-#: includes-core/ShortlinksCoreAdmin.php:263
-msgid "CSV Import"
-msgstr "Importer CSV"
+#: includes-core/ShortlinksCoreAdmin.php:219
+#: includes-core/ShortlinksCoreAdmin.php:243
+msgid "Display a custom notice page before automatically redirecting visitors."
+msgstr ""
+"Afficher une page de notification personnalisée avant de rediriger les "
+"internautes automatiquement."
 
-#: includes-core/ShortlinksCoreAdmin.php:267
-msgid "Bulk Management"
-msgstr "Gestion groupée"
+#: includes-core/ShortlinksCoreAdmin.php:222
+msgid "Show a notice page for expired shortlinks briefly before redirecting."
+msgstr ""
+"Afficher brièvement une page de notification pour les liens courts expirés "
+"avant de procéder à la redirection."
+
+#: includes-core/ShortlinksCoreAdmin.php:240
+msgid "Set the default destination for all expired shortlinks."
+msgstr "Définir la destination par défaut pour tous les liens courts expirés."
+
+#: includes-core/ShortlinksCoreAdmin.php:246
+msgid ""
+"Show a notice page for expired shortlinks briefly before redirecting. You "
+"can customize the content of this message."
+msgstr ""
+"Afficher brièvement une page de notification pour les liens courts expirés "
+"avant de procéder à la redirection. Vous pouvez personnaliser le contenu de "
+"ce message."
+
+#: includes-core/ShortlinksCoreAdmin.php:281
+#: includes-core/ShortlinksCoreAdmin.php:308
+msgid "Advanced Auto-Link Settings"
+msgstr "Réglages avancés pour la liason automatique"
+
+#: includes-core/ShortlinksCoreAdmin.php:283
+#: includes-core/ShortlinksCoreAdmin.php:311
+msgid "Minimum Keyword Usage"
+msgstr "Nombre minimum d’utilisations du mot-clé"
+
+#: includes-core/ShortlinksCoreAdmin.php:284
+msgid "Keyword must appear this many times before being autolinked."
+msgstr ""
+"Le mot-clé doit apparaître autant de fois avant d’être automatiquement lié."
+
+#: includes-core/ShortlinksCoreAdmin.php:286
+#: includes-core/ShortlinksCoreAdmin.php:314
+msgid "Maximum Keywords Linked"
+msgstr "Nombre maximal de mots-clé liés"
+
+#: includes-core/ShortlinksCoreAdmin.php:287
+msgid "Maximum number of times this keyword should be autolinked per post."
+msgstr "Nombre maximal de fois que ce mot-clé peut être lié pour publication."
+
+#: includes-core/ShortlinksCoreAdmin.php:312
+msgid "Default minimum times a keyword must appear before being autolinked."
+msgstr ""
+"Nombre minimal par défaut de fois qu’un mot-clé doit être affiché avant "
+"d’être lié automatiquement."
+
+#: includes-core/ShortlinksCoreAdmin.php:315
+msgid "Default maximum times a keyword should be autolinked per post."
+msgstr ""
+"Nombre maximal par défaut de fois qu’un mot-clé peut être lié "
+"automatiquement par article."
+
+#: includes-core/ShortlinksCoreAdmin.php:317
+msgid "Maximum Links Per Post"
+msgstr "Nombre maximal de liens pour publication"
+
+#: includes-core/ShortlinksCoreAdmin.php:318
+msgid "Total maximum autolinks allowed per post/page."
+msgstr "Nombre maximal de liens automatiques autorisés par publication/page."
+
+#: includes-core/ShortlinksCoreAdmin.php:320
+msgid "Minimum Character Length"
+msgstr "Nombre minimal de caractères"
+
+#: includes-core/ShortlinksCoreAdmin.php:321
+msgid "Keywords shorter than this will not be autolinked."
+msgstr "Les mots-clés plus courts que cela ne seront pas liés automatiquement."
+
+#: includes-core/ShortlinksCoreAdmin.php:323
+msgid "Maximum Character Length"
+msgstr "Nombre maximal de caractères"
+
+#: includes-core/ShortlinksCoreAdmin.php:324
+msgid "Keywords longer than this will not be autolinked."
+msgstr "Les mots-clés plus longs que cela ne seront pas liés automatiquement."
+
+#: includes-core/ShortlinksCoreAdmin.php:345
+#: includes/classes/class-settings.php:850
+msgid "Auto-Link Exceptions"
+msgstr "Exceptions des liens automatiques"
+
+#: includes-core/ShortlinksCoreAdmin.php:347
+msgid "Exclude Terms from Auto Links"
+msgstr "Termes à exclure des liens automatiques"
+
+#: includes-core/ShortlinksCoreAdmin.php:348
+msgid "These terms will never be autolinked."
+msgstr "Ces termes ne seront jamais liés automatiquement."
+
+#: includes-core/ShortlinksCoreAdmin.php:350
+msgid "Prevent Auto Links Inside Classes or IDs"
+msgstr ""
+"Empêcher la création de liens automatiques à l’intérieur des classes ou des "
+"IDs"
+
+#: includes-core/ShortlinksCoreAdmin.php:351
+msgid ""
+"Content inside elements with these classes or IDs will not have autolinks "
+"applied."
+msgstr ""
+"Le contenu des éléments incluant ces classes ou ces ID ne fera pas l’objet "
+"de liens automatiques."
+
+#: includes-core/ShortlinksCoreAdmin.php:353
+msgid "Prevent Auto Links Inside Elements"
+msgstr "Empêcher la création de liens automatiques à l’intérieur des éléments"
+
+#: includes-core/ShortlinksCoreAdmin.php:354
+msgid "Terms inside these HTML tags will not have autolinks applied."
+msgstr ""
+"Les liens automatiques ne s’appliqueront pas aux termes contenus dans ces "
+"balises HTML."
+
+#: includes-core/ShortlinksCoreAdmin.php:367
+msgid "Prevent Auto Links on Shortcodes"
+msgstr ""
+"Empêcher la création de liens automatiques à l’intérieur des codes courts"
+
+#: includes-core/ShortlinksCoreAdmin.php:368
+msgid "Terms inside these shortcodes will not have autolinks applied."
+msgstr ""
+"Les liens automatiques ne s’appliqueront pas aux termes contenus dans ces "
+"codes courts."
+
+#: includes-core/ShortlinksCoreAdmin.php:370
+msgid "Prevent Auto Links on Blocks"
+msgstr "Empêcher la création de liens automatiques à l’intérieur des blocs"
+
+#: includes-core/ShortlinksCoreAdmin.php:371
+msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
+msgstr ""
+"Les liens automatiques ne s’appliqueront pas aux termes contenus dans ces "
+"blocs Gutenberg."
+
+#: includes-core/ShortlinksCoreAdmin.php:372
+msgid "Search and select blocks..."
+msgstr "Rechercher et sélectionner des blocs…"
 
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:200
+#: includes/classes/class-autolist-ajax.php:204
+#: includes/classes/class-gutenberg-shortlink.php:234
+#: includes/classes/class-gutenberg-shortlink.php:285
+#: includes/classes/class-gutenberg-shortlink.php:329
 msgid "Permission denied"
 msgstr "Droit refusé"
 
@@ -181,59 +363,60 @@ msgid "Configuration saved successfully"
 msgstr "La configuration a bien été enregistrée"
 
 #. translators: %s: error message
-#: includes/classes/class-autolist-ajax.php:144
+#: includes/classes/class-autolist-ajax.php:149
 #, php-format
 msgid "Error: %s"
 msgstr "Erreur : %s"
 
-#: includes/classes/class-autolist-ajax.php:289
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Validating..."
 msgstr "Validation en cours…"
 
-#: includes/classes/class-autolist-ajax.php:290
+#: includes/classes/class-autolist-ajax.php:294
 msgid "Saving..."
 msgstr "Enregistrement en cours…"
 
-#: includes/classes/class-autolist-ajax.php:291
+#: includes/classes/class-autolist-ajax.php:295
 msgid "Saved!"
 msgstr "Enregistré !"
 
-#: includes/classes/class-autolist-ajax.php:292
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-gutenberg-shortlink.php:175
 msgid "Error"
 msgstr "Erreur"
 
-#: includes/classes/class-autolist-ajax.php:293
+#: includes/classes/class-autolist-ajax.php:297
 msgid "Are you sure you want to remove this post type?"
 msgstr "Confirmez-vous de vouloir supprimer ce type de publication ?"
 
-#: includes/classes/class-autolist-ajax.php:294
+#: includes/classes/class-autolist-ajax.php:298
 msgid "Select a post type"
 msgstr "Sélectionner un type de publication"
 
-#: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:595
-#: includes/classes/class-settings.php:691
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:1032
+#: includes/classes/class-settings.php:1130
 msgid "Never"
 msgstr "Jamais"
 
-#: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:593
-#: includes/classes/class-settings.php:693
+#: includes/classes/class-autolist-ajax.php:300
+#: includes/classes/class-settings.php:1030
+#: includes/classes/class-settings.php:1132
 msgid "When Link is First Used"
 msgstr "Lors de la première utilisation du lien"
 
-#: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:695
+#: includes/classes/class-autolist-ajax.php:301
+#: includes/classes/class-settings.php:1134
 msgid "When Post is Published"
 msgstr "Lors de la publication de la publication"
 
-#: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:694
+#: includes/classes/class-autolist-ajax.php:302
+#: includes/classes/class-settings.php:1133
 msgid "When Post is Created"
 msgstr "Lors de la création de la publication"
 
-#: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:692
+#: includes/classes/class-autolist-ajax.php:303
+#: includes/classes/class-settings.php:1131
 msgid "When Link is First Used or Post Created"
 msgstr ""
 "Lors de la première utilisation du lien ou de la création de la publication"
@@ -242,109 +425,144 @@ msgstr ""
 msgid "Invalid post ID or post type."
 msgstr "ID de publication invalide ou type de publication invalide."
 
-#: includes/classes/class-columns-link.php:49
-#: includes/classes/class-columns-link.php:279
-#: includes/classes/class-hooks.php:207
-#: includes/classes/class-table-logs.php:164
-#: templates/admin-modal-new-link.php:29
-msgid "Shortlink"
-msgstr "Lien court"
-
-#: includes/classes/class-columns-link.php:71
+#: includes/classes/class-columns-link.php:76
 msgid "No shortlink"
 msgstr "Aucun lien court"
 
-#: includes/classes/class-columns-link.php:92
-#: includes/classes/class-hooks.php:208 includes/classes/class-hooks.php:210
-#: includes/classes/class-meta-boxes.php:93
+#: includes/classes/class-columns-link.php:97
+#: includes/classes/class-hooks.php:232 includes/classes/class-hooks.php:234
+#: includes/classes/class-meta-boxes.php:163
 msgid "Shortlinks"
 msgstr "Liens courts"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:188
+#: includes/classes/class-columns-link.php:335
 msgid "Internal"
 msgstr "Interne"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:188
+#: includes/classes/class-columns-link.php:336
 msgid "External"
 msgstr "Externe"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:189
 msgid "This links to your post"
 msgstr "Ceci est lié à votre publication"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:189
 msgid "This links to an external website"
 msgstr "Ceci est lié à un site externe"
 
-#: includes/classes/class-columns-link.php:189
+#: includes/classes/class-columns-link.php:193
+#: includes/classes/class-columns-link.php:337
 msgid "Revision"
 msgstr "Révision"
 
-#: includes/classes/class-columns-link.php:190
+#: includes/classes/class-columns-link.php:194
 msgid "This links to a revision"
 msgstr "Ceci est lié à une révision"
 
-#: includes/classes/class-columns-link.php:198
+#: includes/classes/class-columns-link.php:203
 msgid "Not yet submitted"
 msgstr "Non encore envoyée"
 
-#: includes/classes/class-columns-link.php:199
+#: includes/classes/class-columns-link.php:204
 msgid "Submitted for approval"
 msgstr "Envoyée pour l’approbation"
 
-#: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:558
+#: includes/classes/class-columns-link.php:205
+#: includes/classes/class-settings.php:365
+#: includes/classes/class-settings.php:706
+#: includes/classes/class-settings.php:714 includes/functions.php:273
+#: includes/functions.php:307
 msgid "Scheduled"
 msgstr "Planifié"
 
-#: includes/classes/class-columns-link.php:201
+#: includes/classes/class-columns-link.php:206
 msgid "Deferred"
 msgstr "Différé"
 
-#: includes/classes/class-columns-link.php:202
+#: includes/classes/class-columns-link.php:207
 msgid "Needs work"
 msgstr "Besoin de modifications"
 
-#: includes/classes/class-columns-link.php:203
+#: includes/classes/class-columns-link.php:208
 msgid "Rejected"
 msgstr "Rejetée"
 
 #. translators: %s: revision status label
-#: includes/classes/class-columns-link.php:207
+#: includes/classes/class-columns-link.php:212
 #, php-format
 msgid "Revision: %s"
 msgstr "Révision : %s"
 
 #. translators: %s: number of clicks
-#: includes/classes/class-columns-link.php:224
+#: includes/classes/class-columns-link.php:233
 #, php-format
 msgid "Clicked %s times"
 msgstr "Cliqué %s fois"
 
-#: includes/classes/class-columns-link.php:230
-#: includes/classes/class-table-logs.php:197
+#: includes/classes/class-columns-link.php:241
+#: includes/classes/class-table-logs.php:198
 msgid "Edit"
 msgstr "Modifier"
 
-#: includes/classes/class-columns-link.php:231
-#: includes/classes/class-table-logs.php:178
-#: includes/classes/class-table-logs.php:199
+#: includes/classes/class-columns-link.php:246
+#: includes/classes/class-table-logs.php:179
+#: includes/classes/class-table-logs.php:200
 msgid "Delete"
 msgstr "Supprimer"
 
-#: includes/classes/class-columns-link.php:278
+#: includes/classes/class-columns-link.php:332
+msgid "Filter by link type"
+msgstr "Filtrer par type de lien"
+
+#: includes/classes/class-columns-link.php:334
+msgid "All link types"
+msgstr "Tous les types de liens"
+
+#: includes/classes/class-columns-link.php:350
+#, fuzzy
+#| msgid "Filter by link type"
+msgid "Filter by category"
+msgstr "Filtrer par type de lien"
+
+#: includes/classes/class-columns-link.php:352
+#, fuzzy
+#| msgid "Categories"
+msgid "All categories"
+msgstr "Catégories"
+
+#: includes/classes/class-columns-link.php:446
+msgid "Filters"
+msgstr ""
+
+#: includes/classes/class-columns-link.php:449
+#: includes/classes/class-hooks.php:257
+#: includes/classes/class-meta-boxes.php:814
+msgid "Categories"
+msgstr "Catégories"
+
+#: includes/classes/class-columns-link.php:467
+#, fuzzy
+#| msgid "Permission denied"
+msgid "Permission denied."
+msgstr "Droit refusé"
+
+#: includes/classes/class-columns-link.php:551
 msgid "Link Title"
 msgstr "Titre du lien"
 
-#: includes/classes/class-columns-link.php:280
+#: includes/classes/class-columns-link.php:553
 msgid "Link Type"
 msgstr "Type de lien"
 
-#: includes/classes/class-columns-link.php:281
+#: includes/classes/class-columns-link.php:557
 msgid "Stats"
 msgstr "Statistiques"
 
-#: includes/classes/class-columns-link.php:282
+#: includes/classes/class-columns-link.php:560
+#: includes/classes/class-table-logs.php:166
 msgid "Actions"
 msgstr "Actions"
 
@@ -356,177 +574,574 @@ msgstr "Cliquez pour copier"
 msgid "Copied"
 msgstr "Copié"
 
-#: includes/classes/class-hooks.php:61
-msgid "Security check failed."
-msgstr "Échec du contrôle de sécurité."
+#: includes/classes/class-gutenberg-shortlink.php:160
+msgid "Search shortlinks..."
+msgstr "Rechercher liens courts…"
 
-#: includes/classes/class-hooks.php:65
-msgid "You do not have permission to create shortlinks."
-msgstr "Vous n’avez pas le droit de créer les liens courts."
+#: includes/classes/class-gutenberg-shortlink.php:161
+msgid "Insert Shortlink"
+msgstr "Insérer le lien court"
 
-#: includes/classes/class-hooks.php:72
-msgid "Invalid or empty URL"
-msgstr "URL invalide ou vide"
+#: includes/classes/class-gutenberg-shortlink.php:162
+msgid "Create New Shortlink"
+msgstr "Créer un nouveau lien court"
 
-#: includes/classes/class-hooks.php:89
+#: includes/classes/class-gutenberg-shortlink.php:163
+#: includes/classes/class-settings.php:721
+msgid "Options"
+msgstr "Options"
+
+#: includes/classes/class-gutenberg-shortlink.php:164
+msgid "Open in New Tab"
+msgstr "Ouvrir dans un nouvel onglet"
+
+#: includes/classes/class-gutenberg-shortlink.php:165
+msgid "Nofollow"
+msgstr "Nofollow"
+
+#: includes/classes/class-gutenberg-shortlink.php:166
+msgid "Sponsored Link"
+msgstr "Lien sponsorisé"
+
+#: includes/classes/class-gutenberg-shortlink.php:167
+msgid "Label"
+msgstr "Libellé"
+
+#: includes/classes/class-gutenberg-shortlink.php:168
+msgid "Optional shortlink label"
+msgstr "Libellé optional du lien court"
+
+#: includes/classes/class-gutenberg-shortlink.php:170
+msgid "Create"
+msgstr "Créer"
+
+#: includes/classes/class-gutenberg-shortlink.php:171
+#: includes/classes/class-import-export.php:1202
+msgid "Cancel"
+msgstr "Annuler"
+
+#: includes/classes/class-gutenberg-shortlink.php:172
+#: templates/admin-modal-new-link.php:37
+msgid "Close"
+msgstr "Fermer"
+
+#: includes/classes/class-gutenberg-shortlink.php:173
+msgid "Creating..."
+msgstr "Création en cours…"
+
+#: includes/classes/class-gutenberg-shortlink.php:174
+#: includes/classes/class-gutenberg-shortlink.php:317
+#: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "Le lien court a bien été créé."
 
-#: includes/classes/class-hooks.php:98
+#: includes/classes/class-gutenberg-shortlink.php:176
+msgid "Please enter a valid URL"
+msgstr "Veuillez saisir une URL valide"
+
+#: includes/classes/class-gutenberg-shortlink.php:177
+msgid "No shortlinks found"
+msgstr "Aucun lien court trouvé"
+
+#: includes/classes/class-gutenberg-shortlink.php:243
+msgid "Search term is required"
+msgstr "Le terme de recherche est obligatoire"
+
+#. translators: %s: link ID number
+#: includes/classes/class-gutenberg-shortlink.php:258
+#: includes/functions.php:447
+#, php-format
+msgid "Link - %s"
+msgstr "Lien - %s"
+
+#: includes/classes/class-gutenberg-shortlink.php:294
+msgid "Target URL is required"
+msgstr "L’URL cible est obligatoire"
+
+#: includes/classes/class-gutenberg-shortlink.php:336
+msgid "Invalid shortlink ID"
+msgstr "ID de lien court invalide"
+
+#: includes/classes/class-gutenberg-shortlink.php:342
+msgid "Shortlink not found"
+msgstr "Lien court non trouvé"
+
+#: includes/classes/class-hooks.php:69
+#: includes/classes/class-import-export.php:119
+msgid "Security check failed."
+msgstr "Échec du contrôle de sécurité."
+
+#: includes/classes/class-hooks.php:73
+msgid "You do not have permission to create shortlinks."
+msgstr "Vous n’avez pas le droit de créer les liens courts."
+
+#: includes/classes/class-hooks.php:80
+msgid "Invalid or empty URL"
+msgstr "URL invalide ou vide"
+
+#: includes/classes/class-hooks.php:112
 msgid "Invalid nonce verification."
 msgstr "Vérification du nonce invalide."
 
-#: includes/classes/class-hooks.php:102
+#: includes/classes/class-hooks.php:116
 msgid "You do not have permission to reset analytics."
 msgstr "Vous n’avez pas le droit pour réinitialiser les statistiques."
 
-#: includes/classes/class-hooks.php:109
+#: includes/classes/class-hooks.php:123
 msgid "Invalid post ID."
 msgstr "ID de publication invalide."
 
-#: includes/classes/class-hooks.php:140
+#: includes/classes/class-hooks.php:129
+msgid "Invalid shortlink ID."
+msgstr "ID de lien court invalide."
+
+#: includes/classes/class-hooks.php:133
+msgid "You do not have permission to reset analytics for this shortlink."
+msgstr ""
+"Vous n’avez pas le droit pour réinitialiser les statistiques de ce lien "
+"court."
+
+#: includes/classes/class-hooks.php:164
 msgid "Analytics reset successfully."
 msgstr "Les statistiques ont bien été réinitialisées."
 
-#: includes/classes/class-hooks.php:142
+#: includes/classes/class-hooks.php:166
 msgid "Failed to reset analytics."
 msgstr "Échec de la réinitialisation des statistiques."
 
-#: includes/classes/class-hooks.php:168
+#: includes/classes/class-hooks.php:192
 msgid "Shorten"
 msgstr "Abréger"
 
-#: includes/classes/class-hooks.php:211
+#: includes/classes/class-hooks.php:235
 msgid "All Shortlinks"
 msgstr "Tous les liens courts"
 
-#: includes/classes/class-hooks.php:212 includes/classes/class-hooks.php:213
+#: includes/classes/class-hooks.php:236 includes/classes/class-hooks.php:237
 msgid "Add Shortlink"
 msgstr "Ajouter lien court"
 
-#: includes/classes/class-hooks.php:214
+#: includes/classes/class-hooks.php:238
 msgid "Search Shortlinks"
 msgstr "Rechercher liens courts"
 
-#: includes/classes/class-hooks.php:229
+#: includes/classes/class-hooks.php:256
 msgid "Category"
 msgstr "Catégorie"
 
-#: includes/classes/class-hooks.php:230
-msgid "Categories"
-msgstr "Catégories"
-
-#: includes/classes/class-hooks.php:256 includes/classes/class-hooks.php:257
+#: includes/classes/class-hooks.php:283 includes/classes/class-hooks.php:284
 msgid "Logs"
 msgstr "Journaux"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "All Logs"
 msgstr "Tous les journaux"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Are you sure you want to clear all logs?"
 msgstr "Confirmez-vous de vouloir supprimer tous les journaux ?"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Clear Logs"
 msgstr "Effacer les journaux"
 
-#: includes/classes/class-hooks.php:506
+#: includes/classes/class-hooks.php:606
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Désolé, vous n’êtes pas autorisé à accéder aux liens courts."
 
-#: includes/classes/class-hooks.php:507 includes/classes/class-hooks.php:528
-#: includes/classes/class-hooks.php:539 includes/classes/class-hooks.php:560
+#: includes/classes/class-hooks.php:607 includes/classes/class-hooks.php:628
+#: includes/classes/class-hooks.php:639 includes/classes/class-hooks.php:660
 msgid "Access Denied"
 msgstr "Accès refusé"
 
-#: includes/classes/class-hooks.php:527
+#: includes/classes/class-hooks.php:627
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Désolé, vous n’êtes pas autorisé à créer des liens courts."
 
-#: includes/classes/class-hooks.php:538
+#: includes/classes/class-hooks.php:638
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Désolé, vous n’êtes pas autorisé à modifier les liens courts."
 
-#: includes/classes/class-hooks.php:559
+#: includes/classes/class-hooks.php:659
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr ""
 "Désolé, vous n’êtes pas autorisé à accéder aux réglages des liens courts."
 
-#: includes/classes/class-meta-boxes.php:76
-msgid "Side"
-msgstr "Côté"
+#: includes/classes/class-import-export.php:48
+#: includes/classes/class-import-export.php:49
+msgid "Import / Export"
+msgstr "Importer/exporter"
 
-#: includes/classes/class-meta-boxes.php:187 tinypress.php:448
-msgid "PublishPress Shortlinks"
-msgstr "PublishPress Shortlinks"
+#: includes/classes/class-import-export.php:87
+msgid "Importing..."
+msgstr "Importation en cours…"
 
-#: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:401
-msgid "General"
-msgstr "Général"
+#: includes/classes/class-import-export.php:88
+msgid "Import complete!"
+msgstr "Importation terminée !"
 
-#: includes/classes/class-meta-boxes.php:205
-msgid "Label *"
-msgstr "Libellé *"
+#: includes/classes/class-import-export.php:89
+msgid "Import failed. Please check the file and try again."
+msgstr "Échec de l’importation. Veuillez vérifier le fichier et reessayer."
 
-#: includes/classes/class-meta-boxes.php:207
-msgid "For admin purpose only."
-msgstr "À des fins d’administration uniquement."
+#: includes/classes/class-import-export.php:90
+msgid "Please select a CSV file."
+msgstr "Veuillez sélectionner un fichier CSV."
 
-#: includes/classes/class-meta-boxes.php:216
-msgid "Target URL *"
-msgstr "URL cible *"
-
-#: includes/classes/class-meta-boxes.php:226
-msgid "Short String *"
-msgstr "Chaîne abrégée *"
-
-#: includes/classes/class-meta-boxes.php:227
-msgid "Short string of this URL."
-msgstr "Chaîne abrégée de cette URL."
-
-#: includes/classes/class-meta-boxes.php:233
-msgid "Status"
-msgstr "État"
-
-#: includes/classes/class-meta-boxes.php:234
-msgid "Disable the shortlink instantly."
-msgstr "Désactiver le lien court instantanément."
-
-#: includes/classes/class-meta-boxes.php:235
-msgid ""
-"After disabling the link will not active but the settings will be reserved."
+#: includes/classes/class-import-export.php:91
+msgid "This will import shortlinks from the CSV file. Continue?"
 msgstr ""
-"Après la désactivation, le lien ne sera plus actif, mais les réglages seront "
-"conservés."
+"Cela va importer les liens courts depuis le fichier CSV. Voulez-vous "
+"continuer ?"
 
-#: includes/classes/class-meta-boxes.php:236
-msgid "Enable"
-msgstr "Activer"
+#: includes/classes/class-import-export.php:92
+msgid "Previewing..."
+msgstr "Prévisualization en cours…"
 
-#: includes/classes/class-meta-boxes.php:237
-msgid "Disable"
-msgstr "Désactiver"
+#: includes/classes/class-import-export.php:93
+msgid "Preview failed."
+msgstr "Échec de l’aperçu."
 
-#: includes/classes/class-meta-boxes.php:244
+#: includes/classes/class-import-export.php:94
+#: includes/classes/class-import-export.php:1197
+msgid "See More Rows"
+msgstr "Voir plus de lignes"
+
+#: includes/classes/class-import-export.php:95
+msgid "Show Less"
+msgstr "Afficher moins"
+
+#: includes/classes/class-import-export.php:96
+#: includes/classes/class-import-export.php:1160
+msgid "Preview"
+msgstr "Aperçu"
+
+#: includes/classes/class-import-export.php:97
+#: includes/classes/class-import-export.php:1151
+#: includes/classes/class-import-export.php:1164
+msgid "Import CSV"
+msgstr "Importer CSV"
+
+#. translators: %d: number of successfully imported shortlinks
+#: includes/classes/class-import-export.php:98
+#: includes/classes/class-import-export.php:731
+#, php-format
+msgid "%d shortlinks successfully imported"
+msgstr "%d liens courts ont bien été importés"
+
+#. translators: %d: number of failed imports
+#: includes/classes/class-import-export.php:99
+#: includes/classes/class-import-export.php:753
+#, php-format
+msgid "%d shortlinks failed to import"
+msgstr "Échec de l’importation de %d liens courts"
+
+#: includes/classes/class-import-export.php:100
+msgid "Error(s) for TinyPress Slug:"
+msgstr "Erreur(s) concernant le slug TinyPress :"
+
+#: includes/classes/class-import-export.php:115
+#: includes/classes/class-import-export.php:546
+#: includes/classes/class-import-export.php:907
+#: includes/classes/class-import-export.php:1048
+msgid "Unauthorized."
+msgstr "Non autorisé."
+
+#: includes/classes/class-import-export.php:303 includes/functions.php:402
+msgid "Invalid URL."
+msgstr "URL invalide."
+
+#: includes/classes/class-import-export.php:551
+#: includes/classes/class-import-export.php:912
+msgid "No file uploaded or upload error."
+msgstr "Aucun fichier n’a été téléversé ou erreur de téléversement."
+
+#: includes/classes/class-import-export.php:560
+#: includes/classes/class-import-export.php:921
+msgid "Please upload a CSV file."
+msgstr "Veuillez téléverser un fichier CSV."
+
+#: includes/classes/class-import-export.php:566
+#: includes/classes/class-import-export.php:927
+msgid "Could not read the file."
+msgstr "Impossible de lire le fichier."
+
+#: includes/classes/class-import-export.php:573
+#: includes/classes/class-import-export.php:934
+msgid "Empty CSV file."
+msgstr "Fichier CSV vide."
+
+#: includes/classes/class-import-export.php:596
+#: includes/classes/class-import-export.php:958
+msgid ""
+"CSV must contain a column for target URL (e.g., \"url\", \"target_url\", "
+"\"destination_url\")."
+msgstr ""
+"Le fichier CSV doit comporter une colonne pour l’URL de destination (par "
+"exemple, « url », « target_url », « destination_url »)."
+
+#. translators: %s: error message
+#: includes/classes/class-import-export.php:663
+#, php-format
+msgid "Failed to create shortlink: %s"
+msgstr "Échec dans la création du lien court : %s"
+
+#: includes/classes/class-import-export.php:664
+msgid "Unknown error."
+msgstr "Erreur inconnue."
+
+#. translators: %d: number of updated shortlinks
+#: includes/classes/class-import-export.php:742
+#, php-format
+msgid "%d shortlinks updated"
+msgstr "%d liens courts mis à jours"
+
+#. translators: 1: original column name, 2: mapped field name
+#: includes/classes/class-import-export.php:995
+#, php-format
+msgid "\"%1$s\" → %2$s"
+msgstr "\"%1$s\" → %2$s"
+
+#. translators: %s: field mappings
+#: includes/classes/class-import-export.php:1006
+#, php-format
+msgid "Field mappings: %s"
+msgstr "Mappages des champs : %s"
+
+#. translators: 1: number of preview rows, 2: total number of importable rows
+#: includes/classes/class-import-export.php:1033
+#, php-format
+msgid "Showing %1$d preview row(s) from %2$d importable row(s)."
+msgstr "Affichage de %1$d ligne(s) d’aperçu sur %2$d ligne(s) importables."
+
+#: includes/classes/class-import-export.php:1052
+msgid "Link Label"
+msgstr "Libellé du lien"
+
+#: includes/classes/class-import-export.php:1054
+msgid "Short Slug"
+msgstr "Slug court"
+
+#: includes/classes/class-import-export.php:1055
+msgid "Post Status"
+msgstr "État de la publication"
+
+#: includes/classes/class-import-export.php:1056
+msgid "Link Status"
+msgstr "État du lien"
+
+#: includes/classes/class-import-export.php:1057
+msgid "Redirect Method"
+msgstr "Méthode de redirection"
+
+#: includes/classes/class-import-export.php:1058
+#: includes/classes/class-meta-boxes.php:664
+#: includes/classes/class-settings.php:939
+msgid "NoFollow"
+msgstr "Nofollow"
+
+#: includes/classes/class-import-export.php:1059
+#: includes/classes/class-meta-boxes.php:642
+#: includes/classes/class-settings.php:931
+msgid "Sponsored"
+msgstr "Sponsorisé"
+
+#: includes/classes/class-import-export.php:1060
+#: includes/classes/class-meta-boxes.php:686
+#: includes/classes/class-settings.php:947
+msgid "Parameter Forwarding"
+msgstr "Transfert de paramètres"
+
+#: includes/classes/class-import-export.php:1061
+msgid "Expiration Enabled"
+msgstr "Expiration activée"
+
+#: includes/classes/class-import-export.php:1062
+#: includes/classes/class-meta-boxes.php:770
+#: includes/classes/class-settings.php:988
+msgid "Expiration Date"
+msgstr "Date d’expiration"
+
+#: includes/classes/class-import-export.php:1063
+#: includes/classes/class-meta-boxes.php:784
+#: includes/classes/class-settings.php:1001
+msgid "Expiration Time"
+msgstr "Heure d’expiration"
+
+#: includes/classes/class-import-export.php:1065
+#: includes/classes/class-meta-boxes.php:552
 msgid "Notes"
 msgstr "Notes"
 
-#: includes/classes/class-meta-boxes.php:251
-msgid "All"
-msgstr "Tous"
+#: includes/classes/class-import-export.php:1066
+msgid "Autolink Keywords"
+msgstr "Mots-clés de lien automatique"
 
-#: includes/classes/class-meta-boxes.php:263
-msgid "Auto-linking"
-msgstr "Liason automatique"
+#: includes/classes/class-import-export.php:1095
+msgid "Import / Export Shortlinks"
+msgstr "Importer/exporter les liens courts"
 
-#: includes/classes/class-meta-boxes.php:268
+#: includes/classes/class-import-export.php:1099
+#: includes/classes/class-import-export.php:1137
+#: includes/classes/class-import-export.php:1206
+msgid "Import"
+msgstr "Importer"
+
+#: includes/classes/class-import-export.php:1102
+#: includes/classes/class-import-export.php:1111
+msgid "Export"
+msgstr "Exporter"
+
+#: includes/classes/class-import-export.php:1114
+msgid ""
+"Download all your shortlinks as a CSV file. The export includes labels, "
+"target URLs, slugs, redirect settings, global-setting modes, and more. "
+"Password protection settings are not exported."
+msgstr ""
+"Téléchargez tous vos liens court au format CSV. L’exportation inclut les "
+"libellés, les URL de destination, les slugs, les réglages de redirection, "
+"les modes de réglage global, et bien plus encore. Les réglages de protection "
+"par mot de passe ne sont pas exportés."
+
+#. translators: %d: number of shortlinks
+#: includes/classes/class-import-export.php:1119
+#, php-format
+msgid "%d shortlink(s) will be exported."
+msgstr "%d liens courts seront exportés."
+
+#: includes/classes/class-import-export.php:1127
+msgid "Export CSV"
+msgstr "Exporter CSV"
+
+#: includes/classes/class-import-export.php:1140
+msgid ""
+"Upload a CSV file to bulk-create shortlinks. The CSV must contain at minimum "
+"a \"target_url\" column. Password protection settings are intentionally not "
+"imported."
+msgstr ""
+"Téléverser un fichier CSV pour créer des liens courts groupés. Le fichier "
+"CSV doit contenir au minimum une colonne « target_url ». Les réglages de "
+"protection par mot de passe ne sont pas importés, par choix."
+
+#: includes/classes/class-import-export.php:1142
+msgid "Supported columns:"
+msgstr "Colonnes prises en charge :"
+
+#: includes/classes/class-import-export.php:1167
+msgid "Change File"
+msgstr "Changer le fichier"
+
+#: includes/classes/class-import-export.php:1184
+msgid "Import Preview"
+msgstr "Aperçu d’importation"
+
+#. translators: %s: current global setting value
+#: includes/classes/class-meta-boxes.php:387
+#: includes/classes/class-meta-boxes.php:453
+#: includes/classes/class-meta-boxes.php:478
+#, fuzzy
+#| msgid "Use global settings (currently: %s)"
+msgid "Use global settings"
+msgstr "Utiliser les réglages globaux (actuellement : %s)"
+
+#: includes/classes/class-meta-boxes.php:388
+#, fuzzy
+#| msgid "Enable"
+msgid "Enabled"
+msgstr "Activer"
+
+#: includes/classes/class-meta-boxes.php:389
+#, fuzzy
+#| msgid "Disable"
+msgid "Disabled"
+msgstr "Désactiver"
+
+#: includes/classes/class-meta-boxes.php:449
+msgid "ON"
+msgstr "Actif"
+
+#: includes/classes/class-meta-boxes.php:449
+msgid "OFF"
+msgstr "Inactif"
+
+#: includes/classes/class-meta-boxes.php:481
+#: includes/classes/class-settings.php:922
+msgid "307 (Temporary)"
+msgstr "307 (Temporaire)"
+
+#: includes/classes/class-meta-boxes.php:482
+#: includes/classes/class-settings.php:923
+msgid "302 (Temporary)"
+msgstr "302 (Temporaire)"
+
+#: includes/classes/class-meta-boxes.php:483
+#: includes/classes/class-settings.php:924
+msgid "301 (Permanent)"
+msgstr "301 (Permanent)"
+
+#: includes/classes/class-meta-boxes.php:496 tinypress.php:399
+#: tinypress.php:492
+msgid "PublishPress Shortlinks"
+msgstr "PublishPress Shortlinks"
+
+#: includes/classes/class-meta-boxes.php:509
+#: includes/classes/class-settings.php:718
+msgid "General"
+msgstr "Général"
+
+#: includes/classes/class-meta-boxes.php:514
+msgid "Label *"
+msgstr "Libellé *"
+
+#: includes/classes/class-meta-boxes.php:516
+msgid "For admin purpose only."
+msgstr "À des fins d’administration uniquement."
+
+#: includes/classes/class-meta-boxes.php:525
+msgid "Target URL *"
+msgstr "URL cible *"
+
+#: includes/classes/class-meta-boxes.php:535
+msgid "Short String *"
+msgstr "Chaîne abrégée *"
+
+#: includes/classes/class-meta-boxes.php:536
+msgid "Short string of this URL."
+msgstr "Chaîne abrégée de cette URL."
+
+#: includes/classes/class-meta-boxes.php:543
+#, fuzzy
+#| msgid "Disable the shortlink instantly."
+msgid "Enable or disable the shortlink."
+msgstr "Désactiver le lien court instantanément."
+
+#: includes/classes/class-meta-boxes.php:544
+msgid "Enable"
+msgstr "Activer"
+
+#: includes/classes/class-meta-boxes.php:545
+msgid "Disable"
+msgstr "Désactiver"
+
+#: includes/classes/class-meta-boxes.php:576
+#: includes/classes/class-meta-boxes.php:582
+msgid "Shortlink Label"
+msgstr "Libellé du lien court"
+
+#: includes/classes/class-meta-boxes.php:577
+#: includes/classes/class-meta-boxes.php:583
+msgid "Custom Text"
+msgstr "Texte personnalisé"
+
+#: includes/classes/class-meta-boxes.php:581
+msgid "Post Title"
+msgstr "Titre de la publication"
+
+#: includes/classes/class-meta-boxes.php:593
 msgid "Keywords"
 msgstr "Mots-clés"
 
-#: includes/classes/class-meta-boxes.php:269
+#: includes/classes/class-meta-boxes.php:594
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
@@ -534,51 +1149,58 @@ msgstr ""
 "Ajouter des mots-clés séparés par des virgules ou sur des lignes séparées. "
 "Chaque mot-clé sera lié à ce lien court."
 
-#: includes/classes/class-meta-boxes.php:274
-msgid "Post Types"
-msgstr "Types de publication"
+#: includes/classes/class-meta-boxes.php:599
+msgid "Link Alt Text"
+msgstr "Texte alternatif du lien"
 
-#: includes/classes/class-meta-boxes.php:275
-msgid "Where should these keywords be auto-linked?"
-msgstr "Où ces mots-clés doivent-ils être automatiquement liés ?"
+#: includes/classes/class-meta-boxes.php:600
+msgid "Set the alt text for the linked keywords in the frontend of the site."
+msgstr ""
+"Définir le texte alternatif des mots-clés liés dans l’interface publique du "
+"site."
 
-#: includes/classes/class-meta-boxes.php:288
+#: includes/classes/class-meta-boxes.php:607
+msgid "Custom Alt Text"
+msgstr "Texte alternatif personnalisé"
+
+#: includes/classes/class-meta-boxes.php:608
+msgid ""
+"Enter custom alt text for the linked keywords. This is only used if \"Custom "
+"Text\" is selected above."
+msgstr ""
+"Saisir un texte alternatif personnalisé pour les mots-clés liés. Celui-ci "
+"n’est utilisé que si l’option « Texte personnalisé » est sélectionnée ci-"
+"dessus."
+
+#: includes/classes/class-meta-boxes.php:619
+msgid "Auto-linking"
+msgstr "Liason automatique"
+
+#: includes/classes/class-meta-boxes.php:628
+#: includes/classes/class-settings.php:914
 msgid "Redirection"
 msgstr "Redirection"
 
-#: includes/classes/class-meta-boxes.php:293
+#: includes/classes/class-meta-boxes.php:633
+#: includes/classes/class-settings.php:919
 msgid "Redirection Method"
 msgstr "Méthode de redirection"
 
-#: includes/classes/class-meta-boxes.php:294
+#: includes/classes/class-meta-boxes.php:634
 msgid "Select redirection method"
 msgstr "Sélectionner la méthode de redirection"
 
-#: includes/classes/class-meta-boxes.php:295
+#: includes/classes/class-meta-boxes.php:635
 msgid "Select a method"
 msgstr "Sélectionner la méthode"
 
-#: includes/classes/class-meta-boxes.php:297
-msgid "307 (Temporary)"
-msgstr "307 (Temporaire)"
-
-#: includes/classes/class-meta-boxes.php:298
-msgid "302 (Temporary)"
-msgstr "302 (Temporaire)"
-
-#: includes/classes/class-meta-boxes.php:299
-msgid "301 (Permanent)"
-msgstr "301 (Permanent)"
-
-#: includes/classes/class-meta-boxes.php:306
-msgid "Sponsored"
-msgstr "Sponsorisé"
-
-#: includes/classes/class-meta-boxes.php:307
+#: includes/classes/class-meta-boxes.php:645
 msgid "Mark links as sponsored content."
 msgstr "Marquer les liens comme contenu sponsorisé."
 
-#: includes/classes/class-meta-boxes.php:308
+#: includes/classes/class-meta-boxes.php:646
+#: includes/classes/class-meta-boxes.php:656
+#: includes/classes/class-settings.php:933
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -586,15 +1208,13 @@ msgstr ""
 "Ajoute l’attribut rel=\"sponsored\". Recommandé pour les liens d’affiliation "
 "et les promotions payantes."
 
-#: includes/classes/class-meta-boxes.php:313
-msgid "NoFollow"
-msgstr "Nofollow"
-
-#: includes/classes/class-meta-boxes.php:314
+#: includes/classes/class-meta-boxes.php:667
 msgid "Prevent search engines from following this link."
 msgstr "Empêcher les moteurs de recherche de suivre ce lien."
 
-#: includes/classes/class-meta-boxes.php:315
+#: includes/classes/class-meta-boxes.php:668
+#: includes/classes/class-meta-boxes.php:678
+#: includes/classes/class-settings.php:941
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -602,15 +1222,13 @@ msgstr ""
 "Ajoute l’attribut rel=\"nofollow\". Recommandé pour les liens externes et "
 "les sources non fiables."
 
-#: includes/classes/class-meta-boxes.php:321
-msgid "Parameter Forwarding"
-msgstr "Transfert de paramètres"
-
-#: includes/classes/class-meta-boxes.php:322
+#: includes/classes/class-meta-boxes.php:689
 msgid "Pass URL parameters to the target link."
 msgstr "Transmettre les paramètres d’URL au lien cible."
 
-#: includes/classes/class-meta-boxes.php:323
+#: includes/classes/class-meta-boxes.php:690
+#: includes/classes/class-meta-boxes.php:700
+#: includes/classes/class-settings.php:949
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -618,136 +1236,201 @@ msgstr ""
 "Tous les paramètres ajoutés à l’URL courte (p. ex. ?utm_source=email) seront "
 "transmis à l’URL cible."
 
-#: includes/classes/class-meta-boxes.php:333
+#: includes/classes/class-meta-boxes.php:713
+#: includes/classes/class-settings.php:960
 msgid "Password Protection"
 msgstr "Protection par mot de passe"
 
-#: includes/classes/class-meta-boxes.php:334
+#: includes/classes/class-meta-boxes.php:716
 msgid "Secure your shortlink."
 msgstr "Sécurisez votre lien court."
 
-#: includes/classes/class-meta-boxes.php:335
+#: includes/classes/class-meta-boxes.php:717
+#: includes/classes/class-meta-boxes.php:727
 msgid "Users must enter the password to redirect to the target link."
 msgstr ""
 "Les utilisateurs/utilisatrices doivent saisir le mot de passe pour être "
 "redirigés vers le lien cible."
 
-#: includes/classes/class-meta-boxes.php:340
+#: includes/classes/class-meta-boxes.php:735
 msgid "Password"
 msgstr "Mot de passe"
 
-#: includes/classes/class-meta-boxes.php:341
+#: includes/classes/class-meta-boxes.php:736
 msgid "Share this with users."
 msgstr "Partager ceci avec les utilisateurs/utilisatrices."
 
-#: includes/classes/class-meta-boxes.php:342
+#: includes/classes/class-meta-boxes.php:737
 msgid "Passwords are case sensitive."
 msgstr "Les mots de passe sont sensibles à la casse."
 
-#: includes/classes/class-meta-boxes.php:343
+#: includes/classes/class-meta-boxes.php:738
+#: includes/classes/class-settings.php:971
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:352
+#: includes/classes/class-meta-boxes.php:748
+#: includes/classes/class-settings.php:980
 msgid "Enable Expiration"
 msgstr "Activer l’expiration"
 
-#: includes/classes/class-meta-boxes.php:353
-msgid "Expire automatically."
-msgstr "Expire automatiquement."
+#: includes/classes/class-meta-boxes.php:751
+msgid "Set an expiration date and time for shortlinks."
+msgstr "Définir une date et une heure d’expiration pour les liens courts."
 
-#: includes/classes/class-meta-boxes.php:354
-msgid "Users will not able to redirect to the target URL once expire."
+#: includes/classes/class-meta-boxes.php:752
+#: includes/classes/class-meta-boxes.php:762
+#: includes/classes/class-settings.php:982
+msgid ""
+"After the expiration date and time pass, visitors will no longer be able to "
+"access the shortlink."
 msgstr ""
-"Les utilisateurs/utilisatrices ne pourront plus être redirigés vers l’URL "
-"cible une fois celle-ci expirée."
+"Une fois la date et l’heure d’expiration passées, les internautes ne "
+"pourront plus accéder au lien court."
 
-#: includes/classes/class-meta-boxes.php:359
-msgid "Expiration Date"
-msgstr "Date d’expiration"
+#: includes/classes/class-meta-boxes.php:771
+msgid "Select the date when this shortlink should stop working."
+msgstr ""
+"Sélectionner la date à partir de laquelle ce lien court cessera de "
+"fonctionner."
 
-#: includes/classes/class-meta-boxes.php:360
-msgid "Choose the date this link should expire."
-msgstr "Choisir à quelle date ce lien doit expirer."
+#: includes/classes/class-meta-boxes.php:785
+msgid "Select the time when the shortlink should expire."
+msgstr "Sélectionner l’heure à partir de laquelle ce lien court doit expirer."
 
-#: includes/classes/class-meta-boxes.php:372
-msgid "Expiration Time"
-msgstr "Heure d’expiration"
+#: includes/classes/class-meta-boxes.php:786
+#: includes/classes/class-settings.php:1003
+msgid ""
+"Must be at least 1 minute in the future. Combined with the date above to set "
+"the exact expiration moment."
+msgstr ""
+"La date doit être postérieure d’au moins 1 minute. À associer à la date "
+"indiquée ci-dessus pour définir l’heure exacte d’expiration."
 
-#: includes/classes/class-meta-boxes.php:373
-msgid "Choose the time this link should expire."
-msgstr "Choisir à quelle heure ce lien doit expirer."
-
-#: includes/classes/class-meta-boxes.php:374
-msgid "Must be at least 1 minute in the future."
-msgstr "Il doit être au moins 1 minute dans le futur."
-
-#: includes/classes/class-meta-boxes.php:391
+#: includes/classes/class-meta-boxes.php:804
+#: includes/classes/class-settings.php:955
 msgid "Security"
 msgstr "Sécurité"
 
-#: includes/classes/class-meta-boxes.php:402
+#: includes/classes/class-meta-boxes.php:823
+#, fuzzy
+#| msgid "Download QR Code"
+msgid "QR Code"
+msgstr "Télécharger le code QR"
+
+#: includes/classes/class-meta-boxes.php:833 tinypress.php:396
 msgid "Analytics"
 msgstr "Statistiques"
 
-#: includes/classes/class-redirection.php:599
+#: includes/classes/class-redirection.php:1044
 msgid "Post not found."
 msgstr "Publication non trouvée."
 
-#: includes/classes/class-redirection.php:648
+#: includes/classes/class-redirection.php:1188 includes/functions.php:361
+#: includes/functions.php:362 includes/functions.php:363
+#: includes/functions.php:369 tinypress.php:303 tinypress.php:304
+#: tinypress.php:305
+msgid "This post is in {status} status. It is not visible to the public."
+msgstr ""
+"Cette publication est dans l’état {status}. Elle n’est pas visible par le "
+"public."
+
+#: includes/classes/class-redirection.php:1236
 msgid "This link has expired"
 msgstr "Ce lien a expiré"
 
-#: includes/classes/class-redirection.php:652
+#: includes/classes/class-redirection.php:1240
 msgid "You will be redirected shortly."
 msgstr "Vous serez redirigé(e) dans quelques instants."
 
-#: includes/classes/class-redirection.php:656
+#: includes/classes/class-redirection.php:1244
 msgid "Click here if you are not redirected"
 msgstr "Cliquer ici si vous n’êtes pas redirigé"
 
-#: includes/classes/class-redirection.php:673
+#: includes/classes/class-redirection.php:1261
 msgid "Link Expired"
 msgstr "Lien expiré"
 
-#: includes/classes/class-redirection.php:804
+#: includes/classes/class-redirection.php:1423
 msgid "This link is not active."
 msgstr "Ce lien n’est pas active."
 
-#: includes/classes/class-redirection.php:849
+#: includes/classes/class-redirection.php:1460
 msgid "This link is expired."
 msgstr "Ce lien a expiré."
 
-#: includes/classes/class-redirection.php:868
+#: includes/classes/class-redirection.php:1479
 msgid "Incorrect password. Please try again."
 msgstr "Mot de passe incorrect. Veuillez réessayer."
 
-#: includes/classes/class-redirection.php:883
-#: includes/classes/class-redirection.php:888
+#: includes/classes/class-redirection.php:1494
+#: includes/classes/class-redirection.php:1499
 msgid "Password Protected Link"
 msgstr "Lien protegé par mot de passe"
 
-#: includes/classes/class-redirection.php:894
+#: includes/classes/class-redirection.php:1505
 msgid "Enter password to continue:"
 msgstr "Saisir un mot de passe pour continuer :"
 
-#: includes/classes/class-redirection.php:896
+#: includes/classes/class-redirection.php:1507
 msgid "Submit"
 msgstr "Envoyer"
 
-#: includes/classes/class-redirection.php:1014
+#: includes/classes/class-redirection.php:1631
 msgid "This link is not containing the right prefix slug."
 msgstr "Ce lien ne contient pas le préfixe slug correct."
+
+#: includes/classes/class-redirection.php:1672
+msgid "Too many invalid shortlink requests. Please try again later."
+msgstr ""
+"Trop de requêtes de liens courts invalides. Veuillez réessayer plus tard."
+
+#: includes/classes/class-redirection.php:1673
+msgid "Too Many Requests"
+msgstr "Trop de requêtes"
 
 #: includes/classes/class-revision.php:439
 msgid "Invalid revision ID."
 msgstr "ID de révision invalide."
 
-#: includes/classes/class-settings.php:187
+#: includes/classes/class-settings.php:362
+#: includes/classes/class-settings.php:703
+#: includes/classes/class-settings.php:711 includes/functions.php:270
+#: includes/functions.php:304
+msgid "Draft"
+msgstr "Brouillon"
+
+#: includes/classes/class-settings.php:363
+#: includes/classes/class-settings.php:704
+#: includes/classes/class-settings.php:712 includes/functions.php:271
+#: includes/functions.php:305
+msgid "Pending Review"
+msgstr "En attente de révision"
+
+#: includes/classes/class-settings.php:364
+#: includes/classes/class-settings.php:705
+#: includes/classes/class-settings.php:713 includes/functions.php:272
+#: includes/functions.php:306
+msgid "Private"
+msgstr "Privé"
+
+#: includes/classes/class-settings.php:369
+msgid ""
+"Customize the notice shown for each enabled non-published status. Available "
+"placeholders: {status}, {date}, {title}."
+msgstr ""
+"Personnalisez la notification affichée pour chaque état non publié activé. "
+"Espaces réservés disponibles : {status}, {date}, {title}."
+
+#: includes/classes/class-settings.php:405
+msgid "All"
+msgstr "Tous"
+
+#: includes/classes/class-settings.php:444
 msgid "Settings"
 msgstr "Réglages"
 
-#: includes/classes/class-settings.php:271
+#: includes/classes/class-settings.php:528
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -755,11 +1438,11 @@ msgstr ""
 "Sélectionner les états de publication accessibles lors de la consultation "
 "d’un lien court PublishPress."
 
-#: includes/classes/class-settings.php:287
+#: includes/classes/class-settings.php:544
 msgid "PublishPress Statuses Plugin Detected:"
 msgstr "La extension PublishPress Statuses a été détectée :"
 
-#: includes/classes/class-settings.php:288
+#: includes/classes/class-settings.php:545
 msgid ""
 "To use core PublishPress statuses with Shortlinks, Please enable the "
 "Shortlinks post type in PublishPress Statuses workflow settings."
@@ -768,11 +1451,11 @@ msgstr ""
 "activer le type de publication « Shortlinks » dans les réglages du flux de "
 "travail de PublishPress Statuses."
 
-#: includes/classes/class-settings.php:307
+#: includes/classes/class-settings.php:564
 msgid "Elementor Detected:"
 msgstr "Elementor détectée :"
 
-#: includes/classes/class-settings.php:308
+#: includes/classes/class-settings.php:565
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. It "
 "is advisable to keep it enabled."
@@ -780,11 +1463,11 @@ msgstr ""
 "Le préfixe de lien court est obligatoire pour un affichage correct des "
 "révisions d’Elementor. Il est recommandé de le laisser activé."
 
-#: includes/classes/class-settings.php:340
+#: includes/classes/class-settings.php:597
 msgid "TinyPress Shortlinks Notice:"
 msgstr "Notification de liens courts de TinyPress :"
 
-#: includes/classes/class-settings.php:341
+#: includes/classes/class-settings.php:598
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it is "
 "required for optimal compatibility with Elementor revisions."
@@ -793,114 +1476,127 @@ msgstr ""
 "désactivé ; il est obligatoire pour une prise en charge optimale des "
 "révisions d’Elementor."
 
-#: includes/classes/class-settings.php:404
-msgid "Options"
-msgstr "Options"
+#: includes/classes/class-settings.php:702 includes/functions.php:269
+#: includes/functions.php:303
+msgid "Published"
+msgstr "Publié"
 
-#: includes/classes/class-settings.php:409
+#: includes/classes/class-settings.php:726
 msgid "Shortlink Prefix"
 msgstr "Préfixe du lien court"
 
-#: includes/classes/class-settings.php:410
+#: includes/classes/class-settings.php:727
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Ajouter un préfixe entre le nom de votre domain et le lien court."
 
-#: includes/classes/class-settings.php:417
+#: includes/classes/class-settings.php:734
 msgid "Prefix Slug"
 msgstr "Prefixe du slug"
 
-#: includes/classes/class-settings.php:418
+#: includes/classes/class-settings.php:735
 msgid "Custom prefix slug."
 msgstr "Préfixe de slug personnalisé."
 
-#: includes/classes/class-settings.php:419
+#: includes/classes/class-settings.php:736
 msgid "This text will be added between your domain name and shortlink."
 msgstr "Ce texte sera ajouté entre le nom de votre domain et le lien court."
 
-#: includes/classes/class-settings.php:420
-#: includes/classes/class-settings.php:421
+#: includes/classes/class-settings.php:737
+#: includes/classes/class-settings.php:738
 msgid "go"
 msgstr "aller"
 
-#: includes/classes/class-settings.php:427
+#: includes/classes/class-settings.php:744
 msgid "Keyboard Shortcut"
 msgstr "Raccourci clavier"
 
-#: includes/classes/class-settings.php:428
+#: includes/classes/class-settings.php:745
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr ""
 "Créer des liens courts depuis n’importe où dans votre tableau de bord "
 "WordPress."
 
-#: includes/classes/class-settings.php:429
-#: includes/classes/class-settings.php:430
+#: includes/classes/class-settings.php:746
+#: includes/classes/class-settings.php:747
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl ou Cmd + /"
 
-#: includes/classes/class-settings.php:439
+#: includes/classes/class-settings.php:756
 msgid "Remove from Admin Bar"
 msgstr "Supprimer de la barre d’administration"
 
-#: includes/classes/class-settings.php:440
+#: includes/classes/class-settings.php:757
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr ""
 "Masquer le bouton « Raccourcir » de la barre d’administration de WordPress."
 
-#: includes/classes/class-settings.php:446
+#: includes/classes/class-settings.php:763
 msgid "Role Management"
 msgstr "Gestion des rôles"
 
-#: includes/classes/class-settings.php:451
-msgid "Who Can View Shortlinks"
+#: includes/classes/class-settings.php:768
+#, fuzzy
+#| msgid "Who Can View Shortlinks"
+msgid "Who Can View The All Shortlinks Screen"
 msgstr "Qui peut voir les liens courts"
 
-#: includes/classes/class-settings.php:452
-msgid "Only selected user roles can view links."
-msgstr "Uniquement les rôles du compte sélectionnés peuvent voir les liens."
+#: includes/classes/class-settings.php:769
+#, fuzzy
+#| msgid "Only selected user roles can create or edit links."
+msgid "Only selected user roles can view the complete list of Shortlinks."
+msgstr ""
+"Uniquement les rôles du compte sélectionnés peuvent créer ou modifier les "
+"liens."
 
-#: includes/classes/class-settings.php:460
+#: includes/classes/class-settings.php:777
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Qui peut créer/modifier les liens courts"
 
-#: includes/classes/class-settings.php:461
+#: includes/classes/class-settings.php:778
 msgid "Only selected user roles can create or edit links."
 msgstr ""
 "Uniquement les rôles du compte sélectionnés peuvent créer ou modifier les "
 "liens."
 
-#: includes/classes/class-settings.php:470
-msgid "Who Can See Analytics"
+#: includes/classes/class-settings.php:787
+#, fuzzy
+#| msgid "Who Can See Analytics"
+msgid "Who Can See Logs"
 msgstr "Qui peut voir les statistiques"
 
-#: includes/classes/class-settings.php:471
-msgid "Only selected user roles can see analytics."
+#: includes/classes/class-settings.php:788
+#, fuzzy
+#| msgid "Only selected user roles can see analytics."
+msgid "Only selected user roles can see the Analytics tab and the Logs screen."
 msgstr ""
 "Uniquement les rôles du compte sélectionnés peuvent voir les statistiques."
 
-#: includes/classes/class-settings.php:480
+#: includes/classes/class-settings.php:797
 msgid "Who Can Control Settings"
 msgstr "Qui peut contrôler les réglages"
 
-#: includes/classes/class-settings.php:481
-msgid "Only selected user roles can control settings."
+#: includes/classes/class-settings.php:798
+#, fuzzy
+#| msgid "Only selected user roles can control settings."
+msgid "Only selected user roles can access the Settings screen."
 msgstr ""
 "Uniquement les rôles du compte sélectionnés peuvent contrôler les réglages."
 
-#: includes/classes/class-settings.php:490
+#: includes/classes/class-settings.php:807
 msgid "Auto-Linking"
 msgstr "Liason automatique"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:812
 msgid "Enable Auto-Linking"
 msgstr "Activer la liason automatique"
 
-#: includes/classes/class-settings.php:496
+#: includes/classes/class-settings.php:813
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr ""
 "Convertir automatiquement les mots-clés en liens courts dans le contenu des "
 "publications."
 
-#: includes/classes/class-settings.php:497
+#: includes/classes/class-settings.php:814
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
@@ -908,39 +1604,49 @@ msgstr ""
 "Lorsque il est activé, les mots-clés configurés dans les réglages de lien "
 "court seront automatiquement liées dans votre contenu."
 
-#: includes/classes/class-settings.php:503
+#: includes/classes/class-settings.php:820
+msgid "Post Types"
+msgstr "Types de publication"
+
+#: includes/classes/class-settings.php:821
+#, fuzzy
+#| msgid "Where should these keywords be auto-linked?"
+msgid "Where should auto-linking be applied?"
+msgstr "Où ces mots-clés doivent-ils être automatiquement liés ?"
+
+#: includes/classes/class-settings.php:830
 msgid "Open Auto-Links In"
 msgstr "Ouvrir les liens automatiques dans"
 
-#: includes/classes/class-settings.php:504
+#: includes/classes/class-settings.php:831
 msgid "Choose how auto-linked keywords should open."
 msgstr "Choisir comment les mots-clés liés automatiquement doivent s’ouvrir."
 
-#: includes/classes/class-settings.php:506
+#: includes/classes/class-settings.php:833
 msgid "Same tab"
 msgstr "Même onglet"
 
-#: includes/classes/class-settings.php:507
+#: includes/classes/class-settings.php:834
 msgid "New tab"
 msgstr "Nouvel onglet"
 
-#: includes/classes/class-settings.php:515
+#: includes/classes/class-settings.php:842
 msgid "Auto-Link Color"
 msgstr "Couleur des liens automatiques"
 
-#: includes/classes/class-settings.php:516
+#: includes/classes/class-settings.php:843
 msgid "Choose the color for auto-linked keywords."
 msgstr "Choisir la couleur ads mots-clés liés automatiquement."
 
-#: includes/classes/class-settings.php:523
+#: includes/classes/class-settings.php:854
 msgid "Auto-List Links"
 msgstr "Liste automatique des liens"
 
-#: includes/classes/class-settings.php:528
+#: includes/classes/class-settings.php:859
 msgid "Auto-List Shortlinks"
 msgstr "Liste automatique des liens courts"
 
-#: includes/classes/class-settings.php:529
+#: includes/classes/class-settings.php:860
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on the "
 "behavior you configure below."
@@ -949,17 +1655,17 @@ msgstr ""
 "« Tous les liens » en fonction du comportement que vous configurez ci-"
 "dessous."
 
-#: includes/classes/class-settings.php:535
+#: includes/classes/class-settings.php:866
 msgid "Configure Post Types"
 msgstr "Configurer les types de publication"
 
-#: includes/classes/class-settings.php:536
+#: includes/classes/class-settings.php:867
 msgid "Set when links should be auto-listed for each post type"
 msgstr ""
 "Définir quand les liens doivent être listés automatiquement pour chaque type "
 "de publication"
 
-#: includes/classes/class-settings.php:537
+#: includes/classes/class-settings.php:868
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -968,67 +1674,110 @@ msgstr ""
 "doivent apparaître dans le tableau « Tous les liens ». Les modifications "
 "sont enregistrées automatiquement."
 
-#: includes/classes/class-settings.php:544
+#: includes/classes/class-settings.php:875
 #: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "Visibilité de l’état de la publication"
 
-#: includes/classes/class-settings.php:549
+#: includes/classes/class-settings.php:880
 msgid "Allowed Post Statuses"
 msgstr "États de publication autorisés"
 
-#: includes/classes/class-settings.php:550
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr ""
-"Choisir quels états de publication peuvent être accessibles via des liens "
-"courts"
+#: includes/classes/class-settings.php:889
+msgid "Unpublished Content Notice"
+msgstr "Notification de contenu non publié"
 
-#: includes/classes/class-settings.php:554
-msgid "Published"
-msgstr "Publié"
-
-#: includes/classes/class-settings.php:555
-msgid "Draft"
-msgstr "Brouillon"
-
-#: includes/classes/class-settings.php:556
-msgid "Pending Review"
-msgstr "En attente de révision"
-
-#: includes/classes/class-settings.php:557
-msgid "Private"
-msgstr "Privé"
-
-#: includes/classes/class-settings.php:565
-msgid "Expired Links"
-msgstr "Liens expirés"
-
-#: includes/classes/class-settings.php:570
-msgid "Default Expired Redirect URL"
-msgstr "URL de redirection par défaut après l’expiration"
-
-#: includes/classes/class-settings.php:571
-msgid "Where should expired shortlinks redirect?"
-msgstr "Vers quoi les liens courts expirés doivent-ils rediriger ?"
-
-#: includes/classes/class-settings.php:572
+#: includes/classes/class-settings.php:890
 msgid ""
-"When a shortlink expires, visitors will be redirected to this URL instead of "
-"seeing an error. Leave empty to show the default expiration message."
+"Show a frontend notice when an internal shortlink displays a post that is "
+"not published."
 msgstr ""
-"Lorsqu’un lien court expire, les visiteurs/visiteuses seront redirigés vers "
-"cette URL au lieu de voir un erreur. Laisser ce champ vide pour afficher le "
-"message d’expiration par défaut."
+"Afficher une notification sur l’interface publique lorsqu’un lien court "
+"interne renvoie vers une publication non publiée."
 
-#: includes/classes/class-settings.php:584
+#: includes/classes/class-settings.php:896
+msgid "Notice Post Statuses"
+msgstr "Notification des états de publication"
+
+#: includes/classes/class-settings.php:897
+msgid ""
+"This notice only applies to internal shortlinks that render post content "
+"directly. External shortlinks are not affected."
+msgstr ""
+"Cette notification ne concerne que les liens courts internes qui affichent "
+"directement le contenu des publications. Les liens courts externes ne sont "
+"pas affectés."
+
+#: includes/classes/class-settings.php:906
+msgid "Notice Messages"
+msgstr "Messages de notification"
+
+#: includes/classes/class-settings.php:920
+msgid "Default redirection method for shortlinks"
+msgstr "Méthode de redirection par défaut pour les liens courts"
+
+#: includes/classes/class-settings.php:932
+msgid "Mark links as sponsored content"
+msgstr "Marquer les liens comme contenu sponsorisé"
+
+#: includes/classes/class-settings.php:940
+msgid "Prevent search engines from following links"
+msgstr "Empêcher les moteurs de recherche de suivre les liens suivants"
+
+#: includes/classes/class-settings.php:948
+msgid "Pass URL parameters to target links"
+msgstr "Transmettre les paramètres d’URL aux liens cibles"
+
+#: includes/classes/class-settings.php:961
+msgid "Secure your shortlinks"
+msgstr "Sécurisez votre lien court"
+
+#: includes/classes/class-settings.php:962
+msgid "Users must enter a password to redirect to the target link."
+msgstr ""
+"Les utilisateurs/utilisatrices doivent saisir un mot de passe pour être "
+"redirigés vers le lien cible."
+
+#: includes/classes/class-settings.php:968
+msgid "Default Password"
+msgstr "Mot de passe par défaut"
+
+#: includes/classes/class-settings.php:969
+msgid "Default password for protected links"
+msgstr "Mot de passe par défaut pour les liens protegés par mot de passe"
+
+#: includes/classes/class-settings.php:970
+msgid ""
+"This password will be used for links that have password protection enabled "
+"via global settings. Passwords are case sensitive."
+msgstr ""
+"Ce mot de passe sera utilisé pour les liens dont la protection par mot de "
+"passe a été activée dans les réglages globaux. Les mots de passe sont "
+"sensibles à la casse."
+
+#: includes/classes/class-settings.php:981
+msgid "Set an expiration date and time for shortlinks"
+msgstr "Définir une date et une heure d’expiration pour les liens courts"
+
+#: includes/classes/class-settings.php:989
+msgid "Select the date when this shortlink should stop working"
+msgstr ""
+"Sélectionner la date à partir de laquelle ce lien court cessera de "
+"fonctionner"
+
+#: includes/classes/class-settings.php:1002
+msgid "Select the time when the shortlink should expire"
+msgstr "Sélectionner l’heure à partir de laquelle ce lien court doit expirer"
+
+#: includes/classes/class-settings.php:1021
 msgid "Revisions"
 msgstr "Révisions"
 
-#: includes/classes/class-settings.php:589
+#: includes/classes/class-settings.php:1026
 msgid "Revision Link Visibility"
 msgstr "Visibilité du lien de révision"
 
-#: includes/classes/class-settings.php:590
+#: includes/classes/class-settings.php:1027
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -1037,37 +1786,37 @@ msgstr ""
 "tableau « Tous les liens courts » en fonction du comportement que vous "
 "configurez ci-dessous."
 
-#: includes/classes/class-settings.php:592
+#: includes/classes/class-settings.php:1029
 msgid "When Revision is Created"
 msgstr "Lors de la création de la révision"
 
-#: includes/classes/class-settings.php:594
+#: includes/classes/class-settings.php:1031
 msgid "When Revision is Created or Link is First Used"
 msgstr ""
 "Lors de la création de la révision ou de la première utilisation du lien"
 
-#: includes/classes/class-settings.php:602
+#: includes/classes/class-settings.php:1039
 msgid "Show Shortlink in Revision Table"
 msgstr "Afficher le lien court dans le tableau de révision"
 
-#: includes/classes/class-settings.php:603
+#: includes/classes/class-settings.php:1040
 msgid ""
 "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "Afficher la colonne « Lien court » lors de la consultation des révisions "
 "dans PublishPress Revisions."
 
-#: includes/classes/class-settings.php:609
+#: includes/classes/class-settings.php:1046
 msgid "Revision Visibility for Visitors"
 msgstr "Visibilité des révisions pour les visiteurs/visiteuses"
 
-#: includes/classes/class-settings.php:610
+#: includes/classes/class-settings.php:1047
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Permettre aux internautes déconnectés de consulter le contenu des révisions "
 "via des liens courts."
 
-#: includes/classes/class-settings.php:611
+#: includes/classes/class-settings.php:1048
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision content "
@@ -1079,17 +1828,17 @@ msgstr ""
 "révision pour les visiteurs/visiteuses déconnectés au lieu de les rediriger "
 "vers l’URL d’aperçu."
 
-#: includes/classes/class-settings.php:632
+#: includes/classes/class-settings.php:1071
 msgid "Dummy"
 msgstr "Factice"
 
-#: includes/classes/class-settings.php:676
+#: includes/classes/class-settings.php:1115
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Aucun type de publication n’est encore configuré. Cliquer sur « Ajouter un "
 "type de publication » pour commencer."
 
-#: includes/classes/class-settings.php:708
+#: includes/classes/class-settings.php:1147
 msgid "Add Post Type"
 msgstr "Ajouter un type de publication"
 
@@ -1115,80 +1864,84 @@ msgstr "Titre"
 msgid "Details"
 msgstr "Détails"
 
-#: includes/classes/class-table-logs.php:199
+#: includes/classes/class-table-logs.php:200
 msgid "Are you sure you want to delete this log entry?"
 msgstr "Confirmez-vous de vouloir supprimer cette entrée de journal ?"
 
-#: includes/classes/class-table-logs.php:250
+#: includes/classes/class-table-logs.php:260
+#, fuzzy
+#| msgid "Analytics"
+msgid "View Analytics"
+msgstr "Statistiques"
+
+#: includes/classes/class-table-logs.php:278
 msgid "Tablet"
 msgstr "Tablette"
 
-#: includes/classes/class-table-logs.php:252
+#: includes/classes/class-table-logs.php:280
 msgid "Mobile"
 msgstr "Mobile"
 
-#: includes/classes/class-table-logs.php:254
+#: includes/classes/class-table-logs.php:282
 msgid "Desktop"
 msgstr "Ordinateur"
 
 #. translators: 1: user display name, 2: location name, 3: visit date/time
-#: includes/classes/class-table-logs.php:308
+#: includes/classes/class-table-logs.php:336
 #, php-format
 msgid "%1$s from %2$s visited at %3$s"
 msgstr "%1$s de %2$s a visité à %3$s"
 
 #. translators: 1: user display name, 2: visit date/time
-#: includes/classes/class-table-logs.php:311
+#: includes/classes/class-table-logs.php:339
 #, php-format
 msgid "%1$s visited at %2$s"
 msgstr "%1$s visité à %2$s"
 
 #. translators: 1: location name, 2: visit date/time
-#: includes/classes/class-table-logs.php:315
+#: includes/classes/class-table-logs.php:343
 #, php-format
 msgid "From %1$s, visited at %2$s"
 msgstr "Depuis %1$s, visité à %2$s"
 
 #. translators: %s: visit date/time
-#: includes/classes/class-table-logs.php:318
+#: includes/classes/class-table-logs.php:346
 #, php-format
 msgid "Visited at %s"
 msgstr "Visité à %s"
 
 #. translators: %s: device type and browser name, e.g. "Mobile Chrome"
-#: includes/classes/class-table-logs.php:330
+#: includes/classes/class-table-logs.php:358
 #, php-format
 msgid "via %s"
 msgstr "via %s"
 
-#: includes/functions.php:169
+#: includes/functions.php:225
 msgid "Edit shortlink settings"
 msgstr "Modifier les réglages du lien court"
 
-#: includes/functions.php:216
+#: includes/functions.php:364 tinypress.php:306
+msgid ""
+"This post is in {status} status. It will become visible to the public on "
+"{date}."
+msgstr ""
+"Cette publication est dans l’état {status}. Elle sera visible au public à "
+"partir du {date}."
+
+#: includes/functions.php:389
 msgid "Target url not found."
 msgstr "URL cible non trouvée."
 
-#: includes/functions.php:223
+#: includes/functions.php:396
 msgid ""
 "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr ""
 "Schéma d’URL invalide. Uniquement http, https, ftp, ftps et mailto sont "
 "autorisés."
 
-#: includes/functions.php:229
-msgid "Invalid URL."
-msgstr "URL invalide."
-
-#: includes/functions.php:233
+#: includes/functions.php:428
 msgid "Tiny slug could not created."
 msgstr "Impossible créer le slug Tiny."
-
-#. translators: %s: link ID number
-#: includes/functions.php:252
-#, php-format
-msgid "Link - %s"
-msgstr "Lien - %s"
 
 #: templates/admin-modal-new-link.php:12
 msgid "Shortlink will appear here"
@@ -1202,31 +1955,27 @@ msgstr "Saisir une URL longue et la transformer en un lien court"
 msgid "Long URL"
 msgstr "URL longue"
 
-#: templates/admin-modal-new-link.php:37
-msgid "Close"
-msgstr "Fermer"
-
 #: templates/admin-modal-new-link.php:38
 msgid "Create Shortlink"
 msgstr "Créer le lien court"
 
-#: templates/admin/analytics.php:45 templates/admin/analytics.php:64
+#: templates/admin/analytics.php:49 templates/admin/analytics.php:68
 msgid "Reset Today's Analytics"
 msgstr "Réinitialiser les statistiques d’aujourd’hui"
 
-#: templates/admin/analytics.php:46
+#: templates/admin/analytics.php:50
 msgid "Reset Week's Analytics"
 msgstr "Réinitialiser les statistiques de la semaine"
 
-#: templates/admin/analytics.php:47
+#: templates/admin/analytics.php:51
 msgid "Reset Month's Analytics"
 msgstr "Réinitialiser les statistiques du mois"
 
-#: templates/admin/analytics.php:48
+#: templates/admin/analytics.php:52
 msgid "Reset Year's Analytics"
 msgstr "Réinitialiser les statistiques de l’année"
 
-#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:53
 msgid ""
 "Are you sure you want to reset the analytics for this period? This action "
 "cannot be undone."
@@ -1234,19 +1983,19 @@ msgstr ""
 "Confirmez-vous de vouloir réinitialiser les statistiques de cette période ? "
 "Cette action ne peut pas être annulée."
 
-#: templates/admin/analytics.php:57
+#: templates/admin/analytics.php:61
 msgid "Today"
 msgstr "Aujourd’hui"
 
-#: templates/admin/analytics.php:58
+#: templates/admin/analytics.php:62
 msgid "Last 7 Days"
 msgstr "Les 7 derniers jours"
 
-#: templates/admin/analytics.php:59
+#: templates/admin/analytics.php:63
 msgid "Last 1 Month"
 msgstr "Dernier mois"
 
-#: templates/admin/analytics.php:60
+#: templates/admin/analytics.php:64
 msgid "Last 1 Year"
 msgstr "Dernière année"
 
@@ -1312,9 +2061,109 @@ msgstr "Voir la base de connaissances"
 msgid "This plugin can be deleted."
 msgstr "Cette extension peut être supprimée."
 
-#: tinypress.php:355
+#: tinypress.php:395
 msgid "Copied."
 msgstr "Copiée."
+
+#: tinypress.php:397
+msgid ""
+"This setting is inherited from global settings. Choose another option to "
+"override it for this shortlink."
+msgstr ""
+
+#: tinypress.php:398
+#, fuzzy
+#| msgid "Working"
+msgid "Working..."
+msgstr "Fonctionne"
+
+#~ msgid "Health"
+#~ msgstr "Santé"
+
+#~ msgid "Pro"
+#~ msgstr "Pro"
+
+#~ msgid "Download all your shortlinks as a CSV file. Choose a format below:"
+#~ msgstr ""
+#~ "Téléchargez tous vos liens court au format CSV. Choisir un format ci-"
+#~ "dessous :"
+
+#~ msgid "Shortlinks Format"
+#~ msgstr "Format des liens courts"
+
+#~ msgid ""
+#~ "Full format with TinyPress fields and global-setting modes. Password "
+#~ "protection settings are not exported."
+#~ msgstr ""
+#~ "Format complet avec les champs TinyPress et les modes de réglage global. "
+#~ "Les réglages de protection par mot de passe ne sont pas exportés."
+
+#~ msgid "Pretty Links Format"
+#~ msgstr "Format de Pretty Links"
+
+#~ msgid "Compatible format for importing into Pretty Links plugin."
+#~ msgstr ""
+#~ "Format pris en charge pour l’importation dans l’extension Pretty Links."
+
+#~ msgid "Export for Pretty Links"
+#~ msgstr "Exporter pour Pretty Links"
+
+#~ msgid "Side"
+#~ msgstr "Côté"
+
+#~ msgid ""
+#~ "After disabling the link will not active but the settings will be "
+#~ "reserved."
+#~ msgstr ""
+#~ "Après la désactivation, le lien ne sera plus actif, mais les réglages "
+#~ "seront conservés."
+
+#~ msgid "Only selected user roles can view links."
+#~ msgstr "Uniquement les rôles du compte sélectionnés peuvent voir les liens."
+
+#~ msgid "Display a brief notice before redirecting expired links."
+#~ msgstr ""
+#~ "Afficher une brève notification avant de rediriger les liens expirés."
+
+#~ msgid "Bulk Import & Export"
+#~ msgstr "Importation et exportation groupées"
+
+#~ msgid ""
+#~ "Import and export your shortlinks in bulk using CSV files. Migrate from "
+#~ "other plugins or manage links across multiple sites."
+#~ msgstr ""
+#~ "Importez et exportez vos liens courts groupés à l’aide de fichiers CSV. "
+#~ "Migrer depuis d’autres extensions ou gérer des liens sur plusieurs sites."
+
+#~ msgid "Bulk Management"
+#~ msgstr "Gestion groupée"
+
+#~ msgid "Expire automatically."
+#~ msgstr "Expire automatiquement."
+
+#~ msgid "Users will not able to redirect to the target URL once expire."
+#~ msgstr ""
+#~ "Les utilisateurs/utilisatrices ne pourront plus être redirigés vers l’URL "
+#~ "cible une fois celle-ci expirée."
+
+#~ msgid "Must be at least 1 minute in the future."
+#~ msgstr "Il doit être au moins 1 minute dans le futur."
+
+#~ msgid "Choose which post statuses can be accessed via shortlinks"
+#~ msgstr ""
+#~ "Choisir quels états de publication peuvent être accessibles via des liens "
+#~ "courts"
+
+#~ msgid "Default Expired Redirect URL"
+#~ msgstr "URL de redirection par défaut après l’expiration"
+
+#~ msgid ""
+#~ "When a shortlink expires, visitors will be redirected to this URL instead "
+#~ "of seeing an error. Leave empty to show the default expiration message."
+#~ msgstr ""
+#~ "Lorsqu’un lien court expire, les visiteurs/visiteuses seront redirigés "
+#~ "vers cette URL au lieu de voir un erreur. Laisser ce champ vide pour "
+#~ "afficher le message d’expiration par défaut."
 
 #, php-format
 #~ msgid "Add %s"
@@ -1470,9 +2319,6 @@ msgstr "Copiée."
 
 #~ msgid "Link"
 #~ msgstr "Lien"
-
-#~ msgid "All Links"
-#~ msgstr "Tous les liens"
 
 #, php-format
 #~ msgid "This content is not publicly accessible. Post status: %s"

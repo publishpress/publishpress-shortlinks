@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -23,12 +24,14 @@ if (! class_exists('WPDK_Settings_Field_switcher')) {
         public function render()
         {
 
-            $active     = ( ! empty($this->value) ) ? ' wpdk_settings--active' : '';
-            $text_on    = ( ! empty($this->field['text_on']) ) ? $this->field['text_on'] : esc_html__('On');
-            $text_off   = ( ! empty($this->field['text_off']) ) ? $this->field['text_off'] : esc_html__('Off');
-            $text_width = ( ! empty($this->field['text_width']) ) ? ' style="width: ' . esc_attr($this->field['text_width']) . 'px;"' : '';
+            $active     = (! empty($this->value)) ? ' wpdk_settings--active' : '';
+            $text_on    = (! empty($this->field['text_on'])) ? $this->field['text_on'] : esc_html__('On');
+            $text_off   = (! empty($this->field['text_off'])) ? $this->field['text_off'] : esc_html__('Off');
+            $text_width = (! empty($this->field['text_width'])) ? ' style="width: ' . esc_attr($this->field['text_width']) . 'px;"' : '';
 
             echo $this->field_before();
+
+            echo '<div class="wpdk_settings--switcher-wrapper">';
 
             echo '<div class="wpdk_settings--switcher' . esc_attr($active) . '"' . $text_width . '>';
             echo '<span class="wpdk_settings--on">' . esc_attr($text_on) . '</span>';
@@ -37,7 +40,9 @@ if (! class_exists('WPDK_Settings_Field_switcher')) {
             echo '<input type="hidden" name="' . esc_attr($this->field_name()) . '" value="' . esc_attr($this->value) . '"' . $this->field_attributes() . ' />';
             echo '</div>';
 
-            echo ( ! empty($this->field['label']) ) ? '<span class="wpdk_settings--label">' . esc_attr($this->field['label']) . '</span>' : '';
+            echo (! empty($this->field['label'])) ? '<span class="wpdk_settings--label">' . esc_attr($this->field['label']) . '</span>' : '';
+
+            echo '</div>';
 
             echo $this->field_after();
         }

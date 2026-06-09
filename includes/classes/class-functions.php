@@ -11,7 +11,7 @@ defined('ABSPATH') || exit;
 if (! class_exists('TINYPRESS_Functions')) {
     /**
      * Class TINYPRESS_Functions
-     * 
+     *
      * Note: This class uses WordPress naming conventions instead of strict PSR-1/PSR-2 standards.
      */
     // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
@@ -19,13 +19,13 @@ if (! class_exists('TINYPRESS_Functions')) {
     {
         public static $text_hint = null;
         public static $text_copied = null;
-    /**
-             * @var TINYPRESS_Meta_boxes
-             */
+        /**
+                 * @var TINYPRESS_Meta_boxes
+                 */
         public $tinypress_metaboxes = null;
-    /**
-             * @var TINYPRESS_Column_link
-             */
+        /**
+                 * @var TINYPRESS_Column_link
+                 */
         public $tinypress_columns = null;
         public static $connect_url = null;
 
@@ -78,6 +78,7 @@ if (! class_exists('TINYPRESS_Functions')) {
 				WHERE pm.meta_key = 'tiny_slug' 
 				AND pm.meta_value = %s 
 				AND p.post_type = 'tinypress_link'
+				ORDER BY CASE WHEN p.post_status = 'publish' THEN 0 ELSE 1 END, p.ID DESC
 				LIMIT 1", $slug));
             // If no tinypress_link found, look for any post with this slug
             if (empty($link_id)) {
@@ -85,6 +86,7 @@ if (! class_exists('TINYPRESS_Functions')) {
                 $link_id = (int) $wpdb->get_var($wpdb->prepare("SELECT post_id FROM {$wpdb->postmeta} 
 					WHERE meta_key = 'tiny_slug' 
 					AND meta_value = %s
+					ORDER BY post_id DESC
 					LIMIT 1", $slug));
             }
 

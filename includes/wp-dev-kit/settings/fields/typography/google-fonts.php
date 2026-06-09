@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 
 if (! function_exists('pb_settings_get_google_fonts')) {

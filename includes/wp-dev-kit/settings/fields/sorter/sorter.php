@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -31,15 +32,15 @@ if (! class_exists('WPDK_Settings_Field_sorter')) {
 
             echo $this->field_before();
 
-            $this->value      = ( ! empty($this->value) ) ? $this->value : $this->field['default'];
-            $enabled_options  = ( ! empty($this->value['enabled']) ) ? $this->value['enabled'] : array();
-            $disabled_options = ( ! empty($this->value['disabled']) ) ? $this->value['disabled'] : array();
+            $this->value      = (! empty($this->value)) ? $this->value : $this->field['default'];
+            $enabled_options  = (! empty($this->value['enabled'])) ? $this->value['enabled'] : array();
+            $disabled_options = (! empty($this->value['disabled'])) ? $this->value['disabled'] : array();
 
             echo '<div class="wpdk_settings-sorter" data-depend-id="' . esc_attr($this->field['id']) . '"></div>';
 
-            echo ( $args['disabled'] ) ? '<div class="wpdk_settings-modules">' : '';
+            echo ($args['disabled']) ? '<div class="wpdk_settings-modules">' : '';
 
-            echo ( ! empty($args['enabled_title']) ) ? '<div class="wpdk_settings-sorter-title">' . esc_attr($args['enabled_title']) . '</div>' : '';
+            echo (! empty($args['enabled_title'])) ? '<div class="wpdk_settings-sorter-title">' . esc_attr($args['enabled_title']) . '</div>' : '';
             echo '<ul class="wpdk_settings-enabled">';
             if (! empty($enabled_options)) {
                 foreach ($enabled_options as $key => $value) {
@@ -48,12 +49,12 @@ if (! class_exists('WPDK_Settings_Field_sorter')) {
             }
             echo '</ul>';
 
-          // Check for hide/show disabled section
+            // Check for hide/show disabled section
             if ($args['disabled']) {
                 echo '</div>';
 
                 echo '<div class="wpdk_settings-modules">';
-                echo ( ! empty($args['disabled_title']) ) ? '<div class="wpdk_settings-sorter-title">' . esc_attr($args['disabled_title']) . '</div>' : '';
+                echo (! empty($args['disabled_title'])) ? '<div class="wpdk_settings-sorter-title">' . esc_attr($args['disabled_title']) . '</div>' : '';
                 echo '<ul class="wpdk_settings-disabled">';
                 if (! empty($disabled_options)) {
                     foreach ($disabled_options as $key => $value) {

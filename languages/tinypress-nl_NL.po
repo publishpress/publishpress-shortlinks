@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-29 12:57+0000\n"
+"PO-Revision-Date: 2026-06-09 08:25+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -29,11 +29,11 @@ msgstr "https://publishpress.com/shortlinks/"
 #: tinypress.php:6
 #. Description of the plugin
 msgid ""
-"Create custom links for your posts. These links are brandable, trackable, "
+"The best link manager for WordPress. Your links are brandable, trackable, "
 "and can have custom view permissions."
 msgstr ""
-"Maak aangepaste links voor je berichten. Deze links zijn merkbaar, "
-"traceerbaar en kunnen aangepaste weergavepermissies hebben."
+"De beste linkbeheerder voor WordPress. Uw links zijn merkbaar, traceerbaar "
+"en kunnen aangepaste weergavepermissies hebben."
 
 #: tinypress.php:9
 #. Author of the plugin
@@ -45,7 +45,7 @@ msgstr "PublishPress"
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: includes-core/ShortlinksCoreAdmin.php:86
+#: includes-core/ShortlinksCoreAdmin.php:88
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
@@ -53,79 +53,249 @@ msgstr ""
 "Je gebruikt PublishPress Shortlinks Free. De Pro-versie heeft meer functies "
 "en ondersteuning. "
 
-#: includes-core/ShortlinksCoreAdmin.php:87
-#: includes-core/ShortlinksCoreAdmin.php:104
-#: includes-core/ShortlinksCoreAdmin.php:105
-#: includes-core/ShortlinksCoreAdmin.php:271
+#: includes-core/ShortlinksCoreAdmin.php:89
+#: includes-core/ShortlinksCoreAdmin.php:106
+#: includes-core/ShortlinksCoreAdmin.php:107
 msgid "Upgrade to Pro"
 msgstr "Upgrade naar Pro"
 
 #: includes-core/ShortlinksCoreAdmin.php:117
-#: includes-core/ShortlinksCoreAdmin.php:196
+#: includes-core/ShortlinksCoreAdmin.php:118
+#: includes-core/ShortlinksCoreAdmin.php:148
+msgid "Link Health"
+msgstr "Link Gezondheid"
+
+#: includes-core/ShortlinksCoreAdmin.php:131
 msgid "Pro Feature"
 msgstr "Pro-functie"
 
-#: includes-core/ShortlinksCoreAdmin.php:120
-#: includes-core/ShortlinksCoreAdmin.php:199
+#: includes-core/ShortlinksCoreAdmin.php:134
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "Deze functie is beschikbaar in PublishPress Shortlinks Pro."
 
-#: includes-core/ShortlinksCoreAdmin.php:135
+#: includes-core/ShortlinksCoreAdmin.php:150
+msgid ""
+"Check whether your shortlinks redirect visitors to working destination "
+"pages."
+msgstr ""
+"Controleer of uw shortlinks bezoekers omleiden naar werkende "
+"bestemmingspagina's."
+
 #: includes-core/ShortlinksCoreAdmin.php:158
-msgid "Show Expiration Notice"
-msgstr "Toon vervaldatum melding"
+msgid "Check Visible Links"
+msgstr "Controleer Zichtbare Links"
 
-#: includes-core/ShortlinksCoreAdmin.php:139
-msgid "Display a brief notice before redirecting expired links."
-msgstr "Toon een korte melding voordat je vervallen links omleidt."
+#: includes-core/ShortlinksCoreAdmin.php:162
+msgid "Check All Links"
+msgstr "Controleer Alle Links"
 
-#: includes-core/ShortlinksCoreAdmin.php:153
+#: includes-core/ShortlinksCoreAdmin.php:169
+#: includes/classes/class-columns-link.php:54
+#: includes/classes/class-columns-link.php:552
+#: includes/classes/class-gutenberg-shortlink.php:159
+#: includes/classes/class-hooks.php:231
+#: includes/classes/class-table-logs.php:164
+#: templates/admin-modal-new-link.php:29, fuzzy
+msgid "Shortlink"
+msgstr "Shortlink"
+
+#: includes-core/ShortlinksCoreAdmin.php:170
+#: includes/classes/class-gutenberg-shortlink.php:169
+#: includes/classes/class-import-export.php:1053
+msgid "Target URL"
+msgstr "Doel-URL"
+
+#: includes-core/ShortlinksCoreAdmin.php:171
+#: includes/classes/class-meta-boxes.php:542, fuzzy
+msgid "Status"
+msgstr "Status"
+
+#: includes-core/ShortlinksCoreAdmin.php:172, fuzzy
+msgid "HTTP"
+msgstr "HTTP"
+
+#: includes-core/ShortlinksCoreAdmin.php:173
+msgid "Redirects"
+msgstr "Omleidingen"
+
+#: includes-core/ShortlinksCoreAdmin.php:174
+msgid "Final URL"
+msgstr "Eind-URL"
+
+#: includes-core/ShortlinksCoreAdmin.php:181
+msgid "Working"
+msgstr "Werkend"
+
+#: includes-core/ShortlinksCoreAdmin.php:189
+msgid "Broken"
+msgstr "Gebroken"
+
+#: includes-core/ShortlinksCoreAdmin.php:212
+#: includes-core/ShortlinksCoreAdmin.php:236
 msgid "Expired Redirect Settings"
 msgstr "Instellingen voor vervallen omleidingen"
 
-#: includes-core/ShortlinksCoreAdmin.php:156
+#: includes-core/ShortlinksCoreAdmin.php:215
+#: includes-core/ShortlinksCoreAdmin.php:239
+#: includes/classes/class-import-export.php:1064
 msgid "Expired Redirect URL"
 msgstr "Vervallen omleidings-URL"
 
-#: includes-core/ShortlinksCoreAdmin.php:161
-msgid "Display a brief notice before redirecting."
-msgstr "Toon een korte melding voordat je omleidt."
-
-#: includes-core/ShortlinksCoreAdmin.php:233
-#: includes-core/ShortlinksCoreAdmin.php:234
-msgid "Import / Export"
-msgstr "Importeren / Exporteren"
-
-#: includes-core/ShortlinksCoreAdmin.php:249
-msgid "Import / Export Shortlinks"
-msgstr "Importeren / Exporteren Shortlinks"
-
-#: includes-core/ShortlinksCoreAdmin.php:254
-msgid "Bulk Import & Export"
-msgstr "Bulk importeren & exporteren"
-
-#: includes-core/ShortlinksCoreAdmin.php:255
-msgid ""
-"Import and export your shortlinks in bulk using CSV files. Migrate from "
-"other plugins or manage links across multiple sites."
+#: includes-core/ShortlinksCoreAdmin.php:216
+msgid "Choose where visitors should go when they click an expired link."
 msgstr ""
-"Importeer en exporteer je shortlinks in bulk met CSV-bestanden. Migreer "
-"vanaf andere plugins of beheer links over meerdere sites."
+"Kies waar bezoekers naartoe moeten gaan wanneer ze op een verlopen link "
+"klikken."
 
-#: includes-core/ShortlinksCoreAdmin.php:259
-msgid "CSV Export"
-msgstr "CSV-export"
+#: includes-core/ShortlinksCoreAdmin.php:218
+#: includes-core/ShortlinksCoreAdmin.php:242
+msgid "Show Expiration Notice"
+msgstr "Toon vervaldatum melding"
 
-#: includes-core/ShortlinksCoreAdmin.php:263
-msgid "CSV Import"
-msgstr "CSV-import"
+#: includes-core/ShortlinksCoreAdmin.php:219
+#: includes-core/ShortlinksCoreAdmin.php:243
+msgid "Display a custom notice page before automatically redirecting visitors."
+msgstr ""
+"Toon een aangepaste meldingspagina voordat bezoekers automatisch worden "
+"omgeleid."
 
-#: includes-core/ShortlinksCoreAdmin.php:267, fuzzy
-msgid "Bulk Management"
-msgstr "Bulk Management"
+#: includes-core/ShortlinksCoreAdmin.php:222
+msgid "Show a notice page for expired shortlinks briefly before redirecting."
+msgstr "Toon een meldingspagina voor verlopen shortlinks kort voordat u omleidt."
+
+#: includes-core/ShortlinksCoreAdmin.php:240
+msgid "Set the default destination for all expired shortlinks."
+msgstr "Stel de standaardbestemming in voor alle verlopen shortlinks."
+
+#: includes-core/ShortlinksCoreAdmin.php:246
+msgid ""
+"Show a notice page for expired shortlinks briefly before redirecting. You "
+"can customize the content of this message."
+msgstr ""
+"Toon een meldingspagina voor verlopen shortlinks kort voordat u omleidt. U "
+"kunt de inhoud van dit bericht aanpassen."
+
+#: includes-core/ShortlinksCoreAdmin.php:281
+#: includes-core/ShortlinksCoreAdmin.php:308
+msgid "Advanced Auto-Link Settings"
+msgstr "Geavanceerde Auto-Link Instellingen"
+
+#: includes-core/ShortlinksCoreAdmin.php:283
+#: includes-core/ShortlinksCoreAdmin.php:311
+msgid "Minimum Keyword Usage"
+msgstr "Minimale Sleutelwoordgebruik"
+
+#: includes-core/ShortlinksCoreAdmin.php:284
+msgid "Keyword must appear this many times before being autolinked."
+msgstr ""
+"Sleutelwoord moet deze vele keren verschijnen voordat het automatisch wordt "
+"gelinkt."
+
+#: includes-core/ShortlinksCoreAdmin.php:286
+#: includes-core/ShortlinksCoreAdmin.php:314
+msgid "Maximum Keywords Linked"
+msgstr "Maximale gekoppelde zoekwoorden"
+
+#: includes-core/ShortlinksCoreAdmin.php:287
+msgid "Maximum number of times this keyword should be autolinked per post."
+msgstr ""
+"Maximaal aantal keren dat dit zoekwoord automatisch gekoppeld moet worden "
+"per bericht."
+
+#: includes-core/ShortlinksCoreAdmin.php:312
+msgid "Default minimum times a keyword must appear before being autolinked."
+msgstr ""
+"Standaard minimum aantal keren dat een zoekwoord moet verschijnen voordat "
+"het automatisch wordt gekoppeld."
+
+#: includes-core/ShortlinksCoreAdmin.php:315
+msgid "Default maximum times a keyword should be autolinked per post."
+msgstr ""
+"Standaard maximum aantal keren dat een zoekwoord automatisch gekoppeld moet "
+"worden per bericht."
+
+#: includes-core/ShortlinksCoreAdmin.php:317
+msgid "Maximum Links Per Post"
+msgstr "Maximale links per bericht"
+
+#: includes-core/ShortlinksCoreAdmin.php:318
+msgid "Total maximum autolinks allowed per post/page."
+msgstr "Totaal maximaal aantal automatische links toegestaan per bericht/pagina."
+
+#: includes-core/ShortlinksCoreAdmin.php:320
+msgid "Minimum Character Length"
+msgstr "Minimale tekenlengte"
+
+#: includes-core/ShortlinksCoreAdmin.php:321
+msgid "Keywords shorter than this will not be autolinked."
+msgstr "Zoekwoorden korter dan dit zullen niet automatisch worden gekoppeld."
+
+#: includes-core/ShortlinksCoreAdmin.php:323
+msgid "Maximum Character Length"
+msgstr "Maximale tekenlengte"
+
+#: includes-core/ShortlinksCoreAdmin.php:324
+msgid "Keywords longer than this will not be autolinked."
+msgstr "Zoekwoorden langer dan dit zullen niet automatisch worden gekoppeld."
+
+#: includes-core/ShortlinksCoreAdmin.php:345
+#: includes/classes/class-settings.php:850
+msgid "Auto-Link Exceptions"
+msgstr "Auto-Link Uitzonderingen"
+
+#: includes-core/ShortlinksCoreAdmin.php:347
+msgid "Exclude Terms from Auto Links"
+msgstr "Uitsluiten van termen voor automatische links"
+
+#: includes-core/ShortlinksCoreAdmin.php:348
+msgid "These terms will never be autolinked."
+msgstr "Deze termen zullen nooit automatisch worden gekoppeld."
+
+#: includes-core/ShortlinksCoreAdmin.php:350
+msgid "Prevent Auto Links Inside Classes or IDs"
+msgstr "Voorkom automatische links binnen klassen of ID's"
+
+#: includes-core/ShortlinksCoreAdmin.php:351
+msgid ""
+"Content inside elements with these classes or IDs will not have autolinks "
+"applied."
+msgstr ""
+"Inhoud binnen elementen met deze klassen of ID's zal geen automatische "
+"links krijgen."
+
+#: includes-core/ShortlinksCoreAdmin.php:353
+msgid "Prevent Auto Links Inside Elements"
+msgstr "Voorkom automatische links binnen elementen"
+
+#: includes-core/ShortlinksCoreAdmin.php:354
+msgid "Terms inside these HTML tags will not have autolinks applied."
+msgstr "Termen binnen deze HTML-tags zullen geen automatische links krijgen."
+
+#: includes-core/ShortlinksCoreAdmin.php:367
+msgid "Prevent Auto Links on Shortcodes"
+msgstr "Voorkom automatische links op shortcodes"
+
+#: includes-core/ShortlinksCoreAdmin.php:368
+msgid "Terms inside these shortcodes will not have autolinks applied."
+msgstr "Termen binnen deze shortcodes zullen geen automatische links krijgen."
+
+#: includes-core/ShortlinksCoreAdmin.php:370
+msgid "Prevent Auto Links on Blocks"
+msgstr "Voorkom automatische links op blokken"
+
+#: includes-core/ShortlinksCoreAdmin.php:371
+msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
+msgstr "Termen binnen deze Gutenberg-blokken zullen geen autolinks hebben."
+
+#: includes-core/ShortlinksCoreAdmin.php:372
+msgid "Search and select blocks..."
+msgstr "Zoek en selecteer blokken..."
 
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:200
+#: includes/classes/class-autolist-ajax.php:204
+#: includes/classes/class-gutenberg-shortlink.php:234
+#: includes/classes/class-gutenberg-shortlink.php:285
+#: includes/classes/class-gutenberg-shortlink.php:329
 msgid "Permission denied"
 msgstr "Toegang geweigerd"
 
@@ -178,60 +348,61 @@ msgstr "Opslaan van configuratie in database mislukt"
 msgid "Configuration saved successfully"
 msgstr "Configuratie succesvol opgeslagen"
 
-#: includes/classes/class-autolist-ajax.php:144
+#: includes/classes/class-autolist-ajax.php:149
 #. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "Fout: %s"
 
-#: includes/classes/class-autolist-ajax.php:289
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Validating..."
 msgstr "Valideren..."
 
-#: includes/classes/class-autolist-ajax.php:290
+#: includes/classes/class-autolist-ajax.php:294
 msgid "Saving..."
 msgstr "Opslaan..."
 
-#: includes/classes/class-autolist-ajax.php:291
+#: includes/classes/class-autolist-ajax.php:295
 msgid "Saved!"
 msgstr "Opgeslagen!"
 
-#: includes/classes/class-autolist-ajax.php:292
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-gutenberg-shortlink.php:175
 msgid "Error"
 msgstr "Fout"
 
-#: includes/classes/class-autolist-ajax.php:293
+#: includes/classes/class-autolist-ajax.php:297
 msgid "Are you sure you want to remove this post type?"
 msgstr "Weet je zeker dat je dit post type wilt verwijderen?"
 
-#: includes/classes/class-autolist-ajax.php:294
+#: includes/classes/class-autolist-ajax.php:298
 msgid "Select a post type"
 msgstr "Selecteer een post type"
 
-#: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:595
-#: includes/classes/class-settings.php:691
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:1032
+#: includes/classes/class-settings.php:1130
 msgid "Never"
 msgstr "Nooit"
 
-#: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:593
-#: includes/classes/class-settings.php:693
+#: includes/classes/class-autolist-ajax.php:300
+#: includes/classes/class-settings.php:1030
+#: includes/classes/class-settings.php:1132
 msgid "When Link is First Used"
 msgstr "Wanneer de link voor het eerst wordt gebruikt"
 
-#: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:695
+#: includes/classes/class-autolist-ajax.php:301
+#: includes/classes/class-settings.php:1134
 msgid "When Post is Published"
 msgstr "Wanneer de post is gepubliceerd"
 
-#: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:694
+#: includes/classes/class-autolist-ajax.php:302
+#: includes/classes/class-settings.php:1133
 msgid "When Post is Created"
 msgstr "Wanneer de post is aangemaakt"
 
-#: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:692
+#: includes/classes/class-autolist-ajax.php:303
+#: includes/classes/class-settings.php:1131
 msgid "When Link is First Used or Post Created"
 msgstr "Wanneer de link voor het eerst wordt gebruikt of de post is aangemaakt"
 
@@ -239,110 +410,140 @@ msgstr "Wanneer de link voor het eerst wordt gebruikt of de post is aangemaakt"
 msgid "Invalid post ID or post type."
 msgstr "Ongeldig post ID of post type."
 
-#: includes/classes/class-columns-link.php:49
-#: includes/classes/class-columns-link.php:279
-#: includes/classes/class-hooks.php:207
-#: includes/classes/class-table-logs.php:164
-#: templates/admin-modal-new-link.php:29, fuzzy
-msgid "Shortlink"
-msgstr "Shortlink"
-
-#: includes/classes/class-columns-link.php:71
+#: includes/classes/class-columns-link.php:76
 msgid "No shortlink"
 msgstr "Geen shortlink"
 
-#: includes/classes/class-columns-link.php:92
-#: includes/classes/class-hooks.php:208
-#: includes/classes/class-hooks.php:210
-#: includes/classes/class-meta-boxes.php:93, fuzzy
+#: includes/classes/class-columns-link.php:97
+#: includes/classes/class-hooks.php:232
+#: includes/classes/class-hooks.php:234
+#: includes/classes/class-meta-boxes.php:163, fuzzy
 msgid "Shortlinks"
 msgstr "Shortlinks"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:188
+#: includes/classes/class-columns-link.php:335
 msgid "Internal"
 msgstr "Intern"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:188
+#: includes/classes/class-columns-link.php:336
 msgid "External"
 msgstr "Extern"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:189
 msgid "This links to your post"
 msgstr "Deze link verwijst naar je post"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:189
 msgid "This links to an external website"
 msgstr "Deze link verwijst naar een externe website"
 
-#: includes/classes/class-columns-link.php:189
+#: includes/classes/class-columns-link.php:193
+#: includes/classes/class-columns-link.php:337
 msgid "Revision"
 msgstr "Herziening"
 
-#: includes/classes/class-columns-link.php:190
+#: includes/classes/class-columns-link.php:194
 msgid "This links to a revision"
 msgstr "Deze link verwijst naar een herziening"
 
-#: includes/classes/class-columns-link.php:198
+#: includes/classes/class-columns-link.php:203
 msgid "Not yet submitted"
 msgstr "Nog niet ingediend"
 
-#: includes/classes/class-columns-link.php:199
+#: includes/classes/class-columns-link.php:204
 msgid "Submitted for approval"
 msgstr "Ingediend ter goedkeuring"
 
-#: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:558
+#: includes/classes/class-columns-link.php:205
+#: includes/classes/class-settings.php:365
+#: includes/classes/class-settings.php:706
+#: includes/classes/class-settings.php:714
+#: includes/functions.php:273
+#: includes/functions.php:307
 msgid "Scheduled"
 msgstr "Gepland"
 
-#: includes/classes/class-columns-link.php:201
+#: includes/classes/class-columns-link.php:206
 msgid "Deferred"
 msgstr "Uitgesteld"
 
-#: includes/classes/class-columns-link.php:202
+#: includes/classes/class-columns-link.php:207
 msgid "Needs work"
 msgstr "Heeft werk nodig"
 
-#: includes/classes/class-columns-link.php:203
+#: includes/classes/class-columns-link.php:208
 msgid "Rejected"
 msgstr "Afgewezen"
 
-#: includes/classes/class-columns-link.php:207
+#: includes/classes/class-columns-link.php:212
 #. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "Herziening: %s"
 
-#: includes/classes/class-columns-link.php:224
+#: includes/classes/class-columns-link.php:233
 #. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "Geklikt %s keer"
 
-#: includes/classes/class-columns-link.php:230
-#: includes/classes/class-table-logs.php:197
+#: includes/classes/class-columns-link.php:241
+#: includes/classes/class-table-logs.php:198
 msgid "Edit"
 msgstr "Bewerken"
 
-#: includes/classes/class-columns-link.php:231
-#: includes/classes/class-table-logs.php:178
-#: includes/classes/class-table-logs.php:199
+#: includes/classes/class-columns-link.php:246
+#: includes/classes/class-table-logs.php:179
+#: includes/classes/class-table-logs.php:200
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: includes/classes/class-columns-link.php:278
+#: includes/classes/class-columns-link.php:332
+msgid "Filter by link type"
+msgstr "Filter op linktype"
+
+#: includes/classes/class-columns-link.php:334
+msgid "All link types"
+msgstr "Alle linktypes"
+
+#: includes/classes/class-columns-link.php:350
+msgid "Filter by category"
+msgstr "Filter op categorie"
+
+#: includes/classes/class-columns-link.php:352
+msgid "All categories"
+msgstr "Alle categorieën"
+
+#: includes/classes/class-columns-link.php:446, fuzzy
+msgid "Filters"
+msgstr "Filters"
+
+#: includes/classes/class-columns-link.php:449
+#: includes/classes/class-hooks.php:257
+#: includes/classes/class-meta-boxes.php:814
+msgid "Categories"
+msgstr "Categorieën"
+
+#: includes/classes/class-columns-link.php:467
+msgid "Permission denied."
+msgstr "Toegang geweigerd."
+
+#: includes/classes/class-columns-link.php:551
 msgid "Link Title"
 msgstr "Linktitel"
 
-#: includes/classes/class-columns-link.php:280
+#: includes/classes/class-columns-link.php:553
 msgid "Link Type"
 msgstr "Linktype"
 
-#: includes/classes/class-columns-link.php:281
+#: includes/classes/class-columns-link.php:557
 msgid "Stats"
 msgstr "Statistieken"
 
-#: includes/classes/class-columns-link.php:282
+#: includes/classes/class-columns-link.php:560
+#: includes/classes/class-table-logs.php:166
 msgid "Actions"
 msgstr "Acties"
 
@@ -354,182 +555,570 @@ msgstr "Klik om te kopiëren"
 msgid "Copied"
 msgstr "Gekopieerd"
 
-#: includes/classes/class-hooks.php:61
-msgid "Security check failed."
-msgstr "Beveiligingscontrole mislukt."
+#: includes/classes/class-gutenberg-shortlink.php:160
+msgid "Search shortlinks..."
+msgstr "Zoek shortlinks..."
 
-#: includes/classes/class-hooks.php:65
-msgid "You do not have permission to create shortlinks."
-msgstr "U hebt geen toestemming om shortlinks te maken."
+#: includes/classes/class-gutenberg-shortlink.php:161
+msgid "Insert Shortlink"
+msgstr "Voeg shortlink in"
 
-#: includes/classes/class-hooks.php:72
-msgid "Invalid or empty URL"
-msgstr "Ongeldige of lege URL"
+#: includes/classes/class-gutenberg-shortlink.php:162
+msgid "Create New Shortlink"
+msgstr "Nieuwe shortlink aanmaken"
 
-#: includes/classes/class-hooks.php:89
+#: includes/classes/class-gutenberg-shortlink.php:163
+#: includes/classes/class-settings.php:721
+msgid "Options"
+msgstr "Opties"
+
+#: includes/classes/class-gutenberg-shortlink.php:164
+msgid "Open in New Tab"
+msgstr "Open in nieuw tabblad"
+
+#: includes/classes/class-gutenberg-shortlink.php:165, fuzzy
+msgid "Nofollow"
+msgstr "Nofollow"
+
+#: includes/classes/class-gutenberg-shortlink.php:166
+msgid "Sponsored Link"
+msgstr "Gesponsorde link"
+
+#: includes/classes/class-gutenberg-shortlink.php:167, fuzzy
+msgid "Label"
+msgstr "Label"
+
+#: includes/classes/class-gutenberg-shortlink.php:168
+msgid "Optional shortlink label"
+msgstr "Optionele shortlinklabel"
+
+#: includes/classes/class-gutenberg-shortlink.php:170
+msgid "Create"
+msgstr "Aanmaken"
+
+#: includes/classes/class-gutenberg-shortlink.php:171
+#: includes/classes/class-import-export.php:1202
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: includes/classes/class-gutenberg-shortlink.php:172
+#: templates/admin-modal-new-link.php:37
+msgid "Close"
+msgstr "Sluiten"
+
+#: includes/classes/class-gutenberg-shortlink.php:173
+msgid "Creating..."
+msgstr "Aanmaken..."
+
+#: includes/classes/class-gutenberg-shortlink.php:174
+#: includes/classes/class-gutenberg-shortlink.php:317
+#: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "Shortlink succesvol aangemaakt."
 
-#: includes/classes/class-hooks.php:98
+#: includes/classes/class-gutenberg-shortlink.php:176
+msgid "Please enter a valid URL"
+msgstr "Vul een geldige URL in"
+
+#: includes/classes/class-gutenberg-shortlink.php:177
+msgid "No shortlinks found"
+msgstr "Geen shortlinks gevonden"
+
+#: includes/classes/class-gutenberg-shortlink.php:243
+msgid "Search term is required"
+msgstr "Zoekterm is verplicht"
+
+#: includes/classes/class-gutenberg-shortlink.php:258
+#: includes/functions.php:447
+#. translators: %s: link ID number
+#, fuzzy, php-format
+msgid "Link - %s"
+msgstr "Link - %s"
+
+#: includes/classes/class-gutenberg-shortlink.php:294
+msgid "Target URL is required"
+msgstr "Doel-URL is verplicht"
+
+#: includes/classes/class-gutenberg-shortlink.php:336
+msgid "Invalid shortlink ID"
+msgstr "Ongeldig shortlink-ID"
+
+#: includes/classes/class-gutenberg-shortlink.php:342
+msgid "Shortlink not found"
+msgstr "Shortlink niet gevonden"
+
+#: includes/classes/class-hooks.php:69
+#: includes/classes/class-import-export.php:119
+msgid "Security check failed."
+msgstr "Beveiligingscontrole mislukt."
+
+#: includes/classes/class-hooks.php:73
+msgid "You do not have permission to create shortlinks."
+msgstr "U hebt geen toestemming om shortlinks te maken."
+
+#: includes/classes/class-hooks.php:80
+msgid "Invalid or empty URL"
+msgstr "Ongeldige of lege URL"
+
+#: includes/classes/class-hooks.php:112
 msgid "Invalid nonce verification."
 msgstr "Ongeldige nonce-verificatie."
 
-#: includes/classes/class-hooks.php:102
+#: includes/classes/class-hooks.php:116
 msgid "You do not have permission to reset analytics."
 msgstr "U hebt geen toestemming om analyses opnieuw in te stellen."
 
-#: includes/classes/class-hooks.php:109
+#: includes/classes/class-hooks.php:123
 msgid "Invalid post ID."
 msgstr "Ongeldig bericht-ID."
 
-#: includes/classes/class-hooks.php:140
+#: includes/classes/class-hooks.php:129
+msgid "Invalid shortlink ID."
+msgstr "Ongeldige shortlink-ID."
+
+#: includes/classes/class-hooks.php:133
+msgid "You do not have permission to reset analytics for this shortlink."
+msgstr ""
+"Je hebt geen toestemming om de analytics voor deze shortlink opnieuw in te "
+"stellen."
+
+#: includes/classes/class-hooks.php:164
 msgid "Analytics reset successfully."
 msgstr "Analyses succesvol opnieuw ingesteld."
 
-#: includes/classes/class-hooks.php:142
+#: includes/classes/class-hooks.php:166
 msgid "Failed to reset analytics."
 msgstr "Herladen van analyses mislukt."
 
-#: includes/classes/class-hooks.php:168
+#: includes/classes/class-hooks.php:192
 msgid "Shorten"
 msgstr "Verkorten"
 
-#: includes/classes/class-hooks.php:211
+#: includes/classes/class-hooks.php:235
 msgid "All Shortlinks"
 msgstr "Alle verkortingen"
 
-#: includes/classes/class-hooks.php:212
-#: includes/classes/class-hooks.php:213
+#: includes/classes/class-hooks.php:236
+#: includes/classes/class-hooks.php:237
 msgid "Add Shortlink"
 msgstr "Voeg Shortlink toe"
 
-#: includes/classes/class-hooks.php:214
+#: includes/classes/class-hooks.php:238
 msgid "Search Shortlinks"
 msgstr "Zoek Shortlinks"
 
-#: includes/classes/class-hooks.php:229
+#: includes/classes/class-hooks.php:256
 msgid "Category"
 msgstr "Categorie"
 
-#: includes/classes/class-hooks.php:230
-msgid "Categories"
-msgstr "Categorieën"
-
-#: includes/classes/class-hooks.php:256
-#: includes/classes/class-hooks.php:257
+#: includes/classes/class-hooks.php:283
+#: includes/classes/class-hooks.php:284
 msgid "Logs"
 msgstr "Logboeken"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "All Logs"
 msgstr "Alle logboeken"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Are you sure you want to clear all logs?"
 msgstr "Weet je zeker dat je alle logboeken wilt wissen?"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Clear Logs"
 msgstr "Logboeken wissen"
 
-#: includes/classes/class-hooks.php:506
+#: includes/classes/class-hooks.php:606
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Sorry, je hebt geen toestemming om toegang te krijgen tot verkortingen."
 
-#: includes/classes/class-hooks.php:507
-#: includes/classes/class-hooks.php:528
-#: includes/classes/class-hooks.php:539
-#: includes/classes/class-hooks.php:560
+#: includes/classes/class-hooks.php:607
+#: includes/classes/class-hooks.php:628
+#: includes/classes/class-hooks.php:639
+#: includes/classes/class-hooks.php:660
 msgid "Access Denied"
 msgstr "Toegang geweigerd"
 
-#: includes/classes/class-hooks.php:527
+#: includes/classes/class-hooks.php:627
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Sorry, je hebt geen toestemming om verkortingen te maken."
 
-#: includes/classes/class-hooks.php:538
+#: includes/classes/class-hooks.php:638
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Sorry, je hebt geen toestemming om verkortingen te bewerken."
 
-#: includes/classes/class-hooks.php:559
+#: includes/classes/class-hooks.php:659
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr ""
 "Sorry, je hebt geen toestemming om toegang te krijgen tot de instellingen "
 "voor verkortingen."
 
-#: includes/classes/class-meta-boxes.php:76
-msgid "Side"
-msgstr "Zij"
+#: includes/classes/class-import-export.php:48
+#: includes/classes/class-import-export.php:49
+msgid "Import / Export"
+msgstr "Importeren / Exporteren"
 
-#: includes/classes/class-meta-boxes.php:187
-#: tinypress.php:448
-msgid "PublishPress Shortlinks"
-msgstr "PublishPress verkortingen"
+#: includes/classes/class-import-export.php:87
+msgid "Importing..."
+msgstr "Importeren..."
 
-#: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:401
-msgid "General"
-msgstr "Algemeen"
+#: includes/classes/class-import-export.php:88
+msgid "Import complete!"
+msgstr "Importeren voltooid!"
 
-#: includes/classes/class-meta-boxes.php:205, fuzzy
-msgid "Label *"
-msgstr "Label *"
+#: includes/classes/class-import-export.php:89
+msgid "Import failed. Please check the file and try again."
+msgstr "Importeren mislukt. Controleer het bestand en probeer het opnieuw."
 
-#: includes/classes/class-meta-boxes.php:207
-msgid "For admin purpose only."
-msgstr "Alleen voor administratieve doeleinden."
+#: includes/classes/class-import-export.php:90
+msgid "Please select a CSV file."
+msgstr "Selecteer een CSV-bestand."
 
-#: includes/classes/class-meta-boxes.php:216
-msgid "Target URL *"
-msgstr "Doel-URL *"
+#: includes/classes/class-import-export.php:91
+msgid "This will import shortlinks from the CSV file. Continue?"
+msgstr "Dit zal shortlinks importeren vanuit het CSV-bestand. Doorgaan?"
 
-#: includes/classes/class-meta-boxes.php:226
-msgid "Short String *"
-msgstr "Korte tekenreeks *"
+#: includes/classes/class-import-export.php:92
+msgid "Previewing..."
+msgstr "Voorbeeld aan het bekijken..."
 
-#: includes/classes/class-meta-boxes.php:227
-msgid "Short string of this URL."
-msgstr "Korte string van deze URL."
+#: includes/classes/class-import-export.php:93
+msgid "Preview failed."
+msgstr "Voorbeeld mislukt."
 
-#: includes/classes/class-meta-boxes.php:233, fuzzy
-msgid "Status"
-msgstr "Status"
+#: includes/classes/class-import-export.php:94
+#: includes/classes/class-import-export.php:1197
+msgid "See More Rows"
+msgstr "Zie Meer Rijen"
 
-#: includes/classes/class-meta-boxes.php:234
-msgid "Disable the shortlink instantly."
-msgstr "Schakel de shortlink onmiddellijk uit."
+#: includes/classes/class-import-export.php:95
+msgid "Show Less"
+msgstr "Minder Tonen"
 
-#: includes/classes/class-meta-boxes.php:235
-msgid "After disabling the link will not active but the settings will be reserved."
+#: includes/classes/class-import-export.php:96
+#: includes/classes/class-import-export.php:1160
+msgid "Preview"
+msgstr "Voorbeeld"
+
+#: includes/classes/class-import-export.php:97
+#: includes/classes/class-import-export.php:1151
+#: includes/classes/class-import-export.php:1164
+msgid "Import CSV"
+msgstr "CSV importeren"
+
+#: includes/classes/class-import-export.php:98
+#: includes/classes/class-import-export.php:731
+#. translators: %d: number of successfully imported shortlinks
+#, php-format
+msgid "%d shortlinks successfully imported"
+msgstr "%d shortlinks succesvol geïmporteerd"
+
+#: includes/classes/class-import-export.php:99
+#: includes/classes/class-import-export.php:753
+#. translators: %d: number of failed imports
+#, php-format
+msgid "%d shortlinks failed to import"
+msgstr "%d shortlinks konden niet worden geïmporteerd"
+
+#: includes/classes/class-import-export.php:100
+msgid "Error(s) for TinyPress Slug:"
+msgstr "Fout(en) voor TinyPress Slug:"
+
+#: includes/classes/class-import-export.php:115
+#: includes/classes/class-import-export.php:546
+#: includes/classes/class-import-export.php:907
+#: includes/classes/class-import-export.php:1048
+msgid "Unauthorized."
+msgstr "Niet geautoriseerd."
+
+#: includes/classes/class-import-export.php:303
+#: includes/functions.php:402
+msgid "Invalid URL."
+msgstr "Ongeldige URL."
+
+#: includes/classes/class-import-export.php:551
+#: includes/classes/class-import-export.php:912
+msgid "No file uploaded or upload error."
+msgstr "Geen bestand geüpload of uploadfout."
+
+#: includes/classes/class-import-export.php:560
+#: includes/classes/class-import-export.php:921
+msgid "Please upload a CSV file."
+msgstr "Upload een CSV-bestand."
+
+#: includes/classes/class-import-export.php:566
+#: includes/classes/class-import-export.php:927
+msgid "Could not read the file."
+msgstr "Kon het bestand niet lezen."
+
+#: includes/classes/class-import-export.php:573
+#: includes/classes/class-import-export.php:934
+msgid "Empty CSV file."
+msgstr "Leeg CSV-bestand."
+
+#: includes/classes/class-import-export.php:596
+#: includes/classes/class-import-export.php:958
+msgid ""
+"CSV must contain a column for target URL (e.g., \"url\", \"target_url\", "
+"\"destination_url\")."
 msgstr ""
-"Na het uitschakelen zal de link niet actief zijn, maar de instellingen "
-"blijven behouden."
+"CSV moet een kolom bevatten voor de doellink (bijv. \"url\", "
+"\"target_url\", \"destination_url\")."
 
-#: includes/classes/class-meta-boxes.php:236
-msgid "Enable"
-msgstr "Inschakelen"
+#: includes/classes/class-import-export.php:663
+#. translators: %s: error message
+#, php-format
+msgid "Failed to create shortlink: %s"
+msgstr "Mislukt om shortlink te maken: %s"
 
-#: includes/classes/class-meta-boxes.php:237
-msgid "Disable"
-msgstr "Uitschakelen"
+#: includes/classes/class-import-export.php:664
+msgid "Unknown error."
+msgstr "Onbekende fout."
 
-#: includes/classes/class-meta-boxes.php:244
+#: includes/classes/class-import-export.php:742
+#. translators: %d: number of updated shortlinks
+#, php-format
+msgid "%d shortlinks updated"
+msgstr "%d shortlinks bijgewerkt"
+
+#: includes/classes/class-import-export.php:995
+#. translators: 1: original column name, 2: mapped field name
+#, fuzzy, php-format
+msgid "\"%1$s\" → %2$s"
+msgstr "\"%1$s\" → %2$s"
+
+#: includes/classes/class-import-export.php:1006
+#. translators: %s: field mappings
+#, php-format
+msgid "Field mappings: %s"
+msgstr "Veldtoewijzingen: %s"
+
+#: includes/classes/class-import-export.php:1033
+#. translators: 1: number of preview rows, 2: total number of importable rows
+#, php-format
+msgid "Showing %1$d preview row(s) from %2$d importable row(s)."
+msgstr "Toon %1$d voorbeeldrij(en) van %2$d importeerbare rij(en)."
+
+#: includes/classes/class-import-export.php:1052
+msgid "Link Label"
+msgstr "Linklabel"
+
+#: includes/classes/class-import-export.php:1054
+msgid "Short Slug"
+msgstr "Korte slug"
+
+#: includes/classes/class-import-export.php:1055
+msgid "Post Status"
+msgstr "Berichtstatus"
+
+#: includes/classes/class-import-export.php:1056
+msgid "Link Status"
+msgstr "Linkstatus"
+
+#: includes/classes/class-import-export.php:1057
+msgid "Redirect Method"
+msgstr "Redirectmethode"
+
+#: includes/classes/class-import-export.php:1058
+#: includes/classes/class-meta-boxes.php:664
+#: includes/classes/class-settings.php:939, fuzzy
+msgid "NoFollow"
+msgstr "NoFollow"
+
+#: includes/classes/class-import-export.php:1059
+#: includes/classes/class-meta-boxes.php:642
+#: includes/classes/class-settings.php:931
+msgid "Sponsored"
+msgstr "Gesponsord"
+
+#: includes/classes/class-import-export.php:1060
+#: includes/classes/class-meta-boxes.php:686
+#: includes/classes/class-settings.php:947
+msgid "Parameter Forwarding"
+msgstr "Parameter Doorsturen"
+
+#: includes/classes/class-import-export.php:1061
+msgid "Expiration Enabled"
+msgstr "Verloop ingeschakeld"
+
+#: includes/classes/class-import-export.php:1062
+#: includes/classes/class-meta-boxes.php:770
+#: includes/classes/class-settings.php:988
+msgid "Expiration Date"
+msgstr "Verval Datum"
+
+#: includes/classes/class-import-export.php:1063
+#: includes/classes/class-meta-boxes.php:784
+#: includes/classes/class-settings.php:1001
+msgid "Expiration Time"
+msgstr "Verval Tijd"
+
+#: includes/classes/class-import-export.php:1065
+#: includes/classes/class-meta-boxes.php:552
 msgid "Notes"
 msgstr "Notities"
 
-#: includes/classes/class-meta-boxes.php:251
-msgid "All"
-msgstr "Alle"
+#: includes/classes/class-import-export.php:1066
+msgid "Autolink Keywords"
+msgstr "Autolink-sleutelwoorden"
 
-#: includes/classes/class-meta-boxes.php:263
-msgid "Auto-linking"
-msgstr "Auto-linken"
+#: includes/classes/class-import-export.php:1095
+msgid "Import / Export Shortlinks"
+msgstr "Importeren / Exporteren Shortlinks"
 
-#: includes/classes/class-meta-boxes.php:268
+#: includes/classes/class-import-export.php:1099
+#: includes/classes/class-import-export.php:1137
+#: includes/classes/class-import-export.php:1206
+msgid "Import"
+msgstr "Importeren"
+
+#: includes/classes/class-import-export.php:1102
+#: includes/classes/class-import-export.php:1111
+msgid "Export"
+msgstr "Exporteren"
+
+#: includes/classes/class-import-export.php:1114
+msgid ""
+"Download all your shortlinks as a CSV file. The export includes labels, "
+"target URLs, slugs, redirect settings, global-setting modes, and more. "
+"Password protection settings are not exported."
+msgstr ""
+"Download al je shortlinks als een CSV-bestand. De export omvat labels, "
+"doel-URL's, slugs, omleidingsinstellingen, globale instellingen en meer. "
+"Wachtwoordbeveiligingsinstellingen worden niet geëxporteerd."
+
+#: includes/classes/class-import-export.php:1119
+#. translators: %d: number of shortlinks
+#, php-format
+msgid "%d shortlink(s) will be exported."
+msgstr "%d shortlink(s) worden geëxporteerd."
+
+#: includes/classes/class-import-export.php:1127
+msgid "Export CSV"
+msgstr "Exporteer CSV"
+
+#: includes/classes/class-import-export.php:1140
+msgid ""
+"Upload a CSV file to bulk-create shortlinks. The CSV must contain at "
+"minimum a \"target_url\" column. Password protection settings are "
+"intentionally not imported."
+msgstr ""
+"Upload een CSV-bestand om shortlinks in bulk te maken. De CSV moet minimaal "
+"een kolom \"target_url\" bevatten. Wachtwoordbeveiligingsinstellingen "
+"worden opzettelijk niet geïmporteerd."
+
+#: includes/classes/class-import-export.php:1142
+msgid "Supported columns:"
+msgstr "Ondersteunde kolommen:"
+
+#: includes/classes/class-import-export.php:1167
+msgid "Change File"
+msgstr "Bestand wijzigen"
+
+#: includes/classes/class-import-export.php:1184
+msgid "Import Preview"
+msgstr "Importvoorbeeld"
+
+#: includes/classes/class-meta-boxes.php:387
+#: includes/classes/class-meta-boxes.php:453
+#: includes/classes/class-meta-boxes.php:478
+#. translators: %s: current global setting value
+msgid "Use global settings"
+msgstr "Gebruik globale instellingen"
+
+#: includes/classes/class-meta-boxes.php:388
+msgid "Enabled"
+msgstr "Ingeschakeld"
+
+#: includes/classes/class-meta-boxes.php:389
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+
+#: includes/classes/class-meta-boxes.php:449
+msgid "ON"
+msgstr "AAN"
+
+#: includes/classes/class-meta-boxes.php:449
+msgid "OFF"
+msgstr "UIT"
+
+#: includes/classes/class-meta-boxes.php:481
+#: includes/classes/class-settings.php:922
+msgid "307 (Temporary)"
+msgstr "307 (Tijdelijk)"
+
+#: includes/classes/class-meta-boxes.php:482
+#: includes/classes/class-settings.php:923
+msgid "302 (Temporary)"
+msgstr "302 (Tijdelijk)"
+
+#: includes/classes/class-meta-boxes.php:483
+#: includes/classes/class-settings.php:924, fuzzy
+msgid "301 (Permanent)"
+msgstr "301 (Permanent)"
+
+#: includes/classes/class-meta-boxes.php:496
+#: tinypress.php:399
+#: tinypress.php:492
+msgid "PublishPress Shortlinks"
+msgstr "PublishPress verkortingen"
+
+#: includes/classes/class-meta-boxes.php:509
+#: includes/classes/class-settings.php:718
+msgid "General"
+msgstr "Algemeen"
+
+#: includes/classes/class-meta-boxes.php:514, fuzzy
+msgid "Label *"
+msgstr "Label *"
+
+#: includes/classes/class-meta-boxes.php:516
+msgid "For admin purpose only."
+msgstr "Alleen voor administratieve doeleinden."
+
+#: includes/classes/class-meta-boxes.php:525
+msgid "Target URL *"
+msgstr "Doel-URL *"
+
+#: includes/classes/class-meta-boxes.php:535
+msgid "Short String *"
+msgstr "Korte tekenreeks *"
+
+#: includes/classes/class-meta-boxes.php:536
+msgid "Short string of this URL."
+msgstr "Korte string van deze URL."
+
+#: includes/classes/class-meta-boxes.php:543
+msgid "Enable or disable the shortlink."
+msgstr "Schakel de shortlink in of uit."
+
+#: includes/classes/class-meta-boxes.php:544
+msgid "Enable"
+msgstr "Inschakelen"
+
+#: includes/classes/class-meta-boxes.php:545
+msgid "Disable"
+msgstr "Uitschakelen"
+
+#: includes/classes/class-meta-boxes.php:576
+#: includes/classes/class-meta-boxes.php:582
+msgid "Shortlink Label"
+msgstr "Shortlink-label"
+
+#: includes/classes/class-meta-boxes.php:577
+#: includes/classes/class-meta-boxes.php:583
+msgid "Custom Text"
+msgstr "Aangepaste tekst"
+
+#: includes/classes/class-meta-boxes.php:581
+msgid "Post Title"
+msgstr "Berichttitel"
+
+#: includes/classes/class-meta-boxes.php:593
 msgid "Keywords"
 msgstr "Trefwoorden"
 
-#: includes/classes/class-meta-boxes.php:269
+#: includes/classes/class-meta-boxes.php:594
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
@@ -537,51 +1126,57 @@ msgstr ""
 "Voeg trefwoorden toe, gescheiden door komma's of op aparte regels. Elk "
 "trefwoord zal linken naar deze shortlink."
 
-#: includes/classes/class-meta-boxes.php:274, fuzzy
-msgid "Post Types"
-msgstr "Post Types"
+#: includes/classes/class-meta-boxes.php:599
+msgid "Link Alt Text"
+msgstr "Link-alt-tekst"
 
-#: includes/classes/class-meta-boxes.php:275
-msgid "Where should these keywords be auto-linked?"
-msgstr "Waar moeten deze trefwoorden automatisch worden gelinkt?"
+#: includes/classes/class-meta-boxes.php:600
+msgid "Set the alt text for the linked keywords in the frontend of the site."
+msgstr ""
+"Stel de alt-tekst in voor de gelinkte zoekwoorden in de frontend van de "
+"site."
 
-#: includes/classes/class-meta-boxes.php:288
+#: includes/classes/class-meta-boxes.php:607
+msgid "Custom Alt Text"
+msgstr "Aangepaste alt-tekst"
+
+#: includes/classes/class-meta-boxes.php:608
+msgid ""
+"Enter custom alt text for the linked keywords. This is only used if "
+"\"Custom Text\" is selected above."
+msgstr ""
+"Voer aangepaste alt-tekst in voor de gekoppelde trefwoorden. Dit wordt "
+"alleen gebruikt als \"Aangepaste tekst\" hierboven is geselecteerd."
+
+#: includes/classes/class-meta-boxes.php:619
+msgid "Auto-linking"
+msgstr "Auto-linken"
+
+#: includes/classes/class-meta-boxes.php:628
+#: includes/classes/class-settings.php:914
 msgid "Redirection"
 msgstr "Redirectie"
 
-#: includes/classes/class-meta-boxes.php:293
+#: includes/classes/class-meta-boxes.php:633
+#: includes/classes/class-settings.php:919
 msgid "Redirection Method"
 msgstr "Redirectiemethode"
 
-#: includes/classes/class-meta-boxes.php:294
+#: includes/classes/class-meta-boxes.php:634
 msgid "Select redirection method"
 msgstr "Selecteer redirectiemethode"
 
-#: includes/classes/class-meta-boxes.php:295
+#: includes/classes/class-meta-boxes.php:635
 msgid "Select a method"
 msgstr "Selecteer een methode"
 
-#: includes/classes/class-meta-boxes.php:297
-msgid "307 (Temporary)"
-msgstr "307 (Tijdelijk)"
-
-#: includes/classes/class-meta-boxes.php:298
-msgid "302 (Temporary)"
-msgstr "302 (Tijdelijk)"
-
-#: includes/classes/class-meta-boxes.php:299, fuzzy
-msgid "301 (Permanent)"
-msgstr "301 (Permanent)"
-
-#: includes/classes/class-meta-boxes.php:306
-msgid "Sponsored"
-msgstr "Gesponsord"
-
-#: includes/classes/class-meta-boxes.php:307
+#: includes/classes/class-meta-boxes.php:645
 msgid "Mark links as sponsored content."
 msgstr "Markeer links als gesponsorde inhoud."
 
-#: includes/classes/class-meta-boxes.php:308
+#: includes/classes/class-meta-boxes.php:646
+#: includes/classes/class-meta-boxes.php:656
+#: includes/classes/class-settings.php:933
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -589,15 +1184,13 @@ msgstr ""
 "Voegt rel=\"gesponsord\" attribuut toe. Aanbevolen voor affiliate links en "
 "betaalde promoties."
 
-#: includes/classes/class-meta-boxes.php:313, fuzzy
-msgid "NoFollow"
-msgstr "NoFollow"
-
-#: includes/classes/class-meta-boxes.php:314
+#: includes/classes/class-meta-boxes.php:667
 msgid "Prevent search engines from following this link."
 msgstr "Voorkom dat zoekmachines deze link volgen."
 
-#: includes/classes/class-meta-boxes.php:315
+#: includes/classes/class-meta-boxes.php:668
+#: includes/classes/class-meta-boxes.php:678
+#: includes/classes/class-settings.php:941
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -605,15 +1198,13 @@ msgstr ""
 "Voegt rel=\"nofollow\" attribuut toe. Aanbevolen voor externe links en "
 "onbetrouwbare bronnen."
 
-#: includes/classes/class-meta-boxes.php:321
-msgid "Parameter Forwarding"
-msgstr "Parameter Doorsturen"
-
-#: includes/classes/class-meta-boxes.php:322
+#: includes/classes/class-meta-boxes.php:689
 msgid "Pass URL parameters to the target link."
 msgstr "Stuur URL-parameters door naar de doellink."
 
-#: includes/classes/class-meta-boxes.php:323
+#: includes/classes/class-meta-boxes.php:690
+#: includes/classes/class-meta-boxes.php:700
+#: includes/classes/class-settings.php:949
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -621,136 +1212,203 @@ msgstr ""
 "Alle parameters die aan de korte URL zijn toegevoegd (bijv., "
 "?utm_source=email) worden doorgestuurd naar de doellink."
 
-#: includes/classes/class-meta-boxes.php:333
+#: includes/classes/class-meta-boxes.php:713
+#: includes/classes/class-settings.php:960
 msgid "Password Protection"
 msgstr "Wachtwoordbeveiliging"
 
-#: includes/classes/class-meta-boxes.php:334
+#: includes/classes/class-meta-boxes.php:716
 msgid "Secure your shortlink."
 msgstr "Beveilig je korte link."
 
-#: includes/classes/class-meta-boxes.php:335
+#: includes/classes/class-meta-boxes.php:717
+#: includes/classes/class-meta-boxes.php:727
 msgid "Users must enter the password to redirect to the target link."
 msgstr ""
 "Gebruikers moeten het wachtwoord invoeren om naar de doellink te worden "
 "doorgestuurd."
 
-#: includes/classes/class-meta-boxes.php:340
+#: includes/classes/class-meta-boxes.php:735
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: includes/classes/class-meta-boxes.php:341
+#: includes/classes/class-meta-boxes.php:736
 msgid "Share this with users."
 msgstr "Deel dit met gebruikers."
 
-#: includes/classes/class-meta-boxes.php:342
+#: includes/classes/class-meta-boxes.php:737
 msgid "Passwords are case sensitive."
 msgstr "Wachtwoorden zijn hoofdlettergevoelig."
 
-#: includes/classes/class-meta-boxes.php:343, fuzzy
+#: includes/classes/class-meta-boxes.php:738
+#: includes/classes/class-settings.php:971, fuzzy
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:352
+#: includes/classes/class-meta-boxes.php:748
+#: includes/classes/class-settings.php:980
 msgid "Enable Expiration"
 msgstr "Schakel Verloop In"
 
-#: includes/classes/class-meta-boxes.php:353
-msgid "Expire automatically."
-msgstr "Automatisch verlopen."
+#: includes/classes/class-meta-boxes.php:751
+msgid "Set an expiration date and time for shortlinks."
+msgstr "Stel een vervaldatum en -tijd in voor shortlinks."
 
-#: includes/classes/class-meta-boxes.php:354
-msgid "Users will not able to redirect to the target URL once expire."
+#: includes/classes/class-meta-boxes.php:752
+#: includes/classes/class-meta-boxes.php:762
+#: includes/classes/class-settings.php:982
+msgid ""
+"After the expiration date and time pass, visitors will no longer be able to "
+"access the shortlink."
 msgstr ""
-"Gebruikers kunnen niet meer naar de doellink worden doorgestuurd zodra deze "
-"is verlopen."
+"Nadat de vervaldatum en -tijd zijn verstreken, kunnen bezoekers de "
+"shortlink niet meer openen."
 
-#: includes/classes/class-meta-boxes.php:359
-msgid "Expiration Date"
-msgstr "Verval Datum"
+#: includes/classes/class-meta-boxes.php:771
+msgid "Select the date when this shortlink should stop working."
+msgstr "Selecteer de datum waarop deze shortlink moet stoppen met werken."
 
-#: includes/classes/class-meta-boxes.php:360
-msgid "Choose the date this link should expire."
-msgstr "Kies de datum waarop deze link moet verlopen."
+#: includes/classes/class-meta-boxes.php:785
+msgid "Select the time when the shortlink should expire."
+msgstr "Selecteer de tijd waarop de shortlink moet vervallen."
 
-#: includes/classes/class-meta-boxes.php:372
-msgid "Expiration Time"
-msgstr "Verval Tijd"
+#: includes/classes/class-meta-boxes.php:786
+#: includes/classes/class-settings.php:1003
+msgid ""
+"Must be at least 1 minute in the future. Combined with the date above to "
+"set the exact expiration moment."
+msgstr ""
+"Moet minstens 1 minuut in de toekomst zijn. Gecombineerd met de "
+"bovenstaande datum om het exacte vervalmoment in te stellen."
 
-#: includes/classes/class-meta-boxes.php:373
-msgid "Choose the time this link should expire."
-msgstr "Kies de tijd waarop deze link moet verlopen."
-
-#: includes/classes/class-meta-boxes.php:374
-msgid "Must be at least 1 minute in the future."
-msgstr "Moet minstens 1 minuut in de toekomst zijn."
-
-#: includes/classes/class-meta-boxes.php:391
+#: includes/classes/class-meta-boxes.php:804
+#: includes/classes/class-settings.php:955
 msgid "Security"
 msgstr "Beveiliging"
 
-#: includes/classes/class-meta-boxes.php:402, fuzzy
+#: includes/classes/class-meta-boxes.php:823
+msgid "QR Code"
+msgstr "QR-code"
+
+#: includes/classes/class-meta-boxes.php:833
+#: tinypress.php:396, fuzzy
 msgid "Analytics"
 msgstr "Analytics"
 
-#: includes/classes/class-redirection.php:599
+#: includes/classes/class-redirection.php:1044
 msgid "Post not found."
 msgstr "Bericht niet gevonden."
 
-#: includes/classes/class-redirection.php:648
+#: includes/classes/class-redirection.php:1188
+#: includes/functions.php:361
+#: includes/functions.php:362
+#: includes/functions.php:363
+#: includes/functions.php:369
+#: tinypress.php:303
+#: tinypress.php:304
+#: tinypress.php:305
+msgid "This post is in {status} status. It is not visible to the public."
+msgstr "Dit bericht is in {status} status. Het is niet zichtbaar voor het publiek."
+
+#: includes/classes/class-redirection.php:1236
 msgid "This link has expired"
 msgstr "Deze link is verlopen"
 
-#: includes/classes/class-redirection.php:652
+#: includes/classes/class-redirection.php:1240
 msgid "You will be redirected shortly."
 msgstr "U wordt binnenkort omgeleid."
 
-#: includes/classes/class-redirection.php:656
+#: includes/classes/class-redirection.php:1244
 msgid "Click here if you are not redirected"
 msgstr "Klik hier als u niet wordt omgeleid"
 
-#: includes/classes/class-redirection.php:673
+#: includes/classes/class-redirection.php:1261
 msgid "Link Expired"
 msgstr "Link Verlopen"
 
-#: includes/classes/class-redirection.php:804
+#: includes/classes/class-redirection.php:1423
 msgid "This link is not active."
 msgstr "Deze link is niet actief."
 
-#: includes/classes/class-redirection.php:849
+#: includes/classes/class-redirection.php:1460
 msgid "This link is expired."
 msgstr "Deze link is verlopen."
 
-#: includes/classes/class-redirection.php:868
+#: includes/classes/class-redirection.php:1479
 msgid "Incorrect password. Please try again."
 msgstr "Onjuist wachtwoord. Probeer het opnieuw."
 
-#: includes/classes/class-redirection.php:883
-#: includes/classes/class-redirection.php:888
+#: includes/classes/class-redirection.php:1494
+#: includes/classes/class-redirection.php:1499
 msgid "Password Protected Link"
 msgstr "Wachtwoord Beschermde Link"
 
-#: includes/classes/class-redirection.php:894
+#: includes/classes/class-redirection.php:1505
 msgid "Enter password to continue:"
 msgstr "Voer wachtwoord in om door te gaan:"
 
-#: includes/classes/class-redirection.php:896
+#: includes/classes/class-redirection.php:1507
 msgid "Submit"
 msgstr "Verzenden"
 
-#: includes/classes/class-redirection.php:1014
+#: includes/classes/class-redirection.php:1631
 msgid "This link is not containing the right prefix slug."
 msgstr "Deze link bevat niet de juiste prefix slug."
+
+#: includes/classes/class-redirection.php:1672
+msgid "Too many invalid shortlink requests. Please try again later."
+msgstr "Te veel ongeldige shortlinkverzoeken. Probeer het later opnieuw."
+
+#: includes/classes/class-redirection.php:1673
+msgid "Too Many Requests"
+msgstr "Te veel verzoeken"
 
 #: includes/classes/class-revision.php:439
 msgid "Invalid revision ID."
 msgstr "Ongeldig revisie ID."
 
-#: includes/classes/class-settings.php:187
+#: includes/classes/class-settings.php:362
+#: includes/classes/class-settings.php:703
+#: includes/classes/class-settings.php:711
+#: includes/functions.php:270
+#: includes/functions.php:304
+msgid "Draft"
+msgstr "Concept"
+
+#: includes/classes/class-settings.php:363
+#: includes/classes/class-settings.php:704
+#: includes/classes/class-settings.php:712
+#: includes/functions.php:271
+#: includes/functions.php:305
+msgid "Pending Review"
+msgstr "In Afwachting van Beoordeling"
+
+#: includes/classes/class-settings.php:364
+#: includes/classes/class-settings.php:705
+#: includes/classes/class-settings.php:713
+#: includes/functions.php:272
+#: includes/functions.php:306
+msgid "Private"
+msgstr "Privé"
+
+#: includes/classes/class-settings.php:369
+msgid ""
+"Customize the notice shown for each enabled non-published status. Available "
+"placeholders: {status}, {date}, {title}."
+msgstr ""
+"Pas de melding aan die wordt weergegeven voor elke ingeschakelde "
+"niet-gepubliceerde status. Beschikbare placeholders: {status}, {date}, "
+"{title}."
+
+#: includes/classes/class-settings.php:405
+msgid "All"
+msgstr "Alle"
+
+#: includes/classes/class-settings.php:444
 msgid "Settings"
 msgstr "Instellingen"
 
-#: includes/classes/class-settings.php:271
+#: includes/classes/class-settings.php:528
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -758,11 +1416,11 @@ msgstr ""
 "Selecteer welke post statussen toegankelijk zijn bij het bezoeken van een "
 "PublishPress shortlink."
 
-#: includes/classes/class-settings.php:287
+#: includes/classes/class-settings.php:544
 msgid "PublishPress Statuses Plugin Detected:"
 msgstr "PublishPress Statuses Plugin Gedetecteerd:"
 
-#: includes/classes/class-settings.php:288
+#: includes/classes/class-settings.php:545
 msgid ""
 "To use core PublishPress statuses with Shortlinks, Please enable the "
 "Shortlinks post type in PublishPress Statuses workflow settings."
@@ -770,11 +1428,11 @@ msgstr ""
 "Om de kern PublishPress statussen met Shortlinks te gebruiken, activeert u "
 "het post type Shortlinks in de PublishPress Statuses workflow-instellingen."
 
-#: includes/classes/class-settings.php:307
+#: includes/classes/class-settings.php:564
 msgid "Elementor Detected:"
 msgstr "Elementor Gedetecteerd:"
 
-#: includes/classes/class-settings.php:308
+#: includes/classes/class-settings.php:565
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
@@ -782,11 +1440,11 @@ msgstr ""
 "Shortlink prefix is vereist voor juiste weergave van Elementor revisies. "
 "Het is raadzaam om het ingeschakeld te houden."
 
-#: includes/classes/class-settings.php:340
+#: includes/classes/class-settings.php:597
 msgid "TinyPress Shortlinks Notice:"
 msgstr "TinyPress Shortlinks Kennisgeving:"
 
-#: includes/classes/class-settings.php:341
+#: includes/classes/class-settings.php:598
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
@@ -794,105 +1452,113 @@ msgstr ""
 "Elementor is actief. Shortlink prefix is automatisch uitgeschakeld, het is "
 "vereist voor optimale compatibiliteit met Elementor revisies."
 
-#: includes/classes/class-settings.php:404
-msgid "Options"
-msgstr "Opties"
+#: includes/classes/class-settings.php:702
+#: includes/functions.php:269
+#: includes/functions.php:303
+msgid "Published"
+msgstr "Gepubliceerd"
 
-#: includes/classes/class-settings.php:409, fuzzy
+#: includes/classes/class-settings.php:726, fuzzy
 msgid "Shortlink Prefix"
 msgstr "Shortlink Prefix"
 
-#: includes/classes/class-settings.php:410
+#: includes/classes/class-settings.php:727
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Voeg een prefix toe tussen uw domeinnaam en shortlink."
 
-#: includes/classes/class-settings.php:417, fuzzy
+#: includes/classes/class-settings.php:734, fuzzy
 msgid "Prefix Slug"
 msgstr "Prefix Slug"
 
-#: includes/classes/class-settings.php:418
+#: includes/classes/class-settings.php:735
 msgid "Custom prefix slug."
 msgstr "Aangepaste prefix slug."
 
-#: includes/classes/class-settings.php:419
+#: includes/classes/class-settings.php:736
 msgid "This text will be added between your domain name and shortlink."
 msgstr "Deze tekst wordt toegevoegd tussen uw domeinnaam en shortlink."
 
-#: includes/classes/class-settings.php:420
-#: includes/classes/class-settings.php:421
+#: includes/classes/class-settings.php:737
+#: includes/classes/class-settings.php:738
 msgid "go"
 msgstr "ga"
 
-#: includes/classes/class-settings.php:427
+#: includes/classes/class-settings.php:744
 msgid "Keyboard Shortcut"
 msgstr "Toetsenbord snelkoppeling"
 
-#: includes/classes/class-settings.php:428
+#: includes/classes/class-settings.php:745
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr "Maak shortlinks vanaf elke locatie binnen uw WordPress dashboard."
 
-#: includes/classes/class-settings.php:429
-#: includes/classes/class-settings.php:430
+#: includes/classes/class-settings.php:746
+#: includes/classes/class-settings.php:747
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl of Cmd + /"
 
-#: includes/classes/class-settings.php:439
+#: includes/classes/class-settings.php:756
 msgid "Remove from Admin Bar"
 msgstr "Verwijderen uit Admin Bar"
 
-#: includes/classes/class-settings.php:440
+#: includes/classes/class-settings.php:757
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "Verberg de \"Verkorten\" knop uit de WordPress admin bar."
 
-#: includes/classes/class-settings.php:446
+#: includes/classes/class-settings.php:763
 msgid "Role Management"
 msgstr "Rolbeheer"
 
-#: includes/classes/class-settings.php:451
-msgid "Who Can View Shortlinks"
-msgstr "Wie kan Shortlinks bekijken"
+#: includes/classes/class-settings.php:768
+msgid "Who Can View The All Shortlinks Screen"
+msgstr "Wie kan het scherm met alle shortlinks bekijken"
 
-#: includes/classes/class-settings.php:452
-msgid "Only selected user roles can view links."
-msgstr "Alleen geselecteerde gebruikersrollen kunnen links bekijken."
+#: includes/classes/class-settings.php:769
+msgid "Only selected user roles can view the complete list of Shortlinks."
+msgstr ""
+"Alleen geselecteerde gebruikersrollen kunnen de volledige lijst met "
+"shortlinks bekijken."
 
-#: includes/classes/class-settings.php:460
+#: includes/classes/class-settings.php:777
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Wie kan Shortlinks maken/bewerken"
 
-#: includes/classes/class-settings.php:461
+#: includes/classes/class-settings.php:778
 msgid "Only selected user roles can create or edit links."
 msgstr "Alleen geselecteerde gebruikersrollen kunnen links maken of bewerken."
 
-#: includes/classes/class-settings.php:470
-msgid "Who Can See Analytics"
-msgstr "Wie kan Analytics zien"
+#: includes/classes/class-settings.php:787
+msgid "Who Can See Logs"
+msgstr "Wie kan logboeken bekijken"
 
-#: includes/classes/class-settings.php:471
-msgid "Only selected user roles can see analytics."
-msgstr "Alleen geselecteerde gebruikersrollen kunnen analytics zien."
+#: includes/classes/class-settings.php:788
+msgid "Only selected user roles can see the Analytics tab and the Logs screen."
+msgstr ""
+"Alleen geselecteerde gebruikersrollen kunnen het tabblad Analytics en het "
+"logboekscherm zien."
 
-#: includes/classes/class-settings.php:480
+#: includes/classes/class-settings.php:797
 msgid "Who Can Control Settings"
 msgstr "Wie kan Instellingen beheren"
 
-#: includes/classes/class-settings.php:481
-msgid "Only selected user roles can control settings."
-msgstr "Alleen geselecteerde gebruikersrollen kunnen instellingen beheren."
+#: includes/classes/class-settings.php:798
+msgid "Only selected user roles can access the Settings screen."
+msgstr ""
+"Alleen geselecteerde gebruikersrollen kunnen toegang krijgen tot het "
+"instellingen scherm."
 
-#: includes/classes/class-settings.php:490
+#: includes/classes/class-settings.php:807
 msgid "Auto-Linking"
 msgstr "Auto-Linken"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:812
 msgid "Enable Auto-Linking"
 msgstr "Schakel Auto-Linken in"
 
-#: includes/classes/class-settings.php:496
+#: includes/classes/class-settings.php:813
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr "Converteer automatisch trefwoorden naar shortlinks in postinhoud."
 
-#: includes/classes/class-settings.php:497
+#: includes/classes/class-settings.php:814
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
@@ -900,39 +1566,47 @@ msgstr ""
 "Wanneer ingeschakeld, zullen trefwoorden die zijn geconfigureerd in de "
 "shortlink-instellingen automatisch worden gelinkt in uw inhoud."
 
-#: includes/classes/class-settings.php:503, fuzzy
+#: includes/classes/class-settings.php:820, fuzzy
+msgid "Post Types"
+msgstr "Post Types"
+
+#: includes/classes/class-settings.php:821
+msgid "Where should auto-linking be applied?"
+msgstr "Waar moet automatische koppeling worden toegepast?"
+
+#: includes/classes/class-settings.php:830, fuzzy
 msgid "Open Auto-Links In"
 msgstr "Open Auto-Links In"
 
-#: includes/classes/class-settings.php:504
+#: includes/classes/class-settings.php:831
 msgid "Choose how auto-linked keywords should open."
 msgstr "Kies hoe automatisch gelinkte trefwoorden moeten openen."
 
-#: includes/classes/class-settings.php:506
+#: includes/classes/class-settings.php:833
 msgid "Same tab"
 msgstr "Zelfde tabblad"
 
-#: includes/classes/class-settings.php:507
+#: includes/classes/class-settings.php:834
 msgid "New tab"
 msgstr "Nieuw tabblad"
 
-#: includes/classes/class-settings.php:515
+#: includes/classes/class-settings.php:842
 msgid "Auto-Link Color"
 msgstr "Auto-Link Kleur"
 
-#: includes/classes/class-settings.php:516
+#: includes/classes/class-settings.php:843
 msgid "Choose the color for auto-linked keywords."
 msgstr "Kies de kleur voor automatisch gekoppelde trefwoorden."
 
-#: includes/classes/class-settings.php:523
+#: includes/classes/class-settings.php:854
 msgid "Auto-List Links"
 msgstr "Auto-lijst Links"
 
-#: includes/classes/class-settings.php:528, fuzzy
+#: includes/classes/class-settings.php:859, fuzzy
 msgid "Auto-List Shortlinks"
 msgstr "Auto-List Shortlinks"
 
-#: includes/classes/class-settings.php:529
+#: includes/classes/class-settings.php:860
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
@@ -940,17 +1614,17 @@ msgstr ""
 "Wanneer ingeschakeld, zullen shortlinks verschijnen in de \"Alle Links\" "
 "tabel op basis van het gedrag dat je hieronder configureert."
 
-#: includes/classes/class-settings.php:535
+#: includes/classes/class-settings.php:866
 msgid "Configure Post Types"
 msgstr "Configureer Post Types"
 
-#: includes/classes/class-settings.php:536
+#: includes/classes/class-settings.php:867
 msgid "Set when links should be auto-listed for each post type"
 msgstr ""
 "Stel in wanneer links automatisch moeten worden weergegeven voor elk post "
 "type"
 
-#: includes/classes/class-settings.php:537
+#: includes/classes/class-settings.php:868
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -959,65 +1633,106 @@ msgstr ""
 "verschijnen in de \"Alle Links\" tabel. Wijzigingen worden automatisch "
 "opgeslagen."
 
-#: includes/classes/class-settings.php:544
+#: includes/classes/class-settings.php:875
 #: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "Post Status Zichtbaarheid"
 
-#: includes/classes/class-settings.php:549
+#: includes/classes/class-settings.php:880
 msgid "Allowed Post Statuses"
 msgstr "Toegestane Post Statussen"
 
-#: includes/classes/class-settings.php:550
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Kies welke post statussen toegankelijk zijn via shortlinks"
+#: includes/classes/class-settings.php:889
+msgid "Unpublished Content Notice"
+msgstr "Melding voor ongepubliceerde inhoud"
 
-#: includes/classes/class-settings.php:554
-msgid "Published"
-msgstr "Gepubliceerd"
-
-#: includes/classes/class-settings.php:555
-msgid "Draft"
-msgstr "Concept"
-
-#: includes/classes/class-settings.php:556
-msgid "Pending Review"
-msgstr "In Afwachting van Beoordeling"
-
-#: includes/classes/class-settings.php:557
-msgid "Private"
-msgstr "Privé"
-
-#: includes/classes/class-settings.php:565
-msgid "Expired Links"
-msgstr "Verlopen Links"
-
-#: includes/classes/class-settings.php:570
-msgid "Default Expired Redirect URL"
-msgstr "Standaard Verlopen Redirect URL"
-
-#: includes/classes/class-settings.php:571
-msgid "Where should expired shortlinks redirect?"
-msgstr "Waar moeten verlopen shortlinks naartoe redirecten?"
-
-#: includes/classes/class-settings.php:572
+#: includes/classes/class-settings.php:890
 msgid ""
-"When a shortlink expires, visitors will be redirected to this URL instead "
-"of seeing an error. Leave empty to show the default expiration message."
+"Show a frontend notice when an internal shortlink displays a post that is "
+"not published."
 msgstr ""
-"Wanneer een shortlink verloopt, worden bezoekers naar deze URL doorgestuurd "
-"in plaats van een foutmelding te zien. Laat leeg om de standaard "
-"vervalmelding te tonen."
+"Toon een frontend-melding wanneer een interne shortlink een bericht toont "
+"dat niet gepubliceerd is."
 
-#: includes/classes/class-settings.php:584
+#: includes/classes/class-settings.php:896
+msgid "Notice Post Statuses"
+msgstr "Melding Berichtstatussen"
+
+#: includes/classes/class-settings.php:897
+msgid ""
+"This notice only applies to internal shortlinks that render post content "
+"directly. External shortlinks are not affected."
+msgstr ""
+"Deze melding is alleen van toepassing op interne shortlinks die "
+"berichtinhoud direct weergeven. Externe shortlinks worden niet beïnvloed."
+
+#: includes/classes/class-settings.php:906
+msgid "Notice Messages"
+msgstr "Melding Berichten"
+
+#: includes/classes/class-settings.php:920
+msgid "Default redirection method for shortlinks"
+msgstr "Standaard omleidingsmethode voor shortlinks"
+
+#: includes/classes/class-settings.php:932
+msgid "Mark links as sponsored content"
+msgstr "Markeer links als gesponsorde inhoud"
+
+#: includes/classes/class-settings.php:940
+msgid "Prevent search engines from following links"
+msgstr "Voorkom dat zoekmachines links volgen"
+
+#: includes/classes/class-settings.php:948
+msgid "Pass URL parameters to target links"
+msgstr "Geef URL-parameters door aan doel-links"
+
+#: includes/classes/class-settings.php:961
+msgid "Secure your shortlinks"
+msgstr "Beveilig uw shortlinks"
+
+#: includes/classes/class-settings.php:962
+msgid "Users must enter a password to redirect to the target link."
+msgstr ""
+"Gebruikers moeten een wachtwoord invoeren om door te verwijzen naar de "
+"doel-link."
+
+#: includes/classes/class-settings.php:968
+msgid "Default Password"
+msgstr "Standaard Wachtwoord"
+
+#: includes/classes/class-settings.php:969
+msgid "Default password for protected links"
+msgstr "Standaard wachtwoord voor beveiligde links"
+
+#: includes/classes/class-settings.php:970
+msgid ""
+"This password will be used for links that have password protection enabled "
+"via global settings. Passwords are case sensitive."
+msgstr ""
+"Dit wachtwoord wordt gebruikt voor links die via globale instellingen zijn "
+"beveiligd met een wachtwoord. Wachtwoorden zijn hoofdlettergevoelig."
+
+#: includes/classes/class-settings.php:981
+msgid "Set an expiration date and time for shortlinks"
+msgstr "Stel een vervaldatum en -tijd in voor shortlinks"
+
+#: includes/classes/class-settings.php:989
+msgid "Select the date when this shortlink should stop working"
+msgstr "Selecteer de datum waarop deze shortlink moet stoppen met werken"
+
+#: includes/classes/class-settings.php:1002
+msgid "Select the time when the shortlink should expire"
+msgstr "Selecteer de tijd waarop de shortlink moet vervallen"
+
+#: includes/classes/class-settings.php:1021
 msgid "Revisions"
 msgstr "Herzieningen"
 
-#: includes/classes/class-settings.php:589
+#: includes/classes/class-settings.php:1026
 msgid "Revision Link Visibility"
 msgstr "Herziening Link Zichtbaarheid"
 
-#: includes/classes/class-settings.php:590
+#: includes/classes/class-settings.php:1027
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -1025,31 +1740,31 @@ msgstr ""
 "Wanneer ingeschakeld, zullen herziening shortlinks verschijnen in de \"Alle "
 "Shortlinks\" tabel op basis van het gedrag dat je hieronder configureert."
 
-#: includes/classes/class-settings.php:592
+#: includes/classes/class-settings.php:1029
 msgid "When Revision is Created"
 msgstr "Wanneer Revisie is Aangemaakt"
 
-#: includes/classes/class-settings.php:594
+#: includes/classes/class-settings.php:1031
 msgid "When Revision is Created or Link is First Used"
 msgstr "Wanneer Revisie is Aangemaakt of Link voor het Eerst is Gebruikt"
 
-#: includes/classes/class-settings.php:602
+#: includes/classes/class-settings.php:1039
 msgid "Show Shortlink in Revision Table"
 msgstr "Toon Shortlink in Revisietabel"
 
-#: includes/classes/class-settings.php:603
+#: includes/classes/class-settings.php:1040
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr "Toon shortlink kolom bij het bekijken van revisies in PublishPress Revisies."
 
-#: includes/classes/class-settings.php:609
+#: includes/classes/class-settings.php:1046
 msgid "Revision Visibility for Visitors"
 msgstr "Revisie Zichtbaarheid voor Bezoekers"
 
-#: includes/classes/class-settings.php:610
+#: includes/classes/class-settings.php:1047
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr "Sta uitgelogde bezoekers toe om revisie-inhoud te bekijken via shortlinks."
 
-#: includes/classes/class-settings.php:611
+#: includes/classes/class-settings.php:1048
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1061,17 +1776,17 @@ msgstr ""
 "revisie-inhoud direct weergeven voor uitgelogde bezoekers in plaats van "
 "door te verwijzen naar de voorbeeld-URL."
 
-#: includes/classes/class-settings.php:632, fuzzy
+#: includes/classes/class-settings.php:1071, fuzzy
 msgid "Dummy"
 msgstr "Dummy"
 
-#: includes/classes/class-settings.php:676
+#: includes/classes/class-settings.php:1115
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Er zijn nog geen post types geconfigureerd. Klik op \"Voeg Post Type Toe\" "
 "om te beginnen."
 
-#: includes/classes/class-settings.php:708
+#: includes/classes/class-settings.php:1147
 msgid "Add Post Type"
 msgstr "Voeg Post Type Toe"
 
@@ -1097,79 +1812,82 @@ msgstr "Titel"
 msgid "Details"
 msgstr "Details"
 
-#: includes/classes/class-table-logs.php:199
+#: includes/classes/class-table-logs.php:200
 msgid "Are you sure you want to delete this log entry?"
 msgstr "Weet je zeker dat je deze logboekvermelding wilt verwijderen?"
 
-#: includes/classes/class-table-logs.php:250, fuzzy
+#: includes/classes/class-table-logs.php:260
+msgid "View Analytics"
+msgstr "Bekijk Analytics"
+
+#: includes/classes/class-table-logs.php:278, fuzzy
 msgid "Tablet"
 msgstr "Tablet"
 
-#: includes/classes/class-table-logs.php:252
+#: includes/classes/class-table-logs.php:280
 msgid "Mobile"
 msgstr "Mobiel"
 
-#: includes/classes/class-table-logs.php:254, fuzzy
+#: includes/classes/class-table-logs.php:282, fuzzy
 msgid "Desktop"
 msgstr "Desktop"
 
-#: includes/classes/class-table-logs.php:308
+#: includes/classes/class-table-logs.php:336
 #. translators: 1: user display name, 2: location name, 3: visit date/time
 #, php-format
 msgid "%1$s from %2$s visited at %3$s"
 msgstr "%1$s van %2$s bezocht op %3$s"
 
-#: includes/classes/class-table-logs.php:311
+#: includes/classes/class-table-logs.php:339
 #. translators: 1: user display name, 2: visit date/time
 #, php-format
 msgid "%1$s visited at %2$s"
 msgstr "%1$s bezocht op %2$s"
 
-#: includes/classes/class-table-logs.php:315
+#: includes/classes/class-table-logs.php:343
 #. translators: 1: location name, 2: visit date/time
 #, php-format
 msgid "From %1$s, visited at %2$s"
 msgstr "Van %1$s, bezocht op %2$s"
 
-#: includes/classes/class-table-logs.php:318
+#: includes/classes/class-table-logs.php:346
 #. translators: %s: visit date/time
 #, php-format
 msgid "Visited at %s"
 msgstr "Bezocht op %s"
 
-#: includes/classes/class-table-logs.php:330
+#: includes/classes/class-table-logs.php:358
 #. translators: %s: device type and browser name, e.g. "Mobile Chrome"
 #, fuzzy, php-format
 msgid "via %s"
 msgstr "via %s"
 
-#: includes/functions.php:169
+#: includes/functions.php:225
 msgid "Edit shortlink settings"
 msgstr "Bewerk kortlinkinstellingen"
 
-#: includes/functions.php:216
+#: includes/functions.php:364
+#: tinypress.php:306
+msgid ""
+"This post is in {status} status. It will become visible to the public on "
+"{date}."
+msgstr ""
+"Deze post is in {status} status. Het wordt zichtbaar voor het publiek op "
+"{date}."
+
+#: includes/functions.php:389
 msgid "Target url not found."
 msgstr "Doel-URL niet gevonden."
 
-#: includes/functions.php:223
+#: includes/functions.php:396
 msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr ""
 "Ongeldig URL-schema. Alleen http, https, ftp, ftps en mailto zijn "
 "toegestaan."
 
-#: includes/functions.php:229
-msgid "Invalid URL."
-msgstr "Ongeldige URL."
-
-#: includes/functions.php:233
+#: includes/functions.php:428
 msgid "Tiny slug could not created."
 msgstr "Kleine slug kon niet worden aangemaakt."
-
-#: includes/functions.php:252
-#. translators: %s: link ID number
-#, fuzzy, php-format
-msgid "Link - %s"
-msgstr "Link - %s"
 
 #: templates/admin-modal-new-link.php:12
 msgid "Shortlink will appear here"
@@ -1183,32 +1901,28 @@ msgstr "Voer een lange URL in en maak een kortlink"
 msgid "Long URL"
 msgstr "Lange URL"
 
-#: templates/admin-modal-new-link.php:37
-msgid "Close"
-msgstr "Sluiten"
-
 #: templates/admin-modal-new-link.php:38
 msgid "Create Shortlink"
 msgstr "Maak kortlink"
 
-#: templates/admin/analytics.php:45
-#: templates/admin/analytics.php:64
+#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:68
 msgid "Reset Today's Analytics"
 msgstr "Reset de analytics van vandaag"
 
-#: templates/admin/analytics.php:46
+#: templates/admin/analytics.php:50
 msgid "Reset Week's Analytics"
 msgstr "Reset de analytics van deze week"
 
-#: templates/admin/analytics.php:47
+#: templates/admin/analytics.php:51
 msgid "Reset Month's Analytics"
 msgstr "Reset de analytics van deze maand"
 
-#: templates/admin/analytics.php:48
+#: templates/admin/analytics.php:52
 msgid "Reset Year's Analytics"
 msgstr "Reset de analytics van dit jaar"
 
-#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:53
 msgid ""
 "Are you sure you want to reset the analytics for this period? This action "
 "cannot be undone."
@@ -1216,19 +1930,19 @@ msgstr ""
 "Weet je zeker dat je de analytics voor deze periode wilt resetten? Deze "
 "actie kan niet ongedaan worden gemaakt."
 
-#: templates/admin/analytics.php:57
+#: templates/admin/analytics.php:61
 msgid "Today"
 msgstr "Vandaag"
 
-#: templates/admin/analytics.php:58
+#: templates/admin/analytics.php:62
 msgid "Last 7 Days"
 msgstr "Laatste 7 Dagen"
 
-#: templates/admin/analytics.php:59
+#: templates/admin/analytics.php:63
 msgid "Last 1 Month"
 msgstr "Laatste 1 Maand"
 
-#: templates/admin/analytics.php:60
+#: templates/admin/analytics.php:64
 msgid "Last 1 Year"
 msgstr "Laatste 1 Jaar"
 
@@ -1292,6 +2006,18 @@ msgstr "Bekijk Kennisdatabase"
 msgid "This plugin can be deleted."
 msgstr "Deze plugin kan worden verwijderd."
 
-#: tinypress.php:355
+#: tinypress.php:395
 msgid "Copied."
 msgstr "Gekopieerd."
+
+#: tinypress.php:397
+msgid ""
+"This setting is inherited from global settings. Choose another option to "
+"override it for this shortlink."
+msgstr ""
+"Deze instelling is geërfd van globale instellingen. Kies een andere optie "
+"om deze voor deze shortlink te overschrijven."
+
+#: tinypress.php:398
+msgid "Working..."
+msgstr "Bezig..."

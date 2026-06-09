@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -27,7 +28,7 @@ if (! class_exists('WPDK_Settings_Field_date')) {
             'dateFormat' => 'mm/dd/yy',
             );
 
-            $settings = ( ! empty($this->field['settings']) ) ? $this->field['settings'] : array();
+            $settings = (! empty($this->field['settings'])) ? $this->field['settings'] : array();
             $settings = wp_parse_args($settings, $default_settings);
 
             echo $this->field_before();

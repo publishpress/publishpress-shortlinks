@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 /**
@@ -133,7 +134,7 @@ if (! class_exists('WPDK_Settings_Options')) {
 
             foreach ($sections as $key => $section) {
                 if (! empty($section['parent'])) {
-                    $section['priority']             = ( isset($section['priority']) ) ? $section['priority'] : $count;
+                    $section['priority']             = (isset($section['priority'])) ? $section['priority'] : $count;
                     $parents[ $section['parent'] ][] = $section;
                     unset($sections[ $key ]);
                 }
@@ -141,7 +142,7 @@ if (! class_exists('WPDK_Settings_Options')) {
             }
 
             foreach ($sections as $key => $section) {
-                $section['priority'] = ( isset($section['priority']) ) ? $section['priority'] : $count;
+                $section['priority'] = (isset($section['priority'])) ? $section['priority'] : $count;
                 if (! empty($section['id']) && ! empty($parents[ $section['id'] ])) {
                     $section['subs'] = wp_list_sort($parents[ $section['id'] ], array( 'priority' => 'ASC' ), 'ASC', true);
                 }
@@ -196,7 +197,7 @@ if (! class_exists('WPDK_Settings_Options')) {
                 return;
             }
 
-            if (is_network_admin() && ( $this->args['database'] !== 'network' || $this->args['show_in_network'] !== true )) {
+            if (is_network_admin() && ($this->args['database'] !== 'network' || $this->args['show_in_network'] !== true)) {
                 return;
             }
 
@@ -204,12 +205,12 @@ if (! class_exists('WPDK_Settings_Options')) {
                 global $submenu;
 
                 $menu_slug = $this->args['menu_slug'];
-                $menu_icon = ( ! empty($this->args['admin_bar_menu_icon']) ) ? '<span class="wpdk_settings-ab-icon ab-icon ' . esc_attr($this->args['admin_bar_menu_icon']) . '"></span>' : '';
+                $menu_icon = (! empty($this->args['admin_bar_menu_icon'])) ? '<span class="wpdk_settings-ab-icon ab-icon ' . esc_attr($this->args['admin_bar_menu_icon']) . '"></span>' : '';
 
                 $wp_admin_bar->add_node(array(
                     'id'    => $menu_slug,
                     'title' => $menu_icon . esc_attr($this->args['menu_title']),
-                    'href'  => esc_url(( is_network_admin() ) ? network_admin_url('admin.php?page=' . $menu_slug) : admin_url('admin.php?page=' . $menu_slug)),
+                    'href'  => esc_url((is_network_admin()) ? network_admin_url('admin.php?page=' . $menu_slug) : admin_url('admin.php?page=' . $menu_slug)),
                 ));
 
                 if (! empty($submenu[ $menu_slug ])) {
@@ -218,7 +219,7 @@ if (! class_exists('WPDK_Settings_Options')) {
                             'parent' => $menu_slug,
                             'id'     => $menu_slug . '-' . $menu_key,
                             'title'  => $menu_value[0],
-                            'href'   => esc_url(( is_network_admin() ) ? network_admin_url('admin.php?page=' . $menu_value[2]) : admin_url('admin.php?page=' . $menu_value[2])),
+                            'href'   => esc_url((is_network_admin()) ? network_admin_url('admin.php?page=' . $menu_value[2]) : admin_url('admin.php?page=' . $menu_value[2])),
                         ));
                     }
                 }
@@ -227,6 +228,10 @@ if (! class_exists('WPDK_Settings_Options')) {
 
         public function ajax_save()
         {
+
+            if (! current_user_can($this->args['menu_capability'])) {
+                wp_send_json_error(array( 'error' => esc_html__('You do not have permission to save these settings.') ));
+            }
 
             $result = $this->set_options(true);
 
@@ -241,8 +246,8 @@ if (! class_exists('WPDK_Settings_Options')) {
         public function get_default($field)
         {
 
-            $default = ( isset($field['default']) ) ? $field['default'] : '';
-            $default = ( isset($this->args['defaults'][ $field['id'] ]) ) ? $this->args['defaults'][ $field['id'] ] : $default;
+            $default = (isset($field['default'])) ? $field['default'] : '';
+            $default = (isset($this->args['defaults'][ $field['id'] ])) ? $this->args['defaults'][ $field['id'] ] : $default;
 
             return $default;
         }
@@ -255,7 +260,7 @@ if (! class_exists('WPDK_Settings_Options')) {
 
             foreach ($this->pre_fields as $field) {
                 if (! empty($field['id'])) {
-                    $this->options[ $field['id'] ] = ( isset($this->options[ $field['id'] ]) ) ? $this->options[ $field['id'] ] : $this->get_default($field);
+                    $this->options[ $field['id'] ] = (isset($this->options[ $field['id'] ])) ? $this->options[ $field['id'] ] : $this->get_default($field);
                 }
             }
 
@@ -268,26 +273,30 @@ if (! class_exists('WPDK_Settings_Options')) {
         public function set_options($ajax = false)
         {
 
+            if (! empty($_POST) && ! current_user_can($this->args['menu_capability'])) {
+                return false;
+            }
+
             // XSS ok.
             // No worries, This "POST" requests is sanitizing in the below foreach. see #L337 - #L341
-            $response = ( $ajax && ! empty($_POST['data']) ) ? json_decode(wp_unslash(trim($_POST['data'])), true) : map_deep($_POST, 'sanitize_text_field');
+            $response = ($ajax && ! empty($_POST['data'])) ? json_decode(wp_unslash(trim($_POST['data'])), true) : map_deep($_POST, 'sanitize_text_field');
 
             // Set variables.
             $data      = array();
             $noncekey  = 'pb_settings_options_nonce' . $this->unique;
-            $nonce     = ( ! empty($response[ $noncekey ]) ) ? sanitize_text_field($response[ $noncekey ]) : '';
-            $options   = ( ! empty($response[ $this->unique ]) ) ? $response[ $this->unique ] : array();
-            $transient = ( ! empty($response['pb_settings_transient']) ) ? array_map('sanitize_text_field', $response['pb_settings_transient']) : array();
+            $nonce     = (! empty($response[ $noncekey ])) ? sanitize_text_field($response[ $noncekey ]) : '';
+            $options   = (! empty($response[ $this->unique ])) ? $response[ $this->unique ] : array();
+            $transient = (! empty($response['pb_settings_transient'])) ? array_map('sanitize_text_field', $response['pb_settings_transient']) : array();
 
             if (wp_verify_nonce($nonce, 'pb_settings_options_nonce')) {
                 $importing  = false;
-                $section_id = ( ! empty($transient['section']) ) ? $transient['section'] : '';
+                $section_id = (! empty($transient['section'])) ? $transient['section'] : '';
 
                 if (! $ajax && ! empty($response['pb_settings_import_data'])) {
                     // XSS ok.
                     // No worries, This "POST" requests is sanitizing in the below foreach. see #L337 - #L341
                     $import_data  = json_decode(wp_unslash(trim($response['pb_settings_import_data'])), true);
-                    $options      = ( is_array($import_data) && ! empty($import_data) ) ? $import_data : array();
+                    $options      = (is_array($import_data) && ! empty($import_data)) ? $import_data : array();
                     $importing    = true;
                     $this->notice = esc_html__('Settings successfully imported.');
                 }
@@ -317,7 +326,7 @@ if (! class_exists('WPDK_Settings_Options')) {
                     foreach ($this->pre_fields as $field) {
                         if (! empty($field['id'])) {
                             $field_id    = $field['id'];
-                            $field_value = isset($options[ $field_id ]) ? $options[ $field_id ] : ( isset($this->options[ $field_id ]) ? $this->options[ $field_id ] : '' );
+                            $field_value = isset($options[ $field_id ]) ? $options[ $field_id ] : (isset($this->options[ $field_id ]) ? $this->options[ $field_id ] : '');
 
                             // Ajax and Importing doing wp_unslash already.
                             if (! $ajax && ! $importing) {
@@ -342,7 +351,7 @@ if (! class_exists('WPDK_Settings_Options')) {
                                 $has_validated = call_user_func($field['validate'], $field_value);
 
                                 if (! empty($has_validated)) {
-                                    $data[ $field_id ]         = ( isset($this->options[ $field_id ]) ) ? $this->options[ $field_id ] : '';
+                                    $data[ $field_id ]         = (isset($this->options[ $field_id ])) ? $this->options[ $field_id ] : '';
                                     $this->errors[ $field_id ] = $has_validated;
                                 }
                             }
@@ -497,15 +506,19 @@ if (! class_exists('WPDK_Settings_Options')) {
         public function add_options_html()
         {
 
-            $has_nav       = ( count($this->pre_tabs) > 1 ) ? true : false;
-            $show_all      = ( ! $has_nav ) ? ' wpdk_settings-show-all' : '';
-            $ajax_class    = ( $this->args['ajax_save'] ) ? ' wpdk_settings-save-ajax' : '';
-            $sticky_class  = ( $this->args['sticky_header'] ) ? ' wpdk_settings-sticky-header' : '';
-            $wrapper_class = ( $this->args['framework_class'] ) ? ' ' . $this->args['framework_class'] : '';
-            $theme         = ( $this->args['theme'] ) ? ' wpdk_settings-theme-' . $this->args['theme'] : '';
-            $class         = ( $this->args['class'] ) ? ' ' . $this->args['class'] : '';
-            $nav_type      = ( $this->args['nav'] === 'inline' ) ? 'inline' : 'normal';
-            $form_action   = ( $this->args['form_action'] ) ? $this->args['form_action'] : '';
+            if (! current_user_can($this->args['menu_capability'])) {
+                wp_die(esc_html__('You do not have permission to access these settings.'));
+            }
+
+            $has_nav       = (count($this->pre_tabs) > 1) ? true : false;
+            $show_all      = (! $has_nav) ? ' wpdk_settings-show-all' : '';
+            $ajax_class    = ($this->args['ajax_save']) ? ' wpdk_settings-save-ajax' : '';
+            $sticky_class  = ($this->args['sticky_header']) ? ' wpdk_settings-sticky-header' : '';
+            $wrapper_class = ($this->args['framework_class']) ? ' ' . $this->args['framework_class'] : '';
+            $theme         = ($this->args['theme']) ? ' wpdk_settings-theme-' . $this->args['theme'] : '';
+            $class         = ($this->args['class']) ? ' ' . $this->args['class'] : '';
+            $nav_type      = ($this->args['nav'] === 'inline') ? 'inline' : 'normal';
+            $form_action   = ($this->args['form_action']) ? $this->args['form_action'] : '';
 
             do_action('pb_settings_options_before');
 
@@ -529,23 +542,23 @@ if (! class_exists('WPDK_Settings_Options')) {
             echo '<div class="wpdk_settings-header-left">';
             echo '<h1>' .
                  $this->args['framework_title'] .
-                 ( empty($product_version) ? '' : sprintf('<a href="%s" target="_blank" class="wpdk_settings-version-free">Version %s</a>', $product_url, $product_version) ) .
-                 ( empty($product_version_pro) ? '' : sprintf('<a href="%s" target="_blank" class="wpdk_settings-version-pro">Pro %s</a>', $product_url, $product_version_pro) ) .
+                 (empty($product_version) ? '' : sprintf('<a href="%s" target="_blank" class="wpdk_settings-version-free">Version %s</a>', $product_url, $product_version)) .
+                 (empty($product_version_pro) ? '' : sprintf('<a href="%s" target="_blank" class="wpdk_settings-version-pro">Pro %s</a>', $product_url, $product_version_pro)) .
                  '</h1>';
             echo '</div>';
 
             echo '<div class="wpdk_settings-header-right">';
 
-            $notice_class = ( ! empty($this->notice) ) ? 'wpdk_settings-form-show' : '';
-            $notice_text  = ( ! empty($this->notice) ) ? $this->notice : '';
+            $notice_class = (! empty($this->notice)) ? 'wpdk_settings-form-show' : '';
+            $notice_text  = (! empty($this->notice)) ? $this->notice : '';
 
             echo '<div class="wpdk_settings-form-result wpdk_settings-form-success ' . esc_attr($notice_class) . '">' . esc_html($notice_text) . '</div>';
 
-            echo ( $this->args['show_form_warning'] ) ? '<div class="wpdk_settings-form-result wpdk_settings-form-warning">' . esc_html__('Save your changes!') . '</div>' : '';
+            echo ($this->args['show_form_warning']) ? '<div class="wpdk_settings-form-result wpdk_settings-form-warning">' . esc_html__('Save your changes!') . '</div>' : '';
 
-            echo ( $has_nav && $this->args['show_all_options'] ) ? '<div class="wpdk_settings-expand-all" title="' . esc_html__('show all settings') . '"><i class="fas fa-outdent"></i></div>' : '';
+            echo ($has_nav && $this->args['show_all_options']) ? '<div class="wpdk_settings-expand-all" title="' . esc_html__('show all settings') . '"><i class="fas fa-outdent"></i></div>' : '';
 
-            echo ( $this->args['show_search'] ) ? '<div class="wpdk_settings-search"><input type="text" name="wpdk_settings-search" placeholder="' . esc_html__('Search...') . '" autocomplete="off" /></div>' : '';
+            echo ($this->args['show_search']) ? '<div class="wpdk_settings-search"><input type="text" name="wpdk_settings-search" placeholder="' . esc_html__('Search...') . '" autocomplete="off" /></div>' : '';
 
             echo '<div class="wpdk_settings-buttons">';
 
@@ -575,7 +588,7 @@ if (! class_exists('WPDK_Settings_Options')) {
                 foreach ($this->pre_tabs as $tab) {
                     $tab_id    = sanitize_title($tab['title']);
                     $tab_error = $this->error_check($tab);
-                    $tab_icon  = ( ! empty($tab['icon']) ) ? '<i class="wpdk_settings-tab-icon ' . esc_attr($tab['icon']) . '"></i>' : '';
+                    $tab_icon  = (! empty($tab['icon'])) ? '<i class="wpdk_settings-tab-icon ' . esc_attr($tab['icon']) . '"></i>' : '';
 
                     if (! empty($tab['subs'])) {
                         echo '<li class="wpdk_settings-tab-item">';
@@ -587,7 +600,7 @@ if (! class_exists('WPDK_Settings_Options')) {
                         foreach ($tab['subs'] as $sub) {
                             $sub_id    = $tab_id . '/' . sanitize_title($sub['title']);
                             $sub_error = $this->error_check($sub);
-                            $sub_icon  = ( ! empty($sub['icon']) ) ? '<i class="wpdk_settings-tab-icon ' . esc_attr($sub['icon']) . '"></i>' : '';
+                            $sub_icon  = (! empty($sub['icon'])) ? '<i class="wpdk_settings-tab-icon ' . esc_attr($sub['icon']) . '"></i>' : '';
 
                             echo '<li><a href="#tab=' . esc_attr($sub_id) . '" data-tab-id="' . esc_attr($sub_id) . '">' . wp_kses_post($sub_icon . $sub['title'] . $sub_error) . '</a></li>';
                         }
@@ -610,16 +623,16 @@ if (! class_exists('WPDK_Settings_Options')) {
             echo '<div class="wpdk_settings-sections">';
 
             foreach ($this->pre_sections as $section) {
-                $section_onload = ( ! $has_nav ) ? ' wpdk_settings-onload' : '';
-                $section_class  = ( ! empty($section['class']) ) ? ' ' . $section['class'] : '';
-                $section_icon   = ( ! empty($section['icon']) ) ? '<i class="wpdk_settings-section-icon ' . esc_attr($section['icon']) . '"></i>' : '';
-                $section_title  = ( ! empty($section['title']) ) ? $section['title'] : '';
-                $section_parent = ( ! empty($section['ptitle']) ) ? sanitize_title($section['ptitle']) . '/' : '';
-                $section_slug   = ( ! empty($section['title']) ) ? sanitize_title($section_title) : '';
+                $section_onload = (! $has_nav) ? ' wpdk_settings-onload' : '';
+                $section_class  = (! empty($section['class'])) ? ' ' . $section['class'] : '';
+                $section_icon   = (! empty($section['icon'])) ? '<i class="wpdk_settings-section-icon ' . esc_attr($section['icon']) . '"></i>' : '';
+                $section_title  = (! empty($section['title'])) ? $section['title'] : '';
+                $section_parent = (! empty($section['ptitle'])) ? sanitize_title($section['ptitle']) . '/' : '';
+                $section_slug   = (! empty($section['title'])) ? sanitize_title($section_title) : '';
 
                 echo '<div class="wpdk_settings-section hidden' . esc_attr($section_onload . $section_class) . '" data-section-id="' . esc_attr($section_parent . $section_slug) . '">';
-                echo ( $has_nav ) ? '<div class="wpdk_settings-section-title"><h3>' . wp_kses_data($section_icon . $section_title) . '</h3></div>' : '';
-                echo ( ! empty($section['description']) ) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . wp_kses_data($section['description']) . '</div>' : '';
+                echo ($has_nav) ? '<div class="wpdk_settings-section-title"><h3>' . wp_kses_data($section_icon . $section_title) . '</h3></div>' : '';
+                echo (! empty($section['description'])) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . wp_kses_data($section['description']) . '</div>' : '';
 
                 if (! empty($section['fields'])) {
                     foreach ($section['fields'] as $field) {
@@ -634,7 +647,7 @@ if (! class_exists('WPDK_Settings_Options')) {
                         }
 
                         $field_default = isset($field['default']) ? $field['default'] : '';
-                        $value = ( ! empty($field['id']) && isset($this->options[ $field['id'] ]) ) ? $this->options[ $field['id'] ] : $field_default;
+                        $value = (! empty($field['id']) && isset($this->options[ $field['id'] ])) ? $this->options[ $field['id'] ] : $field_default;
 
                         WPDK_Settings::field($field, $value, $this->unique, 'options');
                     }
@@ -653,7 +666,7 @@ if (! class_exists('WPDK_Settings_Options')) {
 
             echo '</div>';
 
-            echo ( $has_nav && $nav_type === 'normal' ) ? '<div class="wpdk_settings-nav-background"></div>' : '';
+            echo ($has_nav && $nav_type === 'normal') ? '<div class="shortlinks-settings-layout wpdk_settings-nav-background"></div>' : '';
 
             echo '</div>';
 
@@ -666,7 +679,7 @@ if (! class_exists('WPDK_Settings_Options')) {
                     echo '</div>';
                 }
 
-                echo ( ! empty($this->args['footer_text']) ) ? '<div class="wpdk_settings-copyright">' . $this->args['footer_text'] . '</div>' : '';
+                echo (! empty($this->args['footer_text'])) ? '<div class="wpdk_settings-copyright">' . $this->args['footer_text'] . '</div>' : '';
 
                 echo '<div class="clear"></div>';
                 echo '</div>';
@@ -678,7 +691,7 @@ if (! class_exists('WPDK_Settings_Options')) {
 
             echo '<div class="clear"></div>';
 
-            echo ( ! empty($this->args['footer_after']) ) ? $this->args['footer_after'] : '';
+            echo (! empty($this->args['footer_after'])) ? $this->args['footer_after'] : '';
 
             echo '</div>';
 

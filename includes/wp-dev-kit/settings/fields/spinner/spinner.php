@@ -1,8 +1,9 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -49,16 +50,16 @@ if (! class_exists('WPDK_Settings_Field_spinner')) {
         {
 
             $output    = '';
-            $elements  = ( is_array($this->field['output']) ) ? $this->field['output'] : array_filter((array) $this->field['output']);
-            $important = ( ! empty($this->field['output_important']) ) ? '!important' : '';
-            $mode      = ( ! empty($this->field['output_mode']) ) ? $this->field['output_mode'] : 'width';
-            $unit      = ( ! empty($this->field['unit']) ) ? $this->field['unit'] : 'px';
+            $elements  = (is_array($this->field['output'])) ? $this->field['output'] : array_filter((array) $this->field['output']);
+            $important = (! empty($this->field['output_important'])) ? '!important' : '';
+            $mode      = (! empty($this->field['output_mode'])) ? $this->field['output_mode'] : 'width';
+            $unit      = (! empty($this->field['unit'])) ? $this->field['unit'] : 'px';
 
             if (! empty($elements) && isset($this->value) && $this->value !== '') {
                 foreach ($elements as $key_property => $element) {
                     if (is_numeric($key_property)) {
                         if ($mode) {
-                              $output = implode(',', $elements) . '{' . $mode . ':' . $this->value . $unit . $important . ';}';
+                            $output = implode(',', $elements) . '{' . $mode . ':' . $this->value . $unit . $important . ';}';
                         }
                         break;
                     } else {

@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -42,7 +42,7 @@ if (! function_exists('pb_settings_array_search')) {
 if (! function_exists('pb_settings_timeout')) {
     function pb_settings_timeout($timenow, $starttime, $timeout = 30)
     {
-        return ( ( $timenow - $starttime ) < $timeout ) ? true : false;
+        return (($timenow - $starttime) < $timeout) ? true : false;
     }
 }
 

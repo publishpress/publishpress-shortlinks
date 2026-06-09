@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
@@ -37,7 +38,7 @@ if (! class_exists('WPDK_Settings_Field_wp_editor')) {
                 'autocomplete' => 'off',
             );
 
-            $editor_height = ( ! empty($args['height']) ) ? ' style="height:' . esc_attr($args['height']) . ';"' : '';
+            $editor_height = (! empty($args['height'])) ? ' style="height:' . esc_attr($args['height']) . ';"' : '';
 
             $editor_settings = array(
                 'tinymce'       => $args['tinymce'],
@@ -48,11 +49,11 @@ if (! class_exists('WPDK_Settings_Field_wp_editor')) {
 
             echo $this->field_before();
 
-            echo ( pb_settings_wp_editor_api() ) ? '<div class="wpdk_settings-wp-editor" data-editor-settings="' . esc_attr(json_encode($editor_settings)) . '">' : '';
+            echo (pb_settings_wp_editor_api()) ? '<div class="wpdk_settings-wp-editor" data-editor-settings="' . esc_attr(json_encode($editor_settings)) . '">' : '';
 
             echo '<textarea name="' . esc_attr($this->field_name()) . '"' . $this->field_attributes($attributes) . $editor_height . '>' . $this->value . '</textarea>';
 
-            echo ( pb_settings_wp_editor_api() ) ? '</div>' : '';
+            echo (pb_settings_wp_editor_api()) ? '</div>' : '';
 
             echo $this->field_after();
         }

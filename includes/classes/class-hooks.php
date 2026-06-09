@@ -13,12 +13,20 @@ defined('ABSPATH') || exit;
 if (! class_exists('TINYPRESS_Hooks')) {
     /**
      * Class TINYPRESS_Hooks
-     * 
+     *
      * Note: This class uses WordPress naming conventions instead of strict PSR-1/PSR-2 standards.
      */
     // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps, PSR2.Classes.PropertyDeclaration.Underscore
     class TINYPRESS_Hooks
     {
+        private const CAP_VIEW      = 'tinypress_view_shortlinks';
+        private const CAP_MENU      = 'tinypress_access_shortlinks_menu';
+        private const CAP_CREATE    = 'tinypress_create_shortlinks';
+        private const CAP_EDIT      = 'tinypress_edit_shortlinks';
+        private const CAP_DELETE    = 'tinypress_delete_shortlinks';
+        private const CAP_ANALYTICS = 'tinypress_view_shortlink_analytics';
+        private const CAP_SETTINGS  = 'tinypress_manage_shortlink_settings';
+
         protected static $_instance = null;
 
         private static $_filtering_caps = false;
@@ -60,7 +68,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
             if (empty($nonce) || ! wp_verify_nonce($nonce, 'tinypress_popup_create_url')) {
                 wp_send_json_error(array( 'message' => esc_html__('Security check failed.', 'tinypress') ));
             }
-        
+
             if (! self::current_user_can_create()) {
                 wp_send_json_error(array( 'message' => esc_html__('You do not have permission to create shortlinks.', 'tinypress') ));
             }
@@ -72,8 +80,14 @@ if (! class_exists('TINYPRESS_Hooks')) {
                 wp_send_json_error(array( 'message' => esc_html__('Invalid or empty URL', 'tinypress') ));
             }
 
+            $validated_long_url = function_exists('tinypress_validate_target_url') ? tinypress_validate_target_url($long_url) : esc_url_raw($long_url);
+
+            if (is_wp_error($validated_long_url)) {
+                wp_send_json_error(array( 'message' => $validated_long_url->get_error_message() ));
+            }
+
             $url_args = array(
-                'target_url' => $long_url,
+                'target_url' => $validated_long_url,
                 'tiny_slug'  => $tiny_slug,
             );
             $tiny_url = tinypress_create_shorten_url($url_args);
@@ -85,7 +99,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
             wp_send_json_success(
                 array(
                     'tiny_url' => $tiny_url,
-                    'long_url' => $long_url,
+                    'long_url' => $validated_long_url,
                     'message'  => esc_html__('Shortlink created successfully.', 'tinypress')
                 )
             );
@@ -98,7 +112,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
                 wp_send_json_error(esc_html__('Invalid nonce verification.', 'tinypress'));
             }
 
-            if (! current_user_can('edit_posts')) {
+            if (! current_user_can(self::CAP_ANALYTICS)) {
                 wp_send_json_error(esc_html__('You do not have permission to reset analytics.', 'tinypress'));
             }
 
@@ -107,6 +121,16 @@ if (! class_exists('TINYPRESS_Hooks')) {
 
             if (! $post_id) {
                 wp_send_json_error(esc_html__('Invalid post ID.', 'tinypress'));
+            }
+
+            $link = get_post($post_id);
+
+            if (! $link || 'tinypress_link' !== $link->post_type) {
+                wp_send_json_error(esc_html__('Invalid shortlink ID.', 'tinypress'));
+            }
+
+            if (! current_user_can('edit_post', $post_id)) {
+                wp_send_json_error(esc_html__('You do not have permission to reset analytics for this shortlink.', 'tinypress'));
             }
 
             global $wpdb;
@@ -155,14 +179,14 @@ if (! class_exists('TINYPRESS_Hooks')) {
 
         public function add_admin_bar_menu(WP_Admin_Bar $admin_bar)
         {
-
-            $hide_modal_opener = (bool) Utils::get_option('tinypress_hide_modal_opener');
-
             if (! self::current_user_can_view() || ! self::current_user_can_create()) {
                 return;
             }
 
-            if ($hide_modal_opener !== true) {
+            $settings = get_option('tinypress_settings', array());
+            $hide_modal_opener = is_array($settings) && ! empty($settings['tinypress_hide_modal_opener']);
+
+            if (! $hide_modal_opener) {
                 $admin_bar->add_menu(array(
                     'id'    => 'tinypress',
                     'title' => esc_html__('Shorten', 'tinypress'),
@@ -218,6 +242,9 @@ if (! class_exists('TINYPRESS_Hooks')) {
                 'public'              => false,
                 'publicly_queryable'  => false,
                 'exclude_from_search' => true,
+                'capability_type'     => 'tinypress_link',
+                'capabilities'        => self::get_post_type_capabilities(),
+                'map_meta_cap'        => false,
             ));
 
             $tinypress_wpdk->utils()->register_taxonomy(
@@ -233,16 +260,16 @@ if (! class_exists('TINYPRESS_Hooks')) {
                 )
             );
 
-// phpcs:disable Squiz.PHP.CommentedOutCode.Found -- Intentionally kept for potential future tags taxonomy feature
-//          $tinypress_wpdk->utils()->register_taxonomy( 'tinypress_link_tags', 'tinypress_link',
-//              apply_filters( 'TINYPRESS/Filters/link_tags_args',
-//                  array(
-//                      'singular' => esc_html__( 'Tag', 'tinypress' ),
-//                      'plural'   => esc_html__( 'Tags', 'tinypress' ),
-//                  )
-//              )
-//          );
-// phpcs:enable Squiz.PHP.CommentedOutCode.Found
+            // phpcs:disable Squiz.PHP.CommentedOutCode.Found -- Intentionally kept for potential future tags taxonomy feature
+            //          $tinypress_wpdk->utils()->register_taxonomy( 'tinypress_link_tags', 'tinypress_link',
+            //              apply_filters( 'TINYPRESS/Filters/link_tags_args',
+            //                  array(
+            //                      'singular' => esc_html__( 'Tag', 'tinypress' ),
+            //                      'plural'   => esc_html__( 'Tags', 'tinypress' ),
+            //                  )
+            //              )
+            //          );
+            // phpcs:enable Squiz.PHP.CommentedOutCode.Found
         }
 
 
@@ -255,7 +282,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
                 'edit.php?post_type=tinypress_link',
                 esc_html__('Logs', 'tinypress'),
                 esc_html__('Logs', 'tinypress'),
-                'edit_posts',
+                self::CAP_ANALYTICS,
                 'tinypress-logs',
                 array( $this, 'render_menu_logs' )
             );
@@ -299,11 +326,12 @@ if (! class_exists('TINYPRESS_Hooks')) {
         /**
          * Check if a user has access for a given role setting key.
          *
-         * @param string  $setting_key The option key for the role setting
-         * @param WP_User|null $user   User to check. Defaults to current user.
+         * @param string       $setting_key   The option key for the role setting
+         * @param WP_User|null $user          User to check. Defaults to current user.
+         * @param array        $default_roles Roles used when the setting has not been saved yet.
          * @return bool
          */
-        public static function user_has_role_access($setting_key, $user = null)
+        public static function user_has_role_access($setting_key, $user = null, $default_roles = array())
         {
             if (! $user) {
                 $user = wp_get_current_user();
@@ -313,16 +341,27 @@ if (! class_exists('TINYPRESS_Hooks')) {
                 return false;
             }
 
-            // Admins always have access
-            if (in_array('administrator', (array) $user->roles, true)) {
+            // Admins always have access.
+            if (self::user_is_administrator($user)) {
                 return true;
             }
 
-            $allowed_roles = Utils::get_option($setting_key, array());
+            $settings = get_option('tinypress_settings', array());
+            if (! is_array($settings)) {
+                $settings = array();
+            }
 
-            // If no setting saved yet (empty string or empty array from default), allow all
-            if (empty($allowed_roles) || ! is_array($allowed_roles)) {
-                return true;
+            $has_setting   = array_key_exists($setting_key, $settings);
+            $setting_value = $has_setting ? $settings[ $setting_key ] : $default_roles;
+            $allowed_roles = self::normalize_role_list($setting_value);
+
+            // Preserve the field defaults for older installs that saved disabled Pro fields as empty values.
+            if (empty($allowed_roles) && (! $has_setting || '' === $setting_value || null === $setting_value)) {
+                $allowed_roles = self::normalize_role_list($default_roles);
+            }
+
+            if (empty($allowed_roles)) {
+                return false;
             }
 
             $user_roles = (array) $user->roles;
@@ -337,7 +376,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
          */
         public static function current_user_can_view()
         {
-            return self::user_has_role_access('tinypress_role_view');
+            return self::user_has_role_access('tinypress_role_view', null, self::get_all_role_keys());
         }
 
         /**
@@ -347,15 +386,21 @@ if (! class_exists('TINYPRESS_Hooks')) {
          */
         public static function current_user_can_create()
         {
+            return self::user_can_create(wp_get_current_user());
+        }
+
+        /**
+         * Check if a user can create/edit shortlinks.
+         *
+         * @param WP_User|null $user User to check.
+         * @return bool
+         */
+        public static function user_can_create($user = null)
+        {
             if (! defined('PUBLISHPRESS_SHORTLINKS_PRO_VERSION')) {
-                $user = wp_get_current_user();
-                if (! $user || ! $user->exists()) {
-                    return false;
-                }
-                $allowed = array( 'administrator', 'editor', 'author' );
-                return ! empty(array_intersect((array) $user->roles, $allowed));
+                return self::user_has_primitive_cap($user, 'edit_posts');
             }
-            return self::user_has_role_access('tinypress_role_create');
+            return self::user_has_role_access('tinypress_role_create', $user, array( 'administrator', 'editor' ));
         }
 
         /**
@@ -365,15 +410,54 @@ if (! class_exists('TINYPRESS_Hooks')) {
          */
         public static function current_user_can_settings()
         {
+            return self::user_can_settings(wp_get_current_user());
+        }
+
+        /**
+         * Check if a user can control settings.
+         *
+         * @param WP_User|null $user User to check.
+         * @return bool
+         */
+        public static function user_can_settings($user = null)
+        {
             if (! defined('PUBLISHPRESS_SHORTLINKS_PRO_VERSION')) {
-                $user = wp_get_current_user();
-                if (! $user || ! $user->exists()) {
-                    return false;
-                }
-                $allowed = array( 'administrator', 'editor', 'author' );
-                return ! empty(array_intersect((array) $user->roles, $allowed));
+                return self::user_has_primitive_cap($user, 'manage_options');
             }
-            return self::user_has_role_access('tinypress_role_edit');
+            return self::user_has_role_access('tinypress_role_edit', $user, array( 'administrator', 'editor' ));
+        }
+
+        /**
+         * Check if a user can see analytics.
+         *
+         * @param WP_User|null $user User to check.
+         * @return bool
+         */
+        public static function user_can_analytics($user = null)
+        {
+            if (! defined('PUBLISHPRESS_SHORTLINKS_PRO_VERSION')) {
+                return self::user_has_primitive_cap($user, 'edit_posts');
+            }
+
+            return self::user_has_role_access('tinypress_role_analytics', $user, array( 'administrator', 'editor' ));
+        }
+
+        /**
+         * Check if a user can access any Shortlinks admin menu.
+         *
+         * @param WP_User|null $user User to check.
+         * @return bool
+         */
+        public static function user_can_access_menu($user = null)
+        {
+            if (! defined('PUBLISHPRESS_SHORTLINKS_PRO_VERSION')) {
+                return self::user_has_primitive_cap($user, 'edit_posts');
+            }
+
+            return self::user_has_role_access('tinypress_role_view', $user, self::get_all_role_keys())
+                || self::user_can_create($user)
+                || self::user_can_analytics($user)
+                || self::user_can_settings($user);
         }
 
         public function reorder_submenu()
@@ -405,12 +489,12 @@ if (! class_exists('TINYPRESS_Hooks')) {
 
         /**
          * Enforce "Who Can View Shortlinks" role restriction.
-         * Removes the Shortlinks menu for users whose role is not in the allowed list.
+         * Removes only the All Shortlinks listing item for users whose role is not in the allowed list.
          */
         public function enforce_role_view_access()
         {
             if (! self::current_user_can_view()) {
-                remove_menu_page('edit.php?post_type=tinypress_link');
+                remove_submenu_page('edit.php?post_type=tinypress_link', 'edit.php?post_type=tinypress_link');
             }
         }
 
@@ -437,9 +521,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
         }
 
         /**
-         * Filter user capabilities for tinypress_link post type based on view role setting.
-         * Since the post type uses capability_type 'post', we filter edit_posts etc.
-         * only on tinypress_link screens.
+         * Grant shortlinks-specific capabilities from the role management settings.
          *
          * @param array   $allcaps All capabilities of the user
          * @param array   $caps    Required capabilities
@@ -454,28 +536,46 @@ if (! class_exists('TINYPRESS_Hooks')) {
                 return $allcaps;
             }
 
-            if (! is_admin() || ! $user || ! $user->exists()) {
+            if (! $user || ! $user->exists()) {
                 return $allcaps;
             }
 
-            // Only act on tinypress_link screens
-            if (! $this->is_tinypress_screen()) {
-                return $allcaps;
-            }
+            $managed_caps = self::get_managed_capabilities();
+            $requested    = array_intersect((array) $caps, $managed_caps);
 
-            // Admins always have access
-            if (in_array('administrator', (array) $user->roles, true)) {
+            if (empty($requested)) {
                 return $allcaps;
             }
 
             self::$_filtering_caps = true;
 
-            // Check view access
-            if (! self::user_has_role_access('tinypress_role_view', $user)) {
-                $allcaps['edit_posts']    = false;
-                $allcaps['publish_posts'] = false;
-                $allcaps['delete_posts']  = false;
-                $allcaps['read']          = false;
+            foreach ($requested as $cap) {
+                switch ($cap) {
+                    case self::CAP_MENU:
+                        $allcaps[ $cap ] = self::user_can_access_menu($user);
+                        break;
+
+                    case self::CAP_VIEW:
+                        $allcaps[ $cap ] = self::user_has_role_access('tinypress_role_view', $user, self::get_all_role_keys());
+                        break;
+
+                    case self::CAP_ANALYTICS:
+                        $allcaps[ $cap ] = self::user_can_analytics($user);
+                        break;
+
+                    case self::CAP_SETTINGS:
+                        $allcaps[ $cap ] = self::user_can_settings($user);
+                        break;
+
+                    case self::CAP_CREATE:
+                    case self::CAP_EDIT:
+                        $allcaps[ $cap ] = self::user_can_create($user);
+                        break;
+
+                    case self::CAP_DELETE:
+                        $allcaps[ $cap ] = self::user_can_delete($user);
+                        break;
+                }
             }
 
             self::$_filtering_caps = false;
@@ -484,11 +584,11 @@ if (! class_exists('TINYPRESS_Hooks')) {
         }
 
         /**
-         * Block direct URL access to tinypress_link screens for restricted users.
+         * Block direct URL access to the All Shortlinks listing for restricted users.
          */
         public function block_direct_access()
         {
-            if (! $this->is_tinypress_screen()) {
+            if (! $this->is_tinypress_list_screen()) {
                 return;
             }
 
@@ -601,6 +701,164 @@ if (! class_exists('TINYPRESS_Hooks')) {
             // phpcs:enable WordPress.Security.NonceVerification.Recommended
 
             return false;
+        }
+
+        /**
+         * Check if the current admin page is the All Shortlinks listing.
+         *
+         * @return bool
+         */
+        private function is_tinypress_list_screen()
+        {
+            global $pagenow;
+
+            // phpcs:disable WordPress.Security.NonceVerification.Recommended -- No form submission; reading admin URL parameters for screen detection
+            $is_list_screen = 'edit.php' === $pagenow
+                && isset($_GET['post_type'])
+                && 'tinypress_link' === sanitize_text_field(wp_unslash($_GET['post_type']))
+                && empty($_GET['page']);
+            // phpcs:enable WordPress.Security.NonceVerification.Recommended
+
+            return $is_list_screen;
+        }
+
+        /**
+         * Capabilities used by the shortlinks post type and related menus.
+         *
+         * @return array
+         */
+        private static function get_post_type_capabilities()
+        {
+            return array(
+                'edit_post'              => self::CAP_EDIT,
+                'read_post'              => self::CAP_VIEW,
+                'delete_post'            => self::CAP_DELETE,
+                'edit_posts'             => self::CAP_MENU,
+                'edit_others_posts'      => self::CAP_EDIT,
+                'publish_posts'          => self::CAP_CREATE,
+                'read_private_posts'     => self::CAP_VIEW,
+                'delete_posts'           => self::CAP_DELETE,
+                'delete_private_posts'   => self::CAP_DELETE,
+                'delete_published_posts' => self::CAP_DELETE,
+                'delete_others_posts'    => self::CAP_DELETE,
+                'edit_private_posts'     => self::CAP_EDIT,
+                'edit_published_posts'   => self::CAP_EDIT,
+                'create_posts'           => self::CAP_CREATE,
+            );
+        }
+
+        /**
+         * Return all dynamic capabilities managed by role settings.
+         *
+         * @return array
+         */
+        private static function get_managed_capabilities()
+        {
+            return array(
+                self::CAP_VIEW,
+                self::CAP_MENU,
+                self::CAP_CREATE,
+                self::CAP_EDIT,
+                self::CAP_DELETE,
+                self::CAP_ANALYTICS,
+                self::CAP_SETTINGS,
+            );
+        }
+
+        /**
+         * Get the currently registered role keys.
+         *
+         * @return array
+         */
+        private static function get_all_role_keys()
+        {
+            if (! function_exists('wp_roles')) {
+                return array( 'administrator', 'editor', 'author', 'contributor', 'subscriber' );
+            }
+
+            return array_keys(wp_roles()->roles);
+        }
+
+        /**
+         * Normalize saved role settings from checkbox arrays, imports, or legacy shapes.
+         *
+         * @param mixed $roles Saved roles.
+         * @return array
+         */
+        private static function normalize_role_list($roles)
+        {
+            if (is_string($roles)) {
+                $roles = false !== strpos($roles, ',') ? explode(',', $roles) : array( $roles );
+            }
+
+            if (! is_array($roles)) {
+                return array();
+            }
+
+            $normalized = array();
+
+            foreach ($roles as $key => $value) {
+                if (is_string($value) && '' !== $value && '0' !== $value && 'false' !== strtolower($value)) {
+                    $normalized[] = sanitize_key($value);
+                }
+
+                if (! is_int($key) && ! empty($value) && '0' !== (string) $value && 'false' !== strtolower((string) $value)) {
+                    $normalized[] = sanitize_key($key);
+                }
+            }
+
+            return array_values(array_unique(array_filter($normalized)));
+        }
+
+        /**
+         * Check a native WordPress primitive capability without consulting Shortlinks role settings.
+         *
+         * @param WP_User|null $user User to check.
+         * @param string       $cap  Primitive capability name.
+         * @return bool
+         */
+        private static function user_has_primitive_cap($user, $cap)
+        {
+            if (! $user || ! $user->exists()) {
+                return false;
+            }
+
+            if (self::user_is_administrator($user)) {
+                return true;
+            }
+
+            return ! empty($user->allcaps[ $cap ]);
+        }
+
+        /**
+         * Check if a user can delete shortlinks.
+         *
+         * @param WP_User|null $user User to check.
+         * @return bool
+         */
+        private static function user_can_delete($user = null)
+        {
+            if (! defined('PUBLISHPRESS_SHORTLINKS_PRO_VERSION')) {
+                return self::user_has_primitive_cap($user, 'delete_posts');
+            }
+
+            return self::user_can_create($user);
+        }
+
+        /**
+         * Check if a user should always be allowed through Shortlinks role gates.
+         *
+         * @param WP_User $user User to check.
+         * @return bool
+         */
+        private static function user_is_administrator($user)
+        {
+            if (! $user || ! $user->exists()) {
+                return false;
+            }
+
+            return in_array('administrator', (array) $user->roles, true)
+                || (function_exists('is_super_admin') && is_super_admin($user->ID));
         }
 
         /**

@@ -2,7 +2,7 @@
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
-    die; 
+    die;
 } // Cannot access directly.
 /**
  *
@@ -31,7 +31,7 @@ if (! class_exists('WPDK_Settings_Field_icon')) {
             echo $this->field_before();
 
             $nonce  = wp_create_nonce('pb_settings_icon_nonce');
-            $hidden = ( empty($this->value) ) ? ' hidden' : '';
+            $hidden = (empty($this->value)) ? ' hidden' : '';
 
             echo '<div class="wpdk_settings-icon-select">';
             echo '<span class="wpdk_settings-icon-preview' . esc_attr($hidden) . '"><i class="' . esc_attr($this->value) . '"></i></span>';

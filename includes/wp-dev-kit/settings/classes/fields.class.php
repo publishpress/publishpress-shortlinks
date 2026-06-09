@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 /**
@@ -22,7 +23,7 @@ if (! class_exists('WPDK_Settings_Fields')) {
         public function __construct($field = array(), $value = '', $unique = '', $where = '', $parent = '')
         {
             $this->field  = $field;
-            $this->value  = apply_filters('WPDK_Settings/Filters/field_value', $value, ( $field['id'] ?? '' ), $field['type']);
+            $this->value  = apply_filters('WPDK_Settings/Filters/field_value', $value, ($field['id'] ?? ''), $field['type']);
             $this->unique = $unique;
             $this->where  = $where;
             $this->parent = $parent;
@@ -31,10 +32,10 @@ if (! class_exists('WPDK_Settings_Fields')) {
         public function field_name($nested_name = '')
         {
 
-            $field_id   = ( ! empty($this->field['id']) ) ? $this->field['id'] : '';
-            $unique_id  = ( ! empty($this->unique) ) ? $this->unique . '[' . $field_id . ']' : $field_id;
-            $field_name = ( ! empty($this->field['name']) ) ? $this->field['name'] : $unique_id;
-            $tag_prefix = ( ! empty($this->field['tag_prefix']) ) ? $this->field['tag_prefix'] : '';
+            $field_id   = (! empty($this->field['id'])) ? $this->field['id'] : '';
+            $unique_id  = (! empty($this->unique)) ? $this->unique . '[' . $field_id . ']' : $field_id;
+            $field_name = (! empty($this->field['name'])) ? $this->field['name'] : $unique_id;
+            $tag_prefix = (! empty($this->field['tag_prefix'])) ? $this->field['tag_prefix'] : '';
 
             if (! empty($tag_prefix)) {
                 $nested_name = str_replace('[', '[' . $tag_prefix, $nested_name);
@@ -46,8 +47,8 @@ if (! class_exists('WPDK_Settings_Fields')) {
         public function field_attributes($custom_atts = array())
         {
 
-            $field_id   = ( ! empty($this->field['id']) ) ? $this->field['id'] : '';
-            $attributes = ( ! empty($this->field['attributes']) ) ? $this->field['attributes'] : array();
+            $field_id   = (! empty($this->field['id'])) ? $this->field['id'] : '';
+            $attributes = (! empty($this->field['attributes'])) ? $this->field['attributes'] : array();
 
             if (! empty($field_id) && empty($attributes['data-depend-id'])) {
                 $attributes['data-depend-id'] = $field_id;
@@ -76,16 +77,16 @@ if (! class_exists('WPDK_Settings_Fields')) {
 
         public function field_before()
         {
-            return ( ! empty($this->field['before']) ) ? '<div class="wpdk_settings-before-text">' . $this->field['before'] . '</div>' : '';
+            return (! empty($this->field['before'])) ? '<div class="wpdk_settings-before-text">' . $this->field['before'] . '</div>' : '';
         }
 
         public function field_after()
         {
 
-            $output = ( ! empty($this->field['after']) ) ? '<div class="wpdk_settings-after-text">' . $this->field['after'] . '</div>' : '';
-            $output .= ( ! empty($this->field['desc']) ) ? '<div class="clear"></div><div class="wpdk_settings-desc-text">' . $this->field['desc'] . '</div>' : '';
-            $output .= ( ! empty($this->field['help']) ) ? '<div class="wpdk_settings-help"><span class="wpdk_settings-help-text">' . $this->field['help'] . '</span><i class="fas fa-question-circle"></i></div>' : '';
-            $output .= ( ! empty($this->field['_error']) ) ? '<div class="wpdk_settings-error-text">' . $this->field['_error'] . '</div>' : '';
+            $output = (! empty($this->field['after'])) ? '<div class="wpdk_settings-after-text">' . $this->field['after'] . '</div>' : '';
+            $output .= (! empty($this->field['desc'])) ? '<div class="clear"></div><div class="wpdk_settings-desc-text">' . $this->field['desc'] . '</div>' : '';
+            $output .= (! empty($this->field['help'])) ? '<div class="wpdk_settings-help"><span class="wpdk_settings-help-text">' . $this->field['help'] . '</span><i class="fas fa-question-circle"></i></div>' : '';
+            $output .= (! empty($this->field['_error'])) ? '<div class="wpdk_settings-error-text">' . $this->field['_error'] . '</div>' : '';
 
             return $output;
         }

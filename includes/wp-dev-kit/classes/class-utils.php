@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 /**
@@ -25,7 +26,7 @@ class Utils
     /**
      * Notifications constructor.
      */
-    function __construct(Client $client)
+    public function __construct(Client $client)
     {
 
         $this->client      = $client;
@@ -57,7 +58,7 @@ class Utils
      * @param $obj_type
      * @param array $args
      */
-    function register_taxonomy($tax_name, $obj_type, $args = array())
+    public function register_taxonomy($tax_name, $obj_type, $args = array())
     {
 
         if (taxonomy_exists($tax_name)) {
@@ -194,7 +195,7 @@ class Utils
         }
 
         if (isset($args[ $key ]) && is_bool($default)) {
-            $value = ! ( 0 == $args[ $key ] || '' == $args[ $key ] );
+            $value = ! (0 == $args[ $key ] || '' == $args[ $key ]);
         }
 
         return $value;

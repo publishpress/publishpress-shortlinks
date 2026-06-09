@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:ignoreFile -- Third-party library (wp-dev-kit); not maintained by this plugin
 
 if (! defined('ABSPATH')) {
@@ -39,8 +40,8 @@ if (! class_exists('WPDK_Settings_Taxonomy_Options')) {
             $this->unique     = $key;
             $this->args       = apply_filters("pb_settings_{$this->unique}_args", wp_parse_args($params['args'], $this->args), $this);
             $this->sections   = apply_filters("pb_settings_{$this->unique}_sections", $params['sections'], $this);
-            $this->taxonomies = ( is_array($this->args['taxonomy']) ) ? $this->args['taxonomy'] : array_filter((array) $this->args['taxonomy']);
-            $this->taxonomy   = ( ! empty($_REQUEST['taxonomy']) ) ? sanitize_text_field(wp_unslash($_REQUEST['taxonomy'])) : '';
+            $this->taxonomies = (is_array($this->args['taxonomy'])) ? $this->args['taxonomy'] : array_filter((array) $this->args['taxonomy']);
+            $this->taxonomy   = (! empty($_REQUEST['taxonomy'])) ? sanitize_text_field(wp_unslash($_REQUEST['taxonomy'])) : '';
             $this->pre_fields = $this->pre_fields($this->sections);
 
             if (! empty($this->taxonomies) && in_array($this->taxonomy, $this->taxonomies)) {
@@ -88,8 +89,8 @@ if (! class_exists('WPDK_Settings_Taxonomy_Options')) {
         public function get_default($field)
         {
 
-            $default = ( isset($field['default']) ) ? $field['default'] : '';
-            $default = ( isset($this->args['defaults'][ $field['id'] ]) ) ? $this->args['defaults'][ $field['id'] ] : $default;
+            $default = (isset($field['default'])) ? $field['default'] : '';
+            $default = (isset($this->args['defaults'][ $field['id'] ])) ? $this->args['defaults'][ $field['id'] ] : $default;
 
             return $default;
         }
@@ -100,20 +101,20 @@ if (! class_exists('WPDK_Settings_Taxonomy_Options')) {
 
             $value = null;
 
-            $term_id = ( ! isset($term_id) ) ? get_queried_object_id() : $term_id;
+            $term_id = (! isset($term_id)) ? get_queried_object_id() : $term_id;
 
             if (! empty($term_id) && ! empty($field['id'])) {
                 if ($this->args['data_type'] !== 'serialize') {
                     $meta  = get_term_meta($term_id, $field['id']);
-                    $value = ( isset($meta[0]) ) ? $meta[0] : null;
+                    $value = (isset($meta[0])) ? $meta[0] : null;
                 } else {
                     $meta  = get_term_meta($term_id, $this->unique, true);
-                    $value = ( isset($meta[ $field['id'] ]) ) ? $meta[ $field['id'] ] : null;
+                    $value = (isset($meta[ $field['id'] ])) ? $meta[ $field['id'] ] : null;
                 }
             }
 
-            $default = ( isset($field['id']) ) ? $this->get_default($field) : '';
-            $value   = ( isset($value) ) ? $value : $default;
+            $default = (isset($field['id'])) ? $this->get_default($field) : '';
+            $value   = (isset($value)) ? $value : $default;
 
             return $value;
         }
@@ -122,13 +123,13 @@ if (! class_exists('WPDK_Settings_Taxonomy_Options')) {
         public function render_taxonomy_form_fields($term)
         {
 
-            $is_term   = ( is_object($term) && isset($term->taxonomy) ) ? true : false;
-            $term_id   = ( $is_term ) ? $term->term_id : 0;
-            $taxonomy  = ( $is_term ) ? $term->taxonomy : $term;
-            $classname = ( $is_term ) ? 'edit' : 'add';
-            $errors    = ( ! empty($term_id) ) ? get_term_meta($term_id, '_pb_settings_errors_' . $this->unique, true) : array();
-            $errors    = ( ! empty($errors) ) ? $errors : array();
-            $class     = ( $this->args['class'] ) ? ' ' . $this->args['class'] : '';
+            $is_term   = (is_object($term) && isset($term->taxonomy)) ? true : false;
+            $term_id   = ($is_term) ? $term->term_id : 0;
+            $taxonomy  = ($is_term) ? $term->taxonomy : $term;
+            $classname = ($is_term) ? 'edit' : 'add';
+            $errors    = (! empty($term_id)) ? get_term_meta($term_id, '_pb_settings_errors_' . $this->unique, true) : array();
+            $errors    = (! empty($errors)) ? $errors : array();
+            $class     = ($this->args['class']) ? ' ' . $this->args['class'] : '';
 
             if (! empty($errors)) {
                 delete_term_meta($term_id, '_pb_settings_errors_' . $this->unique);
@@ -140,11 +141,11 @@ if (! class_exists('WPDK_Settings_Taxonomy_Options')) {
 
             foreach ($this->sections as $section) {
                 if ($taxonomy === $this->taxonomy) {
-                    $section_icon  = ( ! empty($section['icon']) ) ? '<i class="wpdk_settings-section-icon ' . esc_attr($section['icon']) . '"></i>' : '';
-                    $section_title = ( ! empty($section['title']) ) ? $section['title'] : '';
+                    $section_icon  = (! empty($section['icon'])) ? '<i class="wpdk_settings-section-icon ' . esc_attr($section['icon']) . '"></i>' : '';
+                    $section_title = (! empty($section['title'])) ? $section['title'] : '';
 
-                    echo ( $section_title || $section_icon ) ? '<div class="wpdk_settings-section-title"><h3>' . esc_html($section_icon .  $section_title) . '</h3></div>' : '';
-                    echo ( ! empty($section['description']) ) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . esc_html($section['description']) . '</div>' : '';
+                    echo ($section_title || $section_icon) ? '<div class="wpdk_settings-section-title"><h3>' . esc_html($section_icon .  $section_title) . '</h3></div>' : '';
+                    echo (! empty($section['description'])) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . esc_html($section['description']) . '</div>' : '';
 
                     if (! empty($section['fields'])) {
                         foreach ($section['fields'] as $field) {
@@ -173,16 +174,16 @@ if (! class_exists('WPDK_Settings_Taxonomy_Options')) {
             $data     = array();
             $errors   = array();
             $noncekey = 'pb_settings_taxonomy_nonce' . $this->unique;
-            $nonce    = ( ! empty($_POST[ $noncekey ]) ) ? sanitize_text_field(wp_unslash($_POST[ $noncekey ])) : '';
-            $taxonomy = ( ! empty($_POST['taxonomy']) ) ? sanitize_text_field(wp_unslash($_POST['taxonomy'])) : '';
+            $nonce    = (! empty($_POST[ $noncekey ])) ? sanitize_text_field(wp_unslash($_POST[ $noncekey ])) : '';
+            $taxonomy = (! empty($_POST['taxonomy'])) ? sanitize_text_field(wp_unslash($_POST['taxonomy'])) : '';
 
-            if (( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) || ! wp_verify_nonce($nonce, 'pb_settings_taxonomy_nonce')) {
+            if ((defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) || ! wp_verify_nonce($nonce, 'pb_settings_taxonomy_nonce')) {
                 return $term_id;
             }
 
             // XSS ok.
             // No worries, This "POST" requests is sanitizing in the below foreach.
-            $request = ( ! empty($_POST[ $this->unique ]) ) ? array_map('sanitize_text_field', $_POST[ $this->unique ]) : array();
+            $request = (! empty($_POST[ $this->unique ])) ? array_map('sanitize_text_field', $_POST[ $this->unique ]) : array();
 
             if (! empty($request)) {
                 foreach ($this->sections as $section) {

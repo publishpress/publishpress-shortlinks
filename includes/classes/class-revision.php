@@ -2,7 +2,7 @@
 
 /**
  * Revision Shortlink Support Class
- * 
+ *
  * @author deji98
  */
 
@@ -129,7 +129,7 @@ class TINYPRESS_Revisions
         }
 
         $post_type = $revision->post_type;
-        
+
         if (!function_exists('rvy_in_revision_workflow') || !rvy_in_revision_workflow($revision_id)) {
             return '';
         }
@@ -316,7 +316,7 @@ class TINYPRESS_Revisions
         $was_active = get_option('tinypress_pp_revisions_was_active', null);
 
         $is_first_run = is_null($was_active);
-        $was_active   = ( '1' === $was_active );
+        $was_active   = ('1' === $was_active);
 
         if (! $is_first_run && $is_active === $was_active) {
             return;
@@ -468,7 +468,7 @@ class TINYPRESS_Revisions
         if (function_exists('rvy_preview_url')) {
             $target_url = rvy_preview_url($revision_id);
         }
-        
+
         if (empty($target_url)) {
             $target_url = get_permalink($revision_id);
         }
@@ -603,7 +603,7 @@ class TINYPRESS_Revisions
     public function tinypress_exclude_from_revisions($post_types)
     {
         unset($post_types['tinypress_link']);
- 
+
         return $post_types;
     }
 
