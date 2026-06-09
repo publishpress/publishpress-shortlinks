@@ -3,8 +3,8 @@
 /**
  * Plugin Name: PublishPress Shortlinks Free
  * Plugin URI:  https://publishpress.com/shortlinks/
- * Description: Create custom links for your posts. These links are brandable, trackable, and can have custom view permissions.
- * Version: 1.6.0
+ * Description: The best link manager for WordPress. Your links are brandable, trackable, and can have custom view permissions.
+ * Version: 1.7.0
  * Text Domain: tinypress
  * Author: PublishPress
  * Author URI: https://publishpress.com/
@@ -54,7 +54,7 @@ if (! defined('TINYPRESS_LOADED')) {
     define('TINYPRESS_LOADED', 1);
 
     define('TINYPRESS_FILE', __DIR__ . '/tinypress.php');
-    define('TINYPRESS_PLUGIN_VERSION', '1.6.0');
+    define('TINYPRESS_PLUGIN_VERSION', '1.7.0');
 
     if (! defined('TINYPRESS_LIB_VENDOR_PATH')) {
         define('TINYPRESS_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
@@ -95,11 +95,19 @@ if (! defined('TINYPRESS_LOADED')) {
             'plugin_row_meta',
             function ($links, $file) {
                 if ($file === plugin_basename(__FILE__)) {
-                    $links[] = '<strong>' . esc_html__('This plugin can be deleted.', 'tinypress') . '</strong>';
+                    $deletion_notice = esc_html__('This plugin can be deleted.', 'tinypress');
+
+                    foreach ((array) $links as $existing_link) {
+                        if (false !== strpos(wp_strip_all_tags((string) $existing_link), $deletion_notice)) {
+                            return $links;
+                        }
+                    }
+
+                    $links[] = '<strong>' . $deletion_notice . '</strong>';
                 }
                 return $links;
             },
-            10,
+            999,
             2
         );
     }
@@ -205,6 +213,14 @@ if (! defined('TINYPRESS_LOADED')) {
 
                 if (! isset($settings['tinypress_autolink_enabled'])) {
                     $settings['tinypress_autolink_enabled'] = '1';
+                }
+
+                if (! array_key_exists('tinypress_autolink_post_types', $settings)) {
+                    $settings['tinypress_autolink_post_types'] = array('post', 'page');
+                }
+
+                if (! array_key_exists('tinypress_autolink_color', $settings)) {
+                    $settings['tinypress_autolink_color'] = 'transparent';
                 }
 
                 if (! isset($settings['tinypress_autolist_enabled'])) {
@@ -375,8 +391,12 @@ if (! defined('TINYPRESS_LOADED')) {
             public function localize_scripts()
             {
                 return apply_filters('tinypress/filters/localize_scripts', array(
-                'ajax_url'  => admin_url('admin-ajax.php'),
-                'copy_text' => esc_html__('Copied.', 'tinypress'),
+                'ajax_url'                 => admin_url('admin-ajax.php'),
+                'copy_text'                => esc_html__('Copied.', 'tinypress'),
+                'analytics_label'          => esc_html__('Analytics', 'tinypress'),
+                'inherited_notice'         => esc_html__('This setting is inherited from global settings. Choose another option to override it for this shortlink.', 'tinypress'),
+                'working_text'             => esc_html__('Working...', 'tinypress'),
+                'plugin_title'             => esc_html__('PublishPress Shortlinks', 'tinypress'),
                 ));
             }
 

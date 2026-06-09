@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
-"PO-Revision-Date: 2026-04-29 12:57+0000\n"
+"PO-Revision-Date: 2026-06-09 08:27+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Language: tr_TR\n"
@@ -29,11 +29,11 @@ msgstr "https://publishpress.com/shortlinks/"
 #: tinypress.php:6
 #. Description of the plugin
 msgid ""
-"Create custom links for your posts. These links are brandable, trackable, "
+"The best link manager for WordPress. Your links are brandable, trackable, "
 "and can have custom view permissions."
 msgstr ""
-"Gönderileriniz için özel bağlantılar oluşturun. Bu bağlantılar "
-"markalanabilir, izlenebilir ve özel görüntü izinlerine sahip olabilir."
+"WordPress için en iyi bağlantı yöneticisi. Bağlantılarınız markalanabilir, "
+"izlenebilir ve özel görüntü izinlerine sahip olabilir."
 
 #: tinypress.php:9
 #. Author of the plugin
@@ -45,7 +45,7 @@ msgstr "PublishPress"
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: includes-core/ShortlinksCoreAdmin.php:86
+#: includes-core/ShortlinksCoreAdmin.php:88
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
@@ -53,82 +53,253 @@ msgstr ""
 "PublishPress Kısa Linkler Ücretsiz kullanıyorsunuz. Pro versiyon daha fazla "
 "özellik ve destek sunuyor. "
 
-#: includes-core/ShortlinksCoreAdmin.php:87
-#: includes-core/ShortlinksCoreAdmin.php:104
-#: includes-core/ShortlinksCoreAdmin.php:105
-#: includes-core/ShortlinksCoreAdmin.php:271
+#: includes-core/ShortlinksCoreAdmin.php:89
+#: includes-core/ShortlinksCoreAdmin.php:106
+#: includes-core/ShortlinksCoreAdmin.php:107
 msgid "Upgrade to Pro"
 msgstr "Pro'ya Yükselt"
 
 #: includes-core/ShortlinksCoreAdmin.php:117
-#: includes-core/ShortlinksCoreAdmin.php:196
+#: includes-core/ShortlinksCoreAdmin.php:118
+#: includes-core/ShortlinksCoreAdmin.php:148
+msgid "Link Health"
+msgstr "Bağlantı Sağlığı"
+
+#: includes-core/ShortlinksCoreAdmin.php:131
 msgid "Pro Feature"
 msgstr "Pro Özelliği"
 
-#: includes-core/ShortlinksCoreAdmin.php:120
-#: includes-core/ShortlinksCoreAdmin.php:199
+#: includes-core/ShortlinksCoreAdmin.php:134
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "Bu özellik PublishPress Kısa Linkler Pro'da mevcuttur."
 
-#: includes-core/ShortlinksCoreAdmin.php:135
-#: includes-core/ShortlinksCoreAdmin.php:158
-msgid "Show Expiration Notice"
-msgstr "Son Kullanım Bildirimini Göster"
-
-#: includes-core/ShortlinksCoreAdmin.php:139
-msgid "Display a brief notice before redirecting expired links."
+#: includes-core/ShortlinksCoreAdmin.php:150
+msgid ""
+"Check whether your shortlinks redirect visitors to working destination "
+"pages."
 msgstr ""
-"Süresi dolmuş bağlantıları yönlendirmeden önce kısa bir bildirim "
-"görüntüleyin."
+"Kısa bağlantılarınızın ziyaretçileri çalışır varış sayfalarına yönlendirip "
+"yönlendirmediğini kontrol edin."
 
-#: includes-core/ShortlinksCoreAdmin.php:153
+#: includes-core/ShortlinksCoreAdmin.php:158
+msgid "Check Visible Links"
+msgstr "Görünür Bağlantıları Kontrol Et"
+
+#: includes-core/ShortlinksCoreAdmin.php:162
+msgid "Check All Links"
+msgstr "Tüm Bağlantıları Kontrol Et"
+
+#: includes-core/ShortlinksCoreAdmin.php:169
+#: includes/classes/class-columns-link.php:54
+#: includes/classes/class-columns-link.php:552
+#: includes/classes/class-gutenberg-shortlink.php:159
+#: includes/classes/class-hooks.php:231
+#: includes/classes/class-table-logs.php:164
+#: templates/admin-modal-new-link.php:29
+msgid "Shortlink"
+msgstr "Kısa bağlantı"
+
+#: includes-core/ShortlinksCoreAdmin.php:170
+#: includes/classes/class-gutenberg-shortlink.php:169
+#: includes/classes/class-import-export.php:1053
+msgid "Target URL"
+msgstr "Hedef URL"
+
+#: includes-core/ShortlinksCoreAdmin.php:171
+#: includes/classes/class-meta-boxes.php:542
+msgid "Status"
+msgstr "Durum"
+
+#: includes-core/ShortlinksCoreAdmin.php:172, fuzzy
+msgid "HTTP"
+msgstr "HTTP"
+
+#: includes-core/ShortlinksCoreAdmin.php:173
+msgid "Redirects"
+msgstr "Yönlendirmeler"
+
+#: includes-core/ShortlinksCoreAdmin.php:174
+msgid "Final URL"
+msgstr "Son URL"
+
+#: includes-core/ShortlinksCoreAdmin.php:181
+msgid "Working"
+msgstr "Çalışıyor"
+
+#: includes-core/ShortlinksCoreAdmin.php:189
+msgid "Broken"
+msgstr "Kırık"
+
+#: includes-core/ShortlinksCoreAdmin.php:212
+#: includes-core/ShortlinksCoreAdmin.php:236
 msgid "Expired Redirect Settings"
 msgstr "Süresi Dolmuş Yönlendirme Ayarları"
 
-#: includes-core/ShortlinksCoreAdmin.php:156
+#: includes-core/ShortlinksCoreAdmin.php:215
+#: includes-core/ShortlinksCoreAdmin.php:239
+#: includes/classes/class-import-export.php:1064
 msgid "Expired Redirect URL"
 msgstr "Süresi Dolmuş Yönlendirme URL'si"
 
-#: includes-core/ShortlinksCoreAdmin.php:161
-msgid "Display a brief notice before redirecting."
-msgstr "Yönlendirmeden önce kısa bir bildirim görüntüleyin."
-
-#: includes-core/ShortlinksCoreAdmin.php:233
-#: includes-core/ShortlinksCoreAdmin.php:234
-msgid "Import / Export"
-msgstr "İçe Aktar / Dışa Aktar"
-
-#: includes-core/ShortlinksCoreAdmin.php:249
-msgid "Import / Export Shortlinks"
-msgstr "Kısa Linkleri İçe Aktar / Dışa Aktar"
-
-#: includes-core/ShortlinksCoreAdmin.php:254
-msgid "Bulk Import & Export"
-msgstr "Toplu İçe Aktarma & Dışa Aktarma"
-
-#: includes-core/ShortlinksCoreAdmin.php:255
-msgid ""
-"Import and export your shortlinks in bulk using CSV files. Migrate from "
-"other plugins or manage links across multiple sites."
+#: includes-core/ShortlinksCoreAdmin.php:216
+msgid "Choose where visitors should go when they click an expired link."
 msgstr ""
-"Kısa linklerinizi CSV dosyaları kullanarak toplu olarak içe aktarın ve dışa "
-"aktarın. Diğer eklentilerden geçiş yapın veya birden fazla site arasında "
-"bağlantıları yönetin."
+"Ziyaretçilerin süresi dolmuş bir bağlantıya tıkladıklarında nereye "
+"gitmeleri gerektiğini seçin."
 
-#: includes-core/ShortlinksCoreAdmin.php:259
-msgid "CSV Export"
-msgstr "CSV Dışa Aktarma"
+#: includes-core/ShortlinksCoreAdmin.php:218
+#: includes-core/ShortlinksCoreAdmin.php:242
+msgid "Show Expiration Notice"
+msgstr "Son Kullanım Bildirimini Göster"
 
-#: includes-core/ShortlinksCoreAdmin.php:263
-msgid "CSV Import"
-msgstr "CSV İçe Aktarma"
+#: includes-core/ShortlinksCoreAdmin.php:219
+#: includes-core/ShortlinksCoreAdmin.php:243
+msgid "Display a custom notice page before automatically redirecting visitors."
+msgstr ""
+"Ziyaretçileri otomatik olarak yönlendirmeden önce özel bir bildirim sayfası "
+"gösterin."
 
-#: includes-core/ShortlinksCoreAdmin.php:267
-msgid "Bulk Management"
-msgstr "Toplu Yönetim"
+#: includes-core/ShortlinksCoreAdmin.php:222
+msgid "Show a notice page for expired shortlinks briefly before redirecting."
+msgstr ""
+"Yönlendirmeden önce süresi dolmuş kısa bağlantılar için kısa bir bildirim "
+"sayfası gösterin."
+
+#: includes-core/ShortlinksCoreAdmin.php:240
+msgid "Set the default destination for all expired shortlinks."
+msgstr ""
+"Tüm süresi dolmuş kısa bağlantılar için varsayılan varış noktasını "
+"ayarlayın."
+
+#: includes-core/ShortlinksCoreAdmin.php:246
+msgid ""
+"Show a notice page for expired shortlinks briefly before redirecting. You "
+"can customize the content of this message."
+msgstr ""
+"Yönlendirmeden önce süresi dolmuş kısa bağlantılar için kısa bir bildirim "
+"sayfası gösterin. Bu mesajın içeriğini özelleştirebilirsiniz."
+
+#: includes-core/ShortlinksCoreAdmin.php:281
+#: includes-core/ShortlinksCoreAdmin.php:308
+msgid "Advanced Auto-Link Settings"
+msgstr "Gelişmiş Otomatik Bağlantı Ayarları"
+
+#: includes-core/ShortlinksCoreAdmin.php:283
+#: includes-core/ShortlinksCoreAdmin.php:311
+msgid "Minimum Keyword Usage"
+msgstr "Minimum Anahtar Kelime Kullanımı"
+
+#: includes-core/ShortlinksCoreAdmin.php:284
+msgid "Keyword must appear this many times before being autolinked."
+msgstr ""
+"Anahtar kelime otomatik bağlantı yapılmadan önce bu kadar çok kez "
+"görünmelidir."
+
+#: includes-core/ShortlinksCoreAdmin.php:286
+#: includes-core/ShortlinksCoreAdmin.php:314
+msgid "Maximum Keywords Linked"
+msgstr "Maksimum Anahtar Kelimeler Bağlı"
+
+#: includes-core/ShortlinksCoreAdmin.php:287
+msgid "Maximum number of times this keyword should be autolinked per post."
+msgstr ""
+"Bu anahtar kelimenin her yazıda otomatik olarak bağlanması gereken maksimum "
+"sayısı."
+
+#: includes-core/ShortlinksCoreAdmin.php:312
+msgid "Default minimum times a keyword must appear before being autolinked."
+msgstr ""
+"Bir anahtar kelimenin otomatik olarak bağlanmadan önce görünmesi gereken "
+"varsayılan minimum sayısı."
+
+#: includes-core/ShortlinksCoreAdmin.php:315
+msgid "Default maximum times a keyword should be autolinked per post."
+msgstr ""
+"Bir anahtar kelimenin her yazıda otomatik olarak bağlanması gereken "
+"varsayılan maksimum sayısı."
+
+#: includes-core/ShortlinksCoreAdmin.php:317
+msgid "Maximum Links Per Post"
+msgstr "Yazı Başına Maksimum Bağlantı"
+
+#: includes-core/ShortlinksCoreAdmin.php:318
+msgid "Total maximum autolinks allowed per post/page."
+msgstr "Her yazı/sayfa için izin verilen toplam maksimum otomatik bağlantı sayısı."
+
+#: includes-core/ShortlinksCoreAdmin.php:320
+msgid "Minimum Character Length"
+msgstr "Minimum Karakter Uzunluğu"
+
+#: includes-core/ShortlinksCoreAdmin.php:321
+msgid "Keywords shorter than this will not be autolinked."
+msgstr "Bunun altındaki anahtar kelimeler otomatik olarak bağlanmayacaktır."
+
+#: includes-core/ShortlinksCoreAdmin.php:323
+msgid "Maximum Character Length"
+msgstr "Maksimum Karakter Uzunluğu"
+
+#: includes-core/ShortlinksCoreAdmin.php:324
+msgid "Keywords longer than this will not be autolinked."
+msgstr "Bunun üstündeki anahtar kelimeler otomatik olarak bağlanmayacaktır."
+
+#: includes-core/ShortlinksCoreAdmin.php:345
+#: includes/classes/class-settings.php:850
+msgid "Auto-Link Exceptions"
+msgstr "Otomatik Bağlantı İstisnaları"
+
+#: includes-core/ShortlinksCoreAdmin.php:347
+msgid "Exclude Terms from Auto Links"
+msgstr "Otomatik Bağlantılardan Terimleri Hariç Tut"
+
+#: includes-core/ShortlinksCoreAdmin.php:348
+msgid "These terms will never be autolinked."
+msgstr "Bu terimler asla otomatik olarak bağlanmayacaktır."
+
+#: includes-core/ShortlinksCoreAdmin.php:350
+msgid "Prevent Auto Links Inside Classes or IDs"
+msgstr "Sınıflar veya Kimlikler İçinde Otomatik Bağlantıları Önle"
+
+#: includes-core/ShortlinksCoreAdmin.php:351
+msgid ""
+"Content inside elements with these classes or IDs will not have autolinks "
+"applied."
+msgstr ""
+"Bu sınıflara veya kimliklere sahip öğelerin içindeki içerik otomatik "
+"bağlantı uygulanmayacaktır."
+
+#: includes-core/ShortlinksCoreAdmin.php:353
+msgid "Prevent Auto Links Inside Elements"
+msgstr "Öğeler İçinde Otomatik Bağlantıları Önle"
+
+#: includes-core/ShortlinksCoreAdmin.php:354
+msgid "Terms inside these HTML tags will not have autolinks applied."
+msgstr "Bu HTML etiketleri içindeki terimlere otomatik bağlantı uygulanmayacaktır."
+
+#: includes-core/ShortlinksCoreAdmin.php:367
+msgid "Prevent Auto Links on Shortcodes"
+msgstr "Kısa Kodlar Üzerinde Otomatik Bağlantıları Önle"
+
+#: includes-core/ShortlinksCoreAdmin.php:368
+msgid "Terms inside these shortcodes will not have autolinks applied."
+msgstr "Bu kısa kodlar içindeki terimlere otomatik bağlantı uygulanmayacaktır."
+
+#: includes-core/ShortlinksCoreAdmin.php:370
+msgid "Prevent Auto Links on Blocks"
+msgstr "Bloklar Üzerinde Otomatik Bağlantıları Önle"
+
+#: includes-core/ShortlinksCoreAdmin.php:371
+msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
+msgstr "Bu Gutenberg bloklarındaki terimlere otomatik bağlantılar uygulanmayacaktır."
+
+#: includes-core/ShortlinksCoreAdmin.php:372
+msgid "Search and select blocks..."
+msgstr "Blokları ara ve seç..."
 
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:200
+#: includes/classes/class-autolist-ajax.php:204
+#: includes/classes/class-gutenberg-shortlink.php:234
+#: includes/classes/class-gutenberg-shortlink.php:285
+#: includes/classes/class-gutenberg-shortlink.php:329
 msgid "Permission denied"
 msgstr "İzin verilmedi"
 
@@ -181,60 +352,61 @@ msgstr "Yapılandırma veritabanına kaydedilemedi"
 msgid "Configuration saved successfully"
 msgstr "Yapılandırma başarıyla kaydedildi"
 
-#: includes/classes/class-autolist-ajax.php:144
+#: includes/classes/class-autolist-ajax.php:149
 #. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "Hata: %s"
 
-#: includes/classes/class-autolist-ajax.php:289
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Validating..."
 msgstr "Doğrulama yapılıyor..."
 
-#: includes/classes/class-autolist-ajax.php:290
+#: includes/classes/class-autolist-ajax.php:294
 msgid "Saving..."
 msgstr "Kaydediliyor..."
 
-#: includes/classes/class-autolist-ajax.php:291
+#: includes/classes/class-autolist-ajax.php:295
 msgid "Saved!"
 msgstr "Kaydedildi!"
 
-#: includes/classes/class-autolist-ajax.php:292
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-gutenberg-shortlink.php:175
 msgid "Error"
 msgstr "Hata"
 
-#: includes/classes/class-autolist-ajax.php:293
+#: includes/classes/class-autolist-ajax.php:297
 msgid "Are you sure you want to remove this post type?"
 msgstr "Bu post type'ı kaldırmak istediğinize emin misiniz?"
 
-#: includes/classes/class-autolist-ajax.php:294
+#: includes/classes/class-autolist-ajax.php:298
 msgid "Select a post type"
 msgstr "Bir post type seçin"
 
-#: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:595
-#: includes/classes/class-settings.php:691
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:1032
+#: includes/classes/class-settings.php:1130
 msgid "Never"
 msgstr "Asla"
 
-#: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:593
-#: includes/classes/class-settings.php:693
+#: includes/classes/class-autolist-ajax.php:300
+#: includes/classes/class-settings.php:1030
+#: includes/classes/class-settings.php:1132
 msgid "When Link is First Used"
 msgstr "Bağlantı İlk Kullanıldığında"
 
-#: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:695
+#: includes/classes/class-autolist-ajax.php:301
+#: includes/classes/class-settings.php:1134
 msgid "When Post is Published"
 msgstr "Gönderi Yayınlandığında"
 
-#: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:694
+#: includes/classes/class-autolist-ajax.php:302
+#: includes/classes/class-settings.php:1133
 msgid "When Post is Created"
 msgstr "Gönderi Oluşturulduğunda"
 
-#: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:692
+#: includes/classes/class-autolist-ajax.php:303
+#: includes/classes/class-settings.php:1131
 msgid "When Link is First Used or Post Created"
 msgstr "Bağlantı İlk Kullanıldığında veya Gönderi Oluşturulduğunda"
 
@@ -242,110 +414,140 @@ msgstr "Bağlantı İlk Kullanıldığında veya Gönderi Oluşturulduğunda"
 msgid "Invalid post ID or post type."
 msgstr "Geçersiz gönderi ID'si veya gönderi türü."
 
-#: includes/classes/class-columns-link.php:49
-#: includes/classes/class-columns-link.php:279
-#: includes/classes/class-hooks.php:207
-#: includes/classes/class-table-logs.php:164
-#: templates/admin-modal-new-link.php:29
-msgid "Shortlink"
-msgstr "Kısa bağlantı"
-
-#: includes/classes/class-columns-link.php:71
+#: includes/classes/class-columns-link.php:76
 msgid "No shortlink"
 msgstr "Kısa bağlantı yok"
 
-#: includes/classes/class-columns-link.php:92
-#: includes/classes/class-hooks.php:208
-#: includes/classes/class-hooks.php:210
-#: includes/classes/class-meta-boxes.php:93
+#: includes/classes/class-columns-link.php:97
+#: includes/classes/class-hooks.php:232
+#: includes/classes/class-hooks.php:234
+#: includes/classes/class-meta-boxes.php:163
 msgid "Shortlinks"
 msgstr "Kısa bağlantılar"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:188
+#: includes/classes/class-columns-link.php:335
 msgid "Internal"
 msgstr "Dahili"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:188
+#: includes/classes/class-columns-link.php:336
 msgid "External"
 msgstr "Dış"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:189
 msgid "This links to your post"
 msgstr "Bu sizin gönderinize bağlanıyor"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:189
 msgid "This links to an external website"
 msgstr "Bu bir dış web sitesine bağlanıyor"
 
-#: includes/classes/class-columns-link.php:189
+#: includes/classes/class-columns-link.php:193
+#: includes/classes/class-columns-link.php:337
 msgid "Revision"
 msgstr "Revizyon"
 
-#: includes/classes/class-columns-link.php:190
+#: includes/classes/class-columns-link.php:194
 msgid "This links to a revision"
 msgstr "Bu bir revizyona bağlanıyor"
 
-#: includes/classes/class-columns-link.php:198
+#: includes/classes/class-columns-link.php:203
 msgid "Not yet submitted"
 msgstr "Henüz gönderilmedi"
 
-#: includes/classes/class-columns-link.php:199
+#: includes/classes/class-columns-link.php:204
 msgid "Submitted for approval"
 msgstr "Onay için gönderildi"
 
-#: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:558
+#: includes/classes/class-columns-link.php:205
+#: includes/classes/class-settings.php:365
+#: includes/classes/class-settings.php:706
+#: includes/classes/class-settings.php:714
+#: includes/functions.php:273
+#: includes/functions.php:307
 msgid "Scheduled"
 msgstr "Planlandı"
 
-#: includes/classes/class-columns-link.php:201
+#: includes/classes/class-columns-link.php:206
 msgid "Deferred"
 msgstr "Ertelemeli"
 
-#: includes/classes/class-columns-link.php:202
+#: includes/classes/class-columns-link.php:207
 msgid "Needs work"
 msgstr "Çalışmaya ihtiyaç var"
 
-#: includes/classes/class-columns-link.php:203
+#: includes/classes/class-columns-link.php:208
 msgid "Rejected"
 msgstr "Reddedildi"
 
-#: includes/classes/class-columns-link.php:207
+#: includes/classes/class-columns-link.php:212
 #. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "Revizyon: %s"
 
-#: includes/classes/class-columns-link.php:224
+#: includes/classes/class-columns-link.php:233
 #. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "%s kez tıklandı"
 
-#: includes/classes/class-columns-link.php:230
-#: includes/classes/class-table-logs.php:197
+#: includes/classes/class-columns-link.php:241
+#: includes/classes/class-table-logs.php:198
 msgid "Edit"
 msgstr "Düzenle"
 
-#: includes/classes/class-columns-link.php:231
-#: includes/classes/class-table-logs.php:178
-#: includes/classes/class-table-logs.php:199
+#: includes/classes/class-columns-link.php:246
+#: includes/classes/class-table-logs.php:179
+#: includes/classes/class-table-logs.php:200
 msgid "Delete"
 msgstr "Sil"
 
-#: includes/classes/class-columns-link.php:278
+#: includes/classes/class-columns-link.php:332
+msgid "Filter by link type"
+msgstr "Bağlantı türüne göre filtrele"
+
+#: includes/classes/class-columns-link.php:334
+msgid "All link types"
+msgstr "Tüm bağlantı türleri"
+
+#: includes/classes/class-columns-link.php:350
+msgid "Filter by category"
+msgstr "Kategorilere göre filtrele"
+
+#: includes/classes/class-columns-link.php:352
+msgid "All categories"
+msgstr "Tüm kategoriler"
+
+#: includes/classes/class-columns-link.php:446
+msgid "Filters"
+msgstr "Filtreler"
+
+#: includes/classes/class-columns-link.php:449
+#: includes/classes/class-hooks.php:257
+#: includes/classes/class-meta-boxes.php:814
+msgid "Categories"
+msgstr "Kategoriler"
+
+#: includes/classes/class-columns-link.php:467
+msgid "Permission denied."
+msgstr "İzin reddedildi."
+
+#: includes/classes/class-columns-link.php:551
 msgid "Link Title"
 msgstr "Bağlantı Başlığı"
 
-#: includes/classes/class-columns-link.php:280
+#: includes/classes/class-columns-link.php:553
 msgid "Link Type"
 msgstr "Bağlantı Türü"
 
-#: includes/classes/class-columns-link.php:281
+#: includes/classes/class-columns-link.php:557
 msgid "Stats"
 msgstr "İstatistikler"
 
-#: includes/classes/class-columns-link.php:282
+#: includes/classes/class-columns-link.php:560
+#: includes/classes/class-table-logs.php:166
 msgid "Actions"
 msgstr "Eylemler"
 
@@ -357,180 +559,567 @@ msgstr "Kopyalamak için tıklayın"
 msgid "Copied"
 msgstr "Kopyalandı"
 
-#: includes/classes/class-hooks.php:61
-msgid "Security check failed."
-msgstr "Güvenlik kontrolü başarısız oldu."
+#: includes/classes/class-gutenberg-shortlink.php:160
+msgid "Search shortlinks..."
+msgstr "Kısa bağlantıları ara..."
 
-#: includes/classes/class-hooks.php:65
-msgid "You do not have permission to create shortlinks."
-msgstr "Kısa bağlantılar oluşturmak için izniniz yok."
+#: includes/classes/class-gutenberg-shortlink.php:161
+msgid "Insert Shortlink"
+msgstr "Kısa Bağlantı Ekle"
 
-#: includes/classes/class-hooks.php:72
-msgid "Invalid or empty URL"
-msgstr "Geçersiz veya boş URL"
+#: includes/classes/class-gutenberg-shortlink.php:162
+msgid "Create New Shortlink"
+msgstr "Yeni Kısa Bağlantı Oluştur"
 
-#: includes/classes/class-hooks.php:89
+#: includes/classes/class-gutenberg-shortlink.php:163
+#: includes/classes/class-settings.php:721
+msgid "Options"
+msgstr "Seçenekler"
+
+#: includes/classes/class-gutenberg-shortlink.php:164
+msgid "Open in New Tab"
+msgstr "Yeni Sekmede Aç"
+
+#: includes/classes/class-gutenberg-shortlink.php:165, fuzzy
+msgid "Nofollow"
+msgstr "Nofollow"
+
+#: includes/classes/class-gutenberg-shortlink.php:166
+msgid "Sponsored Link"
+msgstr "Sponsorlu Bağlantı"
+
+#: includes/classes/class-gutenberg-shortlink.php:167
+msgid "Label"
+msgstr "Etiket"
+
+#: includes/classes/class-gutenberg-shortlink.php:168
+msgid "Optional shortlink label"
+msgstr "Opsiyonel kısa bağlantı etiketi"
+
+#: includes/classes/class-gutenberg-shortlink.php:170
+msgid "Create"
+msgstr "Oluştur"
+
+#: includes/classes/class-gutenberg-shortlink.php:171
+#: includes/classes/class-import-export.php:1202
+msgid "Cancel"
+msgstr "İptal"
+
+#: includes/classes/class-gutenberg-shortlink.php:172
+#: templates/admin-modal-new-link.php:37
+msgid "Close"
+msgstr "Kapat"
+
+#: includes/classes/class-gutenberg-shortlink.php:173
+msgid "Creating..."
+msgstr "Oluşturuluyor..."
+
+#: includes/classes/class-gutenberg-shortlink.php:174
+#: includes/classes/class-gutenberg-shortlink.php:317
+#: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "Kısa bağlantı başarıyla oluşturuldu."
 
-#: includes/classes/class-hooks.php:98
+#: includes/classes/class-gutenberg-shortlink.php:176
+msgid "Please enter a valid URL"
+msgstr "Lütfen geçerli bir URL girin"
+
+#: includes/classes/class-gutenberg-shortlink.php:177
+msgid "No shortlinks found"
+msgstr "Kısa bağlantı bulunamadı"
+
+#: includes/classes/class-gutenberg-shortlink.php:243
+msgid "Search term is required"
+msgstr "Arama terimi gereklidir"
+
+#: includes/classes/class-gutenberg-shortlink.php:258
+#: includes/functions.php:447
+#. translators: %s: link ID number
+#, php-format
+msgid "Link - %s"
+msgstr "Bağlantı - %s"
+
+#: includes/classes/class-gutenberg-shortlink.php:294
+msgid "Target URL is required"
+msgstr "Hedef URL gereklidir"
+
+#: includes/classes/class-gutenberg-shortlink.php:336
+msgid "Invalid shortlink ID"
+msgstr "Geçersiz kısa bağlantı kimliği"
+
+#: includes/classes/class-gutenberg-shortlink.php:342
+msgid "Shortlink not found"
+msgstr "Kısa bağlantı bulunamadı"
+
+#: includes/classes/class-hooks.php:69
+#: includes/classes/class-import-export.php:119
+msgid "Security check failed."
+msgstr "Güvenlik kontrolü başarısız oldu."
+
+#: includes/classes/class-hooks.php:73
+msgid "You do not have permission to create shortlinks."
+msgstr "Kısa bağlantılar oluşturmak için izniniz yok."
+
+#: includes/classes/class-hooks.php:80
+msgid "Invalid or empty URL"
+msgstr "Geçersiz veya boş URL"
+
+#: includes/classes/class-hooks.php:112
 msgid "Invalid nonce verification."
 msgstr "Geçersiz nonce doğrulaması."
 
-#: includes/classes/class-hooks.php:102
+#: includes/classes/class-hooks.php:116
 msgid "You do not have permission to reset analytics."
 msgstr "Analitikleri sıfırlamak için izniniz yok."
 
-#: includes/classes/class-hooks.php:109
+#: includes/classes/class-hooks.php:123
 msgid "Invalid post ID."
 msgstr "Geçersiz gönderi kimliği."
 
-#: includes/classes/class-hooks.php:140
+#: includes/classes/class-hooks.php:129
+msgid "Invalid shortlink ID."
+msgstr "Geçersiz kısa bağlantı kimliği."
+
+#: includes/classes/class-hooks.php:133
+msgid "You do not have permission to reset analytics for this shortlink."
+msgstr "Bu kısa bağlantının analizlerini sıfırlamak için izniniz yok."
+
+#: includes/classes/class-hooks.php:164
 msgid "Analytics reset successfully."
 msgstr "Analitik başarıyla sıfırlandı."
 
-#: includes/classes/class-hooks.php:142
+#: includes/classes/class-hooks.php:166
 msgid "Failed to reset analytics."
 msgstr "Analitik sıfırlama işlemi başarısız oldu."
 
-#: includes/classes/class-hooks.php:168
+#: includes/classes/class-hooks.php:192
 msgid "Shorten"
 msgstr "Kısalt"
 
-#: includes/classes/class-hooks.php:211
+#: includes/classes/class-hooks.php:235
 msgid "All Shortlinks"
 msgstr "Tüm Kısa Bağlantılar"
 
-#: includes/classes/class-hooks.php:212
-#: includes/classes/class-hooks.php:213
+#: includes/classes/class-hooks.php:236
+#: includes/classes/class-hooks.php:237
 msgid "Add Shortlink"
 msgstr "Kısa Bağlantı Ekle"
 
-#: includes/classes/class-hooks.php:214
+#: includes/classes/class-hooks.php:238
 msgid "Search Shortlinks"
 msgstr "Kısa Bağlantıları Ara"
 
-#: includes/classes/class-hooks.php:229
+#: includes/classes/class-hooks.php:256
 msgid "Category"
 msgstr "Kategori"
 
-#: includes/classes/class-hooks.php:230
-msgid "Categories"
-msgstr "Kategoriler"
-
-#: includes/classes/class-hooks.php:256
-#: includes/classes/class-hooks.php:257
+#: includes/classes/class-hooks.php:283
+#: includes/classes/class-hooks.php:284
 msgid "Logs"
 msgstr "Loglar"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "All Logs"
 msgstr "Tüm Loglar"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Are you sure you want to clear all logs?"
 msgstr "Tüm logları temizlemek istediğinize emin misiniz?"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Clear Logs"
 msgstr "Logları Temizle"
 
-#: includes/classes/class-hooks.php:506
+#: includes/classes/class-hooks.php:606
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Üzgünüm, kısa bağlantılara erişiminiz yok."
 
-#: includes/classes/class-hooks.php:507
-#: includes/classes/class-hooks.php:528
-#: includes/classes/class-hooks.php:539
-#: includes/classes/class-hooks.php:560
+#: includes/classes/class-hooks.php:607
+#: includes/classes/class-hooks.php:628
+#: includes/classes/class-hooks.php:639
+#: includes/classes/class-hooks.php:660
 msgid "Access Denied"
 msgstr "Erişim Engellendi"
 
-#: includes/classes/class-hooks.php:527
+#: includes/classes/class-hooks.php:627
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Üzgünüm, kısa bağlantılar oluşturmanıza izin verilmiyor."
 
-#: includes/classes/class-hooks.php:538
+#: includes/classes/class-hooks.php:638
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Üzgünüm, kısa bağlantıları düzenlemenize izin verilmiyor."
 
-#: includes/classes/class-hooks.php:559
+#: includes/classes/class-hooks.php:659
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Üzgünüm, kısa bağlantı ayarlarına erişmenize izin verilmiyor."
 
-#: includes/classes/class-meta-boxes.php:76
-msgid "Side"
-msgstr "Taraf"
+#: includes/classes/class-import-export.php:48
+#: includes/classes/class-import-export.php:49
+msgid "Import / Export"
+msgstr "İçe Aktar / Dışa Aktar"
 
-#: includes/classes/class-meta-boxes.php:187
-#: tinypress.php:448
-msgid "PublishPress Shortlinks"
-msgstr "PublishPress Kısa Bağlantılar"
+#: includes/classes/class-import-export.php:87
+msgid "Importing..."
+msgstr "İçe aktarılıyor..."
 
-#: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:401
-msgid "General"
-msgstr "Genel"
+#: includes/classes/class-import-export.php:88
+msgid "Import complete!"
+msgstr "İçe aktarma tamamlandı!"
 
-#: includes/classes/class-meta-boxes.php:205
-msgid "Label *"
-msgstr "Etiket *"
+#: includes/classes/class-import-export.php:89
+msgid "Import failed. Please check the file and try again."
+msgstr "İçe aktarma başarısız oldu. Lütfen dosyayı kontrol edin ve tekrar deneyin."
 
-#: includes/classes/class-meta-boxes.php:207
-msgid "For admin purpose only."
-msgstr "Sadece yönetici amaçları için."
+#: includes/classes/class-import-export.php:90
+msgid "Please select a CSV file."
+msgstr "Lütfen bir CSV dosyası seçin."
 
-#: includes/classes/class-meta-boxes.php:216
-msgid "Target URL *"
-msgstr "Hedef URL *"
+#: includes/classes/class-import-export.php:91
+msgid "This will import shortlinks from the CSV file. Continue?"
+msgstr "Bu, CSV dosyasından kısa bağlantıları içe aktaracaktır. Devam edilsin mi?"
 
-#: includes/classes/class-meta-boxes.php:226
-msgid "Short String *"
-msgstr "Kısa Dize *"
+#: includes/classes/class-import-export.php:92
+msgid "Previewing..."
+msgstr "Önizleme yapılıyor..."
 
-#: includes/classes/class-meta-boxes.php:227
-msgid "Short string of this URL."
-msgstr "Bu URL'nin kısa dizesi."
+#: includes/classes/class-import-export.php:93
+msgid "Preview failed."
+msgstr "Önizleme başarısız oldu."
 
-#: includes/classes/class-meta-boxes.php:233
-msgid "Status"
-msgstr "Durum"
+#: includes/classes/class-import-export.php:94
+#: includes/classes/class-import-export.php:1197
+msgid "See More Rows"
+msgstr "Daha Fazla Satır Görüntüle"
 
-#: includes/classes/class-meta-boxes.php:234
-msgid "Disable the shortlink instantly."
-msgstr "Kısa bağlantıyı hemen devre dışı bırak."
+#: includes/classes/class-import-export.php:95
+msgid "Show Less"
+msgstr "Daha Az Göster"
 
-#: includes/classes/class-meta-boxes.php:235
-msgid "After disabling the link will not active but the settings will be reserved."
+#: includes/classes/class-import-export.php:96
+#: includes/classes/class-import-export.php:1160
+msgid "Preview"
+msgstr "Önizleme"
+
+#: includes/classes/class-import-export.php:97
+#: includes/classes/class-import-export.php:1151
+#: includes/classes/class-import-export.php:1164
+msgid "Import CSV"
+msgstr "CSV İçe Aktar"
+
+#: includes/classes/class-import-export.php:98
+#: includes/classes/class-import-export.php:731
+#. translators: %d: number of successfully imported shortlinks
+#, php-format
+msgid "%d shortlinks successfully imported"
+msgstr "%d kısa bağlantı başarıyla içe aktarıldı"
+
+#: includes/classes/class-import-export.php:99
+#: includes/classes/class-import-export.php:753
+#. translators: %d: number of failed imports
+#, php-format
+msgid "%d shortlinks failed to import"
+msgstr "%d kısa bağlantı içe aktarılamadı"
+
+#: includes/classes/class-import-export.php:100
+msgid "Error(s) for TinyPress Slug:"
+msgstr "TinyPress Slug için hata(lar):"
+
+#: includes/classes/class-import-export.php:115
+#: includes/classes/class-import-export.php:546
+#: includes/classes/class-import-export.php:907
+#: includes/classes/class-import-export.php:1048
+msgid "Unauthorized."
+msgstr "Yetkisiz."
+
+#: includes/classes/class-import-export.php:303
+#: includes/functions.php:402
+msgid "Invalid URL."
+msgstr "Geçersiz URL."
+
+#: includes/classes/class-import-export.php:551
+#: includes/classes/class-import-export.php:912
+msgid "No file uploaded or upload error."
+msgstr "Hiç dosya yüklenmedi veya yükleme hatası."
+
+#: includes/classes/class-import-export.php:560
+#: includes/classes/class-import-export.php:921
+msgid "Please upload a CSV file."
+msgstr "Lütfen bir CSV dosyası yükleyin."
+
+#: includes/classes/class-import-export.php:566
+#: includes/classes/class-import-export.php:927
+msgid "Could not read the file."
+msgstr "Dosya okunamadı."
+
+#: includes/classes/class-import-export.php:573
+#: includes/classes/class-import-export.php:934
+msgid "Empty CSV file."
+msgstr "Boş CSV dosyası."
+
+#: includes/classes/class-import-export.php:596
+#: includes/classes/class-import-export.php:958
+msgid ""
+"CSV must contain a column for target URL (e.g., \"url\", \"target_url\", "
+"\"destination_url\")."
 msgstr ""
-"Bağlantıyı devre dışı bıraktıktan sonra aktif olmayacak ancak ayarlar "
-"saklanacaktır."
+"CSV, hedef URL için bir sütun içermelidir (örn., \"url\", \"target_url\", "
+"\"destination_url\")."
 
-#: includes/classes/class-meta-boxes.php:236
-msgid "Enable"
-msgstr "Etkinleştir"
+#: includes/classes/class-import-export.php:663
+#. translators: %s: error message
+#, php-format
+msgid "Failed to create shortlink: %s"
+msgstr "Kısa bağlantı oluşturulamadı: %s"
 
-#: includes/classes/class-meta-boxes.php:237
-msgid "Disable"
-msgstr "Devre dışı bırak"
+#: includes/classes/class-import-export.php:664
+msgid "Unknown error."
+msgstr "Bilinmeyen hata."
 
-#: includes/classes/class-meta-boxes.php:244
+#: includes/classes/class-import-export.php:742
+#. translators: %d: number of updated shortlinks
+#, php-format
+msgid "%d shortlinks updated"
+msgstr "%d kısa bağlantı güncellendi"
+
+#: includes/classes/class-import-export.php:995
+#. translators: 1: original column name, 2: mapped field name
+#, fuzzy, php-format
+msgid "\"%1$s\" → %2$s"
+msgstr "\"%1$s\" → %2$s"
+
+#: includes/classes/class-import-export.php:1006
+#. translators: %s: field mappings
+#, php-format
+msgid "Field mappings: %s"
+msgstr "Alan eşleştirmeleri: %s"
+
+#: includes/classes/class-import-export.php:1033
+#. translators: 1: number of preview rows, 2: total number of importable rows
+#, php-format
+msgid "Showing %1$d preview row(s) from %2$d importable row(s)."
+msgstr "%1$d önizleme satırı gösteriliyor, %2$d içe aktarılabilir satırdan."
+
+#: includes/classes/class-import-export.php:1052
+msgid "Link Label"
+msgstr "Bağlantı Etiketi"
+
+#: includes/classes/class-import-export.php:1054
+msgid "Short Slug"
+msgstr "Kısa Slug"
+
+#: includes/classes/class-import-export.php:1055
+msgid "Post Status"
+msgstr "Gönderi Durumu"
+
+#: includes/classes/class-import-export.php:1056
+msgid "Link Status"
+msgstr "Bağlantı Durumu"
+
+#: includes/classes/class-import-export.php:1057
+msgid "Redirect Method"
+msgstr "Yönlendirme Yöntemi"
+
+#: includes/classes/class-import-export.php:1058
+#: includes/classes/class-meta-boxes.php:664
+#: includes/classes/class-settings.php:939, fuzzy
+msgid "NoFollow"
+msgstr "NoFollow"
+
+#: includes/classes/class-import-export.php:1059
+#: includes/classes/class-meta-boxes.php:642
+#: includes/classes/class-settings.php:931
+msgid "Sponsored"
+msgstr "Sponsorlu"
+
+#: includes/classes/class-import-export.php:1060
+#: includes/classes/class-meta-boxes.php:686
+#: includes/classes/class-settings.php:947
+msgid "Parameter Forwarding"
+msgstr "Parametre Yönlendirme"
+
+#: includes/classes/class-import-export.php:1061
+msgid "Expiration Enabled"
+msgstr "Son Kullanım Süresi Etkin"
+
+#: includes/classes/class-import-export.php:1062
+#: includes/classes/class-meta-boxes.php:770
+#: includes/classes/class-settings.php:988
+msgid "Expiration Date"
+msgstr "Sona Erme Tarihi"
+
+#: includes/classes/class-import-export.php:1063
+#: includes/classes/class-meta-boxes.php:784
+#: includes/classes/class-settings.php:1001
+msgid "Expiration Time"
+msgstr "Sona Erme Saati"
+
+#: includes/classes/class-import-export.php:1065
+#: includes/classes/class-meta-boxes.php:552
 msgid "Notes"
 msgstr "Notlar"
 
-#: includes/classes/class-meta-boxes.php:251
-msgid "All"
-msgstr "Tümü"
+#: includes/classes/class-import-export.php:1066
+msgid "Autolink Keywords"
+msgstr "Otomatik Bağlantı Anahtar Kelimeleri"
 
-#: includes/classes/class-meta-boxes.php:263
-msgid "Auto-linking"
-msgstr "Otomatik bağlantı"
+#: includes/classes/class-import-export.php:1095
+msgid "Import / Export Shortlinks"
+msgstr "Kısa Linkleri İçe Aktar / Dışa Aktar"
 
-#: includes/classes/class-meta-boxes.php:268
+#: includes/classes/class-import-export.php:1099
+#: includes/classes/class-import-export.php:1137
+#: includes/classes/class-import-export.php:1206
+msgid "Import"
+msgstr "İçeri Aktar"
+
+#: includes/classes/class-import-export.php:1102
+#: includes/classes/class-import-export.php:1111
+msgid "Export"
+msgstr "Dışa Aktar"
+
+#: includes/classes/class-import-export.php:1114
+msgid ""
+"Download all your shortlinks as a CSV file. The export includes labels, "
+"target URLs, slugs, redirect settings, global-setting modes, and more. "
+"Password protection settings are not exported."
+msgstr ""
+"Tüm kısayollarınızı bir CSV dosyası olarak indirin. Dışa aktarma, "
+"etiketler, hedef URL'ler, slug'lar, yönlendirme ayarları, küresel ayar "
+"modları ve daha fazlasını içerir. Şifre koruma ayarları dışa "
+"aktarılmamaktadır."
+
+#: includes/classes/class-import-export.php:1119
+#. translators: %d: number of shortlinks
+#, php-format
+msgid "%d shortlink(s) will be exported."
+msgstr "%d kısa bağlantı dışa aktarılacaktır."
+
+#: includes/classes/class-import-export.php:1127
+msgid "Export CSV"
+msgstr "CSV Dışa Aktar"
+
+#: includes/classes/class-import-export.php:1140
+msgid ""
+"Upload a CSV file to bulk-create shortlinks. The CSV must contain at "
+"minimum a \"target_url\" column. Password protection settings are "
+"intentionally not imported."
+msgstr ""
+"Toplu olarak kısayollar oluşturmak için bir CSV dosyası yükleyin. CSV en az "
+"bir \"target_url\" sütununu içermelidir. Şifre koruma ayarları kasıtlı "
+"olarak aktarılmamaktadır."
+
+#: includes/classes/class-import-export.php:1142
+msgid "Supported columns:"
+msgstr "Desteklenen sütunlar:"
+
+#: includes/classes/class-import-export.php:1167
+msgid "Change File"
+msgstr "Dosyayı Değiştir"
+
+#: includes/classes/class-import-export.php:1184
+msgid "Import Preview"
+msgstr "İçeri Aktarma Önizlemesi"
+
+#: includes/classes/class-meta-boxes.php:387
+#: includes/classes/class-meta-boxes.php:453
+#: includes/classes/class-meta-boxes.php:478
+#. translators: %s: current global setting value
+msgid "Use global settings"
+msgstr "Küresel ayarları kullan"
+
+#: includes/classes/class-meta-boxes.php:388
+msgid "Enabled"
+msgstr "Etkin"
+
+#: includes/classes/class-meta-boxes.php:389
+msgid "Disabled"
+msgstr "Devre dışı"
+
+#: includes/classes/class-meta-boxes.php:449
+msgid "ON"
+msgstr "AÇIK"
+
+#: includes/classes/class-meta-boxes.php:449
+msgid "OFF"
+msgstr "KAPALI"
+
+#: includes/classes/class-meta-boxes.php:481
+#: includes/classes/class-settings.php:922
+msgid "307 (Temporary)"
+msgstr "307 (Geçici)"
+
+#: includes/classes/class-meta-boxes.php:482
+#: includes/classes/class-settings.php:923
+msgid "302 (Temporary)"
+msgstr "302 (Geçici)"
+
+#: includes/classes/class-meta-boxes.php:483
+#: includes/classes/class-settings.php:924
+msgid "301 (Permanent)"
+msgstr "301 (Kalıcı)"
+
+#: includes/classes/class-meta-boxes.php:496
+#: tinypress.php:399
+#: tinypress.php:492
+msgid "PublishPress Shortlinks"
+msgstr "PublishPress Kısa Bağlantılar"
+
+#: includes/classes/class-meta-boxes.php:509
+#: includes/classes/class-settings.php:718
+msgid "General"
+msgstr "Genel"
+
+#: includes/classes/class-meta-boxes.php:514
+msgid "Label *"
+msgstr "Etiket *"
+
+#: includes/classes/class-meta-boxes.php:516
+msgid "For admin purpose only."
+msgstr "Sadece yönetici amaçları için."
+
+#: includes/classes/class-meta-boxes.php:525
+msgid "Target URL *"
+msgstr "Hedef URL *"
+
+#: includes/classes/class-meta-boxes.php:535
+msgid "Short String *"
+msgstr "Kısa Dize *"
+
+#: includes/classes/class-meta-boxes.php:536
+msgid "Short string of this URL."
+msgstr "Bu URL'nin kısa dizesi."
+
+#: includes/classes/class-meta-boxes.php:543
+msgid "Enable or disable the shortlink."
+msgstr "Kısa bağlantıyı etkinleştir veya devre dışı bırak."
+
+#: includes/classes/class-meta-boxes.php:544
+msgid "Enable"
+msgstr "Etkinleştir"
+
+#: includes/classes/class-meta-boxes.php:545
+msgid "Disable"
+msgstr "Devre dışı bırak"
+
+#: includes/classes/class-meta-boxes.php:576
+#: includes/classes/class-meta-boxes.php:582
+msgid "Shortlink Label"
+msgstr "Kısayol Etiketi"
+
+#: includes/classes/class-meta-boxes.php:577
+#: includes/classes/class-meta-boxes.php:583
+msgid "Custom Text"
+msgstr "Özel Metin"
+
+#: includes/classes/class-meta-boxes.php:581
+msgid "Post Title"
+msgstr "Gönderi Başlığı"
+
+#: includes/classes/class-meta-boxes.php:593
 msgid "Keywords"
 msgstr "Anahtar kelimeler"
 
-#: includes/classes/class-meta-boxes.php:269
+#: includes/classes/class-meta-boxes.php:594
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
@@ -538,51 +1127,57 @@ msgstr ""
 "Anahtar kelimeleri virgülle ayırarak veya ayrı satırlarda ekleyin. Her "
 "anahtar kelime bu kısa bağlantıya bağlanacaktır."
 
-#: includes/classes/class-meta-boxes.php:274, fuzzy
-msgid "Post Types"
-msgstr "Post Types"
+#: includes/classes/class-meta-boxes.php:599
+msgid "Link Alt Text"
+msgstr "Bağlantı Alternatif Metni"
 
-#: includes/classes/class-meta-boxes.php:275
-msgid "Where should these keywords be auto-linked?"
-msgstr "Bu anahtar kelimeler nerede otomatik olarak bağlanmalı?"
+#: includes/classes/class-meta-boxes.php:600
+msgid "Set the alt text for the linked keywords in the frontend of the site."
+msgstr ""
+"Site ön yüzündeki bağlantılı anahtar kelimeler için alternatif metni "
+"ayarlayın."
 
-#: includes/classes/class-meta-boxes.php:288
+#: includes/classes/class-meta-boxes.php:607
+msgid "Custom Alt Text"
+msgstr "Özel Alternatif Metin"
+
+#: includes/classes/class-meta-boxes.php:608
+msgid ""
+"Enter custom alt text for the linked keywords. This is only used if "
+"\"Custom Text\" is selected above."
+msgstr ""
+"Bağlantılı anahtar kelimeler için özel alt metin girin. Bu, yukarıda \"Özel "
+"Metin\" seçildiğinde kullanılır."
+
+#: includes/classes/class-meta-boxes.php:619
+msgid "Auto-linking"
+msgstr "Otomatik bağlantı"
+
+#: includes/classes/class-meta-boxes.php:628
+#: includes/classes/class-settings.php:914
 msgid "Redirection"
 msgstr "Yönlendirme"
 
-#: includes/classes/class-meta-boxes.php:293
+#: includes/classes/class-meta-boxes.php:633
+#: includes/classes/class-settings.php:919
 msgid "Redirection Method"
 msgstr "Yönlendirme Yöntemi"
 
-#: includes/classes/class-meta-boxes.php:294
+#: includes/classes/class-meta-boxes.php:634
 msgid "Select redirection method"
 msgstr "Yönlendirme yöntemini seçin"
 
-#: includes/classes/class-meta-boxes.php:295
+#: includes/classes/class-meta-boxes.php:635
 msgid "Select a method"
 msgstr "Bir yöntem seçin"
 
-#: includes/classes/class-meta-boxes.php:297
-msgid "307 (Temporary)"
-msgstr "307 (Geçici)"
-
-#: includes/classes/class-meta-boxes.php:298
-msgid "302 (Temporary)"
-msgstr "302 (Geçici)"
-
-#: includes/classes/class-meta-boxes.php:299
-msgid "301 (Permanent)"
-msgstr "301 (Kalıcı)"
-
-#: includes/classes/class-meta-boxes.php:306
-msgid "Sponsored"
-msgstr "Sponsorlu"
-
-#: includes/classes/class-meta-boxes.php:307
+#: includes/classes/class-meta-boxes.php:645
 msgid "Mark links as sponsored content."
 msgstr "Bağlantıları sponsorlu içerik olarak işaretle."
 
-#: includes/classes/class-meta-boxes.php:308
+#: includes/classes/class-meta-boxes.php:646
+#: includes/classes/class-meta-boxes.php:656
+#: includes/classes/class-settings.php:933
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -590,15 +1185,13 @@ msgstr ""
 "rel=\"sponsored\" özniteliğini ekler. Ortaklık bağlantıları ve ücretli "
 "tanıtımlar için önerilir."
 
-#: includes/classes/class-meta-boxes.php:313, fuzzy
-msgid "NoFollow"
-msgstr "NoFollow"
-
-#: includes/classes/class-meta-boxes.php:314
+#: includes/classes/class-meta-boxes.php:667
 msgid "Prevent search engines from following this link."
 msgstr "Arama motorlarının bu bağlantıyı takip etmesini önleyin."
 
-#: includes/classes/class-meta-boxes.php:315
+#: includes/classes/class-meta-boxes.php:668
+#: includes/classes/class-meta-boxes.php:678
+#: includes/classes/class-settings.php:941
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -606,15 +1199,13 @@ msgstr ""
 "rel=\"nofollow\" özniteliğini ekler. Harici bağlantılar ve güvensiz "
 "kaynaklar için önerilir."
 
-#: includes/classes/class-meta-boxes.php:321
-msgid "Parameter Forwarding"
-msgstr "Parametre Yönlendirme"
-
-#: includes/classes/class-meta-boxes.php:322
+#: includes/classes/class-meta-boxes.php:689
 msgid "Pass URL parameters to the target link."
 msgstr "Hedef bağlantıya URL parametrelerini ilet."
 
-#: includes/classes/class-meta-boxes.php:323
+#: includes/classes/class-meta-boxes.php:690
+#: includes/classes/class-meta-boxes.php:700
+#: includes/classes/class-settings.php:949
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -622,132 +1213,200 @@ msgstr ""
 "Kısa URL'ye eklenen herhangi bir parametre (?utm_source=email gibi) hedef "
 "URL'ye iletilecektir."
 
-#: includes/classes/class-meta-boxes.php:333
+#: includes/classes/class-meta-boxes.php:713
+#: includes/classes/class-settings.php:960
 msgid "Password Protection"
 msgstr "Şifre Koruması"
 
-#: includes/classes/class-meta-boxes.php:334
+#: includes/classes/class-meta-boxes.php:716
 msgid "Secure your shortlink."
 msgstr "Kısa bağlantınızı güvence altına alın."
 
-#: includes/classes/class-meta-boxes.php:335
+#: includes/classes/class-meta-boxes.php:717
+#: includes/classes/class-meta-boxes.php:727
 msgid "Users must enter the password to redirect to the target link."
 msgstr "Kullanıcıların hedef bağlantıya yönlendirilmek için şifreyi girmesi gerekir."
 
-#: includes/classes/class-meta-boxes.php:340
+#: includes/classes/class-meta-boxes.php:735
 msgid "Password"
 msgstr "Şifre"
 
-#: includes/classes/class-meta-boxes.php:341
+#: includes/classes/class-meta-boxes.php:736
 msgid "Share this with users."
 msgstr "Bunu kullanıcılarla paylaşın."
 
-#: includes/classes/class-meta-boxes.php:342
+#: includes/classes/class-meta-boxes.php:737
 msgid "Passwords are case sensitive."
 msgstr "Şifreler büyük/küçük harfe duyarlıdır."
 
-#: includes/classes/class-meta-boxes.php:343, fuzzy
+#: includes/classes/class-meta-boxes.php:738
+#: includes/classes/class-settings.php:971, fuzzy
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:352
+#: includes/classes/class-meta-boxes.php:748
+#: includes/classes/class-settings.php:980
 msgid "Enable Expiration"
 msgstr "Sona Erme Özelliğini Etkinleştir"
 
-#: includes/classes/class-meta-boxes.php:353
-msgid "Expire automatically."
-msgstr "Otomatik olarak sona erdir."
+#: includes/classes/class-meta-boxes.php:751
+msgid "Set an expiration date and time for shortlinks."
+msgstr "Kısa bağlantılar için bir son kullanma tarihi ve saati belirleyin."
 
-#: includes/classes/class-meta-boxes.php:354
-msgid "Users will not able to redirect to the target URL once expire."
-msgstr "Sona erdiğinde kullanıcılar hedef URL'ye yönlendirme yapamayacaktır."
+#: includes/classes/class-meta-boxes.php:752
+#: includes/classes/class-meta-boxes.php:762
+#: includes/classes/class-settings.php:982
+msgid ""
+"After the expiration date and time pass, visitors will no longer be able to "
+"access the shortlink."
+msgstr ""
+"Son kullanma tarihi ve saati geçtikten sonra, ziyaretçiler kısa bağlantıya "
+"erişemeyeceklerdir."
 
-#: includes/classes/class-meta-boxes.php:359
-msgid "Expiration Date"
-msgstr "Sona Erme Tarihi"
+#: includes/classes/class-meta-boxes.php:771
+msgid "Select the date when this shortlink should stop working."
+msgstr "Bu kısa bağlantının çalışmayı durdurması gereken tarihi seçin."
 
-#: includes/classes/class-meta-boxes.php:360
-msgid "Choose the date this link should expire."
-msgstr "Bu bağlantının sona ereceği tarihi seçin."
+#: includes/classes/class-meta-boxes.php:785
+msgid "Select the time when the shortlink should expire."
+msgstr "Kısa bağlantının süresinin dolması gereken zamanı seçin."
 
-#: includes/classes/class-meta-boxes.php:372
-msgid "Expiration Time"
-msgstr "Sona Erme Saati"
+#: includes/classes/class-meta-boxes.php:786
+#: includes/classes/class-settings.php:1003
+msgid ""
+"Must be at least 1 minute in the future. Combined with the date above to "
+"set the exact expiration moment."
+msgstr ""
+"En az 1 dakika gelecekte olmalıdır. Tam son kullanma anını ayarlamak için "
+"yukarıdaki tarih ile birleştirilir."
 
-#: includes/classes/class-meta-boxes.php:373
-msgid "Choose the time this link should expire."
-msgstr "Bu bağlantının sona ereceği saati seçin."
-
-#: includes/classes/class-meta-boxes.php:374
-msgid "Must be at least 1 minute in the future."
-msgstr "En az 1 dakika ileri bir tarih olmalıdır."
-
-#: includes/classes/class-meta-boxes.php:391
+#: includes/classes/class-meta-boxes.php:804
+#: includes/classes/class-settings.php:955
 msgid "Security"
 msgstr "Güvenlik"
 
-#: includes/classes/class-meta-boxes.php:402
+#: includes/classes/class-meta-boxes.php:823
+msgid "QR Code"
+msgstr "QR Kodu"
+
+#: includes/classes/class-meta-boxes.php:833
+#: tinypress.php:396
 msgid "Analytics"
 msgstr "Analitik"
 
-#: includes/classes/class-redirection.php:599
+#: includes/classes/class-redirection.php:1044
 msgid "Post not found."
 msgstr "Gönderi bulunamadı."
 
-#: includes/classes/class-redirection.php:648
+#: includes/classes/class-redirection.php:1188
+#: includes/functions.php:361
+#: includes/functions.php:362
+#: includes/functions.php:363
+#: includes/functions.php:369
+#: tinypress.php:303
+#: tinypress.php:304
+#: tinypress.php:305
+msgid "This post is in {status} status. It is not visible to the public."
+msgstr "Bu gönderi {status} durumundadır. Kamuya görünür değildir."
+
+#: includes/classes/class-redirection.php:1236
 msgid "This link has expired"
 msgstr "Bu bağlantının süresi dolmuştur"
 
-#: includes/classes/class-redirection.php:652
+#: includes/classes/class-redirection.php:1240
 msgid "You will be redirected shortly."
 msgstr "Kısa süre içinde yönlendirileceksiniz."
 
-#: includes/classes/class-redirection.php:656
+#: includes/classes/class-redirection.php:1244
 msgid "Click here if you are not redirected"
 msgstr "Yönlendirilmezseniz buraya tıklayın"
 
-#: includes/classes/class-redirection.php:673
+#: includes/classes/class-redirection.php:1261
 msgid "Link Expired"
 msgstr "Bağlantı Süresi Doldu"
 
-#: includes/classes/class-redirection.php:804
+#: includes/classes/class-redirection.php:1423
 msgid "This link is not active."
 msgstr "Bu bağlantı aktif değil."
 
-#: includes/classes/class-redirection.php:849
+#: includes/classes/class-redirection.php:1460
 msgid "This link is expired."
 msgstr "Bu bağlantının süresi dolmuştur."
 
-#: includes/classes/class-redirection.php:868
+#: includes/classes/class-redirection.php:1479
 msgid "Incorrect password. Please try again."
 msgstr "Yanlış şifre. Lütfen tekrar deneyin."
 
-#: includes/classes/class-redirection.php:883
-#: includes/classes/class-redirection.php:888
+#: includes/classes/class-redirection.php:1494
+#: includes/classes/class-redirection.php:1499
 msgid "Password Protected Link"
 msgstr "Şifre Korumalı Bağlantı"
 
-#: includes/classes/class-redirection.php:894
+#: includes/classes/class-redirection.php:1505
 msgid "Enter password to continue:"
 msgstr "Devam etmek için şifre girin:"
 
-#: includes/classes/class-redirection.php:896
+#: includes/classes/class-redirection.php:1507
 msgid "Submit"
 msgstr "Gönder"
 
-#: includes/classes/class-redirection.php:1014
+#: includes/classes/class-redirection.php:1631
 msgid "This link is not containing the right prefix slug."
 msgstr "Bu bağlantı doğru önek slug'ını içermiyor."
+
+#: includes/classes/class-redirection.php:1672
+msgid "Too many invalid shortlink requests. Please try again later."
+msgstr "Çok fazla geçersiz kısa bağlantı isteği. Lütfen daha sonra tekrar deneyin."
+
+#: includes/classes/class-redirection.php:1673
+msgid "Too Many Requests"
+msgstr "Çok Fazla İstek"
 
 #: includes/classes/class-revision.php:439
 msgid "Invalid revision ID."
 msgstr "Geçersiz revizyon ID'si."
 
-#: includes/classes/class-settings.php:187
+#: includes/classes/class-settings.php:362
+#: includes/classes/class-settings.php:703
+#: includes/classes/class-settings.php:711
+#: includes/functions.php:270
+#: includes/functions.php:304
+msgid "Draft"
+msgstr "Taslak"
+
+#: includes/classes/class-settings.php:363
+#: includes/classes/class-settings.php:704
+#: includes/classes/class-settings.php:712
+#: includes/functions.php:271
+#: includes/functions.php:305
+msgid "Pending Review"
+msgstr "İnceleme Bekliyor"
+
+#: includes/classes/class-settings.php:364
+#: includes/classes/class-settings.php:705
+#: includes/classes/class-settings.php:713
+#: includes/functions.php:272
+#: includes/functions.php:306
+msgid "Private"
+msgstr "Özel"
+
+#: includes/classes/class-settings.php:369
+msgid ""
+"Customize the notice shown for each enabled non-published status. Available "
+"placeholders: {status}, {date}, {title}."
+msgstr ""
+"Her etkin yayımlanmamış durum için gösterilecek bildirimi özelleştirin. "
+"Kullanılabilir yer tutucular: {status}, {date}, {title}."
+
+#: includes/classes/class-settings.php:405
+msgid "All"
+msgstr "Tümü"
+
+#: includes/classes/class-settings.php:444
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: includes/classes/class-settings.php:271
+#: includes/classes/class-settings.php:528
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -755,12 +1414,12 @@ msgstr ""
 "Bir PublishPress kısa linkine erişirken hangi gönderi durumlarının "
 "erişilebilir olduğunu seçin."
 
-#: includes/classes/class-settings.php:287
+#: includes/classes/class-settings.php:544
 #, fuzzy
 msgid "PublishPress Statuses Plugin Detected:"
 msgstr "PublishPress Kısa Linkler Ücretsiz"
 
-#: includes/classes/class-settings.php:288
+#: includes/classes/class-settings.php:545
 msgid ""
 "To use core PublishPress statuses with Shortlinks, Please enable the "
 "Shortlinks post type in PublishPress Statuses workflow settings."
@@ -769,11 +1428,11 @@ msgstr ""
 "PublishPress Durumları iş akışı ayarlarında Kısa Bağlantılar post type'ını "
 "etkinleştirin."
 
-#: includes/classes/class-settings.php:307
+#: includes/classes/class-settings.php:564
 msgid "Elementor Detected:"
 msgstr "Elementor Tespit Edildi:"
 
-#: includes/classes/class-settings.php:308
+#: includes/classes/class-settings.php:565
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
@@ -781,11 +1440,11 @@ msgstr ""
 "Elementor revizyonlarının doğru görüntülenmesi için kısa bağlantı öneki "
 "gereklidir. Açık tutmanız önerilir."
 
-#: includes/classes/class-settings.php:340
+#: includes/classes/class-settings.php:597
 msgid "TinyPress Shortlinks Notice:"
 msgstr "TinyPress Kısa Bağlantılar Bildirimi:"
 
-#: includes/classes/class-settings.php:341
+#: includes/classes/class-settings.php:598
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
@@ -793,109 +1452,113 @@ msgstr ""
 "Elementor aktiftir. Kısa bağlantı öneki otomatik olarak devre dışı "
 "bırakıldı, Elementor revizyonlarıyla optimal uyumluluk için gereklidir."
 
-#: includes/classes/class-settings.php:404
-msgid "Options"
-msgstr "Seçenekler"
+#: includes/classes/class-settings.php:702
+#: includes/functions.php:269
+#: includes/functions.php:303
+msgid "Published"
+msgstr "Yayınlandı"
 
-#: includes/classes/class-settings.php:409
+#: includes/classes/class-settings.php:726
 msgid "Shortlink Prefix"
 msgstr "Kısa Bağlantı Öneki"
 
-#: includes/classes/class-settings.php:410
+#: includes/classes/class-settings.php:727
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Alan adınız ile kısayolunuz arasında bir önek ekleyin."
 
-#: includes/classes/class-settings.php:417
+#: includes/classes/class-settings.php:734
 msgid "Prefix Slug"
 msgstr "Önek Slug"
 
-#: includes/classes/class-settings.php:418
+#: includes/classes/class-settings.php:735
 msgid "Custom prefix slug."
 msgstr "Özel önek slug."
 
-#: includes/classes/class-settings.php:419
+#: includes/classes/class-settings.php:736
 msgid "This text will be added between your domain name and shortlink."
 msgstr "Bu metin alan adınız ile kısayolunuz arasında eklenecektir."
 
-#: includes/classes/class-settings.php:420
-#: includes/classes/class-settings.php:421
+#: includes/classes/class-settings.php:737
+#: includes/classes/class-settings.php:738
 msgid "go"
 msgstr "git"
 
-#: includes/classes/class-settings.php:427
+#: includes/classes/class-settings.php:744
 msgid "Keyboard Shortcut"
 msgstr "Klavye Kısayolu"
 
-#: includes/classes/class-settings.php:428
+#: includes/classes/class-settings.php:745
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr "WordPress dashboard'unuzun içinden her yerden kısayollar oluşturun."
 
-#: includes/classes/class-settings.php:429
-#: includes/classes/class-settings.php:430
+#: includes/classes/class-settings.php:746
+#: includes/classes/class-settings.php:747
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl veya Cmd + /"
 
-#: includes/classes/class-settings.php:439
+#: includes/classes/class-settings.php:756
 msgid "Remove from Admin Bar"
 msgstr "Yönetici Çubuğundan Kaldır"
 
-#: includes/classes/class-settings.php:440
+#: includes/classes/class-settings.php:757
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "WordPress yönetici çubuğundan \"Kısalt\" düğmesini gizleyin."
 
-#: includes/classes/class-settings.php:446
+#: includes/classes/class-settings.php:763
 msgid "Role Management"
 msgstr "Rol Yönetimi"
 
-#: includes/classes/class-settings.php:451
-msgid "Who Can View Shortlinks"
-msgstr "Kısayolları Kim Görebilir"
+#: includes/classes/class-settings.php:768
+msgid "Who Can View The All Shortlinks Screen"
+msgstr "Tüm Kısa Bağlantılar Ekranını Kim Görebilir"
 
-#: includes/classes/class-settings.php:452
-msgid "Only selected user roles can view links."
-msgstr "Yalnızca seçilen kullanıcı rolleri bağlantıları görebilir."
+#: includes/classes/class-settings.php:769
+msgid "Only selected user roles can view the complete list of Shortlinks."
+msgstr "Sadece seçilen kullanıcı rolleri Kısa Bağlantıların tam listesini görebilir."
 
-#: includes/classes/class-settings.php:460
+#: includes/classes/class-settings.php:777
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Kısayolları Kim Oluşturabilir/Düzenleyebilir"
 
-#: includes/classes/class-settings.php:461
+#: includes/classes/class-settings.php:778
 msgid "Only selected user roles can create or edit links."
 msgstr ""
 "Yalnızca seçilen kullanıcı rolleri bağlantıları oluşturabilir veya "
 "düzenleyebilir."
 
-#: includes/classes/class-settings.php:470
-msgid "Who Can See Analytics"
-msgstr "Analitikleri Kim Görebilir"
+#: includes/classes/class-settings.php:787
+msgid "Who Can See Logs"
+msgstr "Logları Kim Görebilir"
 
-#: includes/classes/class-settings.php:471
-msgid "Only selected user roles can see analytics."
-msgstr "Yalnızca seçilen kullanıcı rolleri analitikleri görebilir."
+#: includes/classes/class-settings.php:788
+msgid "Only selected user roles can see the Analytics tab and the Logs screen."
+msgstr ""
+"Sadece seçilen kullanıcı rolleri Analitik sekmesini ve Loglar ekranını "
+"görebilir."
 
-#: includes/classes/class-settings.php:480
+#: includes/classes/class-settings.php:797
 msgid "Who Can Control Settings"
 msgstr "Ayarları Kim Kontrol Edebilir"
 
-#: includes/classes/class-settings.php:481
-msgid "Only selected user roles can control settings."
-msgstr "Yalnızca seçilen kullanıcı rolleri ayarları kontrol edebilir."
+#: includes/classes/class-settings.php:798
+msgid "Only selected user roles can access the Settings screen."
+msgstr "Sadece seçilen kullanıcı rolleri Ayarlar ekranına erişebilir."
 
-#: includes/classes/class-settings.php:490
+#: includes/classes/class-settings.php:807
 msgid "Auto-Linking"
 msgstr "Otomatik Bağlantı"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:812
 msgid "Enable Auto-Linking"
 msgstr "Otomatik Bağlantıyı Etkinleştir"
 
-#: includes/classes/class-settings.php:496
+#: includes/classes/class-settings.php:813
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr ""
 "Anahtar kelimeleri post içeriğinde kısa bağlantılara otomatik olarak "
 "dönüştür."
 
-#: includes/classes/class-settings.php:497
+#: includes/classes/class-settings.php:814
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
@@ -903,39 +1566,47 @@ msgstr ""
 "Etkinleştirildiğinde, kısa bağlantı ayarlarında yapılandırılan anahtar "
 "kelimeler içeriğinizde otomatik olarak bağlanacaktır."
 
-#: includes/classes/class-settings.php:503
+#: includes/classes/class-settings.php:820, fuzzy
+msgid "Post Types"
+msgstr "Post Types"
+
+#: includes/classes/class-settings.php:821
+msgid "Where should auto-linking be applied?"
+msgstr "Otomatik bağlantı nerede uygulanmalı?"
+
+#: includes/classes/class-settings.php:830
 msgid "Open Auto-Links In"
 msgstr "Otomatik Bağlantıları Aç"
 
-#: includes/classes/class-settings.php:504
+#: includes/classes/class-settings.php:831
 msgid "Choose how auto-linked keywords should open."
 msgstr "Otomatik bağlantılı anahtar kelimelerin nasıl açılacağını seçin."
 
-#: includes/classes/class-settings.php:506
+#: includes/classes/class-settings.php:833
 msgid "Same tab"
 msgstr "Aynı sekme"
 
-#: includes/classes/class-settings.php:507
+#: includes/classes/class-settings.php:834
 msgid "New tab"
 msgstr "Yeni sekme"
 
-#: includes/classes/class-settings.php:515
+#: includes/classes/class-settings.php:842
 msgid "Auto-Link Color"
 msgstr "Otomatik Bağlantı Rengi"
 
-#: includes/classes/class-settings.php:516
+#: includes/classes/class-settings.php:843
 msgid "Choose the color for auto-linked keywords."
 msgstr "Otomatik bağlantılı anahtar kelimeler için rengi seçin."
 
-#: includes/classes/class-settings.php:523
+#: includes/classes/class-settings.php:854
 msgid "Auto-List Links"
 msgstr "Otomatik Liste Bağlantıları"
 
-#: includes/classes/class-settings.php:528
+#: includes/classes/class-settings.php:859
 msgid "Auto-List Shortlinks"
 msgstr "Kısa Linkleri Otomatik Listele"
 
-#: includes/classes/class-settings.php:529
+#: includes/classes/class-settings.php:860
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
@@ -943,17 +1614,17 @@ msgstr ""
 "Etkinleştirildiğinde, kısa linkler aşağıda yapılandırdığınız davranışa göre "
 "\"Tüm Linkler\" tablosunda görünecektir."
 
-#: includes/classes/class-settings.php:535
+#: includes/classes/class-settings.php:866
 msgid "Configure Post Types"
 msgstr "Post Tiplerini Yapılandır"
 
-#: includes/classes/class-settings.php:536
+#: includes/classes/class-settings.php:867
 msgid "Set when links should be auto-listed for each post type"
 msgstr ""
 "Her post tipi için linklerin ne zaman otomatik olarak listelenmesi "
 "gerektiğini ayarlayın"
 
-#: includes/classes/class-settings.php:537
+#: includes/classes/class-settings.php:868
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -961,65 +1632,106 @@ msgstr ""
 "Post tiplerini ekleyin ve kısa linklerinin \"Tüm Linkler\" tablosunda ne "
 "zaman görüneceğini yapılandırın. Değişiklikler otomatik olarak kaydedilir."
 
-#: includes/classes/class-settings.php:544
+#: includes/classes/class-settings.php:875
 #: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "Gönderi Durumu Görünürlüğü"
 
-#: includes/classes/class-settings.php:549
+#: includes/classes/class-settings.php:880
 msgid "Allowed Post Statuses"
 msgstr "İzin Verilen Gönderi Durumları"
 
-#: includes/classes/class-settings.php:550
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Hangi gönderi durumlarının kısa linkler aracılığıyla erişilebileceğini seçin"
+#: includes/classes/class-settings.php:889
+msgid "Unpublished Content Notice"
+msgstr "Yayımlanmamış İçerik Bildirimi"
 
-#: includes/classes/class-settings.php:554
-msgid "Published"
-msgstr "Yayınlandı"
-
-#: includes/classes/class-settings.php:555
-msgid "Draft"
-msgstr "Taslak"
-
-#: includes/classes/class-settings.php:556
-msgid "Pending Review"
-msgstr "İnceleme Bekliyor"
-
-#: includes/classes/class-settings.php:557
-msgid "Private"
-msgstr "Özel"
-
-#: includes/classes/class-settings.php:565
-msgid "Expired Links"
-msgstr "Süresi Dolmuş Linkler"
-
-#: includes/classes/class-settings.php:570
-msgid "Default Expired Redirect URL"
-msgstr "Varsayılan Süresi Dolmuş Yönlendirme URL'si"
-
-#: includes/classes/class-settings.php:571
-msgid "Where should expired shortlinks redirect?"
-msgstr "Süresi dolmuş kısa linkler nereye yönlendirilmelidir?"
-
-#: includes/classes/class-settings.php:572
+#: includes/classes/class-settings.php:890
 msgid ""
-"When a shortlink expires, visitors will be redirected to this URL instead "
-"of seeing an error. Leave empty to show the default expiration message."
+"Show a frontend notice when an internal shortlink displays a post that is "
+"not published."
 msgstr ""
-"Kısa link süresi dolduğunda, ziyaretçiler bir hata görmek yerine bu URL'ye "
-"yönlendirilecektir. Varsayılan süre dolma mesajını göstermek için boş "
-"bırakın."
+"Bir dahili kısa bağlantı yayımlanmamış bir gönderi gösterdiğinde ön uçta "
+"bir bildirim gösterin."
 
-#: includes/classes/class-settings.php:584
+#: includes/classes/class-settings.php:896
+msgid "Notice Post Statuses"
+msgstr "Gönderi Durumlarını Bildir"
+
+#: includes/classes/class-settings.php:897
+msgid ""
+"This notice only applies to internal shortlinks that render post content "
+"directly. External shortlinks are not affected."
+msgstr ""
+"Bu bildirim yalnızca doğrudan gönderi içeriği render eden dahili kısa "
+"bağlantılar için geçerlidir. Harici kısa bağlantılardan etkilenmez."
+
+#: includes/classes/class-settings.php:906
+msgid "Notice Messages"
+msgstr "Bildirim Mesajları"
+
+#: includes/classes/class-settings.php:920
+msgid "Default redirection method for shortlinks"
+msgstr "Kısa bağlantılar için varsayılan yönlendirme yöntemi"
+
+#: includes/classes/class-settings.php:932
+msgid "Mark links as sponsored content"
+msgstr "Bağlantıları sponsorlu içerik olarak işaretleyin"
+
+#: includes/classes/class-settings.php:940
+msgid "Prevent search engines from following links"
+msgstr "Arama motorlarının bağlantıları takip etmesini engelleyin"
+
+#: includes/classes/class-settings.php:948
+msgid "Pass URL parameters to target links"
+msgstr "URL parametrelerini hedef bağlantılara geçirin"
+
+#: includes/classes/class-settings.php:961
+msgid "Secure your shortlinks"
+msgstr "Kısa bağlantılarınızı güvenli hale getirin"
+
+#: includes/classes/class-settings.php:962
+msgid "Users must enter a password to redirect to the target link."
+msgstr ""
+"Kullanıcıların hedef bağlantıya yönlendirilmek için bir şifre girmesi "
+"gerekmektedir."
+
+#: includes/classes/class-settings.php:968
+msgid "Default Password"
+msgstr "Varsayılan Şifre"
+
+#: includes/classes/class-settings.php:969
+msgid "Default password for protected links"
+msgstr "Korunan bağlantılar için varsayılan şifre"
+
+#: includes/classes/class-settings.php:970
+msgid ""
+"This password will be used for links that have password protection enabled "
+"via global settings. Passwords are case sensitive."
+msgstr ""
+"Bu şifre, global ayarlar aracılığıyla şifre koruması etkinleştirilmiş "
+"bağlantılar için kullanılacaktır. Şifreler büyük/küçük harf duyarlıdır."
+
+#: includes/classes/class-settings.php:981
+msgid "Set an expiration date and time for shortlinks"
+msgstr "Kısa bağlantılar için bir son tarih ve saat ayarlayın"
+
+#: includes/classes/class-settings.php:989
+msgid "Select the date when this shortlink should stop working"
+msgstr "Bu kısa bağlantının çalışmayı durdurması gereken tarihi seçin"
+
+#: includes/classes/class-settings.php:1002
+msgid "Select the time when the shortlink should expire"
+msgstr "Kısa bağlantının süresinin dolması gereken saati seçin"
+
+#: includes/classes/class-settings.php:1021
 msgid "Revisions"
 msgstr "Revizyonlar"
 
-#: includes/classes/class-settings.php:589
+#: includes/classes/class-settings.php:1026
 msgid "Revision Link Visibility"
 msgstr "Revizyon Linki Görünürlüğü"
 
-#: includes/classes/class-settings.php:590
+#: includes/classes/class-settings.php:1027
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -1027,35 +1739,35 @@ msgstr ""
 "Etkinleştirildiğinde, revizyon kısa linkleri aşağıda yapılandırdığınız "
 "davranışa göre \"Tüm Kısa Linkler\" tablosunda görünecektir."
 
-#: includes/classes/class-settings.php:592
+#: includes/classes/class-settings.php:1029
 msgid "When Revision is Created"
 msgstr "Revizyon Oluşturulduğunda"
 
-#: includes/classes/class-settings.php:594
+#: includes/classes/class-settings.php:1031
 msgid "When Revision is Created or Link is First Used"
 msgstr "Revizyon Oluşturulduğunda veya Bağlantı İlk Kullanıldığında"
 
-#: includes/classes/class-settings.php:602
+#: includes/classes/class-settings.php:1039
 msgid "Show Shortlink in Revision Table"
 msgstr "Revizyon Tablosunda Kısa Bağlantıyı Göster"
 
-#: includes/classes/class-settings.php:603
+#: includes/classes/class-settings.php:1040
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "PublishPress Revizyonları'nda revizyonları görüntülerken kısa bağlantı "
 "sütununu göster."
 
-#: includes/classes/class-settings.php:609
+#: includes/classes/class-settings.php:1046
 msgid "Revision Visibility for Visitors"
 msgstr "Ziyaretçiler için Revizyon Görünürlüğü"
 
-#: includes/classes/class-settings.php:610
+#: includes/classes/class-settings.php:1047
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Oturum açmamış ziyaretçilerin kısa bağlantılar aracılığıyla revizyon "
 "içeriğini görüntülemesine izin ver."
 
-#: includes/classes/class-settings.php:611
+#: includes/classes/class-settings.php:1048
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1067,17 +1779,17 @@ msgstr ""
 "kısa bağlantıları oturum açmamış ziyaretçiler için revizyon içeriğini "
 "doğrudan gösterir; önizleme URL'sine yönlendirmez."
 
-#: includes/classes/class-settings.php:632
+#: includes/classes/class-settings.php:1071
 msgid "Dummy"
 msgstr "Sahte"
 
-#: includes/classes/class-settings.php:676
+#: includes/classes/class-settings.php:1115
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Henüz yapılandırılmış post type yok. Başlamak için \"Post Type Ekle\"ya "
 "tıklayın."
 
-#: includes/classes/class-settings.php:708
+#: includes/classes/class-settings.php:1147
 msgid "Add Post Type"
 msgstr "Post Type Ekle"
 
@@ -1103,79 +1815,82 @@ msgstr "Başlık"
 msgid "Details"
 msgstr "Ayrıntılar"
 
-#: includes/classes/class-table-logs.php:199
+#: includes/classes/class-table-logs.php:200
 msgid "Are you sure you want to delete this log entry?"
 msgstr "Bu günlük girişini silmek istediğinizden emin misiniz?"
 
-#: includes/classes/class-table-logs.php:250, fuzzy
+#: includes/classes/class-table-logs.php:260
+msgid "View Analytics"
+msgstr "Analitikleri Görüntüle"
+
+#: includes/classes/class-table-logs.php:278, fuzzy
 msgid "Tablet"
 msgstr "Tablet"
 
-#: includes/classes/class-table-logs.php:252
+#: includes/classes/class-table-logs.php:280
 msgid "Mobile"
 msgstr "Mobil"
 
-#: includes/classes/class-table-logs.php:254
+#: includes/classes/class-table-logs.php:282
 msgid "Desktop"
 msgstr "Masaüstü"
 
-#: includes/classes/class-table-logs.php:308
+#: includes/classes/class-table-logs.php:336
 #. translators: 1: user display name, 2: location name, 3: visit date/time
 #, php-format
 msgid "%1$s from %2$s visited at %3$s"
 msgstr "%1$s, %2$s'dan %3$s tarihinde ziyaret etti"
 
-#: includes/classes/class-table-logs.php:311
+#: includes/classes/class-table-logs.php:339
 #. translators: 1: user display name, 2: visit date/time
 #, php-format
 msgid "%1$s visited at %2$s"
 msgstr "%1$s, %2$s tarihinde ziyaret etti"
 
-#: includes/classes/class-table-logs.php:315
+#: includes/classes/class-table-logs.php:343
 #. translators: 1: location name, 2: visit date/time
 #, php-format
 msgid "From %1$s, visited at %2$s"
 msgstr "%1$s'tan, %2$s tarihinde ziyaret edildi"
 
-#: includes/classes/class-table-logs.php:318
+#: includes/classes/class-table-logs.php:346
 #. translators: %s: visit date/time
 #, php-format
 msgid "Visited at %s"
 msgstr "%s tarihinde ziyaret edildi"
 
-#: includes/classes/class-table-logs.php:330
+#: includes/classes/class-table-logs.php:358
 #. translators: %s: device type and browser name, e.g. "Mobile Chrome"
 #, php-format
 msgid "via %s"
 msgstr "%s üzerinden"
 
-#: includes/functions.php:169
+#: includes/functions.php:225
 msgid "Edit shortlink settings"
 msgstr "Kısa bağlantı ayarlarını düzenle"
 
-#: includes/functions.php:216
+#: includes/functions.php:364
+#: tinypress.php:306
+msgid ""
+"This post is in {status} status. It will become visible to the public on "
+"{date}."
+msgstr ""
+"Bu gönderi {status} durumundadır. {date} tarihinde kamuya görünür hale "
+"gelecektir."
+
+#: includes/functions.php:389
 msgid "Target url not found."
 msgstr "Hedef URL bulunamadı."
 
-#: includes/functions.php:223
+#: includes/functions.php:396
 msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr ""
 "Geçersiz URL şeması. Sadece http, https, ftp, ftps ve mailto izin "
 "verilmektedir."
 
-#: includes/functions.php:229
-msgid "Invalid URL."
-msgstr "Geçersiz URL."
-
-#: includes/functions.php:233
+#: includes/functions.php:428
 msgid "Tiny slug could not created."
 msgstr "Küçük slug oluşturulamadı."
-
-#: includes/functions.php:252
-#. translators: %s: link ID number
-#, php-format
-msgid "Link - %s"
-msgstr "Bağlantı - %s"
 
 #: templates/admin-modal-new-link.php:12
 msgid "Shortlink will appear here"
@@ -1189,32 +1904,28 @@ msgstr "Uzun bir URL girin ve kısa bağlantı oluşturun"
 msgid "Long URL"
 msgstr "Uzun URL"
 
-#: templates/admin-modal-new-link.php:37
-msgid "Close"
-msgstr "Kapat"
-
 #: templates/admin-modal-new-link.php:38
 msgid "Create Shortlink"
 msgstr "Kısa Bağlantı Oluştur"
 
-#: templates/admin/analytics.php:45
-#: templates/admin/analytics.php:64
+#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:68
 msgid "Reset Today's Analytics"
 msgstr "Bugünün Analitiklerini Sıfırla"
 
-#: templates/admin/analytics.php:46
+#: templates/admin/analytics.php:50
 msgid "Reset Week's Analytics"
 msgstr "Haftanın Analitiklerini Sıfırla"
 
-#: templates/admin/analytics.php:47
+#: templates/admin/analytics.php:51
 msgid "Reset Month's Analytics"
 msgstr "Ayın Analitiklerini Sıfırla"
 
-#: templates/admin/analytics.php:48
+#: templates/admin/analytics.php:52
 msgid "Reset Year's Analytics"
 msgstr "Yılın Analitiklerini Sıfırla"
 
-#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:53
 msgid ""
 "Are you sure you want to reset the analytics for this period? This action "
 "cannot be undone."
@@ -1222,19 +1933,19 @@ msgstr ""
 "Bu dönem için analitikleri sıfırlamak istediğinizden emin misiniz? Bu işlem "
 "geri alınamaz."
 
-#: templates/admin/analytics.php:57
+#: templates/admin/analytics.php:61
 msgid "Today"
 msgstr "Bugün"
 
-#: templates/admin/analytics.php:58
+#: templates/admin/analytics.php:62
 msgid "Last 7 Days"
 msgstr "Son 7 Gün"
 
-#: templates/admin/analytics.php:59
+#: templates/admin/analytics.php:63
 msgid "Last 1 Month"
 msgstr "Son 1 Ay"
 
-#: templates/admin/analytics.php:60
+#: templates/admin/analytics.php:64
 msgid "Last 1 Year"
 msgstr "Son 1 Yıl"
 
@@ -1298,6 +2009,18 @@ msgstr "Bilgi Tabanını Görüntüle"
 msgid "This plugin can be deleted."
 msgstr "Bu eklenti silinebilir."
 
-#: tinypress.php:355
+#: tinypress.php:395
 msgid "Copied."
 msgstr "Kopyalandı."
+
+#: tinypress.php:397
+msgid ""
+"This setting is inherited from global settings. Choose another option to "
+"override it for this shortlink."
+msgstr ""
+"Bu ayar küresel ayarlardan miras alınmıştır. Bu kısa bağlantı için geçersiz "
+"kılmak için başka bir seçenek seçin."
+
+#: tinypress.php:398
+msgid "Working..."
+msgstr "Çalışıyor..."

@@ -119,8 +119,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 wp_die(esc_html__('Security check failed.', 'tinypress'));
             }
 
-            $format = isset($_GET['format']) ? sanitize_text_field($_GET['format']) : 'tinypress';
-            $this->export_csv($format);
+            $this->export_csv();
         }
 
         /**
@@ -193,6 +192,10 @@ if (! class_exists('TINYPRESS_Import_Export')) {
         {
             $use_global = get_post_meta($post_id, $use_global_key, true);
 
+            if (in_array($use_global, array( 'enabled', 'disabled' ), true)) {
+                return false;
+            }
+
             if (is_array($use_global) && in_array('1', $use_global, true)) {
                 return true;
             }
@@ -221,6 +224,10 @@ if (! class_exists('TINYPRESS_Import_Export')) {
 
             if ('use_global' === $mode) {
                 $value = $this->get_settings_value($global_key, $default);
+            } elseif ('enabled' === get_post_meta($post_id, $use_global_key, true)) {
+                $value = true;
+            } elseif ('disabled' === get_post_meta($post_id, $use_global_key, true)) {
+                $value = false;
             } else {
                 $value = get_post_meta($post_id, $setting_key, true);
             }
@@ -396,18 +403,44 @@ if (! class_exists('TINYPRESS_Import_Export')) {
         }
 
         /**
+         * Sanitize an imported slug while preserving slash-separated paths.
+         *
+         * @param string $slug Imported slug value.
+         * @return string
+         */
+        private function sanitize_import_slug($slug)
+        {
+            $slug = trim((string) $slug);
+
+            if ('' === $slug) {
+                return '';
+            }
+
+            $parsed_url = wp_parse_url($slug);
+            if (is_array($parsed_url) && ! empty($parsed_url['host'])) {
+                $slug = isset($parsed_url['path']) ? $parsed_url['path'] : '';
+            }
+
+            $slug = str_replace('\\', '/', $slug);
+            $slug = preg_replace('/[?#].*$/', '', $slug);
+            $slug = trim($slug, " \t\n\r\0\x0B/");
+
+            if ('' === $slug) {
+                return '';
+            }
+
+            $slug_parts = array_filter(array_map('sanitize_title', explode('/', $slug)), 'strlen');
+
+            return implode('/', $slug_parts);
+        }
+
+        /**
          * Export all shortlinks as CSV.
          *
-         * @param string $format Export format: 'tinypress' or 'pretty-links'.
          */
-        private function export_csv($format = 'tinypress')
+        private function export_csv()
         {
-            $filename = 'shortlinks-export-' . gmdate('Y-m-d-His');
-            if ('pretty-links' === $format) {
-                $filename .= '-pretty-links.csv';
-            } else {
-                $filename .= '.csv';
-            }
+            $filename = 'shortlinks-export-' . gmdate('Y-m-d-His') . '.csv';
 
             header('Content-Type: text/csv; charset=utf-8');
             header('Content-Disposition: attachment; filename="' . $filename . '"');
@@ -417,38 +450,24 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
             $output = fopen('php://output', 'w');
 
-            if ('pretty-links' === $format) {
-                $this->write_csv_row($output, array(
-                    'url',
-                    'slug',
-                    'name',
-                    'redirect_type',
-                    'nofollow',
-                    'sponsored',
-                    'param_forwarding',
-                    'keywords',
-                    'description',
-                ));
-            } else {
-                $this->write_csv_row($output, array(
-                    'label',
-                    'target_url',
-                    'short_slug',
-                    'post_status',
-                    'link_status',
-                    'redirect_method',
-                    'nofollow',
-                    'sponsored',
-                    'parameter_forwarding',
-                    'expiration_enabled',
-                    'expiration_date',
-                    'expiration_time',
-                    'expired_redirect_url',
-                    'notes',
-                    'autolink_keywords',
-                    'date_created',
-                ));
-            }
+            $this->write_csv_row($output, array(
+                'label',
+                'target_url',
+                'short_slug',
+                'post_status',
+                'link_status',
+                'redirect_method',
+                'nofollow',
+                'sponsored',
+                'parameter_forwarding',
+                'expiration_enabled',
+                'expiration_date',
+                'expiration_time',
+                'expired_redirect_url',
+                'notes',
+                'autolink_keywords',
+                'date_created',
+            ));
 
             $paged    = 1;
             $per_page = 500;
@@ -480,22 +499,6 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                     $link_status = get_post_meta($link->ID, 'link_status', true);
                     if ('' === $link_status) {
                         $link_status = '1';
-                    }
-
-                    if ('pretty-links' === $format) {
-                        $this->write_csv_row($output, array(
-                            get_post_meta($link->ID, 'target_url', true),
-                            get_post_meta($link->ID, 'tiny_slug', true),
-                            $link->post_title,
-                            $redirect_method['value'],
-                            'yes' === $nofollow['value'] ? '1' : '0',
-                            'yes' === $sponsored['value'] ? '1' : '0',
-                            'yes' === $parameter_forwarding['value'] ? '1' : '0',
-                            $autolink_keywords,
-                            get_post_meta($link->ID, 'tiny_notes', true),
-                        ));
-
-                        continue;
                     }
 
                     $expiration_date = get_post_meta($link->ID, 'expiration_date', true);
@@ -606,14 +609,14 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 if (is_wp_error($target_url)) {
                     $failed++;
                     $errors[] = array(
-                        'slug'   => $this->import_field_exists($data, 'short_slug') ? sanitize_title($data['short_slug']) : 'unknown',
+                        'slug'   => $this->import_field_exists($data, 'short_slug') ? $this->sanitize_import_slug($data['short_slug']) : 'unknown',
                         'reason' => $target_url->get_error_message(),
                     );
                     continue;
                 }
 
                 $label = $this->import_field_exists($data, 'label') && '' !== $data['label'] ? sanitize_text_field($data['label']) : $target_url;
-                $slug  = $this->import_field_exists($data, 'short_slug') && '' !== $data['short_slug'] ? sanitize_title($data['short_slug']) : '';
+                $slug  = $this->import_field_exists($data, 'short_slug') && '' !== $data['short_slug'] ? $this->sanitize_import_slug($data['short_slug']) : '';
 
                 $link_id = null;
 
@@ -621,7 +624,13 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                     global $wpdb;
                     // phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching
                     $existing = $wpdb->get_var($wpdb->prepare(
-                        "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'tiny_slug' AND meta_value = %s LIMIT 1",
+                        "SELECT pm.post_id FROM {$wpdb->postmeta} pm
+                        INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
+                        WHERE pm.meta_key = 'tiny_slug'
+                        AND pm.meta_value = %s
+                        AND p.post_type = 'tinypress_link'
+                        ORDER BY CASE WHEN p.post_status = 'publish' THEN 0 ELSE 1 END, p.ID DESC
+                        LIMIT 1",
                         $slug
                     ));
                     if ($existing) {
@@ -999,10 +1008,21 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 );
             }
 
+            $field_mapping_rows = array();
+            foreach ($mapped_headers as $idx => $mapping) {
+                if ($mapping['original'] !== $mapping['mapped']) {
+                    $field_mapping_rows[] = array(
+                        'original' => (string) $mapping['original'],
+                        'mapped'   => (string) $mapping['mapped'],
+                    );
+                }
+            }
+
             wp_send_json_success(array(
                 'columns'           => $original_header,
                 'mapped_headers'    => $mapped_headers,
                 'field_mappings'    => $field_mappings,
+                'field_mapping_rows' => $field_mapping_rows,
                 'preview'           => $preview_rows,
                 'total_rows'        => $total_rows,
                 'preview_limit'     => $preview_limit,
@@ -1065,22 +1085,6 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 'tinypress_export_csv'
             );
 
-            // Check if Pretty Links is active
-            $pretty_links_active = defined('PRLI_PLUGIN_NAME') || class_exists('PrliAppController');
-
-            $export_pretty_links_url = '';
-            if ($pretty_links_active) {
-                $export_pretty_links_url = wp_nonce_url(
-                    add_query_arg(array(
-                        'post_type'           => 'tinypress_link',
-                        'page'                => 'tinypress-import-export',
-                        'tinypress_export_csv' => '1',
-                        'format'              => 'pretty-links',
-                    ), admin_url('edit.php')),
-                    'tinypress_export_csv'
-                );
-            }
-
             $total_links = wp_count_posts('tinypress_link');
             $count = 0;
             foreach (array( 'publish', 'draft', 'tinypress_suspended' ) as $status_key) {
@@ -1090,67 +1094,46 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             <div class="wrap tinypress-import-export-wrap">
                 <h1><?php esc_html_e('Import / Export Shortlinks', 'tinypress'); ?></h1>
 
-                <div class="tinypress-ie-grid">
-                    <div class="tinypress-ie-card">
-                        <div class="tinypress-ie-card-header">
-                            <span class="dashicons dashicons-download"></span>
-                            <h2><?php esc_html_e('Export', 'tinypress'); ?></h2>
-                        </div>
-                        <div class="tinypress-ie-card-body">
-                            <?php if ($pretty_links_active) : ?>
-                                <p><?php esc_html_e('Download all your shortlinks as a CSV file. Choose a format below:', 'tinypress'); ?></p>
-                                <p class="tinypress-ie-count">
-                                    <?php
-                                    printf(
-                                        /* translators: %d: number of shortlinks */
-                                        esc_html__('%d shortlink(s) will be exported.', 'tinypress'),
-                                        (int) $count
-                                    );
-                                    ?>
-                                </p>
+                <h2 class="nav-tab-wrapper tinypress-ie-tabs">
+                    <a href="#tinypress-import-panel" class="nav-tab tinypress-ie-tab nav-tab-active" data-tab="tinypress-import-panel">
+                        <?php esc_html_e('Import', 'tinypress'); ?>
+                    </a>
+                    <a href="#tinypress-export-panel" class="nav-tab tinypress-ie-tab" data-tab="tinypress-export-panel">
+                        <?php esc_html_e('Export', 'tinypress'); ?>
+                    </a>
+                </h2>
 
-                                <div class="tinypress-export-buttons">
-                                    <div class="tinypress-export-option shortlinks-export">
-                                        <h4><?php esc_html_e('Shortlinks Format', 'tinypress'); ?></h4>
-                                        <p class="description"><?php esc_html_e('Full format with TinyPress fields and global-setting modes. Password protection settings are not exported.', 'tinypress'); ?></p>
-                                        <a href="<?php echo esc_url($export_url); ?>" class="button button-primary">
-                                            <span class="dashicons dashicons-download"></span>
-                                            <?php esc_html_e('Export CSV', 'tinypress'); ?>
-                                        </a>
-                                    </div>
-
-                                    <div class="tinypress-export-option">
-                                        <h4><?php esc_html_e('Pretty Links Format', 'tinypress'); ?></h4>
-                                        <p class="description"><?php esc_html_e('Compatible format for importing into Pretty Links plugin.', 'tinypress'); ?></p>
-                                        <a href="<?php echo esc_url($export_pretty_links_url); ?>" class="button button-secondary">
-                                            <span class="dashicons dashicons-download"></span>
-                                            <?php esc_html_e('Export for Pretty Links', 'tinypress'); ?>
-                                        </a>
-                                    </div>
-                                </div>
-                            <?php else : ?>
-                                <p><?php esc_html_e('Download all your shortlinks as a CSV file. The export includes labels, target URLs, slugs, redirect settings, global-setting modes, and more. Password protection settings are not exported.', 'tinypress'); ?></p>
-                                <p class="tinypress-ie-count">
-                                    <?php
-                                    printf(
-                                    /* translators: %d: number of shortlinks */
-                                        esc_html__('%d shortlink(s) will be exported.', 'tinypress'),
-                                        (int) $count
-                                    );
-                                    ?>
-                                </p>
-
-                                <a href="<?php echo esc_url($export_url); ?>" class="tinypress-import-export button button-primary button-large">
-                                    <span class="dashicons dashicons-download"></span>
-                                    <?php esc_html_e('Export CSV', 'tinypress'); ?>
-                                </a>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-
+                <div class="tinypress-ie-tab-panels">
+                    <div id="tinypress-export-panel" class="tinypress-ie-tab-panel">
                     <div class="tinypress-ie-card">
                         <div class="tinypress-ie-card-header">
                             <span class="dashicons dashicons-upload"></span>
+                            <h2><?php esc_html_e('Export', 'tinypress'); ?></h2>
+                        </div>
+                        <div class="tinypress-ie-card-body">
+                            <p><?php esc_html_e('Download all your shortlinks as a CSV file. The export includes labels, target URLs, slugs, redirect settings, global-setting modes, and more. Password protection settings are not exported.', 'tinypress'); ?></p>
+                            <p class="tinypress-ie-count">
+                                <?php
+                                printf(
+                                /* translators: %d: number of shortlinks */
+                                    esc_html__('%d shortlink(s) will be exported.', 'tinypress'),
+                                    (int) $count
+                                );
+                                ?>
+                            </p>
+
+                            <a href="<?php echo esc_url($export_url); ?>" class="tinypress-import-export button button-primary button-large">
+                                <span class="dashicons dashicons-upload"></span>
+                                <?php esc_html_e('Export CSV', 'tinypress'); ?>
+                            </a>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div id="tinypress-import-panel" class="tinypress-ie-tab-panel is-active">
+                    <div class="tinypress-ie-card">
+                        <div class="tinypress-ie-card-header">
+                            <span class="dashicons dashicons-download"></span>
                             <h2><?php esc_html_e('Import', 'tinypress'); ?></h2>
                         </div>
                         <div class="tinypress-ie-card-body">
@@ -1163,8 +1146,8 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                             <div id="tinypress-file-input-section">
                                 <form id="tinypress-import-form" enctype="multipart/form-data">
                                     <input type="file" name="csv_file" id="tinypress-csv-file" accept=".csv">
-                                    <button type="submit" class="button button-primary button-hero" id="tinypress-import-btn">
-                                        <span class="dashicons dashicons-upload"></span>
+                                    <button type="submit" class="import-button button-primary button-hero" id="tinypress-import-btn">
+                                        <span class="dashicons dashicons-download"></span>
                                         <?php esc_html_e('Import CSV', 'tinypress'); ?>
                                     </button>
                                 </form>
@@ -1172,15 +1155,15 @@ if (! class_exists('TINYPRESS_Import_Export')) {
 
                             <!-- File Selected Actions -->
                             <div id="tinypress-file-selected-actions" style="display:none;">
-                                <button type="button" class="button" id="tinypress-preview-btn">
+                                <button type="button" class="import-preview-button button" id="tinypress-preview-btn">
                                     <span class="dashicons dashicons-visibility"></span>
                                     <?php esc_html_e('Preview', 'tinypress'); ?>
                                 </button>
-                                <button type="button" class="button button-primary" id="tinypress-import-selected-btn">
-                                    <span class="dashicons dashicons-upload"></span>
+                                <button type="button" class="import-button button button-primary" id="tinypress-import-selected-btn">
+                                    <span class="dashicons dashicons-download"></span>
                                     <?php esc_html_e('Import CSV', 'tinypress'); ?>
                                 </button>
-                                <button type="button" class="button" id="tinypress-change-file-btn">
+                                <button type="button" class="import-preview-button button" id="tinypress-change-file-btn">
                                     <?php esc_html_e('Change File', 'tinypress'); ?>
                                 </button>
                             </div>
@@ -1210,16 +1193,16 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                                     </table>
                                 </div>
                                 <div id="tinypress-expand-container" style="display:none; text-align: center; padding-top: 12px;">
-                                    <button type="button" class="button" id="tinypress-expand-table-btn">
+                                    <button type="button" class="import-preview-button button" id="tinypress-expand-table-btn">
                                         <?php esc_html_e('See More Rows', 'tinypress'); ?>
                                     </button>
                                 </div>
                                 <div class="tinypress-preview-actions">
-                                    <button type="button" class="button" id="tinypress-cancel-import-btn">
+                                    <button type="button" class="import-preview-button button" id="tinypress-cancel-import-btn">
                                         <?php esc_html_e('Cancel', 'tinypress'); ?>
                                     </button>
-                                    <button type="button" class="button button-primary" id="tinypress-confirm-import-btn">
-                                        <span class="dashicons dashicons-upload"></span>
+                                    <button type="button" class="import-button button-primary" id="tinypress-confirm-import-btn">
+                                        <span class="dashicons dashicons-download"></span>
                                         <?php esc_html_e('Import', 'tinypress'); ?>
                                     </button>
                                 </div>
@@ -1228,6 +1211,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                             <!-- Import Result Section -->
                             <div id="tinypress-import-result" style="display:none;"></div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>

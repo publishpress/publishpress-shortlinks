@@ -179,14 +179,14 @@ if (! class_exists('TINYPRESS_Hooks')) {
 
         public function add_admin_bar_menu(WP_Admin_Bar $admin_bar)
         {
-
-            $hide_modal_opener = (bool) Utils::get_option('tinypress_hide_modal_opener');
-
             if (! self::current_user_can_view() || ! self::current_user_can_create()) {
                 return;
             }
 
-            if ($hide_modal_opener !== true) {
+            $settings = get_option('tinypress_settings', array());
+            $hide_modal_opener = is_array($settings) && ! empty($settings['tinypress_hide_modal_opener']);
+
+            if (! $hide_modal_opener) {
                 $admin_bar->add_menu(array(
                     'id'    => 'tinypress',
                     'title' => esc_html__('Shorten', 'tinypress'),

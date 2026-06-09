@@ -364,11 +364,22 @@ if (! class_exists('TINYPRESS_Gutenberg_Shortlink')) {
         private function get_shortlink_url($tiny_slug)
         {
             $prefix = '';
-            if ('1' == get_option('tinypress_link_prefix')) {
-                $prefix = get_option('tinypress_link_prefix_slug', 'go') . '/';
+            $prefix_settings = function_exists('tinypress_get_link_prefix_settings')
+                ? tinypress_get_link_prefix_settings()
+                : array(
+                    'enabled' => get_option('tinypress_link_prefix'),
+                    'slug'    => get_option('tinypress_link_prefix_slug', 'go'),
+                );
+            $prefix_enabled = $prefix_settings['enabled'];
+            $prefix_slug = $prefix_settings['slug'];
+            
+            if ('1' == $prefix_enabled) {
+                $prefix = $prefix_slug . '/';
             }
 
-            return site_url('/' . $prefix . $tiny_slug);
+            $shortlink_url = site_url('/' . $prefix . $tiny_slug);
+
+            return $shortlink_url;
         }
 
         /**

@@ -29,6 +29,20 @@
         var $progressSection         = $('#tinypress-progress-section');
         var $result                 = $('#tinypress-import-result');
 
+        $('.tinypress-ie-tab').on('click', function(e) {
+            e.preventDefault();
+
+            var tabId = $(this).data('tab');
+            if (!tabId) {
+                return;
+            }
+
+            $('.tinypress-ie-tab').removeClass('nav-tab-active');
+            $(this).addClass('nav-tab-active');
+            $('.tinypress-ie-tab-panel').removeClass('is-active');
+            $('#' + tabId).addClass('is-active');
+        });
+
         $fileInput.on('change', function() {
             if (this.files.length > 0) {
                 $fileInputSection.hide();
@@ -131,9 +145,10 @@
                         buildPreviewTable(response.data.columns, response.data.preview);
 
                         var previewMessage = response.data.message;
-                        if (response.data.mapping_message) {
-                            previewMessage += '<div class="tinypress-field-mapping-info">' + 
-                                response.data.mapping_message + '</div>';
+                        var mappingRows = response.data.field_mapping_rows || response.data.field_mappings || [];
+                        var mappingHtml = buildFieldMappingInfo(mappingRows, response.data.mapping_message);
+                        if (mappingHtml) {
+                            previewMessage += mappingHtml;
                         }
                         
                         $('#tinypress-preview-message').html(previewMessage);
@@ -157,6 +172,45 @@
         }
 
         /**
+         * Build field mapping rows for the preview message.
+         */
+        function buildFieldMappingInfo(mappings, mappingMessage) {
+            if (!mappings || !mappings.length) {
+                return '';
+            }
+
+            var heading = mappingMessage ? mappingMessage.split(':')[0] + ':' : 'Field mappings:';
+            var html = '<div class="tinypress-field-mapping-info">';
+            html += '<strong>' + escapeHtml(heading) + '</strong>';
+            html += '<div class="tinypress-field-mapping-list">';
+
+            $.each(mappings, function(i, mapping) {
+                var original = '';
+                var mapped = '';
+
+                if (typeof mapping === 'string') {
+                    html += '<div class="tinypress-field-mapping-row tinypress-field-mapping-row-single">';
+                    html += '<span>' + mapping + '</span>';
+                    html += '</div>';
+                    return;
+                }
+
+                original = mapping.original || '';
+                mapped = mapping.mapped || '';
+
+                html += '<div class="tinypress-field-mapping-row">';
+                html += '<span class="tinypress-field-mapping-original">' + escapeHtml(original) + '</span>';
+                html += '<span class="tinypress-field-mapping-arrow" aria-hidden="true">&rarr;</span>';
+                html += '<span class="tinypress-field-mapping-mapped">' + escapeHtml(mapped) + '</span>';
+                html += '</div>';
+            });
+
+            html += '</div></div>';
+
+            return html;
+        }
+
+        /**
          * Build preview table dynamically based on columns
          */
         function buildPreviewTable(columns, rows) {
@@ -168,7 +222,11 @@
             $thead.empty();
             var $headerRow = $('<tr>');
             $.each(columns, function(i, col) {
-                $headerRow.append($('<th>').text(col));
+                var $headerCell = $('<th>').text(col);
+                if (isUrlColumn(col)) {
+                    $headerCell.addClass('tinypress-preview-url-column');
+                }
+                $headerRow.append($headerCell);
             });
             $thead.append($headerRow);
 
@@ -179,7 +237,11 @@
                     $row.hide();
                 }
                 $.each(rowData, function(colIndex, cellData) {
-                    $row.append($('<td>').text(cellData));
+                    var $cell = $('<td>').text(cellData);
+                    if (isUrlColumn(columns[colIndex] || '')) {
+                        $cell.addClass('tinypress-preview-url-column');
+                    }
+                    $row.append($cell);
                 });
                 $tbody.append($row);
             });
@@ -190,6 +252,10 @@
             } else {
                 $expandContainer.hide();
             }
+        }
+
+        function isUrlColumn(columnName) {
+            return String(columnName || '').toLowerCase().indexOf('url') !== -1;
         }
 
         /**

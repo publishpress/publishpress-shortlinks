@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
-"PO-Revision-Date: 2026-04-29 12:57+0000\n"
+"PO-Revision-Date: 2026-06-09 08:27+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Language: yor\n"
@@ -29,11 +29,11 @@ msgstr "https://publishpress.com/shortlinks/"
 #: tinypress.php:6
 #. Description of the plugin
 msgid ""
-"Create custom links for your posts. These links are brandable, trackable, "
+"The best link manager for WordPress. Your links are brandable, trackable, "
 "and can have custom view permissions."
 msgstr ""
-"Ṣẹda awọn ọna asopọ aṣa fun awọn ifiweranṣẹ rẹ. Awọn ọna asopọ wọnyi jẹ ti "
-"a le ṣe ami, ti a le tọpinpin, ati pe o le ni awọn igbanilaaye wiwo aṣa."
+"Iṣakoso ọna asopọ ti o dara julọ fun WordPress. Awọn ọna asopọ rẹ jẹ ti a "
+"le ṣe ami, le tọpinpin, ati pe o le ni awọn igbanilaaye wo ti aṣa."
 
 #: tinypress.php:9
 #. Author of the plugin
@@ -45,7 +45,7 @@ msgstr "PublishPress"
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: includes-core/ShortlinksCoreAdmin.php:86
+#: includes-core/ShortlinksCoreAdmin.php:88
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
@@ -53,80 +53,247 @@ msgstr ""
 "Iwọ n lo PublishPress Shortlinks Free. Ẹya Pro ni awọn ẹya diẹ sii ati "
 "atilẹyin."
 
-#: includes-core/ShortlinksCoreAdmin.php:87
-#: includes-core/ShortlinksCoreAdmin.php:104
-#: includes-core/ShortlinksCoreAdmin.php:105
-#: includes-core/ShortlinksCoreAdmin.php:271
+#: includes-core/ShortlinksCoreAdmin.php:89
+#: includes-core/ShortlinksCoreAdmin.php:106
+#: includes-core/ShortlinksCoreAdmin.php:107
 msgid "Upgrade to Pro"
 msgstr "Gbigbe si Pro"
 
 #: includes-core/ShortlinksCoreAdmin.php:117
-#: includes-core/ShortlinksCoreAdmin.php:196
+#: includes-core/ShortlinksCoreAdmin.php:118
+#: includes-core/ShortlinksCoreAdmin.php:148
+msgid "Link Health"
+msgstr "Ìjápọ̀ Ilera"
+
+#: includes-core/ShortlinksCoreAdmin.php:131
 msgid "Pro Feature"
 msgstr " ẹya Pro"
 
-#: includes-core/ShortlinksCoreAdmin.php:120
-#: includes-core/ShortlinksCoreAdmin.php:199
+#: includes-core/ShortlinksCoreAdmin.php:134
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "Ẹya yii wa ninu PublishPress Shortlinks Pro."
 
-#: includes-core/ShortlinksCoreAdmin.php:135
+#: includes-core/ShortlinksCoreAdmin.php:150
+msgid ""
+"Check whether your shortlinks redirect visitors to working destination "
+"pages."
+msgstr ""
+"Ṣayẹwo boya awọn ọna asopọ kukuru rẹ n tọka awọn alejo si awọn oju-iwe "
+"ibi-afẹde ti n ṣiṣẹ."
+
 #: includes-core/ShortlinksCoreAdmin.php:158
-msgid "Show Expiration Notice"
-msgstr "Fihan Ifitonileti Iparun"
+msgid "Check Visible Links"
+msgstr "Ṣayẹwo Awọn ọna asopọ ti o Han"
 
-#: includes-core/ShortlinksCoreAdmin.php:139
-msgid "Display a brief notice before redirecting expired links."
-msgstr "Fihan ikilọ kukuru ṣaaju ki o to tọka awọn ọna asopọ ti o pari."
+#: includes-core/ShortlinksCoreAdmin.php:162
+msgid "Check All Links"
+msgstr "Ṣayẹwo Gbogbo Awọn ọna asopọ"
 
-#: includes-core/ShortlinksCoreAdmin.php:153
+#: includes-core/ShortlinksCoreAdmin.php:169
+#: includes/classes/class-columns-link.php:54
+#: includes/classes/class-columns-link.php:552
+#: includes/classes/class-gutenberg-shortlink.php:159
+#: includes/classes/class-hooks.php:231
+#: includes/classes/class-table-logs.php:164
+#: templates/admin-modal-new-link.php:29, fuzzy
+msgid "Shortlink"
+msgstr "Shortlink"
+
+#: includes-core/ShortlinksCoreAdmin.php:170
+#: includes/classes/class-gutenberg-shortlink.php:169
+#: includes/classes/class-import-export.php:1053
+msgid "Target URL"
+msgstr "URL ibi-afẹde"
+
+#: includes-core/ShortlinksCoreAdmin.php:171
+#: includes/classes/class-meta-boxes.php:542
+msgid "Status"
+msgstr "Ipo"
+
+#: includes-core/ShortlinksCoreAdmin.php:172, fuzzy
+msgid "HTTP"
+msgstr "HTTP"
+
+#: includes-core/ShortlinksCoreAdmin.php:173
+msgid "Redirects"
+msgstr "Atunṣe"
+
+#: includes-core/ShortlinksCoreAdmin.php:174
+msgid "Final URL"
+msgstr "URL Ikẹhin"
+
+#: includes-core/ShortlinksCoreAdmin.php:181
+msgid "Working"
+msgstr "N ṣiṣẹ"
+
+#: includes-core/ShortlinksCoreAdmin.php:189
+msgid "Broken"
+msgstr "Ti bajẹ"
+
+#: includes-core/ShortlinksCoreAdmin.php:212
+#: includes-core/ShortlinksCoreAdmin.php:236
 msgid "Expired Redirect Settings"
 msgstr "Iṣeto Itọsọna ti o pari"
 
-#: includes-core/ShortlinksCoreAdmin.php:156
+#: includes-core/ShortlinksCoreAdmin.php:215
+#: includes-core/ShortlinksCoreAdmin.php:239
+#: includes/classes/class-import-export.php:1064
 msgid "Expired Redirect URL"
 msgstr "URL Itọsọna ti o pari"
 
-#: includes-core/ShortlinksCoreAdmin.php:161
-msgid "Display a brief notice before redirecting."
-msgstr "Fihan ikilọ kukuru ṣaaju ki o to tọka."
+#: includes-core/ShortlinksCoreAdmin.php:216
+msgid "Choose where visitors should go when they click an expired link."
+msgstr "Yan ibi ti awọn alejo yẹ ki o lọ nigbati wọn ba tẹ ọna asopọ ti o ti pari."
 
-#: includes-core/ShortlinksCoreAdmin.php:233
-#: includes-core/ShortlinksCoreAdmin.php:234
-msgid "Import / Export"
-msgstr "Gbigba / Gbigbe"
+#: includes-core/ShortlinksCoreAdmin.php:218
+#: includes-core/ShortlinksCoreAdmin.php:242
+msgid "Show Expiration Notice"
+msgstr "Fihan Ifitonileti Iparun"
 
-#: includes-core/ShortlinksCoreAdmin.php:249
-msgid "Import / Export Shortlinks"
-msgstr "Gbigba / Gbigbe Awọn ọna asopọ kukuru"
+#: includes-core/ShortlinksCoreAdmin.php:219
+#: includes-core/ShortlinksCoreAdmin.php:243
+msgid "Display a custom notice page before automatically redirecting visitors."
+msgstr "Ṣafihan oju-iwe akiyesi aṣa kan ṣaaju ki o to tọka awọn alejo laifọwọyi."
 
-#: includes-core/ShortlinksCoreAdmin.php:254
-msgid "Bulk Import & Export"
-msgstr "Gbigba pupọ & Gbigbe"
-
-#: includes-core/ShortlinksCoreAdmin.php:255
-msgid ""
-"Import and export your shortlinks in bulk using CSV files. Migrate from "
-"other plugins or manage links across multiple sites."
+#: includes-core/ShortlinksCoreAdmin.php:222
+msgid "Show a notice page for expired shortlinks briefly before redirecting."
 msgstr ""
-"Gbigba ati gbe awọn ọna asopọ kukuru rẹ ni iwọn lilo awọn faili CSV. Ṣe "
-"gbigbe lati awọn afikun miiran tabi ṣakoso awọn ọna asopọ kọja awọn aaye "
-"pupọ."
+"Ṣafihan oju-iwe akiyesi fun awọn ọna asopọ kukuru ti o ti pari ni ṣoki "
+"ṣaaju ki o to tọka."
 
-#: includes-core/ShortlinksCoreAdmin.php:259
-msgid "CSV Export"
-msgstr "Gbigbe CSV"
+#: includes-core/ShortlinksCoreAdmin.php:240
+msgid "Set the default destination for all expired shortlinks."
+msgstr "Ṣeto ibi-afẹde aiyipada fun gbogbo awọn ọna asopọ kukuru ti o ti pari."
 
-#: includes-core/ShortlinksCoreAdmin.php:263
-msgid "CSV Import"
-msgstr "Gbigba CSV"
+#: includes-core/ShortlinksCoreAdmin.php:246
+msgid ""
+"Show a notice page for expired shortlinks briefly before redirecting. You "
+"can customize the content of this message."
+msgstr ""
+"Ṣafihan oju-iwe akiyesi fun awọn ọna asopọ kukuru ti o ti pari ni ṣoki "
+"ṣaaju ki o to tọka. O le ṣe akanṣe akoonu ifiranṣẹ yii."
 
-#: includes-core/ShortlinksCoreAdmin.php:267
-msgid "Bulk Management"
-msgstr "Iṣakoso Bulk"
+#: includes-core/ShortlinksCoreAdmin.php:281
+#: includes-core/ShortlinksCoreAdmin.php:308
+msgid "Advanced Auto-Link Settings"
+msgstr "Awọn Eto Auto-Link To ti ni ilọsiwaju"
+
+#: includes-core/ShortlinksCoreAdmin.php:283
+#: includes-core/ShortlinksCoreAdmin.php:311
+msgid "Minimum Keyword Usage"
+msgstr "Iwọn Iṣe Koko-ọrọ K最低"
+
+#: includes-core/ShortlinksCoreAdmin.php:284
+msgid "Keyword must appear this many times before being autolinked."
+msgstr "Koko-ọrọ gbọdọ han ni awọn igba yii ṣaaju ki o to jẹ autolinked."
+
+#: includes-core/ShortlinksCoreAdmin.php:286
+#: includes-core/ShortlinksCoreAdmin.php:314
+msgid "Maximum Keywords Linked"
+msgstr "Iwọn Awọn ọrọ ti o pọ ju"
+
+#: includes-core/ShortlinksCoreAdmin.php:287
+msgid "Maximum number of times this keyword should be autolinked per post."
+msgstr ""
+"Iwọn nọmba ti awọn akoko ti ọrọ yii gbọdọ jẹ autolinked fun ọkọọkan "
+"ifiweranṣẹ."
+
+#: includes-core/ShortlinksCoreAdmin.php:312
+msgid "Default minimum times a keyword must appear before being autolinked."
+msgstr ""
+"Iwọn to kere julọ ti aiyipada ti ọrọ kan gbọdọ han ṣaaju ki o to jẹ "
+"autolinked."
+
+#: includes-core/ShortlinksCoreAdmin.php:315
+msgid "Default maximum times a keyword should be autolinked per post."
+msgstr ""
+"Iwọn to pọ julọ ti aiyipada ti ọrọ kan yẹ ki o jẹ autolinked fun ọkọọkan "
+"ifiweranṣẹ."
+
+#: includes-core/ShortlinksCoreAdmin.php:317
+msgid "Maximum Links Per Post"
+msgstr "Iwọn awọn ọna asopọ to pọ julọ fun ifiweranṣẹ"
+
+#: includes-core/ShortlinksCoreAdmin.php:318
+msgid "Total maximum autolinks allowed per post/page."
+msgstr ""
+"Iwọntunwọnsi ti o pọ julọ ti awọn autolinks ti a gba laaye fun "
+"ifiweranṣẹ/ojúewé."
+
+#: includes-core/ShortlinksCoreAdmin.php:320
+msgid "Minimum Character Length"
+msgstr "Iwọn Awọn ohun kikọ ti o kere ju"
+
+#: includes-core/ShortlinksCoreAdmin.php:321
+msgid "Keywords shorter than this will not be autolinked."
+msgstr "Awọn ọrọ ti o kuru ju eyi yoo ko ni autolinked."
+
+#: includes-core/ShortlinksCoreAdmin.php:323
+msgid "Maximum Character Length"
+msgstr "Iwọn Awọn ohun kikọ ti o pọ ju"
+
+#: includes-core/ShortlinksCoreAdmin.php:324
+msgid "Keywords longer than this will not be autolinked."
+msgstr "Awọn ọrọ ti o gun ju eyi yoo ko ni autolinked."
+
+#: includes-core/ShortlinksCoreAdmin.php:345
+#: includes/classes/class-settings.php:850
+msgid "Auto-Link Exceptions"
+msgstr "Awọn Aṣa Aiyipada Autolink"
+
+#: includes-core/ShortlinksCoreAdmin.php:347
+msgid "Exclude Terms from Auto Links"
+msgstr "Yọ Awọn ọrọ kuro ninu Awọn ọna asopọ Aiyipada"
+
+#: includes-core/ShortlinksCoreAdmin.php:348
+msgid "These terms will never be autolinked."
+msgstr "Awọn ọrọ wọnyi kii yoo jẹ autolinked."
+
+#: includes-core/ShortlinksCoreAdmin.php:350
+msgid "Prevent Auto Links Inside Classes or IDs"
+msgstr "Dena Awọn ọna asopọ Aiyipada Ninu Awọn Kilasi tabi IDs"
+
+#: includes-core/ShortlinksCoreAdmin.php:351
+msgid ""
+"Content inside elements with these classes or IDs will not have autolinks "
+"applied."
+msgstr ""
+"Akopọ inu awọn eroja pẹlu awọn kilasi tabi IDs wọnyi ko ni ni awọn "
+"autolinks ti a fi kun."
+
+#: includes-core/ShortlinksCoreAdmin.php:353
+msgid "Prevent Auto Links Inside Elements"
+msgstr "Dena Awọn ọna asopọ Aiyipada Ninu Awọn Eroja"
+
+#: includes-core/ShortlinksCoreAdmin.php:354
+msgid "Terms inside these HTML tags will not have autolinks applied."
+msgstr "Awọn ọrọ inu awọn akọle HTML wọnyi ko ni ni awọn autolinks ti a fi kun."
+
+#: includes-core/ShortlinksCoreAdmin.php:367
+msgid "Prevent Auto Links on Shortcodes"
+msgstr "Dena Awọn ọna asopọ Aiyipada lori Awọn Koodu Kukuru"
+
+#: includes-core/ShortlinksCoreAdmin.php:368
+msgid "Terms inside these shortcodes will not have autolinks applied."
+msgstr "Awọn ọrọ inu awọn koodu kukuru wọnyi ko ni ni awọn autolinks ti a fi kun."
+
+#: includes-core/ShortlinksCoreAdmin.php:370
+msgid "Prevent Auto Links on Blocks"
+msgstr "Dena Awọn ọna asopọ Aiyipada lori Awọn ọja"
+
+#: includes-core/ShortlinksCoreAdmin.php:371
+msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
+msgstr "Awọn ọrọ inu awọn bulọọki Gutenberg wọnyi ko ni awọn autolinks ti a lo."
+
+#: includes-core/ShortlinksCoreAdmin.php:372
+msgid "Search and select blocks..."
+msgstr "Wa ati yan awọn bulọọki..."
 
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:200
+#: includes/classes/class-autolist-ajax.php:204
+#: includes/classes/class-gutenberg-shortlink.php:234
+#: includes/classes/class-gutenberg-shortlink.php:285
+#: includes/classes/class-gutenberg-shortlink.php:329
 msgid "Permission denied"
 msgstr "Aṣẹ ti kọ"
 
@@ -179,60 +346,61 @@ msgstr "Kọja lati fipamọ iṣeto si ibi ipamọ data"
 msgid "Configuration saved successfully"
 msgstr "Iṣeto ti fipamọ ni aṣeyọri"
 
-#: includes/classes/class-autolist-ajax.php:144
+#: includes/classes/class-autolist-ajax.php:149
 #. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "Aṣiṣe: %s"
 
-#: includes/classes/class-autolist-ajax.php:289
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Validating..."
 msgstr "N ṣe ayẹwo..."
 
-#: includes/classes/class-autolist-ajax.php:290
+#: includes/classes/class-autolist-ajax.php:294
 msgid "Saving..."
 msgstr "N fipamọ..."
 
-#: includes/classes/class-autolist-ajax.php:291
+#: includes/classes/class-autolist-ajax.php:295
 msgid "Saved!"
 msgstr "Ti fipamọ!"
 
-#: includes/classes/class-autolist-ajax.php:292
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-gutenberg-shortlink.php:175
 msgid "Error"
 msgstr "Aṣiṣe"
 
-#: includes/classes/class-autolist-ajax.php:293
+#: includes/classes/class-autolist-ajax.php:297
 msgid "Are you sure you want to remove this post type?"
 msgstr "Ṣe o dajudaju pe o fẹ yọ post type yii?"
 
-#: includes/classes/class-autolist-ajax.php:294
+#: includes/classes/class-autolist-ajax.php:298
 msgid "Select a post type"
 msgstr "Yan post type kan"
 
-#: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:595
-#: includes/classes/class-settings.php:691
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:1032
+#: includes/classes/class-settings.php:1130
 msgid "Never"
 msgstr "Kò sí"
 
-#: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:593
-#: includes/classes/class-settings.php:693
+#: includes/classes/class-autolist-ajax.php:300
+#: includes/classes/class-settings.php:1030
+#: includes/classes/class-settings.php:1132
 msgid "When Link is First Used"
 msgstr "Nigbati Link ba ti lo akọkọ"
 
-#: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:695
+#: includes/classes/class-autolist-ajax.php:301
+#: includes/classes/class-settings.php:1134
 msgid "When Post is Published"
 msgstr "Nigbati Post ba ti gbejade"
 
-#: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:694
+#: includes/classes/class-autolist-ajax.php:302
+#: includes/classes/class-settings.php:1133
 msgid "When Post is Created"
 msgstr "Nigbati Post ba ti ṣẹda"
 
-#: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:692
+#: includes/classes/class-autolist-ajax.php:303
+#: includes/classes/class-settings.php:1131
 msgid "When Link is First Used or Post Created"
 msgstr "Nigbati Link ba ti lo akọkọ tabi Post ti ṣẹda"
 
@@ -240,110 +408,140 @@ msgstr "Nigbati Link ba ti lo akọkọ tabi Post ti ṣẹda"
 msgid "Invalid post ID or post type."
 msgstr "ID post ti ko tọ tabi post type."
 
-#: includes/classes/class-columns-link.php:49
-#: includes/classes/class-columns-link.php:279
-#: includes/classes/class-hooks.php:207
-#: includes/classes/class-table-logs.php:164
-#: templates/admin-modal-new-link.php:29, fuzzy
-msgid "Shortlink"
-msgstr "Shortlink"
-
-#: includes/classes/class-columns-link.php:71
+#: includes/classes/class-columns-link.php:76
 msgid "No shortlink"
 msgstr "Kò sí shortlink"
 
-#: includes/classes/class-columns-link.php:92
-#: includes/classes/class-hooks.php:208
-#: includes/classes/class-hooks.php:210
-#: includes/classes/class-meta-boxes.php:93, fuzzy
+#: includes/classes/class-columns-link.php:97
+#: includes/classes/class-hooks.php:232
+#: includes/classes/class-hooks.php:234
+#: includes/classes/class-meta-boxes.php:163, fuzzy
 msgid "Shortlinks"
 msgstr "Shortlinks"
 
-#: includes/classes/class-columns-link.php:176, fuzzy
+#: includes/classes/class-columns-link.php:188
+#: includes/classes/class-columns-link.php:335, fuzzy
 msgid "Internal"
 msgstr "Internal"
 
-#: includes/classes/class-columns-link.php:176, fuzzy
+#: includes/classes/class-columns-link.php:188
+#: includes/classes/class-columns-link.php:336, fuzzy
 msgid "External"
 msgstr "External"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:189
 msgid "This links to your post"
 msgstr "Eyi ni ọna asopọ si post rẹ"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:189
 msgid "This links to an external website"
 msgstr "Eyi ni ọna asopọ si oju opo wẹẹbu ita"
 
-#: includes/classes/class-columns-link.php:189
+#: includes/classes/class-columns-link.php:193
+#: includes/classes/class-columns-link.php:337
 msgid "Revision"
 msgstr "Atunṣe"
 
-#: includes/classes/class-columns-link.php:190
+#: includes/classes/class-columns-link.php:194
 msgid "This links to a revision"
 msgstr "Eyi ni ọna asopọ si atunṣe"
 
-#: includes/classes/class-columns-link.php:198
+#: includes/classes/class-columns-link.php:203
 msgid "Not yet submitted"
 msgstr "Kò ti fi silẹ sibẹsibẹ"
 
-#: includes/classes/class-columns-link.php:199
+#: includes/classes/class-columns-link.php:204
 msgid "Submitted for approval"
 msgstr "Ti fi silẹ fun ifọwọsi"
 
-#: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:558
+#: includes/classes/class-columns-link.php:205
+#: includes/classes/class-settings.php:365
+#: includes/classes/class-settings.php:706
+#: includes/classes/class-settings.php:714
+#: includes/functions.php:273
+#: includes/functions.php:307
 msgid "Scheduled"
 msgstr "Ti ṣeto"
 
-#: includes/classes/class-columns-link.php:201
+#: includes/classes/class-columns-link.php:206
 msgid "Deferred"
 msgstr "Ti da duro"
 
-#: includes/classes/class-columns-link.php:202
+#: includes/classes/class-columns-link.php:207
 msgid "Needs work"
 msgstr "Nilo iṣẹ"
 
-#: includes/classes/class-columns-link.php:203
+#: includes/classes/class-columns-link.php:208
 msgid "Rejected"
 msgstr "Ká"
 
-#: includes/classes/class-columns-link.php:207
+#: includes/classes/class-columns-link.php:212
 #. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "Atunṣe: %s"
 
-#: includes/classes/class-columns-link.php:224
+#: includes/classes/class-columns-link.php:233
 #. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "Ti tẹ %s igba"
 
-#: includes/classes/class-columns-link.php:230
-#: includes/classes/class-table-logs.php:197
+#: includes/classes/class-columns-link.php:241
+#: includes/classes/class-table-logs.php:198
 msgid "Edit"
 msgstr "Ṣatunkọ"
 
-#: includes/classes/class-columns-link.php:231
-#: includes/classes/class-table-logs.php:178
-#: includes/classes/class-table-logs.php:199
+#: includes/classes/class-columns-link.php:246
+#: includes/classes/class-table-logs.php:179
+#: includes/classes/class-table-logs.php:200
 msgid "Delete"
 msgstr "Pa"
 
-#: includes/classes/class-columns-link.php:278
+#: includes/classes/class-columns-link.php:332
+msgid "Filter by link type"
+msgstr "Ṣ筛 lọ nipasẹ iru ọna asopọ"
+
+#: includes/classes/class-columns-link.php:334
+msgid "All link types"
+msgstr "Gbogbo iru ọna asopọ"
+
+#: includes/classes/class-columns-link.php:350
+msgid "Filter by category"
+msgstr "Ṣ lọ nipasẹ ẹka"
+
+#: includes/classes/class-columns-link.php:352
+msgid "All categories"
+msgstr "Gbogbo awọn ẹka"
+
+#: includes/classes/class-columns-link.php:446
+msgid "Filters"
+msgstr "Awọn àlẹmọ"
+
+#: includes/classes/class-columns-link.php:449
+#: includes/classes/class-hooks.php:257
+#: includes/classes/class-meta-boxes.php:814
+msgid "Categories"
+msgstr "Ẹka"
+
+#: includes/classes/class-columns-link.php:467
+msgid "Permission denied."
+msgstr "Igbimọ ti kọ."
+
+#: includes/classes/class-columns-link.php:551
 msgid "Link Title"
 msgstr "Akopọ ọna xiri"
 
-#: includes/classes/class-columns-link.php:280
+#: includes/classes/class-columns-link.php:553
 msgid "Link Type"
 msgstr "Iru ọna xiri"
 
-#: includes/classes/class-columns-link.php:281
+#: includes/classes/class-columns-link.php:557
 msgid "Stats"
 msgstr "Iṣiro"
 
-#: includes/classes/class-columns-link.php:282
+#: includes/classes/class-columns-link.php:560
+#: includes/classes/class-table-logs.php:166
 msgid "Actions"
 msgstr "Iṣe"
 
@@ -355,178 +553,566 @@ msgstr "Tẹ lati daakọ"
 msgid "Copied"
 msgstr "Ti daakọ"
 
-#: includes/classes/class-hooks.php:61
-msgid "Security check failed."
-msgstr "Ayẹwo aabo kuna."
+#: includes/classes/class-gutenberg-shortlink.php:160
+msgid "Search shortlinks..."
+msgstr "Wa awọn ọna asopọ kukuru..."
 
-#: includes/classes/class-hooks.php:65
-msgid "You do not have permission to create shortlinks."
-msgstr "Iwọ ko ni aṣẹ lati ṣẹda awọn ọna asopọ kukuru."
+#: includes/classes/class-gutenberg-shortlink.php:161
+msgid "Insert Shortlink"
+msgstr "Fi ọna asopọ kukuru sinu"
 
-#: includes/classes/class-hooks.php:72
-msgid "Invalid or empty URL"
-msgstr "URL ti ko tọ tabi ofo"
+#: includes/classes/class-gutenberg-shortlink.php:162
+msgid "Create New Shortlink"
+msgstr "Ṣẹda ọna asopọ kukuru tuntun"
 
-#: includes/classes/class-hooks.php:89
+#: includes/classes/class-gutenberg-shortlink.php:163
+#: includes/classes/class-settings.php:721
+msgid "Options"
+msgstr "Àṣàyàn"
+
+#: includes/classes/class-gutenberg-shortlink.php:164
+msgid "Open in New Tab"
+msgstr "Ṣii ninu taabu tuntun"
+
+#: includes/classes/class-gutenberg-shortlink.php:165, fuzzy
+msgid "Nofollow"
+msgstr "Nofollow"
+
+#: includes/classes/class-gutenberg-shortlink.php:166
+msgid "Sponsored Link"
+msgstr "Ọna asopọ ti a ṣe atilẹyin"
+
+#: includes/classes/class-gutenberg-shortlink.php:167
+msgid "Label"
+msgstr "Aami"
+
+#: includes/classes/class-gutenberg-shortlink.php:168
+msgid "Optional shortlink label"
+msgstr "Aami ọna asopọ kukuru ti a yan"
+
+#: includes/classes/class-gutenberg-shortlink.php:170
+msgid "Create"
+msgstr "Ṣẹda"
+
+#: includes/classes/class-gutenberg-shortlink.php:171
+#: includes/classes/class-import-export.php:1202
+msgid "Cancel"
+msgstr "Fagilee"
+
+#: includes/classes/class-gutenberg-shortlink.php:172
+#: templates/admin-modal-new-link.php:37
+msgid "Close"
+msgstr "Pa"
+
+#: includes/classes/class-gutenberg-shortlink.php:173
+msgid "Creating..."
+msgstr "N ṣe ṣẹda..."
+
+#: includes/classes/class-gutenberg-shortlink.php:174
+#: includes/classes/class-gutenberg-shortlink.php:317
+#: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "Ọna asopọ kukuru ti ṣẹda ni aṣeyọri."
 
-#: includes/classes/class-hooks.php:98
+#: includes/classes/class-gutenberg-shortlink.php:176
+msgid "Please enter a valid URL"
+msgstr "Jọwọ tẹ URL to wulo kan"
+
+#: includes/classes/class-gutenberg-shortlink.php:177
+msgid "No shortlinks found"
+msgstr "Ko si awọn ọna asopọ kukuru ti a ri"
+
+#: includes/classes/class-gutenberg-shortlink.php:243
+msgid "Search term is required"
+msgstr "Ìbéèrè ọrọ jẹ dandan"
+
+#: includes/classes/class-gutenberg-shortlink.php:258
+#: includes/functions.php:447
+#. translators: %s: link ID number
+#, php-format
+msgid "Link - %s"
+msgstr "Asopọ - %s"
+
+#: includes/classes/class-gutenberg-shortlink.php:294
+msgid "Target URL is required"
+msgstr "URL ibi-afẹde jẹ dandan"
+
+#: includes/classes/class-gutenberg-shortlink.php:336
+msgid "Invalid shortlink ID"
+msgstr "ID ọna asopọ kukuru ti ko tọ"
+
+#: includes/classes/class-gutenberg-shortlink.php:342
+msgid "Shortlink not found"
+msgstr "Kò rí ìkànsí kékèké"
+
+#: includes/classes/class-hooks.php:69
+#: includes/classes/class-import-export.php:119
+msgid "Security check failed."
+msgstr "Ayẹwo aabo kuna."
+
+#: includes/classes/class-hooks.php:73
+msgid "You do not have permission to create shortlinks."
+msgstr "Iwọ ko ni aṣẹ lati ṣẹda awọn ọna asopọ kukuru."
+
+#: includes/classes/class-hooks.php:80
+msgid "Invalid or empty URL"
+msgstr "URL ti ko tọ tabi ofo"
+
+#: includes/classes/class-hooks.php:112
 msgid "Invalid nonce verification."
 msgstr "Ayẹwo nonce ti ko tọ."
 
-#: includes/classes/class-hooks.php:102
+#: includes/classes/class-hooks.php:116
 msgid "You do not have permission to reset analytics."
 msgstr "Iwọ ko ni aṣẹ lati tunṣe awọn iṣiro."
 
-#: includes/classes/class-hooks.php:109
+#: includes/classes/class-hooks.php:123
 msgid "Invalid post ID."
 msgstr "ID ifiṣootọ ti ko tọ."
 
-#: includes/classes/class-hooks.php:140
+#: includes/classes/class-hooks.php:129
+msgid "Invalid shortlink ID."
+msgstr "ID ìkànsí kékèké kò tọ́."
+
+#: includes/classes/class-hooks.php:133
+msgid "You do not have permission to reset analytics for this shortlink."
+msgstr "Ìwọ kò ní ìfọkànsìn láti tún ṣe àtúnṣe àlàyé fún ìkànsí kékèké yìí."
+
+#: includes/classes/class-hooks.php:164
 msgid "Analytics reset successfully."
 msgstr "Awọn iṣiro ti tunṣe ni aṣeyọri."
 
-#: includes/classes/class-hooks.php:142
+#: includes/classes/class-hooks.php:166
 msgid "Failed to reset analytics."
 msgstr "Kuna lati tunṣe awọn iṣiro."
 
-#: includes/classes/class-hooks.php:168
+#: includes/classes/class-hooks.php:192
 msgid "Shorten"
 msgstr "Dínkù"
 
-#: includes/classes/class-hooks.php:211
+#: includes/classes/class-hooks.php:235
 msgid "All Shortlinks"
 msgstr "Gbogbo Àkópọ́ Kékèké"
 
-#: includes/classes/class-hooks.php:212
-#: includes/classes/class-hooks.php:213
+#: includes/classes/class-hooks.php:236
+#: includes/classes/class-hooks.php:237
 msgid "Add Shortlink"
 msgstr "Fikun un Shortlink"
 
-#: includes/classes/class-hooks.php:214
+#: includes/classes/class-hooks.php:238
 msgid "Search Shortlinks"
 msgstr "Wa Shortlinks"
 
-#: includes/classes/class-hooks.php:229
+#: includes/classes/class-hooks.php:256
 msgid "Category"
 msgstr "Ẹka"
 
-#: includes/classes/class-hooks.php:230
-msgid "Categories"
-msgstr "Ẹka"
-
-#: includes/classes/class-hooks.php:256
-#: includes/classes/class-hooks.php:257
+#: includes/classes/class-hooks.php:283
+#: includes/classes/class-hooks.php:284
 msgid "Logs"
 msgstr "Ìwé àkọọlẹ"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "All Logs"
 msgstr "Gbogbo Ìwé àkọọlẹ"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Are you sure you want to clear all logs?"
 msgstr "Ṣé o dájú pé o fẹ́ pa gbogbo ìwé àkọọlẹ run?"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Clear Logs"
 msgstr "Pa Ìwé àkọọlẹ"
 
-#: includes/classes/class-hooks.php:506
+#: includes/classes/class-hooks.php:606
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Ẹ jọ̀ọ́, a kò gba ọ laaye láti wọlé sí àkópọ́ kékèké."
 
-#: includes/classes/class-hooks.php:507
-#: includes/classes/class-hooks.php:528
-#: includes/classes/class-hooks.php:539
-#: includes/classes/class-hooks.php:560
+#: includes/classes/class-hooks.php:607
+#: includes/classes/class-hooks.php:628
+#: includes/classes/class-hooks.php:639
+#: includes/classes/class-hooks.php:660
 msgid "Access Denied"
 msgstr "Wọlé Kò Gba"
 
-#: includes/classes/class-hooks.php:527
+#: includes/classes/class-hooks.php:627
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Ẹ jọ̀ọ́, a kò gba ọ laaye láti ṣẹda àkópọ́ kékèké."
 
-#: includes/classes/class-hooks.php:538
+#: includes/classes/class-hooks.php:638
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Ẹ jọ̀ọ́, a kò gba ọ laaye láti ṣe àtúnṣe àkópọ́ kékèké."
 
-#: includes/classes/class-hooks.php:559
+#: includes/classes/class-hooks.php:659
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Ẹ jọ̀ọ́, a kò gba ọ laaye láti wọlé sí àwọn eto àkópọ́ kékèké."
 
-#: includes/classes/class-meta-boxes.php:76
-msgid "Side"
-msgstr "Ọ̀nà"
+#: includes/classes/class-import-export.php:48
+#: includes/classes/class-import-export.php:49
+msgid "Import / Export"
+msgstr "Gbigba / Gbigbe"
 
-#: includes/classes/class-meta-boxes.php:187
-#: tinypress.php:448
-msgid "PublishPress Shortlinks"
-msgstr "Àkópọ́ Kékèké PublishPress"
+#: includes/classes/class-import-export.php:87
+msgid "Importing..."
+msgstr "N wọlé..."
 
-#: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:401
-msgid "General"
-msgstr "Gbogbo"
+#: includes/classes/class-import-export.php:88
+msgid "Import complete!"
+msgstr "Ìmport ti pari!"
 
-#: includes/classes/class-meta-boxes.php:205
-msgid "Label *"
-msgstr "Ìkìlọ̀ *"
+#: includes/classes/class-import-export.php:89
+msgid "Import failed. Please check the file and try again."
+msgstr "Ìmport kọ́. Jọ̀wọ́ ṣàyẹ̀wò fáìlì náà kí o sì tún gbìmọ̀."
 
-#: includes/classes/class-meta-boxes.php:207
-msgid "For admin purpose only."
-msgstr "Fún ìdí àdáni nìkan."
+#: includes/classes/class-import-export.php:90
+msgid "Please select a CSV file."
+msgstr "Jọ̀wọ́ yan fáìlì CSV kan."
 
-#: includes/classes/class-meta-boxes.php:216
-msgid "Target URL *"
-msgstr "URL Target *"
+#: includes/classes/class-import-export.php:91
+msgid "This will import shortlinks from the CSV file. Continue?"
+msgstr "Èyí yóò wọlé ìkànsí kékèké láti inú fáìlì CSV. Ṣé o fẹ́ bá a lọ?"
 
-#: includes/classes/class-meta-boxes.php:226
-msgid "Short String *"
-msgstr "Ọ̀rọ̀ Kékèké *"
+#: includes/classes/class-import-export.php:92
+msgid "Previewing..."
+msgstr "N wo àwòrán..."
 
-#: includes/classes/class-meta-boxes.php:227
-msgid "Short string of this URL."
-msgstr "Ìkànsí kékèé ti URL yìí."
+#: includes/classes/class-import-export.php:93
+msgid "Preview failed."
+msgstr "N wo àwòrán kọ́."
 
-#: includes/classes/class-meta-boxes.php:233
-msgid "Status"
-msgstr "Ipo"
+#: includes/classes/class-import-export.php:94
+#: includes/classes/class-import-export.php:1197
+msgid "See More Rows"
+msgstr "Wo Awọn Ọ̀wọn Méjì"
 
-#: includes/classes/class-meta-boxes.php:234
-msgid "Disable the shortlink instantly."
-msgstr "Dákẹ́ àkọ́kọ́-ìjápọ̀ lẹ́sẹkẹsẹ."
+#: includes/classes/class-import-export.php:95
+msgid "Show Less"
+msgstr "Fihàn Kéré"
 
-#: includes/classes/class-meta-boxes.php:235
-msgid "After disabling the link will not active but the settings will be reserved."
-msgstr "Lẹ́yìn dákẹ́, ìjápọ̀ yìí kì yóò ṣiṣẹ́ ṣùgbọ́n àwọn àtọka yóò jẹ́ àfihàn."
+#: includes/classes/class-import-export.php:96
+#: includes/classes/class-import-export.php:1160
+msgid "Preview"
+msgstr "N wo"
 
-#: includes/classes/class-meta-boxes.php:236
-msgid "Enable"
-msgstr "Mú un ṣiṣẹ́"
+#: includes/classes/class-import-export.php:97
+#: includes/classes/class-import-export.php:1151
+#: includes/classes/class-import-export.php:1164
+msgid "Import CSV"
+msgstr "N wọlé CSV"
 
-#: includes/classes/class-meta-boxes.php:237
-msgid "Disable"
-msgstr "Dákẹ́"
+#: includes/classes/class-import-export.php:98
+#: includes/classes/class-import-export.php:731
+#. translators: %d: number of successfully imported shortlinks
+#, php-format
+msgid "%d shortlinks successfully imported"
+msgstr "%d ìkànsí kékèké ni wọlé pẹ̀lú àṣeyọrí"
 
-#: includes/classes/class-meta-boxes.php:244
+#: includes/classes/class-import-export.php:99
+#: includes/classes/class-import-export.php:753
+#. translators: %d: number of failed imports
+#, php-format
+msgid "%d shortlinks failed to import"
+msgstr "%d ìkànsí kékèké ni kò wọlé"
+
+#: includes/classes/class-import-export.php:100
+msgid "Error(s) for TinyPress Slug:"
+msgstr "Àṣìṣe(s) fún TinyPress Slug:"
+
+#: includes/classes/class-import-export.php:115
+#: includes/classes/class-import-export.php:546
+#: includes/classes/class-import-export.php:907
+#: includes/classes/class-import-export.php:1048
+msgid "Unauthorized."
+msgstr "Kò ní ìfọwọ́lá."
+
+#: includes/classes/class-import-export.php:303
+#: includes/functions.php:402
+msgid "Invalid URL."
+msgstr "URL ti ko tọ."
+
+#: includes/classes/class-import-export.php:551
+#: includes/classes/class-import-export.php:912
+msgid "No file uploaded or upload error."
+msgstr "Kò sí fáìlì tí a gbé kalẹ̀ tàbí aṣiṣe ikojọpọ."
+
+#: includes/classes/class-import-export.php:560
+#: includes/classes/class-import-export.php:921
+msgid "Please upload a CSV file."
+msgstr "Jọ̀wọ́ gbé fáìlì CSV kan kalẹ̀."
+
+#: includes/classes/class-import-export.php:566
+#: includes/classes/class-import-export.php:927
+msgid "Could not read the file."
+msgstr "Ko le ka faili naa."
+
+#: includes/classes/class-import-export.php:573
+#: includes/classes/class-import-export.php:934
+msgid "Empty CSV file."
+msgstr "Faili CSV ofo."
+
+#: includes/classes/class-import-export.php:596
+#: includes/classes/class-import-export.php:958
+msgid ""
+"CSV must contain a column for target URL (e.g., \"url\", \"target_url\", "
+"\"destination_url\")."
+msgstr ""
+"CSV gbọdọ ni kolomu fun URL ibi-afẹde (e.g., \"url\", \"target_url\", "
+"\"destination_url\")."
+
+#: includes/classes/class-import-export.php:663
+#. translators: %s: error message
+#, php-format
+msgid "Failed to create shortlink: %s"
+msgstr "Kò ṣaṣeyọri lati ṣẹda shortlink: %s"
+
+#: includes/classes/class-import-export.php:664
+msgid "Unknown error."
+msgstr "Aṣiṣe ti a ko mọ."
+
+#: includes/classes/class-import-export.php:742
+#. translators: %d: number of updated shortlinks
+#, php-format
+msgid "%d shortlinks updated"
+msgstr "%d shortlinks ti a ṣe imudojuiwọn"
+
+#: includes/classes/class-import-export.php:995
+#. translators: 1: original column name, 2: mapped field name
+#, fuzzy, php-format
+msgid "\"%1$s\" → %2$s"
+msgstr "\"%1$s\" → %2$s"
+
+#: includes/classes/class-import-export.php:1006
+#. translators: %s: field mappings
+#, php-format
+msgid "Field mappings: %s"
+msgstr "Itumọ awọn aaye: %s"
+
+#: includes/classes/class-import-export.php:1033
+#. translators: 1: number of preview rows, 2: total number of importable rows
+#, php-format
+msgid "Showing %1$d preview row(s) from %2$d importable row(s)."
+msgstr "N ṣafihan %1$d ila ayẹwo lati %2$d ila ti o le gbe wọle."
+
+#: includes/classes/class-import-export.php:1052
+msgid "Link Label"
+msgstr "Aami Asopọ"
+
+#: includes/classes/class-import-export.php:1054
+msgid "Short Slug"
+msgstr "Slug Kukuru"
+
+#: includes/classes/class-import-export.php:1055
+msgid "Post Status"
+msgstr "Ipo Ifiṣootọ"
+
+#: includes/classes/class-import-export.php:1056
+msgid "Link Status"
+msgstr "Ipo Asopọ"
+
+#: includes/classes/class-import-export.php:1057
+msgid "Redirect Method"
+msgstr "Ọna Itọsọna"
+
+#: includes/classes/class-import-export.php:1058
+#: includes/classes/class-meta-boxes.php:664
+#: includes/classes/class-settings.php:939, fuzzy
+msgid "NoFollow"
+msgstr "NoFollow"
+
+#: includes/classes/class-import-export.php:1059
+#: includes/classes/class-meta-boxes.php:642
+#: includes/classes/class-settings.php:931
+msgid "Sponsored"
+msgstr "Ìpolówó"
+
+#: includes/classes/class-import-export.php:1060
+#: includes/classes/class-meta-boxes.php:686
+#: includes/classes/class-settings.php:947
+msgid "Parameter Forwarding"
+msgstr "Ìtẹ́wọ́gbà Párámetà"
+
+#: includes/classes/class-import-export.php:1061
+msgid "Expiration Enabled"
+msgstr "Ibi ipari ti ṣiṣẹ"
+
+#: includes/classes/class-import-export.php:1062
+#: includes/classes/class-meta-boxes.php:770
+#: includes/classes/class-settings.php:988
+msgid "Expiration Date"
+msgstr "Ọjọ́ Ìparí"
+
+#: includes/classes/class-import-export.php:1063
+#: includes/classes/class-meta-boxes.php:784
+#: includes/classes/class-settings.php:1001
+msgid "Expiration Time"
+msgstr "Akoko Ipari"
+
+#: includes/classes/class-import-export.php:1065
+#: includes/classes/class-meta-boxes.php:552
 msgid "Notes"
 msgstr "Ìmọ̀ràn"
 
-#: includes/classes/class-meta-boxes.php:251
-msgid "All"
+#: includes/classes/class-import-export.php:1066
+msgid "Autolink Keywords"
+msgstr "Awọn Koko-ọrọ Autolink"
+
+#: includes/classes/class-import-export.php:1095
+msgid "Import / Export Shortlinks"
+msgstr "Gbigba / Gbigbe Awọn ọna asopọ kukuru"
+
+#: includes/classes/class-import-export.php:1099
+#: includes/classes/class-import-export.php:1137
+#: includes/classes/class-import-export.php:1206
+msgid "Import"
+msgstr "Gbe wọle"
+
+#: includes/classes/class-import-export.php:1102
+#: includes/classes/class-import-export.php:1111
+msgid "Export"
+msgstr "Gbigbe jade"
+
+#: includes/classes/class-import-export.php:1114
+msgid ""
+"Download all your shortlinks as a CSV file. The export includes labels, "
+"target URLs, slugs, redirect settings, global-setting modes, and more. "
+"Password protection settings are not exported."
+msgstr ""
+"Gba gbogbo awọn ọna asopọ rẹ bi faili CSV. Gbejade naa pẹlu awọn aami, awọn "
+"URL ibi-afẹde, awọn slugs, awọn eto atunṣe, awọn ipo eto agbaye, ati diẹ "
+"sii. Awọn eto aabo ọrọigbaniwọle ko ti gbejade."
+
+#: includes/classes/class-import-export.php:1119
+#. translators: %d: number of shortlinks
+#, php-format
+msgid "%d shortlink(s) will be exported."
+msgstr "%d shortlink(s) ni yoo gbe jade."
+
+#: includes/classes/class-import-export.php:1127
+msgid "Export CSV"
+msgstr "Gbejade CSV"
+
+#: includes/classes/class-import-export.php:1140
+msgid ""
+"Upload a CSV file to bulk-create shortlinks. The CSV must contain at "
+"minimum a \"target_url\" column. Password protection settings are "
+"intentionally not imported."
+msgstr ""
+"Gbe faili CSV kan silẹ lati ṣẹda awọn ọna asopọ kukuru ni ibamu. CSV naa "
+"gbọdọ ni o kere ju ọwọn \"target_url\" kan. Awọn eto aabo ọrọigbaniwọle ko "
+"ni aifọwọyi gbe wọle."
+
+#: includes/classes/class-import-export.php:1142
+msgid "Supported columns:"
+msgstr "Awọn ọwọn ti a ṣe atilẹyin:"
+
+#: includes/classes/class-import-export.php:1167
+msgid "Change File"
+msgstr "Yipada Faili"
+
+#: includes/classes/class-import-export.php:1184
+msgid "Import Preview"
+msgstr "Akọsilẹ Gbigbe Wọle"
+
+#: includes/classes/class-meta-boxes.php:387
+#: includes/classes/class-meta-boxes.php:453
+#: includes/classes/class-meta-boxes.php:478
+#. translators: %s: current global setting value
+msgid "Use global settings"
+msgstr "Lo awọn eto kariaye"
+
+#: includes/classes/class-meta-boxes.php:388
+msgid "Enabled"
+msgstr "Ti muu ṣiṣẹ"
+
+#: includes/classes/class-meta-boxes.php:389
+msgid "Disabled"
+msgstr "Ti pa"
+
+#: includes/classes/class-meta-boxes.php:449
+msgid "ON"
+msgstr "NIPA"
+
+#: includes/classes/class-meta-boxes.php:449
+msgid "OFF"
+msgstr "KURE"
+
+#: includes/classes/class-meta-boxes.php:481
+#: includes/classes/class-settings.php:922
+msgid "307 (Temporary)"
+msgstr "307 (Àkókò)"
+
+#: includes/classes/class-meta-boxes.php:482
+#: includes/classes/class-settings.php:923
+msgid "302 (Temporary)"
+msgstr "302 (Àkókò)"
+
+#: includes/classes/class-meta-boxes.php:483
+#: includes/classes/class-settings.php:924
+msgid "301 (Permanent)"
+msgstr "301 (Pípẹ́)"
+
+#: includes/classes/class-meta-boxes.php:496
+#: tinypress.php:399
+#: tinypress.php:492
+msgid "PublishPress Shortlinks"
+msgstr "Àkópọ́ Kékèké PublishPress"
+
+#: includes/classes/class-meta-boxes.php:509
+#: includes/classes/class-settings.php:718
+msgid "General"
 msgstr "Gbogbo"
 
-#: includes/classes/class-meta-boxes.php:263
-msgid "Auto-linking"
-msgstr "Ìjápọ̀-àtọka"
+#: includes/classes/class-meta-boxes.php:514
+msgid "Label *"
+msgstr "Ìkìlọ̀ *"
 
-#: includes/classes/class-meta-boxes.php:268
+#: includes/classes/class-meta-boxes.php:516
+msgid "For admin purpose only."
+msgstr "Fún ìdí àdáni nìkan."
+
+#: includes/classes/class-meta-boxes.php:525
+msgid "Target URL *"
+msgstr "URL Target *"
+
+#: includes/classes/class-meta-boxes.php:535
+msgid "Short String *"
+msgstr "Ọ̀rọ̀ Kékèké *"
+
+#: includes/classes/class-meta-boxes.php:536
+msgid "Short string of this URL."
+msgstr "Ìkànsí kékèé ti URL yìí."
+
+#: includes/classes/class-meta-boxes.php:543
+msgid "Enable or disable the shortlink."
+msgstr "Mu ṣiṣẹ tabi pa ọna asopọ kukuru."
+
+#: includes/classes/class-meta-boxes.php:544
+msgid "Enable"
+msgstr "Mú un ṣiṣẹ́"
+
+#: includes/classes/class-meta-boxes.php:545
+msgid "Disable"
+msgstr "Dákẹ́"
+
+#: includes/classes/class-meta-boxes.php:576
+#: includes/classes/class-meta-boxes.php:582
+msgid "Shortlink Label"
+msgstr "Aami ọna asopọ kukuru"
+
+#: includes/classes/class-meta-boxes.php:577
+#: includes/classes/class-meta-boxes.php:583
+msgid "Custom Text"
+msgstr "Ọrọ Aṣ customized"
+
+#: includes/classes/class-meta-boxes.php:581
+msgid "Post Title"
+msgstr "Akole Ifiweranṣẹ"
+
+#: includes/classes/class-meta-boxes.php:593
 msgid "Keywords"
 msgstr "Àwọn kókó-ọrọ"
 
-#: includes/classes/class-meta-boxes.php:269
+#: includes/classes/class-meta-boxes.php:594
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
@@ -534,51 +1120,55 @@ msgstr ""
 "Fikun-un àwọn kókó-ọrọ tí a yapa pẹ̀lú àwọn kóma tàbí lórí àwọn ìlà tó "
 "yapa. Kọọkan kókó-ọrọ yóò jápọ̀ sí àkọ́kọ́-ìjápọ̀ yìí."
 
-#: includes/classes/class-meta-boxes.php:274
-msgid "Post Types"
-msgstr "Ìru Ìwé"
+#: includes/classes/class-meta-boxes.php:599
+msgid "Link Alt Text"
+msgstr "Ọrọ Atilẹyin ọna asopọ"
 
-#: includes/classes/class-meta-boxes.php:275
-msgid "Where should these keywords be auto-linked?"
-msgstr "Níbo ni àwọn kókó-ọrọ yìí yẹ kí a jápọ̀ àtọka?"
+#: includes/classes/class-meta-boxes.php:600
+msgid "Set the alt text for the linked keywords in the frontend of the site."
+msgstr "Ṣeto ọrọ atilẹyin fun awọn ọrọ-ọrọ ti a so pọ ni iwaju aaye naa."
 
-#: includes/classes/class-meta-boxes.php:288
+#: includes/classes/class-meta-boxes.php:607
+msgid "Custom Alt Text"
+msgstr "Ọrọ Atilẹyin Aṣ customized"
+
+#: includes/classes/class-meta-boxes.php:608
+msgid ""
+"Enter custom alt text for the linked keywords. This is only used if "
+"\"Custom Text\" is selected above."
+msgstr ""
+"Tẹ ọrọ alt aṣa fun awọn ọrọ-ọrọ ti a so pọ. Eyi ni a lo nikan ti \"Ọrọ "
+"Aṣa\" ba ti yan loke."
+
+#: includes/classes/class-meta-boxes.php:619
+msgid "Auto-linking"
+msgstr "Ìjápọ̀-àtọka"
+
+#: includes/classes/class-meta-boxes.php:628
+#: includes/classes/class-settings.php:914
 msgid "Redirection"
 msgstr "Ìtẹ̀síwájú"
 
-#: includes/classes/class-meta-boxes.php:293
+#: includes/classes/class-meta-boxes.php:633
+#: includes/classes/class-settings.php:919
 msgid "Redirection Method"
 msgstr "Ọna Ìtẹ̀síwájú"
 
-#: includes/classes/class-meta-boxes.php:294
+#: includes/classes/class-meta-boxes.php:634
 msgid "Select redirection method"
 msgstr "Yan ọ̀nà ìtẹ̀síwájú"
 
-#: includes/classes/class-meta-boxes.php:295
+#: includes/classes/class-meta-boxes.php:635
 msgid "Select a method"
 msgstr "Yan ọ̀nà kan"
 
-#: includes/classes/class-meta-boxes.php:297
-msgid "307 (Temporary)"
-msgstr "307 (Àkókò)"
-
-#: includes/classes/class-meta-boxes.php:298
-msgid "302 (Temporary)"
-msgstr "302 (Àkókò)"
-
-#: includes/classes/class-meta-boxes.php:299
-msgid "301 (Permanent)"
-msgstr "301 (Pípẹ́)"
-
-#: includes/classes/class-meta-boxes.php:306
-msgid "Sponsored"
-msgstr "Ìpolówó"
-
-#: includes/classes/class-meta-boxes.php:307
+#: includes/classes/class-meta-boxes.php:645
 msgid "Mark links as sponsored content."
 msgstr "Ṣàkóso àwọn ìjápọ gẹ́gẹ́ bí akoonu ìpolówó."
 
-#: includes/classes/class-meta-boxes.php:308
+#: includes/classes/class-meta-boxes.php:646
+#: includes/classes/class-meta-boxes.php:656
+#: includes/classes/class-settings.php:933
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -586,15 +1176,13 @@ msgstr ""
 "Fi àdírẹsì rel=\"ìpolówó\" kun. A ṣe iṣeduro fún àwọn ìjápọ alafaramo àti "
 "àwọn ìpolówó tí a san."
 
-#: includes/classes/class-meta-boxes.php:313, fuzzy
-msgid "NoFollow"
-msgstr "NoFollow"
-
-#: includes/classes/class-meta-boxes.php:314
+#: includes/classes/class-meta-boxes.php:667
 msgid "Prevent search engines from following this link."
 msgstr "Dènà àwọn ẹrọ ìwádìí láti tẹ̀lé ìjápọ yìí."
 
-#: includes/classes/class-meta-boxes.php:315
+#: includes/classes/class-meta-boxes.php:668
+#: includes/classes/class-meta-boxes.php:678
+#: includes/classes/class-settings.php:941
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -602,15 +1190,13 @@ msgstr ""
 "Fi àdírẹsì rel=\"nofollow\" kun. A ṣe iṣeduro fún àwọn ìjápọ àtọka àti àwọn "
 "orísun tí a kò gbẹ́kẹ̀ lé."
 
-#: includes/classes/class-meta-boxes.php:321
-msgid "Parameter Forwarding"
-msgstr "Ìtẹ́wọ́gbà Párámetà"
-
-#: includes/classes/class-meta-boxes.php:322
+#: includes/classes/class-meta-boxes.php:689
 msgid "Pass URL parameters to the target link."
 msgstr "Fẹ́ ẹ̀ka URL sí ìjápọ àfojúsùn."
 
-#: includes/classes/class-meta-boxes.php:323
+#: includes/classes/class-meta-boxes.php:690
+#: includes/classes/class-meta-boxes.php:700
+#: includes/classes/class-settings.php:949
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -618,132 +1204,200 @@ msgstr ""
 "Gbogbo àwọn párámetà tí a fi kun sí URL kukuru (àpẹẹrẹ: ?utm_source=email) "
 "yóò jẹ́ kí a fi ranṣẹ́ sí URL àfojúsùn."
 
-#: includes/classes/class-meta-boxes.php:333
+#: includes/classes/class-meta-boxes.php:713
+#: includes/classes/class-settings.php:960
 msgid "Password Protection"
 msgstr "Ìdánilójú Ọrọ aṣínà"
 
-#: includes/classes/class-meta-boxes.php:334
+#: includes/classes/class-meta-boxes.php:716
 msgid "Secure your shortlink."
 msgstr "Dáàbò bo ìjápọ kukuru rẹ."
 
-#: includes/classes/class-meta-boxes.php:335
+#: includes/classes/class-meta-boxes.php:717
+#: includes/classes/class-meta-boxes.php:727
 msgid "Users must enter the password to redirect to the target link."
 msgstr "Àwọn olumulo gbọdọ̀ tẹ ọrọ aṣínà wọlé láti tún ìjápọ àfojúsùn."
 
-#: includes/classes/class-meta-boxes.php:340
+#: includes/classes/class-meta-boxes.php:735
 msgid "Password"
 msgstr "Ọrọ aṣínà"
 
-#: includes/classes/class-meta-boxes.php:341
+#: includes/classes/class-meta-boxes.php:736
 msgid "Share this with users."
 msgstr "Pín ìyẹn pẹ̀lú àwọn olumulo."
 
-#: includes/classes/class-meta-boxes.php:342
+#: includes/classes/class-meta-boxes.php:737
 msgid "Passwords are case sensitive."
 msgstr "Àwọn ọrọ aṣínà jẹ́ ìmọ̀lára ọ̀rọ."
 
-#: includes/classes/class-meta-boxes.php:343, fuzzy
+#: includes/classes/class-meta-boxes.php:738
+#: includes/classes/class-settings.php:971, fuzzy
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:352
+#: includes/classes/class-meta-boxes.php:748
+#: includes/classes/class-settings.php:980
 msgid "Enable Expiration"
 msgstr "Mú Ìparí ṣiṣẹ́"
 
-#: includes/classes/class-meta-boxes.php:353
-msgid "Expire automatically."
-msgstr "Yóò parí laifọwọyi."
+#: includes/classes/class-meta-boxes.php:751
+msgid "Set an expiration date and time for shortlinks."
+msgstr "Ṣeto ọjọ ipari ati akoko fun awọn ọna asopọ kukuru."
 
-#: includes/classes/class-meta-boxes.php:354
-msgid "Users will not able to redirect to the target URL once expire."
-msgstr "Àwọn olumulo kì yóò ní anfani láti tún ìjápọ àfojúsùn lẹ́yìn tí ó parí."
+#: includes/classes/class-meta-boxes.php:752
+#: includes/classes/class-meta-boxes.php:762
+#: includes/classes/class-settings.php:982
+msgid ""
+"After the expiration date and time pass, visitors will no longer be able to "
+"access the shortlink."
+msgstr ""
+"Lẹhin ti ọjọ ipari ati akoko ba kọja, awọn alejo ko ni ni anfani lati wọle "
+"si ọna asopọ kukuru naa."
 
-#: includes/classes/class-meta-boxes.php:359
-msgid "Expiration Date"
-msgstr "Ọjọ́ Ìparí"
+#: includes/classes/class-meta-boxes.php:771
+msgid "Select the date when this shortlink should stop working."
+msgstr "Yan ọjọ ti ọna asopọ kukuru yii yẹ ki o da working duro."
 
-#: includes/classes/class-meta-boxes.php:360
-msgid "Choose the date this link should expire."
-msgstr "Yan ọjọ ti ọna asopọ yii yẹ ki o pari."
+#: includes/classes/class-meta-boxes.php:785
+msgid "Select the time when the shortlink should expire."
+msgstr "Yan akoko ti ọna asopọ kukuru yẹ ki o parẹ."
 
-#: includes/classes/class-meta-boxes.php:372
-msgid "Expiration Time"
-msgstr "Akoko Ipari"
+#: includes/classes/class-meta-boxes.php:786
+#: includes/classes/class-settings.php:1003
+msgid ""
+"Must be at least 1 minute in the future. Combined with the date above to "
+"set the exact expiration moment."
+msgstr ""
+"O gbọdọ jẹ o kere ju iṣẹju 1 ni ọjọ iwaju. Papọ pẹlu ọjọ loke lati ṣeto "
+"akoko ipari gangan."
 
-#: includes/classes/class-meta-boxes.php:373
-msgid "Choose the time this link should expire."
-msgstr "Yan akoko ti ọna asopọ yii yẹ ki o pari."
-
-#: includes/classes/class-meta-boxes.php:374
-msgid "Must be at least 1 minute in the future."
-msgstr "Gbọdọ jẹ o kere ju iṣẹju 1 ni ọjọ iwaju."
-
-#: includes/classes/class-meta-boxes.php:391
+#: includes/classes/class-meta-boxes.php:804
+#: includes/classes/class-settings.php:955
 msgid "Security"
 msgstr "Aabo"
 
-#: includes/classes/class-meta-boxes.php:402
+#: includes/classes/class-meta-boxes.php:823
+msgid "QR Code"
+msgstr "Koodu QR"
+
+#: includes/classes/class-meta-boxes.php:833
+#: tinypress.php:396
 msgid "Analytics"
 msgstr "Itupalẹ"
 
-#: includes/classes/class-redirection.php:599
+#: includes/classes/class-redirection.php:1044
 msgid "Post not found."
 msgstr "Ifiweranṣẹ ko ri."
 
-#: includes/classes/class-redirection.php:648
+#: includes/classes/class-redirection.php:1188
+#: includes/functions.php:361
+#: includes/functions.php:362
+#: includes/functions.php:363
+#: includes/functions.php:369
+#: tinypress.php:303
+#: tinypress.php:304
+#: tinypress.php:305
+msgid "This post is in {status} status. It is not visible to the public."
+msgstr "Ipò ìfiranṣẹ yi wa ni ipo {status}. Kii ṣe kedere si gbogbo eniyan."
+
+#: includes/classes/class-redirection.php:1236
 msgid "This link has expired"
 msgstr "Ọna asopọ yii ti pari"
 
-#: includes/classes/class-redirection.php:652
+#: includes/classes/class-redirection.php:1240
 msgid "You will be redirected shortly."
 msgstr "Iwọ yoo yipada laipẹ."
 
-#: includes/classes/class-redirection.php:656
+#: includes/classes/class-redirection.php:1244
 msgid "Click here if you are not redirected"
 msgstr "Tẹ nibi ti o ko ba yipada"
 
-#: includes/classes/class-redirection.php:673
+#: includes/classes/class-redirection.php:1261
 msgid "Link Expired"
 msgstr "Ọna asopọ ti pari"
 
-#: includes/classes/class-redirection.php:804
+#: includes/classes/class-redirection.php:1423
 msgid "This link is not active."
 msgstr "Ọna asopọ yii ko ṣiṣẹ."
 
-#: includes/classes/class-redirection.php:849
+#: includes/classes/class-redirection.php:1460
 msgid "This link is expired."
 msgstr "Ọna asopọ yii ti pari."
 
-#: includes/classes/class-redirection.php:868
+#: includes/classes/class-redirection.php:1479
 msgid "Incorrect password. Please try again."
 msgstr "Ọrọigbaniwọle ti ko tọ. Jọwọ gbiyanju lẹẹkansi."
 
-#: includes/classes/class-redirection.php:883
-#: includes/classes/class-redirection.php:888
+#: includes/classes/class-redirection.php:1494
+#: includes/classes/class-redirection.php:1499
 msgid "Password Protected Link"
 msgstr "Ọna asopọ ti o ni aabo pẹlu ọrọigbaniwọle"
 
-#: includes/classes/class-redirection.php:894
+#: includes/classes/class-redirection.php:1505
 msgid "Enter password to continue:"
 msgstr "Tẹ ọrọigbaniwọle lati tẹsiwaju:"
 
-#: includes/classes/class-redirection.php:896
+#: includes/classes/class-redirection.php:1507
 msgid "Submit"
 msgstr "Firanṣẹ"
 
-#: includes/classes/class-redirection.php:1014
+#: includes/classes/class-redirection.php:1631
 msgid "This link is not containing the right prefix slug."
 msgstr "Ọna asopọ yii ko ni prefix slug to tọ."
+
+#: includes/classes/class-redirection.php:1672
+msgid "Too many invalid shortlink requests. Please try again later."
+msgstr "Ọpọ awọn ibeere ọna asopọ kukuru ti ko tọ. Jọwọ gbiyanju lẹẹkansi nigbamii."
+
+#: includes/classes/class-redirection.php:1673
+msgid "Too Many Requests"
+msgstr "Ọpọ Awọn ibeere"
 
 #: includes/classes/class-revision.php:439
 msgid "Invalid revision ID."
 msgstr "ID atunṣe ti ko wulo."
 
-#: includes/classes/class-settings.php:187
+#: includes/classes/class-settings.php:362
+#: includes/classes/class-settings.php:703
+#: includes/classes/class-settings.php:711
+#: includes/functions.php:270
+#: includes/functions.php:304
+msgid "Draft"
+msgstr "Iwe afọwọkọ"
+
+#: includes/classes/class-settings.php:363
+#: includes/classes/class-settings.php:704
+#: includes/classes/class-settings.php:712
+#: includes/functions.php:271
+#: includes/functions.php:305
+msgid "Pending Review"
+msgstr "N duro de Atunwo"
+
+#: includes/classes/class-settings.php:364
+#: includes/classes/class-settings.php:705
+#: includes/classes/class-settings.php:713
+#: includes/functions.php:272
+#: includes/functions.php:306
+msgid "Private"
+msgstr "Ikọkọ"
+
+#: includes/classes/class-settings.php:369
+msgid ""
+"Customize the notice shown for each enabled non-published status. Available "
+"placeholders: {status}, {date}, {title}."
+msgstr ""
+"Ṣatunkọ akiyesi ti a fihan fun ọkọọkan ipo ti ko ti kọja. Awọn aaye ti o "
+"wa: {status}, {date}, {title}."
+
+#: includes/classes/class-settings.php:405
+msgid "All"
+msgstr "Gbogbo"
+
+#: includes/classes/class-settings.php:444
 msgid "Settings"
 msgstr "Eto"
 
-#: includes/classes/class-settings.php:271
+#: includes/classes/class-settings.php:528
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -751,11 +1405,11 @@ msgstr ""
 "Yan iru ipo ifiweranṣẹ wo ni a le wọle si nigba ti a ba ṣabẹwo si ọna asopọ "
 "kukuru PublishPress."
 
-#: includes/classes/class-settings.php:287
+#: includes/classes/class-settings.php:544
 msgid "PublishPress Statuses Plugin Detected:"
 msgstr "Aami Ipo PublishPress ti wa ni awari:"
 
-#: includes/classes/class-settings.php:288
+#: includes/classes/class-settings.php:545
 msgid ""
 "To use core PublishPress statuses with Shortlinks, Please enable the "
 "Shortlinks post type in PublishPress Statuses workflow settings."
@@ -763,11 +1417,11 @@ msgstr ""
 "Lati lo awọn ipo PublishPress ipilẹ pẹlu Awọn ọna asopọ Kukuru, Jọwọ mu iru "
 "ifiweranṣẹ Awọn ọna asopọ Kukuru ṣiṣẹ ni awọn eto ṣiṣe iṣẹ Ipo PublishPress."
 
-#: includes/classes/class-settings.php:307
+#: includes/classes/class-settings.php:564
 msgid "Elementor Detected:"
 msgstr "Elementor ti wa ni awari:"
 
-#: includes/classes/class-settings.php:308
+#: includes/classes/class-settings.php:565
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
@@ -775,11 +1429,11 @@ msgstr ""
 "A nilo prefix ọna asopọ kukuru fun itọju to pe ti awọn atunṣe Elementor. O "
 "jẹ imọran lati tọju rẹ ni mu."
 
-#: includes/classes/class-settings.php:340
+#: includes/classes/class-settings.php:597
 msgid "TinyPress Shortlinks Notice:"
 msgstr "Ikilọ Ọna asopọ Kukuru TinyPress:"
 
-#: includes/classes/class-settings.php:341
+#: includes/classes/class-settings.php:598
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
@@ -787,111 +1441,117 @@ msgstr ""
 "Elementor n ṣiṣẹ. Prefix ọna asopọ kukuru ti wa ni pipa laifọwọyi, o nilo "
 "fun ibamu to dara julọ pẹlu awọn atunṣe Elementor."
 
-#: includes/classes/class-settings.php:404
-msgid "Options"
-msgstr "Àṣàyàn"
+#: includes/classes/class-settings.php:702
+#: includes/functions.php:269
+#: includes/functions.php:303
+msgid "Published"
+msgstr "Ti a tẹjade"
 
-#: includes/classes/class-settings.php:409
+#: includes/classes/class-settings.php:726
 msgid "Shortlink Prefix"
 msgstr "Prefix Ọna asopọ Kukuru"
 
-#: includes/classes/class-settings.php:410
+#: includes/classes/class-settings.php:727
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Fi prefix kan kun laarin orukọ agbegbe rẹ ati ọna asopọ kukuru."
 
-#: includes/classes/class-settings.php:417, fuzzy
+#: includes/classes/class-settings.php:734, fuzzy
 msgid "Prefix Slug"
 msgstr "Prefix Slug"
 
-#: includes/classes/class-settings.php:418
+#: includes/classes/class-settings.php:735
 msgid "Custom prefix slug."
 msgstr "Slug prefix aṣa."
 
-#: includes/classes/class-settings.php:419
+#: includes/classes/class-settings.php:736
 msgid "This text will be added between your domain name and shortlink."
 msgstr ""
 "Iwe afọwọkọ yii yoo wa ni afikun laarin orukọ agbegbe rẹ ati ọna asopọ "
 "kukuru."
 
-#: includes/classes/class-settings.php:420
-#: includes/classes/class-settings.php:421
+#: includes/classes/class-settings.php:737
+#: includes/classes/class-settings.php:738
 msgid "go"
 msgstr "lọ"
 
-#: includes/classes/class-settings.php:427
+#: includes/classes/class-settings.php:744
 msgid "Keyboard Shortcut"
 msgstr "Kíkó Bọtini"
 
-#: includes/classes/class-settings.php:428
+#: includes/classes/class-settings.php:745
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr "Ṣẹda awọn ọna asopọ kukuru lati ibi eyikeyi ninu dashboard WordPress rẹ."
 
-#: includes/classes/class-settings.php:429
-#: includes/classes/class-settings.php:430
+#: includes/classes/class-settings.php:746
+#: includes/classes/class-settings.php:747
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl tabi Cmd + /"
 
-#: includes/classes/class-settings.php:439
+#: includes/classes/class-settings.php:756
 msgid "Remove from Admin Bar"
 msgstr "Yọ kuro ni Bar Admin"
 
-#: includes/classes/class-settings.php:440
+#: includes/classes/class-settings.php:757
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "Tọju bọtini \"Dínkù\" kuro ni bar admin WordPress."
 
-#: includes/classes/class-settings.php:446
+#: includes/classes/class-settings.php:763
 msgid "Role Management"
 msgstr "Iṣakoso Ipa"
 
-#: includes/classes/class-settings.php:451
-msgid "Who Can View Shortlinks"
-msgstr "Tani Le Wo Awọn Kèkèké Línkì"
+#: includes/classes/class-settings.php:768
+msgid "Who Can View The All Shortlinks Screen"
+msgstr "Tani le wo iboju Gbogbo awọn ọna asopọ kukuru"
 
-#: includes/classes/class-settings.php:452
-msgid "Only selected user roles can view links."
-msgstr "Awọn ipa olumulo ti a yan nikan ni wọn le wo awọn ọna asopọ."
+#: includes/classes/class-settings.php:769
+msgid "Only selected user roles can view the complete list of Shortlinks."
+msgstr ""
+"Awọn ipa olumulo ti a yan nikan ni le wo akojọ pipe ti Awọn ọna asopọ "
+"kukuru."
 
-#: includes/classes/class-settings.php:460
+#: includes/classes/class-settings.php:777
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Tani Le Ṣẹda/Edit Awọn Kèkèké Línkì"
 
-#: includes/classes/class-settings.php:461
+#: includes/classes/class-settings.php:778
 msgid "Only selected user roles can create or edit links."
 msgstr ""
 "Awọn ipa olumulo ti a yan nikan ni wọn le ṣẹda tabi ṣe atunṣe awọn ọna "
 "asopọ."
 
-#: includes/classes/class-settings.php:470
-msgid "Who Can See Analytics"
-msgstr "Tani Le Ri Awọn Iṣiro"
+#: includes/classes/class-settings.php:787
+msgid "Who Can See Logs"
+msgstr "Tani le wo Awọn igbasilẹ"
 
-#: includes/classes/class-settings.php:471
-msgid "Only selected user roles can see analytics."
-msgstr "Awọn ipa olumulo ti a yan nikan ni wọn le ri awọn iṣiro."
+#: includes/classes/class-settings.php:788
+msgid "Only selected user roles can see the Analytics tab and the Logs screen."
+msgstr ""
+"Awọn ipa olumulo ti a yan nikan ni le rii taabu Itupalẹ ati iboju Awọn "
+"igbasilẹ."
 
-#: includes/classes/class-settings.php:480
+#: includes/classes/class-settings.php:797
 msgid "Who Can Control Settings"
 msgstr "Tani Le Ṣakoso Eto"
 
-#: includes/classes/class-settings.php:481
-msgid "Only selected user roles can control settings."
-msgstr "Awọn ipa olumulo ti a yan nikan ni wọn le ṣakoso awọn eto."
+#: includes/classes/class-settings.php:798
+msgid "Only selected user roles can access the Settings screen."
+msgstr "Awọn ipa olumulo ti a yan nikan ni le wọle si iboju Eto."
 
-#: includes/classes/class-settings.php:490
+#: includes/classes/class-settings.php:807
 msgid "Auto-Linking"
 msgstr "Akọsílẹ-Auto"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:812
 msgid "Enable Auto-Linking"
 msgstr "Mú Akọsílẹ-Auto ṣiṣẹ"
 
-#: includes/classes/class-settings.php:496
+#: includes/classes/class-settings.php:813
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr ""
 "Yipada awọn bọtini ọrọ si awọn ọna asopọ kekeke laifọwọyi ninu akoonu "
 "ifiweranṣẹ."
 
-#: includes/classes/class-settings.php:497
+#: includes/classes/class-settings.php:814
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
@@ -899,39 +1559,47 @@ msgstr ""
 "Nigbati a ba mu ṣiṣẹ, awọn bọtini ọrọ ti a ṣeto ninu awọn eto ọna asopọ "
 "kekeke yoo jẹ asopọ laifọwọyi ninu akoonu rẹ."
 
-#: includes/classes/class-settings.php:503
+#: includes/classes/class-settings.php:820
+msgid "Post Types"
+msgstr "Ìru Ìwé"
+
+#: includes/classes/class-settings.php:821
+msgid "Where should auto-linking be applied?"
+msgstr "Nibo ni a ti gbọdọ lo iṣọpọ aifọwọyi?"
+
+#: includes/classes/class-settings.php:830
 msgid "Open Auto-Links In"
 msgstr "Ṣii Awọn Aso-Akọsílẹ Ni"
 
-#: includes/classes/class-settings.php:504
+#: includes/classes/class-settings.php:831
 msgid "Choose how auto-linked keywords should open."
 msgstr "Yan bi awọn bọtini ọrọ ti a so pọ yẹ ki o ṣii."
 
-#: includes/classes/class-settings.php:506
+#: includes/classes/class-settings.php:833
 msgid "Same tab"
 msgstr "Tẹ́ńbá àtàwọn"
 
-#: includes/classes/class-settings.php:507
+#: includes/classes/class-settings.php:834
 msgid "New tab"
 msgstr "Tẹ́ńbá tuntun"
 
-#: includes/classes/class-settings.php:515
+#: includes/classes/class-settings.php:842
 msgid "Auto-Link Color"
 msgstr "Àwọ̀ Akọsílẹ-Auto"
 
-#: includes/classes/class-settings.php:516
+#: includes/classes/class-settings.php:843
 msgid "Choose the color for auto-linked keywords."
 msgstr "Yan awọ fun awọn bọtini ọrọ ti a so pọ."
 
-#: includes/classes/class-settings.php:523
+#: includes/classes/class-settings.php:854
 msgid "Auto-List Links"
 msgstr "Akọsílẹ-Auto Línkì"
 
-#: includes/classes/class-settings.php:528
+#: includes/classes/class-settings.php:859
 msgid "Auto-List Shortlinks"
 msgstr "Akọsílẹ-Auto Kekèké Línkì"
 
-#: includes/classes/class-settings.php:529
+#: includes/classes/class-settings.php:860
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
@@ -939,17 +1607,17 @@ msgstr ""
 "Nigbati o ba ti mu ṣiṣẹ, awọn ọna asopọ kukuru yoo han ninu tabili \"Gbogbo "
 "Awọn ọna asopọ\" da lori ihuwasi ti o ṣeto ni isalẹ."
 
-#: includes/classes/class-settings.php:535, fuzzy
+#: includes/classes/class-settings.php:866, fuzzy
 msgid "Configure Post Types"
 msgstr "Configure Post Types"
 
-#: includes/classes/class-settings.php:536
+#: includes/classes/class-settings.php:867
 msgid "Set when links should be auto-listed for each post type"
 msgstr ""
 "Ṣeto nigbati awọn ọna asopọ yẹ ki o wa ni akojọ laifọwọyi fun ọkọọkan post "
 "type"
 
-#: includes/classes/class-settings.php:537
+#: includes/classes/class-settings.php:868
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -958,64 +1626,107 @@ msgstr ""
 "han ninu tabili \"Gbogbo Awọn ọna asopọ\". Awọn ayipada ni a fipamọ "
 "laifọwọyi."
 
-#: includes/classes/class-settings.php:544
+#: includes/classes/class-settings.php:875
 #: includes/classes/class-statuses.php:233, fuzzy
 msgid "Post Status Visibility"
 msgstr "Post Status Visibility"
 
-#: includes/classes/class-settings.php:549, fuzzy
+#: includes/classes/class-settings.php:880, fuzzy
 msgid "Allowed Post Statuses"
 msgstr "Allowed Post Statuses"
 
-#: includes/classes/class-settings.php:550
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "Yan iru awọn ipo ifiweranṣẹ ti o le wọle nipasẹ awọn ọna asopọ kukuru"
+#: includes/classes/class-settings.php:889
+msgid "Unpublished Content Notice"
+msgstr "Iwe Ikilọ Akopọ Ti Ko Ti Kọja"
 
-#: includes/classes/class-settings.php:554
-msgid "Published"
-msgstr "Ti a tẹjade"
-
-#: includes/classes/class-settings.php:555
-msgid "Draft"
-msgstr "Iwe afọwọkọ"
-
-#: includes/classes/class-settings.php:556
-msgid "Pending Review"
-msgstr "N duro de Atunwo"
-
-#: includes/classes/class-settings.php:557
-msgid "Private"
-msgstr "Ikọkọ"
-
-#: includes/classes/class-settings.php:565
-msgid "Expired Links"
-msgstr "Awọn ọna asopọ ti pari"
-
-#: includes/classes/class-settings.php:570
-msgid "Default Expired Redirect URL"
-msgstr "URL Atunṣe ti o pari aiyipada"
-
-#: includes/classes/class-settings.php:571
-msgid "Where should expired shortlinks redirect?"
-msgstr "Nibo ni awọn ọna asopọ kukuru ti o pari yẹ ki o tọka si?"
-
-#: includes/classes/class-settings.php:572
+#: includes/classes/class-settings.php:890
 msgid ""
-"When a shortlink expires, visitors will be redirected to this URL instead "
-"of seeing an error. Leave empty to show the default expiration message."
+"Show a frontend notice when an internal shortlink displays a post that is "
+"not published."
 msgstr ""
-"Nigbati ọna asopọ kukuru ba pari, awọn alejo yoo tọka si URL yii dipo ki o "
-"ri aṣiṣe kan. Fi silẹ lati fi ifiranṣẹ ipari aiyipada han."
+"Fihan akiyesi ni iwaju nigbati ọna asopọ inu ba n ṣafihan ifiweranṣẹ ti ko "
+"ti kọja."
 
-#: includes/classes/class-settings.php:584, fuzzy
+#: includes/classes/class-settings.php:896
+msgid "Notice Post Statuses"
+msgstr "Awọn ipo Ifiweranṣẹ Ikilọ"
+
+#: includes/classes/class-settings.php:897
+msgid ""
+"This notice only applies to internal shortlinks that render post content "
+"directly. External shortlinks are not affected."
+msgstr ""
+"Iwe ikilọ yii kan si awọn ọna asopọ inu nikan ti o n ṣe afihan akoonu "
+"ifiweranṣẹ taara. Awọn ọna asopọ ita ko ni ipa."
+
+#: includes/classes/class-settings.php:906
+msgid "Notice Messages"
+msgstr "Awọn ifiranṣẹ Ikilọ"
+
+#: includes/classes/class-settings.php:920
+msgid "Default redirection method for shortlinks"
+msgstr "Ọna atunṣe aiyipada fun awọn ọna asopọ kukuru"
+
+#: includes/classes/class-settings.php:932
+msgid "Mark links as sponsored content"
+msgstr "Samisi awọn ọna asopọ gẹgẹbi akoonu ti a ṣe atilẹyin"
+
+#: includes/classes/class-settings.php:940
+msgid "Prevent search engines from following links"
+msgstr "Dena awọn ẹrọ iṣawari lati tẹle awọn ọna asopọ"
+
+#: includes/classes/class-settings.php:948
+msgid "Pass URL parameters to target links"
+msgstr "Gbe awọn paramita URL si awọn ọna asopọ afojusun"
+
+#: includes/classes/class-settings.php:961
+msgid "Secure your shortlinks"
+msgstr "Ṣe aabo awọn ọna asopọ kukuru rẹ"
+
+#: includes/classes/class-settings.php:962
+msgid "Users must enter a password to redirect to the target link."
+msgstr ""
+"Awọn olumulo gbọdọ tẹ ọrọ igbaniwọle kan lati yipada si ọna asopọ ti a "
+"fojusi."
+
+#: includes/classes/class-settings.php:968
+msgid "Default Password"
+msgstr "Ọrọ igbaniwọle aiyipada"
+
+#: includes/classes/class-settings.php:969
+msgid "Default password for protected links"
+msgstr "Ọrọ igbaniwọle aiyipada fun awọn ọna asopọ ti a daabobo"
+
+#: includes/classes/class-settings.php:970
+msgid ""
+"This password will be used for links that have password protection enabled "
+"via global settings. Passwords are case sensitive."
+msgstr ""
+"Ọrọ igbaniwọle yii yoo ṣee lo fun awọn ọna asopọ ti o ni aabo pẹlu ọrọ "
+"igbaniwọle ti a mu ṣiṣẹ nipasẹ awọn eto kariaye. Awọn ọrọ igbaniwọle jẹ ẹtọ "
+"si ọran."
+
+#: includes/classes/class-settings.php:981
+msgid "Set an expiration date and time for shortlinks"
+msgstr "Ṣeto ọjọ ati akoko ipari fun awọn ọna asopọ kukuru"
+
+#: includes/classes/class-settings.php:989
+msgid "Select the date when this shortlink should stop working"
+msgstr "Yan ọjọ ti ọna asopọ kukuru yii yẹ ki o da ṣiṣẹ"
+
+#: includes/classes/class-settings.php:1002
+msgid "Select the time when the shortlink should expire"
+msgstr "Yan akoko ti ọna asopọ kukuru yẹ ki o pari"
+
+#: includes/classes/class-settings.php:1021, fuzzy
 msgid "Revisions"
 msgstr "Revisions"
 
-#: includes/classes/class-settings.php:589
+#: includes/classes/class-settings.php:1026
 msgid "Revision Link Visibility"
 msgstr "Ihuwasi Asọye Atunṣe"
 
-#: includes/classes/class-settings.php:590
+#: includes/classes/class-settings.php:1027
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -1023,33 +1734,33 @@ msgstr ""
 "Nigbati o ba ti mu ṣiṣẹ, awọn ọna asopọ kukuru atunṣe yoo han ninu tabili "
 "\"Gbogbo Awọn ọna asopọ kukuru\" da lori ihuwasi ti o ṣeto ni isalẹ."
 
-#: includes/classes/class-settings.php:592
+#: includes/classes/class-settings.php:1029
 msgid "When Revision is Created"
 msgstr "Nigbati Atunṣe ba ti ṣẹda"
 
-#: includes/classes/class-settings.php:594
+#: includes/classes/class-settings.php:1031
 msgid "When Revision is Created or Link is First Used"
 msgstr "Nigbati Atunṣe ba ti ṣẹda tabi ọna asopọ ti wa ni lilo akọkọ"
 
-#: includes/classes/class-settings.php:602
+#: includes/classes/class-settings.php:1039
 msgid "Show Shortlink in Revision Table"
 msgstr "Fihan Shortlink ninu Iwe Atunyẹwo"
 
-#: includes/classes/class-settings.php:603
+#: includes/classes/class-settings.php:1040
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "Fihan àkọsílẹ shortlink nigba ti o n wo awọn atunṣe ni PublishPress "
 "Revisions."
 
-#: includes/classes/class-settings.php:609
+#: includes/classes/class-settings.php:1046
 msgid "Revision Visibility for Visitors"
 msgstr "Ifarahan Atunyẹwo fun Awọn Alejo"
 
-#: includes/classes/class-settings.php:610
+#: includes/classes/class-settings.php:1047
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr "Jẹ ki awọn alejo ti ko wọlé wo akoonu atunṣe nipasẹ shortlinks."
 
-#: includes/classes/class-settings.php:611
+#: includes/classes/class-settings.php:1048
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1061,15 +1772,15 @@ msgstr ""
 "akoonu atunṣe taara fun awọn alejo ti ko wọlé dipo ti yí wọn lọ si URL "
 "ayẹwo."
 
-#: includes/classes/class-settings.php:632, fuzzy
+#: includes/classes/class-settings.php:1071, fuzzy
 msgid "Dummy"
 msgstr "Dummy"
 
-#: includes/classes/class-settings.php:676
+#: includes/classes/class-settings.php:1115
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr "Ko si awọn iru post ti a ti ṣeto sibẹsibẹ. Tẹ \"Fi Iru Post Kún\" lati bẹrẹ."
 
-#: includes/classes/class-settings.php:708
+#: includes/classes/class-settings.php:1147
 msgid "Add Post Type"
 msgstr "Fi Iru Post Kún"
 
@@ -1095,77 +1806,80 @@ msgstr "Àkọlé"
 msgid "Details"
 msgstr "Àlàyé"
 
-#: includes/classes/class-table-logs.php:199
+#: includes/classes/class-table-logs.php:200
 msgid "Are you sure you want to delete this log entry?"
 msgstr "Ṣe o dájú pe o fẹ pa iwe àkọọlẹ yii?"
 
-#: includes/classes/class-table-logs.php:250, fuzzy
+#: includes/classes/class-table-logs.php:260
+msgid "View Analytics"
+msgstr "Wo Itupalẹ"
+
+#: includes/classes/class-table-logs.php:278, fuzzy
 msgid "Tablet"
 msgstr "Tablet"
 
-#: includes/classes/class-table-logs.php:252, fuzzy
+#: includes/classes/class-table-logs.php:280, fuzzy
 msgid "Mobile"
 msgstr "Mobile"
 
-#: includes/classes/class-table-logs.php:254, fuzzy
+#: includes/classes/class-table-logs.php:282, fuzzy
 msgid "Desktop"
 msgstr "Desktop"
 
-#: includes/classes/class-table-logs.php:308
+#: includes/classes/class-table-logs.php:336
 #. translators: 1: user display name, 2: location name, 3: visit date/time
 #, php-format
 msgid "%1$s from %2$s visited at %3$s"
 msgstr "%1$s lati %2$s ṣabẹwo ni %3$s"
 
-#: includes/classes/class-table-logs.php:311
+#: includes/classes/class-table-logs.php:339
 #. translators: 1: user display name, 2: visit date/time
 #, php-format
 msgid "%1$s visited at %2$s"
 msgstr "%1$s ṣabẹwo ni %2$s"
 
-#: includes/classes/class-table-logs.php:315
+#: includes/classes/class-table-logs.php:343
 #. translators: 1: location name, 2: visit date/time
 #, php-format
 msgid "From %1$s, visited at %2$s"
 msgstr "Lati %1$s, ṣabẹwo ni %2$s"
 
-#: includes/classes/class-table-logs.php:318
+#: includes/classes/class-table-logs.php:346
 #. translators: %s: visit date/time
 #, php-format
 msgid "Visited at %s"
 msgstr "Ti a ṣàbẹwò ni %s"
 
-#: includes/classes/class-table-logs.php:330
+#: includes/classes/class-table-logs.php:358
 #. translators: %s: device type and browser name, e.g. "Mobile Chrome"
 #, php-format
 msgid "via %s"
 msgstr "nipasẹ %s"
 
-#: includes/functions.php:169
+#: includes/functions.php:225
 msgid "Edit shortlink settings"
 msgstr "Ṣatunkọ eto asopọ kukuru"
 
-#: includes/functions.php:216
+#: includes/functions.php:364
+#: tinypress.php:306
+msgid ""
+"This post is in {status} status. It will become visible to the public on "
+"{date}."
+msgstr ""
+"Iwe ifiweranṣẹ yii wa ni ipo {status}. Yoo di mimọ si gbogbo eniyan ni "
+"{date}."
+
+#: includes/functions.php:389
 msgid "Target url not found."
 msgstr "URL ibi ti a ń fẹ ko ri."
 
-#: includes/functions.php:223
+#: includes/functions.php:396
 msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr "Ilana URL ti ko tọ. Nikan http, https, ftp, ftps, ati mailto ni a gba laaye."
 
-#: includes/functions.php:229
-msgid "Invalid URL."
-msgstr "URL ti ko tọ."
-
-#: includes/functions.php:233
+#: includes/functions.php:428
 msgid "Tiny slug could not created."
 msgstr "A ko le ṣẹda slug kekere."
-
-#: includes/functions.php:252
-#. translators: %s: link ID number
-#, php-format
-msgid "Link - %s"
-msgstr "Asopọ - %s"
 
 #: templates/admin-modal-new-link.php:12
 msgid "Shortlink will appear here"
@@ -1179,32 +1893,28 @@ msgstr "Tẹ URL gigun kan ki o ṣẹda asopọ kukuru"
 msgid "Long URL"
 msgstr "URL Gigun"
 
-#: templates/admin-modal-new-link.php:37
-msgid "Close"
-msgstr "Pa"
-
 #: templates/admin-modal-new-link.php:38
 msgid "Create Shortlink"
 msgstr "Ṣẹda Asopọ Kukuru"
 
-#: templates/admin/analytics.php:45
-#: templates/admin/analytics.php:64
+#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:68
 msgid "Reset Today's Analytics"
 msgstr "Tun Analytics Ọjọ́ Tó Rẹ́ Sọ́kan"
 
-#: templates/admin/analytics.php:46
+#: templates/admin/analytics.php:50
 msgid "Reset Week's Analytics"
 msgstr "Tun Analytics Ọsẹ́ Tó Rẹ́ Sọ́kan"
 
-#: templates/admin/analytics.php:47
+#: templates/admin/analytics.php:51
 msgid "Reset Month's Analytics"
 msgstr "Tun Analytics Oṣù Tó Rẹ́ Sọ́kan"
 
-#: templates/admin/analytics.php:48
+#: templates/admin/analytics.php:52
 msgid "Reset Year's Analytics"
 msgstr "Tun Analytics Ọdún Tó Rẹ́ Sọ́kan"
 
-#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:53
 msgid ""
 "Are you sure you want to reset the analytics for this period? This action "
 "cannot be undone."
@@ -1212,19 +1922,19 @@ msgstr ""
 "Ṣé o dájú pé o fẹ́ tun awọn analytics fun akoko yii? Iṣe yii ko le pada "
 "sẹhin."
 
-#: templates/admin/analytics.php:57
+#: templates/admin/analytics.php:61
 msgid "Today"
 msgstr "Loni"
 
-#: templates/admin/analytics.php:58
+#: templates/admin/analytics.php:62
 msgid "Last 7 Days"
 msgstr "Ọjọ́ 7 Tó Kẹhin"
 
-#: templates/admin/analytics.php:59
+#: templates/admin/analytics.php:63
 msgid "Last 1 Month"
 msgstr "Oṣù 1 to kẹhin"
 
-#: templates/admin/analytics.php:60
+#: templates/admin/analytics.php:64
 msgid "Last 1 Year"
 msgstr "Ọdún 1 to kẹhin"
 
@@ -1286,6 +1996,18 @@ msgstr "Wo Ibi ìmọ"
 msgid "This plugin can be deleted."
 msgstr "A le pa plugin yii run."
 
-#: tinypress.php:355
+#: tinypress.php:395
 msgid "Copied."
 msgstr "Ti a daakọ."
+
+#: tinypress.php:397
+msgid ""
+"This setting is inherited from global settings. Choose another option to "
+"override it for this shortlink."
+msgstr ""
+"Eto yii ni a gba lati awọn eto kariaye. Yan aṣayan miiran lati fi agbara mu "
+"o fun ọna asopọ kukuru yii."
+
+#: tinypress.php:398
+msgid "Working..."
+msgstr "N ṣiṣẹ..."

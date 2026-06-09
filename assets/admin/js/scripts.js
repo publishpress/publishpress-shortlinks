@@ -62,6 +62,38 @@
             }
         });
 
+        function tinypressGetUrlParam(name) {
+            if (window.URLSearchParams) {
+                return new URLSearchParams(window.location.search).get(name);
+            }
+
+            var match = new RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+            return match ? decodeURIComponent(match[1].replace(/\+/g, ' ')) : null;
+        }
+
+        function tinypressActivateRequestedMetaboxTab() {
+            if (!$('body').hasClass('post-type-tinypress_link') || tinypressGetUrlParam('tinypress_tab') !== 'analytics') {
+                return;
+            }
+
+            var $nav = $('.wpdk_settings-nav-metabox');
+            if (!$nav.length) {
+                return;
+            }
+
+            var analyticsLabel = (pluginObject.analytics_label || 'Analytics').toLowerCase();
+            var $target = $nav.find('a[data-section]').filter(function () {
+                var label = $.trim($(this).text()).toLowerCase();
+                return label === analyticsLabel || label.indexOf(analyticsLabel) !== -1;
+            }).first();
+
+            if ($target.length) {
+                $target.trigger('click');
+            }
+        }
+
+        tinypressActivateRequestedMetaboxTab();
+
         function tinypressSyncAutolinkAllCheckbox() {
             if (!$('body').hasClass('post-type-tinypress_link')) {
                 return;
@@ -121,6 +153,171 @@
         });
 
         tinypressSyncAutolinkAllCheckbox();
+
+        function tinypressMoveTrashAction() {
+            if (!$('body').hasClass('post-type-tinypress_link')) {
+                return;
+            }
+
+            var $trashAction = $('#major-publishing-actions .submitdelete');
+
+            if (!$trashAction.length || $('.tinypress-bottom-trash-actions .submitdelete').length) {
+                return;
+            }
+
+            var $settingsPanel = $('.wpdk_settings-metabox').last();
+            var $target = $settingsPanel.closest('.postbox');
+
+            if (!$target.length) {
+                $target = $settingsPanel;
+            }
+
+            if (!$target.length) {
+                $target = $('#post-body-content');
+            }
+
+            if (!$target.length) {
+                return;
+            }
+
+            var $bottomActions = $('.tinypress-bottom-trash-actions');
+            if (!$bottomActions.length) {
+                $bottomActions = $('<div class="tinypress-bottom-trash-actions"></div>');
+            }
+
+            $bottomActions.append($trashAction.detach());
+            $target.after($bottomActions);
+        }
+
+        function tinypressMovePublishAction() {
+            if (!$('body').hasClass('post-type-tinypress_link')) {
+                return;
+            }
+
+            var $settingsPanel = $('.wpdk_settings-metabox').last();
+            var $submitBox = $('#submitdiv');
+
+            if (!$settingsPanel.length || !$submitBox.length || $submitBox.closest('.tinypress-edit-settings-header').length) {
+                return;
+            }
+
+            var $wrapper = $settingsPanel.children('.wpdk_settings-wrapper').first();
+            var title = $.trim($('#tinypress_meta_main .postbox-header h2, #tinypress_meta_main h2.hndle').first().contents().filter(function () {
+                return this.nodeType === 3;
+            }).text()) || pluginObject.plugin_title || 'PublishPress Shortlinks';
+
+            var $header = $(
+                '<div class="wpdk_settings-header tinypress-edit-settings-header">' +
+                    '<div class="wpdk_settings-header-inner">' +
+                        '<div class="wpdk_settings-header-left"><h1></h1></div>' +
+                        '<div class="wpdk_settings-header-right"><div class="wpdk_settings-buttons"></div></div>' +
+                        '<div class="clear"></div>' +
+                    '</div>' +
+                '</div>'
+            );
+
+            $settingsPanel.addClass('tinypress-edit-settings-panel');
+            $header.find('h1').text(title);
+            $submitBox.addClass('tinypress-header-actions');
+            $header.find('.wpdk_settings-buttons').append($submitBox.detach());
+
+            if ($wrapper.length) {
+                $wrapper.before($header);
+            } else {
+                $settingsPanel.prepend($header);
+            }
+        }
+
+        tinypressMoveTrashAction();
+        tinypressMovePublishAction();
+
+        function tinypressGetModeChildFields($modeField, $controlledField) {
+            var $section = $modeField.closest('.wpdk_settings-section');
+            var $sectionFields = $section.find('.wpdk_settings-field');
+            var startIndex = $sectionFields.index($controlledField.length ? $controlledField : $modeField);
+            var $childFields = $();
+
+            for (var i = startIndex + 1; i < $sectionFields.length; i++) {
+                var $field = $sectionFields.eq(i);
+                if ($field.hasClass('tinypress-global-mode-select') || $field.hasClass('tinypress-use-global-checkbox') || $field.hasClass('tinypress-global-controlled')) {
+                    break;
+                }
+
+                if ($field.hasClass('tinypress-global-controlled-child')) {
+                    $childFields = $childFields.add($field);
+                }
+            }
+
+            return $childFields;
+        }
+
+        function tinypressShowInheritedNotice($field) {
+            var $notice = $field.find('.tinypress-global-inherited-notice');
+            if (!$notice.length) {
+                $notice = $('<span class="tinypress-global-inherited-notice"></span>');
+                $field.find('.wpdk_settings-fieldset').first().append($notice);
+            }
+
+            $notice.text(pluginObject.inherited_notice || 'This setting is inherited from global settings. Choose another option to override it for this shortlink.');
+        }
+
+        function tinypressSyncGlobalMode($modeField) {
+            var $modeControl = $modeField.find('select[data-depend-id]').first();
+            var mode = $modeControl.val();
+            var $controlledField = $modeField.nextAll('.tinypress-global-controlled').first();
+            var $controlledInput = $controlledField.find('input[type="hidden"][data-depend-id]').first();
+            var $childFields = tinypressGetModeChildFields($modeField, $controlledField);
+            var inheritedTitle = pluginObject.inherited_notice || 'This setting is inherited from global settings. Choose another option to override it for this shortlink.';
+
+            $modeControl.attr('title', mode === '1' ? inheritedTitle : '');
+
+            $modeField
+                .toggleClass('is-using-global-mode', mode === '1')
+                .toggleClass('is-enabled-mode', mode === 'enabled')
+                .toggleClass('is-disabled-mode', mode === 'disabled')
+                .toggleClass('is-custom-mode', mode === 'custom');
+
+            if ($controlledInput.length) {
+                $controlledInput.val(mode === 'enabled' ? '1' : '').trigger('change');
+                $controlledField.find('.wpdk_settings--switcher').toggleClass('wpdk_settings--active', mode === 'enabled');
+            }
+
+            $controlledField.add($childFields)
+                .toggleClass('is-inherited-from-global', mode === '1')
+                .toggleClass('is-disabled-by-mode', mode === 'disabled');
+
+            $controlledField.add($childFields).find('input, select, textarea, button')
+                .attr('title', mode === '1' ? inheritedTitle : '')
+                .prop('readonly', mode === '1');
+
+            if (mode === '1') {
+                tinypressShowInheritedNotice($modeField);
+            } else {
+                $modeField.find('.tinypress-global-inherited-notice').remove();
+            }
+        }
+
+        $('.tinypress-global-mode-select').each(function () {
+            tinypressSyncGlobalMode($(this));
+        });
+
+        $(document).on('change', '.tinypress-global-mode-select select[data-depend-id]', function () {
+            tinypressSyncGlobalMode($(this).closest('.tinypress-global-mode-select'));
+        });
+
+        $(document).on('submit', 'form#post', function () {
+            $('.tinypress-global-mode-select').each(function () {
+                tinypressSyncGlobalMode($(this));
+            });
+        });
+
+        $(document).on('focus click', '.is-inherited-from-global input, .is-inherited-from-global select, .is-inherited-from-global textarea, .is-inherited-from-global button', function (event) {
+            var $field = $(this).closest('.wpdk_settings-field');
+            tinypressShowInheritedNotice($field.prevAll('.tinypress-global-mode-select').first());
+            if (!$(this).closest('.tinypress-global-mode-select').length) {
+                event.preventDefault();
+            }
+        });
 
         $(document).on('change', '.tinypress-use-global-checkbox input[type="checkbox"]', function () {
             var $checkbox = $(this);
@@ -204,7 +401,7 @@
             context: this,
             url: pluginObject.ajax_url,
             beforeSend: function () {
-                el_submit_btn.addClass('working').text('Working...');
+                el_submit_btn.addClass('working').text(pluginObject.working_text || 'Working...');
             },
             data: {
                 'action': 'tinypress_popup_create_url',

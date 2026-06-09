@@ -18,34 +18,48 @@ function ShortlinkIcon() {
   return wp.element.createElement(
     'svg',
     {
+      className: 'tinypress-shortlink-editor-icon',
       xmlns: 'http://www.w3.org/2000/svg',
       width: '24',
       height: '24',
-      viewBox: '0 0 24 24'
+      viewBox: '0 0 24 24',
+      role: 'img',
+      'aria-hidden': 'true',
+      focusable: 'false'
     },
 
+    wp.element.createElement('rect', {
+      x: '2',
+      y: '2',
+      width: '20',
+      height: '20',
+      rx: '4',
+      fill: '#655897'
+    }),
+
     wp.element.createElement('path', {
-      d: 'M8.5 14.8L6.3 17a2.5 2.5 0 1 1-3.5-3.5l5.2-5.2a2.5 2.5 0 1 1 3.5 3.5l-.8.8',
+      d: 'M9.3 14.7l-1.4 1.4a2.3 2.3 0 0 1-3.3-3.3l3.1-3.1a2.3 2.3 0 0 1 3.3 0',
       fill: 'none',
-      stroke: '#FFCC00',
-      strokeWidth: '3',
+      stroke: '#FFFFFF',
+      strokeWidth: '2.2',
       strokeLinecap: 'round',
       strokeLinejoin: 'round'
     }),
 
     wp.element.createElement('path', {
-      d: 'M15.5 9.2l2.2-2.2a2.5 2.5 0 1 1 3.5 3.5L16 15.7a2.5 2.5 0 1 1-3.5-3.5l.8-.8',
+      d: 'M14.7 9.3l1.4-1.4a2.3 2.3 0 0 1 3.3 3.3l-3.1 3.1a2.3 2.3 0 0 1-3.3 0',
       fill: 'none',
-      stroke: '#FFCC00',
-      strokeWidth: '3',
+      stroke: '#FFFFFF',
+      strokeWidth: '2.2',
       strokeLinecap: 'round',
       strokeLinejoin: 'round'
     }),
 
     wp.element.createElement('path', {
-      d: 'M10 14l4-4',
-      stroke: '#FFCC00',
-      strokeWidth: '3',
+      d: 'M9.8 14.2l4.4-4.4',
+      fill: 'none',
+      stroke: '#FFFFFF',
+      strokeWidth: '2.2',
       strokeLinecap: 'round'
     })
   );
@@ -190,4 +204,3 @@ function ShortlinkIcon() {
     });
   }
 })(window.wp);
-

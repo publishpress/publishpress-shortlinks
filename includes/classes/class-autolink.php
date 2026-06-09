@@ -53,17 +53,46 @@ if (! class_exists('TINYPRESS_AutoLink')) {
 
         private function get_all_autolink_post_types()
         {
-            $post_types = get_post_types(array('public' => true, 'show_ui' => true), 'names');
+            $post_types = get_post_types(array(), 'names');
             if (! is_array($post_types)) {
                 return array('post', 'page');
             }
 
-            $post_types = array_values(array_diff($post_types, array('attachment', 'tinypress_link')));
+            $post_types = array_values(array_diff($post_types, $this->get_excluded_autolink_post_types()));
             if (empty($post_types)) {
                 return array('post', 'page');
             }
 
             return array_map('sanitize_key', $post_types);
+        }
+
+        /**
+         * Post types that should not be auto-linked.
+         *
+         * @return array
+         */
+        private function get_excluded_autolink_post_types()
+        {
+            $excluded_post_types = array(
+                'attachment',
+                'revision',
+                'nav_menu_item',
+                'custom_css',
+                'customize_changeset',
+                'oembed_cache',
+                'user_request',
+                'wp_block',
+                'wp_template',
+                'wp_template_part',
+                'wp_global_styles',
+                'wp_navigation',
+                'tinypress_link',
+            );
+
+            return array_values(array_filter(array_map('sanitize_key', apply_filters(
+                'tinypress_autolink_excluded_post_types',
+                $excluded_post_types
+            ))));
         }
 
         /**
@@ -78,6 +107,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             add_action('trashed_post', array($this, 'invalidate_cache_on_delete'), 10, 1);
             add_action('updated_post_meta', array($this, 'invalidate_cache_on_meta_update'), 10, 4);
             add_action('added_post_meta', array($this, 'invalidate_cache_on_meta_update'), 10, 4);
+            add_action('update_option_tinypress_settings', array($this, 'invalidate_cache_on_settings_update'), 10, 2);
         }
 
         /**
@@ -144,6 +174,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 'autolink_alt_text',
                 'autolink_alt_text_custom',
                 'link_status',
+                'target_url',
                 'autolink_min_usage',
                 'autolink_min_usage_use_global',
                 'autolink_max_links',
@@ -153,6 +184,70 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             if (in_array($meta_key, $autolink_keys, true)) {
                 $this->invalidate_cache($post_id);
             }
+        }
+
+        /**
+         * Invalidate cache when global autolink settings change.
+         *
+         * @param array|string $old_value Previous settings value.
+         * @param array|string $value New settings value.
+         * @return void
+         */
+        public function invalidate_cache_on_settings_update($old_value, $value)
+        {
+            $old_settings = is_array($old_value) ? $old_value : array();
+            $new_settings = is_array($value) ? $value : array();
+
+            $old_enabled = isset($old_settings['tinypress_autolink_enabled']) ? (string) $old_settings['tinypress_autolink_enabled'] : '1';
+            $new_enabled = isset($new_settings['tinypress_autolink_enabled']) ? (string) $new_settings['tinypress_autolink_enabled'] : '1';
+
+            $old_post_types = isset($old_settings['tinypress_autolink_post_types']) && is_array($old_settings['tinypress_autolink_post_types'])
+                ? array_values(array_map('sanitize_key', $old_settings['tinypress_autolink_post_types']))
+                : array('post', 'page');
+            $new_post_types = isset($new_settings['tinypress_autolink_post_types']) && is_array($new_settings['tinypress_autolink_post_types'])
+                ? array_values(array_map('sanitize_key', $new_settings['tinypress_autolink_post_types']))
+                : array('post', 'page');
+
+            sort($old_post_types);
+            sort($new_post_types);
+
+            if ($old_enabled !== $new_enabled || $old_post_types !== $new_post_types) {
+                $this->invalidate_cache();
+            }
+        }
+
+        /**
+         * Get globally configured post types for auto-linking.
+         *
+         * @return array
+         */
+        private function get_global_autolink_post_types()
+        {
+            $settings = get_option('tinypress_settings', array());
+
+            if (! is_array($settings)) {
+                $settings = array();
+            }
+
+            if (! array_key_exists('tinypress_autolink_post_types', $settings)) {
+                return array('post', 'page');
+            }
+
+            $post_types = is_array($settings['tinypress_autolink_post_types'])
+                ? array_values(array_map('sanitize_key', $settings['tinypress_autolink_post_types']))
+                : array();
+
+            if (empty($post_types)) {
+                return array();
+            }
+
+            if (in_array('__all__', $post_types, true)) {
+                return $this->get_all_autolink_post_types();
+            }
+
+            $allowed_post_types = $this->get_all_autolink_post_types();
+
+            return array_values(array_intersect($post_types, $allowed_post_types));
         }
 
         /**
@@ -261,6 +356,11 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             $rules = array();
 
             $allowed_statuses = $this->get_allowed_post_statuses();
+            $global_post_types = $this->get_global_autolink_post_types();
+
+            if (empty($global_post_types)) {
+                return array();
+            }
 
             $link_ids = get_posts(array(
                 'post_type'      => 'tinypress_link',
@@ -305,25 +405,6 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                     continue;
                 }
 
-                $post_types = Utils::get_meta('autolink_post_types', $link_id);
-                if (! is_array($post_types)) {
-                    $post_types = array();
-                }
-
-                $has_post_types_meta = metadata_exists('post', $link_id, 'autolink_post_types');
-
-                if (in_array('__all__', $post_types, true)) {
-                    $post_types = $this->get_all_autolink_post_types();
-                }
-
-                if (empty($post_types)) {
-                    if (! $has_post_types_meta) {
-                        $post_types = array('post', 'page');
-                    } else {
-                        continue;
-                    }
-                }
-
                 $href = tinypress_get_tinyurl($link_id);
 
                 if (empty($href) || ! is_string($href)) {
@@ -349,7 +430,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                     'link_id'           => (int) $link_id,
                     'href'              => esc_url($href),
                     'keywords'          => $keywords,
-                    'post_types'        => array_values(array_unique(array_map('sanitize_key', $post_types))),
+                    'post_types'        => $global_post_types,
                     'rel'               => $rel,
                     'alt_text_source'   => (string) $alt_text_source ? (string) $alt_text_source : 'post_title',
                     'alt_text_custom'   => (string) $alt_text_custom ? (string) $alt_text_custom : '',

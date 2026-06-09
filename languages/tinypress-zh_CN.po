@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-26 14:40+0000\n"
-"PO-Revision-Date: 2026-04-29 12:57+0000\n"
+"PO-Revision-Date: 2026-06-09 08:27+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: tinypress\n"
 "Language: zh_CN\n"
@@ -29,9 +29,9 @@ msgstr "https://publishpress.com/shortlinks/"
 #: tinypress.php:6
 #. Description of the plugin
 msgid ""
-"Create custom links for your posts. These links are brandable, trackable, "
+"The best link manager for WordPress. Your links are brandable, trackable, "
 "and can have custom view permissions."
-msgstr "为您的帖子创建自定义链接。这些链接可品牌化、可追踪，并可以设置自定义查看权限。"
+msgstr "最佳的 WordPress 链接管理器。您的链接可以品牌化、可追踪，并可以设置自定义查看权限。"
 
 #: tinypress.php:9
 #. Author of the plugin
@@ -43,83 +43,237 @@ msgstr "PublishPress"
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: includes-core/ShortlinksCoreAdmin.php:86
+#: includes-core/ShortlinksCoreAdmin.php:88
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
 msgstr "您正在使用 PublishPress Shortlinks 免费版。专业版具有更多功能和支持。 "
 
-#: includes-core/ShortlinksCoreAdmin.php:87
-#: includes-core/ShortlinksCoreAdmin.php:104
-#: includes-core/ShortlinksCoreAdmin.php:105
-#: includes-core/ShortlinksCoreAdmin.php:271
+#: includes-core/ShortlinksCoreAdmin.php:89
+#: includes-core/ShortlinksCoreAdmin.php:106
+#: includes-core/ShortlinksCoreAdmin.php:107
 msgid "Upgrade to Pro"
 msgstr "升级到专业版"
 
 #: includes-core/ShortlinksCoreAdmin.php:117
-#: includes-core/ShortlinksCoreAdmin.php:196
+#: includes-core/ShortlinksCoreAdmin.php:118
+#: includes-core/ShortlinksCoreAdmin.php:148
+msgid "Link Health"
+msgstr "链接健康"
+
+#: includes-core/ShortlinksCoreAdmin.php:131
 msgid "Pro Feature"
 msgstr "专业功能"
 
-#: includes-core/ShortlinksCoreAdmin.php:120
-#: includes-core/ShortlinksCoreAdmin.php:199
+#: includes-core/ShortlinksCoreAdmin.php:134
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "此功能在 PublishPress Shortlinks 专业版中可用。"
 
-#: includes-core/ShortlinksCoreAdmin.php:135
+#: includes-core/ShortlinksCoreAdmin.php:150
+msgid ""
+"Check whether your shortlinks redirect visitors to working destination "
+"pages."
+msgstr "检查您的短链接是否将访客重定向到有效的目标页面。"
+
 #: includes-core/ShortlinksCoreAdmin.php:158
-msgid "Show Expiration Notice"
-msgstr "显示到期通知"
+msgid "Check Visible Links"
+msgstr "检查可见链接"
 
-#: includes-core/ShortlinksCoreAdmin.php:139
-msgid "Display a brief notice before redirecting expired links."
-msgstr "在重定向过期链接之前显示简短通知。"
+#: includes-core/ShortlinksCoreAdmin.php:162
+msgid "Check All Links"
+msgstr "检查所有链接"
 
-#: includes-core/ShortlinksCoreAdmin.php:153
+#: includes-core/ShortlinksCoreAdmin.php:169
+#: includes/classes/class-columns-link.php:54
+#: includes/classes/class-columns-link.php:552
+#: includes/classes/class-gutenberg-shortlink.php:159
+#: includes/classes/class-hooks.php:231
+#: includes/classes/class-table-logs.php:164
+#: templates/admin-modal-new-link.php:29
+msgid "Shortlink"
+msgstr "短链接"
+
+#: includes-core/ShortlinksCoreAdmin.php:170
+#: includes/classes/class-gutenberg-shortlink.php:169
+#: includes/classes/class-import-export.php:1053
+msgid "Target URL"
+msgstr "目标网址"
+
+#: includes-core/ShortlinksCoreAdmin.php:171
+#: includes/classes/class-meta-boxes.php:542
+msgid "Status"
+msgstr "状态"
+
+#: includes-core/ShortlinksCoreAdmin.php:172, fuzzy
+msgid "HTTP"
+msgstr "HTTP"
+
+#: includes-core/ShortlinksCoreAdmin.php:173
+msgid "Redirects"
+msgstr "重定向"
+
+#: includes-core/ShortlinksCoreAdmin.php:174
+msgid "Final URL"
+msgstr "最终网址"
+
+#: includes-core/ShortlinksCoreAdmin.php:181
+msgid "Working"
+msgstr "正常"
+
+#: includes-core/ShortlinksCoreAdmin.php:189
+msgid "Broken"
+msgstr "损坏"
+
+#: includes-core/ShortlinksCoreAdmin.php:212
+#: includes-core/ShortlinksCoreAdmin.php:236
 msgid "Expired Redirect Settings"
 msgstr "过期重定向设置"
 
-#: includes-core/ShortlinksCoreAdmin.php:156
+#: includes-core/ShortlinksCoreAdmin.php:215
+#: includes-core/ShortlinksCoreAdmin.php:239
+#: includes/classes/class-import-export.php:1064
 msgid "Expired Redirect URL"
 msgstr "过期重定向 URL"
 
-#: includes-core/ShortlinksCoreAdmin.php:161
-msgid "Display a brief notice before redirecting."
-msgstr "在重定向之前显示简短通知。"
+#: includes-core/ShortlinksCoreAdmin.php:216
+msgid "Choose where visitors should go when they click an expired link."
+msgstr "选择访客点击过期链接时应去往的地方。"
 
-#: includes-core/ShortlinksCoreAdmin.php:233
-#: includes-core/ShortlinksCoreAdmin.php:234
-msgid "Import / Export"
-msgstr "导入 / 导出"
+#: includes-core/ShortlinksCoreAdmin.php:218
+#: includes-core/ShortlinksCoreAdmin.php:242
+msgid "Show Expiration Notice"
+msgstr "显示到期通知"
 
-#: includes-core/ShortlinksCoreAdmin.php:249
-msgid "Import / Export Shortlinks"
-msgstr "导入 / 导出短链接"
+#: includes-core/ShortlinksCoreAdmin.php:219
+#: includes-core/ShortlinksCoreAdmin.php:243
+msgid "Display a custom notice page before automatically redirecting visitors."
+msgstr "在自动重定向访客之前显示自定义通知页面。"
 
-#: includes-core/ShortlinksCoreAdmin.php:254
-msgid "Bulk Import & Export"
-msgstr "批量导入 & 导出"
+#: includes-core/ShortlinksCoreAdmin.php:222
+msgid "Show a notice page for expired shortlinks briefly before redirecting."
+msgstr "在重定向之前简要显示过期短链接的通知页面。"
 
-#: includes-core/ShortlinksCoreAdmin.php:255
+#: includes-core/ShortlinksCoreAdmin.php:240
+msgid "Set the default destination for all expired shortlinks."
+msgstr "为所有过期短链接设置默认目标。"
+
+#: includes-core/ShortlinksCoreAdmin.php:246
 msgid ""
-"Import and export your shortlinks in bulk using CSV files. Migrate from "
-"other plugins or manage links across multiple sites."
-msgstr "使用 CSV 文件批量导入和导出您的短链接。从其他插件迁移或在多个站点之间管理链接。"
+"Show a notice page for expired shortlinks briefly before redirecting. You "
+"can customize the content of this message."
+msgstr "在重定向之前简要显示过期短链接的通知页面。您可以自定义此消息的内容。"
 
-#: includes-core/ShortlinksCoreAdmin.php:259
-msgid "CSV Export"
-msgstr "CSV 导出"
+#: includes-core/ShortlinksCoreAdmin.php:281
+#: includes-core/ShortlinksCoreAdmin.php:308
+msgid "Advanced Auto-Link Settings"
+msgstr "高级自动链接设置"
 
-#: includes-core/ShortlinksCoreAdmin.php:263
-msgid "CSV Import"
-msgstr "CSV 导入"
+#: includes-core/ShortlinksCoreAdmin.php:283
+#: includes-core/ShortlinksCoreAdmin.php:311
+msgid "Minimum Keyword Usage"
+msgstr "最低关键字使用量"
 
-#: includes-core/ShortlinksCoreAdmin.php:267
-msgid "Bulk Management"
-msgstr "批量管理"
+#: includes-core/ShortlinksCoreAdmin.php:284
+msgid "Keyword must appear this many times before being autolinked."
+msgstr "关键字必须出现此次数才能被自动链接。"
+
+#: includes-core/ShortlinksCoreAdmin.php:286
+#: includes-core/ShortlinksCoreAdmin.php:314
+msgid "Maximum Keywords Linked"
+msgstr "最大链接关键词"
+
+#: includes-core/ShortlinksCoreAdmin.php:287
+msgid "Maximum number of times this keyword should be autolinked per post."
+msgstr "每篇帖子中此关键词应自动链接的最大次数。"
+
+#: includes-core/ShortlinksCoreAdmin.php:312
+msgid "Default minimum times a keyword must appear before being autolinked."
+msgstr "关键词在被自动链接之前必须出现的默认最小次数。"
+
+#: includes-core/ShortlinksCoreAdmin.php:315
+msgid "Default maximum times a keyword should be autolinked per post."
+msgstr "每篇帖子中关键词应自动链接的默认最大次数。"
+
+#: includes-core/ShortlinksCoreAdmin.php:317
+msgid "Maximum Links Per Post"
+msgstr "每篇帖子最大链接数"
+
+#: includes-core/ShortlinksCoreAdmin.php:318
+msgid "Total maximum autolinks allowed per post/page."
+msgstr "每篇帖子/页面允许的总最大自动链接数。"
+
+#: includes-core/ShortlinksCoreAdmin.php:320
+msgid "Minimum Character Length"
+msgstr "最小字符长度"
+
+#: includes-core/ShortlinksCoreAdmin.php:321
+msgid "Keywords shorter than this will not be autolinked."
+msgstr "短于此长度的关键词将不被自动链接。"
+
+#: includes-core/ShortlinksCoreAdmin.php:323
+msgid "Maximum Character Length"
+msgstr "最大字符长度"
+
+#: includes-core/ShortlinksCoreAdmin.php:324
+msgid "Keywords longer than this will not be autolinked."
+msgstr "长于此长度的关键词将不被自动链接。"
+
+#: includes-core/ShortlinksCoreAdmin.php:345
+#: includes/classes/class-settings.php:850
+msgid "Auto-Link Exceptions"
+msgstr "自动链接例外"
+
+#: includes-core/ShortlinksCoreAdmin.php:347
+msgid "Exclude Terms from Auto Links"
+msgstr "从自动链接中排除的术语"
+
+#: includes-core/ShortlinksCoreAdmin.php:348
+msgid "These terms will never be autolinked."
+msgstr "这些术语将永远不会被自动链接。"
+
+#: includes-core/ShortlinksCoreAdmin.php:350
+msgid "Prevent Auto Links Inside Classes or IDs"
+msgstr "防止在类或ID内自动链接"
+
+#: includes-core/ShortlinksCoreAdmin.php:351
+msgid ""
+"Content inside elements with these classes or IDs will not have autolinks "
+"applied."
+msgstr "具有这些类或ID的元素内的内容将不应用自动链接。"
+
+#: includes-core/ShortlinksCoreAdmin.php:353
+msgid "Prevent Auto Links Inside Elements"
+msgstr "防止在元素内自动链接"
+
+#: includes-core/ShortlinksCoreAdmin.php:354
+msgid "Terms inside these HTML tags will not have autolinks applied."
+msgstr "这些HTML标签内的术语将不应用自动链接。"
+
+#: includes-core/ShortlinksCoreAdmin.php:367
+msgid "Prevent Auto Links on Shortcodes"
+msgstr "防止在短代码上自动链接"
+
+#: includes-core/ShortlinksCoreAdmin.php:368
+msgid "Terms inside these shortcodes will not have autolinks applied."
+msgstr "这些短代码内的术语将不应用自动链接。"
+
+#: includes-core/ShortlinksCoreAdmin.php:370
+msgid "Prevent Auto Links on Blocks"
+msgstr "防止在区块上自动链接"
+
+#: includes-core/ShortlinksCoreAdmin.php:371
+msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
+msgstr "在这些古腾堡块内的术语将不会应用自动链接。"
+
+#: includes-core/ShortlinksCoreAdmin.php:372
+msgid "Search and select blocks..."
+msgstr "搜索并选择块..."
 
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:200
+#: includes/classes/class-autolist-ajax.php:204
+#: includes/classes/class-gutenberg-shortlink.php:234
+#: includes/classes/class-gutenberg-shortlink.php:285
+#: includes/classes/class-gutenberg-shortlink.php:329
 msgid "Permission denied"
 msgstr "权限被拒绝"
 
@@ -172,60 +326,61 @@ msgstr "保存配置到数据库失败"
 msgid "Configuration saved successfully"
 msgstr "配置成功保存"
 
-#: includes/classes/class-autolist-ajax.php:144
+#: includes/classes/class-autolist-ajax.php:149
 #. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "错误：%s"
 
-#: includes/classes/class-autolist-ajax.php:289
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Validating..."
 msgstr "正在验证..."
 
-#: includes/classes/class-autolist-ajax.php:290
+#: includes/classes/class-autolist-ajax.php:294
 msgid "Saving..."
 msgstr "正在保存..."
 
-#: includes/classes/class-autolist-ajax.php:291
+#: includes/classes/class-autolist-ajax.php:295
 msgid "Saved!"
 msgstr "已保存！"
 
-#: includes/classes/class-autolist-ajax.php:292
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-gutenberg-shortlink.php:175
 msgid "Error"
 msgstr "错误"
 
-#: includes/classes/class-autolist-ajax.php:293
+#: includes/classes/class-autolist-ajax.php:297
 msgid "Are you sure you want to remove this post type?"
 msgstr "您确定要删除此帖子类型吗？"
 
-#: includes/classes/class-autolist-ajax.php:294
+#: includes/classes/class-autolist-ajax.php:298
 msgid "Select a post type"
 msgstr "选择帖子类型"
 
-#: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:595
-#: includes/classes/class-settings.php:691
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:1032
+#: includes/classes/class-settings.php:1130
 msgid "Never"
 msgstr "从不"
 
-#: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:593
-#: includes/classes/class-settings.php:693
+#: includes/classes/class-autolist-ajax.php:300
+#: includes/classes/class-settings.php:1030
+#: includes/classes/class-settings.php:1132
 msgid "When Link is First Used"
 msgstr "首次使用链接时"
 
-#: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:695
+#: includes/classes/class-autolist-ajax.php:301
+#: includes/classes/class-settings.php:1134
 msgid "When Post is Published"
 msgstr "发布帖子时"
 
-#: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:694
+#: includes/classes/class-autolist-ajax.php:302
+#: includes/classes/class-settings.php:1133
 msgid "When Post is Created"
 msgstr "创建帖子时"
 
-#: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:692
+#: includes/classes/class-autolist-ajax.php:303
+#: includes/classes/class-settings.php:1131
 msgid "When Link is First Used or Post Created"
 msgstr "首次使用链接时或创建帖子时"
 
@@ -233,110 +388,140 @@ msgstr "首次使用链接时或创建帖子时"
 msgid "Invalid post ID or post type."
 msgstr "无效的帖子 ID 或帖子类型。"
 
-#: includes/classes/class-columns-link.php:49
-#: includes/classes/class-columns-link.php:279
-#: includes/classes/class-hooks.php:207
-#: includes/classes/class-table-logs.php:164
-#: templates/admin-modal-new-link.php:29
-msgid "Shortlink"
-msgstr "短链接"
-
-#: includes/classes/class-columns-link.php:71
+#: includes/classes/class-columns-link.php:76
 msgid "No shortlink"
 msgstr "没有短链接"
 
-#: includes/classes/class-columns-link.php:92
-#: includes/classes/class-hooks.php:208
-#: includes/classes/class-hooks.php:210
-#: includes/classes/class-meta-boxes.php:93
+#: includes/classes/class-columns-link.php:97
+#: includes/classes/class-hooks.php:232
+#: includes/classes/class-hooks.php:234
+#: includes/classes/class-meta-boxes.php:163
 msgid "Shortlinks"
 msgstr "短链接"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:188
+#: includes/classes/class-columns-link.php:335
 msgid "Internal"
 msgstr "内部"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:188
+#: includes/classes/class-columns-link.php:336
 msgid "External"
 msgstr "外部"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:189
 msgid "This links to your post"
 msgstr "此链接指向您的帖子"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:189
 msgid "This links to an external website"
 msgstr "此链接指向一个外部网站"
 
-#: includes/classes/class-columns-link.php:189
+#: includes/classes/class-columns-link.php:193
+#: includes/classes/class-columns-link.php:337
 msgid "Revision"
 msgstr "修订"
 
-#: includes/classes/class-columns-link.php:190
+#: includes/classes/class-columns-link.php:194
 msgid "This links to a revision"
 msgstr "此链接指向一个修订版"
 
-#: includes/classes/class-columns-link.php:198
+#: includes/classes/class-columns-link.php:203
 msgid "Not yet submitted"
 msgstr "尚未提交"
 
-#: includes/classes/class-columns-link.php:199
+#: includes/classes/class-columns-link.php:204
 msgid "Submitted for approval"
 msgstr "已提交待审批"
 
-#: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:558
+#: includes/classes/class-columns-link.php:205
+#: includes/classes/class-settings.php:365
+#: includes/classes/class-settings.php:706
+#: includes/classes/class-settings.php:714
+#: includes/functions.php:273
+#: includes/functions.php:307
 msgid "Scheduled"
 msgstr "已安排"
 
-#: includes/classes/class-columns-link.php:201
+#: includes/classes/class-columns-link.php:206
 msgid "Deferred"
 msgstr "延迟"
 
-#: includes/classes/class-columns-link.php:202
+#: includes/classes/class-columns-link.php:207
 msgid "Needs work"
 msgstr "需要处理"
 
-#: includes/classes/class-columns-link.php:203
+#: includes/classes/class-columns-link.php:208
 msgid "Rejected"
 msgstr "已拒绝"
 
-#: includes/classes/class-columns-link.php:207
+#: includes/classes/class-columns-link.php:212
 #. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "修订版: %s"
 
-#: includes/classes/class-columns-link.php:224
+#: includes/classes/class-columns-link.php:233
 #. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "点击了 %s 次"
 
-#: includes/classes/class-columns-link.php:230
-#: includes/classes/class-table-logs.php:197
+#: includes/classes/class-columns-link.php:241
+#: includes/classes/class-table-logs.php:198
 msgid "Edit"
 msgstr "编辑"
 
-#: includes/classes/class-columns-link.php:231
-#: includes/classes/class-table-logs.php:178
-#: includes/classes/class-table-logs.php:199
+#: includes/classes/class-columns-link.php:246
+#: includes/classes/class-table-logs.php:179
+#: includes/classes/class-table-logs.php:200
 msgid "Delete"
 msgstr "删除"
 
-#: includes/classes/class-columns-link.php:278
+#: includes/classes/class-columns-link.php:332
+msgid "Filter by link type"
+msgstr "按链接类型筛选"
+
+#: includes/classes/class-columns-link.php:334
+msgid "All link types"
+msgstr "所有链接类型"
+
+#: includes/classes/class-columns-link.php:350
+msgid "Filter by category"
+msgstr "按类别筛选"
+
+#: includes/classes/class-columns-link.php:352
+msgid "All categories"
+msgstr "所有类别"
+
+#: includes/classes/class-columns-link.php:446
+msgid "Filters"
+msgstr "筛选器"
+
+#: includes/classes/class-columns-link.php:449
+#: includes/classes/class-hooks.php:257
+#: includes/classes/class-meta-boxes.php:814
+msgid "Categories"
+msgstr "分类"
+
+#: includes/classes/class-columns-link.php:467
+msgid "Permission denied."
+msgstr "权限被拒绝。"
+
+#: includes/classes/class-columns-link.php:551
 msgid "Link Title"
 msgstr "链接标题"
 
-#: includes/classes/class-columns-link.php:280
+#: includes/classes/class-columns-link.php:553
 msgid "Link Type"
 msgstr "链接类型"
 
-#: includes/classes/class-columns-link.php:281
+#: includes/classes/class-columns-link.php:557
 msgid "Stats"
 msgstr "统计"
 
-#: includes/classes/class-columns-link.php:282
+#: includes/classes/class-columns-link.php:560
+#: includes/classes/class-table-logs.php:166
 msgid "Actions"
 msgstr "操作"
 
@@ -348,664 +533,1150 @@ msgstr "点击复制"
 msgid "Copied"
 msgstr "已复制"
 
-#: includes/classes/class-hooks.php:61
-msgid "Security check failed."
-msgstr "安全检查失败。"
+#: includes/classes/class-gutenberg-shortlink.php:160
+msgid "Search shortlinks..."
+msgstr "搜索短链接..."
 
-#: includes/classes/class-hooks.php:65
-msgid "You do not have permission to create shortlinks."
-msgstr "您没有权限创建短链接。"
+#: includes/classes/class-gutenberg-shortlink.php:161
+msgid "Insert Shortlink"
+msgstr "插入短链接"
 
-#: includes/classes/class-hooks.php:72
-msgid "Invalid or empty URL"
-msgstr "无效或为空的 URL"
+#: includes/classes/class-gutenberg-shortlink.php:162
+msgid "Create New Shortlink"
+msgstr "创建新短链接"
 
-#: includes/classes/class-hooks.php:89
+#: includes/classes/class-gutenberg-shortlink.php:163
+#: includes/classes/class-settings.php:721
+msgid "Options"
+msgstr "选项"
+
+#: includes/classes/class-gutenberg-shortlink.php:164
+msgid "Open in New Tab"
+msgstr "在新标签页中打开"
+
+#: includes/classes/class-gutenberg-shortlink.php:165
+msgid "Nofollow"
+msgstr "无跟踪"
+
+#: includes/classes/class-gutenberg-shortlink.php:166
+msgid "Sponsored Link"
+msgstr "赞助链接"
+
+#: includes/classes/class-gutenberg-shortlink.php:167
+msgid "Label"
+msgstr "标签"
+
+#: includes/classes/class-gutenberg-shortlink.php:168
+msgid "Optional shortlink label"
+msgstr "可选的短链接标签"
+
+#: includes/classes/class-gutenberg-shortlink.php:170
+msgid "Create"
+msgstr "创建"
+
+#: includes/classes/class-gutenberg-shortlink.php:171
+#: includes/classes/class-import-export.php:1202
+msgid "Cancel"
+msgstr "取消"
+
+#: includes/classes/class-gutenberg-shortlink.php:172
+#: templates/admin-modal-new-link.php:37
+msgid "Close"
+msgstr "关闭"
+
+#: includes/classes/class-gutenberg-shortlink.php:173
+msgid "Creating..."
+msgstr "正在创建..."
+
+#: includes/classes/class-gutenberg-shortlink.php:174
+#: includes/classes/class-gutenberg-shortlink.php:317
+#: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "短链接创建成功。"
 
-#: includes/classes/class-hooks.php:98
+#: includes/classes/class-gutenberg-shortlink.php:176
+msgid "Please enter a valid URL"
+msgstr "请输入有效的 URL"
+
+#: includes/classes/class-gutenberg-shortlink.php:177
+msgid "No shortlinks found"
+msgstr "未找到短链接"
+
+#: includes/classes/class-gutenberg-shortlink.php:243
+msgid "Search term is required"
+msgstr "搜索词是必需的"
+
+#: includes/classes/class-gutenberg-shortlink.php:258
+#: includes/functions.php:447
+#. translators: %s: link ID number
+#, php-format
+msgid "Link - %s"
+msgstr "链接 - %s"
+
+#: includes/classes/class-gutenberg-shortlink.php:294
+msgid "Target URL is required"
+msgstr "目标 URL 是必需的"
+
+#: includes/classes/class-gutenberg-shortlink.php:336
+msgid "Invalid shortlink ID"
+msgstr "无效的短链接 ID"
+
+#: includes/classes/class-gutenberg-shortlink.php:342
+msgid "Shortlink not found"
+msgstr "未找到短链接"
+
+#: includes/classes/class-hooks.php:69
+#: includes/classes/class-import-export.php:119
+msgid "Security check failed."
+msgstr "安全检查失败。"
+
+#: includes/classes/class-hooks.php:73
+msgid "You do not have permission to create shortlinks."
+msgstr "您没有权限创建短链接。"
+
+#: includes/classes/class-hooks.php:80
+msgid "Invalid or empty URL"
+msgstr "无效或为空的 URL"
+
+#: includes/classes/class-hooks.php:112
 msgid "Invalid nonce verification."
 msgstr "无效的 nonce 验证。"
 
-#: includes/classes/class-hooks.php:102
+#: includes/classes/class-hooks.php:116
 msgid "You do not have permission to reset analytics."
 msgstr "您没有权限重置分析。"
 
-#: includes/classes/class-hooks.php:109
+#: includes/classes/class-hooks.php:123
 msgid "Invalid post ID."
 msgstr "无效的帖子 ID。"
 
-#: includes/classes/class-hooks.php:140
+#: includes/classes/class-hooks.php:129
+msgid "Invalid shortlink ID."
+msgstr "无效的短链接 ID。"
+
+#: includes/classes/class-hooks.php:133
+msgid "You do not have permission to reset analytics for this shortlink."
+msgstr "您没有权限重置此短链接的分析数据。"
+
+#: includes/classes/class-hooks.php:164
 msgid "Analytics reset successfully."
 msgstr "分析成功重置。"
 
-#: includes/classes/class-hooks.php:142
+#: includes/classes/class-hooks.php:166
 msgid "Failed to reset analytics."
 msgstr "重置分析失败。"
 
-#: includes/classes/class-hooks.php:168
+#: includes/classes/class-hooks.php:192
 msgid "Shorten"
 msgstr "缩短"
 
-#: includes/classes/class-hooks.php:211
+#: includes/classes/class-hooks.php:235
 msgid "All Shortlinks"
 msgstr "所有短链接"
 
-#: includes/classes/class-hooks.php:212
-#: includes/classes/class-hooks.php:213
+#: includes/classes/class-hooks.php:236
+#: includes/classes/class-hooks.php:237
 msgid "Add Shortlink"
 msgstr "添加短链接"
 
-#: includes/classes/class-hooks.php:214
+#: includes/classes/class-hooks.php:238
 msgid "Search Shortlinks"
 msgstr "搜索短链接"
 
-#: includes/classes/class-hooks.php:229
+#: includes/classes/class-hooks.php:256
 msgid "Category"
 msgstr "类别"
 
-#: includes/classes/class-hooks.php:230
-msgid "Categories"
-msgstr "分类"
-
-#: includes/classes/class-hooks.php:256
-#: includes/classes/class-hooks.php:257
+#: includes/classes/class-hooks.php:283
+#: includes/classes/class-hooks.php:284
 msgid "Logs"
 msgstr "日志"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "All Logs"
 msgstr "所有日志"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Are you sure you want to clear all logs?"
 msgstr "您确定要清除所有日志吗？"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Clear Logs"
 msgstr "清除日志"
 
-#: includes/classes/class-hooks.php:506
+#: includes/classes/class-hooks.php:606
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "抱歉，您没有权限访问短链接。"
 
-#: includes/classes/class-hooks.php:507
-#: includes/classes/class-hooks.php:528
-#: includes/classes/class-hooks.php:539
-#: includes/classes/class-hooks.php:560
+#: includes/classes/class-hooks.php:607
+#: includes/classes/class-hooks.php:628
+#: includes/classes/class-hooks.php:639
+#: includes/classes/class-hooks.php:660
 msgid "Access Denied"
 msgstr "访问被拒绝"
 
-#: includes/classes/class-hooks.php:527
+#: includes/classes/class-hooks.php:627
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "抱歉，您没有权限创建短链接。"
 
-#: includes/classes/class-hooks.php:538
+#: includes/classes/class-hooks.php:638
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "抱歉，您没有权限编辑短链接。"
 
-#: includes/classes/class-hooks.php:559
+#: includes/classes/class-hooks.php:659
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "抱歉，您没有权限访问短链接设置。"
 
-#: includes/classes/class-meta-boxes.php:76
-msgid "Side"
-msgstr "侧边"
+#: includes/classes/class-import-export.php:48
+#: includes/classes/class-import-export.php:49
+msgid "Import / Export"
+msgstr "导入 / 导出"
 
-#: includes/classes/class-meta-boxes.php:187
-#: tinypress.php:448
-msgid "PublishPress Shortlinks"
-msgstr "PublishPress 短链接"
+#: includes/classes/class-import-export.php:87
+msgid "Importing..."
+msgstr "正在导入..."
 
-#: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:401
-msgid "General"
-msgstr "常规"
+#: includes/classes/class-import-export.php:88
+msgid "Import complete!"
+msgstr "导入完成！"
 
-#: includes/classes/class-meta-boxes.php:205
-msgid "Label *"
-msgstr "标签 *"
+#: includes/classes/class-import-export.php:89
+msgid "Import failed. Please check the file and try again."
+msgstr "导入失败。请检查文件并重试。"
 
-#: includes/classes/class-meta-boxes.php:207
-msgid "For admin purpose only."
-msgstr "仅供管理员使用。"
+#: includes/classes/class-import-export.php:90
+msgid "Please select a CSV file."
+msgstr "请选择一个 CSV 文件。"
 
-#: includes/classes/class-meta-boxes.php:216
-msgid "Target URL *"
-msgstr "目标网址 *"
+#: includes/classes/class-import-export.php:91
+msgid "This will import shortlinks from the CSV file. Continue?"
+msgstr "这将从 CSV 文件中导入短链接。继续吗？"
 
-#: includes/classes/class-meta-boxes.php:226
-msgid "Short String *"
-msgstr "短字符串 *"
+#: includes/classes/class-import-export.php:92
+msgid "Previewing..."
+msgstr "正在预览..."
 
-#: includes/classes/class-meta-boxes.php:227
-msgid "Short string of this URL."
-msgstr "此 URL 的短字符串。"
+#: includes/classes/class-import-export.php:93
+msgid "Preview failed."
+msgstr "预览失败。"
 
-#: includes/classes/class-meta-boxes.php:233
-msgid "Status"
-msgstr "状态"
+#: includes/classes/class-import-export.php:94
+#: includes/classes/class-import-export.php:1197
+msgid "See More Rows"
+msgstr "查看更多行"
 
-#: includes/classes/class-meta-boxes.php:234
-msgid "Disable the shortlink instantly."
-msgstr "立即禁用短链接。"
+#: includes/classes/class-import-export.php:95
+msgid "Show Less"
+msgstr "显示更少"
 
-#: includes/classes/class-meta-boxes.php:235
-msgid "After disabling the link will not active but the settings will be reserved."
-msgstr "禁用后，链接将不再激活，但设置将被保留。"
+#: includes/classes/class-import-export.php:96
+#: includes/classes/class-import-export.php:1160
+msgid "Preview"
+msgstr "预览"
 
-#: includes/classes/class-meta-boxes.php:236
-msgid "Enable"
-msgstr "启用"
+#: includes/classes/class-import-export.php:97
+#: includes/classes/class-import-export.php:1151
+#: includes/classes/class-import-export.php:1164
+msgid "Import CSV"
+msgstr "导入 CSV"
 
-#: includes/classes/class-meta-boxes.php:237
-msgid "Disable"
-msgstr "禁用"
+#: includes/classes/class-import-export.php:98
+#: includes/classes/class-import-export.php:731
+#. translators: %d: number of successfully imported shortlinks
+#, php-format
+msgid "%d shortlinks successfully imported"
+msgstr "%d 个短链接成功导入"
 
-#: includes/classes/class-meta-boxes.php:244
+#: includes/classes/class-import-export.php:99
+#: includes/classes/class-import-export.php:753
+#. translators: %d: number of failed imports
+#, php-format
+msgid "%d shortlinks failed to import"
+msgstr "%d 个短链接导入失败"
+
+#: includes/classes/class-import-export.php:100
+msgid "Error(s) for TinyPress Slug:"
+msgstr "TinyPress Slug 的错误："
+
+#: includes/classes/class-import-export.php:115
+#: includes/classes/class-import-export.php:546
+#: includes/classes/class-import-export.php:907
+#: includes/classes/class-import-export.php:1048
+msgid "Unauthorized."
+msgstr "未经授权。"
+
+#: includes/classes/class-import-export.php:303
+#: includes/functions.php:402
+msgid "Invalid URL."
+msgstr "无效的 URL。"
+
+#: includes/classes/class-import-export.php:551
+#: includes/classes/class-import-export.php:912
+msgid "No file uploaded or upload error."
+msgstr "未上传文件或上传错误。"
+
+#: includes/classes/class-import-export.php:560
+#: includes/classes/class-import-export.php:921
+msgid "Please upload a CSV file."
+msgstr "请上传一个 CSV 文件。"
+
+#: includes/classes/class-import-export.php:566
+#: includes/classes/class-import-export.php:927
+msgid "Could not read the file."
+msgstr "无法读取文件。"
+
+#: includes/classes/class-import-export.php:573
+#: includes/classes/class-import-export.php:934
+msgid "Empty CSV file."
+msgstr "空的 CSV 文件。"
+
+#: includes/classes/class-import-export.php:596
+#: includes/classes/class-import-export.php:958
+msgid ""
+"CSV must contain a column for target URL (e.g., \"url\", \"target_url\", "
+"\"destination_url\")."
+msgstr "CSV 必须包含目标 URL 的列（例如，\"url\"，\"target_url\"，\"destination_url\"）。"
+
+#: includes/classes/class-import-export.php:663
+#. translators: %s: error message
+#, php-format
+msgid "Failed to create shortlink: %s"
+msgstr "创建短链接失败：%s"
+
+#: includes/classes/class-import-export.php:664
+msgid "Unknown error."
+msgstr "未知错误。"
+
+#: includes/classes/class-import-export.php:742
+#. translators: %d: number of updated shortlinks
+#, php-format
+msgid "%d shortlinks updated"
+msgstr "%d 个短链接已更新"
+
+#: includes/classes/class-import-export.php:995
+#. translators: 1: original column name, 2: mapped field name
+#, fuzzy, php-format
+msgid "\"%1$s\" → %2$s"
+msgstr "\"%1$s\" → %2$s"
+
+#: includes/classes/class-import-export.php:1006
+#. translators: %s: field mappings
+#, php-format
+msgid "Field mappings: %s"
+msgstr "字段映射：%s"
+
+#: includes/classes/class-import-export.php:1033
+#. translators: 1: number of preview rows, 2: total number of importable rows
+#, php-format
+msgid "Showing %1$d preview row(s) from %2$d importable row(s)."
+msgstr "显示来自 %2$d 个可导入行的 %1$d 个预览行。"
+
+#: includes/classes/class-import-export.php:1052
+msgid "Link Label"
+msgstr "链接标签"
+
+#: includes/classes/class-import-export.php:1054
+msgid "Short Slug"
+msgstr "短链接标识"
+
+#: includes/classes/class-import-export.php:1055
+msgid "Post Status"
+msgstr "帖子状态"
+
+#: includes/classes/class-import-export.php:1056
+msgid "Link Status"
+msgstr "链接状态"
+
+#: includes/classes/class-import-export.php:1057
+msgid "Redirect Method"
+msgstr "重定向方式"
+
+#: includes/classes/class-import-export.php:1058
+#: includes/classes/class-meta-boxes.php:664
+#: includes/classes/class-settings.php:939
+msgid "NoFollow"
+msgstr "无跟踪"
+
+#: includes/classes/class-import-export.php:1059
+#: includes/classes/class-meta-boxes.php:642
+#: includes/classes/class-settings.php:931
+msgid "Sponsored"
+msgstr "赞助的"
+
+#: includes/classes/class-import-export.php:1060
+#: includes/classes/class-meta-boxes.php:686
+#: includes/classes/class-settings.php:947
+msgid "Parameter Forwarding"
+msgstr "参数转发"
+
+#: includes/classes/class-import-export.php:1061
+msgid "Expiration Enabled"
+msgstr "启用到期"
+
+#: includes/classes/class-import-export.php:1062
+#: includes/classes/class-meta-boxes.php:770
+#: includes/classes/class-settings.php:988
+msgid "Expiration Date"
+msgstr "过期日期"
+
+#: includes/classes/class-import-export.php:1063
+#: includes/classes/class-meta-boxes.php:784
+#: includes/classes/class-settings.php:1001
+msgid "Expiration Time"
+msgstr "过期时间"
+
+#: includes/classes/class-import-export.php:1065
+#: includes/classes/class-meta-boxes.php:552
 msgid "Notes"
 msgstr "备注"
 
-#: includes/classes/class-meta-boxes.php:251
-msgid "All"
-msgstr "全部"
+#: includes/classes/class-import-export.php:1066
+msgid "Autolink Keywords"
+msgstr "自动链接关键字"
 
-#: includes/classes/class-meta-boxes.php:263
-msgid "Auto-linking"
-msgstr "自动链接"
+#: includes/classes/class-import-export.php:1095
+msgid "Import / Export Shortlinks"
+msgstr "导入 / 导出短链接"
 
-#: includes/classes/class-meta-boxes.php:268
+#: includes/classes/class-import-export.php:1099
+#: includes/classes/class-import-export.php:1137
+#: includes/classes/class-import-export.php:1206
+msgid "Import"
+msgstr "导入"
+
+#: includes/classes/class-import-export.php:1102
+#: includes/classes/class-import-export.php:1111
+msgid "Export"
+msgstr "导出"
+
+#: includes/classes/class-import-export.php:1114
+msgid ""
+"Download all your shortlinks as a CSV file. The export includes labels, "
+"target URLs, slugs, redirect settings, global-setting modes, and more. "
+"Password protection settings are not exported."
+msgstr "将所有短链接下载为 CSV 文件。导出内容包括标签、目标 URL、短语、重定向设置、全局设置模式等。密码保护设置不会被导出。"
+
+#: includes/classes/class-import-export.php:1119
+#. translators: %d: number of shortlinks
+#, php-format
+msgid "%d shortlink(s) will be exported."
+msgstr "%d 个短链接将被导出。"
+
+#: includes/classes/class-import-export.php:1127
+msgid "Export CSV"
+msgstr "导出 CSV"
+
+#: includes/classes/class-import-export.php:1140
+msgid ""
+"Upload a CSV file to bulk-create shortlinks. The CSV must contain at "
+"minimum a \"target_url\" column. Password protection settings are "
+"intentionally not imported."
+msgstr "上传 CSV 文件以批量创建短链接。CSV 至少必须包含一个 \"target_url\" 列。密码保护设置故意不被导入。"
+
+#: includes/classes/class-import-export.php:1142
+msgid "Supported columns:"
+msgstr "支持的列："
+
+#: includes/classes/class-import-export.php:1167
+msgid "Change File"
+msgstr "更改文件"
+
+#: includes/classes/class-import-export.php:1184
+msgid "Import Preview"
+msgstr "导入预览"
+
+#: includes/classes/class-meta-boxes.php:387
+#: includes/classes/class-meta-boxes.php:453
+#: includes/classes/class-meta-boxes.php:478
+#. translators: %s: current global setting value
+msgid "Use global settings"
+msgstr "使用全局设置"
+
+#: includes/classes/class-meta-boxes.php:388
+msgid "Enabled"
+msgstr "已启用"
+
+#: includes/classes/class-meta-boxes.php:389
+msgid "Disabled"
+msgstr "已禁用"
+
+#: includes/classes/class-meta-boxes.php:449
+msgid "ON"
+msgstr "开启"
+
+#: includes/classes/class-meta-boxes.php:449
+msgid "OFF"
+msgstr "关闭"
+
+#: includes/classes/class-meta-boxes.php:481
+#: includes/classes/class-settings.php:922
+msgid "307 (Temporary)"
+msgstr "307（临时）"
+
+#: includes/classes/class-meta-boxes.php:482
+#: includes/classes/class-settings.php:923
+msgid "302 (Temporary)"
+msgstr "302（临时）"
+
+#: includes/classes/class-meta-boxes.php:483
+#: includes/classes/class-settings.php:924
+msgid "301 (Permanent)"
+msgstr "301（永久性）"
+
+#: includes/classes/class-meta-boxes.php:496
+#: tinypress.php:399
+#: tinypress.php:492
+msgid "PublishPress Shortlinks"
+msgstr "PublishPress 短链接"
+
+#: includes/classes/class-meta-boxes.php:509
+#: includes/classes/class-settings.php:718
+msgid "General"
+msgstr "常规"
+
+#: includes/classes/class-meta-boxes.php:514
+msgid "Label *"
+msgstr "标签 *"
+
+#: includes/classes/class-meta-boxes.php:516
+msgid "For admin purpose only."
+msgstr "仅供管理员使用。"
+
+#: includes/classes/class-meta-boxes.php:525
+msgid "Target URL *"
+msgstr "目标网址 *"
+
+#: includes/classes/class-meta-boxes.php:535
+msgid "Short String *"
+msgstr "短字符串 *"
+
+#: includes/classes/class-meta-boxes.php:536
+msgid "Short string of this URL."
+msgstr "此 URL 的短字符串。"
+
+#: includes/classes/class-meta-boxes.php:543
+msgid "Enable or disable the shortlink."
+msgstr "启用或禁用短链接。"
+
+#: includes/classes/class-meta-boxes.php:544
+msgid "Enable"
+msgstr "启用"
+
+#: includes/classes/class-meta-boxes.php:545
+msgid "Disable"
+msgstr "禁用"
+
+#: includes/classes/class-meta-boxes.php:576
+#: includes/classes/class-meta-boxes.php:582
+msgid "Shortlink Label"
+msgstr "短链接标签"
+
+#: includes/classes/class-meta-boxes.php:577
+#: includes/classes/class-meta-boxes.php:583
+msgid "Custom Text"
+msgstr "自定义文本"
+
+#: includes/classes/class-meta-boxes.php:581
+msgid "Post Title"
+msgstr "帖子标题"
+
+#: includes/classes/class-meta-boxes.php:593
 msgid "Keywords"
 msgstr "关键词"
 
-#: includes/classes/class-meta-boxes.php:269
+#: includes/classes/class-meta-boxes.php:594
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
 msgstr "添加用逗号分隔或单独一行的关键词。每个关键词将链接到此短链接。"
 
-#: includes/classes/class-meta-boxes.php:274, fuzzy
-msgid "Post Types"
-msgstr "Post Types"
+#: includes/classes/class-meta-boxes.php:599
+msgid "Link Alt Text"
+msgstr "链接替代文本"
 
-#: includes/classes/class-meta-boxes.php:275
-msgid "Where should these keywords be auto-linked?"
-msgstr "这些关键词应该在哪里自动链接？"
+#: includes/classes/class-meta-boxes.php:600
+msgid "Set the alt text for the linked keywords in the frontend of the site."
+msgstr "为网站前端的链接关键字设置替代文本。"
 
-#: includes/classes/class-meta-boxes.php:288
+#: includes/classes/class-meta-boxes.php:607
+msgid "Custom Alt Text"
+msgstr "自定义替代文本"
+
+#: includes/classes/class-meta-boxes.php:608
+msgid ""
+"Enter custom alt text for the linked keywords. This is only used if "
+"\"Custom Text\" is selected above."
+msgstr "为链接的关键词输入自定义替代文本。如果上面选择了“自定义文本”，则仅在此使用。"
+
+#: includes/classes/class-meta-boxes.php:619
+msgid "Auto-linking"
+msgstr "自动链接"
+
+#: includes/classes/class-meta-boxes.php:628
+#: includes/classes/class-settings.php:914
 msgid "Redirection"
 msgstr "重定向"
 
-#: includes/classes/class-meta-boxes.php:293
+#: includes/classes/class-meta-boxes.php:633
+#: includes/classes/class-settings.php:919
 msgid "Redirection Method"
 msgstr "重定向方法"
 
-#: includes/classes/class-meta-boxes.php:294
+#: includes/classes/class-meta-boxes.php:634
 msgid "Select redirection method"
 msgstr "选择重定向方法"
 
-#: includes/classes/class-meta-boxes.php:295
+#: includes/classes/class-meta-boxes.php:635
 msgid "Select a method"
 msgstr "选择一种方法"
 
-#: includes/classes/class-meta-boxes.php:297
-msgid "307 (Temporary)"
-msgstr "307（临时）"
-
-#: includes/classes/class-meta-boxes.php:298
-msgid "302 (Temporary)"
-msgstr "302（临时）"
-
-#: includes/classes/class-meta-boxes.php:299
-msgid "301 (Permanent)"
-msgstr "301（永久性）"
-
-#: includes/classes/class-meta-boxes.php:306
-msgid "Sponsored"
-msgstr "赞助的"
-
-#: includes/classes/class-meta-boxes.php:307
+#: includes/classes/class-meta-boxes.php:645
 msgid "Mark links as sponsored content."
 msgstr "将链接标记为赞助内容。"
 
-#: includes/classes/class-meta-boxes.php:308
+#: includes/classes/class-meta-boxes.php:646
+#: includes/classes/class-meta-boxes.php:656
+#: includes/classes/class-settings.php:933
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
 msgstr "添加 rel=\"sponsored\" 属性。推荐用于联盟链接和付费推广。"
 
-#: includes/classes/class-meta-boxes.php:313
-msgid "NoFollow"
-msgstr "无跟踪"
-
-#: includes/classes/class-meta-boxes.php:314
+#: includes/classes/class-meta-boxes.php:667
 msgid "Prevent search engines from following this link."
 msgstr "防止搜索引擎跟踪此链接。"
 
-#: includes/classes/class-meta-boxes.php:315
+#: includes/classes/class-meta-boxes.php:668
+#: includes/classes/class-meta-boxes.php:678
+#: includes/classes/class-settings.php:941
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
 msgstr "添加 rel=\"nofollow\" 属性。推荐用于外部链接和不可信来源。"
 
-#: includes/classes/class-meta-boxes.php:321
-msgid "Parameter Forwarding"
-msgstr "参数转发"
-
-#: includes/classes/class-meta-boxes.php:322
+#: includes/classes/class-meta-boxes.php:689
 msgid "Pass URL parameters to the target link."
 msgstr "将URL参数传递到目标链接。"
 
-#: includes/classes/class-meta-boxes.php:323
+#: includes/classes/class-meta-boxes.php:690
+#: includes/classes/class-meta-boxes.php:700
+#: includes/classes/class-settings.php:949
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
 msgstr "添加到短 URL 的任何参数（例如，?utm_source=email）将被转发到目标 URL。"
 
-#: includes/classes/class-meta-boxes.php:333
+#: includes/classes/class-meta-boxes.php:713
+#: includes/classes/class-settings.php:960
 msgid "Password Protection"
 msgstr "密码保护"
 
-#: includes/classes/class-meta-boxes.php:334
+#: includes/classes/class-meta-boxes.php:716
 msgid "Secure your shortlink."
 msgstr "保护您的短链接。"
 
-#: includes/classes/class-meta-boxes.php:335
+#: includes/classes/class-meta-boxes.php:717
+#: includes/classes/class-meta-boxes.php:727
 msgid "Users must enter the password to redirect to the target link."
 msgstr "用户必须输入密码才能重定向到目标链接。"
 
-#: includes/classes/class-meta-boxes.php:340
+#: includes/classes/class-meta-boxes.php:735
 msgid "Password"
 msgstr "密码"
 
-#: includes/classes/class-meta-boxes.php:341
+#: includes/classes/class-meta-boxes.php:736
 msgid "Share this with users."
 msgstr "与用户分享此内容。"
 
-#: includes/classes/class-meta-boxes.php:342
+#: includes/classes/class-meta-boxes.php:737
 msgid "Passwords are case sensitive."
 msgstr "密码区分大小写。"
 
-#: includes/classes/class-meta-boxes.php:343, fuzzy
+#: includes/classes/class-meta-boxes.php:738
+#: includes/classes/class-settings.php:971, fuzzy
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:352
+#: includes/classes/class-meta-boxes.php:748
+#: includes/classes/class-settings.php:980
 msgid "Enable Expiration"
 msgstr "启用过期"
 
-#: includes/classes/class-meta-boxes.php:353
-msgid "Expire automatically."
-msgstr "自动过期。"
+#: includes/classes/class-meta-boxes.php:751
+msgid "Set an expiration date and time for shortlinks."
+msgstr "为短链接设置过期日期和时间。"
 
-#: includes/classes/class-meta-boxes.php:354
-msgid "Users will not able to redirect to the target URL once expire."
-msgstr "用户在过期后将无法重定向到目标 URL。"
+#: includes/classes/class-meta-boxes.php:752
+#: includes/classes/class-meta-boxes.php:762
+#: includes/classes/class-settings.php:982
+msgid ""
+"After the expiration date and time pass, visitors will no longer be able to "
+"access the shortlink."
+msgstr "在过期日期和时间过后，访问者将无法再访问短链接。"
 
-#: includes/classes/class-meta-boxes.php:359
-msgid "Expiration Date"
-msgstr "过期日期"
+#: includes/classes/class-meta-boxes.php:771
+msgid "Select the date when this shortlink should stop working."
+msgstr "选择此短链接应停止工作的日期。"
 
-#: includes/classes/class-meta-boxes.php:360
-msgid "Choose the date this link should expire."
-msgstr "选择此链接应过期的日期。"
+#: includes/classes/class-meta-boxes.php:785
+msgid "Select the time when the shortlink should expire."
+msgstr "选择短链接应过期的时间。"
 
-#: includes/classes/class-meta-boxes.php:372
-msgid "Expiration Time"
-msgstr "过期时间"
+#: includes/classes/class-meta-boxes.php:786
+#: includes/classes/class-settings.php:1003
+msgid ""
+"Must be at least 1 minute in the future. Combined with the date above to "
+"set the exact expiration moment."
+msgstr "必须至少在未来1分钟。与上面的日期结合以设置确切的过期时刻。"
 
-#: includes/classes/class-meta-boxes.php:373
-msgid "Choose the time this link should expire."
-msgstr "选择此链接应过期的时间。"
-
-#: includes/classes/class-meta-boxes.php:374
-msgid "Must be at least 1 minute in the future."
-msgstr "未来必须至少有 1 分钟。"
-
-#: includes/classes/class-meta-boxes.php:391
+#: includes/classes/class-meta-boxes.php:804
+#: includes/classes/class-settings.php:955
 msgid "Security"
 msgstr "安全性"
 
-#: includes/classes/class-meta-boxes.php:402
+#: includes/classes/class-meta-boxes.php:823
+msgid "QR Code"
+msgstr "二维码"
+
+#: includes/classes/class-meta-boxes.php:833
+#: tinypress.php:396
 msgid "Analytics"
 msgstr "分析"
 
-#: includes/classes/class-redirection.php:599
+#: includes/classes/class-redirection.php:1044
 msgid "Post not found."
 msgstr "帖子未找到。"
 
-#: includes/classes/class-redirection.php:648
+#: includes/classes/class-redirection.php:1188
+#: includes/functions.php:361
+#: includes/functions.php:362
+#: includes/functions.php:363
+#: includes/functions.php:369
+#: tinypress.php:303
+#: tinypress.php:304
+#: tinypress.php:305
+msgid "This post is in {status} status. It is not visible to the public."
+msgstr "此帖子处于{status}状态。对公众不可见。"
+
+#: includes/classes/class-redirection.php:1236
 msgid "This link has expired"
 msgstr "此链接已过期"
 
-#: includes/classes/class-redirection.php:652
+#: includes/classes/class-redirection.php:1240
 msgid "You will be redirected shortly."
 msgstr "您将很快被重定向。"
 
-#: includes/classes/class-redirection.php:656
+#: includes/classes/class-redirection.php:1244
 msgid "Click here if you are not redirected"
 msgstr "如果未重定向，请点击这里"
 
-#: includes/classes/class-redirection.php:673
+#: includes/classes/class-redirection.php:1261
 msgid "Link Expired"
 msgstr "链接已过期"
 
-#: includes/classes/class-redirection.php:804
+#: includes/classes/class-redirection.php:1423
 msgid "This link is not active."
 msgstr "此链接未处于活动状态。"
 
-#: includes/classes/class-redirection.php:849
+#: includes/classes/class-redirection.php:1460
 msgid "This link is expired."
 msgstr "此链接已过期。"
 
-#: includes/classes/class-redirection.php:868
+#: includes/classes/class-redirection.php:1479
 msgid "Incorrect password. Please try again."
 msgstr "密码错误。请再试一次。"
 
-#: includes/classes/class-redirection.php:883
-#: includes/classes/class-redirection.php:888
+#: includes/classes/class-redirection.php:1494
+#: includes/classes/class-redirection.php:1499
 msgid "Password Protected Link"
 msgstr "密码保护链接"
 
-#: includes/classes/class-redirection.php:894
+#: includes/classes/class-redirection.php:1505
 msgid "Enter password to continue:"
 msgstr "输入密码以继续："
 
-#: includes/classes/class-redirection.php:896
+#: includes/classes/class-redirection.php:1507
 msgid "Submit"
 msgstr "提交"
 
-#: includes/classes/class-redirection.php:1014
+#: includes/classes/class-redirection.php:1631
 msgid "This link is not containing the right prefix slug."
 msgstr "此链接不包含正确的前缀 slug。"
+
+#: includes/classes/class-redirection.php:1672
+msgid "Too many invalid shortlink requests. Please try again later."
+msgstr "短链接请求无效次数过多。请稍后再试。"
+
+#: includes/classes/class-redirection.php:1673
+msgid "Too Many Requests"
+msgstr "请求过多"
 
 #: includes/classes/class-revision.php:439
 msgid "Invalid revision ID."
 msgstr "无效的修订 ID。"
 
-#: includes/classes/class-settings.php:187
+#: includes/classes/class-settings.php:362
+#: includes/classes/class-settings.php:703
+#: includes/classes/class-settings.php:711
+#: includes/functions.php:270
+#: includes/functions.php:304
+msgid "Draft"
+msgstr "草稿"
+
+#: includes/classes/class-settings.php:363
+#: includes/classes/class-settings.php:704
+#: includes/classes/class-settings.php:712
+#: includes/functions.php:271
+#: includes/functions.php:305
+msgid "Pending Review"
+msgstr "待审核"
+
+#: includes/classes/class-settings.php:364
+#: includes/classes/class-settings.php:705
+#: includes/classes/class-settings.php:713
+#: includes/functions.php:272
+#: includes/functions.php:306
+msgid "Private"
+msgstr "私有"
+
+#: includes/classes/class-settings.php:369
+msgid ""
+"Customize the notice shown for each enabled non-published status. Available "
+"placeholders: {status}, {date}, {title}."
+msgstr "自定义为每个启用的未发布状态显示的通知。可用占位符：{status}，{date}，{title}。"
+
+#: includes/classes/class-settings.php:405
+msgid "All"
+msgstr "全部"
+
+#: includes/classes/class-settings.php:444
 msgid "Settings"
 msgstr "设置"
 
-#: includes/classes/class-settings.php:271
+#: includes/classes/class-settings.php:528
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
 msgstr "选择访问 PublishPress 短链接时可访问的文章状态。"
 
-#: includes/classes/class-settings.php:287
+#: includes/classes/class-settings.php:544
 msgid "PublishPress Statuses Plugin Detected:"
 msgstr "检测到 PublishPress 状态插件："
 
-#: includes/classes/class-settings.php:288
+#: includes/classes/class-settings.php:545
 msgid ""
 "To use core PublishPress statuses with Shortlinks, Please enable the "
 "Shortlinks post type in PublishPress Statuses workflow settings."
 msgstr "要在使用短链接时启用核心 PublishPress 状态，请在 PublishPress 状态工作流设置中启用短链接文章类型。"
 
-#: includes/classes/class-settings.php:307
+#: includes/classes/class-settings.php:564
 msgid "Elementor Detected:"
 msgstr "检测到 Elementor："
 
-#: includes/classes/class-settings.php:308
+#: includes/classes/class-settings.php:565
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
 msgstr "为正确呈现 Elementor 修订版，需要短链接前缀。建议保持启用状态。"
 
-#: includes/classes/class-settings.php:340
+#: includes/classes/class-settings.php:597
 msgid "TinyPress Shortlinks Notice:"
 msgstr "TinyPress 短链接通知："
 
-#: includes/classes/class-settings.php:341
+#: includes/classes/class-settings.php:598
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
 msgstr "Elementor 已激活。短链接前缀已自动禁用，需为与 Elementor 修订版的最佳兼容性。"
 
-#: includes/classes/class-settings.php:404
-msgid "Options"
-msgstr "选项"
+#: includes/classes/class-settings.php:702
+#: includes/functions.php:269
+#: includes/functions.php:303
+msgid "Published"
+msgstr "已发布"
 
-#: includes/classes/class-settings.php:409
+#: includes/classes/class-settings.php:726
 msgid "Shortlink Prefix"
 msgstr "短链接前缀"
 
-#: includes/classes/class-settings.php:410
+#: includes/classes/class-settings.php:727
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "在您的域名和短链接之间添加一个前缀。"
 
-#: includes/classes/class-settings.php:417
+#: includes/classes/class-settings.php:734
 msgid "Prefix Slug"
 msgstr "前缀别名"
 
-#: includes/classes/class-settings.php:418
+#: includes/classes/class-settings.php:735
 msgid "Custom prefix slug."
 msgstr "自定义前缀 slug。"
 
-#: includes/classes/class-settings.php:419
+#: includes/classes/class-settings.php:736
 msgid "This text will be added between your domain name and shortlink."
 msgstr "此文本将添加在您的域名和短链接之间。"
 
-#: includes/classes/class-settings.php:420
-#: includes/classes/class-settings.php:421
+#: includes/classes/class-settings.php:737
+#: includes/classes/class-settings.php:738
 msgid "go"
 msgstr "去"
 
-#: includes/classes/class-settings.php:427
+#: includes/classes/class-settings.php:744
 msgid "Keyboard Shortcut"
 msgstr "键盘快捷键"
 
-#: includes/classes/class-settings.php:428
+#: includes/classes/class-settings.php:745
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr "在您的 WordPress 控制面板内的任何地方创建短链接。"
 
-#: includes/classes/class-settings.php:429
-#: includes/classes/class-settings.php:430
+#: includes/classes/class-settings.php:746
+#: includes/classes/class-settings.php:747
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl 或 Cmd + /"
 
-#: includes/classes/class-settings.php:439
+#: includes/classes/class-settings.php:756
 msgid "Remove from Admin Bar"
 msgstr "从管理栏中移除"
 
-#: includes/classes/class-settings.php:440
+#: includes/classes/class-settings.php:757
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "从WordPress管理员工具栏隐藏“缩短”按钮。"
 
-#: includes/classes/class-settings.php:446
+#: includes/classes/class-settings.php:763
 msgid "Role Management"
 msgstr "角色管理"
 
-#: includes/classes/class-settings.php:451
-msgid "Who Can View Shortlinks"
-msgstr "谁可以查看短链接"
+#: includes/classes/class-settings.php:768
+msgid "Who Can View The All Shortlinks Screen"
+msgstr "谁可以查看所有短链接屏幕"
 
-#: includes/classes/class-settings.php:452
-msgid "Only selected user roles can view links."
-msgstr "只有选定的用户角色可以查看链接。"
+#: includes/classes/class-settings.php:769
+msgid "Only selected user roles can view the complete list of Shortlinks."
+msgstr "只有选定的用户角色可以查看短链接的完整列表。"
 
-#: includes/classes/class-settings.php:460
+#: includes/classes/class-settings.php:777
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "谁可以创建/编辑短链接"
 
-#: includes/classes/class-settings.php:461
+#: includes/classes/class-settings.php:778
 msgid "Only selected user roles can create or edit links."
 msgstr "只有选定的用户角色可以创建或编辑链接。"
 
-#: includes/classes/class-settings.php:470
-msgid "Who Can See Analytics"
-msgstr "谁可以查看分析"
+#: includes/classes/class-settings.php:787
+msgid "Who Can See Logs"
+msgstr "谁可以查看日志"
 
-#: includes/classes/class-settings.php:471
-msgid "Only selected user roles can see analytics."
-msgstr "只有选定的用户角色可以查看分析。"
+#: includes/classes/class-settings.php:788
+msgid "Only selected user roles can see the Analytics tab and the Logs screen."
+msgstr "只有选定的用户角色可以查看分析选项卡和日志屏幕。"
 
-#: includes/classes/class-settings.php:480
+#: includes/classes/class-settings.php:797
 msgid "Who Can Control Settings"
 msgstr "谁可以控制设置"
 
-#: includes/classes/class-settings.php:481
-msgid "Only selected user roles can control settings."
-msgstr "只有选定的用户角色可以控制设置。"
+#: includes/classes/class-settings.php:798
+msgid "Only selected user roles can access the Settings screen."
+msgstr "只有选定的用户角色可以访问设置屏幕。"
 
-#: includes/classes/class-settings.php:490
+#: includes/classes/class-settings.php:807
 msgid "Auto-Linking"
 msgstr "自动链接"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:812
 msgid "Enable Auto-Linking"
 msgstr "启用自动链接"
 
-#: includes/classes/class-settings.php:496
+#: includes/classes/class-settings.php:813
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr "在文章内容中自动将关键词转换为短链接。"
 
-#: includes/classes/class-settings.php:497
+#: includes/classes/class-settings.php:814
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
 msgstr "启用后，在短链接设置中配置的关键词将在您的内容中自动链接。"
 
-#: includes/classes/class-settings.php:503
+#: includes/classes/class-settings.php:820, fuzzy
+msgid "Post Types"
+msgstr "Post Types"
+
+#: includes/classes/class-settings.php:821
+msgid "Where should auto-linking be applied?"
+msgstr "自动链接应应用于哪里？"
+
+#: includes/classes/class-settings.php:830
 msgid "Open Auto-Links In"
 msgstr "在中打开自动链接"
 
-#: includes/classes/class-settings.php:504
+#: includes/classes/class-settings.php:831
 msgid "Choose how auto-linked keywords should open."
 msgstr "选择自动链接的关键词应该如何打开。"
 
-#: includes/classes/class-settings.php:506
+#: includes/classes/class-settings.php:833
 msgid "Same tab"
 msgstr "同一标签"
 
-#: includes/classes/class-settings.php:507
+#: includes/classes/class-settings.php:834
 msgid "New tab"
 msgstr "新标签"
 
-#: includes/classes/class-settings.php:515
+#: includes/classes/class-settings.php:842
 msgid "Auto-Link Color"
 msgstr "自动链接颜色"
 
-#: includes/classes/class-settings.php:516
+#: includes/classes/class-settings.php:843
 msgid "Choose the color for auto-linked keywords."
 msgstr "选择自动链接关键词的颜色。"
 
-#: includes/classes/class-settings.php:523
+#: includes/classes/class-settings.php:854
 msgid "Auto-List Links"
 msgstr "自动列出链接"
 
-#: includes/classes/class-settings.php:528
+#: includes/classes/class-settings.php:859
 msgid "Auto-List Shortlinks"
 msgstr "自动列出短链接"
 
-#: includes/classes/class-settings.php:529
+#: includes/classes/class-settings.php:860
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
 msgstr "启用后，短链接将基于您在下面配置的行为出现在“所有链接”表中。"
 
-#: includes/classes/class-settings.php:535
+#: includes/classes/class-settings.php:866
 msgid "Configure Post Types"
 msgstr "配置帖子类型"
 
-#: includes/classes/class-settings.php:536
+#: includes/classes/class-settings.php:867
 msgid "Set when links should be auto-listed for each post type"
 msgstr "设置每种帖子类型的链接应何时自动列出"
 
-#: includes/classes/class-settings.php:537
+#: includes/classes/class-settings.php:868
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
 msgstr "添加文章类型并配置其短链接何时应出现在“所有链接”表中。更改会自动保存。"
 
-#: includes/classes/class-settings.php:544
+#: includes/classes/class-settings.php:875
 #: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "帖子状态可见性"
 
-#: includes/classes/class-settings.php:549
+#: includes/classes/class-settings.php:880
 msgid "Allowed Post Statuses"
 msgstr "允许的帖子状态"
 
-#: includes/classes/class-settings.php:550
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "选择可以通过短链接访问的帖子状态"
+#: includes/classes/class-settings.php:889
+msgid "Unpublished Content Notice"
+msgstr "未发布内容通知"
 
-#: includes/classes/class-settings.php:554
-msgid "Published"
-msgstr "已发布"
-
-#: includes/classes/class-settings.php:555
-msgid "Draft"
-msgstr "草稿"
-
-#: includes/classes/class-settings.php:556
-msgid "Pending Review"
-msgstr "待审核"
-
-#: includes/classes/class-settings.php:557
-msgid "Private"
-msgstr "私有"
-
-#: includes/classes/class-settings.php:565
-msgid "Expired Links"
-msgstr "过期链接"
-
-#: includes/classes/class-settings.php:570
-msgid "Default Expired Redirect URL"
-msgstr "默认过期重定向 URL"
-
-#: includes/classes/class-settings.php:571
-msgid "Where should expired shortlinks redirect?"
-msgstr "过期短链接应重定向到哪里？"
-
-#: includes/classes/class-settings.php:572
+#: includes/classes/class-settings.php:890
 msgid ""
-"When a shortlink expires, visitors will be redirected to this URL instead "
-"of seeing an error. Leave empty to show the default expiration message."
-msgstr "当短链接过期时，访客将被重定向到此 URL，而不是看到错误。留空以显示默认的过期消息。"
+"Show a frontend notice when an internal shortlink displays a post that is "
+"not published."
+msgstr "当内部短链接显示未发布的帖子时，显示前端通知。"
 
-#: includes/classes/class-settings.php:584
+#: includes/classes/class-settings.php:896
+msgid "Notice Post Statuses"
+msgstr "通知帖子状态"
+
+#: includes/classes/class-settings.php:897
+msgid ""
+"This notice only applies to internal shortlinks that render post content "
+"directly. External shortlinks are not affected."
+msgstr "此通知仅适用于直接呈现帖子内容的内部短链接。外部短链接不受影响。"
+
+#: includes/classes/class-settings.php:906
+msgid "Notice Messages"
+msgstr "通知消息"
+
+#: includes/classes/class-settings.php:920
+msgid "Default redirection method for shortlinks"
+msgstr "短链接的默认重定向方法"
+
+#: includes/classes/class-settings.php:932
+msgid "Mark links as sponsored content"
+msgstr "将链接标记为赞助内容"
+
+#: includes/classes/class-settings.php:940
+msgid "Prevent search engines from following links"
+msgstr "防止搜索引擎跟踪链接"
+
+#: includes/classes/class-settings.php:948
+msgid "Pass URL parameters to target links"
+msgstr "将URL参数传递给目标链接"
+
+#: includes/classes/class-settings.php:961
+msgid "Secure your shortlinks"
+msgstr "保护您的短链接"
+
+#: includes/classes/class-settings.php:962
+msgid "Users must enter a password to redirect to the target link."
+msgstr "用户必须输入密码以重定向到目标链接。"
+
+#: includes/classes/class-settings.php:968
+msgid "Default Password"
+msgstr "默认密码"
+
+#: includes/classes/class-settings.php:969
+msgid "Default password for protected links"
+msgstr "受保护链接的默认密码"
+
+#: includes/classes/class-settings.php:970
+msgid ""
+"This password will be used for links that have password protection enabled "
+"via global settings. Passwords are case sensitive."
+msgstr "此密码将用于通过全局设置启用密码保护的链接。密码区分大小写。"
+
+#: includes/classes/class-settings.php:981
+msgid "Set an expiration date and time for shortlinks"
+msgstr "为短链接设置过期日期和时间"
+
+#: includes/classes/class-settings.php:989
+msgid "Select the date when this shortlink should stop working"
+msgstr "选择此短链接应停止工作的日期"
+
+#: includes/classes/class-settings.php:1002
+msgid "Select the time when the shortlink should expire"
+msgstr "选择短链接应过期的时间"
+
+#: includes/classes/class-settings.php:1021
 msgid "Revisions"
 msgstr "修订"
 
-#: includes/classes/class-settings.php:589
+#: includes/classes/class-settings.php:1026
 msgid "Revision Link Visibility"
 msgstr "修订链接可见性"
 
-#: includes/classes/class-settings.php:590
+#: includes/classes/class-settings.php:1027
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
 msgstr "启用后，修订短链接将基于您在下面配置的行为出现在“所有短链接”表中。"
 
-#: includes/classes/class-settings.php:592
+#: includes/classes/class-settings.php:1029
 msgid "When Revision is Created"
 msgstr "创建修订版时"
 
-#: includes/classes/class-settings.php:594
+#: includes/classes/class-settings.php:1031
 msgid "When Revision is Created or Link is First Used"
 msgstr "创建修订版时或首次使用链接时"
 
-#: includes/classes/class-settings.php:602
+#: includes/classes/class-settings.php:1039
 msgid "Show Shortlink in Revision Table"
 msgstr "在修订表中显示短链接"
 
-#: includes/classes/class-settings.php:603
+#: includes/classes/class-settings.php:1040
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr "在查看 PublishPress 版本时显示短链接列。"
 
-#: includes/classes/class-settings.php:609
+#: includes/classes/class-settings.php:1046
 msgid "Revision Visibility for Visitors"
 msgstr "访客的修订可见性"
 
-#: includes/classes/class-settings.php:610
+#: includes/classes/class-settings.php:1047
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr "允许未登录的访客通过短链接查看修订内容。"
 
-#: includes/classes/class-settings.php:611
+#: includes/classes/class-settings.php:1048
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1015,15 +1686,15 @@ msgstr ""
 "默认情况下，PublishPress Revisions 阻止访客查看修订预览。当启用时，修订短链接将直接为未登录访客呈现修订内容，而不是重定向到预览 "
 "URL。"
 
-#: includes/classes/class-settings.php:632
+#: includes/classes/class-settings.php:1071
 msgid "Dummy"
 msgstr "虚拟"
 
-#: includes/classes/class-settings.php:676
+#: includes/classes/class-settings.php:1115
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr "尚未配置任何帖子类型。单击“添加帖子类型”开始。"
 
-#: includes/classes/class-settings.php:708
+#: includes/classes/class-settings.php:1147
 msgid "Add Post Type"
 msgstr "添加帖子类型"
 
@@ -1049,77 +1720,78 @@ msgstr "标题"
 msgid "Details"
 msgstr "详细信息"
 
-#: includes/classes/class-table-logs.php:199
+#: includes/classes/class-table-logs.php:200
 msgid "Are you sure you want to delete this log entry?"
 msgstr "您确定要删除此日志条目吗？"
 
-#: includes/classes/class-table-logs.php:250
+#: includes/classes/class-table-logs.php:260
+msgid "View Analytics"
+msgstr "查看分析"
+
+#: includes/classes/class-table-logs.php:278
 msgid "Tablet"
 msgstr "平板电脑"
 
-#: includes/classes/class-table-logs.php:252
+#: includes/classes/class-table-logs.php:280
 msgid "Mobile"
 msgstr "移动设备"
 
-#: includes/classes/class-table-logs.php:254
+#: includes/classes/class-table-logs.php:282
 msgid "Desktop"
 msgstr "桌面"
 
-#: includes/classes/class-table-logs.php:308
+#: includes/classes/class-table-logs.php:336
 #. translators: 1: user display name, 2: location name, 3: visit date/time
 #, php-format
 msgid "%1$s from %2$s visited at %3$s"
 msgstr "%1$s 来自 %2$s 于 %3$s 访问"
 
-#: includes/classes/class-table-logs.php:311
+#: includes/classes/class-table-logs.php:339
 #. translators: 1: user display name, 2: visit date/time
 #, php-format
 msgid "%1$s visited at %2$s"
 msgstr "%1$s 于 %2$s 访问"
 
-#: includes/classes/class-table-logs.php:315
+#: includes/classes/class-table-logs.php:343
 #. translators: 1: location name, 2: visit date/time
 #, php-format
 msgid "From %1$s, visited at %2$s"
 msgstr "来自 %1$s，访问时间为 %2$s"
 
-#: includes/classes/class-table-logs.php:318
+#: includes/classes/class-table-logs.php:346
 #. translators: %s: visit date/time
 #, php-format
 msgid "Visited at %s"
 msgstr "访问时间 %s"
 
-#: includes/classes/class-table-logs.php:330
+#: includes/classes/class-table-logs.php:358
 #. translators: %s: device type and browser name, e.g. "Mobile Chrome"
 #, php-format
 msgid "via %s"
 msgstr "通过 %s"
 
-#: includes/functions.php:169
+#: includes/functions.php:225
 msgid "Edit shortlink settings"
 msgstr "编辑短链接设置"
 
-#: includes/functions.php:216
+#: includes/functions.php:364
+#: tinypress.php:306
+msgid ""
+"This post is in {status} status. It will become visible to the public on "
+"{date}."
+msgstr "此帖子处于 {status} 状态。它将在 {date} 对公众可见。"
+
+#: includes/functions.php:389
 msgid "Target url not found."
 msgstr "未找到目标网址。"
 
-#: includes/functions.php:223
+#: includes/functions.php:396
 msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr "无效的 URL 方案。仅允许 http、https、ftp、ftps 和 mailto。"
 
-#: includes/functions.php:229
-msgid "Invalid URL."
-msgstr "无效的 URL。"
-
-#: includes/functions.php:233
+#: includes/functions.php:428
 msgid "Tiny slug could not created."
 msgstr "无法创建小 slug。"
-
-#: includes/functions.php:252
-#. translators: %s: link ID number
-#, php-format
-msgid "Link - %s"
-msgstr "链接 - %s"
 
 #: templates/admin-modal-new-link.php:12
 msgid "Shortlink will appear here"
@@ -1133,50 +1805,46 @@ msgstr "输入一个长URL并生成短链接"
 msgid "Long URL"
 msgstr "长网址"
 
-#: templates/admin-modal-new-link.php:37
-msgid "Close"
-msgstr "关闭"
-
 #: templates/admin-modal-new-link.php:38
 msgid "Create Shortlink"
 msgstr "创建短链接"
 
-#: templates/admin/analytics.php:45
-#: templates/admin/analytics.php:64
+#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:68
 msgid "Reset Today's Analytics"
 msgstr "重置今天的分析"
 
-#: templates/admin/analytics.php:46
+#: templates/admin/analytics.php:50
 msgid "Reset Week's Analytics"
 msgstr "重置本周的分析"
 
-#: templates/admin/analytics.php:47
+#: templates/admin/analytics.php:51
 msgid "Reset Month's Analytics"
 msgstr "重置本月的分析"
 
-#: templates/admin/analytics.php:48
+#: templates/admin/analytics.php:52
 msgid "Reset Year's Analytics"
 msgstr "重置今年的分析"
 
-#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:53
 msgid ""
 "Are you sure you want to reset the analytics for this period? This action "
 "cannot be undone."
 msgstr "您确定要重置此期间的分析吗？此操作无法撤销。"
 
-#: templates/admin/analytics.php:57
+#: templates/admin/analytics.php:61
 msgid "Today"
 msgstr "今天"
 
-#: templates/admin/analytics.php:58
+#: templates/admin/analytics.php:62
 msgid "Last 7 Days"
 msgstr "过去 7 天"
 
-#: templates/admin/analytics.php:59
+#: templates/admin/analytics.php:63
 msgid "Last 1 Month"
 msgstr "过去 1 个月"
 
-#: templates/admin/analytics.php:60
+#: templates/admin/analytics.php:64
 msgid "Last 1 Year"
 msgstr "过去 1 年"
 
@@ -1238,6 +1906,16 @@ msgstr "查看知识库"
 msgid "This plugin can be deleted."
 msgstr "此插件可以被删除。"
 
-#: tinypress.php:355
+#: tinypress.php:395
 msgid "Copied."
 msgstr "已复制。"
+
+#: tinypress.php:397
+msgid ""
+"This setting is inherited from global settings. Choose another option to "
+"override it for this shortlink."
+msgstr "此设置继承自全局设置。选择另一个选项以覆盖此短链接。"
+
+#: tinypress.php:398
+msgid "Working..."
+msgstr "正在工作..."

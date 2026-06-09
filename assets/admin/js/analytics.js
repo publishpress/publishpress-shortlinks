@@ -144,7 +144,12 @@
     });
 
     // Reset analytics functionality
-    document.querySelector('#reset-analytics').addEventListener('click', function (e) {
+    let resetButton = document.querySelector('#reset-analytics');
+    if (!resetButton) {
+        return;
+    }
+
+    resetButton.addEventListener('click', function (e) {
         e.preventDefault();
         
         if (!confirm(tinypressAnalytics.resetConfirmText)) {
@@ -154,11 +159,11 @@
         let activeFilter = document.querySelector('.date-filter.active');
         let period = 'today';
         
-        if (activeFilter.classList.contains('last_7_days')) {
+        if (activeFilter && activeFilter.classList.contains('last_7_days')) {
             period = 'last_7_days';
-        } else if (activeFilter.classList.contains('last_1_month')) {
+        } else if (activeFilter && activeFilter.classList.contains('last_1_month')) {
             period = 'last_1_month';
-        } else if (activeFilter.classList.contains('last_1_year')) {
+        } else if (activeFilter && activeFilter.classList.contains('last_1_year')) {
             period = 'last_1_year';
         }
         

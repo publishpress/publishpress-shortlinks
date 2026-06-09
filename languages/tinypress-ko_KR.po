@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-04-29 12:57+0000\n"
+"PO-Revision-Date: 2026-06-09 08:24+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Language: ko_KR\n"
@@ -29,9 +29,11 @@ msgstr "https://publishpress.com/shortlinks/"
 #: tinypress.php:6
 #. Description of the plugin
 msgid ""
-"Create custom links for your posts. These links are brandable, trackable, "
+"The best link manager for WordPress. Your links are brandable, trackable, "
 "and can have custom view permissions."
-msgstr "게시물에 대한 사용자 정의 링크를 만듭니다. 이 링크는 브랜드화할 수 있고, 추적 가능하며, 사용자 정의 보기 권한을 가질 수 있습니다."
+msgstr ""
+"WordPress를 위한 최고의 링크 관리 도구입니다. 귀하의 링크는 브랜드화 가능하고, 추적 가능하며, 사용자 정의 보기 권한을 가질 "
+"수 있습니다."
 
 #: tinypress.php:9
 #. Author of the plugin
@@ -43,85 +45,237 @@ msgstr "PublishPress"
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: includes-core/ShortlinksCoreAdmin.php:86
+#: includes-core/ShortlinksCoreAdmin.php:88
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
 msgstr "당신은 PublishPress Shortlinks Free를 사용하고 있습니다. Pro 버전은 더 많은 기능과 지원을 제공합니다."
 
-#: includes-core/ShortlinksCoreAdmin.php:87
-#: includes-core/ShortlinksCoreAdmin.php:104
-#: includes-core/ShortlinksCoreAdmin.php:105
-#: includes-core/ShortlinksCoreAdmin.php:271
+#: includes-core/ShortlinksCoreAdmin.php:89
+#: includes-core/ShortlinksCoreAdmin.php:106
+#: includes-core/ShortlinksCoreAdmin.php:107
 msgid "Upgrade to Pro"
 msgstr "Pro로 업그레이드"
 
 #: includes-core/ShortlinksCoreAdmin.php:117
-#: includes-core/ShortlinksCoreAdmin.php:196
+#: includes-core/ShortlinksCoreAdmin.php:118
+#: includes-core/ShortlinksCoreAdmin.php:148
+msgid "Link Health"
+msgstr "링크 건강"
+
+#: includes-core/ShortlinksCoreAdmin.php:131
 msgid "Pro Feature"
 msgstr "Pro 기능"
 
-#: includes-core/ShortlinksCoreAdmin.php:120
-#: includes-core/ShortlinksCoreAdmin.php:199
+#: includes-core/ShortlinksCoreAdmin.php:134
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "이 기능은 PublishPress Shortlinks Pro에서 사용할 수 있습니다."
 
-#: includes-core/ShortlinksCoreAdmin.php:135
+#: includes-core/ShortlinksCoreAdmin.php:150
+msgid ""
+"Check whether your shortlinks redirect visitors to working destination "
+"pages."
+msgstr "짧은 링크가 방문자를 작동하는 목적지 페이지로 리디렉션하는지 확인하세요."
+
 #: includes-core/ShortlinksCoreAdmin.php:158
-msgid "Show Expiration Notice"
-msgstr "만료 알림 표시"
+msgid "Check Visible Links"
+msgstr "보이는 링크 확인"
 
-#: includes-core/ShortlinksCoreAdmin.php:139
-msgid "Display a brief notice before redirecting expired links."
-msgstr "만료된 링크를 리디렉션하기 전에 간단한 알림을 표시합니다."
+#: includes-core/ShortlinksCoreAdmin.php:162
+msgid "Check All Links"
+msgstr "모든 링크 확인"
 
-#: includes-core/ShortlinksCoreAdmin.php:153
+#: includes-core/ShortlinksCoreAdmin.php:169
+#: includes/classes/class-columns-link.php:54
+#: includes/classes/class-columns-link.php:552
+#: includes/classes/class-gutenberg-shortlink.php:159
+#: includes/classes/class-hooks.php:231
+#: includes/classes/class-table-logs.php:164
+#: templates/admin-modal-new-link.php:29, fuzzy
+msgid "Shortlink"
+msgstr "Shortlink"
+
+#: includes-core/ShortlinksCoreAdmin.php:170
+#: includes/classes/class-gutenberg-shortlink.php:169
+#: includes/classes/class-import-export.php:1053
+msgid "Target URL"
+msgstr "대상 URL"
+
+#: includes-core/ShortlinksCoreAdmin.php:171
+#: includes/classes/class-meta-boxes.php:542
+msgid "Status"
+msgstr "상태"
+
+#: includes-core/ShortlinksCoreAdmin.php:172, fuzzy
+msgid "HTTP"
+msgstr "HTTP"
+
+#: includes-core/ShortlinksCoreAdmin.php:173
+msgid "Redirects"
+msgstr "리디렉션"
+
+#: includes-core/ShortlinksCoreAdmin.php:174
+msgid "Final URL"
+msgstr "최종 URL"
+
+#: includes-core/ShortlinksCoreAdmin.php:181
+msgid "Working"
+msgstr "작동 중"
+
+#: includes-core/ShortlinksCoreAdmin.php:189
+msgid "Broken"
+msgstr "끊김"
+
+#: includes-core/ShortlinksCoreAdmin.php:212
+#: includes-core/ShortlinksCoreAdmin.php:236
 msgid "Expired Redirect Settings"
 msgstr "만료된 리디렉션 설정"
 
-#: includes-core/ShortlinksCoreAdmin.php:156
+#: includes-core/ShortlinksCoreAdmin.php:215
+#: includes-core/ShortlinksCoreAdmin.php:239
+#: includes/classes/class-import-export.php:1064
 msgid "Expired Redirect URL"
 msgstr "만료된 리디렉션 URL"
 
-#: includes-core/ShortlinksCoreAdmin.php:161
-msgid "Display a brief notice before redirecting."
-msgstr "리디렉션하기 전에 간단한 알림을 표시합니다."
+#: includes-core/ShortlinksCoreAdmin.php:216
+msgid "Choose where visitors should go when they click an expired link."
+msgstr "만료된 링크를 클릭할 때 방문자가 가야 할 위치를 선택하세요."
 
-#: includes-core/ShortlinksCoreAdmin.php:233
-#: includes-core/ShortlinksCoreAdmin.php:234
-msgid "Import / Export"
-msgstr "가져오기 / 내보내기"
+#: includes-core/ShortlinksCoreAdmin.php:218
+#: includes-core/ShortlinksCoreAdmin.php:242
+msgid "Show Expiration Notice"
+msgstr "만료 알림 표시"
 
-#: includes-core/ShortlinksCoreAdmin.php:249
-msgid "Import / Export Shortlinks"
-msgstr "단축 링크 가져오기 / 내보내기"
+#: includes-core/ShortlinksCoreAdmin.php:219
+#: includes-core/ShortlinksCoreAdmin.php:243
+msgid "Display a custom notice page before automatically redirecting visitors."
+msgstr "방문자를 자동으로 리디렉션하기 전에 사용자 정의 알림 페이지를 표시하세요."
 
-#: includes-core/ShortlinksCoreAdmin.php:254
-msgid "Bulk Import & Export"
-msgstr "대량 가져오기 및 내보내기"
+#: includes-core/ShortlinksCoreAdmin.php:222
+msgid "Show a notice page for expired shortlinks briefly before redirecting."
+msgstr "리디렉션하기 전에 만료된 짧은 링크에 대해 간단히 알림 페이지를 표시하세요."
 
-#: includes-core/ShortlinksCoreAdmin.php:255
+#: includes-core/ShortlinksCoreAdmin.php:240
+msgid "Set the default destination for all expired shortlinks."
+msgstr "모든 만료된 짧은 링크의 기본 목적지를 설정하세요."
+
+#: includes-core/ShortlinksCoreAdmin.php:246
 msgid ""
-"Import and export your shortlinks in bulk using CSV files. Migrate from "
-"other plugins or manage links across multiple sites."
-msgstr ""
-"CSV 파일을 사용하여 단축 링크를 대량으로 가져오고 내보냅니다. 다른 플러그인에서 마이그레이션하거나 여러 사이트에서 링크를 "
-"관리하십시오."
+"Show a notice page for expired shortlinks briefly before redirecting. You "
+"can customize the content of this message."
+msgstr "리디렉션하기 전에 만료된 짧은 링크에 대해 간단히 알림 페이지를 표시하세요. 이 메시지의 내용을 사용자 정의할 수 있습니다."
 
-#: includes-core/ShortlinksCoreAdmin.php:259
-msgid "CSV Export"
-msgstr "CSV 내보내기"
+#: includes-core/ShortlinksCoreAdmin.php:281
+#: includes-core/ShortlinksCoreAdmin.php:308
+msgid "Advanced Auto-Link Settings"
+msgstr "고급 자동 링크 설정"
 
-#: includes-core/ShortlinksCoreAdmin.php:263
-msgid "CSV Import"
-msgstr "CSV 가져오기"
+#: includes-core/ShortlinksCoreAdmin.php:283
+#: includes-core/ShortlinksCoreAdmin.php:311
+msgid "Minimum Keyword Usage"
+msgstr "최소 키워드 사용량"
 
-#: includes-core/ShortlinksCoreAdmin.php:267
-msgid "Bulk Management"
-msgstr "대량 관리"
+#: includes-core/ShortlinksCoreAdmin.php:284
+msgid "Keyword must appear this many times before being autolinked."
+msgstr "키워드는 자동 링크가 되기 전에 이만큼 나타나야 합니다."
+
+#: includes-core/ShortlinksCoreAdmin.php:286
+#: includes-core/ShortlinksCoreAdmin.php:314
+msgid "Maximum Keywords Linked"
+msgstr "최대 연결 키워드"
+
+#: includes-core/ShortlinksCoreAdmin.php:287
+msgid "Maximum number of times this keyword should be autolinked per post."
+msgstr "이 키워드가 게시물당 자동 링크되어야 하는 최대 횟수입니다."
+
+#: includes-core/ShortlinksCoreAdmin.php:312
+msgid "Default minimum times a keyword must appear before being autolinked."
+msgstr "키워드가 자동 링크되기 전에 나타나야 하는 기본 최소 횟수입니다."
+
+#: includes-core/ShortlinksCoreAdmin.php:315
+msgid "Default maximum times a keyword should be autolinked per post."
+msgstr "키워드가 게시물당 자동 링크되어야 하는 기본 최대 횟수입니다."
+
+#: includes-core/ShortlinksCoreAdmin.php:317
+msgid "Maximum Links Per Post"
+msgstr "게시물당 최대 링크 수"
+
+#: includes-core/ShortlinksCoreAdmin.php:318
+msgid "Total maximum autolinks allowed per post/page."
+msgstr "게시물/페이지당 허용되는 최대 자동 링크 총 수입니다."
+
+#: includes-core/ShortlinksCoreAdmin.php:320
+msgid "Minimum Character Length"
+msgstr "최소 문자 길이"
+
+#: includes-core/ShortlinksCoreAdmin.php:321
+msgid "Keywords shorter than this will not be autolinked."
+msgstr "이보다 짧은 키워드는 자동 링크되지 않습니다."
+
+#: includes-core/ShortlinksCoreAdmin.php:323
+msgid "Maximum Character Length"
+msgstr "최대 문자 길이"
+
+#: includes-core/ShortlinksCoreAdmin.php:324
+msgid "Keywords longer than this will not be autolinked."
+msgstr "이보다 긴 키워드는 자동 링크되지 않습니다."
+
+#: includes-core/ShortlinksCoreAdmin.php:345
+#: includes/classes/class-settings.php:850
+msgid "Auto-Link Exceptions"
+msgstr "자동 링크 예외"
+
+#: includes-core/ShortlinksCoreAdmin.php:347
+msgid "Exclude Terms from Auto Links"
+msgstr "자동 링크에서 제외할 용어"
+
+#: includes-core/ShortlinksCoreAdmin.php:348
+msgid "These terms will never be autolinked."
+msgstr "이 용어는 절대 자동 링크되지 않습니다."
+
+#: includes-core/ShortlinksCoreAdmin.php:350
+msgid "Prevent Auto Links Inside Classes or IDs"
+msgstr "클래스나 ID 내부의 자동 링크 방지"
+
+#: includes-core/ShortlinksCoreAdmin.php:351
+msgid ""
+"Content inside elements with these classes or IDs will not have autolinks "
+"applied."
+msgstr "이 클래스나 ID를 가진 요소 내부의 콘텐츠에는 자동 링크가 적용되지 않습니다."
+
+#: includes-core/ShortlinksCoreAdmin.php:353
+msgid "Prevent Auto Links Inside Elements"
+msgstr "요소 내부의 자동 링크 방지"
+
+#: includes-core/ShortlinksCoreAdmin.php:354
+msgid "Terms inside these HTML tags will not have autolinks applied."
+msgstr "이 HTML 태그 내부의 용어에는 자동 링크가 적용되지 않습니다."
+
+#: includes-core/ShortlinksCoreAdmin.php:367
+msgid "Prevent Auto Links on Shortcodes"
+msgstr "단축 코드에서 자동 링크 방지"
+
+#: includes-core/ShortlinksCoreAdmin.php:368
+msgid "Terms inside these shortcodes will not have autolinks applied."
+msgstr "이 단축 코드 내부의 용어에는 자동 링크가 적용되지 않습니다."
+
+#: includes-core/ShortlinksCoreAdmin.php:370
+msgid "Prevent Auto Links on Blocks"
+msgstr "블록에서 자동 링크 방지"
+
+#: includes-core/ShortlinksCoreAdmin.php:371
+msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
+msgstr "이 Gutenberg 블록 안의 용어에는 자동 링크가 적용되지 않습니다."
+
+#: includes-core/ShortlinksCoreAdmin.php:372
+msgid "Search and select blocks..."
+msgstr "블록 검색 및 선택..."
 
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:200
+#: includes/classes/class-autolist-ajax.php:204
+#: includes/classes/class-gutenberg-shortlink.php:234
+#: includes/classes/class-gutenberg-shortlink.php:285
+#: includes/classes/class-gutenberg-shortlink.php:329
 msgid "Permission denied"
 msgstr "권한 거부됨"
 
@@ -174,60 +328,61 @@ msgstr "구성을 데이터베이스에 저장하지 못했습니다"
 msgid "Configuration saved successfully"
 msgstr "구성이 성공적으로 저장되었습니다"
 
-#: includes/classes/class-autolist-ajax.php:144
+#: includes/classes/class-autolist-ajax.php:149
 #. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "오류: %s"
 
-#: includes/classes/class-autolist-ajax.php:289
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Validating..."
 msgstr "검증 중..."
 
-#: includes/classes/class-autolist-ajax.php:290
+#: includes/classes/class-autolist-ajax.php:294
 msgid "Saving..."
 msgstr "저장 중..."
 
-#: includes/classes/class-autolist-ajax.php:291
+#: includes/classes/class-autolist-ajax.php:295
 msgid "Saved!"
 msgstr "저장됨!"
 
-#: includes/classes/class-autolist-ajax.php:292
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-gutenberg-shortlink.php:175
 msgid "Error"
 msgstr "오류"
 
-#: includes/classes/class-autolist-ajax.php:293
+#: includes/classes/class-autolist-ajax.php:297
 msgid "Are you sure you want to remove this post type?"
 msgstr "이 post type을 제거하시겠습니까?"
 
-#: includes/classes/class-autolist-ajax.php:294
+#: includes/classes/class-autolist-ajax.php:298
 msgid "Select a post type"
 msgstr "post type을 선택하세요"
 
-#: includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-settings.php:595
-#: includes/classes/class-settings.php:691
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:1032
+#: includes/classes/class-settings.php:1130
 msgid "Never"
 msgstr "결코"
 
-#: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-settings.php:593
-#: includes/classes/class-settings.php:693
+#: includes/classes/class-autolist-ajax.php:300
+#: includes/classes/class-settings.php:1030
+#: includes/classes/class-settings.php:1132
 msgid "When Link is First Used"
 msgstr "링크가 처음 사용될 때"
 
-#: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:695
+#: includes/classes/class-autolist-ajax.php:301
+#: includes/classes/class-settings.php:1134
 msgid "When Post is Published"
 msgstr "게시물이 게시될 때"
 
-#: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:694
+#: includes/classes/class-autolist-ajax.php:302
+#: includes/classes/class-settings.php:1133
 msgid "When Post is Created"
 msgstr "게시물이 생성될 때"
 
-#: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:692
+#: includes/classes/class-autolist-ajax.php:303
+#: includes/classes/class-settings.php:1131
 msgid "When Link is First Used or Post Created"
 msgstr "링크가 처음 사용될 때 또는 게시물이 생성될 때"
 
@@ -235,110 +390,140 @@ msgstr "링크가 처음 사용될 때 또는 게시물이 생성될 때"
 msgid "Invalid post ID or post type."
 msgstr "유효하지 않은 게시물 ID 또는 게시물 유형입니다."
 
-#: includes/classes/class-columns-link.php:49
-#: includes/classes/class-columns-link.php:279
-#: includes/classes/class-hooks.php:207
-#: includes/classes/class-table-logs.php:164
-#: templates/admin-modal-new-link.php:29, fuzzy
-msgid "Shortlink"
-msgstr "Shortlink"
-
-#: includes/classes/class-columns-link.php:71
+#: includes/classes/class-columns-link.php:76
 msgid "No shortlink"
 msgstr "단축 링크 없음"
 
-#: includes/classes/class-columns-link.php:92
-#: includes/classes/class-hooks.php:208
-#: includes/classes/class-hooks.php:210
-#: includes/classes/class-meta-boxes.php:93, fuzzy
+#: includes/classes/class-columns-link.php:97
+#: includes/classes/class-hooks.php:232
+#: includes/classes/class-hooks.php:234
+#: includes/classes/class-meta-boxes.php:163, fuzzy
 msgid "Shortlinks"
 msgstr "Shortlinks"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:188
+#: includes/classes/class-columns-link.php:335
 msgid "Internal"
 msgstr "내부"
 
-#: includes/classes/class-columns-link.php:176
+#: includes/classes/class-columns-link.php:188
+#: includes/classes/class-columns-link.php:336
 msgid "External"
 msgstr "외부"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:189
 msgid "This links to your post"
 msgstr "이 링크는 귀하의 게시물에 연결됩니다"
 
-#: includes/classes/class-columns-link.php:177
+#: includes/classes/class-columns-link.php:189
 msgid "This links to an external website"
 msgstr "이 링크는 외부 웹사이트에 연결됩니다"
 
-#: includes/classes/class-columns-link.php:189
+#: includes/classes/class-columns-link.php:193
+#: includes/classes/class-columns-link.php:337
 msgid "Revision"
 msgstr "개정판"
 
-#: includes/classes/class-columns-link.php:190
+#: includes/classes/class-columns-link.php:194
 msgid "This links to a revision"
 msgstr "이 링크는 개정판에 연결됩니다"
 
-#: includes/classes/class-columns-link.php:198
+#: includes/classes/class-columns-link.php:203
 msgid "Not yet submitted"
 msgstr "아직 제출되지 않음"
 
-#: includes/classes/class-columns-link.php:199
+#: includes/classes/class-columns-link.php:204
 msgid "Submitted for approval"
 msgstr "승인을 위해 제출됨"
 
-#: includes/classes/class-columns-link.php:200
-#: includes/classes/class-settings.php:558
+#: includes/classes/class-columns-link.php:205
+#: includes/classes/class-settings.php:365
+#: includes/classes/class-settings.php:706
+#: includes/classes/class-settings.php:714
+#: includes/functions.php:273
+#: includes/functions.php:307
 msgid "Scheduled"
 msgstr "예정됨"
 
-#: includes/classes/class-columns-link.php:201
+#: includes/classes/class-columns-link.php:206
 msgid "Deferred"
 msgstr "연기됨"
 
-#: includes/classes/class-columns-link.php:202
+#: includes/classes/class-columns-link.php:207
 msgid "Needs work"
 msgstr "작업 필요"
 
-#: includes/classes/class-columns-link.php:203
+#: includes/classes/class-columns-link.php:208
 msgid "Rejected"
 msgstr "거부됨"
 
-#: includes/classes/class-columns-link.php:207
+#: includes/classes/class-columns-link.php:212
 #. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "수정: %s"
 
-#: includes/classes/class-columns-link.php:224
+#: includes/classes/class-columns-link.php:233
 #. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "%s 번 클릭됨"
 
-#: includes/classes/class-columns-link.php:230
-#: includes/classes/class-table-logs.php:197
+#: includes/classes/class-columns-link.php:241
+#: includes/classes/class-table-logs.php:198
 msgid "Edit"
 msgstr "편집"
 
-#: includes/classes/class-columns-link.php:231
-#: includes/classes/class-table-logs.php:178
-#: includes/classes/class-table-logs.php:199
+#: includes/classes/class-columns-link.php:246
+#: includes/classes/class-table-logs.php:179
+#: includes/classes/class-table-logs.php:200
 msgid "Delete"
 msgstr "삭제"
 
-#: includes/classes/class-columns-link.php:278
+#: includes/classes/class-columns-link.php:332
+msgid "Filter by link type"
+msgstr "링크 유형으로 필터링"
+
+#: includes/classes/class-columns-link.php:334
+msgid "All link types"
+msgstr "모든 링크 유형"
+
+#: includes/classes/class-columns-link.php:350
+msgid "Filter by category"
+msgstr "카테고리별 필터"
+
+#: includes/classes/class-columns-link.php:352
+msgid "All categories"
+msgstr "모든 카테고리"
+
+#: includes/classes/class-columns-link.php:446
+msgid "Filters"
+msgstr "필터"
+
+#: includes/classes/class-columns-link.php:449
+#: includes/classes/class-hooks.php:257
+#: includes/classes/class-meta-boxes.php:814
+msgid "Categories"
+msgstr "카테고리"
+
+#: includes/classes/class-columns-link.php:467
+msgid "Permission denied."
+msgstr "권한이 거부되었습니다."
+
+#: includes/classes/class-columns-link.php:551
 msgid "Link Title"
 msgstr "링크 제목"
 
-#: includes/classes/class-columns-link.php:280
+#: includes/classes/class-columns-link.php:553
 msgid "Link Type"
 msgstr "링크 유형"
 
-#: includes/classes/class-columns-link.php:281
+#: includes/classes/class-columns-link.php:557
 msgid "Stats"
 msgstr "통계"
 
-#: includes/classes/class-columns-link.php:282
+#: includes/classes/class-columns-link.php:560
+#: includes/classes/class-table-logs.php:166
 msgid "Actions"
 msgstr "작업"
 
@@ -350,397 +535,845 @@ msgstr "복사하려면 클릭"
 msgid "Copied"
 msgstr "복사됨"
 
-#: includes/classes/class-hooks.php:61
-msgid "Security check failed."
-msgstr "보안 검사가 실패했습니다."
+#: includes/classes/class-gutenberg-shortlink.php:160
+msgid "Search shortlinks..."
+msgstr "단축 링크 검색..."
 
-#: includes/classes/class-hooks.php:65
-msgid "You do not have permission to create shortlinks."
-msgstr "짧은 링크를 생성할 권한이 없습니다."
+#: includes/classes/class-gutenberg-shortlink.php:161
+msgid "Insert Shortlink"
+msgstr "단축 링크 삽입"
 
-#: includes/classes/class-hooks.php:72
-msgid "Invalid or empty URL"
-msgstr "유효하지 않거나 비어 있는 URL"
+#: includes/classes/class-gutenberg-shortlink.php:162
+msgid "Create New Shortlink"
+msgstr "새 단축 링크 만들기"
 
-#: includes/classes/class-hooks.php:89
+#: includes/classes/class-gutenberg-shortlink.php:163
+#: includes/classes/class-settings.php:721
+msgid "Options"
+msgstr "옵션"
+
+#: includes/classes/class-gutenberg-shortlink.php:164
+msgid "Open in New Tab"
+msgstr "새 탭에서 열기"
+
+#: includes/classes/class-gutenberg-shortlink.php:165, fuzzy
+msgid "Nofollow"
+msgstr "Nofollow"
+
+#: includes/classes/class-gutenberg-shortlink.php:166
+msgid "Sponsored Link"
+msgstr "후원 링크"
+
+#: includes/classes/class-gutenberg-shortlink.php:167
+msgid "Label"
+msgstr "라벨"
+
+#: includes/classes/class-gutenberg-shortlink.php:168
+msgid "Optional shortlink label"
+msgstr "선택적 단축 링크 라벨"
+
+#: includes/classes/class-gutenberg-shortlink.php:170
+msgid "Create"
+msgstr "생성"
+
+#: includes/classes/class-gutenberg-shortlink.php:171
+#: includes/classes/class-import-export.php:1202
+msgid "Cancel"
+msgstr "취소"
+
+#: includes/classes/class-gutenberg-shortlink.php:172
+#: templates/admin-modal-new-link.php:37
+msgid "Close"
+msgstr "닫기"
+
+#: includes/classes/class-gutenberg-shortlink.php:173
+msgid "Creating..."
+msgstr "생성 중..."
+
+#: includes/classes/class-gutenberg-shortlink.php:174
+#: includes/classes/class-gutenberg-shortlink.php:317
+#: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "짧은 링크가 성공적으로 생성되었습니다."
 
-#: includes/classes/class-hooks.php:98
+#: includes/classes/class-gutenberg-shortlink.php:176
+msgid "Please enter a valid URL"
+msgstr "유효한 URL을 입력하세요"
+
+#: includes/classes/class-gutenberg-shortlink.php:177
+msgid "No shortlinks found"
+msgstr "찾을 수 있는 단축 링크가 없습니다"
+
+#: includes/classes/class-gutenberg-shortlink.php:243
+msgid "Search term is required"
+msgstr "검색어가 필요합니다"
+
+#: includes/classes/class-gutenberg-shortlink.php:258
+#: includes/functions.php:447
+#. translators: %s: link ID number
+#, php-format
+msgid "Link - %s"
+msgstr "링크 - %s"
+
+#: includes/classes/class-gutenberg-shortlink.php:294
+msgid "Target URL is required"
+msgstr "대상 URL이 필요합니다"
+
+#: includes/classes/class-gutenberg-shortlink.php:336
+msgid "Invalid shortlink ID"
+msgstr "유효하지 않은 단축 링크 ID"
+
+#: includes/classes/class-gutenberg-shortlink.php:342
+msgid "Shortlink not found"
+msgstr "단축 링크를 찾을 수 없습니다."
+
+#: includes/classes/class-hooks.php:69
+#: includes/classes/class-import-export.php:119
+msgid "Security check failed."
+msgstr "보안 검사가 실패했습니다."
+
+#: includes/classes/class-hooks.php:73
+msgid "You do not have permission to create shortlinks."
+msgstr "짧은 링크를 생성할 권한이 없습니다."
+
+#: includes/classes/class-hooks.php:80
+msgid "Invalid or empty URL"
+msgstr "유효하지 않거나 비어 있는 URL"
+
+#: includes/classes/class-hooks.php:112
 msgid "Invalid nonce verification."
 msgstr "유효하지 않은 nonce 확인."
 
-#: includes/classes/class-hooks.php:102
+#: includes/classes/class-hooks.php:116
 msgid "You do not have permission to reset analytics."
 msgstr "분석 리셋할 권한이 없습니다."
 
-#: includes/classes/class-hooks.php:109
+#: includes/classes/class-hooks.php:123
 msgid "Invalid post ID."
 msgstr "유효하지 않은 게시물 ID."
 
-#: includes/classes/class-hooks.php:140
+#: includes/classes/class-hooks.php:129
+msgid "Invalid shortlink ID."
+msgstr "유효하지 않은 단축 링크 ID입니다."
+
+#: includes/classes/class-hooks.php:133
+msgid "You do not have permission to reset analytics for this shortlink."
+msgstr "이 단축 링크에 대한 분석을 재설정할 권한이 없습니다."
+
+#: includes/classes/class-hooks.php:164
 msgid "Analytics reset successfully."
 msgstr "분석이 성공적으로 리셋되었습니다."
 
-#: includes/classes/class-hooks.php:142
+#: includes/classes/class-hooks.php:166
 msgid "Failed to reset analytics."
 msgstr "분석 리셋에 실패했습니다."
 
-#: includes/classes/class-hooks.php:168
+#: includes/classes/class-hooks.php:192
 msgid "Shorten"
 msgstr "단축"
 
-#: includes/classes/class-hooks.php:211
+#: includes/classes/class-hooks.php:235
 msgid "All Shortlinks"
 msgstr "모든 단축 링크"
 
-#: includes/classes/class-hooks.php:212
-#: includes/classes/class-hooks.php:213
+#: includes/classes/class-hooks.php:236
+#: includes/classes/class-hooks.php:237
 msgid "Add Shortlink"
 msgstr "짧은 링크 추가"
 
-#: includes/classes/class-hooks.php:214
+#: includes/classes/class-hooks.php:238
 msgid "Search Shortlinks"
 msgstr "짧은 링크 검색"
 
-#: includes/classes/class-hooks.php:229
+#: includes/classes/class-hooks.php:256
 msgid "Category"
 msgstr "카테고리"
 
-#: includes/classes/class-hooks.php:230
-msgid "Categories"
-msgstr "카테고리"
-
-#: includes/classes/class-hooks.php:256
-#: includes/classes/class-hooks.php:257
+#: includes/classes/class-hooks.php:283
+#: includes/classes/class-hooks.php:284
 msgid "Logs"
 msgstr "로그"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "All Logs"
 msgstr "모든 로그"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Are you sure you want to clear all logs?"
 msgstr "모든 로그를 지우시겠습니까?"
 
-#: includes/classes/class-hooks.php:285
+#: includes/classes/class-hooks.php:312
 msgid "Clear Logs"
 msgstr "로그 지우기"
 
-#: includes/classes/class-hooks.php:506
+#: includes/classes/class-hooks.php:606
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "죄송합니다. 단축 링크에 접근할 수 없습니다."
 
-#: includes/classes/class-hooks.php:507
-#: includes/classes/class-hooks.php:528
-#: includes/classes/class-hooks.php:539
-#: includes/classes/class-hooks.php:560
+#: includes/classes/class-hooks.php:607
+#: includes/classes/class-hooks.php:628
+#: includes/classes/class-hooks.php:639
+#: includes/classes/class-hooks.php:660
 msgid "Access Denied"
 msgstr "접근 거부"
 
-#: includes/classes/class-hooks.php:527
+#: includes/classes/class-hooks.php:627
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "죄송합니다. 단축 링크를 생성할 수 없습니다."
 
-#: includes/classes/class-hooks.php:538
+#: includes/classes/class-hooks.php:638
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "죄송합니다. 단축 링크를 편집할 수 없습니다."
 
-#: includes/classes/class-hooks.php:559
+#: includes/classes/class-hooks.php:659
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "죄송합니다. 단축 링크 설정에 접근할 수 없습니다."
 
-#: includes/classes/class-meta-boxes.php:76
-msgid "Side"
-msgstr "측면"
+#: includes/classes/class-import-export.php:48
+#: includes/classes/class-import-export.php:49
+msgid "Import / Export"
+msgstr "가져오기 / 내보내기"
 
-#: includes/classes/class-meta-boxes.php:187
-#: tinypress.php:448
-msgid "PublishPress Shortlinks"
-msgstr "PublishPress 단축 링크"
+#: includes/classes/class-import-export.php:87
+msgid "Importing..."
+msgstr "가져오는 중..."
 
-#: includes/classes/class-meta-boxes.php:200
-#: includes/classes/class-settings.php:401
-msgid "General"
-msgstr "일반"
+#: includes/classes/class-import-export.php:88
+msgid "Import complete!"
+msgstr "가져오기 완료!"
 
-#: includes/classes/class-meta-boxes.php:205
-msgid "Label *"
-msgstr "레이블 *"
+#: includes/classes/class-import-export.php:89
+msgid "Import failed. Please check the file and try again."
+msgstr "가져오기 실패. 파일을 확인하고 다시 시도하십시오."
 
-#: includes/classes/class-meta-boxes.php:207
-msgid "For admin purpose only."
-msgstr "관리자 용도 전용입니다."
+#: includes/classes/class-import-export.php:90
+msgid "Please select a CSV file."
+msgstr "CSV 파일을 선택하십시오."
 
-#: includes/classes/class-meta-boxes.php:216
-msgid "Target URL *"
-msgstr "대상 URL *"
+#: includes/classes/class-import-export.php:91
+msgid "This will import shortlinks from the CSV file. Continue?"
+msgstr "이 작업은 CSV 파일에서 단축 링크를 가져옵니다. 계속하시겠습니까?"
 
-#: includes/classes/class-meta-boxes.php:226
-msgid "Short String *"
-msgstr "짧은 문자열 *"
+#: includes/classes/class-import-export.php:92
+msgid "Previewing..."
+msgstr "미리보기 중..."
 
-#: includes/classes/class-meta-boxes.php:227
-msgid "Short string of this URL."
-msgstr "이 URL의 짧은 문자열입니다."
+#: includes/classes/class-import-export.php:93
+msgid "Preview failed."
+msgstr "미리보기 실패."
 
-#: includes/classes/class-meta-boxes.php:233
-msgid "Status"
-msgstr "상태"
+#: includes/classes/class-import-export.php:94
+#: includes/classes/class-import-export.php:1197
+msgid "See More Rows"
+msgstr "더 많은 행 보기"
 
-#: includes/classes/class-meta-boxes.php:234
-msgid "Disable the shortlink instantly."
-msgstr "짧은 링크를 즉시 비활성화합니다."
+#: includes/classes/class-import-export.php:95
+msgid "Show Less"
+msgstr "더 적게 보기"
 
-#: includes/classes/class-meta-boxes.php:235
-msgid "After disabling the link will not active but the settings will be reserved."
-msgstr "비활성화 후 링크는 활성화되지 않지만 설정은 유지됩니다."
+#: includes/classes/class-import-export.php:96
+#: includes/classes/class-import-export.php:1160
+msgid "Preview"
+msgstr "미리보기"
 
-#: includes/classes/class-meta-boxes.php:236
-msgid "Enable"
-msgstr "활성화"
+#: includes/classes/class-import-export.php:97
+#: includes/classes/class-import-export.php:1151
+#: includes/classes/class-import-export.php:1164
+msgid "Import CSV"
+msgstr "CSV 가져오기"
 
-#: includes/classes/class-meta-boxes.php:237
-msgid "Disable"
-msgstr "비활성화"
+#: includes/classes/class-import-export.php:98
+#: includes/classes/class-import-export.php:731
+#. translators: %d: number of successfully imported shortlinks
+#, php-format
+msgid "%d shortlinks successfully imported"
+msgstr "%d개의 단축 링크가 성공적으로 가져와졌습니다."
 
-#: includes/classes/class-meta-boxes.php:244
+#: includes/classes/class-import-export.php:99
+#: includes/classes/class-import-export.php:753
+#. translators: %d: number of failed imports
+#, php-format
+msgid "%d shortlinks failed to import"
+msgstr "%d개의 단축 링크 가져오기에 실패했습니다."
+
+#: includes/classes/class-import-export.php:100
+msgid "Error(s) for TinyPress Slug:"
+msgstr "TinyPress 슬러그에 대한 오류:"
+
+#: includes/classes/class-import-export.php:115
+#: includes/classes/class-import-export.php:546
+#: includes/classes/class-import-export.php:907
+#: includes/classes/class-import-export.php:1048
+msgid "Unauthorized."
+msgstr "권한이 없습니다."
+
+#: includes/classes/class-import-export.php:303
+#: includes/functions.php:402
+msgid "Invalid URL."
+msgstr "잘못된 URL입니다."
+
+#: includes/classes/class-import-export.php:551
+#: includes/classes/class-import-export.php:912
+msgid "No file uploaded or upload error."
+msgstr "업로드된 파일이 없거나 업로드 오류가 발생했습니다."
+
+#: includes/classes/class-import-export.php:560
+#: includes/classes/class-import-export.php:921
+msgid "Please upload a CSV file."
+msgstr "CSV 파일을 업로드하십시오."
+
+#: includes/classes/class-import-export.php:566
+#: includes/classes/class-import-export.php:927
+msgid "Could not read the file."
+msgstr "파일을 읽을 수 없습니다."
+
+#: includes/classes/class-import-export.php:573
+#: includes/classes/class-import-export.php:934
+msgid "Empty CSV file."
+msgstr "빈 CSV 파일입니다."
+
+#: includes/classes/class-import-export.php:596
+#: includes/classes/class-import-export.php:958
+msgid ""
+"CSV must contain a column for target URL (e.g., \"url\", \"target_url\", "
+"\"destination_url\")."
+msgstr ""
+"CSV에는 대상 URL에 대한 열이 포함되어야 합니다 (예: \"url\", \"target_url\", "
+"\"destination_url\")."
+
+#: includes/classes/class-import-export.php:663
+#. translators: %s: error message
+#, php-format
+msgid "Failed to create shortlink: %s"
+msgstr "단축 링크 생성에 실패했습니다: %s"
+
+#: includes/classes/class-import-export.php:664
+msgid "Unknown error."
+msgstr "알 수 없는 오류입니다."
+
+#: includes/classes/class-import-export.php:742
+#. translators: %d: number of updated shortlinks
+#, php-format
+msgid "%d shortlinks updated"
+msgstr "%d개의 단축 링크가 업데이트되었습니다."
+
+#: includes/classes/class-import-export.php:995
+#. translators: 1: original column name, 2: mapped field name
+#, fuzzy, php-format
+msgid "\"%1$s\" → %2$s"
+msgstr "\"%1$s\" → %2$s"
+
+#: includes/classes/class-import-export.php:1006
+#. translators: %s: field mappings
+#, php-format
+msgid "Field mappings: %s"
+msgstr "필드 매핑: %s"
+
+#: includes/classes/class-import-export.php:1033
+#. translators: 1: number of preview rows, 2: total number of importable rows
+#, php-format
+msgid "Showing %1$d preview row(s) from %2$d importable row(s)."
+msgstr "%1$d개의 미리보기 행을 %2$d개의 가져올 수 있는 행에서 표시합니다."
+
+#: includes/classes/class-import-export.php:1052
+msgid "Link Label"
+msgstr "링크 레이블"
+
+#: includes/classes/class-import-export.php:1054
+msgid "Short Slug"
+msgstr "짧은 슬러그"
+
+#: includes/classes/class-import-export.php:1055
+msgid "Post Status"
+msgstr "게시물 상태"
+
+#: includes/classes/class-import-export.php:1056
+msgid "Link Status"
+msgstr "링크 상태"
+
+#: includes/classes/class-import-export.php:1057
+msgid "Redirect Method"
+msgstr "리디렉션 방법"
+
+#: includes/classes/class-import-export.php:1058
+#: includes/classes/class-meta-boxes.php:664
+#: includes/classes/class-settings.php:939
+msgid "NoFollow"
+msgstr "노팔로우"
+
+#: includes/classes/class-import-export.php:1059
+#: includes/classes/class-meta-boxes.php:642
+#: includes/classes/class-settings.php:931
+msgid "Sponsored"
+msgstr "스폰서"
+
+#: includes/classes/class-import-export.php:1060
+#: includes/classes/class-meta-boxes.php:686
+#: includes/classes/class-settings.php:947
+msgid "Parameter Forwarding"
+msgstr "매개변수 전달"
+
+#: includes/classes/class-import-export.php:1061
+msgid "Expiration Enabled"
+msgstr "만료 기능 활성화"
+
+#: includes/classes/class-import-export.php:1062
+#: includes/classes/class-meta-boxes.php:770
+#: includes/classes/class-settings.php:988
+msgid "Expiration Date"
+msgstr "만료 날짜"
+
+#: includes/classes/class-import-export.php:1063
+#: includes/classes/class-meta-boxes.php:784
+#: includes/classes/class-settings.php:1001
+msgid "Expiration Time"
+msgstr "만료 시간"
+
+#: includes/classes/class-import-export.php:1065
+#: includes/classes/class-meta-boxes.php:552
 msgid "Notes"
 msgstr "메모"
 
-#: includes/classes/class-meta-boxes.php:251
-msgid "All"
-msgstr "모두"
+#: includes/classes/class-import-export.php:1066
+msgid "Autolink Keywords"
+msgstr "자동 링크 키워드"
 
-#: includes/classes/class-meta-boxes.php:263
-msgid "Auto-linking"
-msgstr "자동 링크"
+#: includes/classes/class-import-export.php:1095
+msgid "Import / Export Shortlinks"
+msgstr "단축 링크 가져오기 / 내보내기"
 
-#: includes/classes/class-meta-boxes.php:268
+#: includes/classes/class-import-export.php:1099
+#: includes/classes/class-import-export.php:1137
+#: includes/classes/class-import-export.php:1206
+msgid "Import"
+msgstr "가져오기"
+
+#: includes/classes/class-import-export.php:1102
+#: includes/classes/class-import-export.php:1111
+msgid "Export"
+msgstr "내보내기"
+
+#: includes/classes/class-import-export.php:1114
+msgid ""
+"Download all your shortlinks as a CSV file. The export includes labels, "
+"target URLs, slugs, redirect settings, global-setting modes, and more. "
+"Password protection settings are not exported."
+msgstr ""
+"모든 단축 링크를 CSV 파일로 다운로드합니다. 내보내기에는 레이블, 대상 URL, 슬러그, 리디렉션 설정, 전역 설정 모드 등이 "
+"포함됩니다. 비밀번호 보호 설정은 내보내지지 않습니다."
+
+#: includes/classes/class-import-export.php:1119
+#. translators: %d: number of shortlinks
+#, php-format
+msgid "%d shortlink(s) will be exported."
+msgstr "%d개의 단축 링크가 내보내질 것입니다."
+
+#: includes/classes/class-import-export.php:1127
+msgid "Export CSV"
+msgstr "CSV 내보내기"
+
+#: includes/classes/class-import-export.php:1140
+msgid ""
+"Upload a CSV file to bulk-create shortlinks. The CSV must contain at "
+"minimum a \"target_url\" column. Password protection settings are "
+"intentionally not imported."
+msgstr ""
+"CSV 파일을 업로드하여 단축 링크를 대량 생성합니다. CSV에는 최소한 \"target_url\" 열이 포함되어야 합니다. 비밀번호 "
+"보호 설정은 의도적으로 가져오지 않습니다."
+
+#: includes/classes/class-import-export.php:1142
+msgid "Supported columns:"
+msgstr "지원되는 열:"
+
+#: includes/classes/class-import-export.php:1167
+msgid "Change File"
+msgstr "파일 변경"
+
+#: includes/classes/class-import-export.php:1184
+msgid "Import Preview"
+msgstr "가져오기 미리보기"
+
+#: includes/classes/class-meta-boxes.php:387
+#: includes/classes/class-meta-boxes.php:453
+#: includes/classes/class-meta-boxes.php:478
+#. translators: %s: current global setting value
+msgid "Use global settings"
+msgstr "전역 설정 사용"
+
+#: includes/classes/class-meta-boxes.php:388
+msgid "Enabled"
+msgstr "활성화됨"
+
+#: includes/classes/class-meta-boxes.php:389
+msgid "Disabled"
+msgstr "비활성화됨"
+
+#: includes/classes/class-meta-boxes.php:449
+msgid "ON"
+msgstr "켜기"
+
+#: includes/classes/class-meta-boxes.php:449
+msgid "OFF"
+msgstr "끄기"
+
+#: includes/classes/class-meta-boxes.php:481
+#: includes/classes/class-settings.php:922
+msgid "307 (Temporary)"
+msgstr "307 (임시)"
+
+#: includes/classes/class-meta-boxes.php:482
+#: includes/classes/class-settings.php:923
+msgid "302 (Temporary)"
+msgstr "302 (임시)"
+
+#: includes/classes/class-meta-boxes.php:483
+#: includes/classes/class-settings.php:924
+msgid "301 (Permanent)"
+msgstr "301 (영구)"
+
+#: includes/classes/class-meta-boxes.php:496
+#: tinypress.php:399
+#: tinypress.php:492
+msgid "PublishPress Shortlinks"
+msgstr "PublishPress 단축 링크"
+
+#: includes/classes/class-meta-boxes.php:509
+#: includes/classes/class-settings.php:718
+msgid "General"
+msgstr "일반"
+
+#: includes/classes/class-meta-boxes.php:514
+msgid "Label *"
+msgstr "레이블 *"
+
+#: includes/classes/class-meta-boxes.php:516
+msgid "For admin purpose only."
+msgstr "관리자 용도 전용입니다."
+
+#: includes/classes/class-meta-boxes.php:525
+msgid "Target URL *"
+msgstr "대상 URL *"
+
+#: includes/classes/class-meta-boxes.php:535
+msgid "Short String *"
+msgstr "짧은 문자열 *"
+
+#: includes/classes/class-meta-boxes.php:536
+msgid "Short string of this URL."
+msgstr "이 URL의 짧은 문자열입니다."
+
+#: includes/classes/class-meta-boxes.php:543
+msgid "Enable or disable the shortlink."
+msgstr "짧은 링크를 활성화 또는 비활성화합니다."
+
+#: includes/classes/class-meta-boxes.php:544
+msgid "Enable"
+msgstr "활성화"
+
+#: includes/classes/class-meta-boxes.php:545
+msgid "Disable"
+msgstr "비활성화"
+
+#: includes/classes/class-meta-boxes.php:576
+#: includes/classes/class-meta-boxes.php:582
+msgid "Shortlink Label"
+msgstr "단축 링크 레이블"
+
+#: includes/classes/class-meta-boxes.php:577
+#: includes/classes/class-meta-boxes.php:583
+msgid "Custom Text"
+msgstr "사용자 정의 텍스트"
+
+#: includes/classes/class-meta-boxes.php:581
+msgid "Post Title"
+msgstr "게시물 제목"
+
+#: includes/classes/class-meta-boxes.php:593
 msgid "Keywords"
 msgstr "키워드"
 
-#: includes/classes/class-meta-boxes.php:269
+#: includes/classes/class-meta-boxes.php:594
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
 msgstr "키워드를 쉼표로 구분하거나 별도의 줄에 추가하십시오. 각 키워드는 이 단축 링크에 연결됩니다."
 
-#: includes/classes/class-meta-boxes.php:274, fuzzy
-msgid "Post Types"
-msgstr "Post Types"
+#: includes/classes/class-meta-boxes.php:599
+msgid "Link Alt Text"
+msgstr "링크 대체 텍스트"
 
-#: includes/classes/class-meta-boxes.php:275
-msgid "Where should these keywords be auto-linked?"
-msgstr "이 키워드들이 자동 링크되어야 하는 위치는 어디인가요?"
+#: includes/classes/class-meta-boxes.php:600
+msgid "Set the alt text for the linked keywords in the frontend of the site."
+msgstr "사이트의 프론트엔드에서 링크된 키워드의 대체 텍스트를 설정합니다."
 
-#: includes/classes/class-meta-boxes.php:288
+#: includes/classes/class-meta-boxes.php:607
+msgid "Custom Alt Text"
+msgstr "사용자 정의 대체 텍스트"
+
+#: includes/classes/class-meta-boxes.php:608
+msgid ""
+"Enter custom alt text for the linked keywords. This is only used if "
+"\"Custom Text\" is selected above."
+msgstr "링크된 키워드에 대한 사용자 정의 대체 텍스트를 입력하세요. 이는 위에서 \"사용자 정의 텍스트\"가 선택된 경우에만 사용됩니다."
+
+#: includes/classes/class-meta-boxes.php:619
+msgid "Auto-linking"
+msgstr "자동 링크"
+
+#: includes/classes/class-meta-boxes.php:628
+#: includes/classes/class-settings.php:914
 msgid "Redirection"
 msgstr "리디렉션"
 
-#: includes/classes/class-meta-boxes.php:293
+#: includes/classes/class-meta-boxes.php:633
+#: includes/classes/class-settings.php:919
 msgid "Redirection Method"
 msgstr "리디렉션 방법"
 
-#: includes/classes/class-meta-boxes.php:294
+#: includes/classes/class-meta-boxes.php:634
 msgid "Select redirection method"
 msgstr "리디렉션 방법 선택"
 
-#: includes/classes/class-meta-boxes.php:295
+#: includes/classes/class-meta-boxes.php:635
 msgid "Select a method"
 msgstr "방법 선택"
 
-#: includes/classes/class-meta-boxes.php:297
-msgid "307 (Temporary)"
-msgstr "307 (임시)"
-
-#: includes/classes/class-meta-boxes.php:298
-msgid "302 (Temporary)"
-msgstr "302 (임시)"
-
-#: includes/classes/class-meta-boxes.php:299
-msgid "301 (Permanent)"
-msgstr "301 (영구)"
-
-#: includes/classes/class-meta-boxes.php:306
-msgid "Sponsored"
-msgstr "스폰서"
-
-#: includes/classes/class-meta-boxes.php:307
+#: includes/classes/class-meta-boxes.php:645
 msgid "Mark links as sponsored content."
 msgstr "링크를 스폰서 콘텐츠로 표시합니다."
 
-#: includes/classes/class-meta-boxes.php:308
+#: includes/classes/class-meta-boxes.php:646
+#: includes/classes/class-meta-boxes.php:656
+#: includes/classes/class-settings.php:933
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
 msgstr "rel=\"sponsored\" 속성을 추가합니다. 제휴 링크 및 유료 프로모션에 권장됩니다."
 
-#: includes/classes/class-meta-boxes.php:313
-msgid "NoFollow"
-msgstr "노팔로우"
-
-#: includes/classes/class-meta-boxes.php:314
+#: includes/classes/class-meta-boxes.php:667
 msgid "Prevent search engines from following this link."
 msgstr "검색 엔진이 이 링크를 따라가지 않도록 방지합니다."
 
-#: includes/classes/class-meta-boxes.php:315
+#: includes/classes/class-meta-boxes.php:668
+#: includes/classes/class-meta-boxes.php:678
+#: includes/classes/class-settings.php:941
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
 msgstr "rel=\"nofollow\" 속성을 추가합니다. 외부 링크 및 신뢰할 수 없는 출처에 권장됩니다."
 
-#: includes/classes/class-meta-boxes.php:321
-msgid "Parameter Forwarding"
-msgstr "매개변수 전달"
-
-#: includes/classes/class-meta-boxes.php:322
+#: includes/classes/class-meta-boxes.php:689
 msgid "Pass URL parameters to the target link."
 msgstr "대상 링크에 URL 매개변수를 전달합니다."
 
-#: includes/classes/class-meta-boxes.php:323
+#: includes/classes/class-meta-boxes.php:690
+#: includes/classes/class-meta-boxes.php:700
+#: includes/classes/class-settings.php:949
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
 msgstr "짧은 URL에 추가된 모든 매개변수(예: ?utm_source=email)는 대상 URL로 전달됩니다."
 
-#: includes/classes/class-meta-boxes.php:333
+#: includes/classes/class-meta-boxes.php:713
+#: includes/classes/class-settings.php:960
 msgid "Password Protection"
 msgstr "비밀번호 보호"
 
-#: includes/classes/class-meta-boxes.php:334
+#: includes/classes/class-meta-boxes.php:716
 msgid "Secure your shortlink."
 msgstr "짧은 링크를 안전하게 보호하세요."
 
-#: includes/classes/class-meta-boxes.php:335
+#: includes/classes/class-meta-boxes.php:717
+#: includes/classes/class-meta-boxes.php:727
 msgid "Users must enter the password to redirect to the target link."
 msgstr "사용자는 대상 링크로 리디렉션하기 위해 비밀번호를 입력해야 합니다."
 
-#: includes/classes/class-meta-boxes.php:340
+#: includes/classes/class-meta-boxes.php:735
 msgid "Password"
 msgstr "비밀번호"
 
-#: includes/classes/class-meta-boxes.php:341
+#: includes/classes/class-meta-boxes.php:736
 msgid "Share this with users."
 msgstr "사용자와 공유하세요."
 
-#: includes/classes/class-meta-boxes.php:342
+#: includes/classes/class-meta-boxes.php:737
 msgid "Passwords are case sensitive."
 msgstr "비밀번호는 대소문자를 구분합니다."
 
-#: includes/classes/class-meta-boxes.php:343, fuzzy
+#: includes/classes/class-meta-boxes.php:738
+#: includes/classes/class-settings.php:971, fuzzy
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:352
+#: includes/classes/class-meta-boxes.php:748
+#: includes/classes/class-settings.php:980
 msgid "Enable Expiration"
 msgstr "만료 설정"
 
-#: includes/classes/class-meta-boxes.php:353
-msgid "Expire automatically."
-msgstr "자동으로 만료됩니다."
+#: includes/classes/class-meta-boxes.php:751
+msgid "Set an expiration date and time for shortlinks."
+msgstr "단축 링크의 만료 날짜와 시간을 설정하세요."
 
-#: includes/classes/class-meta-boxes.php:354
-msgid "Users will not able to redirect to the target URL once expire."
-msgstr "만료 후 사용자는 대상 URL로 리디렉션할 수 없습니다."
+#: includes/classes/class-meta-boxes.php:752
+#: includes/classes/class-meta-boxes.php:762
+#: includes/classes/class-settings.php:982
+msgid ""
+"After the expiration date and time pass, visitors will no longer be able to "
+"access the shortlink."
+msgstr "만료 날짜와 시간이 지나면 방문자는 더 이상 단축 링크에 접근할 수 없습니다."
 
-#: includes/classes/class-meta-boxes.php:359
-msgid "Expiration Date"
-msgstr "만료 날짜"
+#: includes/classes/class-meta-boxes.php:771
+msgid "Select the date when this shortlink should stop working."
+msgstr "이 단축 링크가 작동을 중지해야 하는 날짜를 선택하세요."
 
-#: includes/classes/class-meta-boxes.php:360
-msgid "Choose the date this link should expire."
-msgstr "이 링크가 만료될 날짜를 선택하세요."
+#: includes/classes/class-meta-boxes.php:785
+msgid "Select the time when the shortlink should expire."
+msgstr "단축 링크가 만료되어야 하는 시간을 선택하세요."
 
-#: includes/classes/class-meta-boxes.php:372
-msgid "Expiration Time"
-msgstr "만료 시간"
+#: includes/classes/class-meta-boxes.php:786
+#: includes/classes/class-settings.php:1003
+msgid ""
+"Must be at least 1 minute in the future. Combined with the date above to "
+"set the exact expiration moment."
+msgstr "미래의 시간이 최소 1분 이상이어야 합니다. 위의 날짜와 결합하여 정확한 만료 순간을 설정합니다."
 
-#: includes/classes/class-meta-boxes.php:373
-msgid "Choose the time this link should expire."
-msgstr "이 링크가 만료될 시간을 선택하세요."
-
-#: includes/classes/class-meta-boxes.php:374
-msgid "Must be at least 1 minute in the future."
-msgstr "최소 1분 이상의 미래여야 합니다."
-
-#: includes/classes/class-meta-boxes.php:391
+#: includes/classes/class-meta-boxes.php:804
+#: includes/classes/class-settings.php:955
 msgid "Security"
 msgstr "보안"
 
-#: includes/classes/class-meta-boxes.php:402
+#: includes/classes/class-meta-boxes.php:823
+msgid "QR Code"
+msgstr "QR 코드"
+
+#: includes/classes/class-meta-boxes.php:833
+#: tinypress.php:396
 msgid "Analytics"
 msgstr "분석"
 
-#: includes/classes/class-redirection.php:599
+#: includes/classes/class-redirection.php:1044
 msgid "Post not found."
 msgstr "게시물을 찾을 수 없습니다."
 
-#: includes/classes/class-redirection.php:648
+#: includes/classes/class-redirection.php:1188
+#: includes/functions.php:361
+#: includes/functions.php:362
+#: includes/functions.php:363
+#: includes/functions.php:369
+#: tinypress.php:303
+#: tinypress.php:304
+#: tinypress.php:305
+msgid "This post is in {status} status. It is not visible to the public."
+msgstr "이 게시물은 {status} 상태입니다. 일반 사용자에게는 보이지 않습니다."
+
+#: includes/classes/class-redirection.php:1236
 msgid "This link has expired"
 msgstr "이 링크는 만료되었습니다"
 
-#: includes/classes/class-redirection.php:652
+#: includes/classes/class-redirection.php:1240
 msgid "You will be redirected shortly."
 msgstr "곧 리디렉션됩니다."
 
-#: includes/classes/class-redirection.php:656
+#: includes/classes/class-redirection.php:1244
 msgid "Click here if you are not redirected"
 msgstr "리디렉션되지 않는 경우 여기를 클릭하세요"
 
-#: includes/classes/class-redirection.php:673
+#: includes/classes/class-redirection.php:1261
 msgid "Link Expired"
 msgstr "링크가 만료되었습니다"
 
-#: includes/classes/class-redirection.php:804
+#: includes/classes/class-redirection.php:1423
 msgid "This link is not active."
 msgstr "이 링크는 활성화되어 있지 않습니다."
 
-#: includes/classes/class-redirection.php:849
+#: includes/classes/class-redirection.php:1460
 msgid "This link is expired."
 msgstr "이 링크는 만료되었습니다."
 
-#: includes/classes/class-redirection.php:868
+#: includes/classes/class-redirection.php:1479
 msgid "Incorrect password. Please try again."
 msgstr "잘못된 비밀번호입니다. 다시 시도해 주세요."
 
-#: includes/classes/class-redirection.php:883
-#: includes/classes/class-redirection.php:888
+#: includes/classes/class-redirection.php:1494
+#: includes/classes/class-redirection.php:1499
 msgid "Password Protected Link"
 msgstr "비밀번호 보호 링크"
 
-#: includes/classes/class-redirection.php:894
+#: includes/classes/class-redirection.php:1505
 msgid "Enter password to continue:"
 msgstr "계속하려면 비밀번호를 입력하세요:"
 
-#: includes/classes/class-redirection.php:896
+#: includes/classes/class-redirection.php:1507
 msgid "Submit"
 msgstr "제출"
 
-#: includes/classes/class-redirection.php:1014
+#: includes/classes/class-redirection.php:1631
 msgid "This link is not containing the right prefix slug."
 msgstr "이 링크는 올바른 접두사 슬러그를 포함하지 않습니다."
+
+#: includes/classes/class-redirection.php:1672
+msgid "Too many invalid shortlink requests. Please try again later."
+msgstr "잘못된 단축 링크 요청이 너무 많습니다. 나중에 다시 시도하세요."
+
+#: includes/classes/class-redirection.php:1673
+msgid "Too Many Requests"
+msgstr "요청이 너무 많습니다"
 
 #: includes/classes/class-revision.php:439
 msgid "Invalid revision ID."
 msgstr "유효하지 않은 수정 ID입니다."
 
-#: includes/classes/class-settings.php:187
+#: includes/classes/class-settings.php:362
+#: includes/classes/class-settings.php:703
+#: includes/classes/class-settings.php:711
+#: includes/functions.php:270
+#: includes/functions.php:304
+msgid "Draft"
+msgstr "초안"
+
+#: includes/classes/class-settings.php:363
+#: includes/classes/class-settings.php:704
+#: includes/classes/class-settings.php:712
+#: includes/functions.php:271
+#: includes/functions.php:305
+msgid "Pending Review"
+msgstr "검토 대기 중"
+
+#: includes/classes/class-settings.php:364
+#: includes/classes/class-settings.php:705
+#: includes/classes/class-settings.php:713
+#: includes/functions.php:272
+#: includes/functions.php:306
+msgid "Private"
+msgstr "비공개"
+
+#: includes/classes/class-settings.php:369
+msgid ""
+"Customize the notice shown for each enabled non-published status. Available "
+"placeholders: {status}, {date}, {title}."
+msgstr ""
+"각 활성화된 비공식 상태에 대해 표시되는 알림을 사용자 정의하세요. 사용 가능한 자리 표시자: {status}, {date}, "
+"{title}."
+
+#: includes/classes/class-settings.php:405
+msgid "All"
+msgstr "모두"
+
+#: includes/classes/class-settings.php:444
 msgid "Settings"
 msgstr "설정"
 
-#: includes/classes/class-settings.php:271
+#: includes/classes/class-settings.php:528
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
 msgstr "PublishPress 단축 링크를 방문할 때 접근할 수 있는 게시물 상태를 선택합니다."
 
-#: includes/classes/class-settings.php:287
+#: includes/classes/class-settings.php:544
 msgid "PublishPress Statuses Plugin Detected:"
 msgstr "PublishPress 상태 플러그인이 감지되었습니다:"
 
-#: includes/classes/class-settings.php:288
+#: includes/classes/class-settings.php:545
 msgid ""
 "To use core PublishPress statuses with Shortlinks, Please enable the "
 "Shortlinks post type in PublishPress Statuses workflow settings."
@@ -748,21 +1381,21 @@ msgstr ""
 "Shortlinks와 함께 기본 PublishPress 상태를 사용하려면, PublishPress 상태 워크플로 설정에서 "
 "Shortlinks 게시물 유형을 활성화하십시오."
 
-#: includes/classes/class-settings.php:307
+#: includes/classes/class-settings.php:564
 msgid "Elementor Detected:"
 msgstr "Elementor 감지됨:"
 
-#: includes/classes/class-settings.php:308
+#: includes/classes/class-settings.php:565
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
 msgstr "Elementor 수정 사항의 적절한 렌더링을 위해 단축 링크 접두사가 필요합니다. 활성 상태로 유지하는 것이 좋습니다."
 
-#: includes/classes/class-settings.php:340
+#: includes/classes/class-settings.php:597
 msgid "TinyPress Shortlinks Notice:"
 msgstr "TinyPress 단축 링크 알림:"
 
-#: includes/classes/class-settings.php:341
+#: includes/classes/class-settings.php:598
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
@@ -770,248 +1403,294 @@ msgstr ""
 "Elementor가 활성화되어 있습니다. 단축 링크 접두사가 자동으로 비활성화되었습니다. Elementor 수정 사항과의 최적 호환성을 "
 "위해 필요합니다."
 
-#: includes/classes/class-settings.php:404
-msgid "Options"
-msgstr "옵션"
+#: includes/classes/class-settings.php:702
+#: includes/functions.php:269
+#: includes/functions.php:303
+msgid "Published"
+msgstr "발행됨"
 
-#: includes/classes/class-settings.php:409
+#: includes/classes/class-settings.php:726
 msgid "Shortlink Prefix"
 msgstr "단축 링크 접두사"
 
-#: includes/classes/class-settings.php:410
+#: includes/classes/class-settings.php:727
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "도메인 이름과 단축 링크 사이에 접두사를 추가하세요."
 
-#: includes/classes/class-settings.php:417
+#: includes/classes/class-settings.php:734
 msgid "Prefix Slug"
 msgstr "접두사 슬러그"
 
-#: includes/classes/class-settings.php:418
+#: includes/classes/class-settings.php:735
 msgid "Custom prefix slug."
 msgstr "사용자 정의 접두사 슬러그."
 
-#: includes/classes/class-settings.php:419
+#: includes/classes/class-settings.php:736
 msgid "This text will be added between your domain name and shortlink."
 msgstr "이 텍스트는 도메인 이름과 단축 링크 사이에 추가됩니다."
 
-#: includes/classes/class-settings.php:420
-#: includes/classes/class-settings.php:421
+#: includes/classes/class-settings.php:737
+#: includes/classes/class-settings.php:738
 msgid "go"
 msgstr "이동"
 
-#: includes/classes/class-settings.php:427
+#: includes/classes/class-settings.php:744
 msgid "Keyboard Shortcut"
 msgstr "키보드 단축키"
 
-#: includes/classes/class-settings.php:428
+#: includes/classes/class-settings.php:745
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr "WordPress 대시보드 내 어디에서나 단축 링크를 만드세요."
 
-#: includes/classes/class-settings.php:429
-#: includes/classes/class-settings.php:430
+#: includes/classes/class-settings.php:746
+#: includes/classes/class-settings.php:747
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl 또는 Cmd + /"
 
-#: includes/classes/class-settings.php:439
+#: includes/classes/class-settings.php:756
 msgid "Remove from Admin Bar"
 msgstr "관리 바에서 제거"
 
-#: includes/classes/class-settings.php:440
+#: includes/classes/class-settings.php:757
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "WordPress 관리 바에서 \"단축화\" 버튼을 숨깁니다."
 
-#: includes/classes/class-settings.php:446
+#: includes/classes/class-settings.php:763
 msgid "Role Management"
 msgstr "역할 관리"
 
-#: includes/classes/class-settings.php:451
-msgid "Who Can View Shortlinks"
-msgstr "누가 단축 링크를 볼 수 있습니까?"
+#: includes/classes/class-settings.php:768
+msgid "Who Can View The All Shortlinks Screen"
+msgstr "모든 짧은 링크 화면을 볼 수 있는 사람"
 
-#: includes/classes/class-settings.php:452
-msgid "Only selected user roles can view links."
-msgstr "선택된 사용자 역할만 링크를 볼 수 있습니다."
+#: includes/classes/class-settings.php:769
+msgid "Only selected user roles can view the complete list of Shortlinks."
+msgstr "선택된 사용자 역할만이 짧은 링크의 전체 목록을 볼 수 있습니다."
 
-#: includes/classes/class-settings.php:460
+#: includes/classes/class-settings.php:777
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "누가 단축 링크를 생성/편집할 수 있습니까?"
 
-#: includes/classes/class-settings.php:461
+#: includes/classes/class-settings.php:778
 msgid "Only selected user roles can create or edit links."
 msgstr "선택된 사용자 역할만 링크를 생성하거나 편집할 수 있습니다."
 
-#: includes/classes/class-settings.php:470
-msgid "Who Can See Analytics"
-msgstr "누가 분석을 볼 수 있습니까?"
+#: includes/classes/class-settings.php:787
+msgid "Who Can See Logs"
+msgstr "로그를 볼 수 있는 사람"
 
-#: includes/classes/class-settings.php:471
-msgid "Only selected user roles can see analytics."
-msgstr "선택된 사용자 역할만 분석을 볼 수 있습니다."
+#: includes/classes/class-settings.php:788
+msgid "Only selected user roles can see the Analytics tab and the Logs screen."
+msgstr "선택된 사용자 역할만이 분석 탭과 로그 화면을 볼 수 있습니다."
 
-#: includes/classes/class-settings.php:480
+#: includes/classes/class-settings.php:797
 msgid "Who Can Control Settings"
 msgstr "누가 설정을 제어할 수 있습니까?"
 
-#: includes/classes/class-settings.php:481
-msgid "Only selected user roles can control settings."
-msgstr "선택된 사용자 역할만 설정을 제어할 수 있습니다."
+#: includes/classes/class-settings.php:798
+msgid "Only selected user roles can access the Settings screen."
+msgstr "선택된 사용자 역할만이 설정 화면에 접근할 수 있습니다."
 
-#: includes/classes/class-settings.php:490
+#: includes/classes/class-settings.php:807
 msgid "Auto-Linking"
 msgstr "자동 링크"
 
-#: includes/classes/class-settings.php:495
+#: includes/classes/class-settings.php:812
 msgid "Enable Auto-Linking"
 msgstr "자동 링크 활성화"
 
-#: includes/classes/class-settings.php:496
+#: includes/classes/class-settings.php:813
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr "게시물 내용에서 키워드를 단축 링크로 자동 변환합니다."
 
-#: includes/classes/class-settings.php:497
+#: includes/classes/class-settings.php:814
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
 msgstr "활성화되면, 단축 링크 설정에서 구성된 키워드는 귀하의 콘텐츠에서 자동으로 링크됩니다."
 
-#: includes/classes/class-settings.php:503
+#: includes/classes/class-settings.php:820, fuzzy
+msgid "Post Types"
+msgstr "Post Types"
+
+#: includes/classes/class-settings.php:821
+msgid "Where should auto-linking be applied?"
+msgstr "자동 링크 적용은 어디에 해야 하나요?"
+
+#: includes/classes/class-settings.php:830
 msgid "Open Auto-Links In"
 msgstr "자동 링크 열기 위치"
 
-#: includes/classes/class-settings.php:504
+#: includes/classes/class-settings.php:831
 msgid "Choose how auto-linked keywords should open."
 msgstr "자동 링크된 키워드가 어떻게 열릴지 선택하십시오."
 
-#: includes/classes/class-settings.php:506
+#: includes/classes/class-settings.php:833
 msgid "Same tab"
 msgstr "같은 탭"
 
-#: includes/classes/class-settings.php:507
+#: includes/classes/class-settings.php:834
 msgid "New tab"
 msgstr "새 탭"
 
-#: includes/classes/class-settings.php:515
+#: includes/classes/class-settings.php:842
 msgid "Auto-Link Color"
 msgstr "자동 링크 색상"
 
-#: includes/classes/class-settings.php:516
+#: includes/classes/class-settings.php:843
 msgid "Choose the color for auto-linked keywords."
 msgstr "자동 연결된 키워드의 색상을 선택하세요."
 
-#: includes/classes/class-settings.php:523
+#: includes/classes/class-settings.php:854
 msgid "Auto-List Links"
 msgstr "자동 링크 목록"
 
-#: includes/classes/class-settings.php:528
+#: includes/classes/class-settings.php:859
 msgid "Auto-List Shortlinks"
 msgstr "자동 목록 단축 링크"
 
-#: includes/classes/class-settings.php:529
+#: includes/classes/class-settings.php:860
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
 msgstr "활성화되면, 단축 링크는 아래에서 구성한 동작에 따라 \"모든 링크\" 테이블에 나타납니다."
 
-#: includes/classes/class-settings.php:535
+#: includes/classes/class-settings.php:866
 msgid "Configure Post Types"
 msgstr "게시물 유형 구성"
 
-#: includes/classes/class-settings.php:536
+#: includes/classes/class-settings.php:867
 msgid "Set when links should be auto-listed for each post type"
 msgstr "각 게시물 유형에 대해 링크가 자동으로 목록화되어야 하는 시점을 설정합니다"
 
-#: includes/classes/class-settings.php:537
+#: includes/classes/class-settings.php:868
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
 msgstr "게시물 유형을 추가하고 그들의 단축 링크가 \"모든 링크\" 테이블에 나타나야 하는 시점을 구성합니다. 변경 사항은 자동으로 저장됩니다."
 
-#: includes/classes/class-settings.php:544
+#: includes/classes/class-settings.php:875
 #: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "게시물 상태 가시성"
 
-#: includes/classes/class-settings.php:549
+#: includes/classes/class-settings.php:880
 msgid "Allowed Post Statuses"
 msgstr "허용된 게시물 상태"
 
-#: includes/classes/class-settings.php:550
-msgid "Choose which post statuses can be accessed via shortlinks"
-msgstr "단축 링크를 통해 접근할 수 있는 게시물 상태를 선택합니다"
+#: includes/classes/class-settings.php:889
+msgid "Unpublished Content Notice"
+msgstr "비공식 콘텐츠 알림"
 
-#: includes/classes/class-settings.php:554
-msgid "Published"
-msgstr "발행됨"
-
-#: includes/classes/class-settings.php:555
-msgid "Draft"
-msgstr "초안"
-
-#: includes/classes/class-settings.php:556
-msgid "Pending Review"
-msgstr "검토 대기 중"
-
-#: includes/classes/class-settings.php:557
-msgid "Private"
-msgstr "비공개"
-
-#: includes/classes/class-settings.php:565
-msgid "Expired Links"
-msgstr "만료된 링크"
-
-#: includes/classes/class-settings.php:570
-msgid "Default Expired Redirect URL"
-msgstr "기본 만료 리디렉션 URL"
-
-#: includes/classes/class-settings.php:571
-msgid "Where should expired shortlinks redirect?"
-msgstr "만료된 단축 링크는 어디로 리디렉션되어야 합니까?"
-
-#: includes/classes/class-settings.php:572
+#: includes/classes/class-settings.php:890
 msgid ""
-"When a shortlink expires, visitors will be redirected to this URL instead "
-"of seeing an error. Leave empty to show the default expiration message."
-msgstr "단축 링크가 만료되면, 방문자는 오류를 보는 대신 이 URL로 리디렉션됩니다. 기본 만료 메시지를 표시하려면 비워 두십시오."
+"Show a frontend notice when an internal shortlink displays a post that is "
+"not published."
+msgstr "내부 단축 링크가 게시되지 않은 게시물을 표시할 때 프론트엔드 알림을 표시하세요."
 
-#: includes/classes/class-settings.php:584
+#: includes/classes/class-settings.php:896
+msgid "Notice Post Statuses"
+msgstr "게시물 상태 알림"
+
+#: includes/classes/class-settings.php:897
+msgid ""
+"This notice only applies to internal shortlinks that render post content "
+"directly. External shortlinks are not affected."
+msgstr "이 알림은 게시물 내용을 직접 렌더링하는 내부 단축 링크에만 적용됩니다. 외부 단축 링크에는 영향을 미치지 않습니다."
+
+#: includes/classes/class-settings.php:906
+msgid "Notice Messages"
+msgstr "알림 메시지"
+
+#: includes/classes/class-settings.php:920
+msgid "Default redirection method for shortlinks"
+msgstr "단축 링크에 대한 기본 리디렉션 방법"
+
+#: includes/classes/class-settings.php:932
+msgid "Mark links as sponsored content"
+msgstr "링크를 후원 콘텐츠로 표시"
+
+#: includes/classes/class-settings.php:940
+msgid "Prevent search engines from following links"
+msgstr "검색 엔진이 링크를 추적하지 않도록 방지"
+
+#: includes/classes/class-settings.php:948
+msgid "Pass URL parameters to target links"
+msgstr "대상 링크에 URL 매개변수 전달"
+
+#: includes/classes/class-settings.php:961
+msgid "Secure your shortlinks"
+msgstr "단축 링크를 안전하게 유지하세요"
+
+#: includes/classes/class-settings.php:962
+msgid "Users must enter a password to redirect to the target link."
+msgstr "사용자는 대상 링크로 리디렉션되기 위해 비밀번호를 입력해야 합니다."
+
+#: includes/classes/class-settings.php:968
+msgid "Default Password"
+msgstr "기본 비밀번호"
+
+#: includes/classes/class-settings.php:969
+msgid "Default password for protected links"
+msgstr "보호된 링크의 기본 비밀번호"
+
+#: includes/classes/class-settings.php:970
+msgid ""
+"This password will be used for links that have password protection enabled "
+"via global settings. Passwords are case sensitive."
+msgstr "이 비밀번호는 전역 설정을 통해 비밀번호 보호가 활성화된 링크에 사용됩니다. 비밀번호는 대소문자를 구분합니다."
+
+#: includes/classes/class-settings.php:981
+msgid "Set an expiration date and time for shortlinks"
+msgstr "단축 링크에 대한 만료 날짜 및 시간을 설정하세요"
+
+#: includes/classes/class-settings.php:989
+msgid "Select the date when this shortlink should stop working"
+msgstr "이 단축 링크가 작동을 중지해야 하는 날짜를 선택하세요"
+
+#: includes/classes/class-settings.php:1002
+msgid "Select the time when the shortlink should expire"
+msgstr "단축 링크가 만료해야 하는 시간을 선택하세요"
+
+#: includes/classes/class-settings.php:1021
 msgid "Revisions"
 msgstr "수정"
 
-#: includes/classes/class-settings.php:589
+#: includes/classes/class-settings.php:1026
 msgid "Revision Link Visibility"
 msgstr "수정 링크 가시성"
 
-#: includes/classes/class-settings.php:590
+#: includes/classes/class-settings.php:1027
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
 msgstr "활성화되면, 수정 단축 링크는 아래에서 구성한 동작에 따라 \"모든 단축 링크\" 테이블에 나타납니다."
 
-#: includes/classes/class-settings.php:592
+#: includes/classes/class-settings.php:1029
 msgid "When Revision is Created"
 msgstr "수정이 생성될 때"
 
-#: includes/classes/class-settings.php:594
+#: includes/classes/class-settings.php:1031
 msgid "When Revision is Created or Link is First Used"
 msgstr "수정이 생성되거나 링크가 처음 사용될 때"
 
-#: includes/classes/class-settings.php:602
+#: includes/classes/class-settings.php:1039
 msgid "Show Shortlink in Revision Table"
 msgstr "수정 테이블에 짧은 링크 표시"
 
-#: includes/classes/class-settings.php:603
+#: includes/classes/class-settings.php:1040
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr "PublishPress Revisions에서 수정을 볼 때 짧은 링크 열을 표시합니다."
 
-#: includes/classes/class-settings.php:609
+#: includes/classes/class-settings.php:1046
 msgid "Revision Visibility for Visitors"
 msgstr "방문자를 위한 수정 가시성"
 
-#: includes/classes/class-settings.php:610
+#: includes/classes/class-settings.php:1047
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr "로그아웃한 방문자가 짧은 링크를 통해 수정 내용을 볼 수 있도록 허용합니다."
 
-#: includes/classes/class-settings.php:611
+#: includes/classes/class-settings.php:1048
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1021,15 +1700,15 @@ msgstr ""
 "기본적으로 PublishPress Revisions는 방문자가 수정 미리보기를 볼 수 없도록 차단합니다. 활성화하면, 수정 짧은 링크가 "
 "로그아웃한 방문자에게 미리보기 URL로 리디렉션하는 대신 수정 내용을 직접 렌더링합니다."
 
-#: includes/classes/class-settings.php:632
+#: includes/classes/class-settings.php:1071
 msgid "Dummy"
 msgstr "더미"
 
-#: includes/classes/class-settings.php:676
+#: includes/classes/class-settings.php:1115
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr "아직 구성된 게시물 유형이 없습니다. 시작하려면 \"게시물 유형 추가\"를 클릭하세요."
 
-#: includes/classes/class-settings.php:708
+#: includes/classes/class-settings.php:1147
 msgid "Add Post Type"
 msgstr "게시물 유형 추가"
 
@@ -1055,77 +1734,78 @@ msgstr "제목"
 msgid "Details"
 msgstr "세부정보"
 
-#: includes/classes/class-table-logs.php:199
+#: includes/classes/class-table-logs.php:200
 msgid "Are you sure you want to delete this log entry?"
 msgstr "이 로그 항목을 삭제하시겠습니까?"
 
-#: includes/classes/class-table-logs.php:250
+#: includes/classes/class-table-logs.php:260
+msgid "View Analytics"
+msgstr "분석 보기"
+
+#: includes/classes/class-table-logs.php:278
 msgid "Tablet"
 msgstr "태블릿"
 
-#: includes/classes/class-table-logs.php:252
+#: includes/classes/class-table-logs.php:280
 msgid "Mobile"
 msgstr "모바일"
 
-#: includes/classes/class-table-logs.php:254
+#: includes/classes/class-table-logs.php:282
 msgid "Desktop"
 msgstr "데스크탑"
 
-#: includes/classes/class-table-logs.php:308
+#: includes/classes/class-table-logs.php:336
 #. translators: 1: user display name, 2: location name, 3: visit date/time
 #, php-format
 msgid "%1$s from %2$s visited at %3$s"
 msgstr "%1$s에서 %2$s를 방문했습니다. %3$s"
 
-#: includes/classes/class-table-logs.php:311
+#: includes/classes/class-table-logs.php:339
 #. translators: 1: user display name, 2: visit date/time
 #, php-format
 msgid "%1$s visited at %2$s"
 msgstr "%1$s님이 %2$s에 방문하셨습니다."
 
-#: includes/classes/class-table-logs.php:315
+#: includes/classes/class-table-logs.php:343
 #. translators: 1: location name, 2: visit date/time
 #, php-format
 msgid "From %1$s, visited at %2$s"
 msgstr "%1$s에서 %2$s에 방문하셨습니다."
 
-#: includes/classes/class-table-logs.php:318
+#: includes/classes/class-table-logs.php:346
 #. translators: %s: visit date/time
 #, php-format
 msgid "Visited at %s"
 msgstr "%s에 방문하셨습니다."
 
-#: includes/classes/class-table-logs.php:330
+#: includes/classes/class-table-logs.php:358
 #. translators: %s: device type and browser name, e.g. "Mobile Chrome"
 #, php-format
 msgid "via %s"
 msgstr "%s를 통해 접속하셨습니다."
 
-#: includes/functions.php:169
+#: includes/functions.php:225
 msgid "Edit shortlink settings"
 msgstr "짧은 링크 설정 편집"
 
-#: includes/functions.php:216
+#: includes/functions.php:364
+#: tinypress.php:306
+msgid ""
+"This post is in {status} status. It will become visible to the public on "
+"{date}."
+msgstr "이 게시물은 {status} 상태입니다. {date}에 공개됩니다."
+
+#: includes/functions.php:389
 msgid "Target url not found."
 msgstr "대상 URL을 찾을 수 없습니다."
 
-#: includes/functions.php:223
+#: includes/functions.php:396
 msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr "잘못된 URL 스킴입니다. http, https, ftp, ftps 및 mailto만 허용됩니다."
 
-#: includes/functions.php:229
-msgid "Invalid URL."
-msgstr "잘못된 URL입니다."
-
-#: includes/functions.php:233
+#: includes/functions.php:428
 msgid "Tiny slug could not created."
 msgstr "짧은 슬러그를 생성할 수 없습니다."
-
-#: includes/functions.php:252
-#. translators: %s: link ID number
-#, php-format
-msgid "Link - %s"
-msgstr "링크 - %s"
 
 #: templates/admin-modal-new-link.php:12
 msgid "Shortlink will appear here"
@@ -1139,50 +1819,46 @@ msgstr "긴 URL을 입력하고 짧은 링크를 만드세요"
 msgid "Long URL"
 msgstr "긴 URL"
 
-#: templates/admin-modal-new-link.php:37
-msgid "Close"
-msgstr "닫기"
-
 #: templates/admin-modal-new-link.php:38
 msgid "Create Shortlink"
 msgstr "짧은 링크 만들기"
 
-#: templates/admin/analytics.php:45
-#: templates/admin/analytics.php:64
+#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:68
 msgid "Reset Today's Analytics"
 msgstr "오늘의 분석 재설정"
 
-#: templates/admin/analytics.php:46
+#: templates/admin/analytics.php:50
 msgid "Reset Week's Analytics"
 msgstr "이번 주의 분석 재설정"
 
-#: templates/admin/analytics.php:47
+#: templates/admin/analytics.php:51
 msgid "Reset Month's Analytics"
 msgstr "이번 달의 분석 재설정"
 
-#: templates/admin/analytics.php:48
+#: templates/admin/analytics.php:52
 msgid "Reset Year's Analytics"
 msgstr "올해의 분석 재설정"
 
-#: templates/admin/analytics.php:49
+#: templates/admin/analytics.php:53
 msgid ""
 "Are you sure you want to reset the analytics for this period? This action "
 "cannot be undone."
 msgstr "이 기간의 분석을 재설정하시겠습니까? 이 작업은 실행 취소할 수 없습니다."
 
-#: templates/admin/analytics.php:57
+#: templates/admin/analytics.php:61
 msgid "Today"
 msgstr "오늘"
 
-#: templates/admin/analytics.php:58
+#: templates/admin/analytics.php:62
 msgid "Last 7 Days"
 msgstr "지난 7일"
 
-#: templates/admin/analytics.php:59
+#: templates/admin/analytics.php:63
 msgid "Last 1 Month"
 msgstr "지난 1개월"
 
-#: templates/admin/analytics.php:60
+#: templates/admin/analytics.php:64
 msgid "Last 1 Year"
 msgstr "지난 1년"
 
@@ -1244,6 +1920,16 @@ msgstr "지식 베이스 보기"
 msgid "This plugin can be deleted."
 msgstr "이 플러그인은 삭제할 수 있습니다."
 
-#: tinypress.php:355
+#: tinypress.php:395
 msgid "Copied."
 msgstr "복사됨."
+
+#: tinypress.php:397
+msgid ""
+"This setting is inherited from global settings. Choose another option to "
+"override it for this shortlink."
+msgstr "이 설정은 전역 설정에서 상속됩니다. 이 짧은 링크를 위해 다른 옵션을 선택하여 덮어쓸 수 있습니다."
+
+#: tinypress.php:398
+msgid "Working..."
+msgstr "작업 중..."

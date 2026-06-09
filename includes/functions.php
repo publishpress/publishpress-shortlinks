@@ -85,6 +85,47 @@ if (! function_exists('tinypress_create_url_slug')) {
     }
 }
 
+if (! function_exists('tinypress_get_link_prefix_settings')) {
+    /**
+     * Get normalized shortlink prefix settings from the settings option.
+     *
+     * @param array|null $settings Settings array to read from. Defaults to tinypress_settings.
+     * @return array{enabled:string,slug:string}
+     */
+    function tinypress_get_link_prefix_settings($settings = null)
+    {
+        if (! is_array($settings)) {
+            $settings = get_option('tinypress_settings', array());
+        }
+
+        if (! is_array($settings)) {
+            $settings = array();
+        }
+
+        if (array_key_exists('tinypress_link_prefix', $settings)) {
+            $enabled = ('1' === (string) $settings['tinypress_link_prefix']) ? '1' : '';
+        } else {
+            $standalone_enabled = get_option('tinypress_link_prefix', null);
+            $enabled = (null === $standalone_enabled || '1' === (string) $standalone_enabled) ? '1' : '';
+        }
+
+        if (array_key_exists('tinypress_link_prefix_slug', $settings)) {
+            $slug = sanitize_title((string) $settings['tinypress_link_prefix_slug']);
+        } else {
+            $slug = sanitize_title((string) get_option('tinypress_link_prefix_slug', 'go'));
+        }
+
+        if ('' === $slug) {
+            $slug = 'go';
+        }
+
+        return array(
+            'enabled' => $enabled,
+            'slug'    => $slug,
+        );
+    }
+}
+
 
 if (! function_exists('tinypress_get_ip_address')) {
     /**get user ip
@@ -135,8 +176,11 @@ if (! function_exists('tinypress_get_tiny_slug_copier')) {
         $tiny_slug        = Utils::get_meta('tiny_slug', $post_id, $default_string);
         $link_prefix_slug = '';
 
-        if ('1' == Utils::get_option('tinypress_link_prefix')) {
-            $link_prefix_slug = Utils::get_option('tinypress_link_prefix_slug', 'go');
+        $prefix_settings = tinypress_get_link_prefix_settings();
+        $prefix_enabled  = $prefix_settings['enabled'];
+        
+        if ('1' == $prefix_enabled) {
+            $link_prefix_slug = $prefix_settings['slug'];
         }
 
         ob_start();
@@ -436,8 +480,10 @@ if (! function_exists('tinypress_get_tinyurl')) {
         $tinyurl_parts[] = site_url();
 
         // if custom prefix enabled then add it
-        if ('1' == Utils::get_option('tinypress_link_prefix')) {
-            $tinyurl_parts[] = Utils::get_option('tinypress_link_prefix_slug', 'go');
+        $prefix_settings = tinypress_get_link_prefix_settings();
+
+        if ('1' == $prefix_settings['enabled']) {
+            $tinyurl_parts[] = $prefix_settings['slug'];
         }
 
         // added the tiny slug

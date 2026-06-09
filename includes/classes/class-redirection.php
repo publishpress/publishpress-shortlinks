@@ -50,12 +50,16 @@ if (! class_exists('TINYPRESS_Redirection')) {
             add_action('wp', array( $this, 'redirection_controller' ), 5);
             // Yoast SEO compatibility
             add_filter('wpseo_redirect_bypass_redirect', array( $this, 'yoast_bypass_shortlink_redirect' ), 10, 1);
+            // WordPress canonical redirect compatibility
+            add_filter('redirect_canonical', array( $this, 'bypass_canonical_for_shortlinks' ), 1, 2);
+            // Generic redirect compatibility for plugins that use wp_redirect filters.
+            add_filter('wp_redirect', array( $this, 'bypass_wp_redirect_for_shortlinks' ), 1, 2);
             // Redirection plugin compatibility
             add_filter('redirection_url_target', array( $this, 'redirection_plugin_bypass' ), 10, 2);
 
             add_filter('wp_title', array( $this, 'fix_shortlink_title' ), 10, 2);
             // Main redirection controller
-            add_action('template_redirect', array( $this, 'redirection_controller' ), 0);
+            add_action('template_redirect', array( $this, 'redirection_controller' ), -10000);
             add_action('pre_get_posts', array( $this, 'tinypress_filter_shortlink_preview_visibility' ));
             add_action('wp_footer', array( $this, 'inject_reload_detection' ));
 
@@ -136,6 +140,14 @@ if (! class_exists('TINYPRESS_Redirection')) {
         {
             $use_global = Utils::get_meta($use_global_key, $link_id);
 
+            if ('enabled' === $use_global) {
+                return '1';
+            }
+
+            if ('disabled' === $use_global) {
+                return '';
+            }
+
             $is_using_global = false;
             if (is_array($use_global) && in_array('1', $use_global)) {
                 $is_using_global = true;
@@ -163,6 +175,10 @@ if (! class_exists('TINYPRESS_Redirection')) {
         {
             $use_global = Utils::get_meta('enable_expiration_use_global', $link_id);
 
+            if ('disabled' === $use_global) {
+                return '';
+            }
+
             $is_using_global = false;
             if (is_array($use_global) && in_array('1', $use_global)) {
                 $is_using_global = true;
@@ -188,6 +204,10 @@ if (! class_exists('TINYPRESS_Redirection')) {
         private function get_expiration_time($link_id)
         {
             $use_global = Utils::get_meta('enable_expiration_use_global', $link_id);
+
+            if ('disabled' === $use_global) {
+                return '';
+            }
 
             $is_using_global = false;
             if (is_array($use_global) && in_array('1', $use_global)) {
@@ -1273,6 +1293,17 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
             global $wpdb;
 
+            $user_agent = function_exists('wp_get_user_agent') ? (string) wp_get_user_agent() : '';
+            $health_check_header = isset($_SERVER['HTTP_X_PUBLISHPRESS_LINK_HEALTH'])
+                ? sanitize_text_field(wp_unslash($_SERVER['HTTP_X_PUBLISHPRESS_LINK_HEALTH']))
+                : '';
+            $is_link_health_request = (false !== stripos($user_agent, 'PublishPress Shortlinks Link Health/'))
+                || in_array(strtolower($health_check_header), array('1', 'true', 'yes'), true);
+
+            if ($is_link_health_request) {
+                return;
+            }
+
             if (is_user_logged_in()) {
                 $current_user_id = get_current_user_id();
                 $post = get_post($link_id);
@@ -1325,7 +1356,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
             }
 
-            $location_info['user_agent'] = function_exists('wp_get_user_agent') ? sanitize_text_field(wp_get_user_agent()) : '';
+            $location_info['user_agent'] = sanitize_text_field($user_agent);
 
             // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery -- Custom table insert for tracking; no caching needed for write operations
             $wpdb->insert(
@@ -1850,6 +1881,38 @@ if (! class_exists('TINYPRESS_Redirection')) {
             }
 
             return $bypass;
+        }
+
+        /**
+         * WordPress canonical redirect compatibility: do not canonicalize valid shortlink requests.
+         *
+         * @param string|false $redirect_url  The redirect URL, or false to skip redirect.
+         * @param string       $requested_url The requested URL.
+         * @return string|false
+         */
+        public function bypass_canonical_for_shortlinks($redirect_url, $requested_url)
+        {
+            if ($this->is_dedicated_shortlink_request()) {
+                return false;
+            }
+
+            return $redirect_url;
+        }
+
+        /**
+         * Generic redirect compatibility: prevent helper plugins from redirecting valid shortlinks.
+         *
+         * @param string|false $location The redirect location.
+         * @param int          $status   The redirect status code.
+         * @return string|false
+         */
+        public function bypass_wp_redirect_for_shortlinks($location, $status)
+        {
+            if ($this->is_dedicated_shortlink_request()) {
+                return false;
+            }
+
+            return $location;
         }
 
         /**

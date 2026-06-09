@@ -29,7 +29,11 @@ if (! class_exists('TINYPRESS_Settings')) {
             add_action('plugins_loaded', array( $this, 'register_custom_statuses_filters' ), 1);
 
             add_action('init', array( $this, 'create_settings_page' ), 5);
+            add_action('init', array( $this, 'sync_prefix_standalone_options' ), 6);
             add_filter('pb_settings_tinypress_settings_save', array( $this, 'sanitize_autolist_settings' ), 10, 2);
+            add_action('update_option_tinypress_settings', array( $this, 'sync_prefix_standalone_options' ), 1, 2);
+            add_filter('WPDK/Utils/get_optiontinypress_link_prefix', array( $this, 'filter_link_prefix_option' ));
+            add_filter('WPDK/Utils/get_optiontinypress_link_prefix_slug', array( $this, 'filter_link_prefix_slug_option' ));
             add_action('pb_settings_options_before', array( $this, 'add_settings_wrapper_start' ));
             add_action('pb_settings_options_after', array( $this, 'add_settings_wrapper_end' ));
             add_action('admin_notices', array( $this, 'shortlinks_elementor_prefix_notice' ));
@@ -76,6 +80,61 @@ if (! class_exists('TINYPRESS_Settings')) {
         }
 
         /**
+         * Keep legacy standalone prefix options in sync with the grouped settings option.
+         *
+         * Some shortlink URL builders intentionally read tinypress_link_prefix and
+         * tinypress_link_prefix_slug directly via get_option(). The settings page
+         * stores these values inside tinypress_settings, so mirror them here.
+         *
+         * @return void
+         */
+        public function sync_prefix_standalone_options($old_value = null, $settings = null)
+        {
+            if (! is_array($settings)) {
+                $settings = get_option('tinypress_settings', array());
+            }
+
+            if (! is_array($settings)) {
+                return;
+            }
+
+            $prefix_settings = tinypress_get_link_prefix_settings($settings);
+
+            if (array_key_exists('tinypress_link_prefix', $settings)) {
+                $prefix_enabled = $prefix_settings['enabled'];
+                $old_option_value = get_option('tinypress_link_prefix', null);
+
+                if ($old_option_value !== $prefix_enabled) {
+                    update_option('tinypress_link_prefix', $prefix_enabled);
+                }
+            }
+
+            if (array_key_exists('tinypress_link_prefix_slug', $settings)) {
+                $prefix_slug = $prefix_settings['slug'];
+                $old_option_value = get_option('tinypress_link_prefix_slug', null);
+
+                if ($old_option_value !== $prefix_slug) {
+                    update_option('tinypress_link_prefix_slug', $prefix_slug);
+                }
+            }
+        }
+
+        public function filter_link_prefix_option($value)
+        {
+            $prefix_settings = tinypress_get_link_prefix_settings();
+
+            return $prefix_settings['enabled'];
+        }
+
+        public function filter_link_prefix_slug_option($value)
+        {
+            $prefix_settings = tinypress_get_link_prefix_settings();
+
+            return $prefix_settings['slug'];
+        }
+
+
+        /**
          * Sanitize autolist settings to prevent duplicates and invalid post types
          *
          * @param array $request
@@ -84,6 +143,18 @@ if (! class_exists('TINYPRESS_Settings')) {
          */
         public function sanitize_autolist_settings($request, $args)
         {
+            if (array_key_exists('tinypress_link_prefix', $request)) {
+                $request['tinypress_link_prefix'] = ('1' === (string) $request['tinypress_link_prefix']) ? '1' : '';
+            }
+
+            if (array_key_exists('tinypress_link_prefix_slug', $request)) {
+                $request['tinypress_link_prefix_slug'] = sanitize_title((string) $request['tinypress_link_prefix_slug']);
+
+                if ('' === $request['tinypress_link_prefix_slug']) {
+                    $request['tinypress_link_prefix_slug'] = 'go';
+                }
+            }
+
             if (isset($request['tinypress_allowed_post_statuses'])) {
                 $allowed_statuses = $request['tinypress_allowed_post_statuses'];
 
@@ -136,6 +207,38 @@ if (! class_exists('TINYPRESS_Settings')) {
                 $request['tinypress_non_public_status_messages'] = $sanitized_messages;
             }
 
+            $save_request = $this->get_settings_save_request_payload();
+            $submitted_options = isset($save_request['tinypress_settings']) && is_array($save_request['tinypress_settings'])
+                ? $save_request['tinypress_settings']
+                : array();
+
+            if (
+                $this->is_autolink_section_save_without_post_types($save_request, $args)
+                && ! array_key_exists('tinypress_autolink_post_types', $submitted_options)
+            ) {
+                $request['tinypress_autolink_post_types'] = array();
+            }
+
+            if (array_key_exists('tinypress_autolink_post_types', $request)) {
+                $autolink_post_types = $request['tinypress_autolink_post_types'];
+
+                if (! is_array($autolink_post_types)) {
+                    $autolink_post_types = array();
+                }
+
+                $valid_autolink_post_types = array_merge(
+                    array('__all__'),
+                    array_keys($this->get_post_type_options())
+                );
+
+                $autolink_post_types = array_values(array_intersect(
+                    array_filter(array_map('sanitize_key', $autolink_post_types)),
+                    $valid_autolink_post_types
+                ));
+
+                $request['tinypress_autolink_post_types'] = $autolink_post_types;
+            }
+
             if (! isset($request['tinypress_autolist_post_types'])) {
                 return $request;
             }
@@ -184,6 +287,66 @@ if (! class_exists('TINYPRESS_Settings')) {
             return $request;
         }
 
+        /**
+         * Get normalized settings save request payload from regular or ajax submit.
+         *
+         * @return array
+         */
+        private function get_settings_save_request_payload()
+        {
+            // phpcs:ignore WordPress.Security.NonceVerification.Missing -- payload is already nonce-protected by settings framework.
+            if (! empty($_POST['data'])) {
+                $decoded = json_decode(wp_unslash(trim((string) $_POST['data'])), true); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized,WordPress.Security.NonceVerification.Missing
+
+                return is_array($decoded) ? $decoded : array();
+            }
+
+            // phpcs:ignore WordPress.Security.NonceVerification.Missing -- payload is sanitized and validated by settings framework.
+            $payload = map_deep($_POST, 'sanitize_text_field');
+
+            return is_array($payload) ? $payload : array();
+        }
+
+        /**
+         * Check whether the current save action targets the Auto-Linking section.
+         *
+         * @param array $save_request Raw save request payload.
+         * @param mixed $settings_page Settings framework instance.
+         * @return bool
+         */
+        private function is_autolink_section_save_without_post_types($save_request, $settings_page)
+        {
+            if (! is_array($save_request)) {
+                return false;
+            }
+
+            $transient = isset($save_request['pb_settings_transient']) && is_array($save_request['pb_settings_transient'])
+                ? $save_request['pb_settings_transient']
+                : array();
+
+            if (empty($transient['section'])) {
+                return false;
+            }
+
+            $section_index = absint($transient['section']) - 1;
+
+            if ($section_index < 0 || ! is_object($settings_page) || ! isset($settings_page->pre_sections[ $section_index ])) {
+                return false;
+            }
+
+            $section_fields = isset($settings_page->pre_sections[ $section_index ]['fields']) && is_array($settings_page->pre_sections[ $section_index ]['fields'])
+                ? $settings_page->pre_sections[ $section_index ]['fields']
+                : array();
+
+            foreach ($section_fields as $field) {
+                if (isset($field['id']) && 'tinypress_autolink_post_types' === $field['id']) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public function render_non_public_notice_messages_field()
         {
             $settings = get_option('tinypress_settings', array());
@@ -217,6 +380,56 @@ if (! class_exists('TINYPRESS_Settings')) {
             }
 
             echo '</div>';
+        }
+
+        /**
+         * Render auto-link post type checkboxes at display time.
+         *
+         * @param array $field Field definition.
+         * @return void
+         */
+        public function render_autolink_post_types_field($field)
+        {
+            $settings = get_option('tinypress_settings', array());
+
+            if (! is_array($settings)) {
+                $settings = array();
+            }
+
+            $selected = array_key_exists('tinypress_autolink_post_types', $settings) && is_array($settings['tinypress_autolink_post_types'])
+                ? array_values(array_map('sanitize_key', $settings['tinypress_autolink_post_types']))
+                : (isset($field['default']) && is_array($field['default']) ? array_values(array_map('sanitize_key', $field['default'])) : array());
+
+            $options = array_merge(
+                array(
+                    '__all__' => esc_html__('All', 'tinypress'),
+                ),
+                $this->get_post_type_options()
+            );
+
+            if (empty($options)) {
+                echo esc_html__('No data available.');
+                return;
+            }
+
+            $is_all_selected = in_array('__all__', $selected, true);
+
+            echo '<ul class="wpdk_settings--inline-list">';
+
+            foreach ($options as $option_key => $option_label) {
+                $option_key = sanitize_key($option_key);
+                $checked    = $is_all_selected || in_array($option_key, $selected, true);
+                $disabled   = $is_all_selected && '__all__' !== $option_key;
+
+                echo '<li>';
+                echo '<label>';
+                echo '<input type="checkbox" name="tinypress_settings[tinypress_autolink_post_types][]" value="' . esc_attr($option_key) . '"' . checked($checked, true, false) . disabled($disabled, true, false) . '/>';
+                echo '<span class="wpdk_settings--text">' . esc_html($option_label) . '</span>';
+                echo '</label>';
+                echo '</li>';
+            }
+
+            echo '</ul>';
         }
 
         /**
@@ -417,16 +630,60 @@ if (! class_exists('TINYPRESS_Settings')) {
          */
         public function get_post_type_options()
         {
-            $post_types = get_post_types(array( 'public' => true ), 'objects');
+            $post_types = get_post_types(array(), 'objects');
+            $excluded_post_types = $this->get_excluded_autolink_post_types();
             $options = array();
 
             foreach ($post_types as $post_type) {
-                if (! in_array($post_type->name, array( 'attachment', 'tinypress_link' ))) {
-                    $options[ $post_type->name ] = $post_type->labels->singular_name . ' (' . $post_type->name . ')';
+                if (! is_object($post_type) || empty($post_type->name)) {
+                    continue;
                 }
+
+                $post_type_name = sanitize_key($post_type->name);
+
+                if ('' === $post_type_name || in_array($post_type_name, $excluded_post_types, true)) {
+                    continue;
+                }
+
+                $label = ! empty($post_type->labels->singular_name)
+                    ? $post_type->labels->singular_name
+                    : (! empty($post_type->label) ? $post_type->label : $post_type_name);
+
+                $options[ $post_type_name ] = $label . ' (' . $post_type_name . ')';
             }
 
+            uasort($options, 'strnatcasecmp');
+
             return $options;
+        }
+
+        /**
+         * Post types that should not be offered for auto-linking.
+         *
+         * @return array
+         */
+        private function get_excluded_autolink_post_types()
+        {
+            $excluded_post_types = array(
+                'attachment',
+                'revision',
+                'nav_menu_item',
+                'custom_css',
+                'customize_changeset',
+                'oembed_cache',
+                'user_request',
+                'wp_block',
+                'wp_template',
+                'wp_template_part',
+                'wp_global_styles',
+                'wp_navigation',
+                'tinypress_link',
+            );
+
+            return array_values(array_filter(array_map('sanitize_key', apply_filters(
+                'tinypress_autolink_excluded_post_types',
+                $excluded_post_types
+            ))));
         }
 
         /**
@@ -439,7 +696,6 @@ if (! class_exists('TINYPRESS_Settings')) {
 
             $user_roles = tinypress_get_roles();
 
-            $post_type_options = $this->get_post_type_options();
             $post_status_options = function_exists('tinypress_get_supported_post_status_options')
                 ? tinypress_get_supported_post_status_options(true)
                 : array(
@@ -509,8 +765,8 @@ if (! class_exists('TINYPRESS_Settings')) {
                             array(
                                 'id'         => 'tinypress_role_view',
                                 'type'       => 'checkbox',
-                                'title'      => esc_html__('Who Can View Shortlinks', 'tinypress'),
-                                'desc'       => esc_html__('Only selected user roles can view links.', 'tinypress'),
+                                'title'      => esc_html__('Who Can View The All Shortlinks Screen', 'tinypress'),
+                                'desc'       => esc_html__('Only selected user roles can view the complete list of Shortlinks.', 'tinypress'),
                                 'inline'     => true,
                                 'options'    => $user_roles,
                                 'default'    => array( 'administrator', 'editor', 'author', 'contributor', 'subscriber', 'revisor' ),
@@ -528,8 +784,8 @@ if (! class_exists('TINYPRESS_Settings')) {
                             array(
                                 'id'           => 'tinypress_role_analytics',
                                 'type'         => 'checkbox',
-                                'title'        => esc_html__('Who Can See Analytics', 'tinypress'),
-                                'desc'         => esc_html__('Only selected user roles can see analytics.', 'tinypress'),
+                                'title'        => esc_html__('Who Can See Logs', 'tinypress'),
+                                'desc'         => esc_html__('Only selected user roles can see the Analytics tab and the Logs screen.', 'tinypress'),
                                 'inline'       => true,
                                 'options'      => $user_roles,
                                 'default'      => array( 'administrator', 'editor' ),
@@ -539,7 +795,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                                 'id'           => 'tinypress_role_edit',
                                 'type'         => 'checkbox',
                                 'title'        => esc_html__('Who Can Control Settings', 'tinypress'),
-                                'desc'         => esc_html__('Only selected user roles can control settings.', 'tinypress'),
+                                'desc'         => esc_html__('Only selected user roles can access the Settings screen.', 'tinypress'),
                                 'inline'       => true,
                                 'options'      => $user_roles,
                                 'default'      => array( 'administrator', 'editor' ),
@@ -559,6 +815,16 @@ if (! class_exists('TINYPRESS_Settings')) {
                                 'default'  => true,
                             ),
                             array(
+                                'id'         => 'tinypress_autolink_post_types',
+                                'type'       => 'callback',
+                                'title'      => esc_html__('Post Types', 'tinypress'),
+                                'subtitle'   => esc_html__('Where should auto-linking be applied?', 'tinypress'),
+                                'function'   => array( $this, 'render_autolink_post_types_field' ),
+                                'default'    => array('post', 'page'),
+                                'class'      => 'wpdk_settings-field-checkbox tinypress-autolink-post-types-field',
+                                'dependency' => array( 'tinypress_autolink_enabled', '==', '1' ),
+                            ),
+                            array(
                                 'id'         => 'tinypress_autolink_target',
                                 'type'       => 'select',
                                 'title'      => esc_html__('Open Auto-Links In', 'tinypress'),
@@ -575,7 +841,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                                 'type'       => 'color',
                                 'title'      => esc_html__('Auto-Link Color', 'tinypress'),
                                 'subtitle'   => esc_html__('Choose the color for auto-linked keywords.', 'tinypress'),
-                                'default'    => '#3b11e4',
+                                'default'    => 'transparent',
                                 'dependency' => array( 'tinypress_autolink_enabled', '==', '1' ),
                             ),
                         )),
