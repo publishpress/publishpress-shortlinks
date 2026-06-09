@@ -1,7 +1,7 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-= [1.7.0] - 02 June, 2026 =
+= [1.7.0] - 09 June, 2026 =
 
 * Feature: Add a broken link scanner, #247
 * Update: Expand the import / export options, #246
