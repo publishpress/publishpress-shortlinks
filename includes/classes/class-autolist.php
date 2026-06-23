@@ -277,6 +277,10 @@ if (! class_exists('TINYPRESS_AutoList')) {
                 return;
             }
 
+            if ($post->post_status === 'auto-draft') {
+                return;
+            }
+
             $behavior = $this->get_post_type_behavior($post->post_type);
 
             if (! in_array($behavior, array( 'on_create', 'on_first_use_or_on_create' ))) {
