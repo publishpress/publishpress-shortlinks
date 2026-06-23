@@ -25,6 +25,7 @@ class ShortlinksCoreAdmin
             add_filter('tinypress_autolink_exceptions_fields', [$this, 'add_autolink_exceptions_teaser_fields']);
 
             add_action('admin_menu', [$this, 'tinypress_add_link_checker_teaser_menu'], 25);
+            add_action('admin_menu', [$this, 'tinypress_add_reports_teaser_menu'], 20);
 
             add_action('tinypress_admin_class_before_assets_register', [$this, 'tinypress_load_admin_core_assets']);
             add_action('tinypress_admin_class_after_styles_enqueue', [$this, 'tinypress_load_admin_core_styles']);
@@ -70,6 +71,7 @@ class ShortlinksCoreAdmin
             'edit-tinypress_link_category',
             'tinypress_link_page_tinypress-import-export',
             'tinypress_link_page_tinypress-link-checker',
+            'tinypress_link_page_tinypress-reports',
         ];
 
         $show = false;
@@ -119,6 +121,18 @@ class ShortlinksCoreAdmin
             'tinypress_view_shortlink_analytics',
             'tinypress-link-checker',
             [$this, 'render_link_checker_teaser_page']
+        );
+    }
+
+    public function tinypress_add_reports_teaser_menu()
+    {
+        add_submenu_page(
+            'edit.php?post_type=tinypress_link',
+            esc_html__('Reports', 'tinypress'),
+            esc_html__('Reports', 'tinypress'),
+            'tinypress_view_shortlink_analytics',
+            'tinypress-reports',
+            [$this, 'render_reports_teaser_page']
         );
     }
 
@@ -193,6 +207,91 @@ class ShortlinksCoreAdmin
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;">
+                    <?php $this->render_pro_nudge(); ?>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+
+    public function render_reports_teaser_page()
+    {
+        ?>
+        <div class="wrap tinypress-reports-teaser-wrap">
+            <h1><?php esc_html_e('Reports', 'tinypress'); ?></h1>
+            <p class="description">
+                <?php esc_html_e('Get aggregated insights into your shortlink performance with detailed analytics reports.', 'tinypress'); ?>
+            </p>
+
+            <div class="tinypress-reports-teaser-wrapper">
+                <div class="tinypress-reports-teaser-content">
+                    <div class="tinypress-reports-teaser-filter">
+                        <label><?php esc_html_e('Date Range:', 'tinypress'); ?></label>
+                        <select disabled>
+                            <option><?php esc_html_e('Last 7 Days', 'tinypress'); ?></option>
+                        </select>
+                        <button type="button" class="button" disabled><?php esc_html_e('Apply', 'tinypress'); ?></button>
+                    </div>
+
+                    <div class="tinypress-reports-teaser-cards">
+                        <div class="tinypress-reports-teaser-card">
+                            <span class="dashicons dashicons-chart-bar"></span>
+                            <div>
+                                <div class="tinypress-reports-teaser-card-value">1,247</div>
+                                <div class="tinypress-reports-teaser-card-label"><?php esc_html_e('Total Clicks', 'tinypress'); ?></div>
+                            </div>
+                        </div>
+                        <div class="tinypress-reports-teaser-card">
+                            <span class="dashicons dashicons-admin-users"></span>
+                            <div>
+                                <div class="tinypress-reports-teaser-card-value">892</div>
+                                <div class="tinypress-reports-teaser-card-label"><?php esc_html_e('Unique Visitors', 'tinypress'); ?></div>
+                            </div>
+                        </div>
+                        <div class="tinypress-reports-teaser-card">
+                            <span class="dashicons dashicons-admin-links"></span>
+                            <div>
+                                <div class="tinypress-reports-teaser-card-value">34</div>
+                                <div class="tinypress-reports-teaser-card-label"><?php esc_html_e('Active Links', 'tinypress'); ?></div>
+                            </div>
+                        </div>
+                        <div class="tinypress-reports-teaser-card">
+                            <span class="dashicons dashicons-performance"></span>
+                            <div>
+                                <div class="tinypress-reports-teaser-card-value">36.7</div>
+                                <div class="tinypress-reports-teaser-card-label"><?php esc_html_e('Avg. Clicks/Link', 'tinypress'); ?></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tinypress-reports-teaser-sections">
+                        <div class="tinypress-reports-teaser-section">
+                            <h2><?php esc_html_e('Top Performing Links', 'tinypress'); ?></h2>
+                            <table class="widefat striped">
+                                <thead>
+                                    <tr>
+                                        <th><?php esc_html_e('Link', 'tinypress'); ?></th>
+                                        <th class="tinypress-col-clicks"><?php esc_html_e('Clicks', 'tinypress'); ?></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Summer Sale Campaign<br><small>summer-sale</small></td><td class="tinypress-col-clicks"><strong>342</strong></td></tr>
+                                    <tr><td>Product Launch<br><small>new-product</small></td><td class="tinypress-col-clicks"><strong>287</strong></td></tr>
+                                    <tr><td>Newsletter Signup<br><small>newsletter</small></td><td class="tinypress-col-clicks"><strong>198</strong></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tinypress-reports-teaser-section">
+                            <h2><?php esc_html_e('Top Locations', 'tinypress'); ?></h2>
+                            <ul class="tinypress-reports-teaser-locations">
+                                <li><span>United States</span><span class="location-count">423</span></li>
+                                <li><span>United Kingdom</span><span class="location-count">187</span></li>
+                                <li><span>Germany</span><span class="location-count">134</span></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;">
                     <?php $this->render_pro_nudge(); ?>
