@@ -20,6 +20,15 @@ You can download a built package from [releases page](/releases/) and install it
 
 Please, check the instructions on our [documentation pages](https://publishpress.github.io/docs/deployment/building).
 
+## Contributing
+
+When creating a pull request, please use the appropriate template:
+
+- **[Create General PR](https://github.com/publishpress/publishpress-shortlinks/compare/development...your-branch?quick_pull=1&template=general.md)** - For bug fixes, features, and improvements
+- **[Create Pre-release PR](https://github.com/publishpress/publishpress-shortlinks/compare/development...your-branch?quick_pull=1&template=pre-release.md)** - For release preparation and deployment
+
+> **Note:** Replace the second `your-branch` in the URL with your feature branch name, or simply click the link and change the branch in GitHub's UI.
+
 ## License
 
 License: [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
