@@ -94,6 +94,182 @@
 
         tinypressActivateRequestedMetaboxTab();
 
+        function tinypressGetNotesField() {
+            return $('textarea[name*="[tiny_notes]"], textarea#tiny_notes').first();
+        }
+
+        function tinypressRemoveSuggestion(type) {
+            $('.tinypress-url-suggestion[data-type="' + type + '"]').remove();
+            if (type === 'title') {
+                $('.tinypress-url-suggestion-anchor').removeClass('tinypress-url-suggestion-anchor');
+            }
+        }
+
+        function tinypressShowSuggestion(type, value) {
+            value = $.trim(value || '');
+            if (!value) {
+                return;
+            }
+
+            var i18n = pluginObject.url_metadata_i18n || {};
+            var $field = type === 'title' ? $('.tinypress_tiny_label').first() : tinypressGetNotesField();
+            if (!$field.length) {
+                return;
+            }
+
+            if ($.trim($field.val()) === value) {
+                return;
+            }
+
+            tinypressRemoveSuggestion(type);
+
+            var label = type === 'title'
+                ? (i18n.suggested_title || 'Suggested Label from target URL')
+                : (i18n.suggested_description || 'Suggested Notes from target URL');
+            var prompt = type === 'title'
+                ? (i18n.overwrite_title || 'Overwrite label?')
+                : (i18n.overwrite_description || 'Overwrite notes?');
+
+            var $box = $('<div/>', {
+                class: 'tinypress-url-suggestion',
+                'data-type': type
+            });
+
+            if (type === 'title') {
+                $box.addClass('tinypress-url-suggestion-label-overlay');
+            }
+
+            $('<button/>', {
+                type: 'button',
+                class: 'tinypress-url-suggestion-dismiss',
+                'aria-label': i18n.dismiss || 'Dismiss',
+                text: 'x'
+            }).appendTo($box);
+
+            $('<div/>', {
+                class: 'tinypress-url-suggestion-value',
+                text: value
+            }).appendTo($box);
+
+            $('<div/>', {
+                class: 'tinypress-url-suggestion-meta',
+                text: label + '. ' + prompt
+            }).appendTo($box);
+
+            var $actions = $('<div/>', {
+                class: 'tinypress-url-suggestion-actions'
+            }).appendTo($box);
+
+            $('<button/>', {
+                type: 'button',
+                class: 'button button-small tinypress-url-suggestion-accept',
+                text: i18n.accept || 'Yes'
+            }).appendTo($actions);
+
+            $('<button/>', {
+                type: 'button',
+                class: 'button button-small tinypress-url-suggestion-reject',
+                text: i18n.reject || 'No'
+            }).appendTo($actions);
+
+            if (type === 'title') {
+                var $anchor = $field.closest('.wpdk_settings-fieldset');
+                if ($anchor.length) {
+                    $anchor.addClass('tinypress-url-suggestion-anchor').append($box);
+                } else {
+                    $field.before($box);
+                }
+            } else {
+                $field.after($box);
+            }
+        }
+
+        var tinypressMetadataTimer = null;
+        var tinypressLastMetadataUrl = '';
+        var tinypressMetadataRequest = null;
+
+        function tinypressFetchUrlMetadata() {
+            if (!$('body').hasClass('post-type-tinypress_link') || !pluginObject.url_metadata_nonce) {
+                return;
+            }
+
+            var $targetUrl = $('.tinypress_tiny_url').first();
+            var targetUrl = $.trim($targetUrl.val() || '');
+
+            if (!/^https?:\/\//i.test(targetUrl) || targetUrl === tinypressLastMetadataUrl) {
+                return;
+            }
+
+            tinypressLastMetadataUrl = targetUrl;
+
+            if (tinypressMetadataRequest && tinypressMetadataRequest.readyState !== 4) {
+                tinypressMetadataRequest.abort();
+            }
+
+            tinypressMetadataRequest = $.ajax({
+                url: pluginObject.ajax_url,
+                method: 'POST',
+                data: {
+                    action: 'tinypress_fetch_url_metadata',
+                    nonce: pluginObject.url_metadata_nonce,
+                    url: targetUrl
+                }
+            }).done(function(response) {
+                if (!response || !response.success || !response.data) {
+                    return;
+                }
+
+                tinypressShowSuggestion('title', response.data.title);
+                tinypressShowSuggestion('description', response.data.description);
+            }).fail(function(xhr, status) {
+                if (status !== 'abort') {
+                    tinypressLastMetadataUrl = '';
+                }
+            });
+        }
+
+        function tinypressScheduleUrlMetadata(delay) {
+            clearTimeout(tinypressMetadataTimer);
+            tinypressMetadataTimer = setTimeout(tinypressFetchUrlMetadata, delay);
+        }
+
+        $(document).on('input paste change', '.tinypress_tiny_url', function() {
+            tinypressScheduleUrlMetadata(200);
+        });
+
+        $(document).on('blur', '.tinypress_tiny_url', function() {
+            tinypressScheduleUrlMetadata(0);
+        });
+
+        $(document).on('click', '.tinypress-url-suggestion-accept', function(e) {
+            e.preventDefault();
+
+            var $box = $(this).closest('.tinypress-url-suggestion');
+            var type = $box.data('type');
+            var value = $.trim($box.find('.tinypress-url-suggestion-value').text() || '');
+
+            if (type === 'title') {
+                $('.tinypress_tiny_label').first().val(value).trigger('change').trigger('keyup');
+            } else {
+                tinypressGetNotesField().val(value).trigger('change').trigger('keyup');
+            }
+
+            $box.remove();
+            if (type === 'title') {
+                $('.tinypress-url-suggestion-anchor').removeClass('tinypress-url-suggestion-anchor');
+            }
+        });
+
+        $(document).on('click', '.tinypress-url-suggestion-reject, .tinypress-url-suggestion-dismiss', function(e) {
+            e.preventDefault();
+            var $box = $(this).closest('.tinypress-url-suggestion');
+            var type = $box.data('type');
+            $box.remove();
+            if (type === 'title') {
+                $('.tinypress-url-suggestion-anchor').removeClass('tinypress-url-suggestion-anchor');
+            }
+        });
+
         function tinypressSyncAutolinkAllCheckbox() {
             if (!$('body').hasClass('post-type-tinypress_link')) {
                 return;
