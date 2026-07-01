@@ -361,6 +361,8 @@ if (! defined('TINYPRESS_LOADED')) {
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-revision.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-statuses.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-import-export.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-migration.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-url-metadata.php';
 
                 new TINYPRESS_Hooks();
                 new TINYPRESS_Settings();
@@ -370,6 +372,8 @@ if (! defined('TINYPRESS_LOADED')) {
                 TINYPRESS_Autolist_Ajax::instance();
                 SHORTLINKS_Reviews::instance();
                 TINYPRESS_Import_Export::get_instance();
+                TINYPRESS_Migration::get_instance();
+                TINYPRESS_URL_Metadata::get_instance();
 
                 // Initialize metaboxes early for proper registration
                 add_action('init', function () {
@@ -397,6 +401,16 @@ if (! defined('TINYPRESS_LOADED')) {
                 'inherited_notice'         => esc_html__('This setting is inherited from global settings. Choose another option to override it for this shortlink.', 'tinypress'),
                 'working_text'             => esc_html__('Working...', 'tinypress'),
                 'plugin_title'             => esc_html__('PublishPress Shortlinks', 'tinypress'),
+                'url_metadata_nonce'       => wp_create_nonce('tinypress_fetch_url_metadata'),
+                'url_metadata_i18n'        => array(
+                    'suggested_title'       => esc_html__('Suggested Label from target URL', 'tinypress'),
+                    'suggested_description' => esc_html__('Suggested Notes from target URL', 'tinypress'),
+                    'overwrite_title'       => esc_html__('Overwrite label?', 'tinypress'),
+                    'overwrite_description' => esc_html__('Overwrite notes?', 'tinypress'),
+                    'accept'                => esc_html__('Yes', 'tinypress'),
+                    'reject'                => esc_html__('No', 'tinypress'),
+                    'dismiss'               => esc_html__('Dismiss', 'tinypress'),
+                ),
                 ));
             }
 

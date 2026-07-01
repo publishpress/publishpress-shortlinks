@@ -857,15 +857,15 @@ if (! class_exists('TINYPRESS_Import_Export')) {
 
             // Column name variations mapping
             $column_aliases = array(
-                'target_url'       => array( 'target_url', 'target', 'url', 'destination_url', 'destination', 'redirect_url', 'link_url', 'forward_url' ),
-                'label'            => array( 'label', 'title', 'name', 'link_name', 'text' ),
-                'short_slug'       => array( 'short_slug', 'slug', 'short_code', 'short_link', 'code' ),
+                'target_url'       => array( 'target_url', 'target url', 'target', 'url', 'destination_url', 'destination url', 'destination', 'redirect_url', 'link_url', 'forward_url' ),
+                'label'            => array( 'label', 'title', 'name', 'link_name', 'link_title', 'text' ),
+                'short_slug'       => array( 'short_slug', 'short slug', 'slug', 'link_slug', 'short_code', 'short_link', 'short_url', 'short url', 'code' ),
                 'post_status'      => array( 'post_status', 'wp_status' ),
                 'link_status'      => array( 'status', 'link_status', 'enabled', 'active' ),
-                'redirect_method'  => array( 'redirect_method', 'redirect_type', 'method' ),
+                'redirect_method'  => array( 'redirect_method', 'redirect method', 'redirect_type', 'redirection_type', 'redirect', 'method' ),
                 'nofollow'         => array( 'nofollow', 'no_follow', 'rel_nofollow' ),
                 'sponsored'        => array( 'sponsored', 'is_sponsored' ),
-                'parameter_forwarding' => array( 'parameter_forwarding', 'param_forwarding', 'forward_params' ),
+                'parameter_forwarding' => array( 'parameter_forwarding', 'parameter forwarding', 'param_forwarding', 'params_forwarding', 'forward_params' ),
                 'expiration_enabled' => array( 'expiration_enabled', 'enable_expiration', 'expires', 'is_expiring' ),
                 'expiration_date'   => array( 'expiration_date', 'expires_at', 'expiry_date' ),
                 'expiration_time'   => array( 'expiration_time', 'expiry_time' ),

@@ -2375,3 +2375,289 @@ body.post-type-tinypress_link .tinypress-edit-settings-header #submitdiv #major-
         width: 50px !important;
     }
 }
+.tinypress-migration-notice-actions {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.tinypress-migration-wrap {
+	max-width: 1280px;
+}
+
+.tinypress-migration-summary {
+	margin-top: 18px;
+}
+
+.tinypress-migration-complete-notice {
+	margin: 18px 0 0;
+	position: relative;
+}
+
+.tinypress-migration-complete-notice .button {
+	margin-left: 8px;
+}
+
+.tinypress-migration-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 16px;
+	margin-top: 20px;
+}
+
+.tinypress-migration-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 18px;
+	min-height: 220px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.tinypress-migration-card.is-active {
+	border-color: #46b450;
+	box-shadow: inset 4px 0 0 #46b450;
+}
+
+.tinypress-migration-card-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.tinypress-migration-card-header .dashicons {
+	color: #646970;
+}
+
+.tinypress-migration-card.is-active .tinypress-migration-card-header .dashicons {
+	color: #008a20;
+}
+
+.tinypress-migration-card h2 {
+	font-size: 16px;
+	line-height: 1.4;
+	margin: 0;
+}
+
+.tinypress-migration-card p {
+	color: #50575e;
+	line-height: 1.5;
+	margin: 0;
+}
+
+.tinypress-migration-import-note {
+	background: #f0f6fc;
+	border-left: 4px solid #2271b1;
+	color: #1d2327 !important;
+	padding: 10px 12px;
+	font-size: 13px;
+}
+
+.tinypress-migration-actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+	margin-top: auto;
+}
+
+.tinypress-migration-progress {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.tinypress-migration-progress[hidden] {
+	display: none;
+}
+
+.tinypress-migration-progress-bar {
+	flex: 1;
+	height: 18px;
+	background: #f0f0f1;
+	border: 1px solid #c3c4c7;
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+.tinypress-migration-progress-fill {
+	height: 100%;
+	background: #2271b1;
+	transition: width 0.2s ease;
+}
+
+.tinypress-migration-progress-text {
+	min-width: 42px;
+	text-align: right;
+	font-weight: 600;
+	color: #2271b1;
+}
+
+.tinypress-migration-result {
+	min-height: 20px;
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.tinypress-migration-result.is-success {
+	color: #116329;
+}
+
+.tinypress-migration-result.is-error {
+	color: #b32d2e;
+}
+
+.tinypress-migration-empty {
+	grid-column: 1 / -1;
+	align-items: center;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+	min-height: 280px;
+	padding: 18px;
+	text-align: center;
+	width: 100%;
+}
+
+.tinypress-migration-empty p {
+	color: #50575e;
+	font-size: 15px;
+	line-height: 1.6;
+	margin: 0;
+	max-width: 560px;
+}
+
+.tinypress-url-suggestion {
+	background: #f7f5ff;
+	border: 1px solid #c8c1e6;
+	border-left: 4px solid #655897;
+	border-radius: 4px;
+	box-shadow: 0 2px 8px rgba(35, 25, 66, 0.08);
+	box-sizing: border-box;
+	clear: both;
+	display: block;
+	margin: 10px 0 18px;
+	max-width: 100%;
+	padding: 12px 42px 12px 14px;
+	position: relative;
+	width: 100%;
+}
+
+.tinypress-url-suggestion-anchor {
+	position: relative;
+}
+
+.tinypress-url-suggestion.tinypress-url-suggestion-label-overlay {
+	clear: none;
+	left: 20px;
+	margin: 0;
+	max-width: calc(100% - 40px);
+	padding: 10px 38px 10px 12px;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	width: auto;
+	z-index: 20;
+}
+
+.tinypress-url-suggestion-label-overlay .tinypress-url-suggestion-value {
+	font-size: 13px;
+	margin-bottom: 6px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.tinypress-url-suggestion-label-overlay .tinypress-url-suggestion-meta {
+	margin-bottom: 8px;
+}
+
+.tinypress-url-suggestion-label-overlay .tinypress-url-suggestion-actions .button {
+	min-height: 26px;
+	padding: 0 10px;
+}
+
+.tinypress-url-suggestion-value {
+	display: block;
+	color: #1d2327;
+	font-size: 14px;
+	line-height: 1.45;
+	margin: 0 0 8px;
+	overflow-wrap: anywhere;
+}
+
+.tinypress-url-suggestion-meta {
+	color: #4f4775;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.4;
+	margin: 0 0 10px;
+}
+
+.tinypress-url-suggestion-actions {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.tinypress-url-suggestion-actions .button {
+	border-radius: 3px;
+	box-shadow: none;
+	min-height: 30px;
+	padding: 2px 12px;
+}
+
+.tinypress-url-suggestion-accept.button {
+	background: #2271b1;
+	border-color: #2271b1;
+	color: #fff;
+}
+
+.tinypress-url-suggestion-accept.button:hover,
+.tinypress-url-suggestion-accept.button:focus {
+	background: #135e96;
+	border-color: #135e96;
+	color: #fff;
+}
+
+.tinypress-url-suggestion-reject.button {
+	background: #b32d2e;
+	border-color: #b32d2e;
+	color: #fff;
+}
+
+.tinypress-url-suggestion-reject.button:hover,
+.tinypress-url-suggestion-reject.button:focus {
+	background: #8a2424;
+	border-color: #8a2424;
+	color: #fff;
+}
+
+.tinypress-url-suggestion-dismiss {
+	background: transparent;
+	border: 0;
+	color: #655897;
+	cursor: pointer;
+	font-size: 16px;
+	line-height: 1;
+	padding: 8px;
+	position: absolute;
+	right: 4px;
+	top: 4px;
+}
+
+.tinypress-url-suggestion-dismiss:hover,
+.tinypress-url-suggestion-dismiss:focus {
+	color: #3b315f;
+}
+
+@media (max-width: 782px) {
+	.tinypress-migration-card {
+		min-height: 0;
+	}
+}
