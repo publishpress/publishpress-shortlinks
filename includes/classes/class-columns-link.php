@@ -28,8 +28,10 @@ class TINYPRESS_Column_link
 
         foreach (get_post_types(array( 'public' => true )) as $post_type) {
             if (! in_array($post_type, array( 'attachment', 'tinypress_link' ))) {
-                add_filter('manage_' . $post_type . '_posts_columns', array( $this, 'tinypress_copy_columns' ));
-                add_action('manage_' . $post_type . '_posts_custom_column', array( $this, 'tinypress_copy_content' ), 10, 2);
+                if (function_exists('tinypress_is_post_type_enabled') && tinypress_is_post_type_enabled($post_type)) {
+                    add_filter('manage_' . $post_type . '_posts_columns', array( $this, 'tinypress_copy_columns' ));
+                    add_action('manage_' . $post_type . '_posts_custom_column', array( $this, 'tinypress_copy_content' ), 10, 2);
+                }
             }
         }
 
@@ -378,6 +380,8 @@ class TINYPRESS_Column_link
             return;
         }
 
+        $this->filter_disabled_post_type_links($query);
+
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin list filter.
         $selected = isset($_GET['tinypress_link_type']) ? sanitize_key(wp_unslash($_GET['tinypress_link_type'])) : '';
 
@@ -390,6 +394,13 @@ class TINYPRESS_Column_link
             ));
 
             $matching_ids = array_filter($link_ids, function ($link_id) use ($selected) {
+                if (
+                    function_exists('tinypress_is_shortlink_available_for_post_types')
+                    && ! tinypress_is_shortlink_available_for_post_types($link_id)
+                ) {
+                    return false;
+                }
+
                 return $selected === $this->get_link_type($link_id);
             });
 
@@ -537,6 +548,31 @@ class TINYPRESS_Column_link
     private function is_shortlinks_list_screen($screen)
     {
         return $screen && 'edit-tinypress_link' === $screen->id;
+    }
+
+    /**
+     * Filter out internal links from disabled post types.
+     *
+     * @param WP_Query $query Current query.
+     * @return void
+     */
+    private function filter_disabled_post_type_links($query)
+    {
+        if (! function_exists('tinypress_get_unavailable_shortlink_ids_for_post_types')) {
+            return;
+        }
+
+        $excluded_link_ids = tinypress_get_unavailable_shortlink_ids_for_post_types();
+
+        if (! empty($excluded_link_ids)) {
+            $existing_post_not_in = $query->get('post__not_in');
+
+            if (! is_array($existing_post_not_in)) {
+                $existing_post_not_in = array();
+            }
+
+            $query->set('post__not_in', array_merge($existing_post_not_in, $excluded_link_ids));
+        }
     }
 
     /**
