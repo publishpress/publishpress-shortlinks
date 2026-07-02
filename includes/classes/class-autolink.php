@@ -208,10 +208,19 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 ? array_values(array_map('sanitize_key', $new_settings['tinypress_autolink_post_types']))
                 : array('post', 'page');
 
+            $old_enabled_post_types = isset($old_settings['tinypress_enabled_post_types']) && is_array($old_settings['tinypress_enabled_post_types'])
+                ? array_values(array_map('sanitize_key', $old_settings['tinypress_enabled_post_types']))
+                : array('post', 'page');
+            $new_enabled_post_types = isset($new_settings['tinypress_enabled_post_types']) && is_array($new_settings['tinypress_enabled_post_types'])
+                ? array_values(array_map('sanitize_key', $new_settings['tinypress_enabled_post_types']))
+                : array('post', 'page');
+
             sort($old_post_types);
             sort($new_post_types);
+            sort($old_enabled_post_types);
+            sort($new_enabled_post_types);
 
-            if ($old_enabled !== $new_enabled || $old_post_types !== $new_post_types) {
+            if ($old_enabled !== $new_enabled || $old_post_types !== $new_post_types || $old_enabled_post_types !== $new_enabled_post_types) {
                 $this->invalidate_cache();
             }
         }
@@ -389,6 +398,13 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             foreach ($link_ids as $link_id) {
                 $link_status = Utils::get_meta('link_status', $link_id);
                 if ('1' !== $link_status && true !== $link_status) {
+                    continue;
+                }
+
+                if (
+                    function_exists('tinypress_is_shortlink_available_for_post_types')
+                    && ! tinypress_is_shortlink_available_for_post_types($link_id)
+                ) {
                     continue;
                 }
 

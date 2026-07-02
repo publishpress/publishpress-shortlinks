@@ -515,3 +515,157 @@ if (! function_exists('tinypress_is_auto_listed')) {
         return ! empty($source_post_id);
     }
 }
+
+if (! function_exists('tinypress_is_post_type_enabled')) {
+    /**
+     * Check if shortlinks are enabled for a given post type.
+     *
+     * @param string $post_type The post type to check.
+     * @return bool True if shortlinks are enabled for this post type.
+     */
+    function tinypress_is_post_type_enabled($post_type)
+    {
+        if (empty($post_type) || 'tinypress_link' === $post_type || 'attachment' === $post_type) {
+            return false;
+        }
+
+        $settings = get_option('tinypress_settings', array());
+
+        if (! is_array($settings)) {
+            $settings = array();
+        }
+
+        if (! array_key_exists('tinypress_enabled_post_types', $settings)) {
+            return in_array($post_type, array('post', 'page'), true);
+        }
+
+        $enabled_post_types = $settings['tinypress_enabled_post_types'];
+
+        if (! is_array($enabled_post_types)) {
+            return false;
+        }
+
+        if (in_array('__all__', $enabled_post_types, true)) {
+            return true;
+        }
+
+        return in_array($post_type, $enabled_post_types, true);
+    }
+}
+
+if (! function_exists('tinypress_get_enabled_post_types')) {
+    /**
+     * Get all post types that have shortlinks enabled.
+     *
+     * @return array Array of enabled post type names.
+     */
+    function tinypress_get_enabled_post_types()
+    {
+        $settings = get_option('tinypress_settings', array());
+
+        if (! is_array($settings)) {
+            $settings = array();
+        }
+
+        if (! array_key_exists('tinypress_enabled_post_types', $settings)) {
+            return array('post', 'page');
+        }
+
+        $enabled_post_types = $settings['tinypress_enabled_post_types'];
+
+        if (! is_array($enabled_post_types)) {
+            return array();
+        }
+
+        if (in_array('__all__', $enabled_post_types, true)) {
+            $all_post_types = get_post_types(array('public' => true), 'names');
+            return array_values(array_diff($all_post_types, array('attachment', 'tinypress_link')));
+        }
+
+        return array_values($enabled_post_types);
+    }
+}
+
+if (! function_exists('tinypress_is_shortlink_available_for_post_types')) {
+    /**
+     * Check if a tinypress_link belongs to an enabled source post type.
+     *
+     * Manual shortlinks do not have a source post, so they stay available.
+     *
+     * @param int $link_id The tinypress_link post ID.
+     * @return bool True when the shortlink is not tied to a disabled post type.
+     */
+    function tinypress_is_shortlink_available_for_post_types($link_id)
+    {
+        $link_id = absint($link_id);
+
+        if (empty($link_id) || 'tinypress_link' !== get_post_type($link_id)) {
+            return false;
+        }
+
+        $source_post_id = Utils::get_meta('source_post_id', $link_id);
+
+        if (empty($source_post_id)) {
+            return true;
+        }
+
+        $source_post = get_post(absint($source_post_id));
+
+        if ($source_post) {
+            return function_exists('tinypress_is_post_type_enabled')
+                ? tinypress_is_post_type_enabled($source_post->post_type)
+                : true;
+        }
+
+        $source_post_type = sanitize_key((string) Utils::get_meta('source_post_type', $link_id));
+
+        if ('' === $source_post_type) {
+            return true;
+        }
+
+        return function_exists('tinypress_is_post_type_enabled')
+            ? tinypress_is_post_type_enabled($source_post_type)
+            : true;
+    }
+}
+
+if (! function_exists('tinypress_get_unavailable_shortlink_ids_for_post_types')) {
+    /**
+     * Get tinypress_link IDs that belong to disabled source post types.
+     *
+     * @return int[] Array of unavailable tinypress_link IDs.
+     */
+    function tinypress_get_unavailable_shortlink_ids_for_post_types()
+    {
+        global $wpdb;
+
+        if (! function_exists('tinypress_is_shortlink_available_for_post_types')) {
+            return array();
+        }
+
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Required to find source-linked shortlinks before checking their source post types.
+        $link_ids = $wpdb->get_col(
+            "SELECT DISTINCT pm.post_id
+            FROM {$wpdb->postmeta} pm
+            INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
+            WHERE pm.meta_key = 'source_post_id'
+            AND pm.meta_value != ''
+            AND pm.meta_value != '0'
+            AND p.post_type = 'tinypress_link'"
+        );
+
+        if (empty($link_ids)) {
+            return array();
+        }
+
+        $unavailable_ids = array();
+
+        foreach ($link_ids as $link_id) {
+            if (! tinypress_is_shortlink_available_for_post_types($link_id)) {
+                $unavailable_ids[] = absint($link_id);
+            }
+        }
+
+        return array_values(array_unique($unavailable_ids));
+    }
+}

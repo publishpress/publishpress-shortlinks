@@ -36,7 +36,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
 
                     if ($post_type === 'tinypress_link') {
                         add_action('save_post_tinypress_link', array( $this, 'save_tinypress_link_metabox' ), 15, 2);
-                    } else {
+                    } elseif (function_exists('tinypress_is_post_type_enabled') && tinypress_is_post_type_enabled($post_type)) {
                         add_action('save_post_' . $post_type, array( $this, 'save_native_shortlinks_metabox' ), 10, 2);
                     }
                 }
@@ -157,6 +157,10 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
             global $post;
 
             if (! $post) {
+                return;
+            }
+
+            if ('tinypress_link' !== $post->post_type && function_exists('tinypress_is_post_type_enabled') && ! tinypress_is_post_type_enabled($post->post_type)) {
                 return;
             }
 
