@@ -380,7 +380,6 @@ class TINYPRESS_Column_link
             return;
         }
 
-        // Filter out internal links from disabled post types
         $this->filter_disabled_post_type_links($query);
 
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin list filter.

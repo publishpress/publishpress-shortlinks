@@ -160,7 +160,6 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                 return;
             }
 
-            // Skip if post type is not enabled for shortlinks (except tinypress_link which always shows)
             if ('tinypress_link' !== $post->post_type && function_exists('tinypress_is_post_type_enabled') && ! tinypress_is_post_type_enabled($post->post_type)) {
                 return;
             }

@@ -504,12 +504,6 @@ if (! class_exists('TINYPRESS_Settings')) {
             echo '</div>';
         }
 
-        /**
-         * Render enabled post types checkboxes at display time.
-         *
-         * @param array $field Field definition.
-         * @return void
-         */
         public function render_enabled_post_types_field($field)
         {
             $settings = get_option('tinypress_settings', array());
@@ -559,12 +553,6 @@ if (! class_exists('TINYPRESS_Settings')) {
             echo '</div>';
         }
 
-        /**
-         * Get post types for enabled post types setting.
-         * Uses same pattern as auto-linking to include all post types.
-         *
-         * @return array
-         */
         public function get_public_post_type_options()
         {
             $post_types = get_post_types(array(), 'objects');
