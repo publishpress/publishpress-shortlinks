@@ -160,6 +160,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                 return;
             }
 
+            // Skip if post type is not enabled for shortlinks (except tinypress_link which always shows)
             if ('tinypress_link' !== $post->post_type && function_exists('tinypress_is_post_type_enabled') && ! tinypress_is_post_type_enabled($post->post_type)) {
                 return;
             }
@@ -610,9 +611,8 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                     'type'     => 'text',
                     'title'    => esc_html__('Custom Alt Text', 'tinypress'),
                     'subtitle' => esc_html__('Enter custom alt text for the linked keywords. This is only used if "Custom Text" is selected above.', 'tinypress'),
-                    'dependency' => array(
-                        array('autolink_alt_text', '==', 'custom'),
-                    ),
+                    'dependency' => array('autolink_alt_text', '==', 'custom'),
+                    'class'    => 'tinypress-dependent-child',
                 ),
             );
             $autolink_fields = apply_filters('tinypress_autolink_metabox_fields', $autolink_fields);
@@ -655,12 +655,14 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                         ),
                         array(
                             'id'           => 'redirection_sponsored',
-                            'type'         => 'switcher',
+                            'type'         => 'text',
                             'title'        => '',
-                            'label'        => esc_html__('Adds rel="sponsored" attribute. Recommended for affiliate links and paid promotions.', 'tinypress'),
                             'default'      => false,
-                            'class'        => 'tinypress-global-controlled tinypress-global-toggle-source',
+                            'class'        => 'tinypress-global-controlled tinypress-global-toggle-source hidden',
                             'dependency'   => array('redirection_sponsored_use_global', '==', 'enabled'),
+                            'attributes'   => array(
+                                'type' => 'hidden',
+                            ),
                         ),
                         array(
                             'id'       => 'redirection_no_follow_use_global',
@@ -677,12 +679,14 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                         ),
                         array(
                             'id'           => 'redirection_no_follow',
-                            'type'         => 'switcher',
+                            'type'         => 'text',
                             'title'        => '',
-                            'label'        => esc_html__('Adds rel="nofollow" attribute. Recommended for external links and untrusted sources.', 'tinypress'),
                             'default'      => true,
-                            'class'        => 'tinypress-global-controlled tinypress-global-toggle-source',
+                            'class'        => 'tinypress-global-controlled tinypress-global-toggle-source hidden',
                             'dependency'   => array('redirection_no_follow_use_global', '==', 'enabled'),
+                            'attributes'   => array(
+                                'type' => 'hidden',
+                            ),
                         ),
                         array(
                             'id'       => 'redirection_parameter_forwarding_use_global',
@@ -699,12 +703,14 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                         ),
                         array(
                             'id'           => 'redirection_parameter_forwarding',
-                            'type'         => 'switcher',
+                            'type'         => 'text',
                             'title'        => '',
-                            'label'        => esc_html__('Any parameters added to the short URL (e.g., ?utm_source=email) will be forwarded to the target URL.', 'tinypress'),
                             'default'      => false,
-                            'class'        => 'tinypress-global-controlled tinypress-global-toggle-source',
+                            'class'        => 'tinypress-global-controlled tinypress-global-toggle-source hidden',
                             'dependency'   => array('redirection_parameter_forwarding_use_global', '==', 'enabled'),
+                            'attributes'   => array(
+                                'type' => 'hidden',
+                            ),
                         ),
                     ),
                 )
@@ -726,12 +732,14 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                 ),
                 array(
                     'id'           => 'password_protection',
-                    'type'         => 'switcher',
+                    'type'         => 'text',
                     'title'        => '',
-                    'label'        => esc_html__('Users must enter the password to redirect to the target link.', 'tinypress'),
                     'default'      => false,
-                    'class'        => 'tinypress-global-controlled tinypress-global-toggle-source',
+                    'class'        => 'tinypress-global-controlled tinypress-global-toggle-source hidden',
                     'dependency'   => array('password_protection_use_global', '==', 'enabled'),
+                    'attributes'   => array(
+                        'type' => 'hidden',
+                    ),
                 ),
                 array(
                     'id'           => 'link_password',
@@ -761,12 +769,14 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                 ),
                 array(
                     'id'           => 'enable_expiration',
-                    'type'         => 'switcher',
+                    'type'         => 'text',
                     'title'        => '',
-                    'label'        => esc_html__('After the expiration date and time pass, visitors will no longer be able to access the shortlink.', 'tinypress'),
                     'default'      => false,
-                    'class'        => 'tinypress-global-controlled tinypress-global-toggle-source',
+                    'class'        => 'tinypress-global-controlled tinypress-global-toggle-source hidden',
                     'dependency'   => array('enable_expiration_use_global', '==', 'enabled'),
+                    'attributes'   => array(
+                        'type' => 'hidden',
+                    ),
                 ),
                 array(
                     'id'           => 'expiration_date',

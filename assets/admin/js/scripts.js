@@ -270,25 +270,223 @@
             }
         });
 
-        function tinypressSyncAutolinkAllCheckbox() {
-            if (!$('body').hasClass('post-type-tinypress_link')) {
+        function tinypressNormalizeSearchText(value) {
+            return $.trim(value || '').toLowerCase();
+        }
+
+        function tinypressActivateSettingsSection($layout, sectionId) {
+            var $link = $layout.find('.wpdk_settings-nav-options a[data-tab-id="' + tinypressEscapeSelector(sectionId) + '"]').first();
+            var $section = $layout.find('.wpdk_settings-section[data-section-id="' + tinypressEscapeSelector(sectionId) + '"]').first();
+
+            if (!$section.length && $link.next().is('ul')) {
+                $link = $link.next().find('li:first a[data-tab-id]').first();
+                sectionId = $link.data('tab-id') || sectionId;
+                $section = $layout.find('.wpdk_settings-section[data-section-id="' + tinypressEscapeSelector(sectionId) + '"]').first();
+            }
+
+            if (!$link.length || !$section.length) {
+                return false;
+            }
+
+            $layout.find('.wpdk_settings-nav-options a').removeClass('wpdk_settings-active');
+            $link.addClass('wpdk_settings-active');
+            $link.closest('.wpdk_settings-tab-item').addClass('wpdk_settings-tab-expanded').siblings().removeClass('wpdk_settings-tab-expanded');
+
+            $layout.find('.wpdk_settings-section').addClass('hidden');
+            $section.removeClass('hidden').pb_settings_reload_script();
+            $layout.find('.wpdk_settings-section-id').val($section.index() + 1);
+
+            if (window.location.hash !== '#tab=' + sectionId) {
+                window.location.hash = 'tab=' + sectionId;
+            }
+
+            return true;
+        }
+
+        function tinypressEnsureSettingsSearchEmptyState($section) {
+            var $emptyState = $section.find('> .tinypress-settings-search-empty-state');
+
+            if ($emptyState.length) {
+                return $emptyState;
+            }
+
+            $emptyState = $('<div class="tinypress-settings-search-empty-state" hidden></div>');
+            $('<div class="tinypress-settings-search-empty-icon" aria-hidden="true"></div>').appendTo($emptyState);
+            $('<h3></h3>').text('No matching settings').appendTo($emptyState);
+            $('<p></p>').text('Try a different keyword or clear the search to see all settings.').appendTo($emptyState);
+
+            $section.append($emptyState);
+
+            return $emptyState;
+        }
+
+        function tinypressResetSettingsSearch($layout) {
+            $layout.find('.wpdk_settings-wrapper').removeClass('wpdk_settings-search-all');
+            $layout.removeClass('tinypress-settings-search-active tinypress-settings-search-empty');
+            $layout.find('.wpdk_settings-field').removeClass('wpdk_settings-metabox-hide tinypress-settings-search-match');
+            $layout.find('.wpdk_settings-nav-options a').removeClass('tinypress-settings-search-match');
+            $layout.find('.tinypress-settings-search-empty-state').attr('hidden', 'hidden');
+        }
+
+        function tinypressRunSettingsSearch($input) {
+            var query = tinypressNormalizeSearchText($input.val());
+            var $layout = $input.closest('.tinypress-settings-layout.tinypress-design-refresh');
+            var $wrapper = $layout.find('.wpdk_settings-wrapper');
+            var $activeSection;
+            var $activeFields;
+            var matchCount = 0;
+
+            if (!$layout.length) {
                 return;
             }
 
-            var $all = $('input[type="checkbox"][value="__all__"]').first();
+            $wrapper.removeClass('wpdk_settings-search-all');
+            $layout.find('.wpdk_settings-field').removeClass('wpdk_settings-metabox-hide tinypress-settings-search-match');
+            $layout.find('.wpdk_settings-nav-options a').removeClass('tinypress-settings-search-match');
+            $layout.removeClass('tinypress-settings-search-empty');
+            $layout.find('.tinypress-settings-search-empty-state').attr('hidden', 'hidden');
+
+            $activeSection = $layout.find('.wpdk_settings-section:not(.hidden)').first();
+            if (!$activeSection.length) {
+                return;
+            }
+
+            $activeFields = $activeSection.find('> .wpdk_settings-field:not(.wpdk_settings-depend-on)');
+
+            if (!query.length) {
+                tinypressResetSettingsSearch($layout);
+                return;
+            }
+
+            $activeFields.each(function () {
+                var $field = $(this);
+                var fieldText = tinypressNormalizeSearchText($field.text());
+                var isMatch = fieldText.indexOf(query) !== -1;
+
+                $field.toggleClass('tinypress-settings-search-match', isMatch);
+                $field.toggleClass('wpdk_settings-metabox-hide', !isMatch);
+
+                if (isMatch) {
+                    matchCount++;
+                }
+            });
+
+            if (!matchCount) {
+                $activeFields.addClass('wpdk_settings-metabox-hide');
+                $layout.addClass('tinypress-settings-search-empty');
+                tinypressEnsureSettingsSearchEmptyState($activeSection).removeAttr('hidden');
+                return;
+            }
+
+            $layout.addClass('tinypress-settings-search-active');
+        }
+
+        function tinypressSetupSettingsSearch() {
+            var $searchInput = $('.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-search input');
+
+            if (!$searchInput.length) {
+                return;
+            }
+
+            $searchInput.off('change keyup');
+            $searchInput.on('input keyup change search', function (event) {
+                event.stopImmediatePropagation();
+                tinypressRunSettingsSearch($(this));
+            });
+
+            $searchInput.on('keydown', function (event) {
+                if (event.key === 'Enter' || event.which === 13) {
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+                    tinypressRunSettingsSearch($(this));
+                    return false;
+                }
+            });
+
+            $searchInput.each(function () {
+                var input = this;
+
+                if ($(input).data('tinypress-settings-search-bound')) {
+                    return;
+                }
+
+                input.addEventListener('input', function (event) {
+                    event.stopImmediatePropagation();
+                    tinypressRunSettingsSearch($(input));
+                }, true);
+
+                input.addEventListener('keyup', function (event) {
+                    event.stopImmediatePropagation();
+                    tinypressRunSettingsSearch($(input));
+                }, true);
+
+                input.addEventListener('change', function (event) {
+                    event.stopImmediatePropagation();
+                    tinypressRunSettingsSearch($(input));
+                }, true);
+
+                input.addEventListener('search', function (event) {
+                    event.stopImmediatePropagation();
+                    tinypressRunSettingsSearch($(input));
+                }, true);
+
+                input.addEventListener('keydown', function (event) {
+                    if (event.key === 'Enter') {
+                        event.preventDefault();
+                        event.stopImmediatePropagation();
+                        tinypressRunSettingsSearch($(input));
+                    }
+                }, true);
+
+                $(input).data('tinypress-settings-search-bound', true);
+            });
+        }
+
+        setTimeout(tinypressSetupSettingsSearch, 0);
+        setTimeout(tinypressSetupSettingsSearch, 250);
+        setTimeout(tinypressSetupSettingsSearch, 1000);
+
+        $(document).on('click', '.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav-options a[data-tab-id]', function () {
+            var $layout = $(this).closest('.tinypress-settings-layout.tinypress-design-refresh');
+            var $searchInput = $layout.find('.wpdk_settings-search input').first();
+
+            if (!$searchInput.length || !tinypressNormalizeSearchText($searchInput.val())) {
+                return;
+            }
+
+            setTimeout(function () {
+                tinypressRunSettingsSearch($searchInput);
+            }, 0);
+        });
+
+        function tinypressEscapeSelector(value) {
+            if ($.escapeSelector) {
+                return $.escapeSelector(value);
+            }
+
+            return value.replace(/([ #;?%&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
+        }
+
+        function tinypressGetPostTypeCheckboxGroup($checkbox) {
+            var name = $checkbox.attr('name');
+            var $list = $checkbox.closest('.tinypress-post-type-checkbox-list');
+
+            if (!name || !$list.length) {
+                return $();
+            }
+
+            return $list.find('input[type="checkbox"][name="' + tinypressEscapeSelector(name) + '"]');
+        }
+
+        function tinypressSyncPostTypeAllCheckbox($group) {
+            var $all = $group.filter('[value="__all__"]').first();
             if (!$all.length) {
                 return;
             }
 
-            var name = $all.attr('name');
-            if (!name) {
-                return;
-            }
-
-            var $group = $('input[type="checkbox"][name="' + name.replace(/([\[\]])/g, '\\$1') + '"]');
             var $others = $group.not($all);
-
             var isAllChecked = $all.is(':checked');
+
             if (isAllChecked) {
                 $others.prop('checked', true).prop('disabled', true);
                 return;
@@ -312,23 +510,48 @@
 
         $(document).on('change', 'input[type="checkbox"][value="__all__"]', function () {
             var $all = $(this);
-            var name = $all.attr('name');
-            if (name && !$all.is(':checked')) {
-                var $group = $('input[type="checkbox"][name="' + name.replace(/([\[\]])/g, '\\$1') + '"]');
+            var $group = tinypressGetPostTypeCheckboxGroup($all);
+
+            if ($group.length && !$all.is(':checked')) {
                 $group.not($all).prop('checked', false).prop('disabled', false);
             }
 
-            tinypressSyncAutolinkAllCheckbox();
+            tinypressSyncPostTypeAllCheckbox($group);
         });
 
-        $(document).on('change', 'input[type="checkbox"][name*="[autolink_post_types]"]', function () {
+        $(document).on('change', '.tinypress-post-type-checkbox-list input[type="checkbox"]', function () {
             if ($(this).val() === '__all__') {
                 return;
             }
-            tinypressSyncAutolinkAllCheckbox();
+
+            tinypressSyncPostTypeAllCheckbox(tinypressGetPostTypeCheckboxGroup($(this)));
         });
 
-        tinypressSyncAutolinkAllCheckbox();
+        $('.tinypress-post-type-checkbox-list').each(function () {
+            tinypressSyncPostTypeAllCheckbox($(this).find('input[type="checkbox"]'));
+        });
+
+        $(document).on('input search', '.tinypress-post-type-search', function () {
+            var searchTerm = $.trim($(this).val() || '').toLowerCase();
+            var $list = $(this).closest('.tinypress-post-type-checkbox-list');
+            var visibleCount = 0;
+
+            $list.find('.wpdk_settings--inline-list li').each(function () {
+                var $item = $(this);
+                var $checkbox = $item.find('input[type="checkbox"]').first();
+                var isAllOption = $checkbox.val() === '__all__';
+                var itemText = $.trim($item.text() || '').toLowerCase();
+                var shouldShow = isAllOption || !searchTerm || itemText.indexOf(searchTerm) !== -1;
+
+                $item.toggle(shouldShow);
+
+                if (shouldShow && !isAllOption) {
+                    visibleCount++;
+                }
+            });
+
+            $list.find('.tinypress-post-type-search-empty').prop('hidden', !searchTerm || visibleCount > 0);
+        });
 
         function tinypressMoveTrashAction() {
             if (!$('body').hasClass('post-type-tinypress_link')) {
@@ -377,6 +600,13 @@
                 return;
             }
 
+            var $metabox = $settingsPanel.closest('#tinypress_meta_main');
+            var $poststuff = $('#poststuff');
+
+            if ($metabox.length && $poststuff.length && !$metabox.is($poststuff.children().first())) {
+                $poststuff.prepend($metabox);
+            }
+
             var $wrapper = $settingsPanel.children('.wpdk_settings-wrapper').first();
             var title = $.trim($('#tinypress_meta_main .postbox-header h2, #tinypress_meta_main h2.hndle').first().contents().filter(function () {
                 return this.nodeType === 3;
@@ -404,27 +634,31 @@
             }
         }
 
-        tinypressMoveTrashAction();
         tinypressMovePublishAction();
+        tinypressMoveTrashAction();
 
-        function tinypressGetModeChildFields($modeField, $controlledField) {
+        function tinypressGetModeManagedFields($modeField) {
             var $section = $modeField.closest('.wpdk_settings-section');
             var $sectionFields = $section.find('.wpdk_settings-field');
-            var startIndex = $sectionFields.index($controlledField.length ? $controlledField : $modeField);
-            var $childFields = $();
+            var startIndex = $sectionFields.index($modeField);
+            var $managedFields = $();
 
             for (var i = startIndex + 1; i < $sectionFields.length; i++) {
                 var $field = $sectionFields.eq(i);
-                if ($field.hasClass('tinypress-global-mode-select') || $field.hasClass('tinypress-use-global-checkbox') || $field.hasClass('tinypress-global-controlled')) {
+                if ($field.hasClass('tinypress-global-mode-select') || $field.hasClass('tinypress-use-global-checkbox')) {
                     break;
                 }
 
-                if ($field.hasClass('tinypress-global-controlled-child')) {
-                    $childFields = $childFields.add($field);
+                if (
+                    $field.hasClass('tinypress-global-controlled') ||
+                    $field.hasClass('tinypress-global-controlled-child') ||
+                    $field.find('.tinypress-global-controlled, .tinypress-global-controlled-child').length
+                ) {
+                    $managedFields = $managedFields.add($field);
                 }
             }
 
-            return $childFields;
+            return $managedFields;
         }
 
         function tinypressShowInheritedNotice($field) {
@@ -437,54 +671,247 @@
             $notice.text(pluginObject.inherited_notice || 'This setting is inherited from global settings. Choose another option to override it for this shortlink.');
         }
 
-        function tinypressSyncGlobalMode($modeField) {
-            var $modeControl = $modeField.find('select[data-depend-id]').first();
-            var mode = $modeControl.val();
-            var $controlledField = $modeField.nextAll('.tinypress-global-controlled').first();
-            var $controlledInput = $controlledField.find('input[type="hidden"][data-depend-id]').first();
-            var $childFields = tinypressGetModeChildFields($modeField, $controlledField);
-            var inheritedTitle = pluginObject.inherited_notice || 'This setting is inherited from global settings. Choose another option to override it for this shortlink.';
+        function tinypressGetDependValue(dependId, $scope) {
+            var $control = $scope.find('[data-depend-id="' + dependId + '"]').first();
 
-            $modeControl.attr('title', mode === '1' ? inheritedTitle : '');
+            if (!$control.length) {
+                $control = $('[data-depend-id="' + dependId + '"]').first();
+            }
+
+            if ($control.is(':checkbox')) {
+                return $control.is(':checked') ? $control.val() : '';
+            }
+
+            return $control.val();
+        }
+
+        function tinypressDependConditionMatches(actualValue, condition, expectedValue) {
+            actualValue = actualValue === undefined || actualValue === null ? '' : actualValue.toString();
+            expectedValue = expectedValue === undefined || expectedValue === null ? '' : expectedValue.toString();
+
+            if (condition === '!=') {
+                return actualValue !== expectedValue;
+            }
+
+            return actualValue === expectedValue;
+        }
+
+        function tinypressExternalDependenciesMatch($field, ignoredDependId) {
+            var controllers = ($field.attr('data-controller') || '').split('|');
+            var conditions = ($field.attr('data-condition') || '==').split('|');
+            var values = ($field.attr('data-value') || '').split('|');
+            var $scope = $field.closest('.wpdk_settings-wrapper');
+
+            if (!controllers.length || !controllers[0]) {
+                return true;
+            }
+
+            for (var i = 0; i < controllers.length; i++) {
+                if (controllers[i] === ignoredDependId) {
+                    continue;
+                }
+
+                if (!tinypressDependConditionMatches(
+                    tinypressGetDependValue(controllers[i], $scope),
+                    conditions[i] || conditions[0] || '==',
+                    values[i] || values[0] || ''
+                )) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        function tinypressSyncGlobalMode($modeField) {
+            var $modeControl = $modeField.find('select[data-depend-id], select').first();
+            var mode = $modeControl.val();
+            var $managedFields = tinypressGetModeManagedFields($modeField);
+            var $controlledField = $managedFields.filter('.tinypress-global-controlled').first();
+            if (!$controlledField.length) {
+                $controlledField = $managedFields.has('.tinypress-global-controlled').first();
+            }
+            var $dependentFields = $managedFields.not($controlledField);
+            var $controlledInput = $controlledField.find('input[type="hidden"][data-depend-id]').first();
+            var modeDependId = $modeControl.attr('data-depend-id') || '';
+            var inheritedTitle = pluginObject.inherited_notice || 'This setting is inherited from global settings. Choose another option to override it for this shortlink.';
+            var useGlobalMode = mode === '1';
+            var useOverrideMode = !useGlobalMode;
+            var showDependentFields = mode === 'enabled';
+            var externalDependenciesMatch = tinypressExternalDependenciesMatch($controlledField, modeDependId);
+
+            $modeControl.attr('title', useGlobalMode ? inheritedTitle : '');
 
             $modeField
-                .toggleClass('is-using-global-mode', mode === '1')
+                .toggleClass('is-using-global-mode', useGlobalMode)
                 .toggleClass('is-enabled-mode', mode === 'enabled')
                 .toggleClass('is-disabled-mode', mode === 'disabled')
-                .toggleClass('is-custom-mode', mode === 'custom');
+                .toggleClass('is-custom-mode', mode === 'custom')
+                .toggleClass('has-visible-mode-children', useOverrideMode);
 
             if ($controlledInput.length) {
                 $controlledInput.val(mode === 'enabled' ? '1' : '').trigger('change');
                 $controlledField.find('.wpdk_settings--switcher').toggleClass('wpdk_settings--active', mode === 'enabled');
             }
 
-            $controlledField.add($childFields)
-                .toggleClass('is-inherited-from-global', mode === '1')
-                .toggleClass('is-disabled-by-mode', mode === 'disabled');
+            $controlledField
+                .toggleClass('tinypress-global-hidden-by-mode', useGlobalMode)
+                .toggleClass('tinypress-global-visible-by-mode', useOverrideMode)
+                .toggleClass('is-inherited-from-global', false)
+                .toggleClass('is-disabled-by-mode', mode === 'disabled')
+                .attr('aria-hidden', useGlobalMode ? 'true' : 'false');
 
-            $controlledField.add($childFields).find('input, select, textarea, button')
-                .attr('title', mode === '1' ? inheritedTitle : '')
-                .prop('readonly', mode === '1');
+            $dependentFields
+                .toggleClass('tinypress-global-hidden-by-mode', useGlobalMode || !showDependentFields)
+                .toggleClass('tinypress-global-visible-by-mode', useOverrideMode && showDependentFields)
+                .toggleClass('is-inherited-from-global', false)
+                .toggleClass('is-disabled-by-mode', false)
+                .attr('aria-hidden', (useGlobalMode || !showDependentFields) ? 'true' : 'false');
 
-            if (mode === '1') {
+            if (useOverrideMode) {
+                if (externalDependenciesMatch) {
+                    $controlledField.removeAttr('hidden');
+                    $controlledField
+                        .removeClass('wpdk_settings-depend-on is-greyed-out');
+                } else {
+                    $controlledField
+                        .attr('hidden', 'hidden')
+                        .addClass('wpdk_settings-depend-on tinypress-global-hidden-by-mode')
+                        .removeClass('tinypress-global-visible-by-mode')
+                        .attr('aria-hidden', 'true');
+                }
+
+                if (showDependentFields) {
+                    $dependentFields.each(function () {
+                        var $dependentField = $(this);
+                        if (tinypressExternalDependenciesMatch($dependentField, modeDependId)) {
+                            $dependentField
+                                .removeAttr('hidden')
+                                .removeClass('wpdk_settings-depend-on is-greyed-out');
+                        } else {
+                            $dependentField
+                                .attr('hidden', 'hidden')
+                                .addClass('tinypress-global-hidden-by-mode')
+                                .removeClass('tinypress-global-visible-by-mode')
+                                .attr('aria-hidden', 'true')
+                                .addClass('wpdk_settings-depend-on');
+                        }
+                    });
+                } else {
+                    $dependentFields
+                        .attr('hidden', 'hidden')
+                        .addClass('tinypress-global-hidden-by-mode')
+                        .removeClass('tinypress-global-visible-by-mode')
+                        .attr('aria-hidden', 'true')
+                        .addClass('wpdk_settings-depend-on');
+                }
+            } else {
+                $managedFields.attr('hidden', 'hidden');
+            }
+
+            $managedFields.find('input, select, textarea, button')
+                .attr('title', useGlobalMode ? inheritedTitle : '')
+                .prop('readonly', useGlobalMode);
+
+            if (useGlobalMode) {
                 tinypressShowInheritedNotice($modeField);
             } else {
                 $modeField.find('.tinypress-global-inherited-notice').remove();
             }
         }
 
+        function tinypressSyncGlobalModeSelectFromToggle($toggleField) {
+            var $modeField = $toggleField.prevAll('.tinypress-global-mode-select').first();
+            var $modeControl = $modeField.find('select[data-depend-id], select').first();
+            var $switcher = $toggleField.find('.wpdk_settings--switcher').first();
+            var $controlledInput = $toggleField.find('input[type="hidden"][data-depend-id]').first();
+            var isEnabled = $switcher.hasClass('wpdk_settings--active') || $controlledInput.val() === '1';
+            var nextMode = isEnabled ? 'enabled' : 'disabled';
+
+            if (!$modeField.length || !$modeControl.length || !$toggleField.hasClass('tinypress-global-toggle-source')) {
+                return;
+            }
+
+            if ($modeControl.val() !== nextMode) {
+                $modeControl.val(nextMode).trigger('change');
+            } else {
+                tinypressSyncGlobalMode($modeField);
+            }
+        }
+
+        function tinypressHideMetaboxGlobalToggleSources() {
+            $('#tinypress_meta_main .tinypress-global-toggle-source')
+                .attr('hidden', 'hidden')
+                .attr('aria-hidden', 'true')
+                .hide();
+        }
+
+        function tinypressSyncExpirationNoticeToggleVisibility() {
+            var $wrapper = $('#tinypress_meta_main');
+            var $enableExpirationMode = $wrapper.find('[data-depend-id="enable_expiration_use_global"]').first();
+            var $enableExpirationValue = $wrapper.find('[data-depend-id="enable_expiration"]').first();
+            var $noticeToggle = $wrapper.find('[data-depend-id="expired_show_notice"]').closest('.wpdk_settings-field');
+            var parentMode = $enableExpirationMode.val();
+            var parentEnabled = $enableExpirationValue.val() === '1';
+            var shouldHideNoticeToggle = parentMode === '1' || parentMode === 'disabled' || !parentEnabled;
+
+            if (!$wrapper.length || !$noticeToggle.length) {
+                return;
+            }
+
+            $noticeToggle
+                .toggleClass('tinypress-expiration-notice-toggle-hidden', shouldHideNoticeToggle)
+                .attr('aria-hidden', shouldHideNoticeToggle ? 'true' : 'false');
+        }
+
         $('.tinypress-global-mode-select').each(function () {
             tinypressSyncGlobalMode($(this));
         });
+        tinypressHideMetaboxGlobalToggleSources();
+        tinypressSyncExpirationNoticeToggleVisibility();
 
         $(document).on('change', '.tinypress-global-mode-select select[data-depend-id]', function () {
-            tinypressSyncGlobalMode($(this).closest('.tinypress-global-mode-select'));
+            var $modeField = $(this).closest('.tinypress-global-mode-select');
+            tinypressSyncGlobalMode($modeField);
+            tinypressHideMetaboxGlobalToggleSources();
+            tinypressSyncExpirationNoticeToggleVisibility();
+            setTimeout(function () {
+                tinypressSyncGlobalMode($modeField);
+                tinypressHideMetaboxGlobalToggleSources();
+                tinypressSyncExpirationNoticeToggleVisibility();
+            }, 0);
+            setTimeout(function () {
+                tinypressSyncGlobalMode($modeField);
+                tinypressHideMetaboxGlobalToggleSources();
+                tinypressSyncExpirationNoticeToggleVisibility();
+            }, 100);
+        });
+
+        $(document).on('click', '.tinypress-global-toggle-source .wpdk_settings--switcher', function () {
+            var $toggleField = $(this).closest('.tinypress-global-toggle-source');
+            tinypressSyncGlobalModeSelectFromToggle($toggleField);
+            tinypressSyncExpirationNoticeToggleVisibility();
+            setTimeout(function () {
+                tinypressSyncGlobalModeSelectFromToggle($toggleField);
+                tinypressSyncExpirationNoticeToggleVisibility();
+            }, 0);
+            setTimeout(function () {
+                tinypressSyncGlobalModeSelectFromToggle($toggleField);
+                tinypressSyncExpirationNoticeToggleVisibility();
+            }, 100);
+        });
+
+        $(document).on('change', '[data-depend-id="enable_expiration"], [data-depend-id="enable_expiration_use_global"]', function () {
+            tinypressSyncExpirationNoticeToggleVisibility();
+            setTimeout(tinypressSyncExpirationNoticeToggleVisibility, 0);
         });
 
         $(document).on('submit', 'form#post', function () {
             $('.tinypress-global-mode-select').each(function () {
                 tinypressSyncGlobalMode($(this));
             });
+            tinypressHideMetaboxGlobalToggleSources();
+            tinypressSyncExpirationNoticeToggleVisibility();
         });
 
         $(document).on('focus click', '.is-inherited-from-global input, .is-inherited-from-global select, .is-inherited-from-global textarea, .is-inherited-from-global button', function (event) {
@@ -498,47 +925,91 @@
         $(document).on('change', '.tinypress-use-global-checkbox input[type="checkbox"]', function () {
             var $checkbox = $(this);
             var $checkboxField = $checkbox.closest('.wpdk_settings-field');
-            
+            var useGlobalMode = $checkbox.is(':checked');
+            var inheritedTitle = pluginObject.inherited_notice || 'This setting is inherited from global settings. Choose another option to override it for this shortlink.';
             var $controlledField = $checkboxField.next('.tinypress-global-controlled');
-            
-            if ($controlledField.length) {
-                if ($checkbox.is(':checked')) {
-                    $controlledField.addClass('is-greyed-out');
-                } else {
-                    $controlledField.removeClass('is-greyed-out');
-                }
+            if (!$controlledField.length && $checkboxField.next('.wpdk_settings-field').find('.tinypress-global-controlled').length) {
+                $controlledField = $checkboxField.next('.wpdk_settings-field');
             }
-            
-            // Find and update child dependency fields
             var $section = $checkboxField.closest('.wpdk_settings-section');
-            
-            if ($controlledField.length && $section.length) {
-                var $sectionFields = $section.find('.wpdk_settings-field');
-                var controlledFieldIndex = $sectionFields.index($controlledField);
+            var $childFields = $();
 
-                var $childFields = $();
-                for (var i = controlledFieldIndex + 1; i < $sectionFields.length; i++) {
+            if ($section.length) {
+                var $sectionFields = $section.find('.wpdk_settings-field');
+                var $startField = $controlledField.length ? $controlledField : $checkboxField;
+                var startIndex = $sectionFields.index($startField);
+
+                for (var i = startIndex + 1; i < $sectionFields.length; i++) {
                     var $field = $sectionFields.eq(i);
-                    if ($field.hasClass('tinypress-use-global-checkbox') || $field.hasClass('tinypress-global-controlled')) {
+                    if (
+                        $field.hasClass('tinypress-global-mode-select') ||
+                        $field.hasClass('tinypress-use-global-checkbox') ||
+                        ($field.hasClass('tinypress-global-controlled') && !$field.is($controlledField))
+                    ) {
                         break;
                     }
+
                     if ($field.hasClass('tinypress-global-controlled-child')) {
                         $childFields = $childFields.add($field);
                     }
                 }
-                
-                if ($checkbox.is(':checked')) {
-                    $childFields.addClass('is-greyed-out');
-                } else {
-                    $childFields.removeClass('is-greyed-out');
-                }
             }
+
+            var $managedFields = $controlledField.add($childFields);
+
+            $checkboxField
+                .toggleClass('is-using-global-mode', useGlobalMode)
+                .toggleClass('has-visible-mode-children', !useGlobalMode);
+
+            $managedFields
+                .toggleClass('tinypress-global-hidden-by-mode', useGlobalMode)
+                .toggleClass('tinypress-global-visible-by-mode', !useGlobalMode)
+                .removeClass('is-greyed-out is-inherited-from-global is-disabled-by-mode')
+                .attr('aria-hidden', useGlobalMode ? 'true' : 'false');
+
+            if (!useGlobalMode) {
+                $managedFields
+                    .removeAttr('hidden')
+                    .removeClass('wpdk_settings-depend-on');
+            } else {
+                $managedFields.attr('hidden', 'hidden');
+            }
+
+            $managedFields.find('input, select, textarea, button')
+                .attr('title', useGlobalMode ? inheritedTitle : '')
+                .prop('readonly', useGlobalMode);
         });
 
-        // Initialize greyed-out state on page load
-        $('.tinypress-use-global-checkbox input[type="checkbox"]:checked').each(function() {
+        $('.tinypress-use-global-checkbox input[type="checkbox"]').each(function() {
             $(this).trigger('change');
         });
+
+        function tinypressSyncAutolinkAltText() {
+            var $altTextField = $('[data-depend-id="autolink_alt_text"]').first();
+            var $customField = $('[data-depend-id="autolink_alt_text_custom"]').closest('.wpdk_settings-field');
+            var showCustomField = $altTextField.val() === 'custom';
+
+            if (!$customField.length) {
+                return;
+            }
+
+            $customField
+                .toggleClass('wpdk_settings-depend-on', !showCustomField)
+                .toggleClass('tinypress-dependent-child-visible', showCustomField)
+                .attr('aria-hidden', showCustomField ? 'false' : 'true');
+
+            if (showCustomField) {
+                $customField.removeAttr('hidden');
+            } else {
+                $customField.attr('hidden', 'hidden');
+            }
+        }
+
+        tinypressSyncAutolinkAltText();
+        setTimeout(tinypressSyncAutolinkAltText, 0);
+        setTimeout(tinypressSyncAutolinkAltText, 100);
+
+        $(document).on('change', '[data-depend-id="autolink_alt_text"]', tinypressSyncAutolinkAltText);
     });
 
 
