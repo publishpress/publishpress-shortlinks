@@ -481,6 +481,9 @@ if (! class_exists('TINYPRESS_Settings')) {
 
             $is_all_selected = in_array('__all__', $selected, true);
 
+            echo '<div class="tinypress-post-type-checkbox-list" data-field-id="tinypress_autolink_post_types">';
+            echo '<label class="screen-reader-text" for="tinypress_autolink_post_types_search">' . esc_html__('Search post types', 'tinypress') . '</label>';
+            echo '<input type="search" id="tinypress_autolink_post_types_search" class="tinypress-post-type-search" placeholder="' . esc_attr__('Filter post types...', 'tinypress') . '" autocomplete="off" />';
             echo '<ul class="wpdk_settings--inline-list">';
 
             foreach ($options as $option_key => $option_label) {
@@ -497,6 +500,8 @@ if (! class_exists('TINYPRESS_Settings')) {
             }
 
             echo '</ul>';
+            echo '<p class="tinypress-post-type-search-empty" hidden>' . esc_html__('No post types match your search.', 'tinypress') . '</p>';
+            echo '</div>';
         }
 
         public function render_enabled_post_types_field($field)
@@ -525,6 +530,9 @@ if (! class_exists('TINYPRESS_Settings')) {
 
             $is_all_selected = in_array('__all__', $selected, true);
 
+            echo '<div class="tinypress-post-type-checkbox-list" data-field-id="tinypress_enabled_post_types">';
+            echo '<label class="screen-reader-text" for="tinypress_enabled_post_types_search">' . esc_html__('Search post types', 'tinypress') . '</label>';
+            echo '<input type="search" id="tinypress_enabled_post_types_search" class="tinypress-post-type-search" placeholder="' . esc_attr__('Filter post types...', 'tinypress') . '" autocomplete="off" />';
             echo '<ul class="wpdk_settings--inline-list">';
 
             foreach ($options as $option_key => $option_label) {
@@ -541,6 +549,8 @@ if (! class_exists('TINYPRESS_Settings')) {
             }
 
             echo '</ul>';
+            echo '<p class="tinypress-post-type-search-empty" hidden>' . esc_html__('No post types match your search.', 'tinypress') . '</p>';
+            echo '</div>';
         }
 
         public function get_public_post_type_options()
@@ -582,13 +592,14 @@ if (! class_exists('TINYPRESS_Settings')) {
             // Generate settings page
             $settings_args = array(
                 'menu_title'      => esc_html__('Settings', 'tinypress'),
+                'framework_title' => esc_html__('PublishPress Shortlinks', 'tinypress'),
                 'menu_slug'       => 'settings',
                 'menu_type'       => 'submenu',
                 'menu_parent'     => 'edit.php?post_type=tinypress_link',
                 'menu_capability' => 'tinypress_manage_shortlink_settings',
                 'database'        => 'option',
                 'theme'           => 'light',
-                'show_search'     => false,
+                'show_search'     => true,
                 'pro_url'         => TINYPRESS_LINK_PRO_MENU,
             );
 
@@ -597,7 +608,11 @@ if (! class_exists('TINYPRESS_Settings')) {
 
         public function add_settings_wrapper_start()
         {
-            echo '<div class="tinypress-settings-layout">';
+            $layout_class = class_exists('PublishPress_Shortlinks_Pro_Init')
+                ? 'tinypress-settings-layout tinypress-design-refresh'
+                : 'tinypress-settings-layout tinypress-design-refresh tinypress-settings-layout-free';
+
+            echo '<div class="' . esc_attr($layout_class) . '">';
         }
 
         public function add_settings_wrapper_end()
