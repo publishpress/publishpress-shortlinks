@@ -274,7 +274,9 @@
             return $.trim(value || '').toLowerCase();
         }
 
-        function tinypressActivateSettingsSection($layout, sectionId) {
+        function tinypressActivateSettingsSection($layout, sectionId, options) {
+            options = options || {};
+
             var $link = $layout.find('.wpdk_settings-nav-options a[data-tab-id="' + tinypressEscapeSelector(sectionId) + '"]').first();
             var $section = $layout.find('.wpdk_settings-section[data-section-id="' + tinypressEscapeSelector(sectionId) + '"]').first();
 
@@ -296,7 +298,7 @@
             $section.removeClass('hidden').pb_settings_reload_script();
             $layout.find('.wpdk_settings-section-id').val($section.index() + 1);
 
-            if (window.location.hash !== '#tab=' + sectionId) {
+            if (options.updateHash !== false && window.location.hash !== '#tab=' + sectionId) {
                 window.location.hash = 'tab=' + sectionId;
             }
 
@@ -458,29 +460,7 @@
                 if (typeof pageTop === 'number') {
                     $(window).scrollTop(pageTop);
                 }
-
-                var nav = $nav.get(0);
-                var $activeLink = $nav.find('a.wpdk_settings-active').first();
-                var active = $activeLink.length ? $activeLink.get(0) : $link.get(0);
-
-                if (!nav || !active || nav.scrollHeight <= nav.clientHeight) {
-                    $nav.scrollTop(navTop);
-                    return;
-                }
-
-                var padding = 12;
-                var activeTop = active.offsetTop;
-                var activeBottom = activeTop + $(active).outerHeight();
-                var visibleTop = nav.scrollTop;
-                var visibleBottom = visibleTop + nav.clientHeight;
-
-                if (activeTop < visibleTop + padding) {
-                    nav.scrollTop = Math.max(0, activeTop - padding);
-                } else if (activeBottom > visibleBottom - padding) {
-                    nav.scrollTop = activeBottom - nav.clientHeight + padding;
-                } else {
-                    $nav.scrollTop(navTop);
-                }
+                $nav.scrollTop(navTop);
             };
 
             setTimeout(restore, 0);
@@ -490,23 +470,36 @@
 
         $(document).on(
             'click',
-            '.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav-options a[data-tab-id], body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav-metabox a',
+            'body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav-metabox a',
             function () {
                 tinypressKeepSettingsNavSteady($(this), $(window).scrollTop());
             }
         );
 
-        $(document).on('click', '.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav-options a[data-tab-id]', function () {
+        $(document).on('click', '.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav-options a[data-tab-id]', function (event) {
+            event.preventDefault();
+
+            var pageTop = $(window).scrollTop();
+            var sectionId = $(this).data('tab-id');
             var $layout = $(this).closest('.tinypress-settings-layout.tinypress-design-refresh');
             var $searchInput = $layout.find('.wpdk_settings-search input').first();
+            var hashUrl = window.location.pathname + window.location.search + '#tab=' + sectionId;
 
-            if (!$searchInput.length || !tinypressNormalizeSearchText($searchInput.val())) {
+            if (!tinypressActivateSettingsSection($layout, sectionId, { updateHash: false })) {
                 return;
             }
 
-            setTimeout(function () {
-                tinypressRunSettingsSearch($searchInput);
-            }, 0);
+            if (window.history && window.history.replaceState) {
+                window.history.replaceState(null, document.title, hashUrl);
+            }
+
+            tinypressKeepSettingsNavSteady($(this), pageTop);
+
+            if ($searchInput.length && tinypressNormalizeSearchText($searchInput.val())) {
+                setTimeout(function () {
+                    tinypressRunSettingsSearch($searchInput);
+                }, 0);
+            }
         });
 
         function tinypressEscapeSelector(value) {
