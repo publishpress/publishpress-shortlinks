@@ -3,7 +3,7 @@
 	Tags: link shortener, shortlinks, redirects, link tracking, custom URLs
 	Requires at least: 4.6
 	Tested up to: 7.0
-	Stable tag: 1.8.0-beta.2
+	Stable tag: 1.8.0-beta.3
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
