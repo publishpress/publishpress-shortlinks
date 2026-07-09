@@ -129,6 +129,10 @@ if (! class_exists('TINYPRESS_Migration')) {
 
         public function add_submenu_page()
         {
+            if (empty($this->get_active_sources())) {
+                return;
+            }
+
             add_submenu_page(
                 'edit.php?post_type=tinypress_link',
                 esc_html__('Migration', 'tinypress'),
@@ -345,6 +349,12 @@ if (! class_exists('TINYPRESS_Migration')) {
             }
 
             $active_sources = $this->get_active_sources();
+
+            if (empty($active_sources)) {
+                wp_safe_redirect(admin_url('edit.php?post_type=tinypress_link'));
+                exit;
+            }
+
             $import_url     = add_query_arg(
                 array(
                     'post_type' => 'tinypress_link',
