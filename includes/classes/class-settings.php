@@ -618,9 +618,6 @@ if (! class_exists('TINYPRESS_Settings')) {
 
         public function add_settings_wrapper_end()
         {
-            if (! class_exists('PublishPress_Shortlinks_Pro_Init')) {
-                include TINYPRESS_PLUGIN_DIR . 'templates/admin/settings/supports.php';
-            }
             echo '</div>';
         }
 
