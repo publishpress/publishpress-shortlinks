@@ -336,6 +336,23 @@ body.post-type-tinypress_link #tinypress_link_catdiv #newtinypress_link_cat:focu
     padding: 8px 0;
 }
 
+.side-qr-code .qr-code {
+    display: block;
+    height: 180px;
+    margin-bottom: 10px;
+    max-width: 100%;
+    width: 180px;
+}
+
+.side-qr-code .qr-code canvas,
+.side-qr-code .qr-code img,
+.side-qr-code .qr-code svg {
+    display: block;
+    height: 180px;
+    max-width: 100%;
+    width: 180px;
+}
+
 .tinypress-meta-side .side-qr-code .qr-download,
 .tinypress-meta-side .side-qr-code .qr-download:focus,
 .tinypress-meta-side .side-qr-code .qr-download:active,
@@ -3845,13 +3862,7 @@ body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav ul li a 
 
 .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav ul li a::before,
 body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav ul li a::before {
-	background: transparent;
-	border-radius: 999px;
-	content: "";
-	flex: 0 0 3px;
-	height: 24px;
-	transition: background .2s;
-	width: 3px;
+	display: none !important;
 }
 
 .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav ul li a:hover,
@@ -3868,16 +3879,28 @@ body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav ul li a.
 	background: rgba(255, 255, 255, .78) !important;
 	color: var(--tinypress-admin-primary) !important;
 	font-weight: 700;
+	padding-left: 20px !important;
 }
 
 .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav ul li a.wpdk_settings-active::before,
 body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav ul li a.wpdk_settings-active::before {
-	background: var(--tinypress-admin-primary);
+	display: none !important;
 }
 
 .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav ul ul li a {
 	font-size: 13px;
-	padding-left: 28px;
+	padding-left: 20px !important;
+}
+
+body.tinypress_link_page_settings .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav > ul > li.wpdk_settings-tab-item:first-child > ul > li > a,
+body.tinypress_link_page_settings .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav ul ul li a,
+body.tinypress_link_page_settings .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav ul li a.wpdk_settings-active {
+	padding-left: 20px !important;
+}
+
+body.tinypress_link_page_settings .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav ul li a.wpdk_settings-active::before,
+body.tinypress_link_page_settings .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav ul li a.wpdk_settings-active::after {
+	display: none !important;
 }
 
 .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-content,
