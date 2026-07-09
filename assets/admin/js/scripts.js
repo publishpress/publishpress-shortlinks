@@ -446,6 +446,56 @@
         setTimeout(tinypressSetupSettingsSearch, 250);
         setTimeout(tinypressSetupSettingsSearch, 1000);
 
+        function tinypressKeepSettingsNavSteady($link, pageTop) {
+            var $nav = $link.closest('.wpdk_settings-nav, .wpdk_settings-nav-normal');
+
+            if (!$nav.length) {
+                return;
+            }
+
+            var navTop = $nav.scrollTop();
+            var restore = function () {
+                if (typeof pageTop === 'number') {
+                    $(window).scrollTop(pageTop);
+                }
+
+                var nav = $nav.get(0);
+                var $activeLink = $nav.find('a.wpdk_settings-active').first();
+                var active = $activeLink.length ? $activeLink.get(0) : $link.get(0);
+
+                if (!nav || !active || nav.scrollHeight <= nav.clientHeight) {
+                    $nav.scrollTop(navTop);
+                    return;
+                }
+
+                var padding = 12;
+                var activeTop = active.offsetTop;
+                var activeBottom = activeTop + $(active).outerHeight();
+                var visibleTop = nav.scrollTop;
+                var visibleBottom = visibleTop + nav.clientHeight;
+
+                if (activeTop < visibleTop + padding) {
+                    nav.scrollTop = Math.max(0, activeTop - padding);
+                } else if (activeBottom > visibleBottom - padding) {
+                    nav.scrollTop = activeBottom - nav.clientHeight + padding;
+                } else {
+                    $nav.scrollTop(navTop);
+                }
+            };
+
+            setTimeout(restore, 0);
+            setTimeout(restore, 50);
+            setTimeout(restore, 150);
+        }
+
+        $(document).on(
+            'click',
+            '.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav-options a[data-tab-id], body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav-metabox a',
+            function () {
+                tinypressKeepSettingsNavSteady($(this), $(window).scrollTop());
+            }
+        );
+
         $(document).on('click', '.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav-options a[data-tab-id]', function () {
             var $layout = $(this).closest('.tinypress-settings-layout.tinypress-design-refresh');
             var $searchInput = $layout.find('.wpdk_settings-search input').first();

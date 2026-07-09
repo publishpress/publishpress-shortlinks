@@ -3502,7 +3502,20 @@ body.tinypress_link_page_settings .tinypress-settings-layout.tinypress-design-re
 	display: grid;
 	gap: 20px;
 	grid-template-columns: minmax(900px, 1fr) 300px;
+	margin-top: 0 !important;
 	padding: 0 20px 32px 0;
+}
+
+body.tinypress_link_page_settings .tinypress-settings-layout.tinypress-design-refresh.tinypress-settings-layout-free .wpdk_settings-header {
+	height: auto !important;
+	position: relative;
+	top: auto;
+}
+
+body.tinypress_link_page_settings .tinypress-settings-layout.tinypress-design-refresh.tinypress-settings-layout-free .wpdk_settings-header.wpdk_settings-sticky .wpdk_settings-header-inner {
+	box-shadow: none !important;
+	position: static !important;
+	width: auto !important;
 }
 
 body.tinypress_link_page_settings .tinypress-settings-layout.tinypress-design-refresh.tinypress-settings-layout-free .pb_settings.wpdk_settings-options {
@@ -3759,12 +3772,23 @@ body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav-normal {
 	border-right: 1px solid var(--tinypress-admin-sidebar-border);
 	float: none;
 	height: calc(100vh - 32px - var(--tinypress-admin-topbar-height));
+	max-height: calc(100vh - 32px - var(--tinypress-admin-topbar-height));
 	min-height: 0;
 	overflow-y: auto;
+	overflow-anchor: none;
+	overscroll-behavior: contain;
 	padding: 24px 0;
 	position: sticky;
+	scrollbar-gutter: stable;
 	top: calc(32px + var(--tinypress-admin-topbar-height));
 	width: var(--tinypress-admin-sidebar-width);
+}
+
+body.tinypress_link_page_settings .tinypress-settings-layout-free .wpdk_settings-nav,
+body.tinypress_link_page_settings .tinypress-settings-layout-free .wpdk_settings-nav-normal {
+	height: calc(100vh - 32px);
+	max-height: calc(100vh - 32px);
+	top: 32px;
 }
 
 .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav > ul::before,
@@ -3788,7 +3812,7 @@ body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav ul {
 	border: 0 !important;
 	display: block;
 	margin: 0;
-	padding: 0;
+	padding: 0 0 56px;
 }
 
 .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav ul li,

@@ -37,6 +37,7 @@ if (! class_exists('TINYPRESS_Settings')) {
             add_action('pb_settings_options_before', array( $this, 'add_settings_wrapper_start' ));
             add_action('pb_settings_options_after', array( $this, 'add_settings_wrapper_end' ));
             add_action('admin_notices', array( $this, 'shortlinks_elementor_prefix_notice' ));
+            add_action('admin_menu', array( $this, 'move_utility_submenus_to_bottom' ), 9999);
         }
 
         public function register_custom_statuses_filters()
@@ -621,6 +622,47 @@ if (! class_exists('TINYPRESS_Settings')) {
                 include TINYPRESS_PLUGIN_DIR . 'templates/admin/settings/supports.php';
             }
             echo '</div>';
+        }
+
+        public function move_utility_submenus_to_bottom()
+        {
+            global $submenu;
+
+            $parent_slug = 'edit.php?post_type=tinypress_link';
+
+            if (empty($submenu[ $parent_slug ]) || ! is_array($submenu[ $parent_slug ])) {
+                return;
+            }
+
+            $upgrade_menu_slug = defined('TINYPRESS_LINK_PRO_MENU')
+                ? TINYPRESS_LINK_PRO_MENU
+                : 'https://publishpress.com/links/shortlinks-menu';
+            $bottom_menu_slugs = array(
+                'tinypress-import-export',
+                'tinypress-migration',
+                'settings',
+                $upgrade_menu_slug,
+            );
+            $bottom_menu_items = array_fill_keys($bottom_menu_slugs, null);
+
+            foreach ($submenu[ $parent_slug ] as $index => $menu_item) {
+                $menu_slug = isset($menu_item[2]) ? (string) $menu_item[2] : '';
+
+                if (! array_key_exists($menu_slug, $bottom_menu_items)) {
+                    continue;
+                }
+
+                $bottom_menu_items[ $menu_slug ] = $menu_item;
+                unset($submenu[ $parent_slug ][ $index ]);
+            }
+
+            foreach ($bottom_menu_slugs as $menu_slug) {
+                if (null !== $bottom_menu_items[ $menu_slug ]) {
+                    $submenu[ $parent_slug ][] = $bottom_menu_items[ $menu_slug ];
+                }
+            }
+
+            $submenu[ $parent_slug ] = array_values($submenu[ $parent_slug ]);
         }
 
         /**
