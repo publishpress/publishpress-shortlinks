@@ -1311,7 +1311,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                 'tinypress-autolist-ajax',
                 TINYPRESS_PLUGIN_URL . 'assets/admin/css/autolist-ajax.css',
                 array(),
-                TINYPRESS_PLUGIN_VERSION
+                tinypress_asset_version('assets/admin/css/autolist-ajax.css')
             );
 
             ?>

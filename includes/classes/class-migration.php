@@ -155,7 +155,7 @@ if (! class_exists('TINYPRESS_Migration')) {
                 'tinypress-migration',
                 TINYPRESS_PLUGIN_URL . 'assets/admin/js/migration.js',
                 array('jquery'),
-                TINYPRESS_PLUGIN_VERSION,
+                tinypress_asset_version('assets/admin/js/migration.js'),
                 true
             );
 
