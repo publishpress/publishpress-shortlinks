@@ -2,6 +2,7 @@
     'use strict';
 
     let tinypressQrObjectUrls = [];
+    const TinypressQRCode = window.publishpressShortlinksQRCode || window.TinypressQRCode || window.QRCode;
 
     function initCategoriesQrTabs() {
         $(document).on('click', '.tinypress-categories-qr-tab', function() {
@@ -106,7 +107,7 @@
     }
 
     function initQRCode(scope) {
-        if (typeof QRCode === 'undefined') {
+        if (typeof TinypressQRCode !== 'function') {
             return;
         }
 
@@ -128,7 +129,7 @@
             revokeOldObjectUrl(previousUrl);
             qrElement.empty();
 
-            new QRCode(qrElement[0], {
+            new TinypressQRCode(qrElement[0], {
                 width: 180,
                 height: 180,
                 text: url
@@ -151,6 +152,10 @@
     $(function() {
         initCategoriesQrTabs();
         initQRCode();
+
+        $(document).on('click', '.side-qr-code .qr-download[aria-disabled="true"], .side-qr-code .qr-download[href=""], .side-qr-code .qr-download:not([href])', function(event) {
+            event.preventDefault();
+        });
 
         $(document).on('click', '.wpdk_settings-nav-metabox a[data-section], .wpdk_settings-nav-options a[data-tab-id]', function() {
             setTimeout(function() {

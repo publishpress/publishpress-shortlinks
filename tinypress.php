@@ -456,9 +456,19 @@ if (! defined('TINYPRESS_LOADED')) {
 
                 // Register all scripts
                 wp_register_script('apexcharts', TINYPRESS_PLUGIN_URL . 'assets/admin/js/apexcharts.js', array( 'jquery' ), tinypress_asset_version('assets/admin/js/apexcharts.js'), true);
-                wp_register_script('qrcode', TINYPRESS_PLUGIN_URL . 'assets/admin/js/qrcode.min.js', array( 'jquery' ), tinypress_asset_version('assets/admin/js/qrcode.min.js'), true);
+                wp_register_script('tinypress-qrcode-lib', TINYPRESS_PLUGIN_URL . 'assets/admin/js/qrcode.min.js', array( 'jquery' ), tinypress_asset_version('assets/admin/js/qrcode.min.js'), true);
+                wp_add_inline_script(
+                    'tinypress-qrcode-lib',
+                    'window.tinypressPreviousQRCode = window.QRCode;',
+                    'before'
+                );
+                wp_add_inline_script(
+                    'tinypress-qrcode-lib',
+                    'window.publishpressShortlinksQRCode = window.QRCode; window.TinypressQRCode = window.publishpressShortlinksQRCode; if (typeof window.tinypressPreviousQRCode !== "undefined") { window.QRCode = window.tinypressPreviousQRCode; }',
+                    'after'
+                );
                 wp_register_script('tinypress-analytics', TINYPRESS_PLUGIN_URL . 'assets/admin/js/analytics.js', array( 'jquery', 'apexcharts' ), tinypress_asset_version('assets/admin/js/analytics.js'), true);
-                wp_register_script('tinypress-qr-code', TINYPRESS_PLUGIN_URL . 'assets/admin/js/qr-code.js', array( 'jquery', 'qrcode' ), tinypress_asset_version('assets/admin/js/qr-code.js'), true);
+                wp_register_script('tinypress-qr-code', TINYPRESS_PLUGIN_URL . 'assets/admin/js/qr-code.js', array( 'jquery', 'tinypress-qrcode-lib' ), tinypress_asset_version('assets/admin/js/qr-code.js'), true);
 
                 // Main scripts - always enqueue on shortlinks pages
                 wp_enqueue_script('tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/js/scripts.js', array( 'jquery' ), tinypress_asset_version('assets/admin/js/scripts.js'), true);
