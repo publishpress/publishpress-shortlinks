@@ -154,6 +154,61 @@ It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliate
 
 == Changelog ==
 
+= [1.8.0] - 14 July, 2026 =
+
+* Update: Suggest Label and description from target url while adding shortlinks, #345
+* Update: Need a post type selector, #343
+* Update: Redesign settings UI, #344
+* Added: Search box on the Link Health screen, #337
+* Fixed: Prevent auto-drafts from creating shortlink entries, #335
+* Fixed: Clarify tooltip message: Redirect loop, #338
+* Fixed: Edit Shortlinks design issue with some admin themes, #336
+* Feature: Reports feature, #321
+* Feature: Detect other plugins and offer a migration, #317
+
+
+= [1.7.0] - 09 June, 2026 =
+
+* Feature: Add a broken link scanner, #247
+* Update: Expand the import / export options, #246
+* Update: Move Import / Export to the Free version, #245
+* Update: Allow alt text for autolink keywords, #244
+* Update: Expand Auto-link settings, #241
+* Update: Update descriptions for security settings, #242
+* Update: Improve the import feature, #240
+* Update: Add an easy link tool to Gutenberg. #186
+* Update: Change shortlink page tabs to vertical layout, #72
+* Update: Add a frontend message for unpublished posts, #67
+* Update: Provide global settings for security and redirection settings, #63
+* Fixed: Expiration Pro features not working, #243
+* Fixed: Remove double descriptions for settings, #265
+
+= [1.6.0] - 29 April, 2026 =
+
+* Fixed: Mismatching in Weblate, #206
+* Fixed: Draft preview don't work with Elementor #218
+* Feature: Support for PublishPress Statuses, #86
+* Feature: Auto-link keywords, #123
+* Update: Allow users to customize the expiry message, #92
+* Update: Show Expiration Notice, #189
+* Update: Make a single data point bigger, #210
+* Update: Update the readme file from WordPress.org, #217
+* Update: Add Bundled Translations library, #219
+* Update: Add loco.xml file, #220
+* Update: Increase supported language to 34
+
+= [1.5.0] - 07 April, 2026 =
+
+* Fixed: Issue with Target URL characters, #193
+* Fixed: Changelog lacks formatting, #187
+* Fixed: Tooltip on the analytics charts is unclear, #165
+* Fixed: Last 7 Days includes tomorrow, #164
+* Fixed: Primary key for tinypress_reports table?, #163
+* Removed: Remove support box from Pro version, #188
+* Update: Save the analytics tab in memory, #166
+* Update: Make "Last 1 Month" the default in Analytics charts, #153
+* Update: Add tracking to our Pro links #147
+
 The full changelog can be found on [GitHub](https://github.com/publishpress/publishpress-shortlinks/blob/master/CHANGELOG.md).
 
 == Upgrade Notice ==
