@@ -58,7 +58,7 @@ if (! class_exists('TINYPRESS_Gutenberg_Shortlink')) {
                     'jquery',
                     'tinypress-shortlink-ui',
                 ),
-                TINYPRESS_PLUGIN_VERSION,
+                tinypress_asset_version('assets/admin/js/gutenberg-shortlink-button.js'),
                 true
             );
 
@@ -82,7 +82,7 @@ if (! class_exists('TINYPRESS_Gutenberg_Shortlink')) {
                 'tinypress-classic-shortlink-button',
                 TINYPRESS_PLUGIN_URL . 'assets/admin/js/classic-shortlink-button.js',
                 array( 'jquery', 'tinypress-shortlink-ui' ),
-                TINYPRESS_PLUGIN_VERSION,
+                tinypress_asset_version('assets/admin/js/classic-shortlink-button.js'),
                 true
             );
 
@@ -98,7 +98,11 @@ if (! class_exists('TINYPRESS_Gutenberg_Shortlink')) {
         public function register_classic_editor_plugin($plugins)
         {
             if ($this->should_load_classic_editor_assets()) {
-                $plugins['tinypress_shortlink'] = TINYPRESS_PLUGIN_URL . 'assets/admin/js/classic-shortlink-tinymce.js';
+                $plugins['tinypress_shortlink'] = add_query_arg(
+                    'ver',
+                    tinypress_asset_version('assets/admin/js/classic-shortlink-tinymce.js'),
+                    TINYPRESS_PLUGIN_URL . 'assets/admin/js/classic-shortlink-tinymce.js'
+                );
             }
 
             return $plugins;
@@ -128,7 +132,7 @@ if (! class_exists('TINYPRESS_Gutenberg_Shortlink')) {
                 'tinypress-shortlink-ui',
                 TINYPRESS_PLUGIN_URL . 'assets/admin/js/components/shortlink-ui.js',
                 array( 'jquery', 'wp-i18n' ),
-                TINYPRESS_PLUGIN_VERSION,
+                tinypress_asset_version('assets/admin/js/components/shortlink-ui.js'),
                 true
             );
 
@@ -136,7 +140,7 @@ if (! class_exists('TINYPRESS_Gutenberg_Shortlink')) {
                 'tinypress-shortlink-editor-style',
                 TINYPRESS_PLUGIN_URL . 'assets/admin/css/gutenberg-shortlink.css',
                 array( 'dashicons' ),
-                TINYPRESS_PLUGIN_VERSION
+                tinypress_asset_version('assets/admin/css/gutenberg-shortlink.css')
             );
 
             wp_enqueue_script('tinypress-shortlink-ui');

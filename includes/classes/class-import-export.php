@@ -67,14 +67,14 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 'tinypress-import-export',
                 TINYPRESS_PLUGIN_URL . 'assets/admin/css/import-export.css',
                 array(),
-                TINYPRESS_PLUGIN_VERSION
+                tinypress_asset_version('assets/admin/css/import-export.css')
             );
 
             wp_enqueue_script(
                 'tinypress-import-export',
                 TINYPRESS_PLUGIN_URL . 'assets/admin/js/import-export.js',
                 array( 'jquery' ),
-                TINYPRESS_PLUGIN_VERSION,
+                tinypress_asset_version('assets/admin/js/import-export.js'),
                 true
             );
 

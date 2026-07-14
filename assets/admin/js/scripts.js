@@ -274,7 +274,9 @@
             return $.trim(value || '').toLowerCase();
         }
 
-        function tinypressActivateSettingsSection($layout, sectionId) {
+        function tinypressActivateSettingsSection($layout, sectionId, options) {
+            options = options || {};
+
             var $link = $layout.find('.wpdk_settings-nav-options a[data-tab-id="' + tinypressEscapeSelector(sectionId) + '"]').first();
             var $section = $layout.find('.wpdk_settings-section[data-section-id="' + tinypressEscapeSelector(sectionId) + '"]').first();
 
@@ -296,7 +298,7 @@
             $section.removeClass('hidden').pb_settings_reload_script();
             $layout.find('.wpdk_settings-section-id').val($section.index() + 1);
 
-            if (window.location.hash !== '#tab=' + sectionId) {
+            if (options.updateHash !== false && window.location.hash !== '#tab=' + sectionId) {
                 window.location.hash = 'tab=' + sectionId;
             }
 
@@ -446,17 +448,58 @@
         setTimeout(tinypressSetupSettingsSearch, 250);
         setTimeout(tinypressSetupSettingsSearch, 1000);
 
-        $(document).on('click', '.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav-options a[data-tab-id]', function () {
-            var $layout = $(this).closest('.tinypress-settings-layout.tinypress-design-refresh');
-            var $searchInput = $layout.find('.wpdk_settings-search input').first();
+        function tinypressKeepSettingsNavSteady($link, pageTop) {
+            var $nav = $link.closest('.wpdk_settings-nav, .wpdk_settings-nav-normal');
 
-            if (!$searchInput.length || !tinypressNormalizeSearchText($searchInput.val())) {
+            if (!$nav.length) {
                 return;
             }
 
-            setTimeout(function () {
-                tinypressRunSettingsSearch($searchInput);
-            }, 0);
+            var navTop = $nav.scrollTop();
+            var restore = function () {
+                if (typeof pageTop === 'number') {
+                    $(window).scrollTop(pageTop);
+                }
+                $nav.scrollTop(navTop);
+            };
+
+            setTimeout(restore, 0);
+            setTimeout(restore, 50);
+            setTimeout(restore, 150);
+        }
+
+        $(document).on(
+            'click',
+            'body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav-metabox a',
+            function () {
+                tinypressKeepSettingsNavSteady($(this), $(window).scrollTop());
+            }
+        );
+
+        $(document).on('click', '.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav-options a[data-tab-id]', function (event) {
+            event.preventDefault();
+
+            var pageTop = $(window).scrollTop();
+            var sectionId = $(this).data('tab-id');
+            var $layout = $(this).closest('.tinypress-settings-layout.tinypress-design-refresh');
+            var $searchInput = $layout.find('.wpdk_settings-search input').first();
+            var hashUrl = window.location.pathname + window.location.search + '#tab=' + sectionId;
+
+            if (!tinypressActivateSettingsSection($layout, sectionId, { updateHash: false })) {
+                return;
+            }
+
+            if (window.history && window.history.replaceState) {
+                window.history.replaceState(null, document.title, hashUrl);
+            }
+
+            tinypressKeepSettingsNavSteady($(this), pageTop);
+
+            if ($searchInput.length && tinypressNormalizeSearchText($searchInput.val())) {
+                setTimeout(function () {
+                    tinypressRunSettingsSearch($searchInput);
+                }, 0);
+            }
         });
 
         function tinypressEscapeSelector(value) {

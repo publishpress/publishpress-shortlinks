@@ -1224,7 +1224,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 'tinypress-frontend',
                 TINYPRESS_PLUGIN_URL . 'assets/frontend/css/frontend.css',
                 array(),
-                TINYPRESS_PLUGIN_VERSION
+                tinypress_asset_version('assets/frontend/css/frontend.css')
             );
         }
 
@@ -1441,6 +1441,9 @@ if (! class_exists('TINYPRESS_Redirection')) {
             }
 
             $location_info['user_agent'] = sanitize_text_field($user_agent);
+            $location_info['referrer']   = isset($_SERVER['HTTP_REFERER'])
+                ? substr(esc_url_raw(wp_unslash($_SERVER['HTTP_REFERER'])), 0, 500)
+                : '';
 
             // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery -- Custom table insert for tracking; no caching needed for write operations
             $wpdb->insert(
@@ -1567,7 +1570,11 @@ if (! class_exists('TINYPRESS_Redirection')) {
             // Show password form
             status_header(200);
             $form_nonce = wp_create_nonce('tinypress_password_check_' . $link_id);
-            $css_url = plugin_dir_url(TINYPRESS_FILE) . 'assets/admin/css/style.css';
+            $css_url = add_query_arg(
+                'ver',
+                tinypress_asset_version('assets/admin/css/style.css'),
+                plugin_dir_url(TINYPRESS_FILE) . 'assets/admin/css/style.css'
+            );
             ?>
             <!DOCTYPE html>
             <html <?php language_attributes(); ?>>
