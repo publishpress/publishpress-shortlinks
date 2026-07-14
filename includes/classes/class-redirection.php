@@ -332,27 +332,111 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 return 0;
             }
 
-            $link_prefix      = Utils::get_option('tinypress_link_prefix');
-            $link_prefix_slug = Utils::get_option('tinypress_link_prefix_slug', 'go');
-
-            if ('1' == $link_prefix) {
-                if ($uri !== $link_prefix_slug && strpos($uri, $link_prefix_slug . '/') !== 0) {
-                    return 0;
-                }
-
-                $tiny_slug = preg_replace('#^' . preg_quote($link_prefix_slug, '#') . '/?#', '', $uri);
-            } else {
-                $tiny_slug = $uri;
-            }
-
-            $tiny_slug_parts = explode('?', $tiny_slug);
-            $tiny_slug       = $tiny_slug_parts[0] ?? '';
+            $tiny_slug = $this->get_tiny_slug_from_request_uri($uri);
 
             if (empty($tiny_slug)) {
                 return 0;
             }
 
             return absint(tinypress()->tiny_slug_to_post_id($tiny_slug));
+        }
+
+        /**
+         * Get the path portion of a request URI.
+         *
+         * @param string $uri Request URI.
+         * @return string
+         */
+        private function get_request_path($uri)
+        {
+            $uri_parts = explode('?', (string) $uri, 2);
+
+            return trim($uri_parts[0], '/');
+        }
+
+        /**
+         * Check whether a request path is inside the configured shortlink prefix.
+         *
+         * @param string $uri         Request URI or path.
+         * @param string $prefix_slug Configured shortlink prefix slug.
+         * @return bool
+         */
+        private function request_matches_link_prefix($uri, $prefix_slug)
+        {
+            $uri         = $this->get_request_path($uri);
+            $prefix_slug = trim((string) $prefix_slug, '/');
+
+            if ('' === $prefix_slug) {
+                return false;
+            }
+
+            return $uri === $prefix_slug || strpos($uri, $prefix_slug . '/') === 0;
+        }
+
+        private function get_tiny_slug_from_request_uri($uri)
+        {
+            $uri              = $this->get_request_path($uri);
+            $link_prefix      = Utils::get_option('tinypress_link_prefix');
+            $link_prefix_slug = Utils::get_option('tinypress_link_prefix_slug', 'go');
+
+            if ('1' != $link_prefix) {
+                return $uri;
+            }
+
+            if (! $this->request_matches_link_prefix($uri, $link_prefix_slug)) {
+                return '';
+            }
+
+            $link_prefix_slug = trim((string) $link_prefix_slug, '/');
+
+            if ($uri === $link_prefix_slug) {
+                return '';
+            }
+
+            return trim(substr($uri, strlen($link_prefix_slug) + 1), '/');
+        }
+
+        /**
+         * Check whether the current request already resolved to normal WordPress content.
+         *
+         * Real pages, posts, and archives should win over bare shortlink slugs. When
+         * the prefix is enabled, nested prefixed URLs remain dedicated to shortlinks.
+         *
+         * @param bool   $is_prefix_request Whether the current path matches the prefix.
+         * @param string $tiny_slug         Extracted shortlink slug.
+         * @return bool
+         */
+        private function should_bypass_shortlink_for_current_content($is_prefix_request, $tiny_slug = '')
+        {
+            if ($is_prefix_request && '' !== $tiny_slug) {
+                return false;
+            }
+
+            if (! is_singular() && ! is_archive()) {
+                return false;
+            }
+
+            if (is_archive()) {
+                return true;
+            }
+
+            global $post;
+
+            if (! $post instanceof WP_Post) {
+                return false;
+            }
+
+            $resolved_post_type = get_post_type($post->ID);
+
+            if ('tinypress_link' === $resolved_post_type) {
+                return false;
+            }
+
+            if (function_exists('rvy_in_revision_workflow') && rvy_in_revision_workflow($post->ID)) {
+                return false;
+            }
+
+            return true;
         }
 
         /**
@@ -1140,7 +1224,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 'tinypress-frontend',
                 TINYPRESS_PLUGIN_URL . 'assets/frontend/css/frontend.css',
                 array(),
-                TINYPRESS_PLUGIN_VERSION
+                tinypress_asset_version('assets/frontend/css/frontend.css')
             );
         }
 
@@ -1357,6 +1441,9 @@ if (! class_exists('TINYPRESS_Redirection')) {
             }
 
             $location_info['user_agent'] = sanitize_text_field($user_agent);
+            $location_info['referrer']   = isset($_SERVER['HTTP_REFERER'])
+                ? substr(esc_url_raw(wp_unslash($_SERVER['HTTP_REFERER'])), 0, 500)
+                : '';
 
             // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery -- Custom table insert for tracking; no caching needed for write operations
             $wpdb->insert(
@@ -1483,7 +1570,11 @@ if (! class_exists('TINYPRESS_Redirection')) {
             // Show password form
             status_header(200);
             $form_nonce = wp_create_nonce('tinypress_password_check_' . $link_id);
-            $css_url = plugin_dir_url(TINYPRESS_FILE) . 'assets/admin/css/style.css';
+            $css_url = add_query_arg(
+                'ver',
+                tinypress_asset_version('assets/admin/css/style.css'),
+                plugin_dir_url(TINYPRESS_FILE) . 'assets/admin/css/style.css'
+            );
             ?>
             <!DOCTYPE html>
             <html <?php language_attributes(); ?>>
@@ -1574,30 +1665,13 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $link_prefix_slug = Utils::get_option('tinypress_link_prefix_slug', 'go');
             $tiny_slug_1      = trim($this->get_request_uri(), '/');
 
-            $is_prefix_request = ('1' == $link_prefix && strpos($tiny_slug_1, $link_prefix_slug) !== false);
+            $is_prefix_request = ('1' == $link_prefix && $this->request_matches_link_prefix($tiny_slug_1, $link_prefix_slug));
+            $tiny_slug_4       = $this->get_tiny_slug_from_request_uri($tiny_slug_1);
 
-            if (! $is_prefix_request && (is_single() || is_archive())) {
-                if ('1' == $link_prefix) {
-                    return;
-                }
-
-                global $post;
-                if ($post) {
-                    $resolved_post_type = get_post_type($post->ID);
-                    if (
-                        'tinypress_link' !== $resolved_post_type &&
-                        (!function_exists('rvy_in_revision_workflow') || !rvy_in_revision_workflow($post->ID))
-                    ) {
-                        return;
-                    }
-                }
-                // If $post is null, continue — this is likely a shortlink where
-                // prevent_shortlink_404 cleared the 404 but WP has no real post object.
+            if ($this->should_bypass_shortlink_for_current_content($is_prefix_request, $tiny_slug_4)) {
+                return;
             }
 
-            $tiny_slug_2 = ('1' == $link_prefix) ? str_replace($link_prefix_slug . '/', '', $tiny_slug_1) : $tiny_slug_1;
-            $tiny_slug_3 = explode('?', $tiny_slug_2);
-            $tiny_slug_4 = $tiny_slug_3[0] ?? '';
             $link_id     = tinypress()->tiny_slug_to_post_id($tiny_slug_4);
 
             if ((empty($link_id) || $link_id === 0) && $is_prefix_request && ! empty($tiny_slug_4)) {
@@ -1611,7 +1685,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 $is_definite_shortlink = false;
 
                 if ('1' == $link_prefix) {
-                    $is_shortlink_request = (strpos($tiny_slug_1, $link_prefix_slug) !== false);
+                    $is_shortlink_request = $is_prefix_request && ! empty($tiny_slug_4);
                     $is_definite_shortlink = $is_shortlink_request;
                 } else {
                     $resolved_post_type = get_post_type($link_id);
@@ -1627,7 +1701,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
 
                 if ($is_shortlink_request && ($is_definite_shortlink || ! is_page($tiny_slug_4))) {
-                    if ('1' == $link_prefix && strpos($tiny_slug_1, $link_prefix_slug) === false) {
+                    if ('1' == $link_prefix && ! $is_prefix_request) {
                         wp_die(esc_html__('This link is not containing the right prefix slug.', 'tinypress'));
                     }
 
@@ -1743,21 +1817,18 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 $uri = trim($this->get_request_uri(), '/');
             }
 
-            $link_prefix      = Utils::get_option('tinypress_link_prefix');
+            $tiny_slug = $this->get_tiny_slug_from_request_uri($uri);
+            $link_prefix = Utils::get_option('tinypress_link_prefix');
             $link_prefix_slug = Utils::get_option('tinypress_link_prefix_slug', 'go');
+            $is_prefix_request = ('1' == $link_prefix && $this->request_matches_link_prefix($uri, $link_prefix_slug));
 
-            // Extract the slug from the URI
-            if ('1' == $link_prefix) {
-                if (strpos($uri, $link_prefix_slug) !== 0 && strpos($uri, $link_prefix_slug . '/') !== 0) {
-                    return false;
-                }
-                $tiny_slug = str_replace($link_prefix_slug . '/', '', $uri);
-            } else {
-                $tiny_slug = $uri;
+            if (empty($tiny_slug)) {
+                return false;
             }
 
-            $tiny_slug_parts = explode('?', $tiny_slug);
-            $tiny_slug = $tiny_slug_parts[0] ?? '';
+            if ($this->should_bypass_shortlink_for_current_content($is_prefix_request, $tiny_slug)) {
+                return false;
+            }
 
             $link_id = tinypress()->tiny_slug_to_post_id($tiny_slug);
 
@@ -1781,13 +1852,20 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
             $link_prefix      = Utils::get_option('tinypress_link_prefix');
             $link_prefix_slug = Utils::get_option('tinypress_link_prefix_slug', 'go');
+            $is_prefix_request = ('1' == $link_prefix && $this->request_matches_link_prefix($uri, $link_prefix_slug));
+            $tiny_slug = $this->get_tiny_slug_from_request_uri($uri);
+
+            if (empty($tiny_slug)) {
+                return false;
+            }
+
+            if ($this->should_bypass_shortlink_for_current_content($is_prefix_request, $tiny_slug)) {
+                return false;
+            }
 
             if ('1' == $link_prefix) {
                 return $this->is_shortlink_request($uri);
             }
-
-            $tiny_slug_parts = explode('?', $uri);
-            $tiny_slug = $tiny_slug_parts[0] ?? '';
 
             $link_id = tinypress()->tiny_slug_to_post_id($tiny_slug);
 
@@ -1975,7 +2053,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $link_prefix_slug = Utils::get_option('tinypress_link_prefix_slug', 'go');
 
             // Only inject on shortlink URLs
-            if ('1' == $link_prefix && strpos($tiny_slug_1, $link_prefix_slug) === false) {
+            if ('1' == $link_prefix && ! $this->request_matches_link_prefix($tiny_slug_1, $link_prefix_slug)) {
                 return;
             }
             ?>

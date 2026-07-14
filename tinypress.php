@@ -4,7 +4,7 @@
  * Plugin Name: PublishPress Shortlinks Free
  * Plugin URI:  https://publishpress.com/shortlinks/
  * Description: The best link manager for WordPress. Your links are brandable, trackable, and can have custom view permissions.
- * Version: 1.7.0
+ * Version: 1.8.0
  * Text Domain: tinypress
  * Author: PublishPress
  * Author URI: https://publishpress.com/
@@ -54,7 +54,7 @@ if (! defined('TINYPRESS_LOADED')) {
     define('TINYPRESS_LOADED', 1);
 
     define('TINYPRESS_FILE', __DIR__ . '/tinypress.php');
-    define('TINYPRESS_PLUGIN_VERSION', '1.7.0');
+    define('TINYPRESS_PLUGIN_VERSION', '1.8.0');
 
     if (! defined('TINYPRESS_LIB_VENDOR_PATH')) {
         define('TINYPRESS_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
@@ -71,6 +71,34 @@ if (! defined('TINYPRESS_LOADED')) {
     define('TINYPRESS_LINK_DOC', 'https://publishpress.com/knowledge-base/shortlinks/');
     define('TINYPRESS_LINK_SUPPORT', 'https://publishpress.com/contact/');
     define('TINYPRESS_ABSPATH', __DIR__);
+
+    if (! function_exists('tinypress_asset_version')) {
+        /**
+         * Get a cache-busting version for local assets.
+         *
+         * @param string $relative_path Path relative to the plugin directory.
+         * @return string
+         */
+        function tinypress_asset_version($relative_path = '')
+        {
+            if (defined('WP_DEBUG') && WP_DEBUG) {
+                return (string) current_time('U');
+            }
+
+            $version = TINYPRESS_PLUGIN_VERSION;
+            $relative_path = ltrim((string) $relative_path, '/\\');
+
+            if ('' !== $relative_path) {
+                $file = TINYPRESS_PLUGIN_DIR . $relative_path;
+
+                if (is_readable($file)) {
+                    $version .= '-' . filemtime($file);
+                }
+            }
+
+            return $version;
+        }
+    }
 
     $pro_active = false;
 
@@ -219,6 +247,10 @@ if (! defined('TINYPRESS_LOADED')) {
                     $settings['tinypress_autolink_post_types'] = array('post', 'page');
                 }
 
+                if (! array_key_exists('tinypress_enabled_post_types', $settings)) {
+                    $settings['tinypress_enabled_post_types'] = array('post', 'page');
+                }
+
                 if (! array_key_exists('tinypress_autolink_color', $settings)) {
                     $settings['tinypress_autolink_color'] = 'transparent';
                 }
@@ -361,6 +393,8 @@ if (! defined('TINYPRESS_LOADED')) {
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-revision.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-statuses.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-import-export.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-migration.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-url-metadata.php';
 
                 new TINYPRESS_Hooks();
                 new TINYPRESS_Settings();
@@ -370,6 +404,8 @@ if (! defined('TINYPRESS_LOADED')) {
                 TINYPRESS_Autolist_Ajax::instance();
                 SHORTLINKS_Reviews::instance();
                 TINYPRESS_Import_Export::get_instance();
+                TINYPRESS_Migration::get_instance();
+                TINYPRESS_URL_Metadata::get_instance();
 
                 // Initialize metaboxes early for proper registration
                 add_action('init', function () {
@@ -397,6 +433,16 @@ if (! defined('TINYPRESS_LOADED')) {
                 'inherited_notice'         => esc_html__('This setting is inherited from global settings. Choose another option to override it for this shortlink.', 'tinypress'),
                 'working_text'             => esc_html__('Working...', 'tinypress'),
                 'plugin_title'             => esc_html__('PublishPress Shortlinks', 'tinypress'),
+                'url_metadata_nonce'       => wp_create_nonce('tinypress_fetch_url_metadata'),
+                'url_metadata_i18n'        => array(
+                    'suggested_title'       => esc_html__('Suggested Label from target URL', 'tinypress'),
+                    'suggested_description' => esc_html__('Suggested Notes from target URL', 'tinypress'),
+                    'overwrite_title'       => esc_html__('Overwrite label?', 'tinypress'),
+                    'overwrite_description' => esc_html__('Overwrite notes?', 'tinypress'),
+                    'accept'                => esc_html__('Yes', 'tinypress'),
+                    'reject'                => esc_html__('No', 'tinypress'),
+                    'dismiss'               => esc_html__('Dismiss', 'tinypress'),
+                ),
                 ));
             }
 
@@ -409,20 +455,30 @@ if (! defined('TINYPRESS_LOADED')) {
                 $screen = get_current_screen();
 
                 // Register all scripts
-                wp_register_script('apexcharts', TINYPRESS_PLUGIN_URL . 'assets/admin/js/apexcharts.js', array( 'jquery' ), self::$_script_version, true);
-                wp_register_script('qrcode', TINYPRESS_PLUGIN_URL . 'assets/admin/js/qrcode.min.js', array( 'jquery' ), self::$_script_version, true);
-                wp_register_script('tinypress-analytics', TINYPRESS_PLUGIN_URL . 'assets/admin/js/analytics.js', array( 'jquery', 'apexcharts' ), self::$_script_version, true);
-                wp_register_script('tinypress-qr-code', TINYPRESS_PLUGIN_URL . 'assets/admin/js/qr-code.js', array( 'jquery', 'qrcode' ), self::$_script_version, true);
+                wp_register_script('apexcharts', TINYPRESS_PLUGIN_URL . 'assets/admin/js/apexcharts.js', array( 'jquery' ), tinypress_asset_version('assets/admin/js/apexcharts.js'), true);
+                wp_register_script('tinypress-qrcode-lib', TINYPRESS_PLUGIN_URL . 'assets/admin/js/qrcode.min.js', array( 'jquery' ), tinypress_asset_version('assets/admin/js/qrcode.min.js'), true);
+                wp_add_inline_script(
+                    'tinypress-qrcode-lib',
+                    'window.tinypressPreviousQRCode = window.QRCode;',
+                    'before'
+                );
+                wp_add_inline_script(
+                    'tinypress-qrcode-lib',
+                    'window.publishpressShortlinksQRCode = window.QRCode; window.TinypressQRCode = window.publishpressShortlinksQRCode; if (typeof window.tinypressPreviousQRCode !== "undefined") { window.QRCode = window.tinypressPreviousQRCode; }',
+                    'after'
+                );
+                wp_register_script('tinypress-analytics', TINYPRESS_PLUGIN_URL . 'assets/admin/js/analytics.js', array( 'jquery', 'apexcharts' ), tinypress_asset_version('assets/admin/js/analytics.js'), true);
+                wp_register_script('tinypress-qr-code', TINYPRESS_PLUGIN_URL . 'assets/admin/js/qr-code.js', array( 'jquery', 'tinypress-qrcode-lib' ), tinypress_asset_version('assets/admin/js/qr-code.js'), true);
 
                 // Main scripts - always enqueue on shortlinks pages
-                wp_enqueue_script('tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/js/scripts.js', array( 'jquery' ), self::$_script_version, true);
+                wp_enqueue_script('tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/js/scripts.js', array( 'jquery' ), tinypress_asset_version('assets/admin/js/scripts.js'), true);
                 wp_localize_script('tinypress', 'tinypress', $this->localize_scripts());
 
                 // Always enqueue styles
-                wp_enqueue_style('tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/css/style.css', self::$_script_version);
-                wp_enqueue_style('tinypress-tool-tip', TINYPRESS_PLUGIN_URL . 'assets/hint.min.css');
-                wp_enqueue_style('tinypress-tooltip-lib', TINYPRESS_PLUGIN_URL . 'assets/lib/tooltip/css/tooltip.min.css', array(), self::$_script_version);
-                wp_enqueue_script('tinypress-tooltip-lib', TINYPRESS_PLUGIN_URL . 'assets/lib/tooltip/js/tooltip.min.js', array( 'jquery' ), self::$_script_version, true);
+                wp_enqueue_style('tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/css/style.css', array(), tinypress_asset_version('assets/admin/css/style.css'));
+                wp_enqueue_style('tinypress-tool-tip', TINYPRESS_PLUGIN_URL . 'assets/hint.min.css', array(), tinypress_asset_version('assets/hint.min.css'));
+                wp_enqueue_style('tinypress-tooltip-lib', TINYPRESS_PLUGIN_URL . 'assets/lib/tooltip/css/tooltip.min.css', array(), tinypress_asset_version('assets/lib/tooltip/css/tooltip.min.css'));
+                wp_enqueue_script('tinypress-tooltip-lib', TINYPRESS_PLUGIN_URL . 'assets/lib/tooltip/js/tooltip.min.js', array( 'jquery' ), tinypress_asset_version('assets/lib/tooltip/js/tooltip.min.js'), true);
 
                 do_action('tinypress_admin_class_before_assets_register');
                 do_action('tinypress_admin_class_after_styles_enqueue');

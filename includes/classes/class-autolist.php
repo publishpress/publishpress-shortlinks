@@ -61,6 +61,10 @@ if (! class_exists('TINYPRESS_AutoList')) {
                 return null;
             }
 
+            if (function_exists('tinypress_is_post_type_enabled') && ! tinypress_is_post_type_enabled($post_type)) {
+                return null;
+            }
+
             $settings = get_option('tinypress_settings', array());
             $post_type_settings = isset($settings['tinypress_autolist_post_types']) ? $settings['tinypress_autolist_post_types'] : array();
 
@@ -274,6 +278,10 @@ if (! class_exists('TINYPRESS_AutoList')) {
             }
 
             if (function_exists('tinypress_is_pp_revision') && tinypress_is_pp_revision($post_id)) {
+                return;
+            }
+
+            if ($post->post_status === 'auto-draft') {
                 return;
             }
 

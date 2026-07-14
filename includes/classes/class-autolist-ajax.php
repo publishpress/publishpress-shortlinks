@@ -263,14 +263,14 @@ if (! class_exists('TINYPRESS_Autolist_Ajax')) {
                 'tinypress-admin-select2',
                 TINYPRESS_PLUGIN_URL . 'assets/lib/select2/js/select2.full.min.js',
                 array( 'jquery' ),
-                TINYPRESS_PLUGIN_VERSION
+                tinypress_asset_version('assets/lib/select2/js/select2.full.min.js')
             );
 
             wp_register_style(
                 'tinypress-admin-select2',
                 TINYPRESS_PLUGIN_URL . 'assets/lib/select2/css/select2.min.css',
                 array(),
-                TINYPRESS_PLUGIN_VERSION
+                tinypress_asset_version('assets/lib/select2/css/select2.min.css')
             );
 
             wp_enqueue_script('tinypress-admin-select2');
@@ -280,7 +280,7 @@ if (! class_exists('TINYPRESS_Autolist_Ajax')) {
                 'tinypress-autolist-ajax',
                 TINYPRESS_PLUGIN_URL . 'assets/admin/js/autolist-ajax.js',
                 array( 'jquery', 'jquery-ui-sortable', 'tinypress-admin-select2' ),
-                TINYPRESS_PLUGIN_VERSION,
+                tinypress_asset_version('assets/admin/js/autolist-ajax.js'),
                 true
             );
 

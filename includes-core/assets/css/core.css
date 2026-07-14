@@ -21,6 +21,12 @@
     color: #fff;
 }
 
+body.tinypress_link_page_settings .tinypress-version-notice-bold-purple {
+    clear: both;
+    position: relative;
+    z-index: 40;
+}
+
 .tinypress-version-notice-bold-purple .tinypress-version-notice-bold-purple-button a {
     background: #FCB223;
     color: #000 !important;
@@ -127,4 +133,129 @@
 
 body.post-type-tinypress_link .wpdk_settings-section {
     padding-bottom: 180px !important;
+}
+
+.tinypress-reports-teaser-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin-top: 16px;
+}
+
+.tinypress-reports-teaser-content {
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.tinypress-reports-teaser-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+}
+
+.tinypress-reports-teaser-filter select {
+    min-width: 150px;
+}
+
+.tinypress-reports-teaser-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.tinypress-reports-teaser-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+}
+
+.tinypress-reports-teaser-card .dashicons {
+    font-size: 36px;
+    width: 36px;
+    height: 36px;
+    color: #2271b1;
+}
+
+.tinypress-reports-teaser-card-value {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.tinypress-reports-teaser-card-label {
+    color: #646970;
+}
+
+.tinypress-reports-teaser-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.tinypress-reports-teaser-section {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.tinypress-reports-teaser-section h2 {
+    margin: 0 0 15px;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid #f0f0f1;
+    padding-bottom: 10px;
+}
+
+.tinypress-reports-teaser-section table {
+    margin: 0;
+}
+
+.tinypress-reports-teaser-section th,
+.tinypress-reports-teaser-section td {
+    padding: 10px 12px;
+}
+
+.tinypress-reports-teaser-section .tinypress-col-clicks {
+    width: 80px;
+    text-align: right;
+}
+
+.tinypress-reports-teaser-section small {
+    color: #646970;
+    font-family: monospace;
+}
+
+.tinypress-reports-teaser-locations {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tinypress-reports-teaser-locations li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f1;
+}
+
+.tinypress-reports-teaser-locations li:last-child {
+    border-bottom: none;
+}
+
+.tinypress-reports-teaser-locations .location-count {
+    background: #f0f0f1;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
 }

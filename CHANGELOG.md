@@ -1,6 +1,19 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+= [1.8.0] - 14 July, 2026 =
+
+* Update: Suggest Label and description from target url while adding shortlinks, #345
+* Update: Need a post type selector, #343
+* Update: Redesign settings UI, #344
+* Added: Search box on the Link Health screen, #337
+* Fixed: Prevent auto-drafts from creating shortlink entries, #335
+* Fixed: Clarify tooltip message: Redirect loop, #338
+* Fixed: Edit Shortlinks design issue with some admin themes, #336
+* Feature: Reports feature, #321
+* Feature: Detect other plugins and offer a migration, #317
+
+
 = [1.7.0] - 09 June, 2026 =
 
 * Feature: Add a broken link scanner, #247

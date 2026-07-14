@@ -37,6 +37,7 @@ if (! class_exists('TINYPRESS_Settings')) {
             add_action('pb_settings_options_before', array( $this, 'add_settings_wrapper_start' ));
             add_action('pb_settings_options_after', array( $this, 'add_settings_wrapper_end' ));
             add_action('admin_notices', array( $this, 'shortlinks_elementor_prefix_notice' ));
+            add_action('admin_menu', array( $this, 'move_utility_submenus_to_bottom' ), 9999);
         }
 
         public function register_custom_statuses_filters()
@@ -219,6 +220,13 @@ if (! class_exists('TINYPRESS_Settings')) {
                 $request['tinypress_autolink_post_types'] = array();
             }
 
+            if (
+                $this->is_enabled_post_types_section_save_without_post_types($save_request, $args)
+                && ! array_key_exists('tinypress_enabled_post_types', $submitted_options)
+            ) {
+                $request['tinypress_enabled_post_types'] = array();
+            }
+
             if (array_key_exists('tinypress_autolink_post_types', $request)) {
                 $autolink_post_types = $request['tinypress_autolink_post_types'];
 
@@ -237,6 +245,26 @@ if (! class_exists('TINYPRESS_Settings')) {
                 ));
 
                 $request['tinypress_autolink_post_types'] = $autolink_post_types;
+            }
+
+            if (array_key_exists('tinypress_enabled_post_types', $request)) {
+                $enabled_post_types = $request['tinypress_enabled_post_types'];
+
+                if (! is_array($enabled_post_types)) {
+                    $enabled_post_types = array();
+                }
+
+                $valid_enabled_post_types = array_merge(
+                    array('__all__'),
+                    array_keys($this->get_public_post_type_options())
+                );
+
+                $enabled_post_types = array_values(array_intersect(
+                    array_filter(array_map('sanitize_key', $enabled_post_types)),
+                    $valid_enabled_post_types
+                ));
+
+                $request['tinypress_enabled_post_types'] = $enabled_post_types;
             }
 
             if (! isset($request['tinypress_autolist_post_types'])) {
@@ -347,6 +375,46 @@ if (! class_exists('TINYPRESS_Settings')) {
             return false;
         }
 
+        /**
+         * Check whether the current save action targets the Enabled Post Types section.
+         *
+         * @param array $save_request Raw save request payload.
+         * @param mixed $settings_page Settings framework instance.
+         * @return bool
+         */
+        private function is_enabled_post_types_section_save_without_post_types($save_request, $settings_page)
+        {
+            if (! is_array($save_request)) {
+                return false;
+            }
+
+            $transient = isset($save_request['pb_settings_transient']) && is_array($save_request['pb_settings_transient'])
+                ? $save_request['pb_settings_transient']
+                : array();
+
+            if (empty($transient['section'])) {
+                return false;
+            }
+
+            $section_index = absint($transient['section']) - 1;
+
+            if ($section_index < 0 || ! is_object($settings_page) || ! isset($settings_page->pre_sections[ $section_index ])) {
+                return false;
+            }
+
+            $section_fields = isset($settings_page->pre_sections[ $section_index ]['fields']) && is_array($settings_page->pre_sections[ $section_index ]['fields'])
+                ? $settings_page->pre_sections[ $section_index ]['fields']
+                : array();
+
+            foreach ($section_fields as $field) {
+                if (isset($field['id']) && 'tinypress_enabled_post_types' === $field['id']) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public function render_non_public_notice_messages_field()
         {
             $settings = get_option('tinypress_settings', array());
@@ -414,6 +482,9 @@ if (! class_exists('TINYPRESS_Settings')) {
 
             $is_all_selected = in_array('__all__', $selected, true);
 
+            echo '<div class="tinypress-post-type-checkbox-list" data-field-id="tinypress_autolink_post_types">';
+            echo '<label class="screen-reader-text" for="tinypress_autolink_post_types_search">' . esc_html__('Search post types', 'tinypress') . '</label>';
+            echo '<input type="search" id="tinypress_autolink_post_types_search" class="tinypress-post-type-search" placeholder="' . esc_attr__('Filter post types...', 'tinypress') . '" autocomplete="off" />';
             echo '<ul class="wpdk_settings--inline-list">';
 
             foreach ($options as $option_key => $option_label) {
@@ -430,6 +501,86 @@ if (! class_exists('TINYPRESS_Settings')) {
             }
 
             echo '</ul>';
+            echo '<p class="tinypress-post-type-search-empty" hidden>' . esc_html__('No post types match your search.', 'tinypress') . '</p>';
+            echo '</div>';
+        }
+
+        public function render_enabled_post_types_field($field)
+        {
+            $settings = get_option('tinypress_settings', array());
+
+            if (! is_array($settings)) {
+                $settings = array();
+            }
+
+            $selected = array_key_exists('tinypress_enabled_post_types', $settings) && is_array($settings['tinypress_enabled_post_types'])
+                ? array_values(array_map('sanitize_key', $settings['tinypress_enabled_post_types']))
+                : (isset($field['default']) && is_array($field['default']) ? array_values(array_map('sanitize_key', $field['default'])) : array('post', 'page'));
+
+            $options = array_merge(
+                array(
+                    '__all__' => esc_html__('All', 'tinypress'),
+                ),
+                $this->get_public_post_type_options()
+            );
+
+            if (empty($options)) {
+                echo esc_html__('No data available.', 'tinypress');
+                return;
+            }
+
+            $is_all_selected = in_array('__all__', $selected, true);
+
+            echo '<div class="tinypress-post-type-checkbox-list" data-field-id="tinypress_enabled_post_types">';
+            echo '<label class="screen-reader-text" for="tinypress_enabled_post_types_search">' . esc_html__('Search post types', 'tinypress') . '</label>';
+            echo '<input type="search" id="tinypress_enabled_post_types_search" class="tinypress-post-type-search" placeholder="' . esc_attr__('Filter post types...', 'tinypress') . '" autocomplete="off" />';
+            echo '<ul class="wpdk_settings--inline-list">';
+
+            foreach ($options as $option_key => $option_label) {
+                $option_key = sanitize_key($option_key);
+                $checked    = $is_all_selected || in_array($option_key, $selected, true);
+                $disabled   = $is_all_selected && '__all__' !== $option_key;
+
+                echo '<li>';
+                echo '<label>';
+                echo '<input type="checkbox" name="tinypress_settings[tinypress_enabled_post_types][]" value="' . esc_attr($option_key) . '"' . checked($checked, true, false) . disabled($disabled, true, false) . '/>';
+                echo '<span class="wpdk_settings--text">' . esc_html($option_label) . '</span>';
+                echo '</label>';
+                echo '</li>';
+            }
+
+            echo '</ul>';
+            echo '<p class="tinypress-post-type-search-empty" hidden>' . esc_html__('No post types match your search.', 'tinypress') . '</p>';
+            echo '</div>';
+        }
+
+        public function get_public_post_type_options()
+        {
+            $post_types = get_post_types(array(), 'objects');
+            $excluded_post_types = $this->get_excluded_autolink_post_types();
+            $options = array();
+
+            foreach ($post_types as $post_type) {
+                if (! is_object($post_type) || empty($post_type->name)) {
+                    continue;
+                }
+
+                $post_type_name = sanitize_key($post_type->name);
+
+                if ('' === $post_type_name || in_array($post_type_name, $excluded_post_types, true)) {
+                    continue;
+                }
+
+                $label = ! empty($post_type->labels->singular_name)
+                    ? $post_type->labels->singular_name
+                    : (! empty($post_type->label) ? $post_type->label : $post_type_name);
+
+                $options[ $post_type_name ] = $label . ' (' . $post_type_name . ')';
+            }
+
+            uasort($options, 'strnatcasecmp');
+
+            return $options;
         }
 
         /**
@@ -442,13 +593,14 @@ if (! class_exists('TINYPRESS_Settings')) {
             // Generate settings page
             $settings_args = array(
                 'menu_title'      => esc_html__('Settings', 'tinypress'),
+                'framework_title' => esc_html__('PublishPress Shortlinks', 'tinypress'),
                 'menu_slug'       => 'settings',
                 'menu_type'       => 'submenu',
                 'menu_parent'     => 'edit.php?post_type=tinypress_link',
                 'menu_capability' => 'tinypress_manage_shortlink_settings',
                 'database'        => 'option',
                 'theme'           => 'light',
-                'show_search'     => false,
+                'show_search'     => true,
                 'pro_url'         => TINYPRESS_LINK_PRO_MENU,
             );
 
@@ -457,15 +609,57 @@ if (! class_exists('TINYPRESS_Settings')) {
 
         public function add_settings_wrapper_start()
         {
-            echo '<div class="tinypress-settings-layout">';
+            $layout_class = class_exists('PublishPress_Shortlinks_Pro_Init')
+                ? 'tinypress-settings-layout tinypress-design-refresh'
+                : 'tinypress-settings-layout tinypress-design-refresh tinypress-settings-layout-free';
+
+            echo '<div class="' . esc_attr($layout_class) . '">';
         }
 
         public function add_settings_wrapper_end()
         {
-            if (! class_exists('PublishPress_Shortlinks_Pro_Init')) {
-                include TINYPRESS_PLUGIN_DIR . 'templates/admin/settings/supports.php';
-            }
             echo '</div>';
+        }
+
+        public function move_utility_submenus_to_bottom()
+        {
+            global $submenu;
+
+            $parent_slug = 'edit.php?post_type=tinypress_link';
+
+            if (empty($submenu[ $parent_slug ]) || ! is_array($submenu[ $parent_slug ])) {
+                return;
+            }
+
+            $upgrade_menu_slug = defined('TINYPRESS_LINK_PRO_MENU')
+                ? TINYPRESS_LINK_PRO_MENU
+                : 'https://publishpress.com/links/shortlinks-menu';
+            $bottom_menu_slugs = array(
+                'tinypress-import-export',
+                'tinypress-migration',
+                'settings',
+                $upgrade_menu_slug,
+            );
+            $bottom_menu_items = array_fill_keys($bottom_menu_slugs, null);
+
+            foreach ($submenu[ $parent_slug ] as $index => $menu_item) {
+                $menu_slug = isset($menu_item[2]) ? (string) $menu_item[2] : '';
+
+                if (! array_key_exists($menu_slug, $bottom_menu_items)) {
+                    continue;
+                }
+
+                $bottom_menu_items[ $menu_slug ] = $menu_item;
+                unset($submenu[ $parent_slug ][ $index ]);
+            }
+
+            foreach ($bottom_menu_slugs as $menu_slug) {
+                if (null !== $bottom_menu_items[ $menu_slug ]) {
+                    $submenu[ $parent_slug ][] = $bottom_menu_items[ $menu_slug ];
+                }
+            }
+
+            $submenu[ $parent_slug ] = array_values($submenu[ $parent_slug ]);
         }
 
         /**
@@ -717,6 +911,21 @@ if (! class_exists('TINYPRESS_Settings')) {
             $field_sections['settings'] = array(
                 'title'    => esc_html__('General', 'tinypress'),
                 'sections' => array(
+                    array(
+                        'title'  => esc_html__('Post Types', 'tinypress'),
+                        'fields' => array(
+                            array(
+                                'id'         => 'tinypress_enabled_post_types',
+                                'type'       => 'callback',
+                                'title'      => esc_html__('Post Types', 'tinypress'),
+                                'subtitle'   => esc_html__('Select which post types will have shortlinks available.', 'tinypress'),
+                                'desc'       => esc_html__('Shortlinks metabox and column will only appear on selected post types.', 'tinypress'),
+                                'function'   => array( $this, 'render_enabled_post_types_field' ),
+                                'default'    => array('post', 'page'),
+                                'class'      => 'wpdk_settings-field-checkbox tinypress-enabled-post-types-field',
+                            ),
+                        ),
+                    ),
                     array(
                         'title'  => esc_html__('Options', 'tinypress'),
                         'fields' => array(
@@ -1102,7 +1311,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                 'tinypress-autolist-ajax',
                 TINYPRESS_PLUGIN_URL . 'assets/admin/css/autolist-ajax.css',
                 array(),
-                TINYPRESS_PLUGIN_VERSION
+                tinypress_asset_version('assets/admin/css/autolist-ajax.css')
             );
 
             ?>
