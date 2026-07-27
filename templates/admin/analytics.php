@@ -15,10 +15,16 @@ $today   = current_time('Y-m-d');
 
 global $wpdb;
 
-$uncleared_condition = "(is_cleared = 0 OR is_cleared IS NULL OR is_cleared = '')";
-
-// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; aggregation query not suitable for caching
-$reports = $wpdb->get_results($wpdb->prepare("SELECT DATE(datetime) AS DateOnly, COUNT(*) AS ClickCount FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id = %d AND " . $uncleared_condition . " GROUP BY DATE(datetime) ORDER BY DATE(datetime)", $post_id), ARRAY_A);
+// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; aggregation queries are not suitable for caching.
+$reports = $wpdb->get_results($wpdb->prepare(
+    "SELECT DATE(datetime) AS DateOnly, COUNT(*) AS ClickCount
+    FROM " . TINYPRESS_TABLE_REPORTS . "
+    WHERE post_id = %d
+    AND (is_cleared = 0 OR is_cleared IS NULL OR is_cleared = '')
+    GROUP BY DATE(datetime)
+    ORDER BY DATE(datetime)",
+    $post_id
+), ARRAY_A);
 
 $data  = array();
 
@@ -28,15 +34,16 @@ foreach ($reports as $report) {
     $click_map[$report['DateOnly']] = (int) $report['ClickCount'];
 }
 
-// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; grouped visitor data powers the in-page analytics summary.
 $visitor_rows = $wpdb->get_results($wpdb->prepare(
     "SELECT DATE(datetime) AS DateOnly, user_id, user_ip
     FROM " . TINYPRESS_TABLE_REPORTS . "
-    WHERE post_id = %d AND " . $uncleared_condition . "
+    WHERE post_id = %d
+    AND (is_cleared = 0 OR is_cleared IS NULL OR is_cleared = '')
     GROUP BY DATE(datetime), user_id, user_ip
     ORDER BY DATE(datetime)",
     $post_id
 ), ARRAY_A);
+// phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
 
 $visitors_by_date = array();
 foreach ($visitor_rows as $visitor_row) {
