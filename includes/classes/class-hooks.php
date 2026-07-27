@@ -117,7 +117,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
             }
 
             $post_id = isset($_POST['post_id']) ? absint($_POST['post_id']) : 0;
-            $period  = isset($_POST['period']) ? sanitize_text_field($_POST['period']) : 'today';
+            $period  = isset($_POST['period']) ? sanitize_key($_POST['period']) : 'today';
 
             if (! $post_id) {
                 wp_send_json_error(esc_html__('Invalid post ID.', 'tinypress'));
@@ -135,30 +135,106 @@ if (! class_exists('TINYPRESS_Hooks')) {
 
             global $wpdb;
 
-            $date_condition = '';
+            $today      = current_time('Y-m-d');
+            $start_date = $today;
+            $end_date   = $today;
+            $delete_all = false;
+
             switch ($period) {
                 case 'today':
-                    $date_condition = "AND DATE(datetime) = CURDATE()";
+                    $start_date = $today;
+                    $end_date   = $today;
+                    break;
+                case 'yesterday':
+                    $start_date = date('Y-m-d', strtotime('-1 day', strtotime($today)));
+                    $end_date   = $start_date;
                     break;
                 case 'last_7_days':
-                    $date_condition = "AND datetime >= DATE_SUB(NOW(), INTERVAL 7 DAY)";
+                    $start_date = date('Y-m-d', strtotime('-6 days', strtotime($today)));
+                    $end_date   = $today;
+                    break;
+                case 'last_30_days':
+                    $start_date = date('Y-m-d', strtotime('-29 days', strtotime($today)));
+                    $end_date   = $today;
+                    break;
+                case 'this_month':
+                    $start_date = date('Y-m-01', strtotime($today));
+                    $end_date   = $today;
+                    break;
+                case 'last_month':
+                    $start_date = date('Y-m-01', strtotime('first day of last month', strtotime($today)));
+                    $end_date   = date('Y-m-t', strtotime('last day of last month', strtotime($today)));
+                    break;
+                case 'this_year':
+                    $start_date = date('Y-01-01', strtotime($today));
+                    $end_date   = $today;
+                    break;
+                case 'last_2_years':
+                    $start_date = date('Y-m-d', strtotime('-2 years +1 day', strtotime($today)));
+                    $end_date   = $today;
                     break;
                 case 'last_1_month':
-                    $date_condition = "AND datetime >= DATE_SUB(NOW(), INTERVAL 1 MONTH)";
+                    $start_date = date('Y-m-d', strtotime('-1 month', strtotime($today)));
+                    $end_date   = $today;
                     break;
                 case 'last_1_year':
-                    $date_condition = "AND datetime >= DATE_SUB(NOW(), INTERVAL 1 YEAR)";
+                    $start_date = date('Y-m-d', strtotime('-1 year', strtotime($today)));
+                    $end_date   = $today;
+                    break;
+                case 'custom':
+                    $custom_start = isset($_POST['custom_start']) ? sanitize_text_field(wp_unslash($_POST['custom_start'])) : '';
+                    $custom_end   = isset($_POST['custom_end']) ? sanitize_text_field(wp_unslash($_POST['custom_end'])) : '';
+
+                    if (! preg_match('/^\d{4}-\d{2}-\d{2}$/', $custom_start) || ! preg_match('/^\d{4}-\d{2}-\d{2}$/', $custom_end)) {
+                        wp_send_json_error(esc_html__('Invalid custom date range.', 'tinypress'));
+                    }
+
+                    $custom_start_parts = array_map('absint', explode('-', $custom_start));
+                    $custom_end_parts   = array_map('absint', explode('-', $custom_end));
+
+                    if (
+                        3 !== count($custom_start_parts)
+                        || 3 !== count($custom_end_parts)
+                        || ! checkdate($custom_start_parts[1], $custom_start_parts[2], $custom_start_parts[0])
+                        || ! checkdate($custom_end_parts[1], $custom_end_parts[2], $custom_end_parts[0])
+                    ) {
+                        wp_send_json_error(esc_html__('Invalid custom date range.', 'tinypress'));
+                    }
+
+                    $start_date = date('Y-m-d', strtotime($custom_start));
+                    $end_date   = date('Y-m-d', strtotime($custom_end));
+
+                    if (strtotime($start_date) > strtotime($end_date)) {
+                        $original_start = $start_date;
+                        $start_date     = $end_date;
+                        $end_date       = $original_start;
+                    }
+                    break;
+                case 'all_time':
+                    $delete_all = true;
                     break;
                 default:
-                    $date_condition = "AND DATE(datetime) = CURDATE()";
+                    $start_date = $today;
+                    $end_date   = $today;
             }
 
-            // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; $date_condition is a hardcoded string from switch above
-            $result = $wpdb->query($wpdb->prepare(
-                "DELETE FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id = %d " . $date_condition,
-                $post_id
-            ));
-            // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
+            if ($delete_all) {
+                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant.
+                $result = $wpdb->query($wpdb->prepare(
+                    "DELETE FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id = %d",
+                    $post_id
+                ));
+                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
+            } else {
+                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant.
+                $result = $wpdb->query($wpdb->prepare(
+                    "DELETE FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id = %d AND DATE(datetime) BETWEEN %s AND %s",
+                    $post_id,
+                    $start_date,
+                    $end_date
+                ));
+                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
+            }
 
             if ($result !== false) {
                 wp_send_json_success(esc_html__('Analytics reset successfully.', 'tinypress'));
