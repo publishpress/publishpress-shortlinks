@@ -310,7 +310,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
          */
         private function get_supported_import_fields()
         {
-            return array(
+            return apply_filters('tinypress_import_supported_fields', array(
                 'label',
                 'target_url',
                 'short_slug',
@@ -326,7 +326,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 'expired_redirect_url',
                 'notes',
                 'autolink_keywords',
-            );
+            ));
         }
 
         /**
@@ -450,7 +450,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
             $output = fopen('php://output', 'w');
 
-            $this->write_csv_row($output, array(
+            $base_headers = array(
                 'label',
                 'target_url',
                 'short_slug',
@@ -467,7 +467,10 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 'notes',
                 'autolink_keywords',
                 'date_created',
-            ));
+            );
+            $headers = apply_filters('tinypress_export_csv_headers', $base_headers);
+
+            $this->write_csv_row($output, $headers);
 
             $paged    = 1;
             $per_page = 500;
@@ -508,7 +511,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                         $expiration_time = $this->get_settings_value('tinypress_global_expiration_time', $expiration_time);
                     }
 
-                    $this->write_csv_row($output, array(
+                    $row = array(
                         $link->post_title,
                         get_post_meta($link->ID, 'target_url', true),
                         get_post_meta($link->ID, 'tiny_slug', true),
@@ -525,7 +528,9 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                         get_post_meta($link->ID, 'tiny_notes', true),
                         $autolink_keywords,
                         $link->post_date,
-                    ));
+                    );
+
+                    $this->write_csv_row($output, apply_filters('tinypress_export_csv_row', $row, $link->ID, $headers, $base_headers));
                 }
 
                 $paged++;
@@ -714,6 +719,8 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                     update_post_meta($link_id, 'autolink_keywords', ! empty($keywords) ? implode("\n", $keywords) : '');
                 }
 
+                do_action('tinypress_import_after_shortlink_meta', $link_id, $data);
+
                 if ($is_update) {
                     $updated++;
                 } else {
@@ -873,6 +880,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 'notes'            => array( 'notes', 'description', 'comment' ),
                 'autolink_keywords' => array( 'autolink_keywords', 'keywords', 'tags' ),
             );
+            $column_aliases = apply_filters('tinypress_import_column_aliases', $column_aliases);
 
             $mapped_headers = array();
             foreach ($headers as $idx => $original_header) {
@@ -1048,7 +1056,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 wp_send_json_error(array( 'message' => esc_html__('Unauthorized.', 'tinypress') ));
             }
 
-            $supported_fields = array(
+            $supported_fields = apply_filters('tinypress_import_supported_field_labels', array(
                 'label'                    => esc_html__('Link Label', 'tinypress'),
                 'target_url'               => esc_html__('Target URL', 'tinypress'),
                 'short_slug'               => esc_html__('Short Slug', 'tinypress'),
@@ -1064,7 +1072,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 'expired_redirect_url'     => esc_html__('Expired Redirect URL', 'tinypress'),
                 'notes'                    => esc_html__('Notes', 'tinypress'),
                 'autolink_keywords'        => esc_html__('Autolink Keywords', 'tinypress'),
-            );
+            ));
 
             wp_send_json_success(array(
                 'fields' => $supported_fields,
@@ -1138,9 +1146,35 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                         </div>
                         <div class="tinypress-ie-card-body">
                             <p><?php esc_html_e('Upload a CSV file to bulk-create shortlinks. The CSV must contain at minimum a "target_url" column. Password protection settings are intentionally not imported.', 'tinypress'); ?></p>
+                            <?php
+                            $supported_columns = apply_filters('tinypress_import_supported_columns', array(
+                                'label',
+                                'target_url',
+                                'short_slug',
+                                'post_status',
+                                'link_status',
+                                'redirect_method_mode',
+                                'redirect_method',
+                                'nofollow_mode',
+                                'nofollow',
+                                'sponsored_mode',
+                                'sponsored',
+                                'parameter_forwarding_mode',
+                                'parameter_forwarding',
+                                'expiration_mode',
+                                'expiration_enabled',
+                                'expiration_date',
+                                'expiration_time',
+                                'expired_redirect_url',
+                                'notes',
+                                'autolink_keywords',
+                            ));
+                            ?>
                             <p class="tinypress-ie-columns-info">
                                 <strong><?php esc_html_e('Supported columns:', 'tinypress'); ?></strong><br>
-                                <code>label</code>, <code>target_url</code>, <code>short_slug</code>, <code>post_status</code>, <code>link_status</code>, <code>redirect_method_mode</code>, <code>redirect_method</code>, <code>nofollow_mode</code>, <code>nofollow</code>, <code>sponsored_mode</code>, <code>sponsored</code>, <code>parameter_forwarding_mode</code>, <code>parameter_forwarding</code>, <code>expiration_mode</code>, <code>expiration_enabled</code>, <code>expiration_date</code>, <code>expiration_time</code>, <code>expired_redirect_url</code>, <code>notes</code>, <code>autolink_keywords</code>
+                                <?php foreach ($supported_columns as $column_index => $column) : ?>
+                                    <?php echo $column_index > 0 ? esc_html(', ') : ''; ?><code><?php echo esc_html($column); ?></code>
+                                <?php endforeach; ?>
                             </p>
                             
                             <div id="tinypress-file-input-section">
