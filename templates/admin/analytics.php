@@ -20,7 +20,7 @@ $reports = $wpdb->get_results($wpdb->prepare(
     "SELECT DATE(datetime) AS DateOnly, COUNT(*) AS ClickCount
     FROM " . TINYPRESS_TABLE_REPORTS . "
     WHERE post_id = %d
-    AND (is_cleared = 0 OR is_cleared IS NULL OR is_cleared = '')
+    AND is_analytics_cleared = 0
     GROUP BY DATE(datetime)
     ORDER BY DATE(datetime)",
     $post_id
@@ -38,7 +38,7 @@ $visitor_rows = $wpdb->get_results($wpdb->prepare(
     "SELECT DATE(datetime) AS DateOnly, user_id, user_ip
     FROM " . TINYPRESS_TABLE_REPORTS . "
     WHERE post_id = %d
-    AND (is_cleared = 0 OR is_cleared IS NULL OR is_cleared = '')
+    AND is_analytics_cleared = 0
     GROUP BY DATE(datetime), user_id, user_ip
     ORDER BY DATE(datetime)",
     $post_id

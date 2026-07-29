@@ -308,10 +308,19 @@ class ShortlinksCoreAdmin
         $fields[] = array(
             'id'         => 'expired_redirect_pro_teaser',
             'type'       => 'content',
-            'title'      => esc_html__('Expired Redirect Settings', 'tinypress'),
+            'title'      => esc_html__('Scheduled Expiration Settings', 'tinypress'),
             'dependency' => array( 'enable_expiration', '==', '1' ),
             'content'    => '<div style="opacity:0.5;pointer-events:none;">'
-                . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Expired Redirect URL', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Activation Date', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Choose when this shortlink should start working.', 'tinypress') . '</p>'
+                . '<input type="text" disabled placeholder="' . esc_attr__('dd-mm-yyyy', 'tinypress') . '" style="width:100%;max-width:180px;" />'
+                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Activation Time', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Choose the time this shortlink should start working.', 'tinypress') . '</p>'
+                . '<input type="text" disabled placeholder="' . esc_attr__('12:00 PM', 'tinypress') . '" style="width:100%;max-width:120px;" />'
+                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Expiration Click Limit', 'tinypress') . '</strong></p>'
+                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Expire this shortlink after a number of clicks.', 'tinypress') . '</p>'
+                . '<input type="number" disabled value="10" style="width:80px;" />'
+                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Expired Redirect URL', 'tinypress') . '</strong></p>'
                 . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Choose where visitors should go when they click an expired link.', 'tinypress') . '</p>'
                 . '<input type="text" disabled placeholder="' . esc_attr(home_url('/')) . '" style="width:100%;max-width:400px;" />'
                 . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Show Expiration Notice', 'tinypress') . '</strong></p>'

@@ -225,6 +225,91 @@ if (! class_exists('TINYPRESS_Redirection')) {
             return Utils::get_meta('expiration_time', $link_id);
         }
 
+        private function get_expiration_timestamp($link_id)
+        {
+            $enable_expiration = $this->resolve_toggle_setting(
+                'enable_expiration',
+                'enable_expiration_use_global',
+                $link_id,
+                'tinypress_global_enable_expiration',
+                false
+            );
+
+            $expiration_date = $this->get_expiration_date($link_id);
+
+            if ('1' != $enable_expiration || empty($expiration_date)) {
+                return false;
+            }
+
+            $expiration_time = $this->get_expiration_time($link_id);
+
+            if (! empty($expiration_time)) {
+                return DateTime::createFromFormat('d-m-Y g:i A', $expiration_date . ' ' . $expiration_time);
+            }
+
+            if (strpos($expiration_date, ' ') !== false) {
+                return DateTime::createFromFormat('d-m-Y H:i', $expiration_date);
+            }
+
+            return DateTime::createFromFormat('d-m-Y H:i:s', $expiration_date . ' 23:59:59');
+        }
+
+        private function is_shortlink_expired($link_id)
+        {
+            $expiration_timestamp = $this->get_expiration_timestamp($link_id);
+
+            if (! $expiration_timestamp) {
+                return false;
+            }
+
+            $now = new DateTime(current_time('Y-m-d H:i:s'));
+
+            return $now > $expiration_timestamp;
+        }
+
+        private function get_shortlink_access_status($link_id, $context = 'redirect')
+        {
+            $status = apply_filters('tinypress_link_access_status', array(
+                'allowed' => true,
+                'reason'  => '',
+                'message' => '',
+            ), $link_id, $context);
+
+            if (! is_array($status)) {
+                $status = array();
+            }
+
+            return wp_parse_args($status, array(
+                'allowed' => true,
+                'reason'  => '',
+                'message' => '',
+            ));
+        }
+
+        private function handle_expired_link($link_id)
+        {
+            $expired_redirect_url = apply_filters('tinypress_link_expired_redirect', '', $link_id);
+
+            if (! empty($expired_redirect_url)) {
+                $show_notice = apply_filters('tinypress_link_expired_show_notice', false, $link_id);
+
+                if ($show_notice) {
+                    $notice_title = apply_filters('tinypress_link_expired_notice_title', '', $link_id);
+                    $notice_message = apply_filters('tinypress_link_expired_notice_message', '', $link_id);
+                    $cta_text = apply_filters('tinypress_link_expired_notice_cta_text', '', $link_id);
+
+                    $this->display_expired_notice_page($expired_redirect_url, $notice_title, $notice_message, $cta_text);
+                    die();
+                }
+
+                header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+                header('Location: ' . esc_url_raw($expired_redirect_url), true, 302);
+                die();
+            }
+
+            wp_die(esc_html__('This link is expired.', 'tinypress'));
+        }
+
         /**
          * Build a manual preview URL for revisions when rvy_preview_url() fails.
          *
@@ -552,35 +637,19 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 return false;
             }
 
-            $enable_expiration = $this->resolve_toggle_setting(
-                'enable_expiration',
-                'enable_expiration_use_global',
-                $link_id,
-                'tinypress_global_enable_expiration',
-                false
-            );
+            $access_status = $this->get_shortlink_access_status($link_id, 'activation');
 
-            $expiration_date = $this->get_expiration_date($link_id);
-
-            if ('1' != $enable_expiration || empty($expiration_date)) {
-                return true;
+            if (empty($access_status['allowed'])) {
+                return false;
             }
 
-            $expiration_time = $this->get_expiration_time($link_id);
-
-            if (! empty($expiration_time)) {
-                $expiration_timestamp = DateTime::createFromFormat('d-m-Y g:i A', $expiration_date . ' ' . $expiration_time);
-            } elseif (strpos($expiration_date, ' ') !== false) {
-                $expiration_timestamp = DateTime::createFromFormat('d-m-Y H:i', $expiration_date);
-            } else {
-                $expiration_timestamp = DateTime::createFromFormat('d-m-Y H:i:s', $expiration_date . ' 23:59:59');
+            if ($this->is_shortlink_expired($link_id)) {
+                return false;
             }
 
-            if (! $expiration_timestamp) {
-                return true;
-            }
+            $access_status = $this->get_shortlink_access_status($link_id, 'expiration');
 
-            return new DateTime(current_time('Y-m-d H:i:s')) <= $expiration_timestamp;
+            return ! empty($access_status['allowed']);
         }
 
         /**
@@ -1486,15 +1555,6 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 $link_password = $this->get_settings_value('tinypress_global_link_password', '');
             }
 
-            $enable_expiration = $this->resolve_toggle_setting(
-                'enable_expiration',
-                'enable_expiration_use_global',
-                $link_id,
-                'tinypress_global_enable_expiration',
-                false
-            );
-
-            $expiration_date      = $this->get_expiration_date($link_id);
             $link_status          = Utils::get_meta('link_status', $link_id, '1');
             $password_check_nonce = wp_create_nonce('password_check');
 
@@ -1510,42 +1570,33 @@ if (! class_exists('TINYPRESS_Redirection')) {
                     wp_die(esc_html__('This link is not active.', 'tinypress'));
                 }
 
+                $access_status = $this->get_shortlink_access_status($link_id, 'activation');
+
+                if (empty($access_status['allowed'])) {
+                    $access_message = ! empty($access_status['message'])
+                        ? $access_status['message']
+                        : esc_html__('This link is not active.', 'tinypress');
+
+                    wp_die(esc_html($access_message));
+                }
+
                 // Check if the link is expired or not
-                if ('1' == $enable_expiration && ! empty($expiration_date)) {
-                    $expiration_time = $this->get_expiration_time($link_id);
+                if ($this->is_shortlink_expired($link_id)) {
+                    $this->handle_expired_link($link_id);
+                }
 
-                    if (! empty($expiration_time)) {
-                        $expiration_timestamp = DateTime::createFromFormat('d-m-Y g:i A', $expiration_date . ' ' . $expiration_time);
-                    } elseif (strpos($expiration_date, ' ') !== false) {
-                        $expiration_timestamp = DateTime::createFromFormat('d-m-Y H:i', $expiration_date);
-                    } else {
-                        $expiration_timestamp = DateTime::createFromFormat('d-m-Y H:i:s', $expiration_date . ' 23:59:59');
+                $access_status = $this->get_shortlink_access_status($link_id, 'expiration');
+
+                if (empty($access_status['allowed'])) {
+                    if ('expired' === $access_status['reason']) {
+                        $this->handle_expired_link($link_id);
                     }
 
-                    $now = new DateTime(current_time('Y-m-d H:i:s'));
+                    $access_message = ! empty($access_status['message'])
+                        ? $access_status['message']
+                        : esc_html__('This link is expired.', 'tinypress');
 
-                    if ($expiration_timestamp && $now > $expiration_timestamp) {
-                        $expired_redirect_url = apply_filters('tinypress_link_expired_redirect', '', $link_id);
-
-                        if (! empty($expired_redirect_url)) {
-                            $show_notice = apply_filters('tinypress_link_expired_show_notice', false, $link_id);
-
-                            if ($show_notice) {
-                                $notice_title = apply_filters('tinypress_link_expired_notice_title', '', $link_id);
-                                $notice_message = apply_filters('tinypress_link_expired_notice_message', '', $link_id);
-                                $cta_text = apply_filters('tinypress_link_expired_notice_cta_text', '', $link_id);
-
-                                $this->display_expired_notice_page($expired_redirect_url, $notice_title, $notice_message, $cta_text);
-                                die();
-                            }
-
-                            header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
-                            header('Location: ' . esc_url_raw($expired_redirect_url), true, 302);
-                            die();
-                        }
-
-                        wp_die(esc_html__('This link is expired.', 'tinypress'));
-                    }
+                    wp_die(esc_html($access_message));
                 }
             }
 

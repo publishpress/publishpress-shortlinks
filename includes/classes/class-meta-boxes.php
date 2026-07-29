@@ -789,7 +789,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                         'minDate'         => 'today',
                     ),
                     'dependency'   => array( 'enable_expiration', '==', '1' ),
-                    'class'        => 'tinypress-global-controlled-child',
+                    'class'        => 'tinypress-global-controlled-child tinypress-scheduled-expiration-field tinypress-scheduled-expiration-expiration-date',
                 ),
                 array(
                     'id'           => 'expiration_time',
@@ -806,7 +806,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                         'minuteIncrement' => 1,
                     ),
                     'dependency'   => array( 'enable_expiration', '==', '1' ),
-                    'class'        => 'tinypress-global-controlled-child',
+                    'class'        => 'tinypress-global-controlled-child tinypress-scheduled-expiration-field tinypress-scheduled-expiration-expiration-time',
                 ),
             );
             $security_fields = apply_filters('tinypress_security_metabox_fields', $security_fields);

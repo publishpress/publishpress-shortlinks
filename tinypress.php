@@ -200,14 +200,22 @@ if (! defined('TINYPRESS_LOADED')) {
 
                 global $wpdb;
                 $table_name = TINYPRESS_TABLE_REPORTS;
+                $schema_version = '2.0.0';
 
-                $db_version = get_option('tinypress_db_version', '0');
+                $reports_schema_version = get_option('tinypress_reports_schema_version', '0');
 
                 // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
                 $table_exists = $wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $wpdb->esc_like($table_name))) === $table_name;
 
-                if ($table_exists && version_compare($db_version, TINYPRESS_PLUGIN_VERSION, '>=')) {
+                if ($table_exists && version_compare($reports_schema_version, $schema_version, '>=')) {
                     return;
+                }
+
+                $analytics_column_exists = false;
+
+                if ($table_exists) {
+                    // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom reports table name is defined by the plugin.
+                    $analytics_column_exists = (bool) $wpdb->get_var("SHOW COLUMNS FROM {$table_name} LIKE 'is_analytics_cleared'");
                 }
 
                 if (! function_exists('dbDelta')) {
@@ -222,14 +230,22 @@ if (! defined('TINYPRESS_LOADED')) {
   user_location varchar(1024) NOT NULL,
   datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   is_cleared TINYINT(1) NOT NULL DEFAULT 0,
+  is_analytics_cleared TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY  (id)
 ) " . $wpdb->get_charset_collate() . ";";
 
                 // Use dbDelta for both table creation and schema updates
                 dbDelta($sql_create_table);
 
+                if ($table_exists && ! $analytics_column_exists) {
+                    // Preserve the analytics state users saw before Logs and Analytics were separated.
+                    // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- One-time migration on the plugin's custom reports table.
+                    $wpdb->query("UPDATE {$table_name} SET is_analytics_cleared = is_cleared");
+                }
+
                 // Update the database version
                 update_option('tinypress_db_version', TINYPRESS_PLUGIN_VERSION);
+                update_option('tinypress_reports_schema_version', $schema_version);
             }
             public function set_default_settings()
             {

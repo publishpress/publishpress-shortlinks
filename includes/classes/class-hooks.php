@@ -138,7 +138,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
             $today      = current_time('Y-m-d');
             $start_date = $today;
             $end_date   = $today;
-            $delete_all = false;
+            $reset_all  = false;
 
             switch ($period) {
                 case 'today':
@@ -211,24 +211,24 @@ if (! class_exists('TINYPRESS_Hooks')) {
                     }
                     break;
                 case 'all_time':
-                    $delete_all = true;
+                    $reset_all = true;
                     break;
                 default:
                     $start_date = $today;
                     $end_date   = $today;
             }
 
-            if ($delete_all) {
+            if ($reset_all) {
                 // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant.
                 $result = $wpdb->query($wpdb->prepare(
-                    "DELETE FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id = %d",
+                    "UPDATE " . TINYPRESS_TABLE_REPORTS . " SET is_analytics_cleared = 1 WHERE post_id = %d",
                     $post_id
                 ));
                 // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
             } else {
                 // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant.
                 $result = $wpdb->query($wpdb->prepare(
-                    "DELETE FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id = %d AND DATE(datetime) BETWEEN %s AND %s",
+                    "UPDATE " . TINYPRESS_TABLE_REPORTS . " SET is_analytics_cleared = 1 WHERE post_id = %d AND DATE(datetime) BETWEEN %s AND %s",
                     $post_id,
                     $start_date,
                     $end_date
