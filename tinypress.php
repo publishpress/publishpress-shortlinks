@@ -121,22 +121,39 @@ if (! defined('TINYPRESS_LOADED')) {
     if ($pro_active) {
         add_filter(
             'plugin_row_meta',
-            function ($links, $file) {
-                if ($file === plugin_basename(__FILE__)) {
-                    $deletion_notice = esc_html__('This plugin can be deleted.', 'tinypress');
-
-                    foreach ((array) $links as $existing_link) {
-                        if (false !== strpos(wp_strip_all_tags((string) $existing_link), $deletion_notice)) {
-                            return $links;
-                        }
-                    }
-
-                    $links[] = '<strong>' . $deletion_notice . '</strong>';
+            function ($links, $file, $plugin_data) {
+                if (
+                    empty($plugin_data['Name'])
+                    || 'PublishPress Shortlinks Free' !== $plugin_data['Name']
+                ) {
+                    return $links;
                 }
+
+                $free_plugin_active = in_array($file, (array) get_option('active_plugins'), true);
+
+                if (! $free_plugin_active && is_multisite()) {
+                    $network_plugins = (array) get_site_option('active_sitewide_plugins');
+                    $free_plugin_active = isset($network_plugins[$file]);
+                }
+
+                if (! $free_plugin_active) {
+                    return $links;
+                }
+
+                $deletion_notice = esc_html__('This plugin can be deleted.', 'tinypress');
+
+                foreach ((array) $links as $existing_link) {
+                    if (false !== strpos(wp_strip_all_tags((string) $existing_link), $deletion_notice)) {
+                        return $links;
+                    }
+                }
+
+                $links[] = '<strong>' . $deletion_notice . '</strong>';
+
                 return $links;
             },
             999,
-            2
+            3
         );
     }
 
