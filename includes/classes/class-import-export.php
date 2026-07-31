@@ -130,7 +130,11 @@ if (! class_exists('TINYPRESS_Import_Export')) {
          */
         private function sanitize_csv_cell($value)
         {
-            $value = (string) $value;
+            if (is_array($value) || is_object($value)) {
+                $value = wp_json_encode($value);
+            }
+
+            $value = is_scalar($value) ? (string) $value : '';
             $trimmed_value = ltrim($value, " \t\r\n");
 
             if ('' !== $trimmed_value && in_array($trimmed_value[0], array( '=', '+', '-', '@' ), true)) {
@@ -200,7 +204,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 return true;
             }
 
-            if ('1' === (string) $use_global) {
+            if (in_array($use_global, array( '1', 1, true ), true)) {
                 return true;
             }
 
@@ -530,7 +534,23 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                         $link->post_date,
                     );
 
-                    $this->write_csv_row($output, apply_filters('tinypress_export_csv_row', $row, $link->ID, $headers, $base_headers));
+                    $values = array_combine($base_headers, $row);
+                    if (! is_array($values)) {
+                        continue;
+                    }
+
+                    $values = apply_filters('tinypress_export_csv_values', $values, $link->ID, $headers, $base_headers);
+                    if (! is_array($values)) {
+                        $values = array();
+                    }
+
+                    $ordered_row = array();
+                    foreach ($headers as $header) {
+                        $ordered_row[] = array_key_exists($header, $values) ? $values[ $header ] : '';
+                    }
+
+                    $filtered_row = apply_filters('tinypress_export_csv_row', $ordered_row, $link->ID, $headers, $base_headers);
+                    $this->write_csv_row($output, is_array($filtered_row) ? $filtered_row : $ordered_row);
                 }
 
                 $paged++;
@@ -779,6 +799,20 @@ if (! class_exists('TINYPRESS_Import_Export')) {
          */
         private function parse_boolean($value)
         {
+            if (is_array($value)) {
+                foreach ($value as $item) {
+                    if ($this->parse_boolean($item)) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            if (! is_scalar($value)) {
+                return false;
+            }
+
             if (empty($value)) {
                 return false;
             }
