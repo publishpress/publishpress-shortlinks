@@ -15,6 +15,9 @@
     let chartDescription = document.querySelector('[data-chart-description]');
     let noDataMessage = document.querySelector('[data-chart-no-data]');
     let resetTextEl = document.querySelector('.reset-text');
+    let destinationBody = document.querySelector('[data-destination-performance-body]');
+    let destinationEmpty = document.querySelector('[data-destination-performance-empty]');
+    let destinationTable = destinationBody ? destinationBody.closest('table') : null;
     let summaryEls = {
         totalClicks: document.querySelector('[data-summary-metric="totalClicks"]'),
         uniqueVisitors: document.querySelector('[data-summary-metric="uniqueVisitors"]'),
@@ -85,6 +88,15 @@
         Object.keys(tinypressAnalytics.visitorsByDate).forEach(function(dateKey) {
             if (/^\d{4}-\d{2}-\d{2}$/.test(dateKey) && Array.isArray(tinypressAnalytics.visitorsByDate[dateKey])) {
                 visitorsByDate[dateKey] = tinypressAnalytics.visitorsByDate[dateKey];
+            }
+        });
+    }
+
+    let destinationDataByDate = {};
+    if (tinypressAnalytics.destinationDataByDate && typeof tinypressAnalytics.destinationDataByDate === 'object') {
+        Object.keys(tinypressAnalytics.destinationDataByDate).forEach(function(dateKey) {
+            if (/^\d{4}-\d{2}-\d{2}$/.test(dateKey) && Array.isArray(tinypressAnalytics.destinationDataByDate[dateKey])) {
+                destinationDataByDate[dateKey] = tinypressAnalytics.destinationDataByDate[dateKey];
             }
         });
     }
@@ -390,6 +402,88 @@
         }
     };
 
+    let renderDestinationPerformance = function(range) {
+        if (!destinationBody) {
+            return;
+        }
+
+        let routes = {};
+        let totalClicks = 0;
+        let current = startOfDay(range.start);
+        let end = startOfDay(range.end);
+
+        while (current.getTime() <= end.getTime()) {
+            let dateKey = formatDateInput(current);
+
+            (destinationDataByDate[dateKey] || []).forEach(function(route) {
+                let routeId = route.id || 'legacy';
+                let destination = route.destination || '';
+                let key = routeId + '|' + destination;
+                let clicks = Number(route.clicks) || 0;
+
+                if (!routes[key]) {
+                    routes[key] = {
+                        label: route.label || routeId,
+                        destination: destination,
+                        clicks: 0
+                    };
+                }
+
+                routes[key].clicks += clicks;
+                totalClicks += clicks;
+            });
+
+            current = addDays(current, 1);
+        }
+
+        let sortedRoutes = Object.keys(routes).map(function(key) {
+            return routes[key];
+        }).sort(function(a, b) {
+            return b.clicks - a.clicks;
+        });
+
+        destinationBody.innerHTML = '';
+
+        sortedRoutes.forEach(function(route) {
+            let row = document.createElement('tr');
+            let labelCell = document.createElement('td');
+            let destinationCell = document.createElement('td');
+            let clicksCell = document.createElement('td');
+            let shareCell = document.createElement('td');
+
+            labelCell.textContent = route.label;
+
+            if (route.destination) {
+                let destinationLink = document.createElement('a');
+                destinationLink.href = route.destination;
+                destinationLink.target = '_blank';
+                destinationLink.rel = 'noopener noreferrer';
+                destinationLink.textContent = route.destination;
+                destinationCell.appendChild(destinationLink);
+            } else {
+                destinationCell.textContent = '-';
+            }
+
+            clicksCell.textContent = formatNumber(route.clicks, 0);
+            shareCell.textContent = totalClicks > 0
+                ? ((route.clicks / totalClicks) * 100).toFixed(1) + '%'
+                : '0%';
+
+            row.appendChild(labelCell);
+            row.appendChild(destinationCell);
+            row.appendChild(clicksCell);
+            row.appendChild(shareCell);
+            destinationBody.appendChild(row);
+        });
+
+        if (destinationTable) {
+            destinationTable.hidden = sortedRoutes.length === 0;
+        }
+        if (destinationEmpty) {
+            destinationEmpty.hidden = sortedRoutes.length > 0;
+        }
+    };
+
     let renderChart = function(periodData) {
         let maxClicks = periodData.reduce(function(max, period) {
             return Math.max(max, period.clicks);
@@ -470,6 +564,7 @@
 
         renderChart(periodData);
         updateSummaryCards(rangeStats);
+        renderDestinationPerformance(range);
 
         try {
             localStorage.setItem('tinypress_analytics_filter_' + tinypressAnalytics.postId, filterName);

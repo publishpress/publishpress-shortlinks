@@ -714,6 +714,19 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                     ),
                 )
             );
+
+            $dynamic_redirect_fields = apply_filters('tinypress_dynamic_redirect_metabox_fields', array());
+
+            if (! empty($dynamic_redirect_fields)) {
+                WPDK_Settings::createSection(
+                    $this->tinypress_metabox_main,
+                    array(
+                        'title'  => esc_html__('Dynamic Redirects', 'tinypress'),
+                        'fields' => $dynamic_redirect_fields,
+                    )
+                );
+            }
+
             // Security Settings section.
             $security_fields = array(
                 array(
