@@ -154,6 +154,112 @@ if (! function_exists('tinypress_get_ip_address')) {
     }
 }
 
+if (! function_exists('tinypress_get_geolocation_data')) {
+    /**
+     * Resolve and cache GeoPlugin location data for a visitor IP.
+     *
+     * @param string $ip Visitor IP address.
+     * @return array
+     */
+    function tinypress_get_geolocation_data($ip)
+    {
+        static $request_cache = array();
+
+        $location = array(
+            'geoplugin_city'          => null,
+            'geoplugin_region'        => null,
+            'geoplugin_regionName'    => null,
+            'geoplugin_countryCode'   => null,
+            'geoplugin_countryName'   => null,
+            'geoplugin_continentName' => null,
+            'geoplugin_latitude'      => null,
+            'geoplugin_longitude'     => null,
+        );
+
+        $ip = filter_var($ip, FILTER_VALIDATE_IP) ? $ip : '0.0.0.0';
+
+        if (isset($request_cache[$ip])) {
+            return $request_cache[$ip];
+        }
+
+        $cache_key = 'tinypress_geo_' . hash_hmac('sha256', $ip, wp_salt('auth'));
+        $cached    = get_transient($cache_key);
+
+        if (is_array($cached) && isset($cached['location']) && is_array($cached['location'])) {
+            $request_cache[$ip] = array_merge($location, array_intersect_key($cached['location'], $location));
+            return $request_cache[$ip];
+        }
+
+        if (
+            '0.0.0.0' === $ip
+            || ! filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)
+        ) {
+            $request_cache[$ip] = $location;
+            return $request_cache[$ip];
+        }
+
+        $timeout = (float) apply_filters('tinypress_geolocation_timeout', 2.0, $ip);
+        $timeout = max(0.5, min(10, $timeout));
+
+        // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get -- Standard WordPress HTTP request for existing click geolocation.
+        $response = wp_remote_get(
+            'https://www.geoplugin.net/json.gp?ip=' . rawurlencode($ip),
+            array(
+                'timeout'     => $timeout,
+                'redirection' => 2,
+            )
+        );
+
+        $cache_ttl = 5 * MINUTE_IN_SECONDS;
+
+        if (! is_wp_error($response) && 200 === wp_remote_retrieve_response_code($response)) {
+            $body = wp_remote_retrieve_body($response);
+            $data = $body ? json_decode($body, true) : array();
+
+            if (is_array($data)) {
+                $location  = array_merge($location, array_intersect_key($data, $location));
+                $cache_ttl = absint(apply_filters('tinypress_geolocation_cache_ttl', 12 * HOUR_IN_SECONDS, $ip, $location));
+                $cache_ttl = max(MINUTE_IN_SECONDS, $cache_ttl);
+            }
+        }
+
+        set_transient($cache_key, array('location' => $location), $cache_ttl);
+
+        $request_cache[$ip] = $location;
+        return $request_cache[$ip];
+    }
+}
+
+if (! function_exists('tinypress_get_visitor_device')) {
+    /**
+     * Classify a user agent for redirect routing and log display.
+     *
+     * @param string $user_agent Raw user agent.
+     * @return string
+     */
+    function tinypress_get_visitor_device($user_agent)
+    {
+        $user_agent = (string) $user_agent;
+
+        if ('' === $user_agent) {
+            return 'unknown';
+        }
+
+        if (
+            preg_match('/iPad|Tablet|PlayBook|Silk/i', $user_agent)
+            || (preg_match('/Android/i', $user_agent) && ! preg_match('/Mobile/i', $user_agent))
+        ) {
+            return 'tablet';
+        }
+
+        if (preg_match('/Mobile|iPhone|iPod|Windows Phone/i', $user_agent)) {
+            return 'mobile';
+        }
+
+        return 'desktop';
+    }
+}
+
 
 if (! function_exists('tinypress_get_tiny_slug_copier')) {
     /**

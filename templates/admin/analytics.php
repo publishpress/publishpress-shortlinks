@@ -80,7 +80,7 @@ if (!empty($click_map)) {
 
 // Enqueue analytics script and pass data
 wp_enqueue_script('tinypress-analytics');
-wp_localize_script('tinypress-analytics', 'tinypressAnalytics', array(
+$analytics_data = array(
     'chartData'          => $data,
     'chartDataByDate'    => $click_map,
     'visitorsByDate'     => $visitors_by_date,
@@ -112,7 +112,10 @@ wp_localize_script('tinypress-analytics', 'tinypressAnalytics', array(
         'month' => esc_html__('Each bar shows total clicks for one month.', 'tinypress'),
         'year'  => esc_html__('Each bar shows total clicks for one year.', 'tinypress'),
     ),
-));
+);
+
+$analytics_data = apply_filters('tinypress_analytics_localized_data', $analytics_data, $post_id);
+wp_localize_script('tinypress-analytics', 'tinypressAnalytics', $analytics_data);
 
 ?>
 <div class="tinypress-meta-analytics">
@@ -204,4 +207,6 @@ wp_localize_script('tinypress-analytics', 'tinypressAnalytics', array(
             <?php esc_html_e('No click data available for this period.', 'tinypress'); ?>
         </p>
     </div>
+
+    <?php do_action('tinypress_analytics_after_chart', $post_id); ?>
 </div>

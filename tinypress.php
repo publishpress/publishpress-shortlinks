@@ -248,7 +248,12 @@ if (! defined('TINYPRESS_LOADED')) {
   datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   is_cleared TINYINT(1) NOT NULL DEFAULT 0,
   is_analytics_cleared TINYINT(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY  (id)
+  redirect_rule_id varchar(64) NOT NULL DEFAULT '',
+  redirect_rule_label varchar(191) NOT NULL DEFAULT '',
+  redirect_destination text NOT NULL,
+  PRIMARY KEY  (id),
+  KEY post_id (post_id),
+  KEY post_rule (post_id, redirect_rule_id)
 ) " . $wpdb->get_charset_collate() . ";";
 
                 // Use dbDelta for both table creation and schema updates

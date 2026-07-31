@@ -19,6 +19,7 @@ class ShortlinksCoreAdmin
 
             add_filter('tinypress_security_metabox_fields', [$this, 'add_security_expired_teaser_fields']);
             add_filter('tinypress_global_security_fields', [$this, 'add_global_security_expired_teaser_fields']);
+            add_filter('tinypress_dynamic_redirect_metabox_fields', [$this, 'add_dynamic_redirect_teaser_fields']);
 
             add_filter('tinypress_autolink_metabox_fields', [$this, 'add_autolink_metabox_teaser_fields']);
             add_filter('tinypress_global_autolink_fields', [$this, 'add_global_autolink_teaser_fields']);
@@ -353,6 +354,31 @@ class ShortlinksCoreAdmin
                 . '<input type="checkbox" disabled />'
                 . esc_html__('Show a notice page for expired shortlinks briefly before redirecting. You can customize the content of this message.', 'tinypress')
                 . '</label></div>' . $nudge,
+        );
+
+        return $fields;
+    }
+
+    public function add_dynamic_redirect_teaser_fields($fields)
+    {
+        $nudge = $this->get_pro_nudge_html();
+
+        $fields[] = array(
+            'id'      => 'dynamic_redirect_pro_teaser',
+            'type'    => 'content',
+            'title'   => esc_html__('Conditional Redirect Rules', 'tinypress'),
+            'content' => '<div style="opacity:0.5;pointer-events:none;">'
+                . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Enable Dynamic Redirects', 'tinypress') . '</strong></p>'
+                . '<label style="display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;">'
+                . '<input type="checkbox" disabled />'
+                . esc_html__('Send visitors to different destinations when they match a rule.', 'tinypress')
+                . '</label>'
+                . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Redirect Rules', 'tinypress') . '</strong></p>'
+                . '<div style="border:1px solid #c3c4c7;padding:12px;max-width:520px;background:#fff;">'
+                . '<input type="text" disabled value="' . esc_attr__('Nigeria mobile visitors', 'tinypress') . '" style="width:100%;margin-bottom:8px;" />'
+                . '<input type="url" disabled value="https://example.com/ng-mobile" style="width:100%;margin-bottom:8px;" />'
+                . '<select disabled style="width:100%;"><option>' . esc_html__('Country and device conditions', 'tinypress') . '</option></select>'
+                . '</div></div>' . $nudge,
         );
 
         return $fields;

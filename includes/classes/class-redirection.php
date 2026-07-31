@@ -882,12 +882,8 @@ if (! class_exists('TINYPRESS_Redirection')) {
          *
          * @return void
          */
-        public function do_redirection($link_id)
+        public function do_redirection($link_id, $tracking_id = 0)
         {
-
-            // Hook for Pro to execute before redirection tracking
-            do_action('tinypress_before_redirect_track', $link_id);
-
             $tags       = array();
             $target_url = Utils::get_meta('target_url', $link_id);
 
@@ -1011,8 +1007,57 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
             }
 
-            $post_to_check = $link_id;
             $is_tinypress_link = ('tinypress_link' == get_post_type($link_id));
+            $tracking_id       = $tracking_id ? absint($tracking_id) : absint($link_id);
+            $visitor_context   = $this->get_redirect_visitor_context($tracking_id);
+            $route             = array(
+                'url'         => $target_url,
+                'rule_id'     => 'default',
+                'rule_label'  => esc_html__('Default Target', 'tinypress'),
+                'matched'     => false,
+                'dynamic'     => false,
+            );
+
+            if ($is_tinypress_link && ! $is_revision_redirect) {
+                /**
+                 * Filter the destination selected for a shortlink request.
+                 *
+                 * @param array $route           Selected route data.
+                 * @param int   $link_id         Shortlink post ID.
+                 * @param array $visitor_context Request-scoped visitor context.
+                 */
+                $filtered_route = apply_filters('tinypress_redirect_destination', $route, $link_id, $visitor_context);
+
+                if (
+                    is_array($filtered_route)
+                    && ! empty($filtered_route['url'])
+                    && is_string($filtered_route['url'])
+                ) {
+                    $route = wp_parse_args($filtered_route, $route);
+                }
+            }
+
+            $route['url']        = esc_url_raw((string) $route['url']);
+            $route['rule_id']    = sanitize_key((string) $route['rule_id']);
+            $route['rule_label'] = sanitize_text_field((string) $route['rule_label']);
+            $route['matched']    = ! empty($route['matched']);
+            $route['dynamic']    = ! empty($route['dynamic']);
+
+            if (! empty($route['url'])) {
+                $target_url = $route['url'];
+            }
+
+            if ($route['dynamic']) {
+                if (! defined('DONOTCACHEPAGE')) {
+                    define('DONOTCACHEPAGE', true);
+                }
+
+                nocache_headers();
+            }
+
+            $this->track_redirection($tracking_id, $visitor_context, $route);
+
+            $post_to_check = $link_id;
 
             if (! $is_revision_redirect && ! empty($target_url) && $is_tinypress_link) {
                 // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.url_to_postid_url_to_postid -- Not a VIP environment; url_to_postid is standard WP core function
@@ -1031,7 +1076,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                     }
                 }
 
-                if (! $extracted_post_id) {
+                if (! $extracted_post_id && empty($route['matched'])) {
                     $source_post_id = absint(get_post_meta($link_id, 'source_post_id', true));
                     if ($source_post_id) {
                         $extracted_post_id = $source_post_id;
@@ -1140,7 +1185,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
 
                 if (! empty($parameters)) {
-                    $target_url = $target_url . '?' . http_build_query($parameters);
+                    $target_url = add_query_arg($parameters, $target_url);
                 }
             }
 
@@ -1435,23 +1480,81 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
 
         /**
+         * Get the current request user agent for non-cacheable shortlink redirects.
+         *
+         * @return string
+         */
+        private function get_request_user_agent()
+        {
+            // Shortlink redirects disable caching before device-specific routing.
+            // phpcs:disable WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___SERVER__HTTP_USER_AGENT__
+            $user_agent = isset($_SERVER['HTTP_USER_AGENT'])
+                ? substr(sanitize_text_field(wp_unslash($_SERVER['HTTP_USER_AGENT'])), 0, 500)
+                : '';
+            // phpcs:enable WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___SERVER__HTTP_USER_AGENT__
+
+            return $user_agent;
+        }
+
+        /**
+         * Build visitor data once so routing and tracking use the same request context.
+         *
+         * @param int $link_id Shortlink post ID.
+         * @return array
+         */
+        private function get_redirect_visitor_context($link_id)
+        {
+            $user_agent = $this->get_request_user_agent();
+            $referrer   = isset($_SERVER['HTTP_REFERER'])
+                ? substr(esc_url_raw(wp_unslash($_SERVER['HTTP_REFERER'])), 0, 500)
+                : '';
+            $host       = $referrer ? wp_parse_url($referrer, PHP_URL_HOST) : '';
+
+            if (is_string($host)) {
+                $host = strtolower(trim($host, " \t\n\r\0\x0B."));
+                $host = preg_replace('/^www\./', '', $host);
+            } else {
+                $host = '';
+            }
+
+            $health_check_header = isset($_SERVER['HTTP_X_PUBLISHPRESS_LINK_HEALTH'])
+                ? sanitize_text_field(wp_unslash($_SERVER['HTTP_X_PUBLISHPRESS_LINK_HEALTH']))
+                : '';
+
+            $context = array(
+                'link_id'        => absint($link_id),
+                'ip'             => function_exists('tinypress_get_ip_address') ? tinypress_get_ip_address() : '0.0.0.0',
+                'user_agent'     => sanitize_text_field($user_agent),
+                'device'         => function_exists('tinypress_get_visitor_device') ? tinypress_get_visitor_device($user_agent) : 'unknown',
+                'referrer'       => $referrer,
+                'referrer_host'  => $host,
+                'country_code'   => '',
+                'location'       => array(),
+                'is_link_health' => (false !== stripos($user_agent, 'PublishPress Shortlinks Link Health/'))
+                    || in_array(strtolower($health_check_header), array('1', 'true', 'yes'), true),
+            );
+
+            return apply_filters('tinypress_redirect_visitor_context', $context, absint($link_id));
+        }
+
+        /**
          * Track the redirection
          *
-         * @param $link_id
+         * @param int   $link_id Link ID used by analytics.
+         * @param array $context Request-scoped visitor context.
+         * @param array $route   Selected redirect route.
          *
          * @return void
          */
-        public function track_redirection($link_id)
+        public function track_redirection($link_id, array $context = array(), array $route = array())
         {
 
             global $wpdb;
 
-            $user_agent = function_exists('wp_get_user_agent') ? (string) wp_get_user_agent() : '';
-            $health_check_header = isset($_SERVER['HTTP_X_PUBLISHPRESS_LINK_HEALTH'])
-                ? sanitize_text_field(wp_unslash($_SERVER['HTTP_X_PUBLISHPRESS_LINK_HEALTH']))
-                : '';
-            $is_link_health_request = (false !== stripos($user_agent, 'PublishPress Shortlinks Link Health/'))
-                || in_array(strtolower($health_check_header), array('1', 'true', 'yes'), true);
+            $user_agent            = isset($context['user_agent'])
+                ? (string) $context['user_agent']
+                : $this->get_request_user_agent();
+            $is_link_health_request = ! empty($context['is_link_health']);
 
             if ($is_link_health_request) {
                 return;
@@ -1466,7 +1569,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
             }
 
-            $get_ip_address = tinypress_get_ip_address();
+            $get_ip_address = ! empty($context['ip']) ? (string) $context['ip'] : tinypress_get_ip_address();
             $curr_user_id   = is_user_logged_in() ? get_current_user_id() : 0;
 
             // Prevent duplicate tracking: check if this IP already tracked this link in the last 60 seconds
@@ -1485,48 +1588,55 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 return;
             }
 
-            $location_info  = array(
-                'geoplugin_city'          => null,
-                'geoplugin_region'        => null,
-                'geoplugin_regionName'    => null,
-                'geoplugin_countryCode'   => null,
-                'geoplugin_countryName'   => null,
-                'geoplugin_continentName' => null,
-                'geoplugin_latitude'      => null,
-                'geoplugin_longitude'     => null,
-            );
-
-            // Try to get geolocation data, but don't fail if it's unavailable
-            // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get -- Not a VIP environment; standard WP function is appropriate
-            $response = wp_remote_get('https://www.geoplugin.net/json.gp?ip=' . urlencode($get_ip_address));
-
-            if (! is_wp_error($response) && 200 === wp_remote_retrieve_response_code($response)) {
-                $get_user_data = wp_remote_retrieve_body($response);
-                if ($get_user_data) {
-                    $user_data     = json_decode($get_user_data, true);
-                    $location_keys = array_keys($location_info);
-                    $location_info = array_merge($location_info, array_intersect_key($user_data, array_flip($location_keys)));
-                }
-            }
+            $location_info = ! empty($context['location']) && is_array($context['location'])
+                ? $context['location']
+                : (function_exists('tinypress_get_geolocation_data') ? tinypress_get_geolocation_data($get_ip_address) : array());
 
             $location_info['user_agent'] = sanitize_text_field($user_agent);
-            $location_info['referrer']   = isset($_SERVER['HTTP_REFERER'])
-                ? substr(esc_url_raw(wp_unslash($_SERVER['HTTP_REFERER'])), 0, 500)
-                : '';
+            $location_info['referrer']   = isset($context['referrer']) ? (string) $context['referrer'] : '';
+            $location_info['device']    = isset($context['device']) ? sanitize_key($context['device']) : '';
 
-            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery -- Custom table insert for tracking; no caching needed for write operations
-            $wpdb->insert(
-                TINYPRESS_TABLE_REPORTS,
-                array(
-                    'user_id'       => $curr_user_id,
-                    'post_id'       => $link_id,
-                    'user_ip'       => $get_ip_address,
-                    'user_location' => wp_json_encode($location_info),
-                ),
-                array( '%d', '%d', '%s', '%s' )
+            $route = wp_parse_args($route, array(
+                'url'        => '',
+                'rule_id'    => 'default',
+                'rule_label' => esc_html__('Default Target', 'tinypress'),
+                'dynamic'    => false,
+            ));
+
+            $is_dynamic_route = ! empty($route['dynamic']);
+            $insert_data = array(
+                'user_id'              => $curr_user_id,
+                'post_id'              => $link_id,
+                'user_ip'              => $get_ip_address,
+                'user_location'        => wp_json_encode($location_info),
+                'redirect_rule_id'     => $is_dynamic_route ? sanitize_key((string) $route['rule_id']) : '',
+                'redirect_rule_label'  => $is_dynamic_route ? sanitize_text_field((string) $route['rule_label']) : '',
+                'redirect_destination' => $is_dynamic_route ? esc_url_raw((string) $route['url']) : '',
             );
 
-            do_action('tinypress_after_redirect_track', $link_id);
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery -- Custom table insert for tracking; no caching needed for write operations
+            $inserted = $wpdb->insert(
+                TINYPRESS_TABLE_REPORTS,
+                $insert_data,
+                array( '%d', '%d', '%s', '%s', '%s', '%s', '%s' )
+            );
+
+            if (false === $inserted) {
+                // Preserve click tracking if a database update has not added route columns yet.
+                // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery -- Compatibility fallback for the plugin's custom reports table.
+                $wpdb->insert(
+                    TINYPRESS_TABLE_REPORTS,
+                    array(
+                        'user_id'       => $curr_user_id,
+                        'post_id'       => $link_id,
+                        'user_ip'       => $get_ip_address,
+                        'user_location' => wp_json_encode($location_info),
+                    ),
+                    array( '%d', '%d', '%s', '%s' )
+                );
+            }
+
+            do_action('tinypress_after_redirect_track', $link_id, $route, $context);
         }
 
 
@@ -1690,9 +1800,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
             }
 
-            $this->track_redirection($tracking_id);
-
-            return $this->do_redirection($link_id);
+            return $this->do_redirection($link_id, $tracking_id);
         }
 
 
