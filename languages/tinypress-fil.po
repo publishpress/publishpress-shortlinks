@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-07-14 08:02+0000\n"
+"PO-Revision-Date: 2026-07-31 14:27+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "|| n % 10 == 6 || n % 10 == 9);\n"
@@ -48,7 +48,7 @@ msgstr "PublishPress"
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: includes-core/ShortlinksCoreAdmin.php:88
+#: includes-core/ShortlinksCoreAdmin.php:91
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
@@ -56,27 +56,33 @@ msgstr ""
 "Gumagamit ka ng PublishPress Shortlinks Free. Ang Pro na bersyon ay may "
 "higit pang mga tampok at suporta. "
 
-#: includes-core/ShortlinksCoreAdmin.php:89
-#: includes-core/ShortlinksCoreAdmin.php:106
-#: includes-core/ShortlinksCoreAdmin.php:107
+#: includes-core/ShortlinksCoreAdmin.php:92
+#: includes-core/ShortlinksCoreAdmin.php:109
+#: includes-core/ShortlinksCoreAdmin.php:110
 msgid "Upgrade to Pro"
 msgstr "I-upgrade sa Pro"
 
-#: includes-core/ShortlinksCoreAdmin.php:117
-#: includes-core/ShortlinksCoreAdmin.php:118
-#: includes-core/ShortlinksCoreAdmin.php:148
+#: includes-core/ShortlinksCoreAdmin.php:120
+#: includes-core/ShortlinksCoreAdmin.php:121
+#: includes-core/ShortlinksCoreAdmin.php:163
 msgid "Link Health"
 msgstr "Kalusugan ng Link"
 
-#: includes-core/ShortlinksCoreAdmin.php:131
+#: includes-core/ShortlinksCoreAdmin.php:132
+#: includes-core/ShortlinksCoreAdmin.php:133
+#: includes-core/ShortlinksCoreAdmin.php:224
+msgid "Reports"
+msgstr "Ulat"
+
+#: includes-core/ShortlinksCoreAdmin.php:146
 msgid "Pro Feature"
 msgstr "Pro na Tampok"
 
-#: includes-core/ShortlinksCoreAdmin.php:134
+#: includes-core/ShortlinksCoreAdmin.php:149
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "Ang tampok na ito ay available sa PublishPress Shortlinks Pro."
 
-#: includes-core/ShortlinksCoreAdmin.php:150
+#: includes-core/ShortlinksCoreAdmin.php:165
 msgid ""
 "Check whether your shortlinks redirect visitors to working destination "
 "pages."
@@ -84,95 +90,187 @@ msgstr ""
 "Suriin kung ang iyong mga maikling link ay nagre-redirect sa mga gumaganang "
 "pahina ng destinasyon."
 
-#: includes-core/ShortlinksCoreAdmin.php:158
+#: includes-core/ShortlinksCoreAdmin.php:173
 msgid "Check Visible Links"
 msgstr "Suriin ang Nakikitang Mga Link"
 
-#: includes-core/ShortlinksCoreAdmin.php:162
+#: includes-core/ShortlinksCoreAdmin.php:177
 msgid "Check All Links"
 msgstr "Suriin Lahat ng Mga Link"
 
-#: includes-core/ShortlinksCoreAdmin.php:169
-#: includes/classes/class-columns-link.php:54
-#: includes/classes/class-columns-link.php:552
-#: includes/classes/class-gutenberg-shortlink.php:159
-#: includes/classes/class-hooks.php:231
-#: includes/classes/class-table-logs.php:164
+#: includes-core/ShortlinksCoreAdmin.php:184
+#: includes/classes/class-columns-link.php:56
+#: includes/classes/class-columns-link.php:588
+#: includes/classes/class-gutenberg-shortlink.php:163
+#: includes/classes/class-hooks.php:307
+#: includes/classes/class-table-logs.php:168
 #: templates/admin-modal-new-link.php:29, fuzzy
 msgid "Shortlink"
 msgstr "Shortlink"
 
-#: includes-core/ShortlinksCoreAdmin.php:170
-#: includes/classes/class-gutenberg-shortlink.php:169
-#: includes/classes/class-import-export.php:1053
+#: includes-core/ShortlinksCoreAdmin.php:185
+#: includes/classes/class-gutenberg-shortlink.php:173
+#: includes/classes/class-import-export.php:1095
 msgid "Target URL"
 msgstr "Target na URL"
 
-#: includes-core/ShortlinksCoreAdmin.php:171
-#: includes/classes/class-meta-boxes.php:542
+#: includes-core/ShortlinksCoreAdmin.php:186
+#: includes/classes/class-meta-boxes.php:546
 msgid "Status"
 msgstr "Katayuan"
 
-#: includes-core/ShortlinksCoreAdmin.php:172, fuzzy
+#: includes-core/ShortlinksCoreAdmin.php:187, fuzzy
 msgid "HTTP"
 msgstr "HTTP"
 
-#: includes-core/ShortlinksCoreAdmin.php:173
+#: includes-core/ShortlinksCoreAdmin.php:188
 msgid "Redirects"
 msgstr "Mga Pag-redirect"
 
-#: includes-core/ShortlinksCoreAdmin.php:174
+#: includes-core/ShortlinksCoreAdmin.php:189
 msgid "Final URL"
 msgstr "Panghuling URL"
 
-#: includes-core/ShortlinksCoreAdmin.php:181
+#: includes-core/ShortlinksCoreAdmin.php:196
 msgid "Working"
 msgstr "Gumagana"
 
-#: includes-core/ShortlinksCoreAdmin.php:189
+#: includes-core/ShortlinksCoreAdmin.php:204
 msgid "Broken"
 msgstr "Sira"
 
-#: includes-core/ShortlinksCoreAdmin.php:212
-#: includes-core/ShortlinksCoreAdmin.php:236
-msgid "Expired Redirect Settings"
-msgstr "Mga Setting ng Nag-expire na Redirect"
+#: includes-core/ShortlinksCoreAdmin.php:226
+msgid ""
+"Get aggregated insights into your shortlink performance with detailed "
+"analytics reports."
+msgstr ""
+"Kumuha ng pinagsama-samang pananaw sa iyong pagganap ng shortlink gamit ang "
+"detalyadong mga ulat sa analytics."
 
-#: includes-core/ShortlinksCoreAdmin.php:215
-#: includes-core/ShortlinksCoreAdmin.php:239
-#: includes/classes/class-import-export.php:1064
+#: includes-core/ShortlinksCoreAdmin.php:232
+#: templates/admin/analytics.php:123
+msgid "Date Range:"
+msgstr "Saklaw ng Petsa:"
+
+#: includes-core/ShortlinksCoreAdmin.php:234
+#: templates/admin/analytics.php:127
+msgid "Last 7 Days"
+msgstr "Huling 7 Araw"
+
+#: includes-core/ShortlinksCoreAdmin.php:236
+#: templates/admin/analytics.php:156
+msgid "Apply"
+msgstr "Ilapat"
+
+#: includes-core/ShortlinksCoreAdmin.php:244
+#: templates/admin/analytics.php:169
+msgid "Total Clicks"
+msgstr "Kabuuang Pag-click"
+
+#: includes-core/ShortlinksCoreAdmin.php:251
+#: templates/admin/analytics.php:177
+msgid "Unique Visitors"
+msgstr "Natatanging Bisita"
+
+#: includes-core/ShortlinksCoreAdmin.php:258
+msgid "Active Links"
+msgstr "Mga Aktibong Link"
+
+#: includes-core/ShortlinksCoreAdmin.php:265
+msgid "Avg. Clicks/Link"
+msgstr "Avg. na Pag-click/Linik"
+
+#: includes-core/ShortlinksCoreAdmin.php:272
+msgid "Top Performing Links"
+msgstr "Mga Nangungunang Gumaganang Link"
+
+#: includes-core/ShortlinksCoreAdmin.php:276, fuzzy
+msgid "Link"
+msgstr "Link"
+
+#: includes-core/ShortlinksCoreAdmin.php:277
+msgid "Clicks"
+msgstr "Pag-click"
+
+#: includes-core/ShortlinksCoreAdmin.php:288
+msgid "Top Locations"
+msgstr "Nangungunang Lokasyon"
+
+#: includes-core/ShortlinksCoreAdmin.php:312
+msgid "Scheduled Expiration Settings"
+msgstr "Mga Naka-iskedyul na Mga Setting ng Pagtatapos"
+
+#: includes-core/ShortlinksCoreAdmin.php:315
+msgid "Activation Date"
+msgstr "Petsa ng Pag-activate"
+
+#: includes-core/ShortlinksCoreAdmin.php:316
+msgid "Choose when this shortlink should start working."
+msgstr "Pumili kung kailan dapat magsimula ang shortlink na ito."
+
+#: includes-core/ShortlinksCoreAdmin.php:317, fuzzy
+msgid "dd-mm-yyyy"
+msgstr "dd-mm-yyyy"
+
+#: includes-core/ShortlinksCoreAdmin.php:318
+msgid "Activation Time"
+msgstr "Oras ng Pag-activate"
+
+#: includes-core/ShortlinksCoreAdmin.php:319
+msgid "Choose the time this shortlink should start working."
+msgstr "Pumili ng oras kung kailan dapat magsimula ang shortlink na ito."
+
+#: includes-core/ShortlinksCoreAdmin.php:320, fuzzy
+msgid "12:00 PM"
+msgstr "12:00 PM"
+
+#: includes-core/ShortlinksCoreAdmin.php:321
+msgid "Expiration Click Limit"
+msgstr "Limitasyon sa Pag-click sa Pagtatapos"
+
+#: includes-core/ShortlinksCoreAdmin.php:322
+msgid "Expire this shortlink after a number of clicks."
+msgstr "Pawalang bisa ang maikling link na ito pagkatapos ng ilang pag-click."
+
+#: includes-core/ShortlinksCoreAdmin.php:324
+#: includes-core/ShortlinksCoreAdmin.php:348
+#: includes/classes/class-import-export.php:1106
 msgid "Expired Redirect URL"
 msgstr "Nag-expire na Redirect URL"
 
-#: includes-core/ShortlinksCoreAdmin.php:216
+#: includes-core/ShortlinksCoreAdmin.php:325
 msgid "Choose where visitors should go when they click an expired link."
 msgstr ""
 "Pumili kung saan dapat pumunta ang mga bisita kapag nag-click sila sa isang "
 "expired na link."
 
-#: includes-core/ShortlinksCoreAdmin.php:218
-#: includes-core/ShortlinksCoreAdmin.php:242
+#: includes-core/ShortlinksCoreAdmin.php:327
+#: includes-core/ShortlinksCoreAdmin.php:351
 msgid "Show Expiration Notice"
 msgstr "Ipakita ang Paalala ng Pag-expire"
 
-#: includes-core/ShortlinksCoreAdmin.php:219
-#: includes-core/ShortlinksCoreAdmin.php:243
+#: includes-core/ShortlinksCoreAdmin.php:328
+#: includes-core/ShortlinksCoreAdmin.php:352
 msgid "Display a custom notice page before automatically redirecting visitors."
 msgstr ""
 "Ipakita ang isang pasadyang pahina ng abiso bago awtomatikong i-redirect "
 "ang mga bisita."
 
-#: includes-core/ShortlinksCoreAdmin.php:222
+#: includes-core/ShortlinksCoreAdmin.php:331
 msgid "Show a notice page for expired shortlinks briefly before redirecting."
 msgstr ""
 "Ipakita ang isang pahina ng abiso para sa mga expired na maikling link nang "
 "sandali bago i-redirect."
 
-#: includes-core/ShortlinksCoreAdmin.php:240
+#: includes-core/ShortlinksCoreAdmin.php:345
+msgid "Expired Redirect Settings"
+msgstr "Mga Setting ng Nag-expire na Redirect"
+
+#: includes-core/ShortlinksCoreAdmin.php:349
 msgid "Set the default destination for all expired shortlinks."
 msgstr "Itakda ang default na destinasyon para sa lahat ng expired na maikling link."
 
-#: includes-core/ShortlinksCoreAdmin.php:246
+#: includes-core/ShortlinksCoreAdmin.php:355
 msgid ""
 "Show a notice page for expired shortlinks briefly before redirecting. You "
 "can customize the content of this message."
@@ -181,87 +279,113 @@ msgstr ""
 "sandali bago i-redirect. Maaari mong i-customize ang nilalaman ng mensaheng "
 "ito."
 
-#: includes-core/ShortlinksCoreAdmin.php:281
-#: includes-core/ShortlinksCoreAdmin.php:308
+#: includes-core/ShortlinksCoreAdmin.php:369
+msgid "Conditional Redirect Rules"
+msgstr "Mga Tuntunin sa Kondisyonal na Redireksyon"
+
+#: includes-core/ShortlinksCoreAdmin.php:371
+msgid "Enable Dynamic Redirects"
+msgstr "Paganahin ang mga Dinamikong Redireksyon"
+
+#: includes-core/ShortlinksCoreAdmin.php:374
+msgid "Send visitors to different destinations when they match a rule."
+msgstr ""
+"Ipadala ang mga bisita sa iba't ibang destinasyon kapag sila ay tumutugma "
+"sa isang tuntunin."
+
+#: includes-core/ShortlinksCoreAdmin.php:376
+msgid "Redirect Rules"
+msgstr "Mga Tuntunin sa Redireksyon"
+
+#: includes-core/ShortlinksCoreAdmin.php:378
+msgid "Nigeria mobile visitors"
+msgstr "Mga bisita sa mobile mula sa Nigeria"
+
+#: includes-core/ShortlinksCoreAdmin.php:380
+msgid "Country and device conditions"
+msgstr "Mga kundisyon sa bansa at aparato"
+
+#: includes-core/ShortlinksCoreAdmin.php:415
+#: includes-core/ShortlinksCoreAdmin.php:442
 msgid "Advanced Auto-Link Settings"
 msgstr "Advanced na Mga Setting ng Auto-Link"
 
-#: includes-core/ShortlinksCoreAdmin.php:283
-#: includes-core/ShortlinksCoreAdmin.php:311
+#: includes-core/ShortlinksCoreAdmin.php:417
+#: includes-core/ShortlinksCoreAdmin.php:445
 msgid "Minimum Keyword Usage"
 msgstr "Minimum na Gamit ng Keyword"
 
-#: includes-core/ShortlinksCoreAdmin.php:284
+#: includes-core/ShortlinksCoreAdmin.php:418
 msgid "Keyword must appear this many times before being autolinked."
 msgstr ""
 "Dapat lumitaw ang keyword na ito ng ganitong karaming beses bago ito "
 "awtomatikong mai-link."
 
-#: includes-core/ShortlinksCoreAdmin.php:286
-#: includes-core/ShortlinksCoreAdmin.php:314
+#: includes-core/ShortlinksCoreAdmin.php:420
+#: includes-core/ShortlinksCoreAdmin.php:448
 msgid "Maximum Keywords Linked"
 msgstr "Maximum na Nakadugtong na Keyword"
 
-#: includes-core/ShortlinksCoreAdmin.php:287
+#: includes-core/ShortlinksCoreAdmin.php:421
 msgid "Maximum number of times this keyword should be autolinked per post."
 msgstr ""
 "Maximum na bilang ng beses na ang keyword na ito ay dapat na awtomatikong "
 "idugtong sa bawat post."
 
-#: includes-core/ShortlinksCoreAdmin.php:312
+#: includes-core/ShortlinksCoreAdmin.php:446
 msgid "Default minimum times a keyword must appear before being autolinked."
 msgstr ""
 "Default na minimum na bilang ng beses na dapat lumitaw ang isang keyword "
 "bago ito awtomatikong idugtong."
 
-#: includes-core/ShortlinksCoreAdmin.php:315
+#: includes-core/ShortlinksCoreAdmin.php:449
 msgid "Default maximum times a keyword should be autolinked per post."
 msgstr ""
 "Default na maximum na bilang ng beses na dapat awtomatikong idugtong ang "
 "isang keyword sa bawat post."
 
-#: includes-core/ShortlinksCoreAdmin.php:317
+#: includes-core/ShortlinksCoreAdmin.php:451
 msgid "Maximum Links Per Post"
 msgstr "Maximum na Mga Link sa Bawat Post"
 
-#: includes-core/ShortlinksCoreAdmin.php:318
+#: includes-core/ShortlinksCoreAdmin.php:452
 msgid "Total maximum autolinks allowed per post/page."
 msgstr "Kabuuang maximum na awtomatikong link na pinapayagan sa bawat post/pahina."
 
-#: includes-core/ShortlinksCoreAdmin.php:320
+#: includes-core/ShortlinksCoreAdmin.php:454
 msgid "Minimum Character Length"
 msgstr "Minimum na Haba ng Karakter"
 
-#: includes-core/ShortlinksCoreAdmin.php:321
+#: includes-core/ShortlinksCoreAdmin.php:455
 msgid "Keywords shorter than this will not be autolinked."
 msgstr "Ang mga keyword na mas maikli sa ito ay hindi awtomatikong idudugtong."
 
-#: includes-core/ShortlinksCoreAdmin.php:323
+#: includes-core/ShortlinksCoreAdmin.php:457
 msgid "Maximum Character Length"
 msgstr "Maximum na Haba ng Karakter"
 
-#: includes-core/ShortlinksCoreAdmin.php:324
+#: includes-core/ShortlinksCoreAdmin.php:458
 msgid "Keywords longer than this will not be autolinked."
 msgstr "Ang mga keyword na mas mahaba sa ito ay hindi awtomatikong idudugtong."
 
-#: includes-core/ShortlinksCoreAdmin.php:345
-#: includes/classes/class-settings.php:850
+#: includes-core/ShortlinksCoreAdmin.php:479
+#: includes/classes/class-settings.php:1059
 msgid "Auto-Link Exceptions"
 msgstr "Mga Eksepsyon sa Auto-Link"
 
-#: includes-core/ShortlinksCoreAdmin.php:347
+#: includes-core/ShortlinksCoreAdmin.php:481
 msgid "Exclude Terms from Auto Links"
 msgstr "I-exclude ang mga Termino mula sa Auto Links"
 
-#: includes-core/ShortlinksCoreAdmin.php:348
+#: includes-core/ShortlinksCoreAdmin.php:482
 msgid "These terms will never be autolinked."
 msgstr "Ang mga terminong ito ay hindi kailanman awtomatikong idudugtong."
 
-#: includes-core/ShortlinksCoreAdmin.php:350
+#: includes-core/ShortlinksCoreAdmin.php:484
 msgid "Prevent Auto Links Inside Classes or IDs"
 msgstr "Pigilan ang Auto Links sa Loob ng Mga Klase o ID"
 
-#: includes-core/ShortlinksCoreAdmin.php:351
+#: includes-core/ShortlinksCoreAdmin.php:485
 msgid ""
 "Content inside elements with these classes or IDs will not have autolinks "
 "applied."
@@ -269,45 +393,45 @@ msgstr ""
 "Ang nilalaman sa loob ng mga elemento na may mga klaseng ito o ID ay hindi "
 "magkakaroon ng mga awtomatikong link."
 
-#: includes-core/ShortlinksCoreAdmin.php:353
+#: includes-core/ShortlinksCoreAdmin.php:487
 msgid "Prevent Auto Links Inside Elements"
 msgstr "Pigilan ang Auto Links sa Loob ng mga Elemento"
 
-#: includes-core/ShortlinksCoreAdmin.php:354
+#: includes-core/ShortlinksCoreAdmin.php:488
 msgid "Terms inside these HTML tags will not have autolinks applied."
 msgstr ""
 "Ang mga termino sa loob ng mga HTML tag na ito ay hindi magkakaroon ng mga "
 "awtomatikong link."
 
-#: includes-core/ShortlinksCoreAdmin.php:367
+#: includes-core/ShortlinksCoreAdmin.php:501
 msgid "Prevent Auto Links on Shortcodes"
 msgstr "Pigilan ang Auto Links sa mga Shortcode"
 
-#: includes-core/ShortlinksCoreAdmin.php:368
+#: includes-core/ShortlinksCoreAdmin.php:502
 msgid "Terms inside these shortcodes will not have autolinks applied."
 msgstr ""
 "Ang mga termino sa loob ng mga shortcode na ito ay hindi magkakaroon ng mga "
 "awtomatikong link."
 
-#: includes-core/ShortlinksCoreAdmin.php:370
+#: includes-core/ShortlinksCoreAdmin.php:504
 msgid "Prevent Auto Links on Blocks"
 msgstr "Pigilan ang Auto Links sa mga Block"
 
-#: includes-core/ShortlinksCoreAdmin.php:371
+#: includes-core/ShortlinksCoreAdmin.php:505
 msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
 msgstr ""
 "Ang mga termino sa loob ng mga Gutenberg block na ito ay hindi magkakaroon "
 "ng awtomatikong link."
 
-#: includes-core/ShortlinksCoreAdmin.php:372
+#: includes-core/ShortlinksCoreAdmin.php:506
 msgid "Search and select blocks..."
 msgstr "Maghanap at pumili ng mga block..."
 
 #: includes/classes/class-autolist-ajax.php:39
 #: includes/classes/class-autolist-ajax.php:204
-#: includes/classes/class-gutenberg-shortlink.php:234
-#: includes/classes/class-gutenberg-shortlink.php:285
-#: includes/classes/class-gutenberg-shortlink.php:329, fuzzy
+#: includes/classes/class-gutenberg-shortlink.php:238
+#: includes/classes/class-gutenberg-shortlink.php:289
+#: includes/classes/class-gutenberg-shortlink.php:333, fuzzy
 msgid "Permission denied"
 msgstr "Permission denied"
 
@@ -379,7 +503,7 @@ msgid "Saved!"
 msgstr "Saved!"
 
 #: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-gutenberg-shortlink.php:175, fuzzy
+#: includes/classes/class-gutenberg-shortlink.php:179, fuzzy
 msgid "Error"
 msgstr "Error"
 
@@ -392,170 +516,170 @@ msgid "Select a post type"
 msgstr "Select a post type"
 
 #: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:1032
-#: includes/classes/class-settings.php:1130
+#: includes/classes/class-settings.php:1241
+#: includes/classes/class-settings.php:1339
 msgid "Never"
 msgstr "Hindi"
 
 #: includes/classes/class-autolist-ajax.php:300
-#: includes/classes/class-settings.php:1030
-#: includes/classes/class-settings.php:1132
+#: includes/classes/class-settings.php:1239
+#: includes/classes/class-settings.php:1341
 msgid "When Link is First Used"
 msgstr "Kapag Unang Ginagamit ang Link"
 
 #: includes/classes/class-autolist-ajax.php:301
-#: includes/classes/class-settings.php:1134
+#: includes/classes/class-settings.php:1343
 msgid "When Post is Published"
 msgstr "Kapag Naka-publish ang Post"
 
 #: includes/classes/class-autolist-ajax.php:302
-#: includes/classes/class-settings.php:1133
+#: includes/classes/class-settings.php:1342
 msgid "When Post is Created"
 msgstr "Kapag Nilikha ang Post"
 
 #: includes/classes/class-autolist-ajax.php:303
-#: includes/classes/class-settings.php:1131
+#: includes/classes/class-settings.php:1340
 msgid "When Link is First Used or Post Created"
 msgstr "Kapag Unang Ginagamit ang Link o Nilikha ang Post"
 
-#: includes/classes/class-autolist.php:119
+#: includes/classes/class-autolist.php:123
 msgid "Invalid post ID or post type."
 msgstr "Hindi wastong post ID o post type."
 
-#: includes/classes/class-columns-link.php:76
+#: includes/classes/class-columns-link.php:78
 msgid "No shortlink"
 msgstr "Walang shortlink"
 
-#: includes/classes/class-columns-link.php:97
-#: includes/classes/class-hooks.php:232
-#: includes/classes/class-hooks.php:234
-#: includes/classes/class-meta-boxes.php:163, fuzzy
+#: includes/classes/class-columns-link.php:99
+#: includes/classes/class-hooks.php:308
+#: includes/classes/class-hooks.php:310
+#: includes/classes/class-meta-boxes.php:167, fuzzy
 msgid "Shortlinks"
 msgstr "Shortlinks"
 
-#: includes/classes/class-columns-link.php:188
-#: includes/classes/class-columns-link.php:335
+#: includes/classes/class-columns-link.php:190
+#: includes/classes/class-columns-link.php:337
 msgid "Internal"
 msgstr "Panloob"
 
-#: includes/classes/class-columns-link.php:188
-#: includes/classes/class-columns-link.php:336
+#: includes/classes/class-columns-link.php:190
+#: includes/classes/class-columns-link.php:338
 msgid "External"
 msgstr "Panlabas"
 
-#: includes/classes/class-columns-link.php:189
+#: includes/classes/class-columns-link.php:191
 msgid "This links to your post"
 msgstr "Ito ay nag-uugnay sa iyong post"
 
-#: includes/classes/class-columns-link.php:189
+#: includes/classes/class-columns-link.php:191
 msgid "This links to an external website"
 msgstr "Ito ay nag-uugnay sa isang panlabas na website"
 
-#: includes/classes/class-columns-link.php:193
-#: includes/classes/class-columns-link.php:337
+#: includes/classes/class-columns-link.php:195
+#: includes/classes/class-columns-link.php:339
 msgid "Revision"
 msgstr "Rebisyon"
 
-#: includes/classes/class-columns-link.php:194
+#: includes/classes/class-columns-link.php:196
 msgid "This links to a revision"
 msgstr "Ito ay nag-uugnay sa isang rebisyon"
 
-#: includes/classes/class-columns-link.php:203
+#: includes/classes/class-columns-link.php:205
 msgid "Not yet submitted"
 msgstr "Hindi pa isinumite"
 
-#: includes/classes/class-columns-link.php:204
+#: includes/classes/class-columns-link.php:206
 msgid "Submitted for approval"
 msgstr "Isinumite para sa pag-apruba"
 
-#: includes/classes/class-columns-link.php:205
-#: includes/classes/class-settings.php:365
-#: includes/classes/class-settings.php:706
-#: includes/classes/class-settings.php:714
-#: includes/functions.php:273
-#: includes/functions.php:307
+#: includes/classes/class-columns-link.php:207
+#: includes/classes/class-settings.php:433
+#: includes/classes/class-settings.php:900
+#: includes/classes/class-settings.php:908
+#: includes/functions.php:379
+#: includes/functions.php:413
 msgid "Scheduled"
 msgstr "Naka-schedule"
 
-#: includes/classes/class-columns-link.php:206
+#: includes/classes/class-columns-link.php:208
 msgid "Deferred"
 msgstr "Naantala"
 
-#: includes/classes/class-columns-link.php:207
+#: includes/classes/class-columns-link.php:209
 msgid "Needs work"
 msgstr "Kailangang pagbutihin"
 
-#: includes/classes/class-columns-link.php:208
+#: includes/classes/class-columns-link.php:210
 msgid "Rejected"
 msgstr "Tinanggihan"
 
-#: includes/classes/class-columns-link.php:212
+#: includes/classes/class-columns-link.php:214
 #. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "Rebisyon: %s"
 
-#: includes/classes/class-columns-link.php:233
+#: includes/classes/class-columns-link.php:235
 #. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "Na-click ng %s beses"
 
-#: includes/classes/class-columns-link.php:241
-#: includes/classes/class-table-logs.php:198
+#: includes/classes/class-columns-link.php:243
+#: includes/classes/class-table-logs.php:202
 msgid "Edit"
 msgstr "I-edit"
 
-#: includes/classes/class-columns-link.php:246
-#: includes/classes/class-table-logs.php:179
-#: includes/classes/class-table-logs.php:200
+#: includes/classes/class-columns-link.php:248
+#: includes/classes/class-table-logs.php:183
+#: includes/classes/class-table-logs.php:204
 msgid "Delete"
 msgstr "Burahin"
 
-#: includes/classes/class-columns-link.php:332
+#: includes/classes/class-columns-link.php:334
 msgid "Filter by link type"
 msgstr "I-filter ayon sa uri ng link"
 
-#: includes/classes/class-columns-link.php:334
+#: includes/classes/class-columns-link.php:336
 msgid "All link types"
 msgstr "Lahat ng uri ng link"
 
-#: includes/classes/class-columns-link.php:350
+#: includes/classes/class-columns-link.php:352
 msgid "Filter by category"
 msgstr "I-filter ayon sa kategorya"
 
-#: includes/classes/class-columns-link.php:352
+#: includes/classes/class-columns-link.php:354
 msgid "All categories"
 msgstr "Lahat ng kategorya"
 
-#: includes/classes/class-columns-link.php:446
+#: includes/classes/class-columns-link.php:457
 msgid "Filters"
 msgstr "Mga filter"
 
-#: includes/classes/class-columns-link.php:449
-#: includes/classes/class-hooks.php:257
-#: includes/classes/class-meta-boxes.php:814
+#: includes/classes/class-columns-link.php:460
+#: includes/classes/class-hooks.php:333
+#: includes/classes/class-meta-boxes.php:840
 msgid "Categories"
 msgstr "Mga Kategorya"
 
-#: includes/classes/class-columns-link.php:467
+#: includes/classes/class-columns-link.php:478
 msgid "Permission denied."
 msgstr "Tanggihan ang pahintulot."
 
-#: includes/classes/class-columns-link.php:551
+#: includes/classes/class-columns-link.php:587
 msgid "Link Title"
 msgstr "Pamagat ng Link"
 
-#: includes/classes/class-columns-link.php:553
+#: includes/classes/class-columns-link.php:589
 msgid "Link Type"
 msgstr "Uri ng Link"
 
-#: includes/classes/class-columns-link.php:557, fuzzy
+#: includes/classes/class-columns-link.php:593, fuzzy
 msgid "Stats"
 msgstr "Stats"
 
-#: includes/classes/class-columns-link.php:560
-#: includes/classes/class-table-logs.php:166
+#: includes/classes/class-columns-link.php:596
+#: includes/classes/class-table-logs.php:170
 msgid "Actions"
 msgstr "Mga Aksyon"
 
@@ -567,95 +691,95 @@ msgstr "I-click upang kopyahin"
 msgid "Copied"
 msgstr "Nakopya"
 
-#: includes/classes/class-gutenberg-shortlink.php:160
+#: includes/classes/class-gutenberg-shortlink.php:164
 msgid "Search shortlinks..."
 msgstr "Maghanap ng mga shortlink..."
 
-#: includes/classes/class-gutenberg-shortlink.php:161
+#: includes/classes/class-gutenberg-shortlink.php:165
 msgid "Insert Shortlink"
 msgstr "Ipasok ang Shortlink"
 
-#: includes/classes/class-gutenberg-shortlink.php:162
+#: includes/classes/class-gutenberg-shortlink.php:166
 msgid "Create New Shortlink"
 msgstr "Lumikha ng Bagong Shortlink"
 
-#: includes/classes/class-gutenberg-shortlink.php:163
-#: includes/classes/class-settings.php:721
+#: includes/classes/class-gutenberg-shortlink.php:167
+#: includes/classes/class-settings.php:930
 msgid "Options"
 msgstr "Mga Opsyon"
 
-#: includes/classes/class-gutenberg-shortlink.php:164
+#: includes/classes/class-gutenberg-shortlink.php:168
 msgid "Open in New Tab"
 msgstr "Buksan sa Bagong Tab"
 
-#: includes/classes/class-gutenberg-shortlink.php:165, fuzzy
+#: includes/classes/class-gutenberg-shortlink.php:169, fuzzy
 msgid "Nofollow"
 msgstr "Nofollow"
 
-#: includes/classes/class-gutenberg-shortlink.php:166, fuzzy
+#: includes/classes/class-gutenberg-shortlink.php:170, fuzzy
 msgid "Sponsored Link"
 msgstr "Sponsored Link"
 
-#: includes/classes/class-gutenberg-shortlink.php:167, fuzzy
+#: includes/classes/class-gutenberg-shortlink.php:171, fuzzy
 msgid "Label"
 msgstr "Label"
 
-#: includes/classes/class-gutenberg-shortlink.php:168
+#: includes/classes/class-gutenberg-shortlink.php:172
 msgid "Optional shortlink label"
 msgstr "Opsyonal na label ng shortlink"
 
-#: includes/classes/class-gutenberg-shortlink.php:170
+#: includes/classes/class-gutenberg-shortlink.php:174
 msgid "Create"
 msgstr "Lumikha"
 
-#: includes/classes/class-gutenberg-shortlink.php:171
-#: includes/classes/class-import-export.php:1202
+#: includes/classes/class-gutenberg-shortlink.php:175
+#: includes/classes/class-import-export.php:1270
 msgid "Cancel"
 msgstr "Kanselahin"
 
-#: includes/classes/class-gutenberg-shortlink.php:172
+#: includes/classes/class-gutenberg-shortlink.php:176
 #: templates/admin-modal-new-link.php:37
 msgid "Close"
 msgstr "Isara"
 
-#: includes/classes/class-gutenberg-shortlink.php:173
+#: includes/classes/class-gutenberg-shortlink.php:177
 msgid "Creating..."
 msgstr "Naglilikha..."
 
-#: includes/classes/class-gutenberg-shortlink.php:174
-#: includes/classes/class-gutenberg-shortlink.php:317
+#: includes/classes/class-gutenberg-shortlink.php:178
+#: includes/classes/class-gutenberg-shortlink.php:321
 #: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "Matagumpay na nalikha ang shortlink."
 
-#: includes/classes/class-gutenberg-shortlink.php:176
+#: includes/classes/class-gutenberg-shortlink.php:180
 msgid "Please enter a valid URL"
 msgstr "Mangyaring magpasok ng wastong URL"
 
-#: includes/classes/class-gutenberg-shortlink.php:177
+#: includes/classes/class-gutenberg-shortlink.php:181
 msgid "No shortlinks found"
 msgstr "Walang shortlink na natagpuan"
 
-#: includes/classes/class-gutenberg-shortlink.php:243
+#: includes/classes/class-gutenberg-shortlink.php:247
 msgid "Search term is required"
 msgstr "Kinakailangan ang termino sa paghahanap"
 
-#: includes/classes/class-gutenberg-shortlink.php:258
-#: includes/functions.php:447
+#: includes/classes/class-gutenberg-shortlink.php:262
+#: includes/functions.php:553
 #. translators: %s: link ID number
 #, fuzzy, php-format
 msgid "Link - %s"
 msgstr "Link - %s"
 
-#: includes/classes/class-gutenberg-shortlink.php:294
+#: includes/classes/class-gutenberg-shortlink.php:298
 msgid "Target URL is required"
 msgstr "Kinakailangan ang target na URL"
 
-#: includes/classes/class-gutenberg-shortlink.php:336
+#: includes/classes/class-gutenberg-shortlink.php:340
 msgid "Invalid shortlink ID"
 msgstr "Di-wastong shortlink ID"
 
-#: includes/classes/class-gutenberg-shortlink.php:342
+#: includes/classes/class-gutenberg-shortlink.php:346
 msgid "Shortlink not found"
 msgstr "Hindi hindi natagpuan"
 
@@ -692,72 +816,77 @@ msgstr "Di wastong ID ng shortlink."
 msgid "You do not have permission to reset analytics for this shortlink."
 msgstr "Wala kang pahintulot na i-reset ang analytics para sa shortlink na ito."
 
-#: includes/classes/class-hooks.php:164
+#: includes/classes/class-hooks.php:189
+#: includes/classes/class-hooks.php:201
+msgid "Invalid custom date range."
+msgstr "Di-wasto ang pasadyang saklaw ng petsa."
+
+#: includes/classes/class-hooks.php:240
 msgid "Analytics reset successfully."
 msgstr "Matagumpay na na-reset ang analytics."
 
-#: includes/classes/class-hooks.php:166
+#: includes/classes/class-hooks.php:242
 msgid "Failed to reset analytics."
 msgstr "Nabigo ang pag-reset ng analytics."
 
-#: includes/classes/class-hooks.php:192
+#: includes/classes/class-hooks.php:268
 msgid "Shorten"
 msgstr "Paliitin"
 
-#: includes/classes/class-hooks.php:235
+#: includes/classes/class-hooks.php:311
 msgid "All Shortlinks"
 msgstr "Lahat ng Shortlink"
 
-#: includes/classes/class-hooks.php:236
-#: includes/classes/class-hooks.php:237
+#: includes/classes/class-hooks.php:312
+#: includes/classes/class-hooks.php:313
 msgid "Add Shortlink"
 msgstr "Magdagdag ng Maikling Link"
 
-#: includes/classes/class-hooks.php:238
+#: includes/classes/class-hooks.php:314
 msgid "Search Shortlinks"
 msgstr "Maghanap ng mga Maikling Link"
 
-#: includes/classes/class-hooks.php:256
+#: includes/classes/class-hooks.php:332
 msgid "Category"
 msgstr "Kategorya"
 
-#: includes/classes/class-hooks.php:283
-#: includes/classes/class-hooks.php:284
+#: includes/classes/class-hooks.php:359
+#: includes/classes/class-hooks.php:360
 msgid "Logs"
 msgstr "Mga Log"
 
-#: includes/classes/class-hooks.php:312
+#: includes/classes/class-hooks.php:388
 msgid "All Logs"
 msgstr "Lahat ng Log"
 
-#: includes/classes/class-hooks.php:312
+#: includes/classes/class-hooks.php:388
 msgid "Are you sure you want to clear all logs?"
 msgstr "Sigurado ka bang nais mong i-clear ang lahat ng log?"
 
-#: includes/classes/class-hooks.php:312
+#: includes/classes/class-hooks.php:388
 msgid "Clear Logs"
 msgstr "I-clear ang Log"
 
-#: includes/classes/class-hooks.php:606
+#: includes/classes/class-hooks.php:682
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Paumanhin, hindi ka pinapayagang mag-access sa mga shortlink."
 
-#: includes/classes/class-hooks.php:607
-#: includes/classes/class-hooks.php:628
-#: includes/classes/class-hooks.php:639
-#: includes/classes/class-hooks.php:660, fuzzy
+#: includes/classes/class-hooks.php:683
+#: includes/classes/class-hooks.php:704
+#: includes/classes/class-hooks.php:715
+#: includes/classes/class-hooks.php:736, fuzzy
 msgid "Access Denied"
 msgstr "Access Denied"
 
-#: includes/classes/class-hooks.php:627
+#: includes/classes/class-hooks.php:703
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Paumanhin, hindi ka pinapayagang lumikha ng mga shortlink."
 
-#: includes/classes/class-hooks.php:638
+#: includes/classes/class-hooks.php:714
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Paumanhin, hindi ka pinapayagang mag-edit ng mga shortlink."
 
-#: includes/classes/class-hooks.php:659
+#: includes/classes/class-hooks.php:735
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Paumanhin, hindi ka pinapayagang mag-access sa mga setting ng shortlink."
 
@@ -795,7 +924,7 @@ msgid "Preview failed."
 msgstr "Nabigong mag-preview."
 
 #: includes/classes/class-import-export.php:94
-#: includes/classes/class-import-export.php:1197
+#: includes/classes/class-import-export.php:1265
 msgid "See More Rows"
 msgstr "Tingnan ang Higit pang Mga Row"
 
@@ -804,25 +933,25 @@ msgid "Show Less"
 msgstr "Ipakita ang Mas Kaunti"
 
 #: includes/classes/class-import-export.php:96
-#: includes/classes/class-import-export.php:1160, fuzzy
+#: includes/classes/class-import-export.php:1228, fuzzy
 msgid "Preview"
 msgstr "Preview"
 
 #: includes/classes/class-import-export.php:97
-#: includes/classes/class-import-export.php:1151
-#: includes/classes/class-import-export.php:1164
+#: includes/classes/class-import-export.php:1219
+#: includes/classes/class-import-export.php:1232
 msgid "Import CSV"
 msgstr "Mag-import ng CSV"
 
 #: includes/classes/class-import-export.php:98
-#: includes/classes/class-import-export.php:731
+#: includes/classes/class-import-export.php:758
 #. translators: %d: number of successfully imported shortlinks
 #, php-format
 msgid "%d shortlinks successfully imported"
 msgstr "%d shortlinks na matagumpay na na-import"
 
 #: includes/classes/class-import-export.php:99
-#: includes/classes/class-import-export.php:753
+#: includes/classes/class-import-export.php:780
 #. translators: %d: number of failed imports
 #, php-format
 msgid "%d shortlinks failed to import"
@@ -833,39 +962,41 @@ msgid "Error(s) for TinyPress Slug:"
 msgstr "Error(s) para sa TinyPress Slug:"
 
 #: includes/classes/class-import-export.php:115
-#: includes/classes/class-import-export.php:546
-#: includes/classes/class-import-export.php:907
-#: includes/classes/class-import-export.php:1048
+#: includes/classes/class-import-export.php:571
+#: includes/classes/class-import-export.php:949
+#: includes/classes/class-import-export.php:1090
+#: includes/classes/class-migration.php:440
+#: includes/classes/class-url-metadata.php:39
 msgid "Unauthorized."
 msgstr "Hindi awtorisado."
 
-#: includes/classes/class-import-export.php:303
-#: includes/functions.php:402
+#: includes/classes/class-import-export.php:307
+#: includes/functions.php:508
 msgid "Invalid URL."
 msgstr "Hindi wastong URL."
 
-#: includes/classes/class-import-export.php:551
-#: includes/classes/class-import-export.php:912
+#: includes/classes/class-import-export.php:576
+#: includes/classes/class-import-export.php:954
 msgid "No file uploaded or upload error."
 msgstr "Walang na-upload na file o error sa pag-upload."
 
-#: includes/classes/class-import-export.php:560
-#: includes/classes/class-import-export.php:921
+#: includes/classes/class-import-export.php:585
+#: includes/classes/class-import-export.php:963
 msgid "Please upload a CSV file."
 msgstr "Pakisubukang mag-upload ng isang CSV na file."
 
-#: includes/classes/class-import-export.php:566
-#: includes/classes/class-import-export.php:927
+#: includes/classes/class-import-export.php:591
+#: includes/classes/class-import-export.php:969
 msgid "Could not read the file."
 msgstr "Hindi mabasa ang file."
 
-#: includes/classes/class-import-export.php:573
-#: includes/classes/class-import-export.php:934
+#: includes/classes/class-import-export.php:598
+#: includes/classes/class-import-export.php:976
 msgid "Empty CSV file."
 msgstr "Walang laman na CSV file."
 
-#: includes/classes/class-import-export.php:596
-#: includes/classes/class-import-export.php:958
+#: includes/classes/class-import-export.php:621
+#: includes/classes/class-import-export.php:1000
 msgid ""
 "CSV must contain a column for target URL (e.g., \"url\", \"target_url\", "
 "\"destination_url\")."
@@ -873,119 +1004,119 @@ msgstr ""
 "Dapat naglalaman ang CSV ng isang kolum para sa target URL (hal., \"url\", "
 "\"target_url\", \"destination_url\")."
 
-#: includes/classes/class-import-export.php:663
+#: includes/classes/class-import-export.php:688
 #. translators: %s: error message
 #, php-format
 msgid "Failed to create shortlink: %s"
 msgstr "Nabigo sa paglikha ng shortlink: %s"
 
-#: includes/classes/class-import-export.php:664
+#: includes/classes/class-import-export.php:689
 msgid "Unknown error."
 msgstr "Hindi kilalang error."
 
-#: includes/classes/class-import-export.php:742
+#: includes/classes/class-import-export.php:769
 #. translators: %d: number of updated shortlinks
 #, php-format
 msgid "%d shortlinks updated"
 msgstr "%d shortlinks ang na-update"
 
-#: includes/classes/class-import-export.php:995
+#: includes/classes/class-import-export.php:1037
 #. translators: 1: original column name, 2: mapped field name
 #, fuzzy, php-format
 msgid "\"%1$s\" → %2$s"
 msgstr "\"%1$s\" → %2$s"
 
-#: includes/classes/class-import-export.php:1006
+#: includes/classes/class-import-export.php:1048
 #. translators: %s: field mappings
 #, php-format
 msgid "Field mappings: %s"
 msgstr "Mga pagmamapa ng field: %s"
 
-#: includes/classes/class-import-export.php:1033
+#: includes/classes/class-import-export.php:1075
 #. translators: 1: number of preview rows, 2: total number of importable rows
 #, php-format
 msgid "Showing %1$d preview row(s) from %2$d importable row(s)."
 msgstr "Ipinapakita ang %1$d preview row(s) mula sa %2$d importable row(s)."
 
-#: includes/classes/class-import-export.php:1052
+#: includes/classes/class-import-export.php:1094
 msgid "Link Label"
 msgstr "Label ng Link"
 
-#: includes/classes/class-import-export.php:1054
+#: includes/classes/class-import-export.php:1096
 msgid "Short Slug"
 msgstr "Maikling Slug"
 
-#: includes/classes/class-import-export.php:1055
+#: includes/classes/class-import-export.php:1097
 msgid "Post Status"
 msgstr "Katayuan ng Post"
 
-#: includes/classes/class-import-export.php:1056
+#: includes/classes/class-import-export.php:1098
 msgid "Link Status"
 msgstr "Katayuan ng Link"
 
-#: includes/classes/class-import-export.php:1057
+#: includes/classes/class-import-export.php:1099
 msgid "Redirect Method"
 msgstr "Pamamaraan ng Redirect"
 
-#: includes/classes/class-import-export.php:1058
-#: includes/classes/class-meta-boxes.php:664
-#: includes/classes/class-settings.php:939, fuzzy
+#: includes/classes/class-import-export.php:1100
+#: includes/classes/class-meta-boxes.php:669
+#: includes/classes/class-settings.php:1148, fuzzy
 msgid "NoFollow"
 msgstr "NoFollow"
 
-#: includes/classes/class-import-export.php:1059
-#: includes/classes/class-meta-boxes.php:642
-#: includes/classes/class-settings.php:931, fuzzy
+#: includes/classes/class-import-export.php:1101
+#: includes/classes/class-meta-boxes.php:645
+#: includes/classes/class-settings.php:1140, fuzzy
 msgid "Sponsored"
 msgstr "Sponsored"
 
-#: includes/classes/class-import-export.php:1060
-#: includes/classes/class-meta-boxes.php:686
-#: includes/classes/class-settings.php:947
+#: includes/classes/class-import-export.php:1102
+#: includes/classes/class-meta-boxes.php:693
+#: includes/classes/class-settings.php:1156
 msgid "Parameter Forwarding"
 msgstr "Pagpasa ng Parameter"
 
-#: includes/classes/class-import-export.php:1061
+#: includes/classes/class-import-export.php:1103
 msgid "Expiration Enabled"
 msgstr "Naka-enable ang Pag-expire"
 
-#: includes/classes/class-import-export.php:1062
-#: includes/classes/class-meta-boxes.php:770
-#: includes/classes/class-settings.php:988
+#: includes/classes/class-import-export.php:1104
+#: includes/classes/class-meta-boxes.php:796
+#: includes/classes/class-settings.php:1197
 msgid "Expiration Date"
 msgstr "Petsa ng Pag-expire"
 
-#: includes/classes/class-import-export.php:1063
-#: includes/classes/class-meta-boxes.php:784
-#: includes/classes/class-settings.php:1001
+#: includes/classes/class-import-export.php:1105
+#: includes/classes/class-meta-boxes.php:810
+#: includes/classes/class-settings.php:1210
 msgid "Expiration Time"
 msgstr "Oras ng Pag-expire"
 
-#: includes/classes/class-import-export.php:1065
-#: includes/classes/class-meta-boxes.php:552
+#: includes/classes/class-import-export.php:1107
+#: includes/classes/class-meta-boxes.php:556
 msgid "Notes"
 msgstr "Mga Tala"
 
-#: includes/classes/class-import-export.php:1066
+#: includes/classes/class-import-export.php:1108
 msgid "Autolink Keywords"
 msgstr "Mga Autolink na Keyword"
 
-#: includes/classes/class-import-export.php:1095
+#: includes/classes/class-import-export.php:1137
 msgid "Import / Export Shortlinks"
 msgstr "I-import / I-export ang mga Shortlink"
 
-#: includes/classes/class-import-export.php:1099
-#: includes/classes/class-import-export.php:1137
-#: includes/classes/class-import-export.php:1206
+#: includes/classes/class-import-export.php:1141
+#: includes/classes/class-import-export.php:1179
+#: includes/classes/class-import-export.php:1274
 msgid "Import"
 msgstr "Mag-import"
 
-#: includes/classes/class-import-export.php:1102
-#: includes/classes/class-import-export.php:1111
+#: includes/classes/class-import-export.php:1144
+#: includes/classes/class-import-export.php:1153
 msgid "Export"
 msgstr "I-export"
 
-#: includes/classes/class-import-export.php:1114
+#: includes/classes/class-import-export.php:1156
 msgid ""
 "Download all your shortlinks as a CSV file. The export includes labels, "
 "target URLs, slugs, redirect settings, global-setting modes, and more. "
@@ -996,17 +1127,17 @@ msgstr ""
 "mode ng global-setting, at iba pa. Ang mga setting ng proteksyon sa "
 "password ay hindi na-export."
 
-#: includes/classes/class-import-export.php:1119
+#: includes/classes/class-import-export.php:1161
 #. translators: %d: number of shortlinks
 #, php-format
 msgid "%d shortlink(s) will be exported."
 msgstr "%d shortlink(s) ang ie-export."
 
-#: includes/classes/class-import-export.php:1127
+#: includes/classes/class-import-export.php:1169
 msgid "Export CSV"
 msgstr "I-export ang CSV"
 
-#: includes/classes/class-import-export.php:1140
+#: includes/classes/class-import-export.php:1182
 msgid ""
 "Upload a CSV file to bulk-create shortlinks. The CSV must contain at "
 "minimum a \"target_url\" column. Password protection settings are "
@@ -1016,118 +1147,119 @@ msgstr ""
 "CSV ay dapat magkaroon ng hindi bababa sa isang column na \"target_url\". "
 "Ang mga setting ng proteksyon sa password ay sadyang hindi na-import."
 
-#: includes/classes/class-import-export.php:1142
+#: includes/classes/class-import-export.php:1208
 msgid "Supported columns:"
 msgstr "Mga suportadong column:"
 
-#: includes/classes/class-import-export.php:1167
+#: includes/classes/class-import-export.php:1235
 msgid "Change File"
 msgstr "Palitan ang File"
 
-#: includes/classes/class-import-export.php:1184
+#: includes/classes/class-import-export.php:1252
 msgid "Import Preview"
 msgstr "Preview ng Import"
 
-#: includes/classes/class-meta-boxes.php:387
-#: includes/classes/class-meta-boxes.php:453
-#: includes/classes/class-meta-boxes.php:478
+#: includes/classes/class-meta-boxes.php:391
+#: includes/classes/class-meta-boxes.php:457
+#: includes/classes/class-meta-boxes.php:482
 #. translators: %s: current global setting value
 msgid "Use global settings"
 msgstr "Gamitin ang mga pandaigdigang setting"
 
-#: includes/classes/class-meta-boxes.php:388
+#: includes/classes/class-meta-boxes.php:392
 msgid "Enabled"
 msgstr "Naka-enable"
 
-#: includes/classes/class-meta-boxes.php:389
+#: includes/classes/class-meta-boxes.php:393
 msgid "Disabled"
 msgstr "Naka-disable"
 
-#: includes/classes/class-meta-boxes.php:449, fuzzy
+#: includes/classes/class-meta-boxes.php:453, fuzzy
 msgid "ON"
 msgstr "ON"
 
-#: includes/classes/class-meta-boxes.php:449, fuzzy
+#: includes/classes/class-meta-boxes.php:453, fuzzy
 msgid "OFF"
 msgstr "OFF"
 
-#: includes/classes/class-meta-boxes.php:481
-#: includes/classes/class-settings.php:922
+#: includes/classes/class-meta-boxes.php:485
+#: includes/classes/class-settings.php:1131
 msgid "307 (Temporary)"
 msgstr "307 (Pansamantala)"
 
-#: includes/classes/class-meta-boxes.php:482
-#: includes/classes/class-settings.php:923
+#: includes/classes/class-meta-boxes.php:486
+#: includes/classes/class-settings.php:1132
 msgid "302 (Temporary)"
 msgstr "302 (Pansamantala)"
 
-#: includes/classes/class-meta-boxes.php:483
-#: includes/classes/class-settings.php:924
+#: includes/classes/class-meta-boxes.php:487
+#: includes/classes/class-settings.php:1133
 msgid "301 (Permanent)"
 msgstr "301 (Permanenteng)"
 
-#: includes/classes/class-meta-boxes.php:496
-#: tinypress.php:399
-#: tinypress.php:492, fuzzy
+#: includes/classes/class-meta-boxes.php:500
+#: includes/classes/class-settings.php:596
+#: tinypress.php:473
+#: tinypress.php:586, fuzzy
 msgid "PublishPress Shortlinks"
 msgstr "PublishPress Shortlinks"
 
-#: includes/classes/class-meta-boxes.php:509
-#: includes/classes/class-settings.php:718
+#: includes/classes/class-meta-boxes.php:513
+#: includes/classes/class-settings.php:912
 msgid "General"
 msgstr "Pangkalahatan"
 
-#: includes/classes/class-meta-boxes.php:514, fuzzy
+#: includes/classes/class-meta-boxes.php:518, fuzzy
 msgid "Label *"
 msgstr "Label *"
 
-#: includes/classes/class-meta-boxes.php:516
+#: includes/classes/class-meta-boxes.php:520
 msgid "For admin purpose only."
 msgstr "Para sa layuning pang-admin lamang."
 
-#: includes/classes/class-meta-boxes.php:525, fuzzy
+#: includes/classes/class-meta-boxes.php:529, fuzzy
 msgid "Target URL *"
 msgstr "Target URL *"
 
-#: includes/classes/class-meta-boxes.php:535
+#: includes/classes/class-meta-boxes.php:539
 msgid "Short String *"
 msgstr "Maikling String *"
 
-#: includes/classes/class-meta-boxes.php:536
+#: includes/classes/class-meta-boxes.php:540
 msgid "Short string of this URL."
 msgstr "Maikling string ng URL na ito."
 
-#: includes/classes/class-meta-boxes.php:543
+#: includes/classes/class-meta-boxes.php:547
 msgid "Enable or disable the shortlink."
 msgstr "I-enable o i-disable ang shortlink."
 
-#: includes/classes/class-meta-boxes.php:544
+#: includes/classes/class-meta-boxes.php:548
 msgid "Enable"
 msgstr "I-enable"
 
-#: includes/classes/class-meta-boxes.php:545
+#: includes/classes/class-meta-boxes.php:549
 msgid "Disable"
 msgstr "I-disable"
 
-#: includes/classes/class-meta-boxes.php:576
-#: includes/classes/class-meta-boxes.php:582
+#: includes/classes/class-meta-boxes.php:580
+#: includes/classes/class-meta-boxes.php:586
 msgid "Shortlink Label"
 msgstr "Label ng Shortlink"
 
-#: includes/classes/class-meta-boxes.php:577
-#: includes/classes/class-meta-boxes.php:583
+#: includes/classes/class-meta-boxes.php:581
+#: includes/classes/class-meta-boxes.php:587
 msgid "Custom Text"
 msgstr "Custom na Teksto"
 
-#: includes/classes/class-meta-boxes.php:581
+#: includes/classes/class-meta-boxes.php:585
 msgid "Post Title"
 msgstr "Pamagat ng Post"
 
-#: includes/classes/class-meta-boxes.php:593
+#: includes/classes/class-meta-boxes.php:597
 msgid "Keywords"
 msgstr "Mga Keyword"
 
-#: includes/classes/class-meta-boxes.php:594
+#: includes/classes/class-meta-boxes.php:598
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
@@ -1135,21 +1267,21 @@ msgstr ""
 "Magdagdag ng mga keyword na pinaghiwalay ng kuwit o sa magkakahiwalay na "
 "linya. Ang bawat keyword ay mag-uugnay sa maikling link na ito."
 
-#: includes/classes/class-meta-boxes.php:599
+#: includes/classes/class-meta-boxes.php:603
 msgid "Link Alt Text"
 msgstr "Link Alt Teksto"
 
-#: includes/classes/class-meta-boxes.php:600
+#: includes/classes/class-meta-boxes.php:604
 msgid "Set the alt text for the linked keywords in the frontend of the site."
 msgstr ""
 "Itakda ang alt na teksto para sa mga nakalink na keyword sa frontend ng "
 "site."
 
-#: includes/classes/class-meta-boxes.php:607
+#: includes/classes/class-meta-boxes.php:611
 msgid "Custom Alt Text"
 msgstr "Custom na Alt Teksto"
 
-#: includes/classes/class-meta-boxes.php:608
+#: includes/classes/class-meta-boxes.php:612
 msgid ""
 "Enter custom alt text for the linked keywords. This is only used if "
 "\"Custom Text\" is selected above."
@@ -1157,35 +1289,34 @@ msgstr ""
 "Ilagay ang pasadyang alt na teksto para sa mga naka-link na keyword. Ito ay "
 "ginagamit lamang kung \"Pasadyang Teksto\" ang napili sa itaas."
 
-#: includes/classes/class-meta-boxes.php:619
+#: includes/classes/class-meta-boxes.php:622
 msgid "Auto-linking"
 msgstr "Awtomatikong pag-link"
 
-#: includes/classes/class-meta-boxes.php:628
-#: includes/classes/class-settings.php:914
+#: includes/classes/class-meta-boxes.php:631
+#: includes/classes/class-settings.php:1123
 msgid "Redirection"
 msgstr "Redireksyon"
 
-#: includes/classes/class-meta-boxes.php:633
-#: includes/classes/class-settings.php:919
+#: includes/classes/class-meta-boxes.php:636
+#: includes/classes/class-settings.php:1128
 msgid "Redirection Method"
 msgstr "Paraan ng Redireksyon"
 
-#: includes/classes/class-meta-boxes.php:634
+#: includes/classes/class-meta-boxes.php:637
 msgid "Select redirection method"
 msgstr "Pumili ng paraan ng redireksyon"
 
-#: includes/classes/class-meta-boxes.php:635
+#: includes/classes/class-meta-boxes.php:638
 msgid "Select a method"
 msgstr "Pumili ng isang paraan"
 
-#: includes/classes/class-meta-boxes.php:645
+#: includes/classes/class-meta-boxes.php:648
 msgid "Mark links as sponsored content."
 msgstr "Tandaan ang mga link bilang sponsored na nilalaman."
 
-#: includes/classes/class-meta-boxes.php:646
-#: includes/classes/class-meta-boxes.php:656
-#: includes/classes/class-settings.php:933
+#: includes/classes/class-meta-boxes.php:649
+#: includes/classes/class-settings.php:1142
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -1193,13 +1324,12 @@ msgstr ""
 "Nagdaragdag ng rel=\"sponsored\" na katangian. Inirerekomenda para sa mga "
 "affiliate link at bayad na promosyon."
 
-#: includes/classes/class-meta-boxes.php:667
+#: includes/classes/class-meta-boxes.php:672
 msgid "Prevent search engines from following this link."
 msgstr "Pigilan ang mga search engine na sundan ang link na ito."
 
-#: includes/classes/class-meta-boxes.php:668
-#: includes/classes/class-meta-boxes.php:678
-#: includes/classes/class-settings.php:941
+#: includes/classes/class-meta-boxes.php:673
+#: includes/classes/class-settings.php:1150
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -1207,13 +1337,12 @@ msgstr ""
 "Nagdaragdag ng rel=\"nofollow\" na katangian. Inirerekomenda para sa mga "
 "panlabas na link at di-mapagkakatiwalaang mga pinagkukunan."
 
-#: includes/classes/class-meta-boxes.php:689
+#: includes/classes/class-meta-boxes.php:696
 msgid "Pass URL parameters to the target link."
 msgstr "Ipasa ang mga URL parameter sa target na link."
 
-#: includes/classes/class-meta-boxes.php:690
-#: includes/classes/class-meta-boxes.php:700
-#: includes/classes/class-settings.php:949
+#: includes/classes/class-meta-boxes.php:697
+#: includes/classes/class-settings.php:1158
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -1221,51 +1350,53 @@ msgstr ""
 "Anumang mga parameter na idinagdag sa maikling URL (hal., "
 "?utm_source=email) ay ipapasa sa target na URL."
 
-#: includes/classes/class-meta-boxes.php:713
-#: includes/classes/class-settings.php:960
+#: includes/classes/class-meta-boxes.php:724
+msgid "Dynamic Redirects"
+msgstr "Mga Dinamikong Redireksyon"
+
+#: includes/classes/class-meta-boxes.php:735
+#: includes/classes/class-settings.php:1169
 msgid "Password Protection"
 msgstr "Proteksyon ng Password"
 
-#: includes/classes/class-meta-boxes.php:716
+#: includes/classes/class-meta-boxes.php:738
 msgid "Secure your shortlink."
 msgstr "I-secure ang iyong maikling link."
 
-#: includes/classes/class-meta-boxes.php:717
-#: includes/classes/class-meta-boxes.php:727
+#: includes/classes/class-meta-boxes.php:739
 msgid "Users must enter the password to redirect to the target link."
 msgstr ""
 "Kailangan ng mga gumagamit na ipasok ang password upang mag-redirect sa "
 "target na link."
 
-#: includes/classes/class-meta-boxes.php:735, fuzzy
+#: includes/classes/class-meta-boxes.php:759, fuzzy
 msgid "Password"
 msgstr "Password"
 
-#: includes/classes/class-meta-boxes.php:736
+#: includes/classes/class-meta-boxes.php:760
 msgid "Share this with users."
 msgstr "Ibahagi ito sa mga gumagamit."
 
-#: includes/classes/class-meta-boxes.php:737
+#: includes/classes/class-meta-boxes.php:761
 msgid "Passwords are case sensitive."
 msgstr "Ang mga password ay case sensitive."
 
-#: includes/classes/class-meta-boxes.php:738
-#: includes/classes/class-settings.php:971, fuzzy
+#: includes/classes/class-meta-boxes.php:762
+#: includes/classes/class-settings.php:1180, fuzzy
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:748
-#: includes/classes/class-settings.php:980
+#: includes/classes/class-meta-boxes.php:772
+#: includes/classes/class-settings.php:1189
 msgid "Enable Expiration"
 msgstr "Paganahin ang Pag-expire"
 
-#: includes/classes/class-meta-boxes.php:751
+#: includes/classes/class-meta-boxes.php:775
 msgid "Set an expiration date and time for shortlinks."
 msgstr "Itakda ang petsa at oras ng pag-expire para sa mga shortlink."
 
-#: includes/classes/class-meta-boxes.php:752
-#: includes/classes/class-meta-boxes.php:762
-#: includes/classes/class-settings.php:982
+#: includes/classes/class-meta-boxes.php:776
+#: includes/classes/class-settings.php:1191
 msgid ""
 "After the expiration date and time pass, visitors will no longer be able to "
 "access the shortlink."
@@ -1273,16 +1404,16 @@ msgstr ""
 "Matapos lumipas ang petsa at oras ng pag-expire, hindi na ma-access ng mga "
 "bisita ang shortlink."
 
-#: includes/classes/class-meta-boxes.php:771
+#: includes/classes/class-meta-boxes.php:797
 msgid "Select the date when this shortlink should stop working."
 msgstr "Pumili ng petsa kung kailan dapat tumigil ang shortlink sa pagtatrabaho."
 
-#: includes/classes/class-meta-boxes.php:785
+#: includes/classes/class-meta-boxes.php:811
 msgid "Select the time when the shortlink should expire."
 msgstr "Pumili ng oras kung kailan dapat mag-expire ang shortlink."
 
-#: includes/classes/class-meta-boxes.php:786
-#: includes/classes/class-settings.php:1003
+#: includes/classes/class-meta-boxes.php:812
+#: includes/classes/class-settings.php:1212
 msgid ""
 "Must be at least 1 minute in the future. Combined with the date above to "
 "set the exact expiration moment."
@@ -1290,89 +1421,298 @@ msgstr ""
 "Dapat ay hindi bababa sa 1 minuto sa hinaharap. Pinagsama sa petsa sa itaas "
 "upang itakda ang eksaktong sandali ng pag-expire."
 
-#: includes/classes/class-meta-boxes.php:804
-#: includes/classes/class-settings.php:955
+#: includes/classes/class-meta-boxes.php:830
+#: includes/classes/class-settings.php:1164
 msgid "Security"
 msgstr "Seguridad"
 
-#: includes/classes/class-meta-boxes.php:823, fuzzy
+#: includes/classes/class-meta-boxes.php:849, fuzzy
 msgid "QR Code"
 msgstr "QR Code"
 
-#: includes/classes/class-meta-boxes.php:833
-#: tinypress.php:396
+#: includes/classes/class-meta-boxes.php:859
+#: tinypress.php:470
 msgid "Analytics"
 msgstr "Analitika"
 
-#: includes/classes/class-redirection.php:1044
+#: includes/classes/class-migration.php:52
+msgid "Pretty Links"
+msgstr "Mga Magandang Link"
+
+#: includes/classes/class-migration.php:53
+msgid "Import branded and affiliate links from Pretty Links."
+msgstr "I-import ang mga branded at affiliate na link mula sa Mga Magandang Link."
+
+#: includes/classes/class-migration.php:61
+msgid "BetterLinks"
+msgstr "Mas Magandang Links"
+
+#: includes/classes/class-migration.php:62
+msgid "Import link redirects, slugs, and link settings from BetterLinks."
+msgstr ""
+"I-import ang mga redireksyon ng link, slugs, at mga setting ng link mula sa "
+"Mas Magandang Links."
+
+#: includes/classes/class-migration.php:70, fuzzy
+msgid "ThirstyAffiliates"
+msgstr "ThirstyAffiliates"
+
+#: includes/classes/class-migration.php:71
+msgid "Import affiliate links and redirect settings from ThirstyAffiliates."
+msgstr ""
+"I-import ang mga affiliate na link at mga setting ng redireksyon mula sa "
+"ThirstyAffiliates."
+
+#: includes/classes/class-migration.php:79, fuzzy
+msgid "URL Shortify"
+msgstr "URL Shortify"
+
+#: includes/classes/class-migration.php:80
+msgid "Import short links managed by URL Shortify."
+msgstr "I-import ang mga maikling link na pinamamahalaan ng URL Shortify."
+
+#: includes/classes/class-migration.php:87, fuzzy
+msgid "LinkCentral"
+msgstr "LinkCentral"
+
+#: includes/classes/class-migration.php:88
+msgid "Import managed short links from LinkCentral."
+msgstr "I-import ang mga pinamamahalaang maikling link mula sa LinkCentral."
+
+#: includes/classes/class-migration.php:95, fuzzy
+msgid "ShortLinks Pro"
+msgstr "ShortLinks Pro"
+
+#: includes/classes/class-migration.php:96
+msgid "Import short links, redirects, and link options from ShortLinks Pro."
+msgstr ""
+"I-import ang mga maiikli na link, mga redirect, at mga opsyon sa link mula "
+"sa ShortLinks Pro."
+
+#: includes/classes/class-migration.php:103
+msgid "Easy Affiliate Links"
+msgstr "Madaling Affiliate Links"
+
+#: includes/classes/class-migration.php:104
+msgid "Import affiliate link redirects from Easy Affiliate Links."
+msgstr ""
+"I-import ang mga redirect ng affiliate link mula sa Madaling Affiliate "
+"Links."
+
+#: includes/classes/class-migration.php:111
+msgid "Simple URLs"
+msgstr "Simpleng URL"
+
+#: includes/classes/class-migration.php:112
+msgid "Import clean URL redirects from Simple URLs."
+msgstr "I-import ang mga malinis na redirect ng URL mula sa Simpleng URL."
+
+#: includes/classes/class-migration.php:120
+msgid "Affiliate Links"
+msgstr "Mga Affiliate Link"
+
+#: includes/classes/class-migration.php:121
+msgid "Import cloaked affiliate links from Affiliate Links."
+msgstr "I-import ang mga nakatago na affiliate link mula sa Mga Affiliate Link."
+
+#: includes/classes/class-migration.php:138
+#: includes/classes/class-migration.php:139
+#: includes/classes/class-migration.php:367
+msgid "Migration"
+msgstr "Migrasyon"
+
+#: includes/classes/class-migration.php:166
+#: includes/classes/class-migration.php:493
+msgid "Migration is running..."
+msgstr "Tumatakbo ang migrasyon..."
+
+#: includes/classes/class-migration.php:167
+#: includes/classes/class-migration.php:493
+msgid "Migration complete."
+msgstr "Nakumpleto ang migrasyon."
+
+#: includes/classes/class-migration.php:168
+msgid "Migration failed."
+msgstr "Nabigo ang migrasyon."
+
+#: includes/classes/class-migration.php:169
+#, php-format
+msgid "Deactivate %s"
+msgstr "I-deactivate ang %s"
+
+#: includes/classes/class-migration.php:280, fuzzy
+msgid "PublishPress Shortlinks:"
+msgstr "PublishPress Shortlinks:"
+
+#: includes/classes/class-migration.php:284
+#. translators: %s: comma-separated plugin names
+#, php-format
+msgid "We detected %s. You can review migration options for existing links."
+msgstr ""
+"Nakatuklas kami ng %s. Maaari mong suriin ang mga opsyon sa migrasyon para "
+"sa mga umiiral na link."
+
+#: includes/classes/class-migration.php:291
+msgid "Review Migration Options"
+msgstr "Suriin ang mga Opsyon sa Migrasyon"
+
+#: includes/classes/class-migration.php:294
+msgid "Remind me later"
+msgstr "Paalalahanan ako mamaya"
+
+#: includes/classes/class-migration.php:297
+#: tinypress.php:482
+msgid "Dismiss"
+msgstr "I-dismiss"
+
+#: includes/classes/class-migration.php:348
+msgid "You do not have permission to access this page."
+msgstr "Wala kang pahintulot na ma-access ang pahinang ito."
+
+#: includes/classes/class-migration.php:369
+msgid ""
+"Already using another link management tool? Review detected plugins and "
+"prepare your existing links for import into PublishPress Shortlinks."
+msgstr ""
+"Gumagamit na ng ibang tool sa pamamahala ng link? Suriin ang mga nakitang "
+"plugin at ihanda ang iyong mga umiiral na link para sa pag-import sa "
+"PublishPress Shortlinks."
+
+#: includes/classes/class-migration.php:377
+#. translators: %d: number of active migration sources
+#, php-format
+msgid "%d supported migration source(s) detected."
+msgstr "%d suportadong pinagmulan ng migrasyon ang natuklasan."
+
+#: includes/classes/class-migration.php:387
+msgid "No supported active link management plugins were detected on this site."
+msgstr ""
+"Walang mga suportadong aktibong plugin sa pamamahala ng link na natagpuan "
+"sa site na ito."
+
+#: includes/classes/class-migration.php:402
+#. translators: %s: plugin name
+#, php-format
+msgid ""
+"Already have a CSV export from %s? Use Import Tools to upload and preview "
+"it before importing."
+msgstr ""
+"Mayroon ka na bang CSV na export mula sa %s? Gamitin ang Import Tools upang "
+"i-upload at i-preview ito bago i-import."
+
+#: includes/classes/class-migration.php:410
+msgid "Migrate"
+msgstr "Ilipat"
+
+#: includes/classes/class-migration.php:414
+msgid "Direct migration unavailable"
+msgstr "Hindi magagamit ang direktang paglipat"
+
+#: includes/classes/class-migration.php:418
+msgid "Open Import Tools"
+msgstr "Buksan ang Import Tools"
+
+#: includes/classes/class-migration.php:449
+msgid "Migration source is not active."
+msgstr "Ang pinagmulan ng paglipat ay hindi aktibo."
+
+#: includes/classes/class-migration.php:453
+msgid ""
+"Direct migration is not available for this plugin yet. Please use Import "
+"Tools with a CSV export."
+msgstr ""
+"Ang direktang paglipat ay hindi pa magagamit para sa plugin na ito. "
+"Mangyaring gumamit ng Import Tools na may CSV na export."
+
+#: includes/classes/class-migration.php:666
+msgid "Missing target URL."
+msgstr "Nawawalang target na URL."
+
+#: includes/classes/class-migration.php:680
+msgid "Missing shortlink slug."
+msgstr "Nawawalang shortlink slug."
+
+#: includes/classes/class-migration.php:701
+msgid "Could not create shortlink."
+msgstr "Hindi makalikha ng shortlink."
+
+#: includes/classes/class-redirection.php:310
+#: includes/classes/class-redirection.php:1707
+msgid "This link is expired."
+msgstr "Ang link na ito ay expired."
+
+#: includes/classes/class-redirection.php:1016
+#: includes/classes/class-redirection.php:1602
+#: includes/classes/class-table-logs.php:382
+msgid "Default Target"
+msgstr "Default na Target"
+
+#: includes/classes/class-redirection.php:1242
 msgid "Post not found."
 msgstr "Hindi natagpuan ang post."
 
-#: includes/classes/class-redirection.php:1188
-#: includes/functions.php:361
-#: includes/functions.php:362
-#: includes/functions.php:363
-#: includes/functions.php:369
-#: tinypress.php:303
-#: tinypress.php:304
-#: tinypress.php:305
+#: includes/classes/class-redirection.php:1386
+#: includes/functions.php:467
+#: includes/functions.php:468
+#: includes/functions.php:469
+#: includes/functions.php:475
+#: tinypress.php:373
+#: tinypress.php:374
+#: tinypress.php:375
 msgid "This post is in {status} status. It is not visible to the public."
 msgstr ""
 "Ang post na ito ay nasa {status} na estado. Ito ay hindi nakikita ng "
 "publiko."
 
-#: includes/classes/class-redirection.php:1236
+#: includes/classes/class-redirection.php:1434
 msgid "This link has expired"
 msgstr "Nawalan na ng bisa ang link na ito"
 
-#: includes/classes/class-redirection.php:1240
+#: includes/classes/class-redirection.php:1438
 msgid "You will be redirected shortly."
 msgstr "Ikaw ay ire-redirekta sa lalong madaling panahon."
 
-#: includes/classes/class-redirection.php:1244
+#: includes/classes/class-redirection.php:1442
 msgid "Click here if you are not redirected"
 msgstr "I-click dito kung hindi ka ire-redirekta"
 
-#: includes/classes/class-redirection.php:1261
+#: includes/classes/class-redirection.php:1459
 msgid "Link Expired"
 msgstr "Nawawalang Link"
 
-#: includes/classes/class-redirection.php:1423
+#: includes/classes/class-redirection.php:1680
+#: includes/classes/class-redirection.php:1688
 msgid "This link is not active."
 msgstr "Ang link na ito ay hindi aktibo."
 
-#: includes/classes/class-redirection.php:1460
-msgid "This link is expired."
-msgstr "Ang link na ito ay expired."
-
-#: includes/classes/class-redirection.php:1479
+#: includes/classes/class-redirection.php:1727
 msgid "Incorrect password. Please try again."
 msgstr "Maling password. Pakisubukan muli."
 
-#: includes/classes/class-redirection.php:1494
-#: includes/classes/class-redirection.php:1499
+#: includes/classes/class-redirection.php:1746
+#: includes/classes/class-redirection.php:1751
 msgid "Password Protected Link"
 msgstr "Password Protected na Link"
 
-#: includes/classes/class-redirection.php:1505
+#: includes/classes/class-redirection.php:1757
 msgid "Enter password to continue:"
 msgstr "Ilagay ang password upang magpatuloy:"
 
-#: includes/classes/class-redirection.php:1507
+#: includes/classes/class-redirection.php:1759
 msgid "Submit"
 msgstr "Isumite"
 
-#: includes/classes/class-redirection.php:1631
+#: includes/classes/class-redirection.php:1864
 msgid "This link is not containing the right prefix slug."
 msgstr "Ang link na ito ay walang tamang prefix slug."
 
-#: includes/classes/class-redirection.php:1672
+#: includes/classes/class-redirection.php:1905
 msgid "Too many invalid shortlink requests. Please try again later."
 msgstr ""
 "Sobrang dami ng hindi wastong mga kahilingan sa shortlink. Pakisubukang "
 "muli mamaya."
 
-#: includes/classes/class-redirection.php:1673
+#: includes/classes/class-redirection.php:1906
 msgid "Too Many Requests"
 msgstr "Sobrang Daming Kahilingan"
 
@@ -1380,31 +1720,31 @@ msgstr "Sobrang Daming Kahilingan"
 msgid "Invalid revision ID."
 msgstr "Invalid na revision ID."
 
-#: includes/classes/class-settings.php:362
-#: includes/classes/class-settings.php:703
-#: includes/classes/class-settings.php:711
-#: includes/functions.php:270
-#: includes/functions.php:304, fuzzy
+#: includes/classes/class-settings.php:430
+#: includes/classes/class-settings.php:897
+#: includes/classes/class-settings.php:905
+#: includes/functions.php:376
+#: includes/functions.php:410, fuzzy
 msgid "Draft"
 msgstr "Draft"
 
-#: includes/classes/class-settings.php:363
-#: includes/classes/class-settings.php:704
-#: includes/classes/class-settings.php:712
-#: includes/functions.php:271
-#: includes/functions.php:305
+#: includes/classes/class-settings.php:431
+#: includes/classes/class-settings.php:898
+#: includes/classes/class-settings.php:906
+#: includes/functions.php:377
+#: includes/functions.php:411
 msgid "Pending Review"
 msgstr "Naghihintay ng Pagsusuri"
 
-#: includes/classes/class-settings.php:364
-#: includes/classes/class-settings.php:705
-#: includes/classes/class-settings.php:713
-#: includes/functions.php:272
-#: includes/functions.php:306
+#: includes/classes/class-settings.php:432
+#: includes/classes/class-settings.php:899
+#: includes/classes/class-settings.php:907
+#: includes/functions.php:378
+#: includes/functions.php:412
 msgid "Private"
 msgstr "Pribado"
 
-#: includes/classes/class-settings.php:369
+#: includes/classes/class-settings.php:437
 msgid ""
 "Customize the notice shown for each enabled non-published status. Available "
 "placeholders: {status}, {date}, {title}."
@@ -1413,15 +1753,35 @@ msgstr ""
 "nai-publish na estado. Available na mga placeholder: {status}, {date}, "
 "{title}."
 
-#: includes/classes/class-settings.php:405
+#: includes/classes/class-settings.php:473
+#: includes/classes/class-settings.php:522
 msgid "All"
 msgstr "Lahat"
 
-#: includes/classes/class-settings.php:444
+#: includes/classes/class-settings.php:486
+#: includes/classes/class-settings.php:535
+msgid "Search post types"
+msgstr "Maghanap ng mga uri ng post"
+
+#: includes/classes/class-settings.php:487
+#: includes/classes/class-settings.php:536
+msgid "Filter post types..."
+msgstr "I-filter ang mga uri ng post..."
+
+#: includes/classes/class-settings.php:504
+#: includes/classes/class-settings.php:553
+msgid "No post types match your search."
+msgstr "Walang mga uri ng post na tumutugma sa iyong paghahanap."
+
+#: includes/classes/class-settings.php:528
+msgid "No data available."
+msgstr "Walang magagamit na data."
+
+#: includes/classes/class-settings.php:595
 msgid "Settings"
 msgstr "Mga Setting"
 
-#: includes/classes/class-settings.php:528
+#: includes/classes/class-settings.php:722
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -1429,11 +1789,11 @@ msgstr ""
 "Pumili kung aling mga status ng post ang naa-access kapag bumibisita sa "
 "isang PublishPress shortlink."
 
-#: includes/classes/class-settings.php:544
+#: includes/classes/class-settings.php:738
 msgid "PublishPress Statuses Plugin Detected:"
 msgstr "Nakatagpuang Plugin ng PublishPress Statuses:"
 
-#: includes/classes/class-settings.php:545
+#: includes/classes/class-settings.php:739
 msgid ""
 "To use core PublishPress statuses with Shortlinks, Please enable the "
 "Shortlinks post type in PublishPress Statuses workflow settings."
@@ -1442,11 +1802,11 @@ msgstr ""
 "Shortlinks, Pakisuyong i-enable ang post type ng Shortlinks sa mga setting "
 "ng workflow ng PublishPress Statuses."
 
-#: includes/classes/class-settings.php:564
+#: includes/classes/class-settings.php:758
 msgid "Elementor Detected:"
 msgstr "Nadetect ang Elementor:"
 
-#: includes/classes/class-settings.php:565
+#: includes/classes/class-settings.php:759
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
@@ -1454,11 +1814,11 @@ msgstr ""
 "Kinakailangan ang shortlink prefix para sa wastong pagpapakita ng mga "
 "Elementor revisions. Ipinapayo na ito ay panatilihing enabled."
 
-#: includes/classes/class-settings.php:597
+#: includes/classes/class-settings.php:791
 msgid "TinyPress Shortlinks Notice:"
 msgstr "Pabatid ng TinyPress Shortlinks:"
 
-#: includes/classes/class-settings.php:598
+#: includes/classes/class-settings.php:792
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
@@ -1467,117 +1827,135 @@ msgstr ""
 "ay kinakailangan para sa optimal na compatibility sa mga Elementor "
 "revisions."
 
-#: includes/classes/class-settings.php:702
-#: includes/functions.php:269
-#: includes/functions.php:303
+#: includes/classes/class-settings.php:896
+#: includes/functions.php:375
+#: includes/functions.php:409
 msgid "Published"
 msgstr "Nai-publish"
 
-#: includes/classes/class-settings.php:726, fuzzy
+#: includes/classes/class-settings.php:915
+#: includes/classes/class-settings.php:920
+#: includes/classes/class-settings.php:1029
+msgid "Post Types"
+msgstr "Mga Uri ng Post"
+
+#: includes/classes/class-settings.php:921
+msgid "Select which post types will have shortlinks available."
+msgstr ""
+"Pumili kung aling mga uri ng post ang magkakaroon ng mga shortlink na "
+"magagamit."
+
+#: includes/classes/class-settings.php:922
+msgid "Shortlinks metabox and column will only appear on selected post types."
+msgstr ""
+"Ang metabox at kolum ng shortlinks ay lilitaw lamang sa mga napiling uri ng "
+"post."
+
+#: includes/classes/class-settings.php:935, fuzzy
 msgid "Shortlink Prefix"
 msgstr "Shortlink Prefix"
 
-#: includes/classes/class-settings.php:727
+#: includes/classes/class-settings.php:936
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Magdagdag ng prefix sa pagitan ng iyong domain name at shortlink."
 
-#: includes/classes/class-settings.php:734, fuzzy
+#: includes/classes/class-settings.php:943, fuzzy
 msgid "Prefix Slug"
 msgstr "Prefix Slug"
 
-#: includes/classes/class-settings.php:735
+#: includes/classes/class-settings.php:944
 msgid "Custom prefix slug."
 msgstr "Pasadyang prefix slug."
 
-#: includes/classes/class-settings.php:736
+#: includes/classes/class-settings.php:945
 msgid "This text will be added between your domain name and shortlink."
 msgstr "Ang text na ito ay idaragdag sa pagitan ng iyong domain name at shortlink."
 
-#: includes/classes/class-settings.php:737
-#: includes/classes/class-settings.php:738
+#: includes/classes/class-settings.php:946
+#: includes/classes/class-settings.php:947
 msgid "go"
 msgstr "pumunta"
 
-#: includes/classes/class-settings.php:744
+#: includes/classes/class-settings.php:953
 msgid "Keyboard Shortcut"
 msgstr "Shortcut sa Keyboard"
 
-#: includes/classes/class-settings.php:745
+#: includes/classes/class-settings.php:954
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr ""
 "Lumikha ng shortlinks mula sa kahit saan sa loob ng iyong WordPress "
 "dashboard."
 
-#: includes/classes/class-settings.php:746
-#: includes/classes/class-settings.php:747
+#: includes/classes/class-settings.php:955
+#: includes/classes/class-settings.php:956
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl o Cmd + /"
 
-#: includes/classes/class-settings.php:756
+#: includes/classes/class-settings.php:965
 msgid "Remove from Admin Bar"
 msgstr "Alisin mula sa Admin Bar"
 
-#: includes/classes/class-settings.php:757
+#: includes/classes/class-settings.php:966
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "Itago ang \"Shorten\" na button mula sa WordPress admin bar."
 
-#: includes/classes/class-settings.php:763
+#: includes/classes/class-settings.php:972
 msgid "Role Management"
 msgstr "Pamamahala ng Role"
 
-#: includes/classes/class-settings.php:768
+#: includes/classes/class-settings.php:977
 msgid "Who Can View The All Shortlinks Screen"
 msgstr "Sino ang Maaaring Tumingin sa Lahat ng Screen ng Shortlinks"
 
-#: includes/classes/class-settings.php:769
+#: includes/classes/class-settings.php:978
 msgid "Only selected user roles can view the complete list of Shortlinks."
 msgstr ""
 "Tanging ang mga napiling papel ng gumagamit ang maaaring makita ang "
 "kumpletong listahan ng mga Shortlink."
 
-#: includes/classes/class-settings.php:777
+#: includes/classes/class-settings.php:986
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Sino ang Maaaring Lumikha/Mag-edit ng Shortlinks"
 
-#: includes/classes/class-settings.php:778
+#: includes/classes/class-settings.php:987
 msgid "Only selected user roles can create or edit links."
 msgstr "Tanging mga napiling user roles ang maaaring lumikha o mag-edit ng mga link."
 
-#: includes/classes/class-settings.php:787
+#: includes/classes/class-settings.php:996
 msgid "Who Can See Logs"
 msgstr "Sino ang Maaaring Makita ang Mga Log"
 
-#: includes/classes/class-settings.php:788
+#: includes/classes/class-settings.php:997
 msgid "Only selected user roles can see the Analytics tab and the Logs screen."
 msgstr ""
 "Tanging ang mga napiling papel ng gumagamit ang maaaring makita ang tab ng "
 "Analytics at ang screen ng Logs."
 
-#: includes/classes/class-settings.php:797
+#: includes/classes/class-settings.php:1006
 msgid "Who Can Control Settings"
 msgstr "Sino ang Maaaring Kontrolin ang Mga Setting"
 
-#: includes/classes/class-settings.php:798
+#: includes/classes/class-settings.php:1007
 msgid "Only selected user roles can access the Settings screen."
 msgstr ""
 "Tanging ang mga napiling papel ng gumagamit ang maaaring ma-access ang "
 "screen ng Mga Setting."
 
-#: includes/classes/class-settings.php:807
+#: includes/classes/class-settings.php:1016
 msgid "Auto-Linking"
 msgstr "Awtomatikong pag-link"
 
-#: includes/classes/class-settings.php:812
+#: includes/classes/class-settings.php:1021
 msgid "Enable Auto-Linking"
 msgstr "Paganahin ang awtomatikong pag-link"
 
-#: includes/classes/class-settings.php:813
+#: includes/classes/class-settings.php:1022
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr ""
 "Awtomatikong i-convert ang mga keyword sa mga maikling link sa nilalaman ng "
 "post."
 
-#: includes/classes/class-settings.php:814
+#: includes/classes/class-settings.php:1023
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
@@ -1585,47 +1963,43 @@ msgstr ""
 "Kapag pinagana, ang mga keyword na naka-configure sa mga setting ng "
 "maikling link ay awtomatikong i-uugnay sa iyong nilalaman."
 
-#: includes/classes/class-settings.php:820
-msgid "Post Types"
-msgstr "Mga Uri ng Post"
-
-#: includes/classes/class-settings.php:821
+#: includes/classes/class-settings.php:1030
 msgid "Where should auto-linking be applied?"
 msgstr "Saan dapat ilapat ang auto-linking?"
 
-#: includes/classes/class-settings.php:830
+#: includes/classes/class-settings.php:1039
 msgid "Open Auto-Links In"
 msgstr "Buksan ang Auto-Links Sa"
 
-#: includes/classes/class-settings.php:831
+#: includes/classes/class-settings.php:1040
 msgid "Choose how auto-linked keywords should open."
 msgstr "Pumili kung paano dapat buksan ang mga auto-linked na keyword."
 
-#: includes/classes/class-settings.php:833
+#: includes/classes/class-settings.php:1042
 msgid "Same tab"
 msgstr "Parehong tab"
 
-#: includes/classes/class-settings.php:834
+#: includes/classes/class-settings.php:1043
 msgid "New tab"
 msgstr "Bagong tab"
 
-#: includes/classes/class-settings.php:842
+#: includes/classes/class-settings.php:1051
 msgid "Auto-Link Color"
 msgstr "Kulayan ng Auto-Link"
 
-#: includes/classes/class-settings.php:843
+#: includes/classes/class-settings.php:1052
 msgid "Choose the color for auto-linked keywords."
 msgstr "Pumili ng kulay para sa awtomatikong naka-link na mga keyword."
 
-#: includes/classes/class-settings.php:854, fuzzy
+#: includes/classes/class-settings.php:1063, fuzzy
 msgid "Auto-List Links"
 msgstr "Auto-List Links"
 
-#: includes/classes/class-settings.php:859, fuzzy
+#: includes/classes/class-settings.php:1068, fuzzy
 msgid "Auto-List Shortlinks"
 msgstr "Auto-List Shortlinks"
 
-#: includes/classes/class-settings.php:860
+#: includes/classes/class-settings.php:1069
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
@@ -1633,15 +2007,15 @@ msgstr ""
 "Kapag pinagana, ang mga shortlink ay lilitaw sa talahanayan ng \"Lahat ng "
 "Link\" batay sa gawi na iyong i-configure sa ibaba."
 
-#: includes/classes/class-settings.php:866
+#: includes/classes/class-settings.php:1075
 msgid "Configure Post Types"
 msgstr "I-configure ang mga Post Type"
 
-#: includes/classes/class-settings.php:867
+#: includes/classes/class-settings.php:1076
 msgid "Set when links should be auto-listed for each post type"
 msgstr "Itakda kung kailan dapat i-auto-list ang mga link para sa bawat post type"
 
-#: includes/classes/class-settings.php:868
+#: includes/classes/class-settings.php:1077
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -1650,20 +2024,20 @@ msgstr ""
 "kanilang mga shortlink sa talahanayan ng \"Lahat ng Link\". Ang mga "
 "pagbabago ay awtomatikong nasasave."
 
-#: includes/classes/class-settings.php:875
+#: includes/classes/class-settings.php:1084
 #: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "Visibility ng Status ng Post"
 
-#: includes/classes/class-settings.php:880
+#: includes/classes/class-settings.php:1089
 msgid "Allowed Post Statuses"
 msgstr "Pinapayagang Status ng Post"
 
-#: includes/classes/class-settings.php:889
+#: includes/classes/class-settings.php:1098
 msgid "Unpublished Content Notice"
 msgstr "Paunawa sa Nilalaman na Hindi Nai-Publish"
 
-#: includes/classes/class-settings.php:890
+#: includes/classes/class-settings.php:1099
 msgid ""
 "Show a frontend notice when an internal shortlink displays a post that is "
 "not published."
@@ -1671,11 +2045,11 @@ msgstr ""
 "Ipakita ang paunawa sa frontend kapag ang isang panloob na shortlink ay "
 "nagpapakita ng post na hindi nai-publish."
 
-#: includes/classes/class-settings.php:896
+#: includes/classes/class-settings.php:1105
 msgid "Notice Post Statuses"
 msgstr "Mga Paunawa sa Status ng Post"
 
-#: includes/classes/class-settings.php:897
+#: includes/classes/class-settings.php:1106
 msgid ""
 "This notice only applies to internal shortlinks that render post content "
 "directly. External shortlinks are not affected."
@@ -1684,45 +2058,45 @@ msgstr ""
 "nag-render ng nilalaman ng post nang direkta. Ang mga panlabas na shortlink "
 "ay hindi apektado."
 
-#: includes/classes/class-settings.php:906
+#: includes/classes/class-settings.php:1115
 msgid "Notice Messages"
 msgstr "Mga Mensahe ng Paunawa"
 
-#: includes/classes/class-settings.php:920
+#: includes/classes/class-settings.php:1129
 msgid "Default redirection method for shortlinks"
 msgstr "Default na paraan ng redirection para sa mga shortlink"
 
-#: includes/classes/class-settings.php:932
+#: includes/classes/class-settings.php:1141
 msgid "Mark links as sponsored content"
 msgstr "Tandaan ang mga link bilang sponsored na nilalaman"
 
-#: includes/classes/class-settings.php:940
+#: includes/classes/class-settings.php:1149
 msgid "Prevent search engines from following links"
 msgstr "Pigilan ang mga search engine na sundan ang mga link"
 
-#: includes/classes/class-settings.php:948
+#: includes/classes/class-settings.php:1157
 msgid "Pass URL parameters to target links"
 msgstr "Ipasa ang mga URL parameter sa mga target na link"
 
-#: includes/classes/class-settings.php:961
+#: includes/classes/class-settings.php:1170
 msgid "Secure your shortlinks"
 msgstr "I-secure ang iyong mga shortlink"
 
-#: includes/classes/class-settings.php:962
+#: includes/classes/class-settings.php:1171
 msgid "Users must enter a password to redirect to the target link."
 msgstr ""
 "Dapat maglagay ang mga gumagamit ng isang password upang ma-redirect sa "
 "target na link."
 
-#: includes/classes/class-settings.php:968
+#: includes/classes/class-settings.php:1177
 msgid "Default Password"
 msgstr "Default na Password"
 
-#: includes/classes/class-settings.php:969
+#: includes/classes/class-settings.php:1178
 msgid "Default password for protected links"
 msgstr "Default na password para sa mga pinagprotektahang link"
 
-#: includes/classes/class-settings.php:970
+#: includes/classes/class-settings.php:1179
 msgid ""
 "This password will be used for links that have password protection enabled "
 "via global settings. Passwords are case sensitive."
@@ -1731,29 +2105,29 @@ msgstr ""
 "proteksyon ng password sa pamamagitan ng pandaigdigang mga setting. Ang mga "
 "password ay case sensitive."
 
-#: includes/classes/class-settings.php:981
+#: includes/classes/class-settings.php:1190
 msgid "Set an expiration date and time for shortlinks"
 msgstr "Itakda ang petsa at oras ng pag-expire para sa mga shortlink"
 
-#: includes/classes/class-settings.php:989
+#: includes/classes/class-settings.php:1198
 msgid "Select the date when this shortlink should stop working"
 msgstr ""
 "Pumili ng petsa kung kailan dapat huminto ang shortlink na ito sa "
 "pagtatrabaho"
 
-#: includes/classes/class-settings.php:1002
+#: includes/classes/class-settings.php:1211
 msgid "Select the time when the shortlink should expire"
 msgstr "Pumili ng oras kung kailan dapat mag-expire ang shortlink"
 
-#: includes/classes/class-settings.php:1021
+#: includes/classes/class-settings.php:1230
 msgid "Revisions"
 msgstr "Mga Rebisyon"
 
-#: includes/classes/class-settings.php:1026
+#: includes/classes/class-settings.php:1235
 msgid "Revision Link Visibility"
 msgstr "Visibility ng Link ng Rebisyon"
 
-#: includes/classes/class-settings.php:1027
+#: includes/classes/class-settings.php:1236
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -1761,35 +2135,35 @@ msgstr ""
 "Kapag pinagana, ang mga shortlink ng rebisyon ay lilitaw sa talahanayan ng "
 "\"Lahat ng Shortlink\" batay sa gawi na iyong i-configure sa ibaba."
 
-#: includes/classes/class-settings.php:1029
+#: includes/classes/class-settings.php:1238
 msgid "When Revision is Created"
 msgstr "Kapag nilikha ang Rebisyon"
 
-#: includes/classes/class-settings.php:1031
+#: includes/classes/class-settings.php:1240
 msgid "When Revision is Created or Link is First Used"
 msgstr "Kapag nilikha ang Rebisyon o unang ginamit ang Link"
 
-#: includes/classes/class-settings.php:1039
+#: includes/classes/class-settings.php:1248
 msgid "Show Shortlink in Revision Table"
 msgstr "Ipakita ang Shortlink sa Talaan ng Rebisyon"
 
-#: includes/classes/class-settings.php:1040
+#: includes/classes/class-settings.php:1249
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "I-display ang column ng shortlink kapag tinitingnan ang mga rebisyon sa "
 "PublishPress Revisions."
 
-#: includes/classes/class-settings.php:1046
+#: includes/classes/class-settings.php:1255
 msgid "Revision Visibility for Visitors"
 msgstr "Visibility ng Rebisyon para sa mga Bisita"
 
-#: includes/classes/class-settings.php:1047
+#: includes/classes/class-settings.php:1256
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Pahintulutan ang mga nakalog-out na bisita na makita ang nilalaman ng "
 "rebisyon sa pamamagitan ng mga shortlink."
 
-#: includes/classes/class-settings.php:1048
+#: includes/classes/class-settings.php:1257
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1801,17 +2175,17 @@ msgstr ""
 "ay direktang magpapakita ng nilalaman ng rebisyon para sa mga nakalog-out "
 "na bisita sa halip na i-redirect sa URL ng preview."
 
-#: includes/classes/class-settings.php:1071, fuzzy
+#: includes/classes/class-settings.php:1280, fuzzy
 msgid "Dummy"
 msgstr "Dummy"
 
-#: includes/classes/class-settings.php:1115
+#: includes/classes/class-settings.php:1324
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Walang post type na na-configure pa. I-click ang \"Magdagdag ng Post Type\" "
 "upang magsimula."
 
-#: includes/classes/class-settings.php:1147
+#: includes/classes/class-settings.php:1356
 msgid "Add Post Type"
 msgstr "Magdagdag ng Post Type"
 
@@ -1829,70 +2203,84 @@ msgstr "%d log entries na matagumpay na tinanggal."
 msgid "All logs have been cleared."
 msgstr "Lahat ng mga log ay nalinis na."
 
-#: includes/classes/class-table-logs.php:163
+#: includes/classes/class-table-logs.php:167
 msgid "Title"
 msgstr "Pamagat"
 
-#: includes/classes/class-table-logs.php:165
+#: includes/classes/class-table-logs.php:169
 msgid "Details"
 msgstr "Mga Detalye"
 
-#: includes/classes/class-table-logs.php:200
+#: includes/classes/class-table-logs.php:204
 msgid "Are you sure you want to delete this log entry?"
 msgstr "Sigurado ka bang nais mong tanggalin ang log entry na ito?"
 
-#: includes/classes/class-table-logs.php:260
+#: includes/classes/class-table-logs.php:264
 msgid "View Analytics"
 msgstr "Tumingin ng Analytics"
 
-#: includes/classes/class-table-logs.php:278, fuzzy
+#: includes/classes/class-table-logs.php:284, fuzzy
 msgid "Tablet"
 msgstr "Tablet"
 
-#: includes/classes/class-table-logs.php:280, fuzzy
+#: includes/classes/class-table-logs.php:287, fuzzy
 msgid "Mobile"
 msgstr "Mobile"
 
-#: includes/classes/class-table-logs.php:282, fuzzy
+#: includes/classes/class-table-logs.php:290, fuzzy
 msgid "Desktop"
 msgstr "Desktop"
 
-#: includes/classes/class-table-logs.php:336
+#: includes/classes/class-table-logs.php:351
 #. translators: 1: user display name, 2: location name, 3: visit date/time
 #, php-format
 msgid "%1$s from %2$s visited at %3$s"
 msgstr "%1$s mula sa %2$s ay bumisita sa %3$s"
 
-#: includes/classes/class-table-logs.php:339
+#: includes/classes/class-table-logs.php:354
 #. translators: 1: user display name, 2: visit date/time
 #, php-format
 msgid "%1$s visited at %2$s"
 msgstr "%1$s ay bumisita sa %2$s"
 
-#: includes/classes/class-table-logs.php:343
+#: includes/classes/class-table-logs.php:358
 #. translators: 1: location name, 2: visit date/time
 #, php-format
 msgid "From %1$s, visited at %2$s"
 msgstr "Mula sa %1$s, bumisita sa %2$s"
 
-#: includes/classes/class-table-logs.php:346
+#: includes/classes/class-table-logs.php:361
 #. translators: %s: visit date/time
 #, php-format
 msgid "Visited at %s"
 msgstr "Bumisita sa %s"
 
-#: includes/classes/class-table-logs.php:358
+#: includes/classes/class-table-logs.php:373
 #. translators: %s: device type and browser name, e.g. "Mobile Chrome"
 #, php-format
 msgid "via %s"
 msgstr "sa %s"
 
-#: includes/functions.php:225
+#: includes/classes/class-table-logs.php:382
+msgid "Dynamic Redirect"
+msgstr "Dynamic na Redirection"
+
+#: includes/classes/class-table-logs.php:387
+#. translators: %s: redirect rule name
+#, php-format
+msgid "Redirected by %s"
+msgstr "Nire-redirect ng %s"
+
+#: includes/classes/class-url-metadata.php:57
+msgid "Could not fetch target URL details."
+msgstr "Hindi makuha ang mga detalye ng target na URL."
+
+#: includes/functions.php:331
 msgid "Edit shortlink settings"
 msgstr "I-edit ang mga setting ng shortlink"
 
-#: includes/functions.php:364
-#: tinypress.php:306
+#: includes/functions.php:470
+#: tinypress.php:376
 msgid ""
 "This post is in {status} status. It will become visible to the public on "
 "{date}."
@@ -1900,17 +2288,17 @@ msgstr ""
 "Ang post na ito ay nasa {status} na estado. Ito ay magiging visible sa "
 "publiko sa {date}."
 
-#: includes/functions.php:389
+#: includes/functions.php:495
 msgid "Target url not found."
 msgstr "Hindi natagpuan ang target na URL."
 
-#: includes/functions.php:396
+#: includes/functions.php:502
 msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr ""
 "Hindi wastong URL scheme. Tanging http, https, ftp, ftps, at mailto ang "
 "pinapayagan."
 
-#: includes/functions.php:428
+#: includes/functions.php:534
 msgid "Tiny slug could not created."
 msgstr "Hindi makalikha ng Tiny slug."
 
@@ -1930,24 +2318,48 @@ msgstr "Mahabang URL"
 msgid "Create Shortlink"
 msgstr "Gumawa ng Shortlink"
 
-#: templates/admin/analytics.php:49
-#: templates/admin/analytics.php:68
+#: templates/admin/analytics.php:94
 msgid "Reset Today's Analytics"
 msgstr "I-reset ang Analytics ng Ngayon"
 
-#: templates/admin/analytics.php:50
+#: templates/admin/analytics.php:95
+msgid "Reset Yesterday's Analytics"
+msgstr "I-reset ang Analytics ng Kahapon"
+
+#: templates/admin/analytics.php:96
 msgid "Reset Week's Analytics"
 msgstr "I-reset ang Analytics ng Linggo"
 
-#: templates/admin/analytics.php:51
+#: templates/admin/analytics.php:97
+#: templates/admin/analytics.php:158
+msgid "Reset Last 30 Days Analytics"
+msgstr "I-reset ang Analytics ng Huling 30 Araw"
+
+#: templates/admin/analytics.php:98
 msgid "Reset Month's Analytics"
 msgstr "I-reset ang Analytics ng Buwan"
 
-#: templates/admin/analytics.php:52
+#: templates/admin/analytics.php:99
+msgid "Reset Last Month's Analytics"
+msgstr "I-reset ang Analytics ng Nakaraang Buwan"
+
+#: templates/admin/analytics.php:100
 msgid "Reset Year's Analytics"
 msgstr "I-reset ang Analytics ng Taon"
 
-#: templates/admin/analytics.php:53
+#: templates/admin/analytics.php:101
+msgid "Reset Last 2 Years Analytics"
+msgstr "I-reset ang Analytics ng Nakaraang 2 Taon"
+
+#: templates/admin/analytics.php:102
+msgid "Reset Custom Range Analytics"
+msgstr "I-reset ang Analytics ng Custom na Saklaw"
+
+#: templates/admin/analytics.php:103
+msgid "Reset All Time Analytics"
+msgstr "I-reset ang Analytics ng Lahat ng Panahon"
+
+#: templates/admin/analytics.php:104
 msgid ""
 "Are you sure you want to reset the analytics for this period? This action "
 "cannot be undone."
@@ -1955,21 +2367,98 @@ msgstr ""
 "Sigurado ka bang nais mong i-reset ang analytics para sa panahong ito? Ang "
 "hakbang na ito ay hindi maibabalik."
 
-#: templates/admin/analytics.php:61
+#: templates/admin/analytics.php:105
+#, php-format
+msgid "Showing data from %1$s to %2$s"
+msgstr "Ipinapakita ang datos mula %1$s hanggang %2$s"
+
+#: templates/admin/analytics.php:106
+#: templates/admin/analytics.php:207
+msgid "No click data available for this period."
+msgstr "Walang magagamit na data ng pag-click para sa panahong ito."
+
+#: templates/admin/analytics.php:107
+msgid "click"
+msgstr "pag-click"
+
+#: templates/admin/analytics.php:108
+msgid "clicks"
+msgstr "mga pag-click"
+
+#: templates/admin/analytics.php:110
+#: templates/admin/analytics.php:201
+msgid "Each bar shows total clicks for one day."
+msgstr "Bawat bar ay nagpapakita ng kabuuang pag-click para sa isang araw."
+
+#: templates/admin/analytics.php:111
+msgid "Each bar shows total clicks for a 7-day period."
+msgstr ""
+"Bawat bar ay nagpapakita ng kabuuang pag-click para sa isang 7-araw na "
+"panahon."
+
+#: templates/admin/analytics.php:112
+msgid "Each bar shows total clicks for one month."
+msgstr "Bawat bar ay nagpapakita ng kabuuang pag-click para sa isang buwan."
+
+#: templates/admin/analytics.php:113
+msgid "Each bar shows total clicks for one year."
+msgstr "Bawat bar ay nagpapakita ng kabuuang pag-click para sa isang taon."
+
+#: templates/admin/analytics.php:125
 msgid "Today"
 msgstr "Ngayon"
 
-#: templates/admin/analytics.php:62
-msgid "Last 7 Days"
-msgstr "Huling 7 Araw"
+#: templates/admin/analytics.php:126
+msgid "Yesterday"
+msgstr "Kahapon"
 
-#: templates/admin/analytics.php:63
-msgid "Last 1 Month"
-msgstr "Huling 1 Buwan"
+#: templates/admin/analytics.php:128
+msgid "Last 30 Days"
+msgstr "Huling 30 Araw"
 
-#: templates/admin/analytics.php:64
-msgid "Last 1 Year"
-msgstr "Huling 1 Taon"
+#: templates/admin/analytics.php:129
+msgid "This Month"
+msgstr "Buwan na Ito"
+
+#: templates/admin/analytics.php:130
+msgid "Last Month"
+msgstr "Nakaraang Buwan"
+
+#: templates/admin/analytics.php:131
+msgid "This Year"
+msgstr "Taong Ito"
+
+#: templates/admin/analytics.php:132
+msgid "Last 2 Years"
+msgstr "Nakaraang 2 Taon"
+
+#: templates/admin/analytics.php:133
+msgid "Custom Range"
+msgstr "Pasadyang Saklaw"
+
+#: templates/admin/analytics.php:134
+msgid "All Time"
+msgstr "Lahat ng Oras"
+
+#: templates/admin/analytics.php:138
+msgid "From:"
+msgstr "Mula sa:"
+
+#: templates/admin/analytics.php:146
+msgid "To:"
+msgstr "Hanggang sa:"
+
+#: templates/admin/analytics.php:185
+msgid "Days With Clicks"
+msgstr "Mga Araw na May Mga Pag-click"
+
+#: templates/admin/analytics.php:193
+msgid "Avg. per Click Day"
+msgstr "Karaniwan sa Bawat Araw ng Pag-click"
+
+#: templates/admin/analytics.php:199
+msgid "Clicks Over Time"
+msgstr "Mga Pag-click Sa Paglipas ng Panahon"
 
 #: templates/admin/footer.php:16
 #. translators: %1$s: plugin name, %2$s: star rating icon
@@ -1989,7 +2478,7 @@ msgstr "Dokumentasyon"
 msgid "Contact"
 msgstr "Makipag-ugnayan"
 
-#: templates/admin/qr-code.php:16
+#: templates/admin/qr-code.php:17
 msgid "Download QR Code"
 msgstr "I-download ang QR Code"
 
@@ -2027,15 +2516,15 @@ msgstr "Detalyadong dokumentasyon ay available din sa website ng plugin."
 msgid "View Knowledge Base"
 msgstr "Tingnan ang Knowledge Base"
 
-#: tinypress.php:98
+#: tinypress.php:143
 msgid "This plugin can be deleted."
 msgstr "Maaaring tanggalin ang plugin na ito."
 
-#: tinypress.php:395
+#: tinypress.php:469
 msgid "Copied."
 msgstr "Nakopya."
 
-#: tinypress.php:397
+#: tinypress.php:471
 msgid ""
 "This setting is inherited from global settings. Choose another option to "
 "override it for this shortlink."
@@ -2043,6 +2532,30 @@ msgstr ""
 "Ang setting na ito ay minana mula sa mga pandaigdigang setting. Pumili ng "
 "ibang opsyon upang palitan ito para sa shortlink na ito."
 
-#: tinypress.php:398
+#: tinypress.php:472
 msgid "Working..."
 msgstr "Nagtatrabaho..."
+
+#: tinypress.php:476
+msgid "Suggested Label from target URL"
+msgstr "Inirekomendang Label mula sa target na URL"
+
+#: tinypress.php:477
+msgid "Suggested Notes from target URL"
+msgstr "Inirekomendang Tala mula sa target na URL"
+
+#: tinypress.php:478
+msgid "Overwrite label?"
+msgstr "Palitan ang label?"
+
+#: tinypress.php:479
+msgid "Overwrite notes?"
+msgstr "Palitan ang mga tala?"
+
+#: tinypress.php:480
+msgid "Yes"
+msgstr "Oo"
+
+#: tinypress.php:481
+msgid "No"
+msgstr "Hindi"
