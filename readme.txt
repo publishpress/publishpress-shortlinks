@@ -154,6 +154,16 @@ It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliate
 
 == Changelog ==
 
+= [1.9.0] - 04 August, 2026 =
+
+* Fixed: License tab does not reflect proper license status on save, #354
+* Fixed: Metabox design issue in WordPress 7.1, #363
+* Fixed: This plugin can be deleted, #366
+* Update: Consistency between Analytics and Reports screens, #355
+* Update: Scheduled Link Health and email digest, #357
+* Update: Dynamic redirect engine, #358
+* Update: Improve Shortlinks Expiration, #360
+
 = [1.8.0] - 14 July, 2026 =
 
 * Update: Suggest Label and description from target url while adding shortlinks, #345
@@ -196,18 +206,6 @@ It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliate
 * Update: Add Bundled Translations library, #219
 * Update: Add loco.xml file, #220
 * Update: Increase supported language to 34
-
-= [1.5.0] - 07 April, 2026 =
-
-* Fixed: Issue with Target URL characters, #193
-* Fixed: Changelog lacks formatting, #187
-* Fixed: Tooltip on the analytics charts is unclear, #165
-* Fixed: Last 7 Days includes tomorrow, #164
-* Fixed: Primary key for tinypress_reports table?, #163
-* Removed: Remove support box from Pro version, #188
-* Update: Save the analytics tab in memory, #166
-* Update: Make "Last 1 Month" the default in Analytics charts, #153
-* Update: Add tracking to our Pro links #147
 
 The full changelog can be found on [GitHub](https://github.com/publishpress/publishpress-shortlinks/blob/master/CHANGELOG.md).
 
