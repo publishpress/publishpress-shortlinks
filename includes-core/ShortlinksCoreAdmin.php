@@ -586,6 +586,7 @@ class ShortlinksCoreAdmin
                     'options'    => array(
                         'any'     => esc_html__('Any country', 'tinypress'),
                         'include' => esc_html__('Only selected countries', 'tinypress'),
+                        // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- Redirect rule option key, not a query parameter.
                         'exclude' => esc_html__('All except selected countries', 'tinypress'),
                     ),
                     'default'    => 'include',
@@ -626,6 +627,7 @@ class ShortlinksCoreAdmin
                         'any'     => esc_html__('Any referrer', 'tinypress'),
                         'direct'  => esc_html__('Direct or unknown only', 'tinypress'),
                         'include' => esc_html__('Only selected domains', 'tinypress'),
+                        // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- Redirect rule option key, not a query parameter.
                         'exclude' => esc_html__('All except selected domains', 'tinypress'),
                     ),
                     'default'    => 'any',
