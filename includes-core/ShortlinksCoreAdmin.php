@@ -597,9 +597,9 @@ class ShortlinksCoreAdmin
                     'type'        => 'select',
                     'title'       => esc_html__('Selected Countries', 'tinypress'),
                     'options'     => array(
-                        'NG' => esc_html__('Kenya', 'tinypress'),
-                        'US' => esc_html__('United States', 'tinypress'),
-                        'GB' => esc_html__('United Kingdom', 'tinypress'),
+                        'NG' => esc_html__('United Kingdom', 'tinypress'),
+                        'US' => esc_html__('Nigeria', 'tinypress'),
+                        'GB' => esc_html__('United States', 'tinypress'),
                     ),
                     'chosen'      => true,
                     'multiple'    => true,
