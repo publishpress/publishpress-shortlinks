@@ -371,25 +371,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 return array();
             }
 
-            $link_ids = get_posts(array(
-                'post_type'      => 'tinypress_link',
-                'post_status'    => $allowed_statuses,
-                'fields'         => 'ids',
-                'posts_per_page' => -1,
-                'orderby'        => 'date',
-                'order'          => 'DESC',
-                'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- required lookup
-                    array(
-                        'key'     => 'autolink_keywords',
-                        'compare' => 'EXISTS',
-                    ),
-                    array(
-                        'key'     => 'autolink_keywords',
-                        'compare' => '!=',
-                        'value'   => '',
-                    ),
-                ),
-            ));
+            $link_ids = $this->get_autolink_link_ids($allowed_statuses);
 
             if (empty($link_ids)) {
                 return array();
@@ -457,6 +439,51 @@ if (! class_exists('TINYPRESS_AutoLink')) {
             }
 
             return apply_filters('tinypress_autolink_rules', $rules);
+        }
+
+        /**
+         * Get shortlinks with autolink keywords in bounded batches.
+         *
+         * @param array $allowed_statuses Allowed post statuses.
+         * @return array Shortlink IDs.
+         */
+        private function get_autolink_link_ids($allowed_statuses)
+        {
+            $link_ids = array();
+            $paged    = 1;
+            $per_page = 500;
+
+            do {
+                $batch_ids = get_posts(array(
+                    'post_type'      => 'tinypress_link',
+                    'post_status'    => $allowed_statuses,
+                    'fields'         => 'ids',
+                    'posts_per_page' => $per_page,
+                    'paged'          => $paged,
+                    'orderby'        => 'date',
+                    'order'          => 'DESC',
+                    'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- required lookup
+                        array(
+                            'key'     => 'autolink_keywords',
+                            'compare' => 'EXISTS',
+                        ),
+                        array(
+                            'key'     => 'autolink_keywords',
+                            'compare' => '!=',
+                            'value'   => '',
+                        ),
+                    ),
+                ));
+
+                if (empty($batch_ids)) {
+                    break;
+                }
+
+                $link_ids = array_merge($link_ids, array_map('absint', $batch_ids));
+                $paged++;
+            } while (count($batch_ids) === $per_page);
+
+            return $link_ids;
         }
 
         private function get_allowed_post_statuses()

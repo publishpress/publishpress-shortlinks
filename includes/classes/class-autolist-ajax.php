@@ -39,9 +39,8 @@ if (! class_exists('TINYPRESS_Autolist_Ajax')) {
                 wp_send_json_error(array( 'message' => __('Permission denied', 'tinypress') ));
             }
 
-            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- $_POST['post_type'] is sanitized below
-            $post_type = isset($_POST['post_type']) ? sanitize_text_field(trim($_POST['post_type'])) : '';
-            $current_index = isset($_POST['current_index']) ? intval($_POST['current_index']) : -1;
+            $post_type = isset($_POST['post_type']) ? sanitize_text_field(wp_unslash($_POST['post_type'])) : '';
+            $current_index = isset($_POST['current_index']) ? intval(wp_unslash($_POST['current_index'])) : -1;
 
             if (empty($post_type)) {
                 wp_send_json_error(array( 'message' => __('Post type is required', 'tinypress') ));
@@ -100,8 +99,8 @@ if (! class_exists('TINYPRESS_Autolist_Ajax')) {
                 }
 
                 // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- $_POST['config'] is validated and sanitized by sanitize_config()
-                $config = isset($_POST['config']) ? $_POST['config'] : array();
-                $enabled = isset($_POST['enabled']) ? sanitize_text_field($_POST['enabled']) : '0';
+                $config = isset($_POST['config']) ? wp_unslash($_POST['config']) : array();
+                $enabled = isset($_POST['enabled']) ? sanitize_text_field(wp_unslash((string) $_POST['enabled'])) : '0';
 
                 if (! is_array($config)) {
                     wp_send_json_error(array( 'message' => __('Invalid configuration format - expected array', 'tinypress') ));
@@ -204,10 +203,9 @@ if (! class_exists('TINYPRESS_Autolist_Ajax')) {
                 wp_send_json_error(array( 'message' => __('Permission denied', 'tinypress') ));
             }
 
-            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- $_POST['page'] and $_POST['search'] are properly sanitized
-            $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
+            $page = isset($_POST['page']) ? absint(wp_unslash($_POST['page'])) : 1;
             $per_page = 10;
-            $search = isset($_POST['search']) ? sanitize_text_field($_POST['search']) : '';
+            $search = isset($_POST['search']) ? sanitize_text_field(wp_unslash((string) $_POST['search'])) : '';
 
             $all_post_types = get_post_types(array( 'public' => true ), 'objects');
             $post_types = array();

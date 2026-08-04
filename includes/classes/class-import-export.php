@@ -107,7 +107,8 @@ if (! class_exists('TINYPRESS_Import_Export')) {
          */
         public function handle_export()
         {
-            if (! isset($_GET['tinypress_export_csv']) || $_GET['tinypress_export_csv'] !== '1') {
+            $export_csv = isset($_GET['tinypress_export_csv']) ? sanitize_text_field(wp_unslash((string) $_GET['tinypress_export_csv'])) : '';
+            if ('1' !== $export_csv) {
                 return;
             }
 
@@ -115,7 +116,8 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 wp_die(esc_html__('Unauthorized.', 'tinypress'));
             }
 
-            if (! isset($_GET['_wpnonce']) || ! wp_verify_nonce(sanitize_text_field($_GET['_wpnonce']), 'tinypress_export_csv')) {
+            $nonce = isset($_GET['_wpnonce']) ? sanitize_text_field(wp_unslash((string) $_GET['_wpnonce'])) : '';
+            if (empty($nonce) || ! wp_verify_nonce($nonce, 'tinypress_export_csv')) {
                 wp_die(esc_html__('Security check failed.', 'tinypress'));
             }
 
@@ -154,6 +156,17 @@ if (! class_exists('TINYPRESS_Import_Export')) {
         {
             // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_fputcsv
             fputcsv($handle, array_map(array( $this, 'sanitize_csv_cell' ), $row));
+        }
+
+        /**
+         * Close CSV stream or uploaded temp-file handles.
+         *
+         * @param resource $handle File handle.
+         */
+        private function close_csv_handle($handle)
+        {
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose -- CSV streams and uploaded temp files require native handles.
+            fclose($handle);
         }
 
         /**
@@ -556,7 +569,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 $paged++;
             } while (count($link_ids) === $per_page);
 
-            fclose($output);
+            $this->close_csv_handle($output);
             die();
         }
 
@@ -594,7 +607,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             // Read header row
             $header = fgetcsv($handle, 0, ',', '"', '\\');
             if (! $header) {
-                fclose($handle);
+                $this->close_csv_handle($handle);
                 wp_send_json_error(array( 'message' => esc_html__('Empty CSV file.', 'tinypress') ));
             }
 
@@ -616,7 +629,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             }
 
             if (! $detected_target_url) {
-                fclose($handle);
+                $this->close_csv_handle($handle);
                 wp_send_json_error(array(
                     'message' => esc_html__('CSV must contain a column for target URL (e.g., "url", "target_url", "destination_url").', 'tinypress')
                 ));
@@ -748,7 +761,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 }
             }
 
-            fclose($handle);
+            $this->close_csv_handle($handle);
 
             // Build message with import results
             $message = '';
@@ -972,7 +985,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             // Read header row
             $header = fgetcsv($handle, 0, ',', '"', '\\');
             if (! $header) {
-                fclose($handle);
+                $this->close_csv_handle($handle);
                 wp_send_json_error(array( 'message' => esc_html__('Empty CSV file.', 'tinypress') ));
             }
 
@@ -995,7 +1008,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             }
 
             if (! $detected_target_url) {
-                fclose($handle);
+                $this->close_csv_handle($handle);
                 wp_send_json_error(array(
                     'message' => esc_html__('CSV must contain a column for target URL (e.g., "url", "target_url", "destination_url").', 'tinypress')
                 ));
@@ -1026,7 +1039,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 }
             }
 
-            fclose($handle);
+            $this->close_csv_handle($handle);
 
             // Build field mapping information for display
             $field_mappings = array();

@@ -107,8 +107,8 @@ if (! class_exists('TINYPRESS_Hooks')) {
 
         public function tinypress_reset_analytics()
         {
-            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- $_POST['nonce'] is validated by wp_verify_nonce()
-            if (! isset($_POST['nonce']) || ! wp_verify_nonce($_POST['nonce'], 'tinypress_reset_analytics_nonce')) {
+            $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash((string) $_POST['nonce'])) : '';
+            if (empty($nonce) || ! wp_verify_nonce($nonce, 'tinypress_reset_analytics_nonce')) {
                 wp_send_json_error(esc_html__('Invalid nonce verification.', 'tinypress'));
             }
 
@@ -116,8 +116,8 @@ if (! class_exists('TINYPRESS_Hooks')) {
                 wp_send_json_error(esc_html__('You do not have permission to reset analytics.', 'tinypress'));
             }
 
-            $post_id = isset($_POST['post_id']) ? absint($_POST['post_id']) : 0;
-            $period  = isset($_POST['period']) ? sanitize_key($_POST['period']) : 'today';
+            $post_id = isset($_POST['post_id']) ? absint(wp_unslash($_POST['post_id'])) : 0;
+            $period  = isset($_POST['period']) ? sanitize_key(wp_unslash((string) $_POST['period'])) : 'today';
 
             if (! $post_id) {
                 wp_send_json_error(esc_html__('Invalid post ID.', 'tinypress'));
@@ -146,39 +146,39 @@ if (! class_exists('TINYPRESS_Hooks')) {
                     $end_date   = $today;
                     break;
                 case 'yesterday':
-                    $start_date = date('Y-m-d', strtotime('-1 day', strtotime($today)));
+                    $start_date = gmdate('Y-m-d', strtotime('-1 day', strtotime($today)));
                     $end_date   = $start_date;
                     break;
                 case 'last_7_days':
-                    $start_date = date('Y-m-d', strtotime('-6 days', strtotime($today)));
+                    $start_date = gmdate('Y-m-d', strtotime('-6 days', strtotime($today)));
                     $end_date   = $today;
                     break;
                 case 'last_30_days':
-                    $start_date = date('Y-m-d', strtotime('-29 days', strtotime($today)));
+                    $start_date = gmdate('Y-m-d', strtotime('-29 days', strtotime($today)));
                     $end_date   = $today;
                     break;
                 case 'this_month':
-                    $start_date = date('Y-m-01', strtotime($today));
+                    $start_date = gmdate('Y-m-01', strtotime($today));
                     $end_date   = $today;
                     break;
                 case 'last_month':
-                    $start_date = date('Y-m-01', strtotime('first day of last month', strtotime($today)));
-                    $end_date   = date('Y-m-t', strtotime('last day of last month', strtotime($today)));
+                    $start_date = gmdate('Y-m-01', strtotime('first day of last month', strtotime($today)));
+                    $end_date   = gmdate('Y-m-t', strtotime('last day of last month', strtotime($today)));
                     break;
                 case 'this_year':
-                    $start_date = date('Y-01-01', strtotime($today));
+                    $start_date = gmdate('Y-01-01', strtotime($today));
                     $end_date   = $today;
                     break;
                 case 'last_2_years':
-                    $start_date = date('Y-m-d', strtotime('-2 years +1 day', strtotime($today)));
+                    $start_date = gmdate('Y-m-d', strtotime('-2 years +1 day', strtotime($today)));
                     $end_date   = $today;
                     break;
                 case 'last_1_month':
-                    $start_date = date('Y-m-d', strtotime('-1 month', strtotime($today)));
+                    $start_date = gmdate('Y-m-d', strtotime('-1 month', strtotime($today)));
                     $end_date   = $today;
                     break;
                 case 'last_1_year':
-                    $start_date = date('Y-m-d', strtotime('-1 year', strtotime($today)));
+                    $start_date = gmdate('Y-m-d', strtotime('-1 year', strtotime($today)));
                     $end_date   = $today;
                     break;
                 case 'custom':
@@ -201,8 +201,8 @@ if (! class_exists('TINYPRESS_Hooks')) {
                         wp_send_json_error(esc_html__('Invalid custom date range.', 'tinypress'));
                     }
 
-                    $start_date = date('Y-m-d', strtotime($custom_start));
-                    $end_date   = date('Y-m-d', strtotime($custom_end));
+                    $start_date = $custom_start;
+                    $end_date   = $custom_end;
 
                     if (strtotime($start_date) > strtotime($end_date)) {
                         $original_start = $start_date;
