@@ -162,6 +162,7 @@
                 $wrapper.insertAfter($fieldset);
             }
 
+            var $nudge = $fieldset.children('.tinypress-pro-nudge-setting').first();
             var $alerts = $fieldset.children('.wpdk_settings-repeater-alert')
                 .add($field.children('.wpdk_settings-repeater-alert'));
             var $addButton = $fieldset.children('.wpdk_settings-repeater-add')
@@ -170,6 +171,7 @@
 
             $alerts.insertAfter($wrapper);
             $addButton.insertAfter($alerts.length ? $alerts.last() : $wrapper);
+            $nudge.insertAfter($wrapper);
             $field.addClass('tinypress-dynamic-redirect-has-rules');
 
             $wrapper.children('.wpdk_settings-repeater-item').each(function () {

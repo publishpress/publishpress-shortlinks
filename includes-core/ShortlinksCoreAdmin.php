@@ -20,9 +20,24 @@ class ShortlinksCoreAdmin
             add_filter('tinypress_security_metabox_fields', [$this, 'add_security_expired_teaser_fields']);
             add_filter('tinypress_global_security_fields', [$this, 'add_global_security_expired_teaser_fields']);
             add_filter('tinypress_dynamic_redirect_metabox_fields', [$this, 'add_dynamic_redirect_teaser_fields']);
-            add_action('WPDK_Settings/after_field/field_activation_date_pro_teaser', [$this, 'render_pro_nudge_activation']);
-            add_action('WPDK_Settings/after_field/field_expired_notice_cta_text_pro_teaser', [$this, 'render_pro_nudge_expiration']);
-            add_action('WPDK_Settings/after_field/field_dynamic_redirect_rules_pro_teaser', [$this, 'render_pro_nudge_dynamic_redirects']);
+
+            $teaser_nudge_fields = array(
+                'activation_date_pro_teaser',
+                'activation_time_pro_teaser',
+                'expiration_click_limit_pro_teaser',
+                'expired_redirect_url_use_global_pro_teaser',
+                'expired_show_notice_use_global_pro_teaser',
+                'expired_notice_title_use_global_pro_teaser',
+                'expired_notice_message_use_global_pro_teaser',
+                'expired_notice_cta_text_use_global_pro_teaser',
+                'dynamic_redirect_enabled_pro_teaser',
+            );
+
+            foreach ($teaser_nudge_fields as $field_id) {
+                add_action('WPDK_Settings/after_field/field_' . $field_id, [$this, 'render_pro_nudge_teaser_setting']);
+            }
+
+            add_action('WPDK_Settings/after_field/field_dynamic_redirect_rules_pro_teaser', [$this, 'render_pro_nudges_redirect_rules']);
 
             add_filter('tinypress_autolink_metabox_fields', [$this, 'add_autolink_metabox_teaser_fields']);
             add_filter('tinypress_global_autolink_fields', [$this, 'add_global_autolink_teaser_fields']);
@@ -521,7 +536,7 @@ class ShortlinksCoreAdmin
             'default'    => false,
             'text_width' => 100,
             'attributes' => array('disabled' => true),
-            'class'      => 'tinypress-pro-teaser-field',
+            'class'      => 'tinypress-dynamic-redirect-enable tinypress-pro-teaser-field',
         );
 
         $fields[] = array(
@@ -665,19 +680,15 @@ class ShortlinksCoreAdmin
         $this->render_pro_nudge();
     }
 
-    public function render_pro_nudge_activation()
+    public function render_pro_nudge_teaser_setting()
     {
-        $this->render_pro_nudge('tinypress-pro-nudge-activation');
+        $this->render_pro_nudge('tinypress-pro-nudge-setting');
     }
 
-    public function render_pro_nudge_expiration()
+    public function render_pro_nudges_redirect_rules()
     {
-        $this->render_pro_nudge('tinypress-pro-nudge-expiration');
-    }
-
-    public function render_pro_nudge_dynamic_redirects()
-    {
-        $this->render_pro_nudge('tinypress-pro-nudge-dynamic-redirects');
+        $this->render_pro_nudge('tinypress-pro-nudge-setting');
+        $this->render_pro_nudge('tinypress-pro-nudge-rule-heading');
     }
 
     /**

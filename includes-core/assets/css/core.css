@@ -138,23 +138,25 @@ body.tinypress_link_page_settings .tinypress-version-notice-bold-purple {
     pointer-events: none;
 }
 
-.tinypress-pro-nudge-activation {
-    margin-top: 60px !important;
+.wpdk_settings-field.tinypress-pro-teaser-field > .wpdk_settings-fieldset:has(> .tinypress-pro-nudge-setting) {
     position: relative;
+}
+
+.wpdk_settings-field.tinypress-pro-teaser-field > .wpdk_settings-fieldset > .tinypress-pro-nudge-setting {
+    left: 50%;
+    margin: 0 !important;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
     z-index: 2;
 }
 
-body.post-new-php.post-type-tinypress_link #tinypress_meta_main .wpdk_settings-section .wpdk_settings-field.tinypress-scheduled-expiration-activation-time.tinypress-pro-teaser-field,
-body.post-php.post-type-tinypress_link #tinypress_meta_main .wpdk_settings-section .wpdk_settings-field.tinypress-scheduled-expiration-activation-time.tinypress-pro-teaser-field {
-    margin-top: -96px !important;
-}
-
-body.post-new-php.post-type-tinypress_link #tinypress_meta_main .wpdk_settings-field.tinypress-global-controlled.tinypress-pro-teaser-field > .tinypress-pro-nudge-expiration,
-body.post-php.post-type-tinypress_link #tinypress_meta_main .wpdk_settings-field.tinypress-global-controlled.tinypress-pro-teaser-field > .tinypress-pro-nudge-expiration {
-    grid-column: 2 !important;
-    grid-row: 3 !important;
-    justify-self: start;
-    margin: 16px 0 0 !important;
+.wpdk_settings-field.tinypress-dynamic-redirect-enable > .wpdk_settings-fieldset > .tinypress-pro-nudge-setting {
+    left: auto;
+    margin: 14px 0 0 !important;
+    position: static;
+    top: auto;
+    transform: none;
 }
 
 .wpdk_settings-field-repeater.tinypress-dynamic-redirect-rules.tinypress-pro-teaser-field {
@@ -182,9 +184,17 @@ body.post-php.post-type-tinypress_link #tinypress_meta_main .wpdk_settings-field
     display: none;
 }
 
-.tinypress-dynamic-redirect-rules.tinypress-pro-teaser-field > .wpdk_settings-fieldset > .tinypress-pro-nudge-dynamic-redirects {
-    justify-content: flex-end;
+.tinypress-dynamic-redirect-rules.tinypress-pro-teaser-field > .wpdk_settings-fieldset > .tinypress-pro-nudge-rule-heading {
     margin: 0 !important;
+}
+
+.tinypress-dynamic-redirect-rules.tinypress-pro-teaser-field > .tinypress-pro-nudge-setting {
+    align-self: center;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: center;
+    margin: 0 !important;
+    z-index: 2;
 }
 
 .tinypress-dynamic-redirect-rules.tinypress-pro-teaser-field > .wpdk_settings-repeater-wrapper {
