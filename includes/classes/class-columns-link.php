@@ -229,7 +229,7 @@ class TINYPRESS_Column_link
                 global $wpdb;
 
                 // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table query; TINYPRESS_TABLE_REPORTS is a safe constant; result varies per post and is not reused
-                $click_count = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id = %d", $post_id));
+                $click_count = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM " . TINYPRESS_TABLE_REPORTS . " WHERE post_id = %d AND is_analytics_cleared = 0", $post_id));
 
                 /* translators: %s: number of clicks */
                 echo '<div class="click-count">' . esc_html(sprintf(__('Clicked %s times', 'tinypress'), $click_count)) . '</div>';
@@ -386,12 +386,7 @@ class TINYPRESS_Column_link
         $selected = isset($_GET['tinypress_link_type']) ? sanitize_key(wp_unslash($_GET['tinypress_link_type'])) : '';
 
         if (in_array($selected, array( 'internal', 'external', 'revision' ), true)) {
-            $link_ids = get_posts(array(
-                'post_type'      => 'tinypress_link',
-                'post_status'    => 'any',
-                'posts_per_page' => -1,
-                'fields'         => 'ids',
-            ));
+            $link_ids = $this->get_all_link_ids();
 
             $matching_ids = array_filter($link_ids, function ($link_id) use ($selected) {
                 if (
@@ -433,6 +428,37 @@ class TINYPRESS_Column_link
         );
 
         $query->set('tax_query', $tax_query);
+    }
+
+    /**
+     * Get all shortlink IDs in bounded batches.
+     *
+     * @return array Shortlink IDs.
+     */
+    private function get_all_link_ids()
+    {
+        $link_ids = array();
+        $paged    = 1;
+        $per_page = 500;
+
+        do {
+            $batch_ids = get_posts(array(
+                'post_type'      => 'tinypress_link',
+                'post_status'    => 'any',
+                'posts_per_page' => $per_page,
+                'paged'          => $paged,
+                'fields'         => 'ids',
+            ));
+
+            if (empty($batch_ids)) {
+                break;
+            }
+
+            $link_ids = array_merge($link_ids, array_map('absint', $batch_ids));
+            $paged++;
+        } while (count($batch_ids) === $per_page);
+
+        return $link_ids;
     }
 
     /**

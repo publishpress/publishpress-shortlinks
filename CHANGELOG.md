@@ -1,6 +1,16 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+= [1.9.0] - 04 August, 2026 =
+
+* Fixed: License tab does not reflect proper license status on save, #354
+* Fixed: Metabox design issue in WordPress 7.1, #363
+* Fixed: This plugin can be deleted, #366
+* Update: Consistency between Analytics and Reports screens, #355
+* Update: Scheduled Link Health and email digest, #357
+* Update: Dynamic redirect engine, #358
+* Update: Improve Shortlinks Expiration, #360
+
 = [1.8.0] - 14 July, 2026 =
 
 * Update: Suggest Label and description from target url while adding shortlinks, #345

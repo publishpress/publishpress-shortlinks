@@ -4,7 +4,7 @@
  * Plugin Name: PublishPress Shortlinks Free
  * Plugin URI:  https://publishpress.com/shortlinks/
  * Description: The best link manager for WordPress. Your links are brandable, trackable, and can have custom view permissions.
- * Version: 1.8.0
+ * Version: 1.9.0
  * Text Domain: tinypress
  * Author: PublishPress
  * Author URI: https://publishpress.com/
@@ -54,7 +54,7 @@ if (! defined('TINYPRESS_LOADED')) {
     define('TINYPRESS_LOADED', 1);
 
     define('TINYPRESS_FILE', __DIR__ . '/tinypress.php');
-    define('TINYPRESS_PLUGIN_VERSION', '1.8.0');
+    define('TINYPRESS_PLUGIN_VERSION', '1.9.0');
 
     if (! defined('TINYPRESS_LIB_VENDOR_PATH')) {
         define('TINYPRESS_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
@@ -121,22 +121,39 @@ if (! defined('TINYPRESS_LOADED')) {
     if ($pro_active) {
         add_filter(
             'plugin_row_meta',
-            function ($links, $file) {
-                if ($file === plugin_basename(__FILE__)) {
-                    $deletion_notice = esc_html__('This plugin can be deleted.', 'tinypress');
-
-                    foreach ((array) $links as $existing_link) {
-                        if (false !== strpos(wp_strip_all_tags((string) $existing_link), $deletion_notice)) {
-                            return $links;
-                        }
-                    }
-
-                    $links[] = '<strong>' . $deletion_notice . '</strong>';
+            function ($links, $file, $plugin_data) {
+                if (
+                    empty($plugin_data['Name'])
+                    || 'PublishPress Shortlinks Free' !== $plugin_data['Name']
+                ) {
+                    return $links;
                 }
+
+                $free_plugin_active = in_array($file, (array) get_option('active_plugins'), true);
+
+                if (! $free_plugin_active && is_multisite()) {
+                    $network_plugins = (array) get_site_option('active_sitewide_plugins');
+                    $free_plugin_active = isset($network_plugins[$file]);
+                }
+
+                if (! $free_plugin_active) {
+                    return $links;
+                }
+
+                $deletion_notice = esc_html__('This plugin can be deleted.', 'tinypress');
+
+                foreach ((array) $links as $existing_link) {
+                    if (false !== strpos(wp_strip_all_tags((string) $existing_link), $deletion_notice)) {
+                        return $links;
+                    }
+                }
+
+                $links[] = '<strong>' . $deletion_notice . '</strong>';
+
                 return $links;
             },
             999,
-            2
+            3
         );
     }
 
@@ -200,14 +217,22 @@ if (! defined('TINYPRESS_LOADED')) {
 
                 global $wpdb;
                 $table_name = TINYPRESS_TABLE_REPORTS;
+                $schema_version = '2.0.0';
 
-                $db_version = get_option('tinypress_db_version', '0');
+                $reports_schema_version = get_option('tinypress_reports_schema_version', '0');
 
                 // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
                 $table_exists = $wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $wpdb->esc_like($table_name))) === $table_name;
 
-                if ($table_exists && version_compare($db_version, TINYPRESS_PLUGIN_VERSION, '>=')) {
+                if ($table_exists && version_compare($reports_schema_version, $schema_version, '>=')) {
                     return;
+                }
+
+                $analytics_column_exists = false;
+
+                if ($table_exists) {
+                    // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom reports table name is defined by the plugin.
+                    $analytics_column_exists = (bool) $wpdb->get_var("SHOW COLUMNS FROM {$table_name} LIKE 'is_analytics_cleared'");
                 }
 
                 if (! function_exists('dbDelta')) {
@@ -222,14 +247,27 @@ if (! defined('TINYPRESS_LOADED')) {
   user_location varchar(1024) NOT NULL,
   datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   is_cleared TINYINT(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY  (id)
+  is_analytics_cleared TINYINT(1) NOT NULL DEFAULT 0,
+  redirect_rule_id varchar(64) NOT NULL DEFAULT '',
+  redirect_rule_label varchar(191) NOT NULL DEFAULT '',
+  redirect_destination text NOT NULL,
+  PRIMARY KEY  (id),
+  KEY post_id (post_id),
+  KEY post_rule (post_id, redirect_rule_id)
 ) " . $wpdb->get_charset_collate() . ";";
 
                 // Use dbDelta for both table creation and schema updates
                 dbDelta($sql_create_table);
 
+                if ($table_exists && ! $analytics_column_exists) {
+                    // Preserve the analytics state users saw before Logs and Analytics were separated.
+                    // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- One-time migration on the plugin's custom reports table.
+                    $wpdb->query("UPDATE {$table_name} SET is_analytics_cleared = is_cleared");
+                }
+
                 // Update the database version
                 update_option('tinypress_db_version', TINYPRESS_PLUGIN_VERSION);
+                update_option('tinypress_reports_schema_version', $schema_version);
             }
             public function set_default_settings()
             {
@@ -368,6 +406,7 @@ if (! defined('TINYPRESS_LOADED')) {
             {
                 $locale = determine_locale();
                 if ('en_US' !== $locale) {
+                    // phpcs:ignore PluginCheck.CodeAnalysis.DiscouragedFunctions.load_plugin_textdomainFound -- Kept for older WordPress installs that do not fully rely on just-in-time translation loading.
                     load_plugin_textdomain('tinypress', false, plugin_basename(dirname(__FILE__)) . '/languages/');
                 }
             }

@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
-"PO-Revision-Date: 2026-07-14 08:02+0000\n"
+"PO-Revision-Date: 2026-07-31 14:26+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Language: fa_IR\n"
@@ -45,7 +45,7 @@ msgstr "PublishPress"
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: includes-core/ShortlinksCoreAdmin.php:88
+#: includes-core/ShortlinksCoreAdmin.php:91
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
@@ -53,27 +53,33 @@ msgstr ""
 "شما از پیوندهای کوتاه PublishPress رایگان استفاده می‌کنید. نسخه Pro دارای "
 "ویژگی‌ها و پشتیبانی بیشتری است."
 
-#: includes-core/ShortlinksCoreAdmin.php:89
-#: includes-core/ShortlinksCoreAdmin.php:106
-#: includes-core/ShortlinksCoreAdmin.php:107
+#: includes-core/ShortlinksCoreAdmin.php:92
+#: includes-core/ShortlinksCoreAdmin.php:109
+#: includes-core/ShortlinksCoreAdmin.php:110
 msgid "Upgrade to Pro"
 msgstr "ترقية به Pro"
 
-#: includes-core/ShortlinksCoreAdmin.php:117
-#: includes-core/ShortlinksCoreAdmin.php:118
-#: includes-core/ShortlinksCoreAdmin.php:148
+#: includes-core/ShortlinksCoreAdmin.php:120
+#: includes-core/ShortlinksCoreAdmin.php:121
+#: includes-core/ShortlinksCoreAdmin.php:163
 msgid "Link Health"
 msgstr "سلامت لینک"
 
-#: includes-core/ShortlinksCoreAdmin.php:131
+#: includes-core/ShortlinksCoreAdmin.php:132
+#: includes-core/ShortlinksCoreAdmin.php:133
+#: includes-core/ShortlinksCoreAdmin.php:224
+msgid "Reports"
+msgstr "گزارش‌ها"
+
+#: includes-core/ShortlinksCoreAdmin.php:146
 msgid "Pro Feature"
 msgstr "ویژگی Pro"
 
-#: includes-core/ShortlinksCoreAdmin.php:134
+#: includes-core/ShortlinksCoreAdmin.php:149
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "این ویژگی در PublishPress Shortlinks Pro موجود است."
 
-#: includes-core/ShortlinksCoreAdmin.php:150
+#: includes-core/ShortlinksCoreAdmin.php:165
 msgid ""
 "Check whether your shortlinks redirect visitors to working destination "
 "pages."
@@ -81,95 +87,187 @@ msgstr ""
 "بررسی کنید که آیا لینک‌های کوتاه شما بازدیدکنندگان را به صفحات مقصد کارا "
 "هدایت می‌کنند."
 
-#: includes-core/ShortlinksCoreAdmin.php:158
+#: includes-core/ShortlinksCoreAdmin.php:173
 msgid "Check Visible Links"
 msgstr "بررسی لینک‌های قابل مشاهده"
 
-#: includes-core/ShortlinksCoreAdmin.php:162
+#: includes-core/ShortlinksCoreAdmin.php:177
 msgid "Check All Links"
 msgstr "بررسی تمام لینک‌ها"
 
-#: includes-core/ShortlinksCoreAdmin.php:169
-#: includes/classes/class-columns-link.php:54
-#: includes/classes/class-columns-link.php:552
-#: includes/classes/class-gutenberg-shortlink.php:159
-#: includes/classes/class-hooks.php:231
-#: includes/classes/class-table-logs.php:164
+#: includes-core/ShortlinksCoreAdmin.php:184
+#: includes/classes/class-columns-link.php:56
+#: includes/classes/class-columns-link.php:588
+#: includes/classes/class-gutenberg-shortlink.php:163
+#: includes/classes/class-hooks.php:307
+#: includes/classes/class-table-logs.php:168
 #: templates/admin-modal-new-link.php:29
 msgid "Shortlink"
 msgstr "لینک کوتاه"
 
-#: includes-core/ShortlinksCoreAdmin.php:170
-#: includes/classes/class-gutenberg-shortlink.php:169
-#: includes/classes/class-import-export.php:1053
+#: includes-core/ShortlinksCoreAdmin.php:185
+#: includes/classes/class-gutenberg-shortlink.php:173
+#: includes/classes/class-import-export.php:1095
 msgid "Target URL"
 msgstr "آدرس URL هدف"
 
-#: includes-core/ShortlinksCoreAdmin.php:171
-#: includes/classes/class-meta-boxes.php:542
+#: includes-core/ShortlinksCoreAdmin.php:186
+#: includes/classes/class-meta-boxes.php:546
 msgid "Status"
 msgstr "وضعیت"
 
-#: includes-core/ShortlinksCoreAdmin.php:172, fuzzy
+#: includes-core/ShortlinksCoreAdmin.php:187, fuzzy
 msgid "HTTP"
 msgstr "HTTP"
 
-#: includes-core/ShortlinksCoreAdmin.php:173
+#: includes-core/ShortlinksCoreAdmin.php:188
 msgid "Redirects"
 msgstr "تغییر مسیرها"
 
-#: includes-core/ShortlinksCoreAdmin.php:174
+#: includes-core/ShortlinksCoreAdmin.php:189
 msgid "Final URL"
 msgstr "آدرس URL نهایی"
 
-#: includes-core/ShortlinksCoreAdmin.php:181
+#: includes-core/ShortlinksCoreAdmin.php:196
 msgid "Working"
 msgstr "کارا"
 
-#: includes-core/ShortlinksCoreAdmin.php:189
+#: includes-core/ShortlinksCoreAdmin.php:204
 msgid "Broken"
 msgstr "خراب"
 
-#: includes-core/ShortlinksCoreAdmin.php:212
-#: includes-core/ShortlinksCoreAdmin.php:236
-msgid "Expired Redirect Settings"
-msgstr "تنظیمات هدایت منقضی شده"
+#: includes-core/ShortlinksCoreAdmin.php:226
+msgid ""
+"Get aggregated insights into your shortlink performance with detailed "
+"analytics reports."
+msgstr ""
+"دریافت بینش‌های تجمیع‌شده درباره عملکرد لینک کوتاه شما با گزارش‌های تحلیلی "
+"دقیق."
 
-#: includes-core/ShortlinksCoreAdmin.php:215
-#: includes-core/ShortlinksCoreAdmin.php:239
-#: includes/classes/class-import-export.php:1064
+#: includes-core/ShortlinksCoreAdmin.php:232
+#: templates/admin/analytics.php:123
+msgid "Date Range:"
+msgstr "بازه تاریخ:"
+
+#: includes-core/ShortlinksCoreAdmin.php:234
+#: templates/admin/analytics.php:127
+msgid "Last 7 Days"
+msgstr "7 روز گذشته"
+
+#: includes-core/ShortlinksCoreAdmin.php:236
+#: templates/admin/analytics.php:156
+msgid "Apply"
+msgstr "اعمال"
+
+#: includes-core/ShortlinksCoreAdmin.php:244
+#: templates/admin/analytics.php:169
+msgid "Total Clicks"
+msgstr "کل کلیک‌ها"
+
+#: includes-core/ShortlinksCoreAdmin.php:251
+#: templates/admin/analytics.php:177
+msgid "Unique Visitors"
+msgstr "بازدیدکنندگان منحصر به فرد"
+
+#: includes-core/ShortlinksCoreAdmin.php:258
+msgid "Active Links"
+msgstr "لینک‌های فعال"
+
+#: includes-core/ShortlinksCoreAdmin.php:265
+msgid "Avg. Clicks/Link"
+msgstr "میانگین کلیک‌ها/لینک"
+
+#: includes-core/ShortlinksCoreAdmin.php:272
+msgid "Top Performing Links"
+msgstr "لینک‌های با عملکرد بالا"
+
+#: includes-core/ShortlinksCoreAdmin.php:276
+msgid "Link"
+msgstr "لینک"
+
+#: includes-core/ShortlinksCoreAdmin.php:277
+msgid "Clicks"
+msgstr "کلیک‌ها"
+
+#: includes-core/ShortlinksCoreAdmin.php:288
+msgid "Top Locations"
+msgstr "مکان‌های برتر"
+
+#: includes-core/ShortlinksCoreAdmin.php:312
+msgid "Scheduled Expiration Settings"
+msgstr "تنظیمات انقضای زمان‌بندی‌شده"
+
+#: includes-core/ShortlinksCoreAdmin.php:315
+msgid "Activation Date"
+msgstr "تاریخ فعال‌سازی"
+
+#: includes-core/ShortlinksCoreAdmin.php:316
+msgid "Choose when this shortlink should start working."
+msgstr "انتخاب کنید که این لینک کوتاه چه زمانی باید شروع به کار کند."
+
+#: includes-core/ShortlinksCoreAdmin.php:317, fuzzy
+msgid "dd-mm-yyyy"
+msgstr "dd-mm-yyyy"
+
+#: includes-core/ShortlinksCoreAdmin.php:318
+msgid "Activation Time"
+msgstr "زمان فعال‌سازی"
+
+#: includes-core/ShortlinksCoreAdmin.php:319
+msgid "Choose the time this shortlink should start working."
+msgstr "انتخاب کنید که این لینک کوتاه چه زمانی باید شروع به کار کند."
+
+#: includes-core/ShortlinksCoreAdmin.php:320
+msgid "12:00 PM"
+msgstr "۱۲:۰۰ بعد از ظهر"
+
+#: includes-core/ShortlinksCoreAdmin.php:321
+msgid "Expiration Click Limit"
+msgstr "حداکثر تعداد کلیک‌های انقضا"
+
+#: includes-core/ShortlinksCoreAdmin.php:322
+msgid "Expire this shortlink after a number of clicks."
+msgstr "این لینک کوتاه را پس از تعداد کلیک‌ها منقضی کنید."
+
+#: includes-core/ShortlinksCoreAdmin.php:324
+#: includes-core/ShortlinksCoreAdmin.php:348
+#: includes/classes/class-import-export.php:1106
 msgid "Expired Redirect URL"
 msgstr "URL هدایت منقضی شده"
 
-#: includes-core/ShortlinksCoreAdmin.php:216
+#: includes-core/ShortlinksCoreAdmin.php:325
 msgid "Choose where visitors should go when they click an expired link."
 msgstr ""
 "انتخاب کنید که بازدیدکنندگان باید به کجا بروند وقتی که بر روی یک لینک منقضی "
 "کلیک می‌کنند."
 
-#: includes-core/ShortlinksCoreAdmin.php:218
-#: includes-core/ShortlinksCoreAdmin.php:242
+#: includes-core/ShortlinksCoreAdmin.php:327
+#: includes-core/ShortlinksCoreAdmin.php:351
 msgid "Show Expiration Notice"
 msgstr "نمایش اعلان انقضا"
 
-#: includes-core/ShortlinksCoreAdmin.php:219
-#: includes-core/ShortlinksCoreAdmin.php:243
+#: includes-core/ShortlinksCoreAdmin.php:328
+#: includes-core/ShortlinksCoreAdmin.php:352
 msgid "Display a custom notice page before automatically redirecting visitors."
 msgstr ""
 "نمایش یک صفحه اعلان سفارشی قبل از اینکه به طور خودکار بازدیدکنندگان را "
 "تغییر مسیر دهید."
 
-#: includes-core/ShortlinksCoreAdmin.php:222
+#: includes-core/ShortlinksCoreAdmin.php:331
 msgid "Show a notice page for expired shortlinks briefly before redirecting."
 msgstr ""
 "نمایش یک صفحه اعلان برای لینک‌های کوتاه منقضی به طور مختصر قبل از تغییر "
 "مسیر."
 
-#: includes-core/ShortlinksCoreAdmin.php:240
+#: includes-core/ShortlinksCoreAdmin.php:345
+msgid "Expired Redirect Settings"
+msgstr "تنظیمات هدایت منقضی شده"
+
+#: includes-core/ShortlinksCoreAdmin.php:349
 msgid "Set the default destination for all expired shortlinks."
 msgstr "تنظیم مقصد پیش‌فرض برای تمام لینک‌های کوتاه منقضی."
 
-#: includes-core/ShortlinksCoreAdmin.php:246
+#: includes-core/ShortlinksCoreAdmin.php:355
 msgid ""
 "Show a notice page for expired shortlinks briefly before redirecting. You "
 "can customize the content of this message."
@@ -177,125 +275,151 @@ msgstr ""
 "نمایش یک صفحه اعلان برای لینک‌های کوتاه منقضی به طور مختصر قبل از تغییر "
 "مسیر. شما می‌توانید محتوای این پیام را سفارشی کنید."
 
-#: includes-core/ShortlinksCoreAdmin.php:281
-#: includes-core/ShortlinksCoreAdmin.php:308
+#: includes-core/ShortlinksCoreAdmin.php:369
+msgid "Conditional Redirect Rules"
+msgstr "قوانین انتقال شرطی"
+
+#: includes-core/ShortlinksCoreAdmin.php:371
+msgid "Enable Dynamic Redirects"
+msgstr "انتقالات پویا را فعال کنید"
+
+#: includes-core/ShortlinksCoreAdmin.php:374
+msgid "Send visitors to different destinations when they match a rule."
+msgstr ""
+"بازدیدکنندگان را به مقاصد مختلف ارسال کنید زمانی که با یک قانون مطابقت "
+"دارند."
+
+#: includes-core/ShortlinksCoreAdmin.php:376
+msgid "Redirect Rules"
+msgstr "قوانین انتقال"
+
+#: includes-core/ShortlinksCoreAdmin.php:378
+msgid "Nigeria mobile visitors"
+msgstr "بازدیدکنندگان موبایل نیجریه"
+
+#: includes-core/ShortlinksCoreAdmin.php:380
+msgid "Country and device conditions"
+msgstr "شرایط کشور و دستگاه"
+
+#: includes-core/ShortlinksCoreAdmin.php:415
+#: includes-core/ShortlinksCoreAdmin.php:442
 msgid "Advanced Auto-Link Settings"
 msgstr "تنظیمات پیشرفته لینک خودکار"
 
-#: includes-core/ShortlinksCoreAdmin.php:283
-#: includes-core/ShortlinksCoreAdmin.php:311
+#: includes-core/ShortlinksCoreAdmin.php:417
+#: includes-core/ShortlinksCoreAdmin.php:445
 msgid "Minimum Keyword Usage"
 msgstr "حداقل استفاده از کلمات کلیدی"
 
-#: includes-core/ShortlinksCoreAdmin.php:284
+#: includes-core/ShortlinksCoreAdmin.php:418
 msgid "Keyword must appear this many times before being autolinked."
 msgstr ""
 "کلمه کلیدی باید به این تعداد بار قبل از اینکه به صورت خودکار لینک شود، ظاهر "
 "شود."
 
-#: includes-core/ShortlinksCoreAdmin.php:286
-#: includes-core/ShortlinksCoreAdmin.php:314
+#: includes-core/ShortlinksCoreAdmin.php:420
+#: includes-core/ShortlinksCoreAdmin.php:448
 msgid "Maximum Keywords Linked"
 msgstr "حداکثر کلمات کلیدی مرتبط"
 
-#: includes-core/ShortlinksCoreAdmin.php:287
+#: includes-core/ShortlinksCoreAdmin.php:421
 msgid "Maximum number of times this keyword should be autolinked per post."
 msgstr ""
 "حداکثر تعداد دفعاتی که این کلمه کلیدی باید در هر پست به صورت خودکار لینک "
 "شود."
 
-#: includes-core/ShortlinksCoreAdmin.php:312
+#: includes-core/ShortlinksCoreAdmin.php:446
 msgid "Default minimum times a keyword must appear before being autolinked."
 msgstr ""
 "حداقل تعداد پیش‌فرضی که یک کلمه کلیدی باید قبل از لینک شدن به صورت خودکار "
 "ظاهر شود."
 
-#: includes-core/ShortlinksCoreAdmin.php:315
+#: includes-core/ShortlinksCoreAdmin.php:449
 msgid "Default maximum times a keyword should be autolinked per post."
 msgstr ""
 "حداکثر تعداد پیش‌فرض دفعاتی که یک کلمه کلیدی باید در هر پست به صورت خودکار "
 "لینک شود."
 
-#: includes-core/ShortlinksCoreAdmin.php:317
+#: includes-core/ShortlinksCoreAdmin.php:451
 msgid "Maximum Links Per Post"
 msgstr "حداکثر لینک‌ها در هر پست"
 
-#: includes-core/ShortlinksCoreAdmin.php:318
+#: includes-core/ShortlinksCoreAdmin.php:452
 msgid "Total maximum autolinks allowed per post/page."
 msgstr "حداکثر کل لینک‌های خودکار مجاز در هر پست/صفحه."
 
-#: includes-core/ShortlinksCoreAdmin.php:320
+#: includes-core/ShortlinksCoreAdmin.php:454
 msgid "Minimum Character Length"
 msgstr "حداقل طول کاراکتر"
 
-#: includes-core/ShortlinksCoreAdmin.php:321
+#: includes-core/ShortlinksCoreAdmin.php:455
 msgid "Keywords shorter than this will not be autolinked."
 msgstr "کلمات کلیدی کوتاه‌تر از این به صورت خودکار لینک نخواهند شد."
 
-#: includes-core/ShortlinksCoreAdmin.php:323
+#: includes-core/ShortlinksCoreAdmin.php:457
 msgid "Maximum Character Length"
 msgstr "حداکثر طول کاراکتر"
 
-#: includes-core/ShortlinksCoreAdmin.php:324
+#: includes-core/ShortlinksCoreAdmin.php:458
 msgid "Keywords longer than this will not be autolinked."
 msgstr "کلمات کلیدی بلندتر از این به صورت خودکار لینک نخواهند شد."
 
-#: includes-core/ShortlinksCoreAdmin.php:345
-#: includes/classes/class-settings.php:850
+#: includes-core/ShortlinksCoreAdmin.php:479
+#: includes/classes/class-settings.php:1059
 msgid "Auto-Link Exceptions"
 msgstr "استثنائات لینک خودکار"
 
-#: includes-core/ShortlinksCoreAdmin.php:347
+#: includes-core/ShortlinksCoreAdmin.php:481
 msgid "Exclude Terms from Auto Links"
 msgstr "استثنای اصطلاحات از لینک‌های خودکار"
 
-#: includes-core/ShortlinksCoreAdmin.php:348
+#: includes-core/ShortlinksCoreAdmin.php:482
 msgid "These terms will never be autolinked."
 msgstr "این اصطلاحات هرگز به صورت خودکار لینک نخواهند شد."
 
-#: includes-core/ShortlinksCoreAdmin.php:350
+#: includes-core/ShortlinksCoreAdmin.php:484
 msgid "Prevent Auto Links Inside Classes or IDs"
 msgstr "جلوگیری از لینک‌های خودکار در داخل کلاس‌ها یا شناسه‌ها"
 
-#: includes-core/ShortlinksCoreAdmin.php:351
+#: includes-core/ShortlinksCoreAdmin.php:485
 msgid ""
 "Content inside elements with these classes or IDs will not have autolinks "
 "applied."
 msgstr "محتوای داخل عناصر با این کلاس‌ها یا شناسه‌ها لینک‌های خودکار نخواهد داشت."
 
-#: includes-core/ShortlinksCoreAdmin.php:353
+#: includes-core/ShortlinksCoreAdmin.php:487
 msgid "Prevent Auto Links Inside Elements"
 msgstr "جلوگیری از لینک‌های خودکار در داخل عناصر"
 
-#: includes-core/ShortlinksCoreAdmin.php:354
+#: includes-core/ShortlinksCoreAdmin.php:488
 msgid "Terms inside these HTML tags will not have autolinks applied."
 msgstr "اصطلاحات داخل این تگ‌های HTML لینک‌های خودکار نخواهند داشت."
 
-#: includes-core/ShortlinksCoreAdmin.php:367
+#: includes-core/ShortlinksCoreAdmin.php:501
 msgid "Prevent Auto Links on Shortcodes"
 msgstr "جلوگیری از لینک‌های خودکار بر روی شورت‌کدها"
 
-#: includes-core/ShortlinksCoreAdmin.php:368
+#: includes-core/ShortlinksCoreAdmin.php:502
 msgid "Terms inside these shortcodes will not have autolinks applied."
 msgstr "اصطلاحات داخل این شورت‌کدها لینک‌های خودکار نخواهند داشت."
 
-#: includes-core/ShortlinksCoreAdmin.php:370
+#: includes-core/ShortlinksCoreAdmin.php:504
 msgid "Prevent Auto Links on Blocks"
 msgstr "جلوگیری از لینک‌های خودکار بر روی بلاک‌ها"
 
-#: includes-core/ShortlinksCoreAdmin.php:371
+#: includes-core/ShortlinksCoreAdmin.php:505
 msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
 msgstr "شرایط داخل این بلوک‌های گوتنبرگ به لینک‌های خودکار اعمال نخواهند شد."
 
-#: includes-core/ShortlinksCoreAdmin.php:372
+#: includes-core/ShortlinksCoreAdmin.php:506
 msgid "Search and select blocks..."
 msgstr "جستجو و انتخاب بلوک‌ها..."
 
 #: includes/classes/class-autolist-ajax.php:39
 #: includes/classes/class-autolist-ajax.php:204
-#: includes/classes/class-gutenberg-shortlink.php:234
-#: includes/classes/class-gutenberg-shortlink.php:285
-#: includes/classes/class-gutenberg-shortlink.php:329
+#: includes/classes/class-gutenberg-shortlink.php:238
+#: includes/classes/class-gutenberg-shortlink.php:289
+#: includes/classes/class-gutenberg-shortlink.php:333
 msgid "Permission denied"
 msgstr "دسترسی denied"
 
@@ -367,7 +491,7 @@ msgid "Saved!"
 msgstr "ذخیره شد!"
 
 #: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-gutenberg-shortlink.php:175
+#: includes/classes/class-gutenberg-shortlink.php:179
 msgid "Error"
 msgstr "خطا"
 
@@ -380,170 +504,170 @@ msgid "Select a post type"
 msgstr "یک post type را انتخاب کنید"
 
 #: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:1032
-#: includes/classes/class-settings.php:1130
+#: includes/classes/class-settings.php:1241
+#: includes/classes/class-settings.php:1339
 msgid "Never"
 msgstr "هرگز"
 
 #: includes/classes/class-autolist-ajax.php:300
-#: includes/classes/class-settings.php:1030
-#: includes/classes/class-settings.php:1132
+#: includes/classes/class-settings.php:1239
+#: includes/classes/class-settings.php:1341
 msgid "When Link is First Used"
 msgstr "زمانی که لینک برای اولین بار استفاده می‌شود"
 
 #: includes/classes/class-autolist-ajax.php:301
-#: includes/classes/class-settings.php:1134
+#: includes/classes/class-settings.php:1343
 msgid "When Post is Published"
 msgstr "زمانی که پست منتشر می‌شود"
 
 #: includes/classes/class-autolist-ajax.php:302
-#: includes/classes/class-settings.php:1133
+#: includes/classes/class-settings.php:1342
 msgid "When Post is Created"
 msgstr "زمانی که پست ایجاد می‌شود"
 
 #: includes/classes/class-autolist-ajax.php:303
-#: includes/classes/class-settings.php:1131
+#: includes/classes/class-settings.php:1340
 msgid "When Link is First Used or Post Created"
 msgstr "زمانی که لینک برای اولین بار استفاده می‌شود یا پست ایجاد می‌شود"
 
-#: includes/classes/class-autolist.php:119
+#: includes/classes/class-autolist.php:123
 msgid "Invalid post ID or post type."
 msgstr "شناسه پست یا نوع پست نامعتبر است."
 
-#: includes/classes/class-columns-link.php:76
+#: includes/classes/class-columns-link.php:78
 msgid "No shortlink"
 msgstr "هیچ Shortlinkی وجود ندارد"
 
-#: includes/classes/class-columns-link.php:97
-#: includes/classes/class-hooks.php:232
-#: includes/classes/class-hooks.php:234
-#: includes/classes/class-meta-boxes.php:163
+#: includes/classes/class-columns-link.php:99
+#: includes/classes/class-hooks.php:308
+#: includes/classes/class-hooks.php:310
+#: includes/classes/class-meta-boxes.php:167
 msgid "Shortlinks"
 msgstr "لینک‌های کوتاه"
 
-#: includes/classes/class-columns-link.php:188
-#: includes/classes/class-columns-link.php:335
+#: includes/classes/class-columns-link.php:190
+#: includes/classes/class-columns-link.php:337
 msgid "Internal"
 msgstr "داخلی"
 
-#: includes/classes/class-columns-link.php:188
-#: includes/classes/class-columns-link.php:336
+#: includes/classes/class-columns-link.php:190
+#: includes/classes/class-columns-link.php:338
 msgid "External"
 msgstr "خارجی"
 
-#: includes/classes/class-columns-link.php:189
+#: includes/classes/class-columns-link.php:191
 msgid "This links to your post"
 msgstr "این به پست شما لینک می‌شود"
 
-#: includes/classes/class-columns-link.php:189
+#: includes/classes/class-columns-link.php:191
 msgid "This links to an external website"
 msgstr "این به یک وب‌سایت خارجی لینک می‌شود"
 
-#: includes/classes/class-columns-link.php:193
-#: includes/classes/class-columns-link.php:337
+#: includes/classes/class-columns-link.php:195
+#: includes/classes/class-columns-link.php:339
 msgid "Revision"
 msgstr "بازنگری"
 
-#: includes/classes/class-columns-link.php:194
+#: includes/classes/class-columns-link.php:196
 msgid "This links to a revision"
 msgstr "این به یک بازنگری لینک می‌شود"
 
-#: includes/classes/class-columns-link.php:203
+#: includes/classes/class-columns-link.php:205
 msgid "Not yet submitted"
 msgstr "هنوز ارسال نشده"
 
-#: includes/classes/class-columns-link.php:204
+#: includes/classes/class-columns-link.php:206
 msgid "Submitted for approval"
 msgstr "برای تأیید ارسال شده"
 
-#: includes/classes/class-columns-link.php:205
-#: includes/classes/class-settings.php:365
-#: includes/classes/class-settings.php:706
-#: includes/classes/class-settings.php:714
-#: includes/functions.php:273
-#: includes/functions.php:307
+#: includes/classes/class-columns-link.php:207
+#: includes/classes/class-settings.php:433
+#: includes/classes/class-settings.php:900
+#: includes/classes/class-settings.php:908
+#: includes/functions.php:379
+#: includes/functions.php:413
 msgid "Scheduled"
 msgstr "برنامه‌ریزی شده"
 
-#: includes/classes/class-columns-link.php:206
+#: includes/classes/class-columns-link.php:208
 msgid "Deferred"
 msgstr "مؤخر شده"
 
-#: includes/classes/class-columns-link.php:207
+#: includes/classes/class-columns-link.php:209
 msgid "Needs work"
 msgstr "نیاز به کار دارد"
 
-#: includes/classes/class-columns-link.php:208
+#: includes/classes/class-columns-link.php:210
 msgid "Rejected"
 msgstr "رد شده"
 
-#: includes/classes/class-columns-link.php:212
+#: includes/classes/class-columns-link.php:214
 #. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "بازنگری: %s"
 
-#: includes/classes/class-columns-link.php:233
+#: includes/classes/class-columns-link.php:235
 #. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "کلیک شده %s بار"
 
-#: includes/classes/class-columns-link.php:241
-#: includes/classes/class-table-logs.php:198
+#: includes/classes/class-columns-link.php:243
+#: includes/classes/class-table-logs.php:202
 msgid "Edit"
 msgstr "ویرایش"
 
-#: includes/classes/class-columns-link.php:246
-#: includes/classes/class-table-logs.php:179
-#: includes/classes/class-table-logs.php:200
+#: includes/classes/class-columns-link.php:248
+#: includes/classes/class-table-logs.php:183
+#: includes/classes/class-table-logs.php:204
 msgid "Delete"
 msgstr "حذف"
 
-#: includes/classes/class-columns-link.php:332
+#: includes/classes/class-columns-link.php:334
 msgid "Filter by link type"
 msgstr "فیلتر بر اساس نوع لینک"
 
-#: includes/classes/class-columns-link.php:334
+#: includes/classes/class-columns-link.php:336
 msgid "All link types"
 msgstr "همه نوع‌های لینک"
 
-#: includes/classes/class-columns-link.php:350
+#: includes/classes/class-columns-link.php:352
 msgid "Filter by category"
 msgstr "فیلتر بر اساس دسته‌بندی"
 
-#: includes/classes/class-columns-link.php:352
+#: includes/classes/class-columns-link.php:354
 msgid "All categories"
 msgstr "تمام دسته‌ها"
 
-#: includes/classes/class-columns-link.php:446
+#: includes/classes/class-columns-link.php:457
 msgid "Filters"
 msgstr "فیلترها"
 
-#: includes/classes/class-columns-link.php:449
-#: includes/classes/class-hooks.php:257
-#: includes/classes/class-meta-boxes.php:814
+#: includes/classes/class-columns-link.php:460
+#: includes/classes/class-hooks.php:333
+#: includes/classes/class-meta-boxes.php:840
 msgid "Categories"
 msgstr "دسته‌ها"
 
-#: includes/classes/class-columns-link.php:467
+#: includes/classes/class-columns-link.php:478
 msgid "Permission denied."
 msgstr "دسترسیDenied."
 
-#: includes/classes/class-columns-link.php:551
+#: includes/classes/class-columns-link.php:587
 msgid "Link Title"
 msgstr "عنوان لینک"
 
-#: includes/classes/class-columns-link.php:553
+#: includes/classes/class-columns-link.php:589
 msgid "Link Type"
 msgstr "نوع لینک"
 
-#: includes/classes/class-columns-link.php:557
+#: includes/classes/class-columns-link.php:593
 msgid "Stats"
 msgstr "آمار"
 
-#: includes/classes/class-columns-link.php:560
-#: includes/classes/class-table-logs.php:166
+#: includes/classes/class-columns-link.php:596
+#: includes/classes/class-table-logs.php:170
 msgid "Actions"
 msgstr "عملیات"
 
@@ -555,95 +679,95 @@ msgstr "برای کپی کلیک کنید"
 msgid "Copied"
 msgstr "کپی شد"
 
-#: includes/classes/class-gutenberg-shortlink.php:160
+#: includes/classes/class-gutenberg-shortlink.php:164
 msgid "Search shortlinks..."
 msgstr "جستجوی لینک‌های کوتاه..."
 
-#: includes/classes/class-gutenberg-shortlink.php:161
+#: includes/classes/class-gutenberg-shortlink.php:165
 msgid "Insert Shortlink"
 msgstr "درج لینک کوتاه"
 
-#: includes/classes/class-gutenberg-shortlink.php:162
+#: includes/classes/class-gutenberg-shortlink.php:166
 msgid "Create New Shortlink"
 msgstr "ایجاد لینک کوتاه جدید"
 
-#: includes/classes/class-gutenberg-shortlink.php:163
-#: includes/classes/class-settings.php:721
+#: includes/classes/class-gutenberg-shortlink.php:167
+#: includes/classes/class-settings.php:930
 msgid "Options"
 msgstr "گزینه‌ها"
 
-#: includes/classes/class-gutenberg-shortlink.php:164
+#: includes/classes/class-gutenberg-shortlink.php:168
 msgid "Open in New Tab"
 msgstr "باز کردن در برگه جدید"
 
-#: includes/classes/class-gutenberg-shortlink.php:165
+#: includes/classes/class-gutenberg-shortlink.php:169
 msgid "Nofollow"
 msgstr "بدون فالو"
 
-#: includes/classes/class-gutenberg-shortlink.php:166
+#: includes/classes/class-gutenberg-shortlink.php:170
 msgid "Sponsored Link"
 msgstr "لینک اسپانسری"
 
-#: includes/classes/class-gutenberg-shortlink.php:167
+#: includes/classes/class-gutenberg-shortlink.php:171
 msgid "Label"
 msgstr "برچسب"
 
-#: includes/classes/class-gutenberg-shortlink.php:168
+#: includes/classes/class-gutenberg-shortlink.php:172
 msgid "Optional shortlink label"
 msgstr "برچسب لینک کوتاه اختیاری"
 
-#: includes/classes/class-gutenberg-shortlink.php:170
+#: includes/classes/class-gutenberg-shortlink.php:174
 msgid "Create"
 msgstr "ایجاد"
 
-#: includes/classes/class-gutenberg-shortlink.php:171
-#: includes/classes/class-import-export.php:1202
+#: includes/classes/class-gutenberg-shortlink.php:175
+#: includes/classes/class-import-export.php:1270
 msgid "Cancel"
 msgstr "لغو"
 
-#: includes/classes/class-gutenberg-shortlink.php:172
+#: includes/classes/class-gutenberg-shortlink.php:176
 #: templates/admin-modal-new-link.php:37
 msgid "Close"
 msgstr "بستن"
 
-#: includes/classes/class-gutenberg-shortlink.php:173
+#: includes/classes/class-gutenberg-shortlink.php:177
 msgid "Creating..."
 msgstr "در حال ایجاد..."
 
-#: includes/classes/class-gutenberg-shortlink.php:174
-#: includes/classes/class-gutenberg-shortlink.php:317
+#: includes/classes/class-gutenberg-shortlink.php:178
+#: includes/classes/class-gutenberg-shortlink.php:321
 #: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "لینک کوتاه با موفقیت ایجاد شد."
 
-#: includes/classes/class-gutenberg-shortlink.php:176
+#: includes/classes/class-gutenberg-shortlink.php:180
 msgid "Please enter a valid URL"
 msgstr "لطفاً یک URL معتبر وارد کنید"
 
-#: includes/classes/class-gutenberg-shortlink.php:177
+#: includes/classes/class-gutenberg-shortlink.php:181
 msgid "No shortlinks found"
 msgstr "هیچ لینک کوتاهی پیدا نشد"
 
-#: includes/classes/class-gutenberg-shortlink.php:243
+#: includes/classes/class-gutenberg-shortlink.php:247
 msgid "Search term is required"
 msgstr "عبارت جستجو الزامی است"
 
-#: includes/classes/class-gutenberg-shortlink.php:258
-#: includes/functions.php:447
+#: includes/classes/class-gutenberg-shortlink.php:262
+#: includes/functions.php:553
 #. translators: %s: link ID number
 #, php-format
 msgid "Link - %s"
 msgstr "لینک - %s"
 
-#: includes/classes/class-gutenberg-shortlink.php:294
+#: includes/classes/class-gutenberg-shortlink.php:298
 msgid "Target URL is required"
 msgstr "URL هدف الزامی است"
 
-#: includes/classes/class-gutenberg-shortlink.php:336
+#: includes/classes/class-gutenberg-shortlink.php:340
 msgid "Invalid shortlink ID"
 msgstr "شناسه لینک کوتاه نامعتبر است"
 
-#: includes/classes/class-gutenberg-shortlink.php:342
+#: includes/classes/class-gutenberg-shortlink.php:346
 msgid "Shortlink not found"
 msgstr "لینک کوتاه یافت نشد"
 
@@ -680,72 +804,77 @@ msgstr "شناسه لینک کوتاه نامعتبر است."
 msgid "You do not have permission to reset analytics for this shortlink."
 msgstr "شما اجازه‌ای برای بازنشانی تحلیل‌ها برای این لینک کوتاه ندارید."
 
-#: includes/classes/class-hooks.php:164
+#: includes/classes/class-hooks.php:189
+#: includes/classes/class-hooks.php:201
+msgid "Invalid custom date range."
+msgstr "محدوده تاریخ سفارشی نامعتبر است."
+
+#: includes/classes/class-hooks.php:240
 msgid "Analytics reset successfully."
 msgstr "آنالیزها با موفقیت بازنشانی شدند."
 
-#: includes/classes/class-hooks.php:166
+#: includes/classes/class-hooks.php:242
 msgid "Failed to reset analytics."
 msgstr "بازنشانی آنالیزها ناموفق بود."
 
-#: includes/classes/class-hooks.php:192
+#: includes/classes/class-hooks.php:268
 msgid "Shorten"
 msgstr "کوتاه کردن"
 
-#: includes/classes/class-hooks.php:235
+#: includes/classes/class-hooks.php:311
 msgid "All Shortlinks"
 msgstr "تمام لینک‌های کوتاه"
 
-#: includes/classes/class-hooks.php:236
-#: includes/classes/class-hooks.php:237
+#: includes/classes/class-hooks.php:312
+#: includes/classes/class-hooks.php:313
 msgid "Add Shortlink"
 msgstr "افزودن لینک کوتاه"
 
-#: includes/classes/class-hooks.php:238
+#: includes/classes/class-hooks.php:314
 msgid "Search Shortlinks"
 msgstr "جستجوی لینک‌های کوتاه"
 
-#: includes/classes/class-hooks.php:256
+#: includes/classes/class-hooks.php:332
 msgid "Category"
 msgstr "دسته"
 
-#: includes/classes/class-hooks.php:283
-#: includes/classes/class-hooks.php:284
+#: includes/classes/class-hooks.php:359
+#: includes/classes/class-hooks.php:360
 msgid "Logs"
 msgstr "گزارش‌ها"
 
-#: includes/classes/class-hooks.php:312
+#: includes/classes/class-hooks.php:388
 msgid "All Logs"
 msgstr "تمام گزارش‌ها"
 
-#: includes/classes/class-hooks.php:312
+#: includes/classes/class-hooks.php:388
 msgid "Are you sure you want to clear all logs?"
 msgstr "آیا مطمئن هستید که می‌خواهید تمام گزارش‌ها را پاک کنید؟"
 
-#: includes/classes/class-hooks.php:312
+#: includes/classes/class-hooks.php:388
 msgid "Clear Logs"
 msgstr "پاک کردن گزارش‌ها"
 
-#: includes/classes/class-hooks.php:606
+#: includes/classes/class-hooks.php:682
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "متاسفیم، شما اجازه دسترسی به لینک‌های کوتاه را ندارید."
 
-#: includes/classes/class-hooks.php:607
-#: includes/classes/class-hooks.php:628
-#: includes/classes/class-hooks.php:639
-#: includes/classes/class-hooks.php:660
+#: includes/classes/class-hooks.php:683
+#: includes/classes/class-hooks.php:704
+#: includes/classes/class-hooks.php:715
+#: includes/classes/class-hooks.php:736
 msgid "Access Denied"
 msgstr "دسترسی ممنوع"
 
-#: includes/classes/class-hooks.php:627
+#: includes/classes/class-hooks.php:703
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "متاسفیم، شما اجازه ایجاد لینک‌های کوتاه را ندارید."
 
-#: includes/classes/class-hooks.php:638
+#: includes/classes/class-hooks.php:714
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "متاسفیم، شما اجازه ویرایش لینک‌های کوتاه را ندارید."
 
-#: includes/classes/class-hooks.php:659
+#: includes/classes/class-hooks.php:735
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "متاسفیم، شما اجازه دسترسی به تنظیمات لینک‌های کوتاه را ندارید."
 
@@ -783,7 +912,7 @@ msgid "Preview failed."
 msgstr "پیش‌نمایش ناموفق بود."
 
 #: includes/classes/class-import-export.php:94
-#: includes/classes/class-import-export.php:1197
+#: includes/classes/class-import-export.php:1265
 msgid "See More Rows"
 msgstr "مشاهده ردیف‌های بیشتر"
 
@@ -792,25 +921,25 @@ msgid "Show Less"
 msgstr "نمایش کمتر"
 
 #: includes/classes/class-import-export.php:96
-#: includes/classes/class-import-export.php:1160
+#: includes/classes/class-import-export.php:1228
 msgid "Preview"
 msgstr "پیش‌نمایش"
 
 #: includes/classes/class-import-export.php:97
-#: includes/classes/class-import-export.php:1151
-#: includes/classes/class-import-export.php:1164
+#: includes/classes/class-import-export.php:1219
+#: includes/classes/class-import-export.php:1232
 msgid "Import CSV"
 msgstr "وارد کردن CSV"
 
 #: includes/classes/class-import-export.php:98
-#: includes/classes/class-import-export.php:731
+#: includes/classes/class-import-export.php:758
 #. translators: %d: number of successfully imported shortlinks
 #, php-format
 msgid "%d shortlinks successfully imported"
 msgstr "%d لینک کوتاه با موفقیت وارد شد"
 
 #: includes/classes/class-import-export.php:99
-#: includes/classes/class-import-export.php:753
+#: includes/classes/class-import-export.php:780
 #. translators: %d: number of failed imports
 #, php-format
 msgid "%d shortlinks failed to import"
@@ -821,39 +950,41 @@ msgid "Error(s) for TinyPress Slug:"
 msgstr "خطا(ها) برای اسلاگ TinyPress:"
 
 #: includes/classes/class-import-export.php:115
-#: includes/classes/class-import-export.php:546
-#: includes/classes/class-import-export.php:907
-#: includes/classes/class-import-export.php:1048
+#: includes/classes/class-import-export.php:571
+#: includes/classes/class-import-export.php:949
+#: includes/classes/class-import-export.php:1090
+#: includes/classes/class-migration.php:440
+#: includes/classes/class-url-metadata.php:39
 msgid "Unauthorized."
 msgstr "غیرمجاز."
 
-#: includes/classes/class-import-export.php:303
-#: includes/functions.php:402
+#: includes/classes/class-import-export.php:307
+#: includes/functions.php:508
 msgid "Invalid URL."
 msgstr "URL نامعتبر است."
 
-#: includes/classes/class-import-export.php:551
-#: includes/classes/class-import-export.php:912
+#: includes/classes/class-import-export.php:576
+#: includes/classes/class-import-export.php:954
 msgid "No file uploaded or upload error."
 msgstr "هیچ فایلی آپلود نشده یا خطای آپلود وجود دارد."
 
-#: includes/classes/class-import-export.php:560
-#: includes/classes/class-import-export.php:921
+#: includes/classes/class-import-export.php:585
+#: includes/classes/class-import-export.php:963
 msgid "Please upload a CSV file."
 msgstr "لطفاً یک فایل CSV آپلود کنید."
 
-#: includes/classes/class-import-export.php:566
-#: includes/classes/class-import-export.php:927
+#: includes/classes/class-import-export.php:591
+#: includes/classes/class-import-export.php:969
 msgid "Could not read the file."
 msgstr "نمی‌توان فایل را خواند."
 
-#: includes/classes/class-import-export.php:573
-#: includes/classes/class-import-export.php:934
+#: includes/classes/class-import-export.php:598
+#: includes/classes/class-import-export.php:976
 msgid "Empty CSV file."
 msgstr "فایل CSV خالی است."
 
-#: includes/classes/class-import-export.php:596
-#: includes/classes/class-import-export.php:958
+#: includes/classes/class-import-export.php:621
+#: includes/classes/class-import-export.php:1000
 msgid ""
 "CSV must contain a column for target URL (e.g., \"url\", \"target_url\", "
 "\"destination_url\")."
@@ -861,119 +992,119 @@ msgstr ""
 "فایل CSV باید شامل ستونی برای URL هدف باشد (برای مثال، \"url\", "
 "\"target_url\", \"destination_url\")."
 
-#: includes/classes/class-import-export.php:663
+#: includes/classes/class-import-export.php:688
 #. translators: %s: error message
 #, php-format
 msgid "Failed to create shortlink: %s"
 msgstr "ایجاد لینک کوتاه ناموفق بود: %s"
 
-#: includes/classes/class-import-export.php:664
+#: includes/classes/class-import-export.php:689
 msgid "Unknown error."
 msgstr "خطای ناشناخته."
 
-#: includes/classes/class-import-export.php:742
+#: includes/classes/class-import-export.php:769
 #. translators: %d: number of updated shortlinks
 #, php-format
 msgid "%d shortlinks updated"
 msgstr "%d لینک کوتاه به‌روزرسانی شد"
 
-#: includes/classes/class-import-export.php:995
+#: includes/classes/class-import-export.php:1037
 #. translators: 1: original column name, 2: mapped field name
 #, fuzzy, php-format
 msgid "\"%1$s\" → %2$s"
 msgstr "\"%1$s\" → %2$s"
 
-#: includes/classes/class-import-export.php:1006
+#: includes/classes/class-import-export.php:1048
 #. translators: %s: field mappings
 #, php-format
 msgid "Field mappings: %s"
 msgstr "نقشه‌های فیلد: %s"
 
-#: includes/classes/class-import-export.php:1033
+#: includes/classes/class-import-export.php:1075
 #. translators: 1: number of preview rows, 2: total number of importable rows
 #, php-format
 msgid "Showing %1$d preview row(s) from %2$d importable row(s)."
 msgstr "نمایش %1$d ردیف پیش‌نمایش از %2$d ردیف قابل وارد کردن."
 
-#: includes/classes/class-import-export.php:1052
+#: includes/classes/class-import-export.php:1094
 msgid "Link Label"
 msgstr "برچسب لینک"
 
-#: includes/classes/class-import-export.php:1054
+#: includes/classes/class-import-export.php:1096
 msgid "Short Slug"
 msgstr "Slug کوتاه"
 
-#: includes/classes/class-import-export.php:1055
+#: includes/classes/class-import-export.php:1097
 msgid "Post Status"
 msgstr "وضعیت پست"
 
-#: includes/classes/class-import-export.php:1056
+#: includes/classes/class-import-export.php:1098
 msgid "Link Status"
 msgstr "وضعیت لینک"
 
-#: includes/classes/class-import-export.php:1057
+#: includes/classes/class-import-export.php:1099
 msgid "Redirect Method"
 msgstr "روش انتقال"
 
-#: includes/classes/class-import-export.php:1058
-#: includes/classes/class-meta-boxes.php:664
-#: includes/classes/class-settings.php:939, fuzzy
+#: includes/classes/class-import-export.php:1100
+#: includes/classes/class-meta-boxes.php:669
+#: includes/classes/class-settings.php:1148, fuzzy
 msgid "NoFollow"
 msgstr "NoFollow"
 
-#: includes/classes/class-import-export.php:1059
-#: includes/classes/class-meta-boxes.php:642
-#: includes/classes/class-settings.php:931
+#: includes/classes/class-import-export.php:1101
+#: includes/classes/class-meta-boxes.php:645
+#: includes/classes/class-settings.php:1140
 msgid "Sponsored"
 msgstr "حمایت شده"
 
-#: includes/classes/class-import-export.php:1060
-#: includes/classes/class-meta-boxes.php:686
-#: includes/classes/class-settings.php:947
+#: includes/classes/class-import-export.php:1102
+#: includes/classes/class-meta-boxes.php:693
+#: includes/classes/class-settings.php:1156
 msgid "Parameter Forwarding"
 msgstr "انتقال پارامتر"
 
-#: includes/classes/class-import-export.php:1061
+#: includes/classes/class-import-export.php:1103
 msgid "Expiration Enabled"
 msgstr "فعال‌سازی انقضا"
 
-#: includes/classes/class-import-export.php:1062
-#: includes/classes/class-meta-boxes.php:770
-#: includes/classes/class-settings.php:988
+#: includes/classes/class-import-export.php:1104
+#: includes/classes/class-meta-boxes.php:796
+#: includes/classes/class-settings.php:1197
 msgid "Expiration Date"
 msgstr "تاریخ انقضا"
 
-#: includes/classes/class-import-export.php:1063
-#: includes/classes/class-meta-boxes.php:784
-#: includes/classes/class-settings.php:1001
+#: includes/classes/class-import-export.php:1105
+#: includes/classes/class-meta-boxes.php:810
+#: includes/classes/class-settings.php:1210
 msgid "Expiration Time"
 msgstr "زمان انقضا"
 
-#: includes/classes/class-import-export.php:1065
-#: includes/classes/class-meta-boxes.php:552
+#: includes/classes/class-import-export.php:1107
+#: includes/classes/class-meta-boxes.php:556
 msgid "Notes"
 msgstr "یادداشت‌ها"
 
-#: includes/classes/class-import-export.php:1066
+#: includes/classes/class-import-export.php:1108
 msgid "Autolink Keywords"
 msgstr "کلمات کلیدی خودکار"
 
-#: includes/classes/class-import-export.php:1095
+#: includes/classes/class-import-export.php:1137
 msgid "Import / Export Shortlinks"
 msgstr "واردات / صادرات پیوندهای کوتاه"
 
-#: includes/classes/class-import-export.php:1099
-#: includes/classes/class-import-export.php:1137
-#: includes/classes/class-import-export.php:1206
+#: includes/classes/class-import-export.php:1141
+#: includes/classes/class-import-export.php:1179
+#: includes/classes/class-import-export.php:1274
 msgid "Import"
 msgstr "وارد کردن"
 
-#: includes/classes/class-import-export.php:1102
-#: includes/classes/class-import-export.php:1111
+#: includes/classes/class-import-export.php:1144
+#: includes/classes/class-import-export.php:1153
 msgid "Export"
 msgstr "خروجی"
 
-#: includes/classes/class-import-export.php:1114
+#: includes/classes/class-import-export.php:1156
 msgid ""
 "Download all your shortlinks as a CSV file. The export includes labels, "
 "target URLs, slugs, redirect settings, global-setting modes, and more. "
@@ -983,17 +1114,17 @@ msgstr ""
 "برچسب‌ها، URL های هدف، اسلاگ‌ها، تنظیمات ریدایرکت، حالت‌های تنظیمات جهانی و "
 "موارد دیگر است. تنظیمات حفاظت از رمز عبور صادر نمی‌شود."
 
-#: includes/classes/class-import-export.php:1119
+#: includes/classes/class-import-export.php:1161
 #. translators: %d: number of shortlinks
 #, php-format
 msgid "%d shortlink(s) will be exported."
 msgstr "%d لینک کوتاه صادر خواهد شد."
 
-#: includes/classes/class-import-export.php:1127
+#: includes/classes/class-import-export.php:1169
 msgid "Export CSV"
 msgstr "صادر کردن CSV"
 
-#: includes/classes/class-import-export.php:1140
+#: includes/classes/class-import-export.php:1182
 msgid ""
 "Upload a CSV file to bulk-create shortlinks. The CSV must contain at "
 "minimum a \"target_url\" column. Password protection settings are "
@@ -1003,118 +1134,119 @@ msgstr ""
 "CSV باید حداقل شامل یک ستون \"target_url\" باشد. تنظیمات حفاظت از رمز عبور "
 "به عمد وارد نمی‌شود."
 
-#: includes/classes/class-import-export.php:1142
+#: includes/classes/class-import-export.php:1208
 msgid "Supported columns:"
 msgstr "ستون‌های پشتیبانی شده:"
 
-#: includes/classes/class-import-export.php:1167
+#: includes/classes/class-import-export.php:1235
 msgid "Change File"
 msgstr "تغییر فایل"
 
-#: includes/classes/class-import-export.php:1184
+#: includes/classes/class-import-export.php:1252
 msgid "Import Preview"
 msgstr "پیش‌نمایش واردات"
 
-#: includes/classes/class-meta-boxes.php:387
-#: includes/classes/class-meta-boxes.php:453
-#: includes/classes/class-meta-boxes.php:478
+#: includes/classes/class-meta-boxes.php:391
+#: includes/classes/class-meta-boxes.php:457
+#: includes/classes/class-meta-boxes.php:482
 #. translators: %s: current global setting value
 msgid "Use global settings"
 msgstr "از تنظیمات جهانی استفاده کنید"
 
-#: includes/classes/class-meta-boxes.php:388
+#: includes/classes/class-meta-boxes.php:392
 msgid "Enabled"
 msgstr "فعال"
 
-#: includes/classes/class-meta-boxes.php:389
+#: includes/classes/class-meta-boxes.php:393
 msgid "Disabled"
 msgstr "غیرفعال"
 
-#: includes/classes/class-meta-boxes.php:449
+#: includes/classes/class-meta-boxes.php:453
 msgid "ON"
 msgstr "فعال"
 
-#: includes/classes/class-meta-boxes.php:449
+#: includes/classes/class-meta-boxes.php:453
 msgid "OFF"
 msgstr "غیرفعال"
 
-#: includes/classes/class-meta-boxes.php:481
-#: includes/classes/class-settings.php:922
+#: includes/classes/class-meta-boxes.php:485
+#: includes/classes/class-settings.php:1131
 msgid "307 (Temporary)"
 msgstr "۳۰۷ (موقت)"
 
-#: includes/classes/class-meta-boxes.php:482
-#: includes/classes/class-settings.php:923
+#: includes/classes/class-meta-boxes.php:486
+#: includes/classes/class-settings.php:1132
 msgid "302 (Temporary)"
 msgstr "۳۰۲ (موقت)"
 
-#: includes/classes/class-meta-boxes.php:483
-#: includes/classes/class-settings.php:924
+#: includes/classes/class-meta-boxes.php:487
+#: includes/classes/class-settings.php:1133
 msgid "301 (Permanent)"
 msgstr "۳۰۱ (دائمی)"
 
-#: includes/classes/class-meta-boxes.php:496
-#: tinypress.php:399
-#: tinypress.php:492
+#: includes/classes/class-meta-boxes.php:500
+#: includes/classes/class-settings.php:596
+#: tinypress.php:473
+#: tinypress.php:586
 msgid "PublishPress Shortlinks"
 msgstr "لینک‌های کوتاه PublishPress"
 
-#: includes/classes/class-meta-boxes.php:509
-#: includes/classes/class-settings.php:718
+#: includes/classes/class-meta-boxes.php:513
+#: includes/classes/class-settings.php:912
 msgid "General"
 msgstr "عمومی"
 
-#: includes/classes/class-meta-boxes.php:514
+#: includes/classes/class-meta-boxes.php:518
 msgid "Label *"
 msgstr "برچسب *"
 
-#: includes/classes/class-meta-boxes.php:516
+#: includes/classes/class-meta-boxes.php:520
 msgid "For admin purpose only."
 msgstr "فقط برای مقاصد مدیریتی."
 
-#: includes/classes/class-meta-boxes.php:525
+#: includes/classes/class-meta-boxes.php:529
 msgid "Target URL *"
 msgstr "URL هدف *"
 
-#: includes/classes/class-meta-boxes.php:535
+#: includes/classes/class-meta-boxes.php:539
 msgid "Short String *"
 msgstr "رشته کوتاه *"
 
-#: includes/classes/class-meta-boxes.php:536
+#: includes/classes/class-meta-boxes.php:540
 msgid "Short string of this URL."
 msgstr "رشته کوتاهی از این URL."
 
-#: includes/classes/class-meta-boxes.php:543
+#: includes/classes/class-meta-boxes.php:547
 msgid "Enable or disable the shortlink."
 msgstr "کوتاه‌لینک را فعال یا غیرفعال کنید."
 
-#: includes/classes/class-meta-boxes.php:544
+#: includes/classes/class-meta-boxes.php:548
 msgid "Enable"
 msgstr "فعال کردن"
 
-#: includes/classes/class-meta-boxes.php:545
+#: includes/classes/class-meta-boxes.php:549
 msgid "Disable"
 msgstr "غیرفعال کردن"
 
-#: includes/classes/class-meta-boxes.php:576
-#: includes/classes/class-meta-boxes.php:582
+#: includes/classes/class-meta-boxes.php:580
+#: includes/classes/class-meta-boxes.php:586
 msgid "Shortlink Label"
 msgstr "برچسب پیوند کوتاه"
 
-#: includes/classes/class-meta-boxes.php:577
-#: includes/classes/class-meta-boxes.php:583
+#: includes/classes/class-meta-boxes.php:581
+#: includes/classes/class-meta-boxes.php:587
 msgid "Custom Text"
 msgstr "متن سفارشی"
 
-#: includes/classes/class-meta-boxes.php:581
+#: includes/classes/class-meta-boxes.php:585
 msgid "Post Title"
 msgstr "عنوان پست"
 
-#: includes/classes/class-meta-boxes.php:593
+#: includes/classes/class-meta-boxes.php:597
 msgid "Keywords"
 msgstr "کلیدواژه‌ها"
 
-#: includes/classes/class-meta-boxes.php:594
+#: includes/classes/class-meta-boxes.php:598
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
@@ -1122,19 +1254,19 @@ msgstr ""
 "کلیدواژه‌های جداشده با ویرگول یا در خطوط جداگانه را اضافه کنید. هر کلیدواژه "
 "به این پیوند کوتاه متصل خواهد شد."
 
-#: includes/classes/class-meta-boxes.php:599
+#: includes/classes/class-meta-boxes.php:603
 msgid "Link Alt Text"
 msgstr "متن جایگزین لینک"
 
-#: includes/classes/class-meta-boxes.php:600
+#: includes/classes/class-meta-boxes.php:604
 msgid "Set the alt text for the linked keywords in the frontend of the site."
 msgstr "متن جایگزین برای کلمات کلیدی مرتبط در جلو سایت را تنظیم کنید."
 
-#: includes/classes/class-meta-boxes.php:607
+#: includes/classes/class-meta-boxes.php:611
 msgid "Custom Alt Text"
 msgstr "متن جایگزین سفارشی"
 
-#: includes/classes/class-meta-boxes.php:608
+#: includes/classes/class-meta-boxes.php:612
 msgid ""
 "Enter custom alt text for the linked keywords. This is only used if "
 "\"Custom Text\" is selected above."
@@ -1142,35 +1274,34 @@ msgstr ""
 "متن جایگزین سفارشی را برای کلمات کلیدی پیوند داده شده وارد کنید. این فقط در "
 "صورتی استفاده می‌شود که \"متن سفارشی\" در بالا انتخاب شده باشد."
 
-#: includes/classes/class-meta-boxes.php:619
+#: includes/classes/class-meta-boxes.php:622
 msgid "Auto-linking"
 msgstr "پیوند خودکار"
 
-#: includes/classes/class-meta-boxes.php:628
-#: includes/classes/class-settings.php:914
+#: includes/classes/class-meta-boxes.php:631
+#: includes/classes/class-settings.php:1123
 msgid "Redirection"
 msgstr "هدایت"
 
-#: includes/classes/class-meta-boxes.php:633
-#: includes/classes/class-settings.php:919
+#: includes/classes/class-meta-boxes.php:636
+#: includes/classes/class-settings.php:1128
 msgid "Redirection Method"
 msgstr "روش هدایت"
 
-#: includes/classes/class-meta-boxes.php:634
+#: includes/classes/class-meta-boxes.php:637
 msgid "Select redirection method"
 msgstr "روش هدایت را انتخاب کنید"
 
-#: includes/classes/class-meta-boxes.php:635
+#: includes/classes/class-meta-boxes.php:638
 msgid "Select a method"
 msgstr "یک روش را انتخاب کنید"
 
-#: includes/classes/class-meta-boxes.php:645
+#: includes/classes/class-meta-boxes.php:648
 msgid "Mark links as sponsored content."
 msgstr "لینک‌ها را به عنوان محتوای حمایت شده علامت‌گذاری کنید."
 
-#: includes/classes/class-meta-boxes.php:646
-#: includes/classes/class-meta-boxes.php:656
-#: includes/classes/class-settings.php:933
+#: includes/classes/class-meta-boxes.php:649
+#: includes/classes/class-settings.php:1142
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -1178,13 +1309,12 @@ msgstr ""
 "ویژگی rel=\"sponsored\" را اضافه می‌کند. برای لینک‌های وابسته و تبلیغات "
 "پرداختی توصیه می‌شود."
 
-#: includes/classes/class-meta-boxes.php:667
+#: includes/classes/class-meta-boxes.php:672
 msgid "Prevent search engines from following this link."
 msgstr "از دنبال کردن این لینک توسط موتورهای جستجو جلوگیری کنید."
 
-#: includes/classes/class-meta-boxes.php:668
-#: includes/classes/class-meta-boxes.php:678
-#: includes/classes/class-settings.php:941
+#: includes/classes/class-meta-boxes.php:673
+#: includes/classes/class-settings.php:1150
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -1192,13 +1322,12 @@ msgstr ""
 "ویژگی rel=\"nofollow\" را اضافه می‌کند. برای لینک‌های خارجی و منابع غیر "
 "قابل اعتماد توصیه می‌شود."
 
-#: includes/classes/class-meta-boxes.php:689
+#: includes/classes/class-meta-boxes.php:696
 msgid "Pass URL parameters to the target link."
 msgstr "پارامترهای URL را به لینک هدف ارسال کنید."
 
-#: includes/classes/class-meta-boxes.php:690
-#: includes/classes/class-meta-boxes.php:700
-#: includes/classes/class-settings.php:949
+#: includes/classes/class-meta-boxes.php:697
+#: includes/classes/class-settings.php:1158
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -1206,49 +1335,51 @@ msgstr ""
 "هر پارامتری که به URL کوتاه اضافه شود (مثلاً، ?utm_source=email) به URL هدف "
 "ارسال خواهد شد."
 
-#: includes/classes/class-meta-boxes.php:713
-#: includes/classes/class-settings.php:960
+#: includes/classes/class-meta-boxes.php:724
+msgid "Dynamic Redirects"
+msgstr "انتقالات پویا"
+
+#: includes/classes/class-meta-boxes.php:735
+#: includes/classes/class-settings.php:1169
 msgid "Password Protection"
 msgstr "حفاظت با رمز عبور"
 
-#: includes/classes/class-meta-boxes.php:716
+#: includes/classes/class-meta-boxes.php:738
 msgid "Secure your shortlink."
 msgstr "لینک کوتاه خود را ایمن کنید."
 
-#: includes/classes/class-meta-boxes.php:717
-#: includes/classes/class-meta-boxes.php:727
+#: includes/classes/class-meta-boxes.php:739
 msgid "Users must enter the password to redirect to the target link."
 msgstr "کاربران باید رمز عبور را وارد کنند تا به لینک هدف هدایت شوند."
 
-#: includes/classes/class-meta-boxes.php:735
+#: includes/classes/class-meta-boxes.php:759
 msgid "Password"
 msgstr "رمز عبور"
 
-#: includes/classes/class-meta-boxes.php:736
+#: includes/classes/class-meta-boxes.php:760
 msgid "Share this with users."
 msgstr "این را با کاربران به اشتراک بگذارید."
 
-#: includes/classes/class-meta-boxes.php:737
+#: includes/classes/class-meta-boxes.php:761
 msgid "Passwords are case sensitive."
 msgstr "رمزهای عبور حساس به حروف بزرگ و کوچک هستند."
 
-#: includes/classes/class-meta-boxes.php:738
-#: includes/classes/class-settings.php:971, fuzzy
+#: includes/classes/class-meta-boxes.php:762
+#: includes/classes/class-settings.php:1180, fuzzy
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:748
-#: includes/classes/class-settings.php:980
+#: includes/classes/class-meta-boxes.php:772
+#: includes/classes/class-settings.php:1189
 msgid "Enable Expiration"
 msgstr "فعال‌سازی انقضا"
 
-#: includes/classes/class-meta-boxes.php:751
+#: includes/classes/class-meta-boxes.php:775
 msgid "Set an expiration date and time for shortlinks."
 msgstr "تاریخ و زمان انقضا برای لینک‌های کوتاه را تنظیم کنید."
 
-#: includes/classes/class-meta-boxes.php:752
-#: includes/classes/class-meta-boxes.php:762
-#: includes/classes/class-settings.php:982
+#: includes/classes/class-meta-boxes.php:776
+#: includes/classes/class-settings.php:1191
 msgid ""
 "After the expiration date and time pass, visitors will no longer be able to "
 "access the shortlink."
@@ -1256,16 +1387,16 @@ msgstr ""
 "پس از گذشت تاریخ و زمان انقضا، بازدیدکنندگان دیگر نمی‌توانند به لینک کوتاه "
 "دسترسی پیدا کنند."
 
-#: includes/classes/class-meta-boxes.php:771
+#: includes/classes/class-meta-boxes.php:797
 msgid "Select the date when this shortlink should stop working."
 msgstr "تاریخ را انتخاب کنید که این لینک کوتاه باید متوقف شود."
 
-#: includes/classes/class-meta-boxes.php:785
+#: includes/classes/class-meta-boxes.php:811
 msgid "Select the time when the shortlink should expire."
 msgstr "زمانی را انتخاب کنید که لینک کوتاه باید منقضی شود."
 
-#: includes/classes/class-meta-boxes.php:786
-#: includes/classes/class-settings.php:1003
+#: includes/classes/class-meta-boxes.php:812
+#: includes/classes/class-settings.php:1212
 msgid ""
 "Must be at least 1 minute in the future. Combined with the date above to "
 "set the exact expiration moment."
@@ -1273,85 +1404,284 @@ msgstr ""
 "باید حداقل ۱ دقیقه در آینده باشد. با تاریخ بالا ترکیب شده تا لحظه دقیق "
 "انقضا را تنظیم کند."
 
-#: includes/classes/class-meta-boxes.php:804
-#: includes/classes/class-settings.php:955
+#: includes/classes/class-meta-boxes.php:830
+#: includes/classes/class-settings.php:1164
 msgid "Security"
 msgstr "امنیت"
 
-#: includes/classes/class-meta-boxes.php:823
+#: includes/classes/class-meta-boxes.php:849
 msgid "QR Code"
 msgstr "کد QR"
 
-#: includes/classes/class-meta-boxes.php:833
-#: tinypress.php:396
+#: includes/classes/class-meta-boxes.php:859
+#: tinypress.php:470
 msgid "Analytics"
 msgstr "تحلیل‌گری"
 
-#: includes/classes/class-redirection.php:1044
-msgid "Post not found."
-msgstr "پست پیدا نشد."
+#: includes/classes/class-migration.php:52
+msgid "Pretty Links"
+msgstr "لینک‌های زیبا"
 
-#: includes/classes/class-redirection.php:1188
-#: includes/functions.php:361
-#: includes/functions.php:362
-#: includes/functions.php:363
-#: includes/functions.php:369
-#: tinypress.php:303
-#: tinypress.php:304
-#: tinypress.php:305
-msgid "This post is in {status} status. It is not visible to the public."
-msgstr "این پست در وضعیت {status} است. برای عموم قابل مشاهده نیست."
+#: includes/classes/class-migration.php:53
+msgid "Import branded and affiliate links from Pretty Links."
+msgstr "لینک‌های برند و وابسته را از لینک‌های زیبا وارد کنید."
 
-#: includes/classes/class-redirection.php:1236
-msgid "This link has expired"
-msgstr "این لینک منقضی شده است"
+#: includes/classes/class-migration.php:61
+msgid "BetterLinks"
+msgstr "لینک‌های بهتر"
 
-#: includes/classes/class-redirection.php:1240
-msgid "You will be redirected shortly."
-msgstr "به زودی به شما هدایت می‌شوید."
+#: includes/classes/class-migration.php:62
+msgid "Import link redirects, slugs, and link settings from BetterLinks."
+msgstr "انتقال لینک‌ها، اسلاگ‌ها و تنظیمات لینک را از لینک‌های بهتر وارد کنید."
 
-#: includes/classes/class-redirection.php:1244
-msgid "Click here if you are not redirected"
-msgstr "اگر به شما هدایت نشدید، اینجا کلیک کنید"
+#: includes/classes/class-migration.php:70
+msgid "ThirstyAffiliates"
+msgstr "وابسته‌های تشنه"
 
-#: includes/classes/class-redirection.php:1261
-msgid "Link Expired"
-msgstr "لینک منقضی شده است"
+#: includes/classes/class-migration.php:71
+msgid "Import affiliate links and redirect settings from ThirstyAffiliates."
+msgstr "لینک‌های وابسته و تنظیمات انتقال را از وابسته‌های تشنه وارد کنید."
 
-#: includes/classes/class-redirection.php:1423
-msgid "This link is not active."
-msgstr "این لینک فعال نیست."
+#: includes/classes/class-migration.php:79
+msgid "URL Shortify"
+msgstr "کوتاه‌کننده URL"
 
-#: includes/classes/class-redirection.php:1460
+#: includes/classes/class-migration.php:80
+msgid "Import short links managed by URL Shortify."
+msgstr "لینک‌های کوتاه مدیریت‌شده توسط کوتاه‌کننده URL را وارد کنید."
+
+#: includes/classes/class-migration.php:87
+msgid "LinkCentral"
+msgstr "مرکز لینک"
+
+#: includes/classes/class-migration.php:88
+msgid "Import managed short links from LinkCentral."
+msgstr "لینک‌های کوتاه مدیریت‌شده را از مرکز لینک وارد کنید."
+
+#: includes/classes/class-migration.php:95
+msgid "ShortLinks Pro"
+msgstr "لینک‌های کوتاه پرو"
+
+#: includes/classes/class-migration.php:96
+msgid "Import short links, redirects, and link options from ShortLinks Pro."
+msgstr "لینک‌های کوتاه، ریدایرکت‌ها و گزینه‌های لینک را از ShortLinks Pro وارد کنید."
+
+#: includes/classes/class-migration.php:103
+msgid "Easy Affiliate Links"
+msgstr "لینک‌های وابسته آسان"
+
+#: includes/classes/class-migration.php:104
+msgid "Import affiliate link redirects from Easy Affiliate Links."
+msgstr "ریدایرکت‌های لینک وابسته را از لینک‌های وابسته آسان وارد کنید."
+
+#: includes/classes/class-migration.php:111
+msgid "Simple URLs"
+msgstr "آدرس‌های ساده"
+
+#: includes/classes/class-migration.php:112
+msgid "Import clean URL redirects from Simple URLs."
+msgstr "ریدایرکت‌های URL پاک را از آدرس‌های ساده وارد کنید."
+
+#: includes/classes/class-migration.php:120
+msgid "Affiliate Links"
+msgstr "لینک‌های وابسته"
+
+#: includes/classes/class-migration.php:121
+msgid "Import cloaked affiliate links from Affiliate Links."
+msgstr "لینک‌های وابسته مخفی را از لینک‌های وابسته وارد کنید."
+
+#: includes/classes/class-migration.php:138
+#: includes/classes/class-migration.php:139
+#: includes/classes/class-migration.php:367
+msgid "Migration"
+msgstr "مهاجرت"
+
+#: includes/classes/class-migration.php:166
+#: includes/classes/class-migration.php:493
+msgid "Migration is running..."
+msgstr "مهاجرت در حال اجراست..."
+
+#: includes/classes/class-migration.php:167
+#: includes/classes/class-migration.php:493
+msgid "Migration complete."
+msgstr "مهاجرت کامل شد."
+
+#: includes/classes/class-migration.php:168
+msgid "Migration failed."
+msgstr "مهاجرت ناموفق بود."
+
+#: includes/classes/class-migration.php:169
+#, php-format
+msgid "Deactivate %s"
+msgstr "فعال‌سازی %s"
+
+#: includes/classes/class-migration.php:280
+msgid "PublishPress Shortlinks:"
+msgstr "لینک‌های کوتاه PublishPress:"
+
+#: includes/classes/class-migration.php:284
+#. translators: %s: comma-separated plugin names
+#, php-format
+msgid "We detected %s. You can review migration options for existing links."
+msgstr ""
+"ما %s را شناسایی کردیم. می‌توانید گزینه‌های مهاجرت برای لینک‌های موجود را "
+"مرور کنید."
+
+#: includes/classes/class-migration.php:291
+msgid "Review Migration Options"
+msgstr "مرور گزینه‌های مهاجرت"
+
+#: includes/classes/class-migration.php:294
+msgid "Remind me later"
+msgstr "بعداً یادآوری کن"
+
+#: includes/classes/class-migration.php:297
+#: tinypress.php:482
+msgid "Dismiss"
+msgstr "رد کردن"
+
+#: includes/classes/class-migration.php:348
+msgid "You do not have permission to access this page."
+msgstr "شما اجازه دسترسی به این صفحه را ندارید."
+
+#: includes/classes/class-migration.php:369
+msgid ""
+"Already using another link management tool? Review detected plugins and "
+"prepare your existing links for import into PublishPress Shortlinks."
+msgstr ""
+"آیا از ابزار مدیریت لینک دیگری استفاده می‌کنید؟ پلاگین‌های شناسایی شده را "
+"مرور کنید و لینک‌های موجود خود را برای وارد کردن به لینک‌های کوتاه "
+"PublishPress آماده کنید."
+
+#: includes/classes/class-migration.php:377
+#. translators: %d: number of active migration sources
+#, php-format
+msgid "%d supported migration source(s) detected."
+msgstr "%d منبع مهاجرت فعال شناسایی شد."
+
+#: includes/classes/class-migration.php:387
+msgid "No supported active link management plugins were detected on this site."
+msgstr "هیچ افزونه مدیریت لینک فعال پشتیبانی شده‌ای در این سایت شناسایی نشد."
+
+#: includes/classes/class-migration.php:402
+#. translators: %s: plugin name
+#, php-format
+msgid ""
+"Already have a CSV export from %s? Use Import Tools to upload and preview "
+"it before importing."
+msgstr ""
+"آیا از %s یک خروجی CSV دارید؟ از ابزارهای واردات برای بارگذاری و پیش‌نمایش "
+"آن قبل از وارد کردن استفاده کنید."
+
+#: includes/classes/class-migration.php:410
+msgid "Migrate"
+msgstr "مهاجرت"
+
+#: includes/classes/class-migration.php:414
+msgid "Direct migration unavailable"
+msgstr "مهاجرت مستقیم در دسترس نیست"
+
+#: includes/classes/class-migration.php:418
+msgid "Open Import Tools"
+msgstr "باز کردن ابزارهای واردات"
+
+#: includes/classes/class-migration.php:449
+msgid "Migration source is not active."
+msgstr "منبع مهاجرت فعال نیست."
+
+#: includes/classes/class-migration.php:453
+msgid ""
+"Direct migration is not available for this plugin yet. Please use Import "
+"Tools with a CSV export."
+msgstr ""
+"مهاجرت مستقیم هنوز برای این افزونه در دسترس نیست. لطفاً از ابزارهای واردات "
+"با یک خروجی CSV استفاده کنید."
+
+#: includes/classes/class-migration.php:666
+msgid "Missing target URL."
+msgstr "URL هدف گم شده است."
+
+#: includes/classes/class-migration.php:680
+msgid "Missing shortlink slug."
+msgstr "اسلاگ لینک کوتاه گم شده است."
+
+#: includes/classes/class-migration.php:701
+msgid "Could not create shortlink."
+msgstr "نتوانستم لینک کوتاه ایجاد کنم."
+
+#: includes/classes/class-redirection.php:310
+#: includes/classes/class-redirection.php:1707
 msgid "This link is expired."
 msgstr "این لینک منقضی شده است."
 
-#: includes/classes/class-redirection.php:1479
+#: includes/classes/class-redirection.php:1016
+#: includes/classes/class-redirection.php:1602
+#: includes/classes/class-table-logs.php:382
+msgid "Default Target"
+msgstr "هدف پیش‌فرض"
+
+#: includes/classes/class-redirection.php:1242
+msgid "Post not found."
+msgstr "پست پیدا نشد."
+
+#: includes/classes/class-redirection.php:1386
+#: includes/functions.php:467
+#: includes/functions.php:468
+#: includes/functions.php:469
+#: includes/functions.php:475
+#: tinypress.php:373
+#: tinypress.php:374
+#: tinypress.php:375
+msgid "This post is in {status} status. It is not visible to the public."
+msgstr "این پست در وضعیت {status} است. برای عموم قابل مشاهده نیست."
+
+#: includes/classes/class-redirection.php:1434
+msgid "This link has expired"
+msgstr "این لینک منقضی شده است"
+
+#: includes/classes/class-redirection.php:1438
+msgid "You will be redirected shortly."
+msgstr "به زودی به شما هدایت می‌شوید."
+
+#: includes/classes/class-redirection.php:1442
+msgid "Click here if you are not redirected"
+msgstr "اگر به شما هدایت نشدید، اینجا کلیک کنید"
+
+#: includes/classes/class-redirection.php:1459
+msgid "Link Expired"
+msgstr "لینک منقضی شده است"
+
+#: includes/classes/class-redirection.php:1680
+#: includes/classes/class-redirection.php:1688
+msgid "This link is not active."
+msgstr "این لینک فعال نیست."
+
+#: includes/classes/class-redirection.php:1727
 msgid "Incorrect password. Please try again."
 msgstr "رمز عبور نادرست است. لطفاً دوباره تلاش کنید."
 
-#: includes/classes/class-redirection.php:1494
-#: includes/classes/class-redirection.php:1499
+#: includes/classes/class-redirection.php:1746
+#: includes/classes/class-redirection.php:1751
 msgid "Password Protected Link"
 msgstr "لینک حفاظت شده با رمز عبور"
 
-#: includes/classes/class-redirection.php:1505
+#: includes/classes/class-redirection.php:1757
 msgid "Enter password to continue:"
 msgstr "برای ادامه رمز عبور را وارد کنید:"
 
-#: includes/classes/class-redirection.php:1507
+#: includes/classes/class-redirection.php:1759
 msgid "Submit"
 msgstr "ارسال"
 
-#: includes/classes/class-redirection.php:1631
+#: includes/classes/class-redirection.php:1864
 msgid "This link is not containing the right prefix slug."
 msgstr "این لینک شامل پیشوند صحیح نیست."
 
-#: includes/classes/class-redirection.php:1672
+#: includes/classes/class-redirection.php:1905
 msgid "Too many invalid shortlink requests. Please try again later."
 msgstr "درخواست‌های لینک کوتاه نامعتبر بسیار زیاد است. لطفاً بعداً دوباره تلاش کنید."
 
-#: includes/classes/class-redirection.php:1673
+#: includes/classes/class-redirection.php:1906
 msgid "Too Many Requests"
 msgstr "درخواست‌های بسیار زیاد"
 
@@ -1359,31 +1689,31 @@ msgstr "درخواست‌های بسیار زیاد"
 msgid "Invalid revision ID."
 msgstr "شناسه ویرایش نامعتبر است."
 
-#: includes/classes/class-settings.php:362
-#: includes/classes/class-settings.php:703
-#: includes/classes/class-settings.php:711
-#: includes/functions.php:270
-#: includes/functions.php:304
+#: includes/classes/class-settings.php:430
+#: includes/classes/class-settings.php:897
+#: includes/classes/class-settings.php:905
+#: includes/functions.php:376
+#: includes/functions.php:410
 msgid "Draft"
 msgstr "پیش‌نویس"
 
-#: includes/classes/class-settings.php:363
-#: includes/classes/class-settings.php:704
-#: includes/classes/class-settings.php:712
-#: includes/functions.php:271
-#: includes/functions.php:305
+#: includes/classes/class-settings.php:431
+#: includes/classes/class-settings.php:898
+#: includes/classes/class-settings.php:906
+#: includes/functions.php:377
+#: includes/functions.php:411
 msgid "Pending Review"
 msgstr "در انتظار بررسی"
 
-#: includes/classes/class-settings.php:364
-#: includes/classes/class-settings.php:705
-#: includes/classes/class-settings.php:713
-#: includes/functions.php:272
-#: includes/functions.php:306
+#: includes/classes/class-settings.php:432
+#: includes/classes/class-settings.php:899
+#: includes/classes/class-settings.php:907
+#: includes/functions.php:378
+#: includes/functions.php:412
 msgid "Private"
 msgstr "خصوصی"
 
-#: includes/classes/class-settings.php:369
+#: includes/classes/class-settings.php:437
 msgid ""
 "Customize the notice shown for each enabled non-published status. Available "
 "placeholders: {status}, {date}, {title}."
@@ -1391,15 +1721,35 @@ msgstr ""
 "اعلان نمایش داده شده برای هر وضعیت غیرمنتشر فعال را سفارشی کنید. "
 "جایگزین‌های موجود: {status}، {date}، {title}."
 
-#: includes/classes/class-settings.php:405
+#: includes/classes/class-settings.php:473
+#: includes/classes/class-settings.php:522
 msgid "All"
 msgstr "همه"
 
-#: includes/classes/class-settings.php:444
+#: includes/classes/class-settings.php:486
+#: includes/classes/class-settings.php:535
+msgid "Search post types"
+msgstr "جستجوی نوع مطالب"
+
+#: includes/classes/class-settings.php:487
+#: includes/classes/class-settings.php:536
+msgid "Filter post types..."
+msgstr "فیلتر کردن نوع مطالب..."
+
+#: includes/classes/class-settings.php:504
+#: includes/classes/class-settings.php:553
+msgid "No post types match your search."
+msgstr "هیچ نوع مطلبی با جستجوی شما مطابقت ندارد."
+
+#: includes/classes/class-settings.php:528
+msgid "No data available."
+msgstr "هیچ داده‌ای در دسترس نیست."
+
+#: includes/classes/class-settings.php:595
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: includes/classes/class-settings.php:528
+#: includes/classes/class-settings.php:722
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -1407,12 +1757,12 @@ msgstr ""
 "انتخاب کنید که کدام وضعیت‌های پست هنگام بازدید از یک لینک کوتاه "
 "PublishPress قابل دسترسی هستند."
 
-#: includes/classes/class-settings.php:544
+#: includes/classes/class-settings.php:738
 #, fuzzy
 msgid "PublishPress Statuses Plugin Detected:"
 msgstr "پیوندهای کوتاه PublishPress رایگان"
 
-#: includes/classes/class-settings.php:545
+#: includes/classes/class-settings.php:739
 msgid ""
 "To use core PublishPress statuses with Shortlinks, Please enable the "
 "Shortlinks post type in PublishPress Statuses workflow settings."
@@ -1420,11 +1770,11 @@ msgstr ""
 "برای استفاده از وضعیت‌های اصلی PublishPress با Shortlinks، لطفاً نوع پست "
 "Shortlinks را در تنظیمات جریان کار وضعیت‌های PublishPress فعال کنید."
 
-#: includes/classes/class-settings.php:564
+#: includes/classes/class-settings.php:758
 msgid "Elementor Detected:"
 msgstr "المنتور شناسایی شد:"
 
-#: includes/classes/class-settings.php:565
+#: includes/classes/class-settings.php:759
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
@@ -1432,11 +1782,11 @@ msgstr ""
 "پیشوند لینک کوتاه برای رندر مناسب ویرایش‌های المنتور ضروری است. توصیه "
 "می‌شود آن را فعال نگه دارید."
 
-#: includes/classes/class-settings.php:597
+#: includes/classes/class-settings.php:791
 msgid "TinyPress Shortlinks Notice:"
 msgstr "اطلاعیه لینک‌های کوتاه TinyPress:"
 
-#: includes/classes/class-settings.php:598
+#: includes/classes/class-settings.php:792
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
@@ -1444,111 +1794,125 @@ msgstr ""
 "المنتور فعال است. پیشوند لینک کوتاه به‌طور خودکار غیرفعال شده است، این "
 "پیشوند برای سازگاری بهینه با ویرایش‌های المنتور ضروری است."
 
-#: includes/classes/class-settings.php:702
-#: includes/functions.php:269
-#: includes/functions.php:303
+#: includes/classes/class-settings.php:896
+#: includes/functions.php:375
+#: includes/functions.php:409
 msgid "Published"
 msgstr "منتشر شده"
 
-#: includes/classes/class-settings.php:726
+#: includes/classes/class-settings.php:915
+#: includes/classes/class-settings.php:920
+#: includes/classes/class-settings.php:1029
+msgid "Post Types"
+msgstr "انواع پست"
+
+#: includes/classes/class-settings.php:921
+msgid "Select which post types will have shortlinks available."
+msgstr "انتخاب کنید که کدام نوع مطالب لینک‌های کوتاه در دسترس خواهند داشت."
+
+#: includes/classes/class-settings.php:922
+msgid "Shortlinks metabox and column will only appear on selected post types."
+msgstr "جعبه و ستون لینک‌های کوتاه تنها در نوع مطالب انتخاب شده ظاهر خواهند شد."
+
+#: includes/classes/class-settings.php:935
 msgid "Shortlink Prefix"
 msgstr "پیشوند لینک کوتاه"
 
-#: includes/classes/class-settings.php:727
+#: includes/classes/class-settings.php:936
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "یک پیشوند بین نام دامنه و لینک کوتاه خود اضافه کنید."
 
-#: includes/classes/class-settings.php:734
+#: includes/classes/class-settings.php:943
 msgid "Prefix Slug"
 msgstr "پیشوند اسلاگ"
 
-#: includes/classes/class-settings.php:735
+#: includes/classes/class-settings.php:944
 msgid "Custom prefix slug."
 msgstr "اسلاگ پیشوند سفارشی."
 
-#: includes/classes/class-settings.php:736
+#: includes/classes/class-settings.php:945
 msgid "This text will be added between your domain name and shortlink."
 msgstr "این متن بین نام دامنه و لینک کوتاه شما اضافه خواهد شد."
 
-#: includes/classes/class-settings.php:737
-#: includes/classes/class-settings.php:738
+#: includes/classes/class-settings.php:946
+#: includes/classes/class-settings.php:947
 msgid "go"
 msgstr "برو"
 
-#: includes/classes/class-settings.php:744
+#: includes/classes/class-settings.php:953
 msgid "Keyboard Shortcut"
 msgstr "متن میانبر کیبورد"
 
-#: includes/classes/class-settings.php:745
+#: includes/classes/class-settings.php:954
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr "لینک‌های کوتاه را از هر جایی داخل داشبورد WordPress خود ایجاد کنید."
 
-#: includes/classes/class-settings.php:746
-#: includes/classes/class-settings.php:747
+#: includes/classes/class-settings.php:955
+#: includes/classes/class-settings.php:956
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl یا Cmd + /"
 
-#: includes/classes/class-settings.php:756
+#: includes/classes/class-settings.php:965
 msgid "Remove from Admin Bar"
 msgstr "حذف از نوار مدیریت"
 
-#: includes/classes/class-settings.php:757
+#: includes/classes/class-settings.php:966
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "دکمه \"کوتاه کردن\" را از نوار مدیریت WordPress پنهان کنید."
 
-#: includes/classes/class-settings.php:763
+#: includes/classes/class-settings.php:972
 msgid "Role Management"
 msgstr "مدیریت نقش"
 
-#: includes/classes/class-settings.php:768
+#: includes/classes/class-settings.php:977
 msgid "Who Can View The All Shortlinks Screen"
 msgstr "چه کسی می‌تواند صفحه تمام کوتاه‌لینک‌ها را مشاهده کند"
 
-#: includes/classes/class-settings.php:769
+#: includes/classes/class-settings.php:978
 msgid "Only selected user roles can view the complete list of Shortlinks."
 msgstr ""
 "فقط نقش‌های کاربری انتخاب شده می‌توانند لیست کامل کوتاه‌لینک‌ها را مشاهده "
 "کنند."
 
-#: includes/classes/class-settings.php:777
+#: includes/classes/class-settings.php:986
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "چه کسی می‌تواند لینک‌های کوتاه را ایجاد/ویرایش کند"
 
-#: includes/classes/class-settings.php:778
+#: includes/classes/class-settings.php:987
 msgid "Only selected user roles can create or edit links."
 msgstr "فقط نقش‌های کاربری انتخاب شده می‌توانند لینک‌ها را ایجاد یا ویرایش کنند."
 
-#: includes/classes/class-settings.php:787
+#: includes/classes/class-settings.php:996
 msgid "Who Can See Logs"
 msgstr "چه کسی می‌تواند لاگ‌ها را ببیند"
 
-#: includes/classes/class-settings.php:788
+#: includes/classes/class-settings.php:997
 msgid "Only selected user roles can see the Analytics tab and the Logs screen."
 msgstr ""
 "فقط نقش‌های کاربری انتخاب شده می‌توانند تب تجزیه و تحلیل و صفحه لاگ‌ها را "
 "مشاهده کنند."
 
-#: includes/classes/class-settings.php:797
+#: includes/classes/class-settings.php:1006
 msgid "Who Can Control Settings"
 msgstr "چه کسی می‌تواند تنظیمات را کنترل کند"
 
-#: includes/classes/class-settings.php:798
+#: includes/classes/class-settings.php:1007
 msgid "Only selected user roles can access the Settings screen."
 msgstr "فقط نقش‌های کاربری انتخاب شده می‌توانند به صفحه تنظیمات دسترسی داشته باشند."
 
-#: includes/classes/class-settings.php:807
+#: includes/classes/class-settings.php:1016
 msgid "Auto-Linking"
 msgstr "پیوند خودکار"
 
-#: includes/classes/class-settings.php:812
+#: includes/classes/class-settings.php:1021
 msgid "Enable Auto-Linking"
 msgstr "فعال‌سازی پیوند خودکار"
 
-#: includes/classes/class-settings.php:813
+#: includes/classes/class-settings.php:1022
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr "به‌طور خودکار کلیدواژه‌ها را به پیوندهای کوتاه در محتوای پست تبدیل کنید."
 
-#: includes/classes/class-settings.php:814
+#: includes/classes/class-settings.php:1023
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
@@ -1556,47 +1920,43 @@ msgstr ""
 "هنگامی که فعال باشد، کلیدواژه‌های پیکربندی‌شده در تنظیمات پیوند کوتاه "
 "به‌طور خودکار در محتوای شما پیوند داده خواهند شد."
 
-#: includes/classes/class-settings.php:820
-msgid "Post Types"
-msgstr "انواع پست"
-
-#: includes/classes/class-settings.php:821
+#: includes/classes/class-settings.php:1030
 msgid "Where should auto-linking be applied?"
 msgstr "کجا باید پیوند خودکار اعمال شود؟"
 
-#: includes/classes/class-settings.php:830
+#: includes/classes/class-settings.php:1039
 msgid "Open Auto-Links In"
 msgstr "باز کردن پیوندهای خودکار در"
 
-#: includes/classes/class-settings.php:831
+#: includes/classes/class-settings.php:1040
 msgid "Choose how auto-linked keywords should open."
 msgstr "انتخاب کنید چگونه کلیدواژه‌های پیوند داده شده به‌طور خودکار باید باز شوند."
 
-#: includes/classes/class-settings.php:833
+#: includes/classes/class-settings.php:1042
 msgid "Same tab"
 msgstr "زبان همان"
 
-#: includes/classes/class-settings.php:834
+#: includes/classes/class-settings.php:1043
 msgid "New tab"
 msgstr "زبان جدید"
 
-#: includes/classes/class-settings.php:842
+#: includes/classes/class-settings.php:1051
 msgid "Auto-Link Color"
 msgstr "رنگ پیوند خودکار"
 
-#: includes/classes/class-settings.php:843
+#: includes/classes/class-settings.php:1052
 msgid "Choose the color for auto-linked keywords."
 msgstr "رنگ را برای کلمات کلیدی خودکار پیوند داده شده انتخاب کنید."
 
-#: includes/classes/class-settings.php:854
+#: includes/classes/class-settings.php:1063
 msgid "Auto-List Links"
 msgstr "لیست خودکار لینک‌ها"
 
-#: includes/classes/class-settings.php:859
+#: includes/classes/class-settings.php:1068
 msgid "Auto-List Shortlinks"
 msgstr "لیست خودکار لینک‌های کوتاه"
 
-#: includes/classes/class-settings.php:860
+#: includes/classes/class-settings.php:1069
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
@@ -1604,15 +1964,15 @@ msgstr ""
 "هنگامی که فعال باشد، لینک‌های کوتاه در جدول \"All Links\" بر اساس رفتارهایی "
 "که در زیر پیکربندی می‌کنید، ظاهر خواهند شد."
 
-#: includes/classes/class-settings.php:866
+#: includes/classes/class-settings.php:1075
 msgid "Configure Post Types"
 msgstr "پیکربندی نوع‌های پست"
 
-#: includes/classes/class-settings.php:867
+#: includes/classes/class-settings.php:1076
 msgid "Set when links should be auto-listed for each post type"
 msgstr "تعیین کنید که لینک‌ها باید برای هر نوع پست به طور خودکار لیست شوند"
 
-#: includes/classes/class-settings.php:868
+#: includes/classes/class-settings.php:1077
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -1620,20 +1980,20 @@ msgstr ""
 "نوع‌های پست را اضافه کنید و پیکربندی کنید که لینک‌های کوتاه آنها در جدول "
 "\"All Links\" چه زمانی باید ظاهر شوند. تغییرات به طور خودکار ذخیره می‌شوند."
 
-#: includes/classes/class-settings.php:875
+#: includes/classes/class-settings.php:1084
 #: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "قابلیت مشاهده وضعیت پست"
 
-#: includes/classes/class-settings.php:880
+#: includes/classes/class-settings.php:1089
 msgid "Allowed Post Statuses"
 msgstr "وضعیت‌های پست مجاز"
 
-#: includes/classes/class-settings.php:889
+#: includes/classes/class-settings.php:1098
 msgid "Unpublished Content Notice"
 msgstr "اعلان محتوای منتشر نشده"
 
-#: includes/classes/class-settings.php:890
+#: includes/classes/class-settings.php:1099
 msgid ""
 "Show a frontend notice when an internal shortlink displays a post that is "
 "not published."
@@ -1641,11 +2001,11 @@ msgstr ""
 "هنگامی که یک لینک کوتاه داخلی پستی که منتشر نشده است را نمایش می‌دهد، یک "
 "اعلان در جلو صفحه نمایش دهید."
 
-#: includes/classes/class-settings.php:896
+#: includes/classes/class-settings.php:1105
 msgid "Notice Post Statuses"
 msgstr "وضعیت‌های پست اعلان"
 
-#: includes/classes/class-settings.php:897
+#: includes/classes/class-settings.php:1106
 msgid ""
 "This notice only applies to internal shortlinks that render post content "
 "directly. External shortlinks are not affected."
@@ -1653,43 +2013,43 @@ msgstr ""
 "این اعلان فقط به لینک‌های کوتاه داخلی که محتوای پست را به‌طور مستقیم نمایش "
 "می‌دهند، اعمال می‌شود. لینک‌های کوتاه خارجی تحت تأثیر قرار نمی‌گیرند."
 
-#: includes/classes/class-settings.php:906
+#: includes/classes/class-settings.php:1115
 msgid "Notice Messages"
 msgstr "پیام‌های اعلان"
 
-#: includes/classes/class-settings.php:920
+#: includes/classes/class-settings.php:1129
 msgid "Default redirection method for shortlinks"
 msgstr "روش پیش‌فرض هدایت برای لینک‌های کوتاه"
 
-#: includes/classes/class-settings.php:932
+#: includes/classes/class-settings.php:1141
 msgid "Mark links as sponsored content"
 msgstr "لینک‌ها را به عنوان محتوای اسپانسر شده علامت‌گذاری کنید"
 
-#: includes/classes/class-settings.php:940
+#: includes/classes/class-settings.php:1149
 msgid "Prevent search engines from following links"
 msgstr "از دنبال کردن لینک‌ها توسط موتورهای جستجو جلوگیری کنید"
 
-#: includes/classes/class-settings.php:948
+#: includes/classes/class-settings.php:1157
 msgid "Pass URL parameters to target links"
 msgstr "پارامترهای URL را به لینک‌های هدف منتقل کنید"
 
-#: includes/classes/class-settings.php:961
+#: includes/classes/class-settings.php:1170
 msgid "Secure your shortlinks"
 msgstr "لینک‌های کوتاه خود را ایمن کنید"
 
-#: includes/classes/class-settings.php:962
+#: includes/classes/class-settings.php:1171
 msgid "Users must enter a password to redirect to the target link."
 msgstr "کاربران باید یک رمز عبور وارد کنند تا به لینک هدف هدایت شوند."
 
-#: includes/classes/class-settings.php:968
+#: includes/classes/class-settings.php:1177
 msgid "Default Password"
 msgstr "رمز عبور پیش‌فرض"
 
-#: includes/classes/class-settings.php:969
+#: includes/classes/class-settings.php:1178
 msgid "Default password for protected links"
 msgstr "رمز عبور پیش‌فرض برای لینک‌های محافظت‌شده"
 
-#: includes/classes/class-settings.php:970
+#: includes/classes/class-settings.php:1179
 msgid ""
 "This password will be used for links that have password protection enabled "
 "via global settings. Passwords are case sensitive."
@@ -1697,27 +2057,27 @@ msgstr ""
 "این رمز عبور برای لینک‌هایی که حفاظت رمز عبور از طریق تنظیمات جهانی فعال "
 "شده است استفاده خواهد شد. رمزهای عبور حساس به حروف بزرگ و کوچک هستند."
 
-#: includes/classes/class-settings.php:981
+#: includes/classes/class-settings.php:1190
 msgid "Set an expiration date and time for shortlinks"
 msgstr "تاریخ و زمان انقضا را برای لینک‌های کوتاه تنظیم کنید"
 
-#: includes/classes/class-settings.php:989
+#: includes/classes/class-settings.php:1198
 msgid "Select the date when this shortlink should stop working"
 msgstr "تاریخ را انتخاب کنید که این لینک کوتاه باید کار خود را متوقف کند"
 
-#: includes/classes/class-settings.php:1002
+#: includes/classes/class-settings.php:1211
 msgid "Select the time when the shortlink should expire"
 msgstr "زمانی را انتخاب کنید که لینک کوتاه باید منقضی شود"
 
-#: includes/classes/class-settings.php:1021
+#: includes/classes/class-settings.php:1230
 msgid "Revisions"
 msgstr "نسخه‌ها"
 
-#: includes/classes/class-settings.php:1026
+#: includes/classes/class-settings.php:1235
 msgid "Revision Link Visibility"
 msgstr "قابلیت مشاهده لینک نسخه"
 
-#: includes/classes/class-settings.php:1027
+#: includes/classes/class-settings.php:1236
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -1725,35 +2085,35 @@ msgstr ""
 "هنگامی که فعال باشد، لینک‌های کوتاه نسخه در جدول \"All Shortlinks\" بر اساس "
 "رفتارهایی که در زیر پیکربندی می‌کنید، ظاهر خواهند شد."
 
-#: includes/classes/class-settings.php:1029
+#: includes/classes/class-settings.php:1238
 msgid "When Revision is Created"
 msgstr "زمانی که نسخه ایجاد می‌شود"
 
-#: includes/classes/class-settings.php:1031
+#: includes/classes/class-settings.php:1240
 msgid "When Revision is Created or Link is First Used"
 msgstr "زمانی که نسخه ایجاد می‌شود یا لینک برای اولین بار استفاده می‌شود"
 
-#: includes/classes/class-settings.php:1039
+#: includes/classes/class-settings.php:1248
 msgid "Show Shortlink in Revision Table"
 msgstr "نمایش لینک کوتاه در جدول نسخه‌ها"
 
-#: includes/classes/class-settings.php:1040
+#: includes/classes/class-settings.php:1249
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "ستون لینک کوتاه را هنگام مشاهده نسخه‌ها در PublishPress Revisions نمایش "
 "دهید."
 
-#: includes/classes/class-settings.php:1046
+#: includes/classes/class-settings.php:1255
 msgid "Revision Visibility for Visitors"
 msgstr "قابلیت مشاهده نسخه برای بازدیدکنندگان"
 
-#: includes/classes/class-settings.php:1047
+#: includes/classes/class-settings.php:1256
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "اجازه دادن به بازدیدکنندگان خارج شده برای مشاهده محتوای نسخه از طریق "
 "لینک‌های کوتاه."
 
-#: includes/classes/class-settings.php:1048
+#: includes/classes/class-settings.php:1257
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -1765,17 +2125,17 @@ msgstr ""
 "محتویات نسخه را به طور مستقیم برای بازدیدکنندگان خارج شده نمایش می‌دهد به "
 "جای اینکه به URL پیش‌نمایش هدایت کند."
 
-#: includes/classes/class-settings.php:1071
+#: includes/classes/class-settings.php:1280
 msgid "Dummy"
 msgstr "دروغین"
 
-#: includes/classes/class-settings.php:1115
+#: includes/classes/class-settings.php:1324
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "هنوز هیچ نوع پست پیکربندی نشده است. روی \"اضافه کردن نوع پست\" کلیک کنید تا "
 "شروع کنید."
 
-#: includes/classes/class-settings.php:1147
+#: includes/classes/class-settings.php:1356
 msgid "Add Post Type"
 msgstr "اضافه کردن نوع پست"
 
@@ -1793,70 +2153,84 @@ msgstr "%d ورودی ثبت حذف شد."
 msgid "All logs have been cleared."
 msgstr "تمامی لاگ‌ها پاک شده‌اند."
 
-#: includes/classes/class-table-logs.php:163
+#: includes/classes/class-table-logs.php:167
 msgid "Title"
 msgstr "عنوان"
 
-#: includes/classes/class-table-logs.php:165
+#: includes/classes/class-table-logs.php:169
 msgid "Details"
 msgstr "جزئیات"
 
-#: includes/classes/class-table-logs.php:200
+#: includes/classes/class-table-logs.php:204
 msgid "Are you sure you want to delete this log entry?"
 msgstr "آیا از حذف این ورودی ثبت مطمئن هستید؟"
 
-#: includes/classes/class-table-logs.php:260
+#: includes/classes/class-table-logs.php:264
 msgid "View Analytics"
 msgstr "مشاهده تجزیه و تحلیل"
 
-#: includes/classes/class-table-logs.php:278
+#: includes/classes/class-table-logs.php:284
 msgid "Tablet"
 msgstr "تبلت"
 
-#: includes/classes/class-table-logs.php:280
+#: includes/classes/class-table-logs.php:287
 msgid "Mobile"
 msgstr "موبایل"
 
-#: includes/classes/class-table-logs.php:282
+#: includes/classes/class-table-logs.php:290
 msgid "Desktop"
 msgstr "رایانه رومیزی"
 
-#: includes/classes/class-table-logs.php:336
+#: includes/classes/class-table-logs.php:351
 #. translators: 1: user display name, 2: location name, 3: visit date/time
 #, php-format
 msgid "%1$s from %2$s visited at %3$s"
 msgstr "%1$s از %2$s در %3$s بازدید کرد"
 
-#: includes/classes/class-table-logs.php:339
+#: includes/classes/class-table-logs.php:354
 #. translators: 1: user display name, 2: visit date/time
 #, php-format
 msgid "%1$s visited at %2$s"
 msgstr "%1$s در %2$s بازدید کرد"
 
-#: includes/classes/class-table-logs.php:343
+#: includes/classes/class-table-logs.php:358
 #. translators: 1: location name, 2: visit date/time
 #, php-format
 msgid "From %1$s, visited at %2$s"
 msgstr "از %1$s، در %2$s بازدید شد"
 
-#: includes/classes/class-table-logs.php:346
+#: includes/classes/class-table-logs.php:361
 #. translators: %s: visit date/time
 #, php-format
 msgid "Visited at %s"
 msgstr "در %s بازدید شد"
 
-#: includes/classes/class-table-logs.php:358
+#: includes/classes/class-table-logs.php:373
 #. translators: %s: device type and browser name, e.g. "Mobile Chrome"
 #, php-format
 msgid "via %s"
 msgstr "از طریق %s"
 
-#: includes/functions.php:225
+#: includes/classes/class-table-logs.php:382
+msgid "Dynamic Redirect"
+msgstr "ریدایرکت دینامیک"
+
+#: includes/classes/class-table-logs.php:387
+#. translators: %s: redirect rule name
+#, php-format
+msgid "Redirected by %s"
+msgstr "توسط %s ریدایرکت شد"
+
+#: includes/classes/class-url-metadata.php:57
+msgid "Could not fetch target URL details."
+msgstr "نتوانستم جزئیات URL هدف را دریافت کنم."
+
+#: includes/functions.php:331
 msgid "Edit shortlink settings"
 msgstr "تنظیمات لینک کوتاه را ویرایش کنید"
 
-#: includes/functions.php:364
-#: tinypress.php:306
+#: includes/functions.php:470
+#: tinypress.php:376
 msgid ""
 "This post is in {status} status. It will become visible to the public on "
 "{date}."
@@ -1864,15 +2238,15 @@ msgstr ""
 "این پست در وضعیت {status} است. این پست در تاریخ {date} برای عموم قابل "
 "مشاهده خواهد شد."
 
-#: includes/functions.php:389
+#: includes/functions.php:495
 msgid "Target url not found."
 msgstr "آدرس هدف پیدا نشد."
 
-#: includes/functions.php:396
+#: includes/functions.php:502
 msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr "طرح URL نامعتبر است. فقط http، https، ftp، ftps و mailto مجاز هستند."
 
-#: includes/functions.php:428
+#: includes/functions.php:534
 msgid "Tiny slug could not created."
 msgstr "اسلاگ کوچک ایجاد نشد."
 
@@ -1892,24 +2266,48 @@ msgstr "URL بلند"
 msgid "Create Shortlink"
 msgstr "ایجاد لینک کوتاه"
 
-#: templates/admin/analytics.php:49
-#: templates/admin/analytics.php:68
+#: templates/admin/analytics.php:94
 msgid "Reset Today's Analytics"
 msgstr "تحلیل‌های امروز را بازنشانی کنید"
 
-#: templates/admin/analytics.php:50
+#: templates/admin/analytics.php:95
+msgid "Reset Yesterday's Analytics"
+msgstr "تحلیل‌های دیروز را بازنشانی کنید"
+
+#: templates/admin/analytics.php:96
 msgid "Reset Week's Analytics"
 msgstr "تحلیل‌های هفته را بازنشانی کنید"
 
-#: templates/admin/analytics.php:51
+#: templates/admin/analytics.php:97
+#: templates/admin/analytics.php:158
+msgid "Reset Last 30 Days Analytics"
+msgstr "تحلیل‌های ۳۰ روز گذشته را بازنشانی کنید"
+
+#: templates/admin/analytics.php:98
 msgid "Reset Month's Analytics"
 msgstr "تحلیل‌های ماه را بازنشانی کنید"
 
-#: templates/admin/analytics.php:52
+#: templates/admin/analytics.php:99
+msgid "Reset Last Month's Analytics"
+msgstr "تحلیل‌های ماه گذشته را بازنشانی کنید"
+
+#: templates/admin/analytics.php:100
 msgid "Reset Year's Analytics"
 msgstr "تحلیل‌های سال را بازنشانی کنید"
 
-#: templates/admin/analytics.php:53
+#: templates/admin/analytics.php:101
+msgid "Reset Last 2 Years Analytics"
+msgstr "تحلیل‌های ۲ سال گذشته را بازنشانی کنید"
+
+#: templates/admin/analytics.php:102
+msgid "Reset Custom Range Analytics"
+msgstr "تحلیل‌های بازه سفارشی را بازنشانی کنید"
+
+#: templates/admin/analytics.php:103
+msgid "Reset All Time Analytics"
+msgstr "تحلیل‌های تمام زمان‌ها را بازنشانی کنید"
+
+#: templates/admin/analytics.php:104
 msgid ""
 "Are you sure you want to reset the analytics for this period? This action "
 "cannot be undone."
@@ -1917,21 +2315,96 @@ msgstr ""
 "آیا مطمئن هستید که می‌خواهید تحلیل‌ها را برای این دوره بازنشانی کنید؟ این "
 "عمل غیرقابل بازگشت است."
 
-#: templates/admin/analytics.php:61
+#: templates/admin/analytics.php:105
+#, php-format
+msgid "Showing data from %1$s to %2$s"
+msgstr "نمایش داده‌ها از %1$s تا %2$s"
+
+#: templates/admin/analytics.php:106
+#: templates/admin/analytics.php:207
+msgid "No click data available for this period."
+msgstr "برای این دوره داده کلیک موجود نیست."
+
+#: templates/admin/analytics.php:107
+msgid "click"
+msgstr "کلیک"
+
+#: templates/admin/analytics.php:108
+msgid "clicks"
+msgstr "کلیک‌ها"
+
+#: templates/admin/analytics.php:110
+#: templates/admin/analytics.php:201
+msgid "Each bar shows total clicks for one day."
+msgstr "هر نوار مجموع کلیک‌ها را برای یک روز نشان می‌دهد."
+
+#: templates/admin/analytics.php:111
+msgid "Each bar shows total clicks for a 7-day period."
+msgstr "هر نوار مجموع کلیک‌ها را برای یک بازه ۷ روزه نشان می‌دهد."
+
+#: templates/admin/analytics.php:112
+msgid "Each bar shows total clicks for one month."
+msgstr "هر نوار مجموع کلیک‌ها را برای یک ماه نشان می‌دهد."
+
+#: templates/admin/analytics.php:113
+msgid "Each bar shows total clicks for one year."
+msgstr "هر نوار مجموع کلیک‌ها را برای یک سال نشان می‌دهد."
+
+#: templates/admin/analytics.php:125
 msgid "Today"
 msgstr "امروز"
 
-#: templates/admin/analytics.php:62
-msgid "Last 7 Days"
-msgstr "7 روز گذشته"
+#: templates/admin/analytics.php:126
+msgid "Yesterday"
+msgstr "دیروز"
 
-#: templates/admin/analytics.php:63
-msgid "Last 1 Month"
-msgstr "1 ماه گذشته"
+#: templates/admin/analytics.php:128
+msgid "Last 30 Days"
+msgstr "۳۰ روز گذشته"
 
-#: templates/admin/analytics.php:64
-msgid "Last 1 Year"
-msgstr "1 سال گذشته"
+#: templates/admin/analytics.php:129
+msgid "This Month"
+msgstr "این ماه"
+
+#: templates/admin/analytics.php:130
+msgid "Last Month"
+msgstr "ماه گذشته"
+
+#: templates/admin/analytics.php:131
+msgid "This Year"
+msgstr "این سال"
+
+#: templates/admin/analytics.php:132
+msgid "Last 2 Years"
+msgstr "۲ سال گذشته"
+
+#: templates/admin/analytics.php:133
+msgid "Custom Range"
+msgstr "محدوده سفارشی"
+
+#: templates/admin/analytics.php:134
+msgid "All Time"
+msgstr "تمام زمان‌ها"
+
+#: templates/admin/analytics.php:138
+msgid "From:"
+msgstr "از:"
+
+#: templates/admin/analytics.php:146
+msgid "To:"
+msgstr "به:"
+
+#: templates/admin/analytics.php:185
+msgid "Days With Clicks"
+msgstr "روزهایی با کلیک‌ها"
+
+#: templates/admin/analytics.php:193
+msgid "Avg. per Click Day"
+msgstr "میانگین به ازای روز کلیک"
+
+#: templates/admin/analytics.php:199
+msgid "Clicks Over Time"
+msgstr "کلیک‌ها در طول زمان"
 
 #: templates/admin/footer.php:16
 #. translators: %1$s: plugin name, %2$s: star rating icon
@@ -1951,7 +2424,7 @@ msgstr "مستندات"
 msgid "Contact"
 msgstr "تماس"
 
-#: templates/admin/qr-code.php:16
+#: templates/admin/qr-code.php:17
 msgid "Download QR Code"
 msgstr "دانلود کد QR"
 
@@ -1987,15 +2460,15 @@ msgstr "مستندات دقیق‌تری نیز در وب‌سایت افزون�
 msgid "View Knowledge Base"
 msgstr "مرکز دانش را مشاهده کنید"
 
-#: tinypress.php:98
+#: tinypress.php:143
 msgid "This plugin can be deleted."
 msgstr "این افزونه قابل حذف است."
 
-#: tinypress.php:395
+#: tinypress.php:469
 msgid "Copied."
 msgstr "کپی شد."
 
-#: tinypress.php:397
+#: tinypress.php:471
 msgid ""
 "This setting is inherited from global settings. Choose another option to "
 "override it for this shortlink."
@@ -2003,6 +2476,30 @@ msgstr ""
 "این تنظیم از تنظیمات جهانی به ارث رسیده است. گزینه دیگری را برای نادیده "
 "گرفتن آن برای این کوتاه‌لینک انتخاب کنید."
 
-#: tinypress.php:398
+#: tinypress.php:472
 msgid "Working..."
 msgstr "در حال کار..."
+
+#: tinypress.php:476
+msgid "Suggested Label from target URL"
+msgstr "برچسب پیشنهادی از URL هدف"
+
+#: tinypress.php:477
+msgid "Suggested Notes from target URL"
+msgstr "یادداشت‌های پیشنهادی از URL هدف"
+
+#: tinypress.php:478
+msgid "Overwrite label?"
+msgstr "آیا برچسب را بازنویسی کنید؟"
+
+#: tinypress.php:479
+msgid "Overwrite notes?"
+msgstr "آیا یادداشت‌ها را بازنویسی کنید؟"
+
+#: tinypress.php:480
+msgid "Yes"
+msgstr "بله"
+
+#: tinypress.php:481
+msgid "No"
+msgstr "خیر"

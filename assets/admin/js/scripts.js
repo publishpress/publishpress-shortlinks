@@ -94,6 +94,111 @@
 
         tinypressActivateRequestedMetaboxTab();
 
+        function tinypressEnableMetaboxNavScrollChaining() {
+            var navs = document.querySelectorAll(
+                'body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav'
+            );
+
+            Array.prototype.forEach.call(navs, function (nav) {
+                if (nav.getAttribute('data-tinypress-scroll-chain-bound') === 'true') {
+                    return;
+                }
+
+                nav.setAttribute('data-tinypress-scroll-chain-bound', 'true');
+                nav.addEventListener('wheel', function (event) {
+                    var deltaY = event.deltaY;
+                    var isVerticalGesture = Math.abs(deltaY) > Math.abs(event.deltaX);
+                    var isAtTop = nav.scrollTop <= 0;
+                    var isAtBottom = Math.ceil(nav.scrollTop + nav.clientHeight) >= nav.scrollHeight;
+                    var shouldHandoff = (deltaY < 0 && isAtTop) || (deltaY > 0 && isAtBottom);
+
+                    if (!isVerticalGesture || !shouldHandoff || event.ctrlKey) {
+                        return;
+                    }
+
+                    var documentHeight = Math.max(
+                        document.body.scrollHeight,
+                        document.documentElement.scrollHeight
+                    );
+                    var pageTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+                    var maxPageTop = Math.max(0, documentHeight - window.innerHeight);
+
+                    if ((deltaY < 0 && pageTop <= 0) || (deltaY > 0 && pageTop >= maxPageTop)) {
+                        return;
+                    }
+
+                    if (event.deltaMode === 1) {
+                        deltaY *= 16;
+                    } else if (event.deltaMode === 2) {
+                        deltaY *= window.innerHeight;
+                    }
+
+                    event.preventDefault();
+                    window.scrollBy(0, deltaY);
+                }, { passive: false });
+            });
+        }
+
+        tinypressEnableMetaboxNavScrollChaining();
+        setTimeout(tinypressEnableMetaboxNavScrollChaining, 250);
+
+        function tinypressSetupDynamicRedirectTeaser() {
+            var $field = $('.tinypress-dynamic-redirect-rules.tinypress-pro-teaser-field').first();
+
+            if (!$field.length || $field.data('tinypress-dynamic-teaser-ready')) {
+                return;
+            }
+
+            var $fieldset = $field.children('.wpdk_settings-fieldset');
+            var $wrapper = $fieldset.children('.wpdk_settings-repeater-wrapper')
+                .add($field.children('.wpdk_settings-repeater-wrapper'))
+                .first();
+
+            if (!$wrapper.length) {
+                return;
+            }
+
+            if (!$wrapper.parent().is($field)) {
+                $wrapper.insertAfter($fieldset);
+            }
+
+            var $nudge = $fieldset.children('.tinypress-pro-nudge-setting').first();
+            var $alerts = $fieldset.children('.wpdk_settings-repeater-alert')
+                .add($field.children('.wpdk_settings-repeater-alert'));
+            var $addButton = $fieldset.children('.wpdk_settings-repeater-add')
+                .add($field.children('.wpdk_settings-repeater-add'))
+                .first();
+
+            $alerts.insertAfter($wrapper);
+            $addButton.insertAfter($alerts.length ? $alerts.last() : $wrapper);
+            $nudge.insertAfter($wrapper);
+            $field.addClass('tinypress-dynamic-redirect-has-rules');
+
+            $wrapper.children('.wpdk_settings-repeater-item').each(function () {
+                var $rule = $(this);
+
+                if ($rule.hasClass('wpdk_settings-repeater-hidden')) {
+                    return;
+                }
+
+                var ruleName = $.trim($rule.find('[data-depend-id="name"]').first().val())
+                    || 'Redirect Rule';
+
+                if (!$rule.children('.tinypress-dynamic-rule-header').length) {
+                    $('<div class="tinypress-dynamic-rule-header"></div>')
+                        .append($('<span class="tinypress-dynamic-rule-header-title"></span>').text(ruleName))
+                        .append('<span class="dashicons dashicons-arrow-up-alt2 tinypress-dynamic-rule-toggle-icon" aria-hidden="true"></span>')
+                        .prependTo($rule);
+                }
+            });
+
+            $field.data('tinypress-dynamic-teaser-ready', true);
+        }
+
+        tinypressSetupDynamicRedirectTeaser();
+        setTimeout(tinypressSetupDynamicRedirectTeaser, 250);
+        setTimeout(tinypressSetupDynamicRedirectTeaser, 1000);
+
         function tinypressGetNotesField() {
             return $('textarea[name*="[tiny_notes]"], textarea#tiny_notes').first();
         }

@@ -107,7 +107,8 @@ if (! class_exists('TINYPRESS_Import_Export')) {
          */
         public function handle_export()
         {
-            if (! isset($_GET['tinypress_export_csv']) || $_GET['tinypress_export_csv'] !== '1') {
+            $export_csv = isset($_GET['tinypress_export_csv']) ? sanitize_text_field(wp_unslash((string) $_GET['tinypress_export_csv'])) : '';
+            if ('1' !== $export_csv) {
                 return;
             }
 
@@ -115,7 +116,8 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 wp_die(esc_html__('Unauthorized.', 'tinypress'));
             }
 
-            if (! isset($_GET['_wpnonce']) || ! wp_verify_nonce(sanitize_text_field($_GET['_wpnonce']), 'tinypress_export_csv')) {
+            $nonce = isset($_GET['_wpnonce']) ? sanitize_text_field(wp_unslash((string) $_GET['_wpnonce'])) : '';
+            if (empty($nonce) || ! wp_verify_nonce($nonce, 'tinypress_export_csv')) {
                 wp_die(esc_html__('Security check failed.', 'tinypress'));
             }
 
@@ -130,7 +132,11 @@ if (! class_exists('TINYPRESS_Import_Export')) {
          */
         private function sanitize_csv_cell($value)
         {
-            $value = (string) $value;
+            if (is_array($value) || is_object($value)) {
+                $value = wp_json_encode($value);
+            }
+
+            $value = is_scalar($value) ? (string) $value : '';
             $trimmed_value = ltrim($value, " \t\r\n");
 
             if ('' !== $trimmed_value && in_array($trimmed_value[0], array( '=', '+', '-', '@' ), true)) {
@@ -150,6 +156,17 @@ if (! class_exists('TINYPRESS_Import_Export')) {
         {
             // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_fputcsv
             fputcsv($handle, array_map(array( $this, 'sanitize_csv_cell' ), $row));
+        }
+
+        /**
+         * Close CSV stream or uploaded temp-file handles.
+         *
+         * @param resource $handle File handle.
+         */
+        private function close_csv_handle($handle)
+        {
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose -- CSV streams and uploaded temp files require native handles.
+            fclose($handle);
         }
 
         /**
@@ -200,7 +217,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 return true;
             }
 
-            if ('1' === (string) $use_global) {
+            if (in_array($use_global, array( '1', 1, true ), true)) {
                 return true;
             }
 
@@ -310,7 +327,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
          */
         private function get_supported_import_fields()
         {
-            return array(
+            return apply_filters('tinypress_import_supported_fields', array(
                 'label',
                 'target_url',
                 'short_slug',
@@ -326,7 +343,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 'expired_redirect_url',
                 'notes',
                 'autolink_keywords',
-            );
+            ));
         }
 
         /**
@@ -450,7 +467,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
             $output = fopen('php://output', 'w');
 
-            $this->write_csv_row($output, array(
+            $base_headers = array(
                 'label',
                 'target_url',
                 'short_slug',
@@ -467,7 +484,10 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 'notes',
                 'autolink_keywords',
                 'date_created',
-            ));
+            );
+            $headers = apply_filters('tinypress_export_csv_headers', $base_headers);
+
+            $this->write_csv_row($output, $headers);
 
             $paged    = 1;
             $per_page = 500;
@@ -508,7 +528,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                         $expiration_time = $this->get_settings_value('tinypress_global_expiration_time', $expiration_time);
                     }
 
-                    $this->write_csv_row($output, array(
+                    $row = array(
                         $link->post_title,
                         get_post_meta($link->ID, 'target_url', true),
                         get_post_meta($link->ID, 'tiny_slug', true),
@@ -525,13 +545,31 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                         get_post_meta($link->ID, 'tiny_notes', true),
                         $autolink_keywords,
                         $link->post_date,
-                    ));
+                    );
+
+                    $values = array_combine($base_headers, $row);
+                    if (! is_array($values)) {
+                        continue;
+                    }
+
+                    $values = apply_filters('tinypress_export_csv_values', $values, $link->ID, $headers, $base_headers);
+                    if (! is_array($values)) {
+                        $values = array();
+                    }
+
+                    $ordered_row = array();
+                    foreach ($headers as $header) {
+                        $ordered_row[] = array_key_exists($header, $values) ? $values[ $header ] : '';
+                    }
+
+                    $filtered_row = apply_filters('tinypress_export_csv_row', $ordered_row, $link->ID, $headers, $base_headers);
+                    $this->write_csv_row($output, is_array($filtered_row) ? $filtered_row : $ordered_row);
                 }
 
                 $paged++;
             } while (count($link_ids) === $per_page);
 
-            fclose($output);
+            $this->close_csv_handle($output);
             die();
         }
 
@@ -569,7 +607,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             // Read header row
             $header = fgetcsv($handle, 0, ',', '"', '\\');
             if (! $header) {
-                fclose($handle);
+                $this->close_csv_handle($handle);
                 wp_send_json_error(array( 'message' => esc_html__('Empty CSV file.', 'tinypress') ));
             }
 
@@ -591,7 +629,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             }
 
             if (! $detected_target_url) {
-                fclose($handle);
+                $this->close_csv_handle($handle);
                 wp_send_json_error(array(
                     'message' => esc_html__('CSV must contain a column for target URL (e.g., "url", "target_url", "destination_url").', 'tinypress')
                 ));
@@ -714,6 +752,8 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                     update_post_meta($link_id, 'autolink_keywords', ! empty($keywords) ? implode("\n", $keywords) : '');
                 }
 
+                do_action('tinypress_import_after_shortlink_meta', $link_id, $data);
+
                 if ($is_update) {
                     $updated++;
                 } else {
@@ -721,7 +761,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 }
             }
 
-            fclose($handle);
+            $this->close_csv_handle($handle);
 
             // Build message with import results
             $message = '';
@@ -772,6 +812,20 @@ if (! class_exists('TINYPRESS_Import_Export')) {
          */
         private function parse_boolean($value)
         {
+            if (is_array($value)) {
+                foreach ($value as $item) {
+                    if ($this->parse_boolean($item)) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            if (! is_scalar($value)) {
+                return false;
+            }
+
             if (empty($value)) {
                 return false;
             }
@@ -873,6 +927,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 'notes'            => array( 'notes', 'description', 'comment' ),
                 'autolink_keywords' => array( 'autolink_keywords', 'keywords', 'tags' ),
             );
+            $column_aliases = apply_filters('tinypress_import_column_aliases', $column_aliases);
 
             $mapped_headers = array();
             foreach ($headers as $idx => $original_header) {
@@ -930,7 +985,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             // Read header row
             $header = fgetcsv($handle, 0, ',', '"', '\\');
             if (! $header) {
-                fclose($handle);
+                $this->close_csv_handle($handle);
                 wp_send_json_error(array( 'message' => esc_html__('Empty CSV file.', 'tinypress') ));
             }
 
@@ -953,7 +1008,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             }
 
             if (! $detected_target_url) {
-                fclose($handle);
+                $this->close_csv_handle($handle);
                 wp_send_json_error(array(
                     'message' => esc_html__('CSV must contain a column for target URL (e.g., "url", "target_url", "destination_url").', 'tinypress')
                 ));
@@ -984,7 +1039,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 }
             }
 
-            fclose($handle);
+            $this->close_csv_handle($handle);
 
             // Build field mapping information for display
             $field_mappings = array();
@@ -1048,7 +1103,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 wp_send_json_error(array( 'message' => esc_html__('Unauthorized.', 'tinypress') ));
             }
 
-            $supported_fields = array(
+            $supported_fields = apply_filters('tinypress_import_supported_field_labels', array(
                 'label'                    => esc_html__('Link Label', 'tinypress'),
                 'target_url'               => esc_html__('Target URL', 'tinypress'),
                 'short_slug'               => esc_html__('Short Slug', 'tinypress'),
@@ -1064,7 +1119,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 'expired_redirect_url'     => esc_html__('Expired Redirect URL', 'tinypress'),
                 'notes'                    => esc_html__('Notes', 'tinypress'),
                 'autolink_keywords'        => esc_html__('Autolink Keywords', 'tinypress'),
-            );
+            ));
 
             wp_send_json_success(array(
                 'fields' => $supported_fields,
@@ -1138,9 +1193,35 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                         </div>
                         <div class="tinypress-ie-card-body">
                             <p><?php esc_html_e('Upload a CSV file to bulk-create shortlinks. The CSV must contain at minimum a "target_url" column. Password protection settings are intentionally not imported.', 'tinypress'); ?></p>
+                            <?php
+                            $supported_columns = apply_filters('tinypress_import_supported_columns', array(
+                                'label',
+                                'target_url',
+                                'short_slug',
+                                'post_status',
+                                'link_status',
+                                'redirect_method_mode',
+                                'redirect_method',
+                                'nofollow_mode',
+                                'nofollow',
+                                'sponsored_mode',
+                                'sponsored',
+                                'parameter_forwarding_mode',
+                                'parameter_forwarding',
+                                'expiration_mode',
+                                'expiration_enabled',
+                                'expiration_date',
+                                'expiration_time',
+                                'expired_redirect_url',
+                                'notes',
+                                'autolink_keywords',
+                            ));
+                            ?>
                             <p class="tinypress-ie-columns-info">
                                 <strong><?php esc_html_e('Supported columns:', 'tinypress'); ?></strong><br>
-                                <code>label</code>, <code>target_url</code>, <code>short_slug</code>, <code>post_status</code>, <code>link_status</code>, <code>redirect_method_mode</code>, <code>redirect_method</code>, <code>nofollow_mode</code>, <code>nofollow</code>, <code>sponsored_mode</code>, <code>sponsored</code>, <code>parameter_forwarding_mode</code>, <code>parameter_forwarding</code>, <code>expiration_mode</code>, <code>expiration_enabled</code>, <code>expiration_date</code>, <code>expiration_time</code>, <code>expired_redirect_url</code>, <code>notes</code>, <code>autolink_keywords</code>
+                                <?php foreach ($supported_columns as $column_index => $column) : ?>
+                                    <?php echo $column_index > 0 ? esc_html(', ') : ''; ?><code><?php echo esc_html($column); ?></code>
+                                <?php endforeach; ?>
                             </p>
                             
                             <div id="tinypress-file-input-section">

@@ -616,38 +616,250 @@ table.tinypress_link_page_tinypress-reports th#details {
     background: var(--tinypress-color-red);
 }
 
-.wpdk_settings-section #chart {
-    padding: 20px;
+.tinypress-meta-analytics {
+    max-width: 1400px;
 }
 
-.wpdk_settings-section #chart .toolbar {
-    text-align: right;
+body.post-type-tinypress_link .tinypress-meta-analytics {
+	max-width: 1400px;
 }
 
-.wpdk_settings-section #chart .filter-buttons {
-    display: inline-block;
-    border: 1px solid var(--tinypress-color-primary);
-    padding: 0;
-    border-radius: 5px;
-    overflow: hidden;
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-reports-filter {
+	align-items: center;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 16px;
+	margin: 20px 0 10px;
+	padding: 15px;
+	width: 100%;
 }
 
-.wpdk_settings-section #chart .filter-buttons .date-filter {
-    padding: 10px;
-    display: inline-block;
-    cursor: pointer;
-    transition: 0.3s;
-    border-right: 1px solid;
-    /* float: left; */
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-reports-filter label {
+	font-size: 14px;
+	font-weight: 600;
+	margin: 0;
 }
 
-.wpdk_settings-section #chart .filter-buttons .date-filter.active {
-    color: #fff;
-    background: var(--tinypress-color-primary);
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-reports-filter select {
+	border-radius: 4px;
+	box-sizing: border-box;
+	max-width: none;
+	min-height: 36px;
+	min-width: 150px;
+	padding-right: 32px;
+	width: auto;
 }
 
-.wpdk_settings-section #chart .filter-buttons .date-filter:last-child {
-    border-right: none;
+body.post-type-tinypress_link .tinypress-meta-analytics #tinypress-analytics-date-range {
+	min-width: 120px !important;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-reports-filter .button {
+	margin: 0;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-analytics-apply {
+	display: none;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-reports-filter.is-custom-range .tinypress-analytics-apply {
+	display: inline-block;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-reports-custom-dates {
+	align-items: center;
+	display: none;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-reports-filter.is-custom-range .tinypress-reports-custom-dates {
+	display: inline-flex;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-reports-custom-dates input[type="date"] {
+	border-radius: 4px;
+	max-width: none;
+	min-height: 36px;
+	width: auto;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-analytics-range-description {
+	margin: 10px 0 20px;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-reports-cards {
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	margin: 16px 0 20px;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-report-card {
+	align-items: center;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+	display: flex;
+	gap: 10px;
+	min-height: 72px;
+	padding: 12px 14px;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-report-card .dashicons {
+	color: #2271b1;
+	font-size: 24px;
+	height: 24px;
+	opacity: 0.8;
+	width: 24px;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-report-card-content h3 {
+	color: #1d2327;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 1;
+	margin: 0 0 4px;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-report-card-content p {
+	color: #646970;
+	font-size: 12px;
+	margin: 0;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics #reset-analytics {
+	margin-left: auto;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-report-section {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 20px;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-report-section h2 {
+	border-bottom: 1px solid #f0f0f1;
+	color: #1d2327;
+	font-size: 14px;
+	font-weight: 600;
+	margin: 0 0 15px;
+	padding: 0 0 10px;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-report-section-description {
+	color: #646970;
+	margin: -5px 0 15px;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-chart-container {
+	overflow-x: auto;
+	padding: 10px 0;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-bar-chart {
+	align-items: flex-end;
+	display: flex;
+	gap: 4px;
+	height: 220px;
+	min-width: 100%;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-bar-wrapper {
+	align-items: center;
+	box-sizing: border-box;
+	cursor: pointer;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	height: 100%;
+	justify-content: flex-end;
+	max-width: 60px;
+	min-width: 25px;
+	padding-bottom: 38px;
+	padding-top: 24px;
+	position: relative;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-bar-chart-week .tinypress-bar-wrapper {
+	max-width: 80px;
+	min-width: 45px;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-bar-chart-month .tinypress-bar-wrapper,
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-bar-chart-year .tinypress-bar-wrapper {
+	max-width: 120px;
+	min-width: 70px;
+	padding-bottom: 66px;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-bar {
+	background: linear-gradient(180deg, #2271b1 0%, #135e96 100%);
+	border-radius: 3px 3px 0 0;
+	min-height: 2px;
+	transition: opacity 0.2s;
+	width: 100%;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-bar-zero {
+	background: transparent;
+	min-height: 0;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-bar-wrapper:hover .tinypress-bar {
+	opacity: 0.8;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-bar-value {
+	color: #1d2327;
+	font-size: 11px;
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-bar-label {
+	bottom: 8px;
+	color: #646970;
+	font-size: 10px;
+	left: 50%;
+	margin-top: 0;
+	position: absolute;
+	transform: translateX(-50%) rotate(-45deg);
+	transform-origin: center center;
+	white-space: nowrap;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-no-data {
+	color: #646970;
+	font-style: italic;
+	margin: 0;
+	padding: 30px 0;
+	text-align: center;
+}
+
+@media (max-width: 782px) {
+	body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-reports-filter {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-reports-filter select,
+	body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-reports-filter .button,
+	body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-reports-custom-dates,
+	body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-reports-custom-dates input[type="date"] {
+		width: 100%;
+	}
+
+	body.post-type-tinypress_link .tinypress-meta-analytics #reset-analytics {
+		margin-left: 0;
+	}
 }
 
 /*copy link*/
@@ -1391,6 +1603,44 @@ body.tinypress_link_page_tinypress-logs #wpwrap {
 
 .column-link-type {
     padding-left: 50px !important;
+}
+
+@media screen and (min-width: 1100px) {
+    body.edit-php.post-type-tinypress_link .wp-list-table {
+        table-layout: fixed;
+    }
+
+    body.edit-php.post-type-tinypress_link .wp-list-table .column-link-title {
+        width: 18%;
+    }
+
+    body.edit-php.post-type-tinypress_link .wp-list-table .column-short-link {
+        width: 31%;
+        padding-right: 24px !important;
+    }
+
+    body.edit-php.post-type-tinypress_link .column-short-link .tiny-slug-wrap.mini,
+    body.edit-php.post-type-tinypress_link .column-short-link .tiny-slug-wrap.mini .tiny-slug-preview {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    body.edit-php.post-type-tinypress_link .column-short-link .tiny-slug-wrap.mini .tiny-slug-preview {
+        margin-left: 0 !important;
+    }
+
+    body.edit-php.post-type-tinypress_link .wp-list-table .column-link-type {
+        width: 15%;
+        padding-left: 12px !important;
+    }
+
+    body.edit-php.post-type-tinypress_link .wp-list-table .column-click-count {
+        width: 18%;
+    }
+
+    body.edit-php.post-type-tinypress_link .wp-list-table .column-link-actions {
+        width: 14%;
+    }
 }
 
 .tinypress.tooltip-text{
@@ -2384,10 +2634,6 @@ body.post-type-tinypress_link .tinypress-edit-settings-header #submitdiv #major-
         width: 120px !important;
     }
 
-    .tinypress-link-type-badge{
-        width: 30px !important;
-    }
-
     .tinypress-link-checker-badge {
         width: 50px !important;
     }
@@ -3288,6 +3534,11 @@ body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-fieldset {
 	min-width: 0;
 }
 
+body.post-type-tinypress_link .wpdk_settings-metabox .tiny-slug-wrap:not(.mini):not(.tinypress-modal-link) {
+	max-width: 620px;
+	width: 100%;
+}
+
 body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-field-text input[type="text"],
 body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-field-textarea textarea,
 body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-field-select select,
@@ -3334,9 +3585,6 @@ body.post-type-tinypress_link .tinypress-global-inherited-notice {
 }
 
 #side-sortables [id*="tinypress_shortlinks"] {
-	border: 1px solid var(--tinypress-admin-border, #e3e5ea);
-	border-radius: var(--tinypress-admin-radius, 8px);
-	box-shadow: var(--tinypress-admin-shadow, 0 1px 2px rgba(15, 23, 42, .04), 0 4px 16px rgba(15, 23, 42, .04));
 	overflow: hidden;
 }
 
@@ -5008,4 +5256,15 @@ body.post-php.post-type-tinypress_link #tinypress_meta_main .tinypress-expiratio
 	body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-field .wpdk_settings-title {
 		margin-bottom: 12px !important;
 	}
+}
+
+.tinypress-dynamic-redirect-rules .wpdk_settings-repeater-add .dashicons {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    font-size: 18px;
+    line-height: 18px;
 }

@@ -19,6 +19,25 @@ class ShortlinksCoreAdmin
 
             add_filter('tinypress_security_metabox_fields', [$this, 'add_security_expired_teaser_fields']);
             add_filter('tinypress_global_security_fields', [$this, 'add_global_security_expired_teaser_fields']);
+            add_filter('tinypress_dynamic_redirect_metabox_fields', [$this, 'add_dynamic_redirect_teaser_fields']);
+
+            $teaser_nudge_fields = array(
+                'activation_date_pro_teaser',
+                'activation_time_pro_teaser',
+                'expiration_click_limit_pro_teaser',
+                'expired_redirect_url_use_global_pro_teaser',
+                'expired_show_notice_use_global_pro_teaser',
+                'expired_notice_title_use_global_pro_teaser',
+                'expired_notice_message_use_global_pro_teaser',
+                'expired_notice_cta_text_use_global_pro_teaser',
+                'dynamic_redirect_enabled_pro_teaser',
+            );
+
+            foreach ($teaser_nudge_fields as $field_id) {
+                add_action('WPDK_Settings/after_field/field_' . $field_id, [$this, 'render_pro_nudge_teaser_setting']);
+            }
+
+            add_action('WPDK_Settings/after_field/field_dynamic_redirect_rules_pro_teaser', [$this, 'render_pro_nudges_redirect_rules']);
 
             add_filter('tinypress_autolink_metabox_fields', [$this, 'add_autolink_metabox_teaser_fields']);
             add_filter('tinypress_global_autolink_fields', [$this, 'add_global_autolink_teaser_fields']);
@@ -136,9 +155,15 @@ class ShortlinksCoreAdmin
         );
     }
 
-    private function get_pro_nudge_html()
+    private function get_pro_nudge_html($additional_class = '')
     {
-        return '<div class="tinypress-pro-nudge-wrapper" style="margin-top:10px;">'
+        $class = 'tinypress-pro-nudge-wrapper';
+
+        if (! empty($additional_class)) {
+            $class .= ' ' . sanitize_html_class($additional_class);
+        }
+
+        return '<div class="' . esc_attr($class) . '" style="margin-top:10px;">'
             . '<span class="pp-tooltips-library" data-toggle="tooltip">'
             . '<button type="button" class="tinypress-pro-nudge-btn" tabindex="-1">'
             . '<span class="dashicons dashicons-lock tinypress-pro-nudge-lock"></span>'
@@ -149,10 +174,10 @@ class ShortlinksCoreAdmin
             . '</span></span></div>';
     }
 
-    private function render_pro_nudge()
+    private function render_pro_nudge($additional_class = '')
     {
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- HTML built with esc_html__ calls in get_pro_nudge_html
-        echo $this->get_pro_nudge_html();
+        echo $this->get_pro_nudge_html($additional_class);
     }
 
     public function render_link_checker_teaser_page()
@@ -303,26 +328,176 @@ class ShortlinksCoreAdmin
 
     public function add_security_expired_teaser_fields($fields)
     {
-        $nudge = $this->get_pro_nudge_html();
-
-        $fields[] = array(
-            'id'         => 'expired_redirect_pro_teaser',
-            'type'       => 'content',
-            'title'      => esc_html__('Expired Redirect Settings', 'tinypress'),
-            'dependency' => array( 'enable_expiration', '==', '1' ),
-            'content'    => '<div style="opacity:0.5;pointer-events:none;">'
-                . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Expired Redirect URL', 'tinypress') . '</strong></p>'
-                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Choose where visitors should go when they click an expired link.', 'tinypress') . '</p>'
-                . '<input type="text" disabled placeholder="' . esc_attr(home_url('/')) . '" style="width:100%;max-width:400px;" />'
-                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Show Expiration Notice', 'tinypress') . '</strong></p>'
-                . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Display a custom notice page before automatically redirecting visitors.', 'tinypress') . '</p>'
-                . '<label style="display:inline-flex;align-items:center;gap:8px;">'
-                . '<input type="checkbox" disabled />'
-                . esc_html__('Show a notice page for expired shortlinks briefly before redirecting.', 'tinypress')
-                . '</label></div>' . $nudge,
+        $activation_fields = array(
+            array(
+                'id'         => 'activation_date_pro_teaser',
+                'type'       => 'datetime',
+                'title'      => esc_html__('Activation Date', 'tinypress'),
+                'subtitle'   => esc_html__('Select the date when this shortlink should start working.', 'tinypress'),
+                'desc'       => esc_html__('Leave empty to make the shortlink active immediately.', 'tinypress'),
+                'class'      => 'tinypress-scheduled-expiration-field tinypress-pro-teaser-field',
+                'attributes' => array('disabled' => true),
+                'settings'   => array(
+                    'dateFormat' => 'd-m-Y',
+                    'enableTime' => false,
+                    'allowInput' => false,
+                ),
+            ),
+            array(
+                'id'         => 'activation_time_pro_teaser',
+                'type'       => 'datetime',
+                'title'      => esc_html__('Activation Time', 'tinypress'),
+                'subtitle'   => esc_html__('Select the time when this shortlink should start working.', 'tinypress'),
+                'desc'       => esc_html__('Only used when an activation date is set. Leave empty to activate at the start of that date.', 'tinypress'),
+                'class'      => 'tinypress-scheduled-expiration-field tinypress-scheduled-expiration-activation-time tinypress-pro-teaser-field',
+                'attributes' => array('disabled' => true),
+                'settings'   => array(
+                    'noCalendar'      => true,
+                    'enableTime'      => true,
+                    'time_24hr'       => false,
+                    'dateFormat'      => 'h:i K',
+                    'allowInput'      => false,
+                    'minuteIncrement' => 1,
+                ),
+            ),
         );
+        $expiration_fields = array(
+            array(
+                'id'         => 'expiration_click_limit_pro_teaser',
+                'type'       => 'number',
+                'title'      => esc_html__('Expiration Click Limit', 'tinypress'),
+                'subtitle'   => esc_html__('Expire this shortlink after a number of clicks.', 'tinypress'),
+                'desc'       => esc_html__('Set to 0 for no click limit.', 'tinypress'),
+                'default'    => 0,
+                'attributes' => array(
+                    'disabled' => true,
+                    'min'      => 0,
+                    'step'     => 1,
+                ),
+                'class'      => 'tinypress-scheduled-expiration-field tinypress-expiration-click-limit tinypress-pro-teaser-field',
+            ),
+            array(
+                'id'         => 'expired_redirect_url_use_global_pro_teaser',
+                'type'       => 'select',
+                'title'      => esc_html__('Expired Redirect URL', 'tinypress'),
+                'subtitle'   => esc_html__('Where should visitors be sent when they click an expired link?', 'tinypress'),
+                'options'    => array(
+                    '1'      => esc_html__('Use global settings', 'tinypress'),
+                    'custom' => esc_html__('Custom URL', 'tinypress'),
+                ),
+                'default'    => 'custom',
+                'attributes' => array('disabled' => true),
+                'class'      => 'tinypress-global-mode-select tinypress-pro-teaser-field',
+            ),
+            array(
+                'id'          => 'expired_redirect_url_pro_teaser',
+                'type'        => 'text',
+                'title'       => '',
+                'desc'        => esc_html__('When a shortlink expires, visitors are redirected to this URL. If left empty, visitors are redirected to the homepage.', 'tinypress'),
+                'placeholder' => esc_url(home_url('/')),
+                'attributes'  => array('disabled' => true),
+                'class'       => 'tinypress-global-controlled tinypress-pro-teaser-field',
+            ),
+            array(
+                'id'         => 'expired_show_notice_use_global_pro_teaser',
+                'type'       => 'select',
+                'title'      => esc_html__('Show Expiration Notice', 'tinypress'),
+                'subtitle'   => esc_html__('Display a custom notice page before redirecting expired links.', 'tinypress'),
+                'options'    => array(
+                    '1'       => esc_html__('Use global settings', 'tinypress'),
+                    'enabled' => esc_html__('Enabled', 'tinypress'),
+                    'disabled' => esc_html__('Disabled', 'tinypress'),
+                ),
+                'default'    => 'enabled',
+                'attributes' => array('disabled' => true),
+                'class'      => 'tinypress-global-mode-select tinypress-pro-teaser-field',
+            ),
+            array(
+                'id'         => 'expired_notice_title_use_global_pro_teaser',
+                'type'       => 'select',
+                'title'      => esc_html__('Expiration Notice Title', 'tinypress'),
+                'subtitle'   => esc_html__('The heading of the expiration notice page', 'tinypress'),
+                'options'    => array(
+                    '1'      => esc_html__('Use global settings', 'tinypress'),
+                    'custom' => esc_html__('Custom text', 'tinypress'),
+                ),
+                'default'    => 'custom',
+                'attributes' => array('disabled' => true),
+                'class'      => 'tinypress-global-mode-select tinypress-pro-teaser-field',
+            ),
+            array(
+                'id'         => 'expired_notice_title_pro_teaser',
+                'type'       => 'text',
+                'title'      => '',
+                'value'      => esc_html__('This link has expired', 'tinypress'),
+                'desc'       => esc_html__('This is the main heading visitors see when they click an expired link.', 'tinypress'),
+                'attributes' => array('disabled' => true),
+                'class'      => 'tinypress-global-controlled tinypress-pro-teaser-field',
+            ),
+            array(
+                'id'         => 'expired_notice_message_use_global_pro_teaser',
+                'type'       => 'select',
+                'title'      => esc_html__('Expiration Notice Message', 'tinypress'),
+                'subtitle'   => esc_html__('The message shown to visitors on the expiration notice page', 'tinypress'),
+                'options'    => array(
+                    '1'      => esc_html__('Use global settings', 'tinypress'),
+                    'custom' => esc_html__('Custom text', 'tinypress'),
+                ),
+                'default'    => 'custom',
+                'attributes' => array('disabled' => true),
+                'class'      => 'tinypress-global-mode-select tinypress-pro-teaser-field',
+            ),
+            array(
+                'id'         => 'expired_notice_message_pro_teaser',
+                'type'       => 'textarea',
+                'title'      => '',
+                'value'      => esc_html__('You will be redirected shortly.', 'tinypress'),
+                'desc'       => esc_html__('This is the body text explaining what happened and when visitors will be redirected.', 'tinypress'),
+                'attributes' => array(
+                    'disabled' => true,
+                    'rows'     => 6,
+                    'style'    => 'min-height:130px;',
+                ),
+                'class'      => 'tinypress-global-controlled tinypress-pro-teaser-field',
+            ),
+            array(
+                'id'         => 'expired_notice_cta_text_use_global_pro_teaser',
+                'type'       => 'select',
+                'title'      => esc_html__('Expiration Notice Link Text', 'tinypress'),
+                'subtitle'   => esc_html__('The text for the button visitors click to continue', 'tinypress'),
+                'options'    => array(
+                    '1'      => esc_html__('Use global settings', 'tinypress'),
+                    'custom' => esc_html__('Custom text', 'tinypress'),
+                ),
+                'default'    => 'custom',
+                'attributes' => array('disabled' => true),
+                'class'      => 'tinypress-global-mode-select tinypress-pro-teaser-field',
+            ),
+            array(
+                'id'         => 'expired_notice_cta_text_pro_teaser',
+                'type'       => 'text',
+                'title'      => '',
+                'value'      => esc_html__('Click here if you are not redirected', 'tinypress'),
+                'desc'       => esc_html__('This is the text displayed on the clickable button at the bottom of the notice page.', 'tinypress'),
+                'attributes' => array('disabled' => true),
+                'class'      => 'tinypress-global-controlled tinypress-pro-teaser-field',
+            ),
+        );
+        $updated_fields    = array();
 
-        return $fields;
+        foreach ($fields as $field) {
+            if (! empty($field['id']) && 'enable_expiration_use_global' === $field['id']) {
+                $updated_fields = array_merge($updated_fields, $activation_fields);
+            }
+
+            $updated_fields[] = $field;
+
+            if (! empty($field['id']) && 'expiration_time' === $field['id']) {
+                $updated_fields = array_merge($updated_fields, $expiration_fields);
+            }
+        }
+
+        return $updated_fields;
     }
 
     public function add_global_security_expired_teaser_fields($fields)
@@ -349,6 +524,147 @@ class ShortlinksCoreAdmin
         return $fields;
     }
 
+    public function add_dynamic_redirect_teaser_fields($fields)
+    {
+        $fields[] = array(
+            'id'         => 'dynamic_redirect_enabled_pro_teaser',
+            'type'       => 'switcher',
+            'title'      => esc_html__('Enable Dynamic Redirects', 'tinypress'),
+            'subtitle'   => esc_html__('Send visitors to different destinations when they match an enabled rule.', 'tinypress'),
+            'text_on'    => esc_html__('Enable', 'tinypress'),
+            'text_off'   => esc_html__('Disable', 'tinypress'),
+            'default'    => false,
+            'text_width' => 100,
+            'attributes' => array('disabled' => true),
+            'class'      => 'tinypress-dynamic-redirect-enable tinypress-pro-teaser-field',
+        );
+
+        $fields[] = array(
+            'id'         => 'dynamic_redirect_fallback_notice_pro_teaser',
+            'type'       => 'content',
+            'title'      => esc_html__('Fallback Destination', 'tinypress'),
+            'content'    => '<p class="description">' . esc_html__('The Target URL in the General tab is used whenever no enabled rule matches.', 'tinypress') . '</p>',
+            'class'      => 'tinypress-pro-teaser-field',
+        );
+
+        $fields[] = array(
+            'id'           => 'dynamic_redirect_rules_pro_teaser',
+            'type'         => 'repeater',
+            'title'        => esc_html__('Redirect Rules', 'tinypress'),
+            'subtitle'     => esc_html__('Rules are checked from top to bottom. The first matching rule is used.', 'tinypress'),
+            'button_title' => '<span class="dashicons dashicons-plus-alt2" aria-hidden="true"></span> ' . esc_html__('Add Rule', 'tinypress'),
+            'max'          => 100,
+            'max_notice'   => esc_html__('A shortlink can contain up to 100 redirect rules.', 'tinypress'),
+            'default'      => array(
+                array(
+                    'enabled'          => '1',
+                    'name'             => esc_html__('Redirect Rule', 'tinypress'),
+                    'destination_url'  => 'https://example.com/ng-mobile',
+                    'country_mode'     => 'include',
+                    'countries'        => array('NG'),
+                    'devices'          => array('mobile'),
+                    'referrer_mode'    => 'any',
+                    'referrer_domains' => '',
+                ),
+            ),
+            'class'        => 'tinypress-dynamic-redirect-rules tinypress-pro-teaser-field',
+            'fields'       => array(
+                array(
+                    'id'         => 'enabled',
+                    'type'       => 'switcher',
+                    'title'      => esc_html__('Rule Status', 'tinypress'),
+                    'text_on'    => esc_html__('Enable', 'tinypress'),
+                    'text_off'   => esc_html__('Disable', 'tinypress'),
+                    'default'    => true,
+                    'text_width' => 100,
+                    'attributes' => array('disabled' => true),
+                ),
+                array(
+                    'id'          => 'name',
+                    'type'        => 'text',
+                    'title'       => esc_html__('Rule Name', 'tinypress'),
+                    'placeholder' => esc_html__('Example: Redirect Rule 1', 'tinypress'),
+                    'attributes'  => array('disabled' => true),
+                ),
+                array(
+                    'id'          => 'destination_url',
+                    'type'        => 'text',
+                    'title'       => esc_html__('Destination URL', 'tinypress'),
+                    'placeholder' => 'https://example.com/landing-page',
+                    'desc'        => esc_html__('Use an HTTP or HTTPS URL. Empty, invalid, and self-referencing rules are saved as disabled.', 'tinypress'),
+                    'attributes'  => array('disabled' => true),
+                ),
+                array(
+                    'id'         => 'country_mode',
+                    'type'       => 'select',
+                    'title'      => esc_html__('Countries', 'tinypress'),
+                    'options'    => array(
+                        'any'     => esc_html__('Any country', 'tinypress'),
+                        'include' => esc_html__('Only selected countries', 'tinypress'),
+                        // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- Redirect rule option key, not a query parameter.
+                        'exclude' => esc_html__('All except selected countries', 'tinypress'),
+                    ),
+                    'default'    => 'include',
+                    'attributes' => array('disabled' => true),
+                ),
+                array(
+                    'id'          => 'countries',
+                    'type'        => 'select',
+                    'title'       => esc_html__('Selected Countries', 'tinypress'),
+                    'options'     => array(
+                        'NG' => esc_html__('United Kingdom', 'tinypress'),
+                        'US' => esc_html__('Nigeria', 'tinypress'),
+                        'GB' => esc_html__('United States', 'tinypress'),
+                    ),
+                    'chosen'      => true,
+                    'multiple'    => true,
+                    'placeholder' => esc_html__('Select countries', 'tinypress'),
+                    'attributes'  => array('disabled' => true),
+                ),
+                array(
+                    'id'         => 'devices',
+                    'type'       => 'checkbox',
+                    'title'      => esc_html__('Devices', 'tinypress'),
+                    'options'    => array(
+                        'desktop' => esc_html__('Desktop', 'tinypress'),
+                        'tablet'  => esc_html__('Tablet', 'tinypress'),
+                        'mobile'  => esc_html__('Mobile', 'tinypress'),
+                    ),
+                    'inline'     => true,
+                    'desc'       => esc_html__('Leave every option unchecked to match any device.', 'tinypress'),
+                    'attributes' => array('disabled' => true),
+                ),
+                array(
+                    'id'         => 'referrer_mode',
+                    'type'       => 'select',
+                    'title'      => esc_html__('Referrer', 'tinypress'),
+                    'options'    => array(
+                        'any'     => esc_html__('Any referrer', 'tinypress'),
+                        'direct'  => esc_html__('Direct or unknown only', 'tinypress'),
+                        'include' => esc_html__('Only selected domains', 'tinypress'),
+                        // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- Redirect rule option key, not a query parameter.
+                        'exclude' => esc_html__('All except selected domains', 'tinypress'),
+                    ),
+                    'default'    => 'any',
+                    'attributes' => array('disabled' => true),
+                ),
+                array(
+                    'id'          => 'referrer_domains',
+                    'type'        => 'textarea',
+                    'title'       => esc_html__('Referrer Domains', 'tinypress'),
+                    'placeholder' => 'facebook.com, newsletter.example.com',
+                    'desc'        => esc_html__('Enter domains separated by commas or new lines. Subdomains also match their parent domain.', 'tinypress'),
+                    'attributes'  => array(
+                        'disabled' => true,
+                        'rows'     => 3,
+                    ),
+                ),
+            ),
+        );
+
+        return $fields;
+    }
+
     public function render_pro_nudge_create()
     {
         $this->render_pro_nudge();
@@ -362,6 +678,17 @@ class ShortlinksCoreAdmin
     public function render_pro_nudge_settings()
     {
         $this->render_pro_nudge();
+    }
+
+    public function render_pro_nudge_teaser_setting()
+    {
+        $this->render_pro_nudge('tinypress-pro-nudge-setting');
+    }
+
+    public function render_pro_nudges_redirect_rules()
+    {
+        $this->render_pro_nudge('tinypress-pro-nudge-setting');
+        $this->render_pro_nudge('tinypress-pro-nudge-rule-heading');
     }
 
     /**

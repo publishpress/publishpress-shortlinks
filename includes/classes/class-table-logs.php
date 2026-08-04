@@ -38,7 +38,7 @@ class WP_List_Table_Logs extends WP_List_Table
             return;
         }
         $placeholders = implode(',', array_fill(0, count($ids), '%d'));
-        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; $placeholders generated from array_fill with %d, not user input
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; $placeholders generated from array_fill with %d, not user input
         $wpdb->query($wpdb->prepare("UPDATE " . TINYPRESS_TABLE_REPORTS . " SET is_cleared = 1 WHERE id IN ($placeholders)", $ids));
     }
 
@@ -104,8 +104,12 @@ class WP_List_Table_Logs extends WP_List_Table
 
         global $wpdb;
 
-        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; no user input; results used once for display
-        $all_posts = $wpdb->get_results("SELECT id,post_id,user_id,user_ip,user_location, datetime FROM " . TINYPRESS_TABLE_REPORTS . " WHERE is_cleared = 0 ORDER BY datetime DESC", ARRAY_A);
+        $route_columns = version_compare(get_option('tinypress_reports_schema_version', '0'), '3.0.0', '>=')
+            ? ', redirect_rule_id, redirect_rule_label, redirect_destination'
+            : '';
+
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table and fixed schema-derived columns; no user input; results used once for display.
+        $all_posts = $wpdb->get_results("SELECT id,post_id,user_id,user_ip,user_location, datetime{$route_columns} FROM " . TINYPRESS_TABLE_REPORTS . " WHERE is_cleared = 0 ORDER BY datetime DESC", ARRAY_A);
         $all_posts = array_map(function ($post) {
 
             if (empty($post_id = Utils::get_args_option('post_id', $post)) || 0 == $post_id) {
@@ -274,12 +278,20 @@ class WP_List_Table_Logs extends WP_List_Table
             return array( 'device' => '', 'browser' => '' );
         }
 
-        if (preg_match('/iPad/i', $user_agent)) {
-            $device = esc_html__('Tablet', 'tinypress');
-        } elseif (preg_match('/Mobile|Android|iPhone|Windows Phone/i', $user_agent)) {
-            $device = esc_html__('Mobile', 'tinypress');
-        } else {
-            $device = esc_html__('Desktop', 'tinypress');
+        $device_key = function_exists('tinypress_get_visitor_device') ? tinypress_get_visitor_device($user_agent) : 'unknown';
+        switch ($device_key) {
+            case 'tablet':
+                $device = esc_html__('Tablet', 'tinypress');
+                break;
+            case 'mobile':
+                $device = esc_html__('Mobile', 'tinypress');
+                break;
+            case 'desktop':
+                $device = esc_html__('Desktop', 'tinypress');
+                break;
+            default:
+                $device = '';
+                break;
         }
 
         if (preg_match('/Edg\//i', $user_agent)) {
@@ -312,6 +324,9 @@ class WP_List_Table_Logs extends WP_List_Table
         $user_id           = Utils::get_args_option('user_id', $item);
         $user_location     = Utils::get_args_option('user_location', $item);
         $user_location     = json_decode($user_location, true);
+        $redirect_rule_id  = sanitize_key((string) Utils::get_args_option('redirect_rule_id', $item));
+        $redirect_label    = sanitize_text_field((string) Utils::get_args_option('redirect_rule_label', $item));
+        $redirect_url      = esc_url_raw((string) Utils::get_args_option('redirect_destination', $item));
         $user_display_name = '';
         $user_visited_time = Utils::get_args_option('datetime', $item);
         $user_visited_time = mysql2date(get_option('date_format') . ', ' . get_option('time_format'), $user_visited_time);
@@ -360,6 +375,28 @@ class WP_List_Table_Logs extends WP_List_Table
             }
         }
 
-        return sprintf('<div class="report-details">%s%s</div>', esc_html($details_text), $device_html);
+        $route_html = '';
+        if ('' !== $redirect_rule_id || '' !== $redirect_url) {
+            $redirect_label = '' !== $redirect_label
+                ? $redirect_label
+                : ('default' === $redirect_rule_id ? esc_html__('Default Target', 'tinypress') : esc_html__('Dynamic Redirect', 'tinypress'));
+
+            $route_html = '<span class="tinypress-log-route" style="display:block;margin-top:3px;font-size:11px;color:#646970;">'
+                . esc_html(sprintf(
+                    /* translators: %s: redirect rule name */
+                    __('Redirected by %s', 'tinypress'),
+                    $redirect_label
+                ));
+
+            if ('' !== $redirect_url) {
+                $route_html .= ': <a href="' . esc_url($redirect_url) . '" target="_blank" rel="noopener noreferrer">'
+                    . esc_html($redirect_url)
+                    . '</a>';
+            }
+
+            $route_html .= '</span>';
+        }
+
+        return sprintf('<div class="report-details">%s%s%s</div>', esc_html($details_text), $device_html, $route_html);
     }
 }
