@@ -217,7 +217,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
 
             $meta_key = 'tinypress_meta_side_' . $post->post_type;
             if (isset($_POST[ $meta_key ]['tiny_slug'])) {
-                $tiny_slug = sanitize_text_field(wp_unslash((string) $_POST[ $meta_key ]['tiny_slug']));
+                $tiny_slug = sanitize_text_field($_POST[ $meta_key ]['tiny_slug']);
 
                 update_post_meta($post_id, 'tiny_slug', $tiny_slug);
 

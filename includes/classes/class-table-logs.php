@@ -38,7 +38,7 @@ class WP_List_Table_Logs extends WP_List_Table
             return;
         }
         $placeholders = implode(',', array_fill(0, count($ids), '%d'));
-        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; $placeholders generated from array_fill with %d, not user input
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; $placeholders generated from array_fill with %d, not user input
         $wpdb->query($wpdb->prepare("UPDATE " . TINYPRESS_TABLE_REPORTS . " SET is_cleared = 1 WHERE id IN ($placeholders)", $ids));
     }
 

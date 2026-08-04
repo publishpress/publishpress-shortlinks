@@ -4,7 +4,7 @@
  * Plugin Name: PublishPress Shortlinks Free
  * Plugin URI:  https://publishpress.com/shortlinks/
  * Description: The best link manager for WordPress. Your links are brandable, trackable, and can have custom view permissions.
- * Version: 1.9.0
+ * Version: 1.8.0
  * Text Domain: tinypress
  * Author: PublishPress
  * Author URI: https://publishpress.com/
@@ -54,7 +54,7 @@ if (! defined('TINYPRESS_LOADED')) {
     define('TINYPRESS_LOADED', 1);
 
     define('TINYPRESS_FILE', __DIR__ . '/tinypress.php');
-    define('TINYPRESS_PLUGIN_VERSION', '1.9.0');
+    define('TINYPRESS_PLUGIN_VERSION', '1.8.0');
 
     if (! defined('TINYPRESS_LIB_VENDOR_PATH')) {
         define('TINYPRESS_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
@@ -406,7 +406,6 @@ if (! defined('TINYPRESS_LOADED')) {
             {
                 $locale = determine_locale();
                 if ('en_US' !== $locale) {
-                    // phpcs:ignore PluginCheck.CodeAnalysis.DiscouragedFunctions.load_plugin_textdomainFound -- Kept for older WordPress installs that do not fully rely on just-in-time translation loading.
                     load_plugin_textdomain('tinypress', false, plugin_basename(dirname(__FILE__)) . '/languages/');
                 }
             }

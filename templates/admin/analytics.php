@@ -12,7 +12,6 @@ if (! current_user_can('tinypress_view_shortlink_analytics')) {
 
 $post_id = get_the_ID();
 $today   = current_time('Y-m-d');
-$default_custom_start = gmdate('Y-m-d', strtotime('-29 days', strtotime($today)));
 
 global $wpdb;
 
@@ -89,7 +88,7 @@ $analytics_data = array(
     'lastDataDate'       => ! empty($click_map) ? array_key_last($click_map) : '',
     'postId'             => $post_id,
     'todayDate'          => $today,
-    'defaultCustomStart' => $default_custom_start,
+    'defaultCustomStart' => date('Y-m-d', strtotime('-29 days', strtotime($today))),
     'defaultCustomEnd'   => $today,
     'nonce'              => wp_create_nonce('tinypress_reset_analytics_nonce'),
     'resetTodayText'     => esc_html__("Reset Today's Analytics", 'tinypress'),
@@ -141,7 +140,7 @@ wp_localize_script('tinypress-analytics', 'tinypressAnalytics', $analytics_data)
                 type="date"
                 id="tinypress-analytics-custom-start"
                 name="custom_start"
-                value="<?php echo esc_attr($default_custom_start); ?>"
+                value="<?php echo esc_attr(date('Y-m-d', strtotime('-29 days', strtotime($today)))); ?>"
                 max="<?php echo esc_attr($today); ?>"
             />
             <label for="tinypress-analytics-custom-end"><?php esc_html_e('To:', 'tinypress'); ?></label>

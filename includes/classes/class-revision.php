@@ -43,7 +43,18 @@ class TINYPRESS_Revisions
             return;
         }
 
-        $links = $this->get_revision_link_ids();
+        $links = get_posts(array(
+            'post_type'      => 'tinypress_link',
+            'post_status'    => array( 'publish', 'draft', 'pending', 'future', 'private', 'tinypress_suspended' ),
+            'fields'         => 'ids',
+            'posts_per_page' => -1,
+            'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- required lookup
+                array(
+                    'key'   => 'is_revision_link',
+                    'value' => '1',
+                ),
+            ),
+        ));
 
         if (empty($links)) {
             return;
@@ -62,43 +73,6 @@ class TINYPRESS_Revisions
                 wp_delete_post((int) $link_id, true);
             }
         }
-    }
-
-    /**
-     * Get revision shortlink IDs in bounded batches.
-     *
-     * @return array Revision shortlink IDs.
-     */
-    private function get_revision_link_ids()
-    {
-        $link_ids = array();
-        $paged    = 1;
-        $per_page = 500;
-
-        do {
-            $batch_ids = get_posts(array(
-                'post_type'      => 'tinypress_link',
-                'post_status'    => array( 'publish', 'draft', 'pending', 'future', 'private', 'tinypress_suspended' ),
-                'fields'         => 'ids',
-                'posts_per_page' => $per_page,
-                'paged'          => $paged,
-                'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- required lookup
-                    array(
-                        'key'   => 'is_revision_link',
-                        'value' => '1',
-                    ),
-                ),
-            ));
-
-            if (empty($batch_ids)) {
-                break;
-            }
-
-            $link_ids = array_merge($link_ids, array_map('absint', $batch_ids));
-            $paged++;
-        } while (count($batch_ids) === $per_page);
-
-        return $link_ids;
     }
 
     /**
@@ -367,12 +341,12 @@ class TINYPRESS_Revisions
 
             if (! empty($link_ids)) {
                 $ids_placeholder = implode(',', array_fill(0, count($link_ids), '%d'));
-                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- $ids_placeholder is generated from array_fill with %d placeholders, not user input
+                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $ids_placeholder is generated from array_fill with %d placeholders, not user input
                 $wpdb->query($wpdb->prepare(
                     "UPDATE {$wpdb->posts} SET post_status = 'tinypress_suspended' WHERE ID IN ({$ids_placeholder})",
                     array_map('intval', $link_ids)
                 ));
-                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
+                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
                 foreach ($link_ids as $id) {
                     clean_post_cache((int) $id);
                 }
@@ -395,12 +369,12 @@ class TINYPRESS_Revisions
 
             if (! empty($link_ids)) {
                 $ids_placeholder = implode(',', array_fill(0, count($link_ids), '%d'));
-                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- $ids_placeholder is generated from array_fill with %d placeholders, not user input
+                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $ids_placeholder is generated from array_fill with %d placeholders, not user input
                 $wpdb->query($wpdb->prepare(
                     "UPDATE {$wpdb->posts} SET post_status = 'publish' WHERE ID IN ({$ids_placeholder})",
                     array_map('intval', $link_ids)
                 ));
-                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
+                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
                 foreach ($link_ids as $id) {
                     clean_post_cache((int) $id);
                 }
