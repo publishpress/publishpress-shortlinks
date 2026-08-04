@@ -367,12 +367,12 @@ class TINYPRESS_Revisions
 
             if (! empty($link_ids)) {
                 $ids_placeholder = implode(',', array_fill(0, count($link_ids), '%d'));
-                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $ids_placeholder is generated from array_fill with %d placeholders, not user input
+                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- $ids_placeholder is generated from array_fill with %d placeholders, not user input
                 $wpdb->query($wpdb->prepare(
                     "UPDATE {$wpdb->posts} SET post_status = 'tinypress_suspended' WHERE ID IN ({$ids_placeholder})",
                     array_map('intval', $link_ids)
                 ));
-                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
                 foreach ($link_ids as $id) {
                     clean_post_cache((int) $id);
                 }
@@ -395,12 +395,12 @@ class TINYPRESS_Revisions
 
             if (! empty($link_ids)) {
                 $ids_placeholder = implode(',', array_fill(0, count($link_ids), '%d'));
-                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $ids_placeholder is generated from array_fill with %d placeholders, not user input
+                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- $ids_placeholder is generated from array_fill with %d placeholders, not user input
                 $wpdb->query($wpdb->prepare(
                     "UPDATE {$wpdb->posts} SET post_status = 'publish' WHERE ID IN ({$ids_placeholder})",
                     array_map('intval', $link_ids)
                 ));
-                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
                 foreach ($link_ids as $id) {
                     clean_post_cache((int) $id);
                 }

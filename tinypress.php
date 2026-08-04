@@ -406,6 +406,7 @@ if (! defined('TINYPRESS_LOADED')) {
             {
                 $locale = determine_locale();
                 if ('en_US' !== $locale) {
+                    // phpcs:ignore PluginCheck.CodeAnalysis.DiscouragedFunctions.load_plugin_textdomainFound -- Kept for older WordPress installs that do not fully rely on just-in-time translation loading.
                     load_plugin_textdomain('tinypress', false, plugin_basename(dirname(__FILE__)) . '/languages/');
                 }
             }

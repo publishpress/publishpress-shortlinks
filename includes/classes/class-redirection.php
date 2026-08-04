@@ -1954,10 +1954,10 @@ if (! class_exists('TINYPRESS_Redirection')) {
         protected function get_request_uri()
         {
 
-            $current_url = isset($_SERVER ['SCRIPT_URI']) ? sanitize_text_field($_SERVER ['SCRIPT_URI']) : '';
+            $current_url = isset($_SERVER ['SCRIPT_URI']) ? sanitize_text_field(wp_unslash((string) $_SERVER ['SCRIPT_URI'])) : '';
 
             if (empty($current_url)) {
-                $current_url = isset($_SERVER ['REQUEST_URI']) ? sanitize_text_field($_SERVER ['REQUEST_URI']) : '';
+                $current_url = isset($_SERVER ['REQUEST_URI']) ? sanitize_text_field(wp_unslash((string) $_SERVER ['REQUEST_URI'])) : '';
             }
 
             return str_replace(site_url(), '', $current_url);
