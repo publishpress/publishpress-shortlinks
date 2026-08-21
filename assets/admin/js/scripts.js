@@ -158,16 +158,24 @@
                 return;
             }
 
-            if (!$wrapper.parent().is($field)) {
-                $wrapper.insertAfter($fieldset);
-            }
-
             var $nudge = $fieldset.children('.tinypress-pro-nudge-setting').first();
             var $alerts = $fieldset.children('.wpdk_settings-repeater-alert')
                 .add($field.children('.wpdk_settings-repeater-alert'));
             var $addButton = $fieldset.children('.wpdk_settings-repeater-add')
                 .add($field.children('.wpdk_settings-repeater-add'))
                 .first();
+
+            if (!$wrapper.children('.wpdk_settings-repeater-item').length && $addButton.length) {
+                $addButton.trigger('click');
+            }
+
+            if (!$wrapper.children('.wpdk_settings-repeater-item').length) {
+                return;
+            }
+
+            if (!$wrapper.parent().is($field)) {
+                $wrapper.insertAfter($fieldset);
+            }
 
             $alerts.insertAfter($wrapper);
             $addButton.insertAfter($alerts.length ? $alerts.last() : $wrapper);

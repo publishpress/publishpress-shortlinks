@@ -17,11 +17,12 @@ class ShortlinksCoreAdmin
 
             add_action('admin_menu', [$this, 'tinypress_add_upgrade_menu_link'], 999);
 
-            add_filter('tinypress_security_metabox_fields', [$this, 'add_security_expired_teaser_fields']);
-            add_filter('tinypress_global_security_fields', [$this, 'add_global_security_expired_teaser_fields']);
+            add_filter('tinypress_scheduling_metabox_fields', [$this, 'add_scheduling_teaser_fields']);
+            add_filter('tinypress_global_scheduling_fields', [$this, 'add_global_scheduling_teaser_fields']);
             add_filter('tinypress_dynamic_redirect_metabox_fields', [$this, 'add_dynamic_redirect_teaser_fields']);
 
             $teaser_nudge_fields = array(
+                'enable_activation_pro_teaser',
                 'activation_date_pro_teaser',
                 'activation_time_pro_teaser',
                 'expiration_click_limit_pro_teaser',
@@ -326,9 +327,19 @@ class ShortlinksCoreAdmin
         <?php
     }
 
-    public function add_security_expired_teaser_fields($fields)
+    public function add_scheduling_teaser_fields($fields)
     {
         $activation_fields = array(
+            array(
+                'id'         => 'enable_activation_pro_teaser',
+                'type'       => 'switcher',
+                'title'      => esc_html__('Enable Activation', 'tinypress'),
+                'subtitle'   => esc_html__('Schedule when this shortlink should start working.', 'tinypress'),
+                'label'      => esc_html__('When enabled, the shortlink remains inactive until its activation date and time.', 'tinypress'),
+                'default'    => true,
+                'attributes' => array('disabled' => true),
+                'class'      => 'tinypress-pro-teaser-field',
+            ),
             array(
                 'id'         => 'activation_date_pro_teaser',
                 'type'       => 'datetime',
@@ -337,6 +348,7 @@ class ShortlinksCoreAdmin
                 'desc'       => esc_html__('Leave empty to make the shortlink active immediately.', 'tinypress'),
                 'class'      => 'tinypress-scheduled-expiration-field tinypress-pro-teaser-field',
                 'attributes' => array('disabled' => true),
+                'dependency' => array('enable_activation_pro_teaser', '==', '1'),
                 'settings'   => array(
                     'dateFormat' => 'd-m-Y',
                     'enableTime' => false,
@@ -351,6 +363,7 @@ class ShortlinksCoreAdmin
                 'desc'       => esc_html__('Only used when an activation date is set. Leave empty to activate at the start of that date.', 'tinypress'),
                 'class'      => 'tinypress-scheduled-expiration-field tinypress-scheduled-expiration-activation-time tinypress-pro-teaser-field',
                 'attributes' => array('disabled' => true),
+                'dependency' => array('enable_activation_pro_teaser', '==', '1'),
                 'settings'   => array(
                     'noCalendar'      => true,
                     'enableTime'      => true,
@@ -486,10 +499,6 @@ class ShortlinksCoreAdmin
         $updated_fields    = array();
 
         foreach ($fields as $field) {
-            if (! empty($field['id']) && 'enable_expiration_use_global' === $field['id']) {
-                $updated_fields = array_merge($updated_fields, $activation_fields);
-            }
-
             $updated_fields[] = $field;
 
             if (! empty($field['id']) && 'expiration_time' === $field['id']) {
@@ -497,10 +506,10 @@ class ShortlinksCoreAdmin
             }
         }
 
-        return $updated_fields;
+        return array_merge($updated_fields, $activation_fields);
     }
 
-    public function add_global_security_expired_teaser_fields($fields)
+    public function add_global_scheduling_teaser_fields($fields)
     {
         $nudge = $this->get_pro_nudge_html();
 
@@ -584,6 +593,7 @@ class ShortlinksCoreAdmin
                     'type'        => 'text',
                     'title'       => esc_html__('Rule Name', 'tinypress'),
                     'placeholder' => esc_html__('Example: Redirect Rule 1', 'tinypress'),
+                    'default'     => esc_html__('Redirect Rule', 'tinypress'),
                     'attributes'  => array('disabled' => true),
                 ),
                 array(
@@ -592,6 +602,7 @@ class ShortlinksCoreAdmin
                     'title'       => esc_html__('Destination URL', 'tinypress'),
                     'placeholder' => 'https://example.com/landing-page',
                     'desc'        => esc_html__('Use an HTTP or HTTPS URL. Empty, invalid, and self-referencing rules are saved as disabled.', 'tinypress'),
+                    'default'     => 'https://example.com/ng-mobile',
                     'attributes'  => array('disabled' => true),
                 ),
                 array(
@@ -619,6 +630,7 @@ class ShortlinksCoreAdmin
                     'chosen'      => true,
                     'multiple'    => true,
                     'placeholder' => esc_html__('Select countries', 'tinypress'),
+                    'default'     => array('NG'),
                     'attributes'  => array('disabled' => true),
                 ),
                 array(
@@ -632,6 +644,7 @@ class ShortlinksCoreAdmin
                     ),
                     'inline'     => true,
                     'desc'       => esc_html__('Leave every option unchecked to match any device.', 'tinypress'),
+                    'default'    => array('mobile'),
                     'attributes' => array('disabled' => true),
                 ),
                 array(
