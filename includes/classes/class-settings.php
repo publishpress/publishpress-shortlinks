@@ -1183,6 +1183,11 @@ if (! class_exists('TINYPRESS_Settings')) {
                                 ),
                                 'dependency'  => array('tinypress_global_password_protection', '==', '1'),
                             ),
+                        )),
+                    ),
+                    array(
+                        'title'  => esc_html__('Scheduling', 'tinypress'),
+                        'fields' => apply_filters('tinypress_global_scheduling_fields', array(
                             array(
                                 'id'       => 'tinypress_global_enable_expiration',
                                 'type'     => 'switcher',

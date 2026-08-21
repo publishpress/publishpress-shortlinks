@@ -766,6 +766,19 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                     'dependency'   => array( 'password_protection', '==', '1' ),
                     'class'        => 'tinypress-global-controlled-child',
                 ),
+            );
+            $security_fields = apply_filters('tinypress_security_metabox_fields', $security_fields);
+
+            WPDK_Settings::createSection(
+                $this->tinypress_metabox_main,
+                array(
+                    'title'  => esc_html__('Security', 'tinypress'),
+                    'fields' => $security_fields,
+                )
+            );
+
+            // Scheduling Settings section.
+            $scheduling_fields = array(
                 array(
                     'id'       => 'enable_expiration_use_global',
                     'type'     => 'select',
@@ -822,13 +835,13 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                     'class'        => 'tinypress-global-controlled-child tinypress-scheduled-expiration-field tinypress-scheduled-expiration-expiration-time',
                 ),
             );
-            $security_fields = apply_filters('tinypress_security_metabox_fields', $security_fields);
+            $scheduling_fields = apply_filters('tinypress_scheduling_metabox_fields', $scheduling_fields);
 
             WPDK_Settings::createSection(
                 $this->tinypress_metabox_main,
                 array(
-                    'title'  => esc_html__('Security', 'tinypress'),
-                    'fields' => $security_fields,
+                    'title'  => esc_html__('Scheduling', 'tinypress'),
+                    'fields' => $scheduling_fields,
                 )
             );
 
