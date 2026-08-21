@@ -2176,7 +2176,6 @@ body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpd
     display: grid !important;
     grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr);
     grid-template-rows: auto auto;
-    gap: 8px 20px;
     padding: 20px 0 !important;
     margin: 0 !important;
     background: transparent !important;
@@ -3489,7 +3488,6 @@ body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpd
 	align-items: start;
 	border-bottom: 1px solid var(--tinypress-admin-border);
 	display: grid;
-	gap: 8px 24px;
 	grid-template-columns: minmax(170px, 230px) minmax(0, 1fr);
 	height: auto !important;
 	margin: 0 !important;
@@ -4207,7 +4205,6 @@ body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpd
 	border: 1px solid var(--tinypress-admin-border);
 	border-bottom: 0;
 	display: grid;
-	gap: 24px;
 	grid-template-columns: minmax(180px, 28%) minmax(280px, 1fr);
 	height: auto !important;
 	margin: 0 !important;
@@ -4673,7 +4670,6 @@ body.post-php.post-type-tinypress_link #tinypress_meta_main .wpdk_settings-wrapp
 .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-section .wpdk_settings-field,
 body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field {
 	align-items: flex-start !important;
-	gap: 30px !important;
 	grid-template-columns: minmax(250px, 30%) minmax(0, 1fr) !important;
 	padding: 30px clamp(32px, 4vw, 56px) !important;
 }
@@ -5140,6 +5136,26 @@ body.post-php.post-type-tinypress_link #tinypress_meta_main .tinypress-expiratio
 	margin: 0 !important;
 	min-height: 0 !important;
 	padding: 0 !important;
+}
+
+body.post-new-php.post-type-tinypress_link #tinypress_meta_main .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on),
+body.post-php.post-type-tinypress_link #tinypress_meta_main .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on),
+body.post-new-php.post-type-tinypress_link #tinypress_meta_main .wpdk_settings-field.tinypress-global-mode-select:not(.wpdk_settings-depend-on),
+body.post-php.post-type-tinypress_link #tinypress_meta_main .wpdk_settings-field.tinypress-global-mode-select:not(.wpdk_settings-depend-on) {
+	min-height: 0 !important;
+	padding-top: 20px !important;
+}
+
+body.post-new-php.post-type-tinypress_link #tinypress_meta_main .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on),
+body.post-php.post-type-tinypress_link #tinypress_meta_main .wpdk_settings-field.wpdk_settings-field-switcher:not(.tinypress-global-controlled):not(.wpdk_settings-depend-on),
+body.post-new-php.post-type-tinypress_link #tinypress_meta_main .wpdk_settings-field.tinypress-global-mode-select:not(.wpdk_settings-depend-on):not(.has-visible-mode-children),
+body.post-php.post-type-tinypress_link #tinypress_meta_main .wpdk_settings-field.tinypress-global-mode-select:not(.wpdk_settings-depend-on):not(.has-visible-mode-children) {
+	padding-bottom: 20px !important;
+}
+
+body.post-new-php.post-type-tinypress_link #tinypress_meta_main .tinypress-global-visible-by-mode:not(.wpdk_settings-field-switcher),
+body.post-php.post-type-tinypress_link #tinypress_meta_main .tinypress-global-visible-by-mode:not(.wpdk_settings-field-switcher) {
+	padding-bottom: 20px !important;
 }
 
 @media screen and (max-width: 1280px) {
