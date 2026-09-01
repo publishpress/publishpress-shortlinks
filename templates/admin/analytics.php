@@ -104,6 +104,7 @@ $analytics_data = array(
     'resetAllTimeText'   => esc_html__("Reset All Time Analytics", 'tinypress'),
     'resetConfirmText'   => esc_html__("Are you sure you want to reset the analytics for this period? This action cannot be undone.", 'tinypress'),
     'showingDataText'    => esc_html__('Showing data from %1$s to %2$s', 'tinypress'),
+    'analyticsSummaryText' => esc_html__('Analytics updated. Total clicks: %1$s. Unique visitors: %2$s. Days with clicks: %3$s. Average per click day: %4$s.', 'tinypress'),
     'noDataText'         => esc_html__('No click data available for this period.', 'tinypress'),
     'clickSingularText'  => esc_html__('click', 'tinypress'),
     'clickPluralText'    => esc_html__('clicks', 'tinypress'),
@@ -160,7 +161,8 @@ wp_localize_script('tinypress-analytics', 'tinypressAnalytics', $analytics_data)
         </button>
     </div>
 
-    <p class="description tinypress-analytics-range-description"></p>
+    <p class="description tinypress-analytics-range-description" role="status" aria-live="polite" aria-atomic="true"></p>
+    <p class="screen-reader-text tinypress-analytics-summary-status" role="status" aria-live="polite" aria-atomic="true"></p>
 
     <div class="tinypress-reports-cards tinypress-analytics-cards">
         <div class="tinypress-report-card">

@@ -27,6 +27,7 @@
         var $expandTableBtn         = $('#tinypress-expand-table-btn');
         var $previewSection         = $('#tinypress-preview-section');
         var $progressSection         = $('#tinypress-progress-section');
+        var $progressBar             = $('.tinypress-progress-bar');
         var $result                 = $('#tinypress-import-result');
 
         $('.tinypress-ie-tab').on('click', function(e) {
@@ -287,7 +288,7 @@
          * Perform the actual import
          */
         function performImport(file) {
-            $progressSection.show();
+            $progressSection.attr('aria-busy', 'true').show();
             $previewSection.hide();
             $fileSelectedActions.hide();
             $result.hide().removeClass('success error').empty();
@@ -317,6 +318,7 @@
                     updateProgress(100);
 
                     setTimeout(function() {
+                        $progressSection.attr('aria-busy', 'false');
                         $progressSection.hide();
 
                         if (response.success) {
@@ -364,6 +366,7 @@
                 },
                 error: function() {
                     clearInterval(progressInterval);
+                    $progressSection.attr('aria-busy', 'false');
                     $progressSection.hide();
                     $fileInputSection.show();
                     $result.addClass('error').html(
@@ -385,6 +388,7 @@
             percent = Math.max(percent, 0);
             var $fill = $('.tinypress-progress-fill');
             $fill.css('width', percent + '%');
+            $progressBar.attr('aria-valuenow', Math.round(percent));
             $('#tinypress-progress-text').text(Math.round(percent) + '%');
         }
     });
