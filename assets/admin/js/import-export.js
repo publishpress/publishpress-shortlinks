@@ -29,19 +29,66 @@
         var $progressSection         = $('#tinypress-progress-section');
         var $result                 = $('#tinypress-import-result');
 
-        $('.tinypress-ie-tab').on('click', function(e) {
-            e.preventDefault();
+        var $tabs = $('.tinypress-ie-tab');
 
-            var tabId = $(this).data('tab');
+        function activateTab($tab, moveFocus) {
+            var tabId = $tab.data('tab');
+
             if (!tabId) {
                 return;
             }
 
-            $('.tinypress-ie-tab').removeClass('nav-tab-active');
-            $(this).addClass('nav-tab-active');
-            $('.tinypress-ie-tab-panel').removeClass('is-active');
-            $('#' + tabId).addClass('is-active');
+            $tabs.each(function() {
+                var isActive = this === $tab[0];
+                var $currentTab = $(this);
+                var $panel = $('#' + $currentTab.data('tab'));
+
+                $currentTab
+                    .toggleClass('nav-tab-active', isActive)
+                    .attr('aria-selected', isActive ? 'true' : 'false')
+                    .attr('tabindex', isActive ? '0' : '-1');
+
+                $panel
+                    .toggleClass('is-active', isActive)
+                    .prop('hidden', !isActive)
+                    .attr('aria-hidden', isActive ? 'false' : 'true');
+            });
+
+            if (moveFocus) {
+                $tab.trigger('focus');
+            }
+        }
+
+        $tabs.on('click', function(e) {
+            e.preventDefault();
+            activateTab($(this), false);
         });
+
+        $tabs.on('keydown', function(e) {
+            var currentIndex = $tabs.index(this);
+            var nextIndex = currentIndex;
+
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                nextIndex = (currentIndex + 1) % $tabs.length;
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                nextIndex = (currentIndex - 1 + $tabs.length) % $tabs.length;
+            } else if (e.key === 'Home') {
+                nextIndex = 0;
+            } else if (e.key === 'End') {
+                nextIndex = $tabs.length - 1;
+            } else if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                activateTab($(this), false);
+                return;
+            } else {
+                return;
+            }
+
+            e.preventDefault();
+            activateTab($tabs.eq(nextIndex), true);
+        });
+
+        activateTab($tabs.filter('.nav-tab-active').first(), false);
 
         $fileInput.on('change', function() {
             if (this.files.length > 0) {

@@ -1149,17 +1149,17 @@ if (! class_exists('TINYPRESS_Import_Export')) {
             <div class="wrap tinypress-import-export-wrap">
                 <h1><?php esc_html_e('Import / Export Shortlinks', 'tinypress'); ?></h1>
 
-                <h2 class="nav-tab-wrapper tinypress-ie-tabs">
-                    <a href="#tinypress-import-panel" class="nav-tab tinypress-ie-tab nav-tab-active" data-tab="tinypress-import-panel">
+                <nav class="nav-tab-wrapper tinypress-ie-tabs" role="tablist" aria-label="<?php esc_attr_e('Import and export', 'tinypress'); ?>">
+                    <a id="tinypress-import-tab" href="#tinypress-import-panel" class="nav-tab tinypress-ie-tab nav-tab-active" data-tab="tinypress-import-panel" role="tab" aria-controls="tinypress-import-panel" aria-selected="true" tabindex="0">
                         <?php esc_html_e('Import', 'tinypress'); ?>
                     </a>
-                    <a href="#tinypress-export-panel" class="nav-tab tinypress-ie-tab" data-tab="tinypress-export-panel">
+                    <a id="tinypress-export-tab" href="#tinypress-export-panel" class="nav-tab tinypress-ie-tab" data-tab="tinypress-export-panel" role="tab" aria-controls="tinypress-export-panel" aria-selected="false" tabindex="-1">
                         <?php esc_html_e('Export', 'tinypress'); ?>
                     </a>
-                </h2>
+                </nav>
 
                 <div class="tinypress-ie-tab-panels">
-                    <div id="tinypress-export-panel" class="tinypress-ie-tab-panel">
+                    <div id="tinypress-export-panel" class="tinypress-ie-tab-panel" role="tabpanel" aria-labelledby="tinypress-export-tab" hidden>
                     <div class="tinypress-ie-card">
                         <div class="tinypress-ie-card-header">
                             <span class="dashicons dashicons-upload"></span>
@@ -1185,7 +1185,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                     </div>
                     </div>
 
-                    <div id="tinypress-import-panel" class="tinypress-ie-tab-panel is-active">
+                    <div id="tinypress-import-panel" class="tinypress-ie-tab-panel is-active" role="tabpanel" aria-labelledby="tinypress-import-tab">
                     <div class="tinypress-ie-card">
                         <div class="tinypress-ie-card-header">
                             <span class="dashicons dashicons-download"></span>
