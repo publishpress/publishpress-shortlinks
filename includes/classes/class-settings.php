@@ -38,6 +38,34 @@ if (! class_exists('TINYPRESS_Settings')) {
             add_action('pb_settings_options_after', array( $this, 'add_settings_wrapper_end' ));
             add_action('admin_notices', array( $this, 'shortlinks_elementor_prefix_notice' ));
             add_action('admin_menu', array( $this, 'move_utility_submenus_to_bottom' ), 9999);
+            add_action('admin_enqueue_scripts', array( $this, 'enqueue_accessibility_assets' ));
+        }
+
+        /**
+         * Add plugin-scoped accessibility enhancements to the settings screen.
+         *
+         * @return void
+         */
+        public function enqueue_accessibility_assets()
+        {
+            $screen = get_current_screen();
+
+            if (! $screen || 'tinypress_link_page_settings' !== $screen->id) {
+                return;
+            }
+
+            wp_enqueue_script(
+                'tinypress-settings-accessibility',
+                TINYPRESS_PLUGIN_URL . 'assets/admin/js/settings-accessibility.js',
+                array(),
+                tinypress_asset_version('assets/admin/js/settings-accessibility.js'),
+                true
+            );
+
+            wp_localize_script('tinypress-settings-accessibility', 'tinypressSettingsAccessibility', array(
+                'navigationLabel' => esc_html__('Settings sections', 'tinypress'),
+                'searchLabel'     => esc_html__('Search settings', 'tinypress'),
+            ));
         }
 
         public function register_custom_statuses_filters()

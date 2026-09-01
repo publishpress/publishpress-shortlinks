@@ -206,12 +206,12 @@ class ShortlinksCoreAdmin
                     <table class="widefat striped">
                         <thead>
                             <tr>
-                                <th><?php esc_html_e('Shortlink', 'tinypress'); ?></th>
-                                <th><?php esc_html_e('Target URL', 'tinypress'); ?></th>
-                                <th><?php esc_html_e('Status', 'tinypress'); ?></th>
-                                <th><?php esc_html_e('HTTP', 'tinypress'); ?></th>
-                                <th><?php esc_html_e('Redirects', 'tinypress'); ?></th>
-                                <th><?php esc_html_e('Final URL', 'tinypress'); ?></th>
+                                <th scope="col"><?php esc_html_e('Shortlink', 'tinypress'); ?></th>
+                                <th scope="col"><?php esc_html_e('Target URL', 'tinypress'); ?></th>
+                                <th scope="col"><?php esc_html_e('Status', 'tinypress'); ?></th>
+                                <th scope="col"><?php esc_html_e('HTTP', 'tinypress'); ?></th>
+                                <th scope="col"><?php esc_html_e('Redirects', 'tinypress'); ?></th>
+                                <th scope="col"><?php esc_html_e('Final URL', 'tinypress'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -298,8 +298,8 @@ class ShortlinksCoreAdmin
                             <table class="widefat striped">
                                 <thead>
                                     <tr>
-                                        <th><?php esc_html_e('Link', 'tinypress'); ?></th>
-                                        <th class="tinypress-col-clicks"><?php esc_html_e('Clicks', 'tinypress'); ?></th>
+                                        <th scope="col"><?php esc_html_e('Link', 'tinypress'); ?></th>
+                                        <th scope="col" class="tinypress-col-clicks"><?php esc_html_e('Clicks', 'tinypress'); ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>

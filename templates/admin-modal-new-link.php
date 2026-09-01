@@ -14,9 +14,10 @@ $tiny_slug_args = array(
 
 ?>
 
-<div class="tinypress-popup">
+<div class="tinypress-popup" role="dialog" aria-modal="true" aria-labelledby="tinypress-new-shortlink-title">
     <form class="tinypress-popup-box" action="" method="post">
         <div class="popup-content">
+            <h2 id="tinypress-new-shortlink-title" class="screen-reader-text"><?php esc_html_e('Create a Shortlink', 'tinypress'); ?></h2>
             <label for="tinypress-modal-url"><?php esc_html_e('Enter a long URL and make a shortlink', 'tinypress') ?>
                 <input autocomplete="off" id="tinypress-modal-url" name="long_url" type="url" required class="tinypress-modal-url" placeholder="<?php echo esc_url('https://example.com/my-long-url/'); ?>">
             </label>
@@ -34,7 +35,7 @@ $tiny_slug_args = array(
         <div class="popup-actions">
             <input type="hidden" name="tiny_slug" value="<?php echo esc_attr($default_string); ?>">
             <input type="hidden" name="tinypress_create_nonce" value="<?php echo esc_attr(wp_create_nonce('tinypress_popup_create_url')); ?>">
-            <div class="popup-action popup-action-cancel"><?php esc_html_e('Close', 'tinypress') ?></div>
+            <button type="button" class="popup-action popup-action-cancel"><?php esc_html_e('Close', 'tinypress') ?></button>
             <button type="submit" class="popup-action popup-action-create"><?php esc_html_e('Create Shortlink', 'tinypress') ?></button>
         </div>
     </form>
