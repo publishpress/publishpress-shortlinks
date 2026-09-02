@@ -14,7 +14,7 @@ $tiny_slug_args = array(
 
 ?>
 
-<div class="tinypress-popup" role="dialog" aria-modal="true" aria-labelledby="tinypress-new-shortlink-title">
+<div class="tinypress-popup" role="dialog" aria-labelledby="tinypress-new-shortlink-title">
     <form class="tinypress-popup-box" action="" method="post">
         <div class="popup-content">
             <h2 id="tinypress-new-shortlink-title" class="screen-reader-text"><?php esc_html_e('Create a Shortlink', 'tinypress'); ?></h2>

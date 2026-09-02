@@ -92,8 +92,20 @@
 
         syncNavigationState();
 
+        navigation.addEventListener('click', function(event) {
+            var link = event.target.closest('a[data-tab-id]');
+
+            if (!link || !navigation.contains(link)) {
+                return;
+            }
+
+            window.setTimeout(syncNavigationState, 0);
+        });
+
+        window.addEventListener('hashchange', syncNavigationState);
+
         if (window.jQuery) {
-            window.jQuery(window).on('hashchange pb_settings.hashchange', syncNavigationState);
+            window.jQuery(window).on('pb_settings.hashchange', syncNavigationState);
         }
     }
 

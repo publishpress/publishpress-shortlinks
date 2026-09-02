@@ -4,6 +4,37 @@
 
 (function ($, window, document, pluginObject) {
     "use strict";
+    var tinypressPopupOpener = null;
+
+    function tinypressGetPopupFocusables($popup) {
+        return $popup.find('a[href], area[href], input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [contenteditable], [tabindex]:not([tabindex="-1"])').filter(':visible');
+    }
+
+    function tinypressOpenPopup(opener) {
+        var $popup = $('.tinypress-popup').first();
+
+        if (!$popup.length) {
+            return;
+        }
+
+        tinypressPopupOpener = opener || document.activeElement;
+        $popup.show();
+        $popup.find('#tinypress-modal-url').trigger('focus');
+        if ($popup[0].contains(document.activeElement)) {
+            $popup.attr('aria-modal', 'true');
+        }
+    }
+
+    function tinypressClosePopup($popup) {
+        $popup.removeAttr('aria-modal').hide();
+
+        if (tinypressPopupOpener && document.contains(tinypressPopupOpener) && typeof tinypressPopupOpener.focus === 'function') {
+            tinypressPopupOpener.focus();
+        }
+
+        tinypressPopupOpener = null;
+    }
+
 
     $(document).ready(function () {
 
@@ -57,7 +88,7 @@
             // (e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'u'
             if ((e.metaKey || e.ctrlKey) && e.key === '/') {
                 e.preventDefault();
-                $('.tinypress-popup').show().find('#tinypress-modal-url').focus();
+                tinypressOpenPopup(document.activeElement);
                 return false;
             }
         });
@@ -1170,7 +1201,7 @@
 
 
     $(document).on('click', '.tinypress-popup .tinypress-popup-box .popup-actions .popup-action.popup-action-cancel', function () {
-        $(this).parents('.tinypress-popup').hide();
+        tinypressClosePopup($(this).closest('.tinypress-popup'));
     });
 
 
@@ -1181,11 +1212,32 @@
         }
     });
 
-    $(document).on('keydown', '.tinypress-popup form.tinypress-popup-box #tinypress-modal-url', function (e) {
-        if (e.keyCode === 27) {
+    $(document).on('keydown', '.tinypress-popup', function (e) {
+        var $popup = $(this);
+
+        if (e.key === 'Escape') {
             e.preventDefault();
-            $(this).closest('form')[0].reset();
-            $(this).parents('.tinypress-popup').hide();
+            $popup.find('form')[0].reset();
+            tinypressClosePopup($popup);
+            return;
+        }
+
+        if (e.key !== 'Tab') {
+            return;
+        }
+
+        var $focusables = tinypressGetPopupFocusables($popup);
+        var first = $focusables.first()[0];
+        var last = $focusables.last()[0];
+
+        if (!first) {
+            e.preventDefault();
+        } else if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
         }
     });
 
@@ -1231,11 +1283,7 @@
 
     $(document).on('click', '#wpadminbar ul#wp-admin-bar-root-default > li.tinypress-admin-bar-icon', function () {
 
-        let el_tinypress_popup = $('.tinypress-popup'),
-            el_input_url = el_tinypress_popup.find('#tinypress-modal-url');
-
-        el_tinypress_popup.show();
-        el_input_url.focus();
+        tinypressOpenPopup(this);
 
         return false;
     });
