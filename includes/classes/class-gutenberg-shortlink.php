@@ -162,6 +162,7 @@ if (! class_exists('TINYPRESS_Gutenberg_Shortlink')) {
                 'i18n' => array(
                     'shortlink' => __('Shortlink', 'tinypress'),
                     'searchPlaceholder' => __('Search shortlinks...', 'tinypress'),
+                    'searchShortlinks' => __('Search shortlinks', 'tinypress'),
                     'insertShortlink' => __('Insert Shortlink', 'tinypress'),
                     'createNew' => __('Create New Shortlink', 'tinypress'),
                     'options' => __('Options', 'tinypress'),
