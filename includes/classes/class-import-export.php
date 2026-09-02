@@ -1252,10 +1252,10 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                             <!-- Progress Bar -->
                             <div id="tinypress-progress-section" style="display:none;">
                                 <div class="tinypress-progress-container">
-                                    <div class="tinypress-progress-bar">
+                                    <div class="tinypress-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="<?php esc_attr_e('Import progress', 'tinypress'); ?>">
                                         <div class="tinypress-progress-fill" style="width: 0%"></div>
                                     </div>
-                                    <span id="tinypress-progress-text">0%</span>
+                                    <span id="tinypress-progress-text" role="status" aria-live="polite" aria-atomic="true">0%</span>
                                 </div>
                             </div>
 
@@ -1290,6 +1290,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                             </div>
 
                             <!-- Import Result Section -->
+                            <div id="tinypress-import-announcements" class="screen-reader-text" role="status" aria-live="polite" aria-atomic="true"></div>
                             <div id="tinypress-import-result" style="display:none;"></div>
                         </div>
                     </div>

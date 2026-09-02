@@ -27,7 +27,13 @@
         var $expandTableBtn         = $('#tinypress-expand-table-btn');
         var $previewSection         = $('#tinypress-preview-section');
         var $progressSection         = $('#tinypress-progress-section');
+        var $progressBar             = $('.tinypress-progress-bar');
         var $result                 = $('#tinypress-import-result');
+        var $announcements           = $('#tinypress-import-announcements');
+
+        function announce(message) {
+            $announcements.text($('<div>').html(message).text());
+        }
 
         var $tabs = $('.tinypress-ie-tab');
 
@@ -201,10 +207,11 @@
                         $('#tinypress-preview-message').html(previewMessage);
                         $fileSelectedActions.hide();
                         $previewSection.show();
+                        announce(previewMessage);
                     } else {
-                        $result.addClass('error').html(
-                            '<strong>' + escapeHtml(response.data.message || tinypressImportExport.i18n.preview_error) + '</strong>'
-                        ).show();
+                        var previewError = response.data.message || tinypressImportExport.i18n.preview_error;
+                        $result.addClass('error').html('<strong>' + escapeHtml(previewError) + '</strong>').show();
+                        announce(previewError);
                     }
                 },
                 error: function() {
@@ -214,6 +221,7 @@
                     $result.addClass('error').html(
                         '<strong>' + tinypressImportExport.i18n.preview_error + '</strong>'
                     ).show();
+                    announce(tinypressImportExport.i18n.preview_error);
                 }
             });
         }
@@ -334,7 +342,7 @@
          * Perform the actual import
          */
         function performImport(file) {
-            $progressSection.show();
+            $progressSection.attr('aria-busy', 'true').show();
             $previewSection.hide();
             $fileSelectedActions.hide();
             $result.hide().removeClass('success error').empty();
@@ -364,6 +372,7 @@
                     updateProgress(100);
 
                     setTimeout(function() {
+                        $progressSection.attr('aria-busy', 'false');
                         $progressSection.hide();
 
                         if (response.success) {
@@ -396,10 +405,11 @@
                             }
 
                             $result.addClass('success').html(html).show();
+                            announce(html);
                         } else {
-                            $result.addClass('error').html(
-                                '<strong>' + escapeHtml(response.data.message || tinypressImportExport.i18n.import_error) + '</strong>'
-                            ).show();
+                            var importError = response.data.message || tinypressImportExport.i18n.import_error;
+                            $result.addClass('error').html('<strong>' + escapeHtml(importError) + '</strong>').show();
+                            announce(importError);
                         }
 
                         currentFile = null;
@@ -411,11 +421,13 @@
                 },
                 error: function() {
                     clearInterval(progressInterval);
+                    $progressSection.attr('aria-busy', 'false');
                     $progressSection.hide();
                     $fileInputSection.show();
                     $result.addClass('error').html(
                         '<strong>' + tinypressImportExport.i18n.import_error + '</strong>'
                     ).show();
+                    announce(tinypressImportExport.i18n.import_error);
 
                     currentFile = null;
                     previewData = null;
@@ -432,6 +444,7 @@
             percent = Math.max(percent, 0);
             var $fill = $('.tinypress-progress-fill');
             $fill.css('width', percent + '%');
+            $progressBar.attr('aria-valuenow', Math.round(percent));
             $('#tinypress-progress-text').text(Math.round(percent) + '%');
         }
     });
