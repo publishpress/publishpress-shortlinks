@@ -103,6 +103,7 @@
         downloader
             .attr('href', downloadUrl)
             .attr('download', isSvg ? 'qr-code.svg' : 'qr-code.png')
+            .attr('tabindex', '0')
             .removeAttr('aria-disabled');
     }
 
