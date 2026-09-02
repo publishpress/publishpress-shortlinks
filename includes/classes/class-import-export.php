@@ -1263,7 +1263,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                             <div id="tinypress-preview-section" style="display:none;">
                                 <div class="tinypress-preview-header">
                                     <h3><?php esc_html_e('Import Preview', 'tinypress'); ?></h3>
-                                    <p id="tinypress-preview-message" role="status" aria-live="polite" aria-atomic="true"></p>
+                                    <p id="tinypress-preview-message"></p>
                                 </div>
                                 <div class="tinypress-preview-table-wrapper">
                                     <table class="tinypress-preview-table">
@@ -1290,7 +1290,8 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                             </div>
 
                             <!-- Import Result Section -->
-                            <div id="tinypress-import-result" role="status" aria-live="polite" aria-atomic="true" style="display:none;"></div>
+                            <div id="tinypress-import-announcements" class="screen-reader-text" role="status" aria-live="polite" aria-atomic="true"></div>
+                            <div id="tinypress-import-result" style="display:none;"></div>
                         </div>
                     </div>
                     </div>

@@ -29,6 +29,11 @@
         var $progressSection         = $('#tinypress-progress-section');
         var $progressBar             = $('.tinypress-progress-bar');
         var $result                 = $('#tinypress-import-result');
+        var $announcements           = $('#tinypress-import-announcements');
+
+        function announce(message) {
+            $announcements.text($('<div>').html(message).text());
+        }
 
         $('.tinypress-ie-tab').on('click', function(e) {
             e.preventDefault();
@@ -155,10 +160,11 @@
                         $('#tinypress-preview-message').html(previewMessage);
                         $fileSelectedActions.hide();
                         $previewSection.show();
+                        announce(previewMessage);
                     } else {
-                        $result.addClass('error').html(
-                            '<strong>' + escapeHtml(response.data.message || tinypressImportExport.i18n.preview_error) + '</strong>'
-                        ).show();
+                        var previewError = response.data.message || tinypressImportExport.i18n.preview_error;
+                        $result.addClass('error').html('<strong>' + escapeHtml(previewError) + '</strong>').show();
+                        announce(previewError);
                     }
                 },
                 error: function() {
@@ -168,6 +174,7 @@
                     $result.addClass('error').html(
                         '<strong>' + tinypressImportExport.i18n.preview_error + '</strong>'
                     ).show();
+                    announce(tinypressImportExport.i18n.preview_error);
                 }
             });
         }
@@ -351,10 +358,11 @@
                             }
 
                             $result.addClass('success').html(html).show();
+                            announce(html);
                         } else {
-                            $result.addClass('error').html(
-                                '<strong>' + escapeHtml(response.data.message || tinypressImportExport.i18n.import_error) + '</strong>'
-                            ).show();
+                            var importError = response.data.message || tinypressImportExport.i18n.import_error;
+                            $result.addClass('error').html('<strong>' + escapeHtml(importError) + '</strong>').show();
+                            announce(importError);
                         }
 
                         currentFile = null;
@@ -372,6 +380,7 @@
                     $result.addClass('error').html(
                         '<strong>' + tinypressImportExport.i18n.import_error + '</strong>'
                     ).show();
+                    announce(tinypressImportExport.i18n.import_error);
 
                     currentFile = null;
                     previewData = null;
