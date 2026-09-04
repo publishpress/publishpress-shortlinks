@@ -1,7 +1,8 @@
 === PublishPress Shortlinks - The Link Manager for WordPress  ===
 	Contributors: stevejburge, publishpress, deji98
 	Tags: link shortener, shortlinks, redirects, link tracking, custom URLs
-	Requires at least: 4.6
+	Requires at least: 5.5
+	Requires PHP: 7.2.5
 	Tested up to: 7.1
 	Stable tag: 1.9.0
 	License: GPLv2 or later
