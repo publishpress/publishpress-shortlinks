@@ -21,6 +21,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         private $tinypress_metabox_main = 'tinypress_meta_main';
         private $tinypress_metabox_side = 'tinypress_meta_side';
         private $tinypress_default_slug;
+        private $native_rest_sync_post_types = array();
 
 
         /**
@@ -30,6 +31,9 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         {
             $this->tinypress_default_slug = tinypress_create_url_slug();
             $this->generate_tinypress_meta_box();
+            add_action('init', array( $this, 'register_native_shortlink_meta' ), 20);
+            add_action('enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_metabox' ));
+
             foreach (get_post_types(array( 'public' => true )) as $post_type) {
                 if (! in_array($post_type, array( 'attachment' ))) {
                     add_action('add_meta_boxes_' . $post_type, array( $this, 'add_shortlinks_metabox' ));
@@ -38,6 +42,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                         add_action('save_post_tinypress_link', array( $this, 'save_tinypress_link_metabox' ), 15, 2);
                     } elseif (function_exists('tinypress_is_post_type_enabled') && tinypress_is_post_type_enabled($post_type)) {
                         add_action('save_post_' . $post_type, array( $this, 'save_native_shortlinks_metabox' ), 10, 2);
+                        $this->register_native_shortlink_rest_sync($post_type);
                     }
                 }
             }
@@ -164,7 +169,326 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                 return;
             }
 
+            if ($this->should_use_block_editor_panel($post->post_type)) {
+                return;
+            }
+
             add_meta_box('tinypress_shortlinks_' . $post->post_type, esc_html__('Shortlinks', 'tinypress'), array( $this, 'render_native_shortlinks_metabox' ), $post->post_type, 'side', 'high');
+        }
+
+        /**
+         * Register native shortlink meta for the REST API so the block editor can save it.
+         *
+         * @return void
+         */
+        public function register_native_shortlink_meta()
+        {
+            if (! function_exists('register_post_meta')) {
+                return;
+            }
+
+            foreach ($this->get_enabled_native_post_types() as $post_type) {
+                register_post_meta($post_type, 'tiny_slug', array(
+                    'auth_callback'     => array( $this, 'can_edit_shortlink_meta' ),
+                    'description'       => __('PublishPress Shortlinks slug.', 'tinypress'),
+                    'sanitize_callback' => 'sanitize_text_field',
+                    'show_in_rest'      => true,
+                    'single'            => true,
+                    'type'              => 'string',
+                ));
+
+                $this->register_native_shortlink_rest_sync($post_type);
+            }
+        }
+
+        /**
+         * Check if the current user can edit shortlink meta for a post.
+         *
+         * @param bool   $allowed   Existing auth result.
+         * @param string $meta_key  Meta key.
+         * @param int    $object_id Post ID.
+         * @param int    $user_id   User ID.
+         * @return bool
+         */
+        public function can_edit_shortlink_meta($allowed, $meta_key, $object_id, $user_id = 0)
+        {
+            unset($allowed, $meta_key);
+
+            $user_id = $user_id ? absint($user_id) : get_current_user_id();
+            $post_id = absint($object_id);
+
+            return $post_id && user_can($user_id, 'edit_post', $post_id);
+        }
+
+        /**
+         * Enqueue the block editor replacement for the native Shortlinks metabox.
+         *
+         * @return void
+         */
+        public function enqueue_block_editor_metabox()
+        {
+            if (! function_exists('get_current_screen')) {
+                return;
+            }
+
+            $screen = get_current_screen();
+
+            if (! $screen || empty($screen->post_type) || ! $this->should_use_block_editor_panel($screen->post_type)) {
+                return;
+            }
+
+            $post_type_object = get_post_type_object($screen->post_type);
+            $edit_posts_cap   = ($post_type_object && ! empty($post_type_object->cap->edit_posts)) ? $post_type_object->cap->edit_posts : 'edit_posts';
+
+            if (! current_user_can($edit_posts_cap)) {
+                return;
+            }
+
+            $style_handle = 'tinypress-shortlink-editor-style';
+            if (! wp_style_is($style_handle, 'registered')) {
+                wp_register_style(
+                    $style_handle,
+                    TINYPRESS_PLUGIN_URL . 'assets/admin/css/gutenberg-shortlink.css',
+                    array( 'dashicons' ),
+                    tinypress_asset_version('assets/admin/css/gutenberg-shortlink.css')
+                );
+            }
+
+            wp_enqueue_style($style_handle);
+
+            $script_handle = 'tinypress-gutenberg-metabox';
+            wp_register_script(
+                $script_handle,
+                TINYPRESS_PLUGIN_URL . 'assets/admin/js/gutenberg-shortlink-panel.js',
+                array(
+                    'wp-components',
+                    'wp-data',
+                    'wp-edit-post',
+                    'wp-element',
+                    'wp-i18n',
+                    'wp-plugins',
+                ),
+                tinypress_asset_version('assets/admin/js/gutenberg-shortlink-panel.js'),
+                true
+            );
+
+            wp_enqueue_script($script_handle);
+            wp_localize_script($script_handle, 'tinypressShortlinksMetabox', $this->get_block_editor_metabox_data($screen->post_type));
+        }
+
+        /**
+         * Keep legacy nested metabox meta aligned after REST editor saves.
+         *
+         * @param WP_Post         $post     Inserted or updated post object.
+         * @param WP_REST_Request $request  REST request.
+         * @param bool            $creating Whether the post is being created.
+         * @return void
+         */
+        public function sync_native_shortlinks_rest_meta($post, $request, $creating)
+        {
+            unset($creating);
+
+            if (! $post || ! is_a($post, 'WP_Post')) {
+                return;
+            }
+
+            if (! is_object($request) || ! method_exists($request, 'get_param')) {
+                return;
+            }
+
+            $meta = $request->get_param('meta');
+
+            if (! is_array($meta) || ! array_key_exists('tiny_slug', $meta)) {
+                return;
+            }
+
+            $this->sync_native_shortlinks_legacy_meta($post->ID, $post);
+        }
+
+        /**
+         * Sync the legacy nested native metabox meta key from the direct tiny_slug key.
+         *
+         * @param int     $post_id Post ID.
+         * @param WP_Post $post    Post object.
+         * @return void
+         */
+        private function sync_native_shortlinks_legacy_meta($post_id, $post)
+        {
+            if (! $post || ! is_a($post, 'WP_Post') || ! $this->is_native_shortlinks_post_type($post->post_type)) {
+                return;
+            }
+
+            if (! metadata_exists('post', $post_id, 'tiny_slug')) {
+                return;
+            }
+
+            if (! current_user_can('edit_post', $post_id)) {
+                return;
+            }
+
+            $tiny_slug = sanitize_text_field((string) get_post_meta($post_id, 'tiny_slug', true));
+            $meta_key  = 'tinypress_meta_side_' . $post->post_type;
+            $meta_data = get_post_meta($post_id, $meta_key, true);
+
+            if (! is_array($meta_data)) {
+                $meta_data = array();
+            }
+
+            if (! array_key_exists('tiny_slug', $meta_data) || $tiny_slug !== (string) $meta_data['tiny_slug']) {
+                $meta_data['tiny_slug'] = $tiny_slug;
+                update_post_meta($post_id, $meta_key, $meta_data);
+            }
+        }
+
+        /**
+         * Get data for the block editor Shortlinks panel.
+         *
+         * @param string $post_type Post type.
+         * @return array
+         */
+        private function get_block_editor_metabox_data($post_type)
+        {
+            $post_id       = $this->get_current_post_id();
+            $prefix        = '';
+            $prefix_config = function_exists('tinypress_get_link_prefix_settings') ? tinypress_get_link_prefix_settings() : array();
+
+            if (! empty($prefix_config['enabled']) && '1' === (string) $prefix_config['enabled']) {
+                $prefix = trailingslashit(sanitize_title((string) $prefix_config['slug']));
+            }
+
+            return array(
+                'defaultSlug'            => $this->tinypress_default_slug,
+                'enabled'                => true,
+                'linkedShortlinkEditUrl' => $post_id ? $this->get_linked_shortlink_edit_url($post_id) : '',
+                'metaKey'                => 'tiny_slug',
+                'postType'               => sanitize_key($post_type),
+                'shortlinkBaseUrl'       => esc_url_raw(trailingslashit(site_url('/' . $prefix))),
+                'i18n'                   => array(
+                    'copied'       => __('Copied', 'tinypress'),
+                    'copy'         => __('Copy', 'tinypress'),
+                    'editSettings' => __('Edit shortlink settings', 'tinypress'),
+                    'emptySlug'    => __('Enter a shortlink slug to create a shortlink URL.', 'tinypress'),
+                    'panelTitle'   => __('Shortlinks', 'tinypress'),
+                    'slugLabel'    => __('Shortlink Slug', 'tinypress'),
+                    'urlLabel'     => __('Shortlink URL', 'tinypress'),
+                ),
+            );
+        }
+
+        /**
+         * Get the linked tinypress_link edit URL for a native source post.
+         *
+         * @param int $post_id Source post ID.
+         * @return string
+         */
+        private function get_linked_shortlink_edit_url($post_id)
+        {
+            $link_posts = get_posts(array(
+                'post_type'      => 'tinypress_link',
+                'posts_per_page' => 1,
+                'post_status'    => 'any',
+                'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Required to find linked tinypress_link entry by source_post_id.
+                    array(
+                        'key'     => 'source_post_id',
+                        'value'   => absint($post_id),
+                        'compare' => '=',
+                    ),
+                ),
+                'fields'         => 'ids',
+            ));
+
+            if (empty($link_posts)) {
+                return '';
+            }
+
+            $edit_url = get_edit_post_link($link_posts[0], 'raw');
+
+            return $edit_url ? esc_url_raw($edit_url) : '';
+        }
+
+        /**
+         * Get enabled native post types for shortlink metadata.
+         *
+         * @return array
+         */
+        private function get_enabled_native_post_types()
+        {
+            if (function_exists('tinypress_get_enabled_post_types')) {
+                $post_types = tinypress_get_enabled_post_types();
+            } else {
+                $post_types = array('post', 'page');
+            }
+
+            $post_types = array_map('sanitize_key', (array) $post_types);
+            $post_types = array_filter($post_types, array( $this, 'is_native_shortlinks_post_type' ));
+
+            return array_values(array_unique($post_types));
+        }
+
+        /**
+         * Check if a post type should use native shortlinks UI.
+         *
+         * @param string $post_type Post type.
+         * @return bool
+         */
+        private function is_native_shortlinks_post_type($post_type)
+        {
+            $post_type = sanitize_key($post_type);
+
+            if ('' === $post_type || in_array($post_type, array( 'attachment', 'tinypress_link' ), true)) {
+                return false;
+            }
+
+            if (! post_type_exists($post_type)) {
+                return false;
+            }
+
+            if (function_exists('tinypress_is_post_type_enabled')) {
+                return tinypress_is_post_type_enabled($post_type);
+            }
+
+            return in_array($post_type, array( 'post', 'page' ), true);
+        }
+
+        /**
+         * Check if a post type should use the block editor Shortlinks panel.
+         *
+         * @param string $post_type Post type.
+         * @return bool
+         */
+        private function should_use_block_editor_panel($post_type)
+        {
+            if (! $this->is_native_shortlinks_post_type($post_type)) {
+                return false;
+            }
+
+            if (function_exists('get_current_screen')) {
+                $screen = get_current_screen();
+
+                if ($screen && method_exists($screen, 'is_block_editor')) {
+                    return (bool) $screen->is_block_editor();
+                }
+            }
+
+            return function_exists('use_block_editor_for_post_type') && use_block_editor_for_post_type($post_type);
+        }
+
+        /**
+         * Register the REST save sync hook once per post type.
+         *
+         * @param string $post_type Post type.
+         * @return void
+         */
+        private function register_native_shortlink_rest_sync($post_type)
+        {
+            $post_type = sanitize_key($post_type);
+
+            if ('' === $post_type || isset($this->native_rest_sync_post_types[ $post_type ])) {
+                return;
+            }
+
+            $this->native_rest_sync_post_types[ $post_type ] = true;
+            add_action('rest_after_insert_' . $post_type, array( $this, 'sync_native_shortlinks_rest_meta' ), 10, 3);
         }
 
 
