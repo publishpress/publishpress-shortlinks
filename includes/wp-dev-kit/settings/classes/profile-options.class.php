@@ -143,6 +143,10 @@ if (! class_exists('WPDK_Settings_Profile_Options')) {
                 return $user_id;
             }
 
+            if (! current_user_can('edit_user', $user_id)) {
+                return $user_id;
+            }
+
             // XSS ok.
             // No worries, This "POST" requests is sanitizing in the below foreach.
 
@@ -193,6 +197,10 @@ if (! class_exists('WPDK_Settings_Profile_Options')) {
             if (empty($data)) {
                 if ($this->args['data_type'] !== 'serialize') {
                     foreach ($data as $key => $value) {
+                        if (! $this->can_write_user_meta_key($key)) {
+                            continue;
+                        }
+
                         delete_user_meta($user_id, $key);
                     }
                 } else {
@@ -201,6 +209,10 @@ if (! class_exists('WPDK_Settings_Profile_Options')) {
             } else {
                 if ($this->args['data_type'] !== 'serialize') {
                     foreach ($data as $key => $value) {
+                        if (! $this->can_write_user_meta_key($key)) {
+                            continue;
+                        }
+
                         update_user_meta($user_id, $key, $value);
                     }
                 } else {
@@ -215,6 +227,35 @@ if (! class_exists('WPDK_Settings_Profile_Options')) {
             do_action("pb_settings_{$this->unique}_saved", $data, $user_id, $this);
 
             do_action("pb_settings_{$this->unique}_save_after", $data, $user_id, $this);
+        }
+
+        /**
+         * Prevent profile option fields from writing privileged WordPress user meta.
+         *
+         * @param string $key User meta key.
+         * @return bool
+         */
+        private function can_write_user_meta_key($key)
+        {
+            $key = (string) $key;
+
+            if ('' === $key) {
+                return false;
+            }
+
+            $protected_keys = array(
+                'wp_capabilities',
+                'wp_user_level',
+                'capabilities',
+                'user_level',
+                'session_tokens',
+            );
+
+            if (in_array($key, $protected_keys, true)) {
+                return false;
+            }
+
+            return ! preg_match('/(^|_)capabilities$|(^|_)user_level$|session_tokens$/', $key);
         }
     }
 }

@@ -96,8 +96,17 @@ class Client
         $query_args = wp_unslash(array_map('sanitize_text_field', $_GET));
 
         if (Utils::get_args_option('pb_action', $query_args) == 'permanent_dismissible' && ! empty($id = Utils::get_args_option('id', $query_args))) {
+            if (! is_admin() || ! current_user_can('read')) {
+                return;
+            }
+
+            $nonce = Utils::get_args_option('_wpnonce', $query_args);
+            if (empty($nonce) || ! wp_verify_nonce($nonce, 'wpdk_dismiss_notice_' . sanitize_key($id))) {
+                return;
+            }
+
             // update value
-            update_option($this->get_notices_id($id), time());
+            update_option($this->get_notices_id(sanitize_key($id)), time());
 
             // Redirect
             wp_safe_redirect(site_url('wp-admin'));
@@ -170,12 +179,15 @@ class Client
             $is_dismissible = 'pb-is-dismissible';
             $pb_dismissible = sprintf(
                 '<a href="%s" class="notice-dismiss"><span class="screen-reader-text">%s</span></a>',
-                esc_url_raw(add_query_arg(
-                    array(
-                        'pb_action' => 'permanent_dismissible',
-                        'id'        => $permanent_dismiss
+                esc_url_raw(wp_nonce_url(
+                    add_query_arg(
+                        array(
+                            'pb_action' => 'permanent_dismissible',
+                            'id'        => sanitize_key($permanent_dismiss)
+                        ),
+                        site_url('wp-admin')
                     ),
-                    site_url('wp-admin')
+                    'wpdk_dismiss_notice_' . sanitize_key($permanent_dismiss)
                 )),
                 esc_html__('Dismiss', $this->text_domain)
             );
@@ -211,7 +223,7 @@ class Client
      */
     public function get_notices_id($id)
     {
-        return $this->integration_server . $id;
+        return 'wpdk_notice_' . md5($this->integration_server . sanitize_key($id));
     }
 
 
