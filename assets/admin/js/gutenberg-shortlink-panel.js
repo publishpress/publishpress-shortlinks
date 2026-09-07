@@ -10,10 +10,9 @@
   if (
     !wp ||
     !config ||
-    config.enabled !== true ||
+    !config.enabled ||
     !wp.components ||
     !wp.data ||
-    !wp.editPost ||
     !wp.element ||
     !wp.plugins
   ) {
@@ -21,10 +20,12 @@
   }
 
   const { Button, TextControl } = wp.components;
-  const { createElement, useEffect, useState } = wp.element;
+  const { createElement, RawHTML, useEffect, useState } = wp.element;
   const { registerPlugin } = wp.plugins;
-  const { PluginDocumentSettingPanel } = wp.editPost;
   const { useDispatch, useSelect } = wp.data;
+  const PluginDocumentSettingPanel =
+    (wp.editor && wp.editor.PluginDocumentSettingPanel) ||
+    (wp.editPost && wp.editPost.PluginDocumentSettingPanel);
 
   if (!registerPlugin || !PluginDocumentSettingPanel) {
     return;
@@ -96,10 +97,16 @@
   function ShortlinksPanel() {
     const [hasInitializedDefault, setHasInitializedDefault] = useState(false);
     const [copied, setCopied] = useState(false);
-    const meta = useSelect(function(select) {
-      return select('core/editor').getEditedPostAttribute('meta') || {};
+    const editorData = useSelect(function(select) {
+      const editor = select('core/editor');
+
+      return {
+        isNewPost: editor.isEditedPostNew(),
+        meta: editor.getEditedPostAttribute('meta') || {},
+      };
     }, []);
     const { editPost } = useDispatch('core/editor');
+    const meta = editorData.meta;
     const slug = typeof meta[META_KEY] === 'undefined' ? '' : String(meta[META_KEY] || '');
     const shortlinkUrl = buildShortlinkUrl(slug);
 
@@ -112,14 +119,14 @@
 
       setHasInitializedDefault(true);
 
-      if (!slug && defaultSlug) {
+      if (editorData.isNewPost && !slug && defaultSlug) {
         editPost({
           meta: Object.assign({}, meta, {
             [META_KEY]: defaultSlug,
           }),
         });
       }
-    }, [hasInitializedDefault, slug]);
+    }, [editorData.isNewPost, hasInitializedDefault, slug]);
 
     function updateSlug(value) {
       editPost({
@@ -147,6 +154,11 @@
         title: i18n.panelTitle,
         className: 'tinypress-gutenberg-shortlink-panel',
       },
+      config.beforeShortlinkFieldHtml
+        ? createElement(RawHTML, {
+          className: 'tinypress-gutenberg-shortlink-panel__extension tinypress-gutenberg-shortlink-panel__extension--before',
+        }, config.beforeShortlinkFieldHtml)
+        : null,
       createElement(TextControl, {
         label: i18n.slugLabel,
         value: slug,
@@ -193,7 +205,12 @@
             i18n.editSettings
           )
           : null
-      )
+      ),
+      config.afterShortlinkFieldHtml
+        ? createElement(RawHTML, {
+          className: 'tinypress-gutenberg-shortlink-panel__extension tinypress-gutenberg-shortlink-panel__extension--after',
+        }, config.afterShortlinkFieldHtml)
+        : null
     );
   }
 

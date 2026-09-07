@@ -263,7 +263,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                 array(
                     'wp-components',
                     'wp-data',
-                    'wp-edit-post',
+                    'wp-editor',
                     'wp-element',
                     'wp-i18n',
                     'wp-plugins',
@@ -349,21 +349,26 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         private function get_block_editor_metabox_data($post_type)
         {
             $post_id       = $this->get_current_post_id();
+            $post          = $post_id ? get_post($post_id) : null;
             $prefix        = '';
             $prefix_config = function_exists('tinypress_get_link_prefix_settings') ? tinypress_get_link_prefix_settings() : array();
+            $before_html   = $post ? $this->get_block_editor_extension_html('tinypress_metabox_before_shortlink_field', $post) : '';
+            $after_html    = $post ? $this->get_block_editor_extension_html('tinypress_metabox_after_shortlink_field', $post) : '';
 
             if (! empty($prefix_config['enabled']) && '1' === (string) $prefix_config['enabled']) {
                 $prefix = trailingslashit(sanitize_title((string) $prefix_config['slug']));
             }
 
             return array(
-                'defaultSlug'            => $this->tinypress_default_slug,
-                'enabled'                => true,
-                'linkedShortlinkEditUrl' => $post_id ? $this->get_linked_shortlink_edit_url($post_id) : '',
-                'metaKey'                => 'tiny_slug',
-                'postType'               => sanitize_key($post_type),
-                'shortlinkBaseUrl'       => esc_url_raw(trailingslashit(site_url('/' . $prefix))),
-                'i18n'                   => array(
+                'afterShortlinkFieldHtml'  => $after_html,
+                'beforeShortlinkFieldHtml' => $before_html,
+                'defaultSlug'              => $this->tinypress_default_slug,
+                'enabled'                  => true,
+                'linkedShortlinkEditUrl'   => $post_id ? $this->get_linked_shortlink_edit_url($post_id) : '',
+                'metaKey'                  => 'tiny_slug',
+                'postType'                 => sanitize_key($post_type),
+                'shortlinkBaseUrl'         => esc_url_raw(trailingslashit(site_url('/' . $prefix))),
+                'i18n'                     => array(
                     'copied'       => __('Copied', 'tinypress'),
                     'copy'         => __('Copy', 'tinypress'),
                     'editSettings' => __('Edit shortlink settings', 'tinypress'),
@@ -375,6 +380,19 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
             );
         }
 
+        /**
+         * Capture native metabox extension output for the block editor panel.
+         *
+         * @param string  $hook Hook name.
+         * @param WP_Post $post Post being edited.
+         * @return string
+         */
+        private function get_block_editor_extension_html($hook, $post)
+        {
+            ob_start();
+            do_action($hook, $post);
+            return (string) ob_get_clean();
+        }
         /**
          * Get the linked tinypress_link edit URL for a native source post.
          *
