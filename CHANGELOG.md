@@ -1,6 +1,21 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+= [1.10.0] - 08 September, 2026 =
+
+* Update: Move Activation and Expiration to a separate tab, #377
+* Update: Referrer Domains field, #379
+* Update: Update WP "Requires at least" and "Requires PHP" fields in readme header, #391
+* Update: Update the metabox to be ready for WordPress visual revisions, #393
+* Update: Announce asynchronous admin updates, #387
+* Improve: Improve accessibility of admin form controls, #384
+* Improve: Improve QR code accessibility, #388
+* Improve: Improve accessibility of admin semantics, #390
+* Fixed: Remove extra spaces in settings, #378
+* Fixed: Some settings tab have an issue with the left sidebar menu, #392
+* Security: Harden CSV import upload validation, #397
+* Security: Harden WPDK privileged writes, #398
+
 = [1.9.0] - 04 August, 2026 =
 
 * Fixed: License tab does not reflect proper license status on save, #354
