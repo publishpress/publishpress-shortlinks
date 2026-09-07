@@ -203,7 +203,7 @@ if (! class_exists('WPDK_Settings_Profile_Options')) {
 
                         delete_user_meta($user_id, $key);
                     }
-                } else {
+                } elseif ($this->can_write_user_meta_key($this->unique)) {
                     delete_user_meta($user_id, $this->unique);
                 }
             } else {
@@ -215,7 +215,7 @@ if (! class_exists('WPDK_Settings_Profile_Options')) {
 
                         update_user_meta($user_id, $key, $value);
                     }
-                } else {
+                } elseif ($this->can_write_user_meta_key($this->unique)) {
                     update_user_meta($user_id, $this->unique, $data);
                 }
 

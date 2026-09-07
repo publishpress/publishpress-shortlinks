@@ -96,7 +96,7 @@ class Client
         $query_args = wp_unslash(array_map('sanitize_text_field', $_GET));
 
         if (Utils::get_args_option('pb_action', $query_args) == 'permanent_dismissible' && ! empty($id = Utils::get_args_option('id', $query_args))) {
-            if (! is_admin() || ! current_user_can('read')) {
+            if (! is_admin() || ! current_user_can('manage_options')) {
                 return;
             }
 
