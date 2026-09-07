@@ -4046,9 +4046,9 @@ body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav-normal {
 
 body.tinypress_link_page_settings .tinypress-settings-layout-free .wpdk_settings-nav,
 body.tinypress_link_page_settings .tinypress-settings-layout-free .wpdk_settings-nav-normal {
-	height: calc(100vh - 32px);
-	max-height: calc(100vh - 32px);
-	top: 32px;
+	height: calc(100vh - 32px - var(--tinypress-admin-topbar-height));
+	max-height: calc(100vh - 32px - var(--tinypress-admin-topbar-height));
+	top: calc(32px + var(--tinypress-admin-topbar-height));
 }
 
 .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav > ul::before,
