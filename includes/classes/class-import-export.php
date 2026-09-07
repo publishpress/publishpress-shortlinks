@@ -194,10 +194,7 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 ? sanitize_file_name(wp_basename(wp_unslash((string) $file['name'])))
                 : '';
             $tmp_name = isset($file['tmp_name']) && is_scalar($file['tmp_name'])
-                ? wp_unslash((string) $file['tmp_name'])
-                : '';
-            $file_type = isset($file['type']) && is_scalar($file['type'])
-                ? sanitize_mime_type(wp_unslash((string) $file['type']))
+                ? (string) $file['tmp_name']
                 : '';
             // phpcs:enable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
@@ -216,7 +213,27 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 'application/vnd.ms-excel',
             ));
 
-            if (! in_array($file_type, (array) $allowed_mime_types, true)) {
+            $detected_mime_type = '';
+            if (function_exists('finfo_open')) {
+                // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_finfo_open -- Fileinfo verifies the uploaded file type server-side.
+                $file_info = finfo_open(FILEINFO_MIME_TYPE);
+                if (false !== $file_info) {
+                    // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_finfo_file -- Fileinfo verifies the uploaded file type server-side.
+                    $detected_mime_type = finfo_file($file_info, $tmp_name);
+                    // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_finfo_close -- Close the Fileinfo resource after detection.
+                    finfo_close($file_info);
+                }
+            }
+
+            // A generic or unavailable server-side type is inconclusive. CSV structure is
+            // validated after opening the file, but positively identified unsupported types
+            // are rejected here.
+            if (
+                is_string($detected_mime_type)
+                && '' !== $detected_mime_type
+                && 'application/octet-stream' !== $detected_mime_type
+                && ! in_array($detected_mime_type, (array) $allowed_mime_types, true)
+            ) {
                 return new WP_Error('tinypress_invalid_csv_type', esc_html__('Please upload a valid CSV file.', 'tinypress'));
             }
 
