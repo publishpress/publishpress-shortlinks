@@ -176,12 +176,12 @@ if (! class_exists('TINYPRESS_Import_Export')) {
          */
         private function open_uploaded_csv_file()
         {
-            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+            // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotValidated, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Both callers verify their AJAX nonce and capability before invoking this private helper; upload fields are validated below.
             if (empty($_FILES['csv_file']) || ! is_array($_FILES['csv_file'])) {
                 return new WP_Error('tinypress_missing_csv', esc_html__('No file uploaded or upload error.', 'tinypress'));
             }
 
-            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+            // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Both callers verify their AJAX nonce and capability before invoking this private helper; individual upload fields are validated below.
             $file = $_FILES['csv_file'];
             $error = isset($file['error']) ? absint($file['error']) : UPLOAD_ERR_NO_FILE;
 
