@@ -4,7 +4,7 @@
 	Requires at least: 5.5
 	Requires PHP: 7.2.5
 	Tested up to: 7.1
-	Stable tag: 1.9.0
+	Stable tag: 1.10.0
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -155,6 +155,21 @@ It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliate
 
 == Changelog ==
 
+= [1.10.0] - 08 September, 2026 =
+
+* Update: Move Activation and Expiration to a separate tab, #377
+* Update: Referrer Domains field, #379
+* Update: Update WP "Requires at least" and "Requires PHP" fields in readme header, #391
+* Update: Update the metabox to be ready for WordPress visual revisions, #393
+* Update: Announce asynchronous admin updates, #387
+* Improve: Improve accessibility of admin form controls, #384
+* Improve: Improve QR code accessibility, #388
+* Improve: Improve accessibility of admin semantics, #390
+* Fixed: Remove extra spaces in settings, #378
+* Fixed: Some settings tab have an issue with the left sidebar menu, #392
+* Security: Harden CSV import upload validation, #397
+* Security: Harden WPDK privileged writes, #398
+
 = [1.9.0] - 04 August, 2026 =
 
 * Fixed: License tab does not reflect proper license status on save, #354
@@ -193,20 +208,6 @@ It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliate
 * Update: Provide global settings for security and redirection settings, #63
 * Fixed: Expiration Pro features not working, #243
 * Fixed: Remove double descriptions for settings, #265
-
-= [1.6.0] - 29 April, 2026 =
-
-* Fixed: Mismatching in Weblate, #206
-* Fixed: Draft preview don't work with Elementor #218
-* Feature: Support for PublishPress Statuses, #86
-* Feature: Auto-link keywords, #123
-* Update: Allow users to customize the expiry message, #92
-* Update: Show Expiration Notice, #189
-* Update: Make a single data point bigger, #210
-* Update: Update the readme file from WordPress.org, #217
-* Update: Add Bundled Translations library, #219
-* Update: Add loco.xml file, #220
-* Update: Increase supported language to 34
 
 The full changelog can be found on [GitHub](https://github.com/publishpress/publishpress-shortlinks/blob/master/CHANGELOG.md).
 
