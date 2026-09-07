@@ -170,6 +170,84 @@ if (! class_exists('TINYPRESS_Import_Export')) {
         }
 
         /**
+         * Validate and open an uploaded CSV file.
+         *
+         * @return resource|WP_Error CSV handle or validation error.
+         */
+        private function open_uploaded_csv_file()
+        {
+            // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotValidated, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Both callers verify their AJAX nonce and capability before invoking this private helper; upload fields are validated below.
+            if (empty($_FILES['csv_file']) || ! is_array($_FILES['csv_file'])) {
+                return new WP_Error('tinypress_missing_csv', esc_html__('No file uploaded or upload error.', 'tinypress'));
+            }
+
+            // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Both callers verify their AJAX nonce and capability before invoking this private helper; individual upload fields are validated below.
+            $file = $_FILES['csv_file'];
+            $error = isset($file['error']) ? absint($file['error']) : UPLOAD_ERR_NO_FILE;
+
+            if (UPLOAD_ERR_OK !== $error) {
+                return new WP_Error('tinypress_upload_error', esc_html__('No file uploaded or upload error.', 'tinypress'));
+            }
+
+            // phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+            $file_name = isset($file['name']) && is_scalar($file['name'])
+                ? sanitize_file_name(wp_basename(wp_unslash((string) $file['name'])))
+                : '';
+            $tmp_name = isset($file['tmp_name']) && is_scalar($file['tmp_name'])
+                ? (string) $file['tmp_name']
+                : '';
+            // phpcs:enable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+
+            if ('' === $file_name || '' === $tmp_name || ! is_uploaded_file($tmp_name)) {
+                return new WP_Error('tinypress_invalid_upload', esc_html__('Invalid uploaded file.', 'tinypress'));
+            }
+
+            if ('csv' !== strtolower(pathinfo($file_name, PATHINFO_EXTENSION))) {
+                return new WP_Error('tinypress_invalid_csv_extension', esc_html__('Please upload a CSV file.', 'tinypress'));
+            }
+
+            $allowed_mime_types = apply_filters('tinypress_import_csv_allowed_mime_types', array(
+                'text/csv',
+                'text/plain',
+                'application/csv',
+                'application/vnd.ms-excel',
+            ));
+
+            $detected_mime_type = '';
+            if (function_exists('finfo_open')) {
+                // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_finfo_open -- Fileinfo verifies the uploaded file type server-side.
+                $file_info = finfo_open(FILEINFO_MIME_TYPE);
+                if (false !== $file_info) {
+                    // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_finfo_file -- Fileinfo verifies the uploaded file type server-side.
+                    $detected_mime_type = finfo_file($file_info, $tmp_name);
+                    // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_finfo_close -- Close the Fileinfo resource after detection.
+                    finfo_close($file_info);
+                }
+            }
+
+            // A generic or unavailable server-side type is inconclusive. CSV structure is
+            // validated after opening the file, but positively identified unsupported types
+            // are rejected here.
+            if (
+                is_string($detected_mime_type)
+                && '' !== $detected_mime_type
+                && 'application/octet-stream' !== $detected_mime_type
+                && ! in_array($detected_mime_type, (array) $allowed_mime_types, true)
+            ) {
+                return new WP_Error('tinypress_invalid_csv_type', esc_html__('Please upload a valid CSV file.', 'tinypress'));
+            }
+
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
+            $handle = fopen($tmp_name, 'r');
+
+            if (! $handle) {
+                return new WP_Error('tinypress_csv_unreadable', esc_html__('Could not read the file.', 'tinypress'));
+            }
+
+            return $handle;
+        }
+
+        /**
          * Get a plugin setting with a system fallback.
          *
          * @param string $key Setting key.
@@ -584,24 +662,9 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 wp_send_json_error(array( 'message' => esc_html__('Unauthorized.', 'tinypress') ));
             }
 
-            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-            if (empty($_FILES['csv_file']) || $_FILES['csv_file']['error'] !== UPLOAD_ERR_OK) {
-                wp_send_json_error(array( 'message' => esc_html__('No file uploaded or upload error.', 'tinypress') ));
-            }
-
-            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-            $file = $_FILES['csv_file'];
-
-            // Validate file type
-            $file_ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-            if ($file_ext !== 'csv') {
-                wp_send_json_error(array( 'message' => esc_html__('Please upload a CSV file.', 'tinypress') ));
-            }
-
-            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
-            $handle = fopen($file['tmp_name'], 'r');
-            if (! $handle) {
-                wp_send_json_error(array( 'message' => esc_html__('Could not read the file.', 'tinypress') ));
+            $handle = $this->open_uploaded_csv_file();
+            if (is_wp_error($handle)) {
+                wp_send_json_error(array( 'message' => $handle->get_error_message() ));
             }
 
             // Read header row
@@ -962,24 +1025,9 @@ if (! class_exists('TINYPRESS_Import_Export')) {
                 wp_send_json_error(array( 'message' => esc_html__('Unauthorized.', 'tinypress') ));
             }
 
-            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-            if (empty($_FILES['csv_file']) || $_FILES['csv_file']['error'] !== UPLOAD_ERR_OK) {
-                wp_send_json_error(array( 'message' => esc_html__('No file uploaded or upload error.', 'tinypress') ));
-            }
-
-            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-            $file = $_FILES['csv_file'];
-
-            // Validate file type
-            $file_ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-            if ($file_ext !== 'csv') {
-                wp_send_json_error(array( 'message' => esc_html__('Please upload a CSV file.', 'tinypress') ));
-            }
-
-            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
-            $handle = fopen($file['tmp_name'], 'r');
-            if (! $handle) {
-                wp_send_json_error(array( 'message' => esc_html__('Could not read the file.', 'tinypress') ));
+            $handle = $this->open_uploaded_csv_file();
+            if (is_wp_error($handle)) {
+                wp_send_json_error(array( 'message' => $handle->get_error_message() ));
             }
 
             // Read header row
