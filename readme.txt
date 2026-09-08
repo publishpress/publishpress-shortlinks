@@ -1,4 +1,4 @@
-=== PublishPress Shortlinks - The Link Manager for WordPress  ===
+=== PublishPress Shortlinks - The Link Manager for WordPress ===
 Contributors: stevejburge, publishpress, deji98
 Tags: link shortener, shortlinks, redirects, link tracking, custom URLs
 Requires at least: 5.5
@@ -15,7 +15,7 @@ The best link manager for WordPress. Your links are brandable, trackable, and ca
 PublishPress Shortlinks is the best link manager available for WordPress. With PublishPress Shortlinks, you can take any link on your website and perform useful actions like these:
 
 - Track who clicks on your links with detailed analytics.
-- Safely hare posts in any status, even unpublished posts in Draft or Pending Review.
+- Safely share posts in any status, even unpublished posts in Draft or Pending Review.
 - Make your URLs short and memorable.
 - Control who can visit your links with passwords, expiry dates, and access control.
 - Generate QR codes to easily share your links.
@@ -23,7 +23,7 @@ PublishPress Shortlinks is the best link manager available for WordPress. With P
 ## PublishPress Shortlinks Pro ##
 
 > <strong>Upgrade to Shortlinks Pro</strong><br />
-> This plugin is the free version of the Shortlinks Pro plugin. The Pro version of PublishPress Revisions allows you to control access to editing shortlinks and viewing the click analytics. You can also show a custom message when someone is blocked from accessing a link. And you can import and export links. <a href="https://publishpress.com/shortlinks" title="Shorelines Pro">Click here to purchase the best WordPress link manager now!</a>
+> This plugin is the free version of the Shortlinks Pro plugin. The Pro version of PublishPress Shortlinks allows you to control access to editing shortlinks and viewing the click analytics. You can also show a custom message when someone is blocked from accessing a link. And you can import and export links. <a href="https://publishpress.com/shortlinks" title="Shortlinks Pro">Click here to purchase the best WordPress link manager now!</a>
 
 
 ## Key Link Management Features in PublishPress Shortlinks ##
@@ -36,7 +36,7 @@ PublishPress Shortlinks is the best link manager available for WordPress. With P
 ✅ Choose from 301, 302, and 307 redirects
 ✅ Track who is clicking your shortlinks with analytics
 ✅ Generate a QR code for each shortlink to allow easy sharing
-✅ Automatically add link to keywords
+✅ Automatically add links to keywords
 ✅ Cloak your affiliate links
 
 ## Automatically create shortlinks for your posts
@@ -95,7 +95,7 @@ You can automatically add links to keywords in your post. For example, every tim
 
 ## Cloak affiliate links
 
-PublishPress Shortlinks is ideal for websites that have affiliate links in posts. You can manage, clean up, brand, and track your links. It's a great tool for cloaking affiliate links. PublishPress Shortlinks is a great tool for marketers plugin for people who want to clean up their affiliate links.
+PublishPress Shortlinks is ideal for websites that have affiliate links in posts. You can manage, clean up, brand, and track your links. It's a great tool for cloaking affiliate links, and for marketers who want to clean up and brand the links they share.
 
 ## Find and fix your broken links
 
