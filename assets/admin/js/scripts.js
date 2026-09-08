@@ -125,53 +125,43 @@
 
         tinypressActivateRequestedMetaboxTab();
 
-        function tinypressEnableMetaboxNavScrollChaining() {
+        function tinypressStabilizeMetaboxTabs() {
             var navs = document.querySelectorAll(
                 'body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav'
             );
 
             Array.prototype.forEach.call(navs, function (nav) {
-                if (nav.getAttribute('data-tinypress-scroll-chain-bound') === 'true') {
+                if (nav.getAttribute('data-tinypress-tab-stability-bound') === 'true') {
                     return;
                 }
 
-                nav.setAttribute('data-tinypress-scroll-chain-bound', 'true');
-                nav.addEventListener('wheel', function (event) {
-                    var deltaY = event.deltaY;
-                    var isVerticalGesture = Math.abs(deltaY) > Math.abs(event.deltaX);
-                    var isAtTop = nav.scrollTop <= 0;
-                    var isAtBottom = Math.ceil(nav.scrollTop + nav.clientHeight) >= nav.scrollHeight;
-                    var shouldHandoff = (deltaY < 0 && isAtTop) || (deltaY > 0 && isAtBottom);
+                nav.setAttribute('data-tinypress-tab-stability-bound', 'true');
+                nav.addEventListener('click', function (event) {
+                    var link = event.target.closest('a[data-section]');
+                    var content = nav.parentElement.querySelector('.wpdk_settings-content');
 
-                    if (!isVerticalGesture || !shouldHandoff || event.ctrlKey) {
+                    if (!link || !nav.contains(link) || !content) {
                         return;
                     }
 
-                    var documentHeight = Math.max(
-                        document.body.scrollHeight,
-                        document.documentElement.scrollHeight
-                    );
-                    var pageTop = window.pageYOffset || document.documentElement.scrollTop || 0;
-                    var maxPageTop = Math.max(0, documentHeight - window.innerHeight);
+                    /*
+                     * WPDK swaps panels by hiding the previous section. Without a
+                     * height floor, switching from a long panel to a short one makes
+                     * the document shrink and the browser clamps its scroll position.
+                     */
+                    var currentHeight = content.getBoundingClientRect().height;
+                    var minimumHeight = parseFloat(content.dataset.tinypressMinimumHeight || '0');
 
-                    if ((deltaY < 0 && pageTop <= 0) || (deltaY > 0 && pageTop >= maxPageTop)) {
-                        return;
+                    if (currentHeight > minimumHeight) {
+                        content.dataset.tinypressMinimumHeight = currentHeight;
+                        content.style.minHeight = Math.ceil(currentHeight) + 'px';
                     }
-
-                    if (event.deltaMode === 1) {
-                        deltaY *= 16;
-                    } else if (event.deltaMode === 2) {
-                        deltaY *= window.innerHeight;
-                    }
-
-                    event.preventDefault();
-                    window.scrollBy(0, deltaY);
-                }, { passive: false });
+                }, true);
             });
         }
 
-        tinypressEnableMetaboxNavScrollChaining();
-        setTimeout(tinypressEnableMetaboxNavScrollChaining, 250);
+        tinypressStabilizeMetaboxTabs();
+        setTimeout(tinypressStabilizeMetaboxTabs, 250);
 
         function tinypressSetupDynamicRedirectTeaser() {
             var $field = $('.tinypress-dynamic-redirect-rules.tinypress-pro-teaser-field').first();
