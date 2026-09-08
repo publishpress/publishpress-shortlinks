@@ -219,62 +219,6 @@ It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliate
 6. The All Logs screen will keep details of everyone accessing your links
 7. Select which post statuses are accessible when visiting a PublishPress shortlink
 
-== Changelog ==
+== Changelog == 
 
-= [1.10.0] - 08 September, 2026 =
-
-* Update: Move Activation and Expiration to a separate tab, #377
-* Update: Referrer Domains field, #379
-* Update: Update WP "Requires at least" and "Requires PHP" fields in readme header, #391
-* Update: Update the metabox to be ready for WordPress visual revisions, #393
-* Update: Announce asynchronous admin updates, #387
-* Improve: Improve accessibility of admin form controls, #384
-* Improve: Improve QR code accessibility, #388
-* Improve: Improve accessibility of admin semantics, #390
-* Fixed: Remove extra spaces in settings, #378
-* Fixed: Some settings tab have an issue with the left sidebar menu, #392
-* Security: Harden CSV import upload validation, #397
-* Security: Harden WPDK privileged writes, #398
-
-= [1.9.0] - 04 August, 2026 =
-
-* Fixed: License tab does not reflect proper license status on save, #354
-* Fixed: Metabox design issue in WordPress 7.1, #363
-* Fixed: This plugin can be deleted, #366
-* Update: Consistency between Analytics and Reports screens, #355
-* Update: Scheduled Link Health and email digest, #357
-* Update: Dynamic redirect engine, #358
-* Update: Improve Shortlinks Expiration, #360
-
-= [1.8.0] - 14 July, 2026 =
-
-* Update: Suggest Label and description from target url while adding shortlinks, #345
-* Update: Need a post type selector, #343
-* Update: Redesign settings UI, #344
-* Added: Search box on the Link Health screen, #337
-* Fixed: Prevent auto-drafts from creating shortlink entries, #335
-* Fixed: Clarify tooltip message: Redirect loop, #338
-* Fixed: Edit Shortlinks design issue with some admin themes, #336
-* Feature: Reports feature, #321
-* Feature: Detect other plugins and offer a migration, #317
-
-
-= [1.7.0] - 09 June, 2026 =
-
-* Feature: Add a broken link scanner, #247
-* Update: Expand the import / export options, #246
-* Update: Move Import / Export to the Free version, #245
-* Update: Allow alt text for autolink keywords, #244
-* Update: Expand Auto-link settings, #241
-* Update: Update descriptions for security settings, #242
-* Update: Improve the import feature, #240
-* Update: Add an easy link tool to Gutenberg. #186
-* Update: Change shortlink page tabs to vertical layout, #72
-* Update: Add a frontend message for unpublished posts, #67
-* Update: Provide global settings for security and redirection settings, #63
-* Fixed: Expiration Pro features not working, #243
-* Fixed: Remove double descriptions for settings, #265
-
-The full changelog can be found on [GitHub](https://github.com/publishpress/publishpress-shortlinks/blob/master/CHANGELOG.md).
-
-== Upgrade Notice ==
+The full changelog can be found on [GitHub](https://github.com/publishpress/publishpress-shortlinks/blob/main/CHANGELOG.md).
