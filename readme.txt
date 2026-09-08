@@ -97,6 +97,32 @@ You can automatically add links to keywords in your post. For example, every tim
 
 PublishPress Shortlinks is ideal for websites that have affiliate links in posts. You can manage, clean up, brand, and track your links. It's a great tool for cloaking affiliate links. PublishPress Shortlinks is a great tool for marketers plugin for people who want to clean up their affiliate links.
 
+## Find and fix your broken links
+
+PublishPress Shortlinks scans your links and reports the ones that no longer work. The Link Health screen lists every broken destination it finds, with a search box for working through a long list.
+
+The scan can run on a schedule rather than only when you ask for it, and it can email you a digest of what it found, so a link that dies quietly on an old post does not stay dead for months.
+
+## Reports on how your links are performing
+
+The Reports screen turns your click data into a summary you can read at a glance, alongside the per-link Analytics screen.
+
+## Choose which post types get shortlinks
+
+By default every post and page can have a shortlink. The post type selector lets you narrow that to the content where links matter, so a site with a dozen custom post types is not generating links nobody will use.
+
+## Moving from another shortlink plugin
+
+PublishPress Shortlinks detects other link plugins on your site and offers to bring your existing links across, so switching does not mean rebuilding your links by hand or breaking the ones already shared.
+
+## See where your clicks come from
+
+As well as recording each click, the analytics track referrer domains, so you can tell a link shared on a newsletter apart from the same link shared on social media.
+
+## Add a shortlink while you write
+
+There is a link tool in the block editor, so a shortlink can be created and inserted without leaving the post you are writing. There is also a keyboard shortcut, below.
+
 ## Create Shortlinks via Keyboard Shortcuts
 
 Click `Ctrl/Cmd + /` anywhere in the WordPress admin area to instantly create shortlinks.
@@ -126,6 +152,46 @@ Bug reports for PublishPress Shortlinks are welcomed in our [repository on GitHu
 
 
 == Frequently Asked Questions ==
+= What does a shortlink look like? =
+
+By default it uses your own domain with a "go" folder, so it looks like `https://example.com/go/8vi3n`, where the last part is a unique five-character code. You can change the folder in the settings, and you can replace the code with anything you like, so the same link can read `https://example.com/go/shortlinks`.
+
+= Do I need an external service like Bitly? =
+
+No, and that is the point. Every link uses your own domain name, the click data stays on your own site, and there is no account to keep paying for.
+
+= How do I add a shortlink to a post? =
+
+Shortlinks are generated automatically for your posts and pages, and you will find them on the Posts screen and in the post editor. You can also create one from the link tool in the block editor, or with `Ctrl/Cmd + /` anywhere in the admin.
+
+= Can I share a post before it is published? =
+
+Yes. A shortlink works for a post in any status, including Draft and Pending Review, so a reviewer without a login can read it. Combine it with a password or an expiry date if the draft is sensitive.
+
+= How do I find broken links on my site? =
+
+The Link Health screen scans your links and lists the ones whose destination no longer works. You can run the scan on a schedule and have the results emailed to you as a digest, rather than checking by hand.
+
+= Can I protect a link with a password, or make it expire? =
+
+Both. Edit a shortlink and open the "Security" tab. You can set a password, an expiry date, or both. After the expiry date a visitor sees a message rather than the content.
+
+= Which redirect should I choose: 301, 302 or 307? =
+
+301 is permanent and tells search engines the destination will not change, so use it when you are confident. 302 and 307 are temporary and leave the original URL indexed, which is what you want for a campaign link or anything you may repoint later.
+
+= Can I move my links over from another shortlink plugin? =
+
+Yes. PublishPress Shortlinks detects other link plugins on your site and offers to bring your existing links across, so the links you have already shared keep working.
+
+= Does it work with pages and custom post types? =
+
+Yes. The post type selector controls which types get shortlinks, so you can turn it on for the content that needs it and leave the rest alone.
+
+= What is in the Pro version? =
+
+Control over who can create and edit shortlinks, and who can reach the analytics and settings screens. Pro also lets you customize the message shown when a link has expired. [See the full comparison](https://publishpress.com/knowledge-base/shortlinks-free-pro/).
+
 = PublishPress Shortlinks is helpful to whom? =
 PublishPress Shortlinks is particularly helpful to affiliate marketers & website owners. It helps them to manage, clean up, brand, and track their links. In addition to affiliate marketing, PublishPress Shortlinks is also helpful to SEO marketers, bloggers, merchants, social media marketers, and anyone else who wants to easily take control of their link strategy.
 
