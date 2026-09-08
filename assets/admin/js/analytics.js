@@ -13,7 +13,6 @@
     let applyButton = document.querySelector('.tinypress-analytics-apply');
     let rangeDescription = document.querySelector('.tinypress-analytics-range-description');
     let summaryStatus = document.querySelector('.tinypress-analytics-summary-status');
-    let chartDescription = document.querySelector('[data-chart-description]');
     let noDataMessage = document.querySelector('[data-chart-no-data]');
     let resetTextEl = document.querySelector('.reset-text');
     let destinationBody = document.querySelector('[data-destination-performance-body]');
@@ -565,10 +564,6 @@
             rangeDescription.innerHTML = tinypressAnalytics.showingDataText
                 .replace('%1$s', '<strong>' + formatDisplayDate(range.start) + '</strong>')
                 .replace('%2$s', '<strong>' + formatDisplayDate(range.end) + '</strong>');
-        }
-
-        if (chartDescription && tinypressAnalytics.chartDescriptions) {
-            chartDescription.textContent = tinypressAnalytics.chartDescriptions[periodType] || '';
         }
 
         renderChart(periodData);
