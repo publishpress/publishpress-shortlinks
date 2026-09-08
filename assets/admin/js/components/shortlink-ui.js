@@ -10,6 +10,7 @@
   const DEFAULT_I18N = {
     shortlink: 'Shortlink',
     searchPlaceholder: 'Search shortlinks...',
+    searchShortlinks: 'Search shortlinks',
     insertShortlink: 'Insert Shortlink',
     createNew: 'Create New Shortlink',
     openInNewTab: 'Open in New Tab',
@@ -86,8 +87,10 @@
           <div class="tinypress-shortlink-modal-body">
             <div class="tinypress-shortlink-search-section">
               <div class="tinypress-shortlink-search-wrapper">
+                <label class="screen-reader-text" for="tinypress-shortlink-search-input">${escapeHtml(i18n.searchShortlinks)}</label>
                 <input
                   type="search"
+                  id="tinypress-shortlink-search-input"
                   class="tinypress-shortlink-search-input"
                   placeholder="${escapeHtml(i18n.searchPlaceholder)}"
                   autocomplete="off"
@@ -123,12 +126,12 @@
                 <div class="tinypress-shortlink-create-section">
                   <h4>${escapeHtml(i18n.createNew)}</h4>
                   <div class="tinypress-shortlink-form-group">
-                    <label>${escapeHtml(i18n.label)}</label>
-                    <input type="text" class="tinypress-shortlink-create-label" placeholder="${escapeHtml(i18n.labelPlaceholder)}" />
+                    <label for="tinypress-shortlink-create-label">${escapeHtml(i18n.label)}</label>
+                    <input type="text" id="tinypress-shortlink-create-label" class="tinypress-shortlink-create-label" placeholder="${escapeHtml(i18n.labelPlaceholder)}" />
                   </div>
                   <div class="tinypress-shortlink-form-group">
-                    <label>${escapeHtml(i18n.targetUrl)}</label>
-                    <input type="url" class="tinypress-shortlink-create-url" placeholder="https://example.com" required />
+                    <label for="tinypress-shortlink-create-url">${escapeHtml(i18n.targetUrl)}</label>
+                    <input type="url" id="tinypress-shortlink-create-url" class="tinypress-shortlink-create-url" placeholder="https://example.com" required />
                   </div>
                   <button type="button" class="tinypress-shortlink-create-btn button button-primary">
                     ${escapeHtml(i18n.create)}

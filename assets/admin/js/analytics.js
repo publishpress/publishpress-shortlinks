@@ -12,7 +12,7 @@
     let customEndInput = document.querySelector('#tinypress-analytics-custom-end');
     let applyButton = document.querySelector('.tinypress-analytics-apply');
     let rangeDescription = document.querySelector('.tinypress-analytics-range-description');
-    let chartDescription = document.querySelector('[data-chart-description]');
+    let summaryStatus = document.querySelector('.tinypress-analytics-summary-status');
     let noDataMessage = document.querySelector('[data-chart-no-data]');
     let resetTextEl = document.querySelector('.reset-text');
     let destinationBody = document.querySelector('[data-destination-performance-body]');
@@ -400,6 +400,14 @@
         if (summaryEls.avgClicksPerDay) {
             summaryEls.avgClicksPerDay.textContent = formatNumber(stats.avgClicksPerClickDay, 1);
         }
+
+        if (summaryStatus && tinypressAnalytics.analyticsSummaryText) {
+            summaryStatus.textContent = tinypressAnalytics.analyticsSummaryText
+                .replace('%1$s', formatNumber(stats.totalClicks, 0))
+                .replace('%2$s', formatNumber(stats.uniqueVisitors, 0))
+                .replace('%3$s', formatNumber(stats.clickDays, 0))
+                .replace('%4$s', formatNumber(stats.avgClicksPerClickDay, 1));
+        }
     };
 
     let renderDestinationPerformance = function(range) {
@@ -556,10 +564,6 @@
             rangeDescription.innerHTML = tinypressAnalytics.showingDataText
                 .replace('%1$s', '<strong>' + formatDisplayDate(range.start) + '</strong>')
                 .replace('%2$s', '<strong>' + formatDisplayDate(range.end) + '</strong>');
-        }
-
-        if (chartDescription && tinypressAnalytics.chartDescriptions) {
-            chartDescription.textContent = tinypressAnalytics.chartDescriptions[periodType] || '';
         }
 
         renderChart(periodData);

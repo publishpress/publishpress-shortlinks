@@ -27,21 +27,74 @@
         var $expandTableBtn         = $('#tinypress-expand-table-btn');
         var $previewSection         = $('#tinypress-preview-section');
         var $progressSection         = $('#tinypress-progress-section');
+        var $progressBar             = $('.tinypress-progress-bar');
         var $result                 = $('#tinypress-import-result');
+        var $announcements           = $('#tinypress-import-announcements');
 
-        $('.tinypress-ie-tab').on('click', function(e) {
-            e.preventDefault();
+        function announce(message) {
+            $announcements.text($('<div>').html(message).text());
+        }
 
-            var tabId = $(this).data('tab');
+        var $tabs = $('.tinypress-ie-tab');
+
+        function activateTab($tab, moveFocus) {
+            var tabId = $tab.data('tab');
+
             if (!tabId) {
                 return;
             }
 
-            $('.tinypress-ie-tab').removeClass('nav-tab-active');
-            $(this).addClass('nav-tab-active');
-            $('.tinypress-ie-tab-panel').removeClass('is-active');
-            $('#' + tabId).addClass('is-active');
+            $tabs.each(function() {
+                var isActive = this === $tab[0];
+                var $currentTab = $(this);
+                var $panel = $('#' + $currentTab.data('tab'));
+
+                $currentTab
+                    .toggleClass('nav-tab-active', isActive)
+                    .attr('aria-selected', isActive ? 'true' : 'false')
+                    .attr('tabindex', isActive ? '0' : '-1');
+
+                $panel
+                    .toggleClass('is-active', isActive)
+                    .prop('hidden', !isActive)
+                    .attr('aria-hidden', isActive ? 'false' : 'true');
+            });
+
+            if (moveFocus) {
+                $tab.trigger('focus');
+            }
+        }
+
+        $tabs.on('click', function(e) {
+            e.preventDefault();
+            activateTab($(this), false);
         });
+
+        $tabs.on('keydown', function(e) {
+            var currentIndex = $tabs.index(this);
+            var nextIndex = currentIndex;
+
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                nextIndex = (currentIndex + 1) % $tabs.length;
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                nextIndex = (currentIndex - 1 + $tabs.length) % $tabs.length;
+            } else if (e.key === 'Home') {
+                nextIndex = 0;
+            } else if (e.key === 'End') {
+                nextIndex = $tabs.length - 1;
+            } else if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                activateTab($(this), false);
+                return;
+            } else {
+                return;
+            }
+
+            e.preventDefault();
+            activateTab($tabs.eq(nextIndex), true);
+        });
+
+        activateTab($tabs.filter('.nav-tab-active').first(), false);
 
         $fileInput.on('change', function() {
             if (this.files.length > 0) {
@@ -154,10 +207,11 @@
                         $('#tinypress-preview-message').html(previewMessage);
                         $fileSelectedActions.hide();
                         $previewSection.show();
+                        announce(previewMessage);
                     } else {
-                        $result.addClass('error').html(
-                            '<strong>' + escapeHtml(response.data.message || tinypressImportExport.i18n.preview_error) + '</strong>'
-                        ).show();
+                        var previewError = response.data.message || tinypressImportExport.i18n.preview_error;
+                        $result.addClass('error').html('<strong>' + escapeHtml(previewError) + '</strong>').show();
+                        announce(previewError);
                     }
                 },
                 error: function() {
@@ -167,6 +221,7 @@
                     $result.addClass('error').html(
                         '<strong>' + tinypressImportExport.i18n.preview_error + '</strong>'
                     ).show();
+                    announce(tinypressImportExport.i18n.preview_error);
                 }
             });
         }
@@ -287,7 +342,7 @@
          * Perform the actual import
          */
         function performImport(file) {
-            $progressSection.show();
+            $progressSection.attr('aria-busy', 'true').show();
             $previewSection.hide();
             $fileSelectedActions.hide();
             $result.hide().removeClass('success error').empty();
@@ -317,6 +372,7 @@
                     updateProgress(100);
 
                     setTimeout(function() {
+                        $progressSection.attr('aria-busy', 'false');
                         $progressSection.hide();
 
                         if (response.success) {
@@ -349,10 +405,11 @@
                             }
 
                             $result.addClass('success').html(html).show();
+                            announce(html);
                         } else {
-                            $result.addClass('error').html(
-                                '<strong>' + escapeHtml(response.data.message || tinypressImportExport.i18n.import_error) + '</strong>'
-                            ).show();
+                            var importError = response.data.message || tinypressImportExport.i18n.import_error;
+                            $result.addClass('error').html('<strong>' + escapeHtml(importError) + '</strong>').show();
+                            announce(importError);
                         }
 
                         currentFile = null;
@@ -364,11 +421,13 @@
                 },
                 error: function() {
                     clearInterval(progressInterval);
+                    $progressSection.attr('aria-busy', 'false');
                     $progressSection.hide();
                     $fileInputSection.show();
                     $result.addClass('error').html(
                         '<strong>' + tinypressImportExport.i18n.import_error + '</strong>'
                     ).show();
+                    announce(tinypressImportExport.i18n.import_error);
 
                     currentFile = null;
                     previewData = null;
@@ -385,6 +444,7 @@
             percent = Math.max(percent, 0);
             var $fill = $('.tinypress-progress-fill');
             $fill.css('width', percent + '%');
+            $progressBar.attr('aria-valuenow', Math.round(percent));
             $('#tinypress-progress-text').text(Math.round(percent) + '%');
         }
     });

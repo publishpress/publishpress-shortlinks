@@ -163,7 +163,7 @@ class WP_List_Table_Logs extends WP_List_Table
     public function get_columns()
     {
         return array(
-            'cb'         => '<input type="checkbox" />',
+            'cb'         => '<input id="cb-select-all-logs" type="checkbox" /><label class="screen-reader-text" for="cb-select-all-logs">' . esc_html__('Select all logs', 'tinypress') . '</label>',
             'title'      => esc_html__('Title', 'tinypress'),
             'short_link' => esc_html__('Shortlink', 'tinypress'),
             'details'    => esc_html__('Details', 'tinypress'),
@@ -173,8 +173,13 @@ class WP_List_Table_Logs extends WP_List_Table
 
     public function column_cb($item)
     {
-        $id = Utils::get_args_option('id', $item);
-        return sprintf('<input type="checkbox" name="log[]" value="%s" />', esc_attr($id));
+        $id = absint(Utils::get_args_option('id', $item));
+
+        return sprintf(
+            '<input id="cb-select-%1$d" type="checkbox" name="log[]" value="%1$d" /><label class="screen-reader-text" for="cb-select-%1$d">%2$s</label>',
+            $id,
+            esc_html(sprintf(__('Select log entry %d', 'tinypress'), $id))
+        );
     }
 
     protected function get_bulk_actions()

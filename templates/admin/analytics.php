@@ -104,15 +104,10 @@ $analytics_data = array(
     'resetAllTimeText'   => esc_html__("Reset All Time Analytics", 'tinypress'),
     'resetConfirmText'   => esc_html__("Are you sure you want to reset the analytics for this period? This action cannot be undone.", 'tinypress'),
     'showingDataText'    => esc_html__('Showing data from %1$s to %2$s', 'tinypress'),
+    'analyticsSummaryText' => esc_html__('Analytics updated. Total clicks: %1$s. Unique visitors: %2$s. Days with clicks: %3$s. Average per click day: %4$s.', 'tinypress'),
     'noDataText'         => esc_html__('No click data available for this period.', 'tinypress'),
     'clickSingularText'  => esc_html__('click', 'tinypress'),
     'clickPluralText'    => esc_html__('clicks', 'tinypress'),
-    'chartDescriptions'  => array(
-        'day'   => esc_html__('Each bar shows total clicks for one day.', 'tinypress'),
-        'week'  => esc_html__('Each bar shows total clicks for a 7-day period.', 'tinypress'),
-        'month' => esc_html__('Each bar shows total clicks for one month.', 'tinypress'),
-        'year'  => esc_html__('Each bar shows total clicks for one year.', 'tinypress'),
-    ),
 );
 
 $analytics_data = apply_filters('tinypress_analytics_localized_data', $analytics_data, $post_id);
@@ -160,7 +155,8 @@ wp_localize_script('tinypress-analytics', 'tinypressAnalytics', $analytics_data)
         </button>
     </div>
 
-    <p class="description tinypress-analytics-range-description"></p>
+    <p class="description tinypress-analytics-range-description" role="status" aria-live="polite" aria-atomic="true"></p>
+    <p class="screen-reader-text tinypress-analytics-summary-status" role="status" aria-live="polite" aria-atomic="true"></p>
 
     <div class="tinypress-reports-cards tinypress-analytics-cards">
         <div class="tinypress-report-card">
@@ -198,9 +194,6 @@ wp_localize_script('tinypress-analytics', 'tinypressAnalytics', $analytics_data)
 
     <div id="chart" class="tinypress-report-section tinypress-report-chart tinypress-analytics-chart-section">
         <h2><?php esc_html_e('Clicks Over Time', 'tinypress'); ?></h2>
-        <p class="tinypress-report-section-description" data-chart-description>
-            <?php esc_html_e('Each bar shows total clicks for one day.', 'tinypress'); ?>
-        </p>
         <div class="tinypress-chart-container">
             <div id="chart-timeline"></div>
         </div>

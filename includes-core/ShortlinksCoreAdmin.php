@@ -17,11 +17,12 @@ class ShortlinksCoreAdmin
 
             add_action('admin_menu', [$this, 'tinypress_add_upgrade_menu_link'], 999);
 
-            add_filter('tinypress_security_metabox_fields', [$this, 'add_security_expired_teaser_fields']);
-            add_filter('tinypress_global_security_fields', [$this, 'add_global_security_expired_teaser_fields']);
+            add_filter('tinypress_scheduling_metabox_fields', [$this, 'add_scheduling_teaser_fields']);
+            add_filter('tinypress_global_scheduling_fields', [$this, 'add_global_scheduling_teaser_fields']);
             add_filter('tinypress_dynamic_redirect_metabox_fields', [$this, 'add_dynamic_redirect_teaser_fields']);
 
             $teaser_nudge_fields = array(
+                'enable_activation_pro_teaser',
                 'activation_date_pro_teaser',
                 'activation_time_pro_teaser',
                 'expiration_click_limit_pro_teaser',
@@ -205,12 +206,12 @@ class ShortlinksCoreAdmin
                     <table class="widefat striped">
                         <thead>
                             <tr>
-                                <th><?php esc_html_e('Shortlink', 'tinypress'); ?></th>
-                                <th><?php esc_html_e('Target URL', 'tinypress'); ?></th>
-                                <th><?php esc_html_e('Status', 'tinypress'); ?></th>
-                                <th><?php esc_html_e('HTTP', 'tinypress'); ?></th>
-                                <th><?php esc_html_e('Redirects', 'tinypress'); ?></th>
-                                <th><?php esc_html_e('Final URL', 'tinypress'); ?></th>
+                                <th scope="col"><?php esc_html_e('Shortlink', 'tinypress'); ?></th>
+                                <th scope="col"><?php esc_html_e('Target URL', 'tinypress'); ?></th>
+                                <th scope="col"><?php esc_html_e('Status', 'tinypress'); ?></th>
+                                <th scope="col"><?php esc_html_e('HTTP', 'tinypress'); ?></th>
+                                <th scope="col"><?php esc_html_e('Redirects', 'tinypress'); ?></th>
+                                <th scope="col"><?php esc_html_e('Final URL', 'tinypress'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -253,8 +254,8 @@ class ShortlinksCoreAdmin
             <div class="tinypress-reports-teaser-wrapper">
                 <div class="tinypress-reports-teaser-content">
                     <div class="tinypress-reports-teaser-filter">
-                        <label><?php esc_html_e('Date Range:', 'tinypress'); ?></label>
-                        <select disabled>
+                        <label for="tinypress-reports-teaser-date-range"><?php esc_html_e('Date Range:', 'tinypress'); ?></label>
+                        <select id="tinypress-reports-teaser-date-range" disabled>
                             <option><?php esc_html_e('Last 7 Days', 'tinypress'); ?></option>
                         </select>
                         <button type="button" class="button" disabled><?php esc_html_e('Apply', 'tinypress'); ?></button>
@@ -297,8 +298,8 @@ class ShortlinksCoreAdmin
                             <table class="widefat striped">
                                 <thead>
                                     <tr>
-                                        <th><?php esc_html_e('Link', 'tinypress'); ?></th>
-                                        <th class="tinypress-col-clicks"><?php esc_html_e('Clicks', 'tinypress'); ?></th>
+                                        <th scope="col"><?php esc_html_e('Link', 'tinypress'); ?></th>
+                                        <th scope="col" class="tinypress-col-clicks"><?php esc_html_e('Clicks', 'tinypress'); ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -326,9 +327,19 @@ class ShortlinksCoreAdmin
         <?php
     }
 
-    public function add_security_expired_teaser_fields($fields)
+    public function add_scheduling_teaser_fields($fields)
     {
         $activation_fields = array(
+            array(
+                'id'         => 'enable_activation_pro_teaser',
+                'type'       => 'switcher',
+                'title'      => esc_html__('Enable Activation', 'tinypress'),
+                'subtitle'   => esc_html__('Schedule when this shortlink should start working.', 'tinypress'),
+                'label'      => esc_html__('When enabled, the shortlink remains inactive until its activation date and time.', 'tinypress'),
+                'default'    => true,
+                'attributes' => array('disabled' => true),
+                'class'      => 'tinypress-pro-teaser-field',
+            ),
             array(
                 'id'         => 'activation_date_pro_teaser',
                 'type'       => 'datetime',
@@ -337,6 +348,7 @@ class ShortlinksCoreAdmin
                 'desc'       => esc_html__('Leave empty to make the shortlink active immediately.', 'tinypress'),
                 'class'      => 'tinypress-scheduled-expiration-field tinypress-pro-teaser-field',
                 'attributes' => array('disabled' => true),
+                'dependency' => array('enable_activation_pro_teaser', '==', '1'),
                 'settings'   => array(
                     'dateFormat' => 'd-m-Y',
                     'enableTime' => false,
@@ -351,6 +363,7 @@ class ShortlinksCoreAdmin
                 'desc'       => esc_html__('Only used when an activation date is set. Leave empty to activate at the start of that date.', 'tinypress'),
                 'class'      => 'tinypress-scheduled-expiration-field tinypress-scheduled-expiration-activation-time tinypress-pro-teaser-field',
                 'attributes' => array('disabled' => true),
+                'dependency' => array('enable_activation_pro_teaser', '==', '1'),
                 'settings'   => array(
                     'noCalendar'      => true,
                     'enableTime'      => true,
@@ -486,10 +499,6 @@ class ShortlinksCoreAdmin
         $updated_fields    = array();
 
         foreach ($fields as $field) {
-            if (! empty($field['id']) && 'enable_expiration_use_global' === $field['id']) {
-                $updated_fields = array_merge($updated_fields, $activation_fields);
-            }
-
             $updated_fields[] = $field;
 
             if (! empty($field['id']) && 'expiration_time' === $field['id']) {
@@ -497,10 +506,10 @@ class ShortlinksCoreAdmin
             }
         }
 
-        return $updated_fields;
+        return array_merge($updated_fields, $activation_fields);
     }
 
-    public function add_global_security_expired_teaser_fields($fields)
+    public function add_global_scheduling_teaser_fields($fields)
     {
         $nudge = $this->get_pro_nudge_html();
 
@@ -510,13 +519,13 @@ class ShortlinksCoreAdmin
             'title'      => esc_html__('Expired Redirect Settings', 'tinypress'),
             'dependency' => array( 'tinypress_global_enable_expiration', '==', '1' ),
             'content'    => '<div style="opacity:0.5;pointer-events:none;">'
-                . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Expired Redirect URL', 'tinypress') . '</strong></p>'
+                . '<label for="tinypress-global-expired-redirect-url" style="display:block;margin:0 0 8px;"><strong>' . esc_html__('Expired Redirect URL', 'tinypress') . '</strong></label>'
                 . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Set the default destination for all expired shortlinks.', 'tinypress') . '</p>'
-                . '<input type="text" disabled placeholder="' . esc_attr(home_url('/')) . '" style="width:100%;max-width:400px;" />'
-                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Show Expiration Notice', 'tinypress') . '</strong></p>'
+                . '<input id="tinypress-global-expired-redirect-url" type="text" disabled placeholder="' . esc_attr(home_url('/')) . '" style="width:100%;max-width:400px;" />'
+                . '<label for="tinypress-global-show-expiration-notice" style="display:block;margin:12px 0 8px;"><strong>' . esc_html__('Show Expiration Notice', 'tinypress') . '</strong></label>'
                 . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Display a custom notice page before automatically redirecting visitors.', 'tinypress') . '</p>'
                 . '<label style="display:inline-flex;align-items:center;gap:8px;">'
-                . '<input type="checkbox" disabled />'
+                . '<input id="tinypress-global-show-expiration-notice" type="checkbox" disabled />'
                 . esc_html__('Show a notice page for expired shortlinks briefly before redirecting. You can customize the content of this message.', 'tinypress')
                 . '</label></div>' . $nudge,
         );
@@ -584,6 +593,7 @@ class ShortlinksCoreAdmin
                     'type'        => 'text',
                     'title'       => esc_html__('Rule Name', 'tinypress'),
                     'placeholder' => esc_html__('Example: Redirect Rule 1', 'tinypress'),
+                    'default'     => esc_html__('Redirect Rule', 'tinypress'),
                     'attributes'  => array('disabled' => true),
                 ),
                 array(
@@ -592,6 +602,7 @@ class ShortlinksCoreAdmin
                     'title'       => esc_html__('Destination URL', 'tinypress'),
                     'placeholder' => 'https://example.com/landing-page',
                     'desc'        => esc_html__('Use an HTTP or HTTPS URL. Empty, invalid, and self-referencing rules are saved as disabled.', 'tinypress'),
+                    'default'     => 'https://example.com/ng-mobile',
                     'attributes'  => array('disabled' => true),
                 ),
                 array(
@@ -619,6 +630,7 @@ class ShortlinksCoreAdmin
                     'chosen'      => true,
                     'multiple'    => true,
                     'placeholder' => esc_html__('Select countries', 'tinypress'),
+                    'default'     => array('NG'),
                     'attributes'  => array('disabled' => true),
                 ),
                 array(
@@ -632,6 +644,7 @@ class ShortlinksCoreAdmin
                     ),
                     'inline'     => true,
                     'desc'       => esc_html__('Leave every option unchecked to match any device.', 'tinypress'),
+                    'default'    => array('mobile'),
                     'attributes' => array('disabled' => true),
                 ),
                 array(
@@ -706,12 +719,12 @@ class ShortlinksCoreAdmin
             'type'       => 'content',
             'title'      => esc_html__('Advanced Auto-Link Settings', 'tinypress'),
             'content'    => '<div style="opacity:0.5;pointer-events:none;">'
-                . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Minimum Keyword Usage', 'tinypress') . '</strong></p>'
+                . '<label for="tinypress-metabox-autolink-minimum-usage" style="display:block;margin:0 0 8px;"><strong>' . esc_html__('Minimum Keyword Usage', 'tinypress') . '</strong></label>'
                 . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Keyword must appear this many times before being autolinked.', 'tinypress') . '</p>'
-                . '<input type="number" disabled value="1" style="width:80px;" />'
-                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Maximum Keywords Linked', 'tinypress') . '</strong></p>'
+                . '<input id="tinypress-metabox-autolink-minimum-usage" type="number" disabled value="1" style="width:80px;" />'
+                . '<label for="tinypress-metabox-autolink-maximum-keywords" style="display:block;margin:12px 0 8px;"><strong>' . esc_html__('Maximum Keywords Linked', 'tinypress') . '</strong></label>'
                 . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Maximum number of times this keyword should be autolinked per post.', 'tinypress') . '</p>'
-                . '<input type="number" disabled value="0" style="width:80px;" />'
+                . '<input id="tinypress-metabox-autolink-maximum-keywords" type="number" disabled value="0" style="width:80px;" />'
                 . '</div>' . $nudge,
         );
 
@@ -734,21 +747,21 @@ class ShortlinksCoreAdmin
             'title'      => esc_html__('Advanced Auto-Link Settings', 'tinypress'),
             'dependency' => array('tinypress_autolink_enabled', '==', '1'),
             'content'    => '<div style="opacity:0.5;pointer-events:none;">'
-                . '<p style="margin:0 0 8px;"><strong>' . esc_html__('Minimum Keyword Usage', 'tinypress') . '</strong></p>'
+                . '<label for="tinypress-global-autolink-minimum-usage" style="display:block;margin:0 0 8px;"><strong>' . esc_html__('Minimum Keyword Usage', 'tinypress') . '</strong></label>'
                 . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Default minimum times a keyword must appear before being autolinked.', 'tinypress') . '</p>'
-                . '<input type="number" disabled value="1" style="width:80px;" />'
-                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Maximum Keywords Linked', 'tinypress') . '</strong></p>'
+                . '<input id="tinypress-global-autolink-minimum-usage" type="number" disabled value="1" style="width:80px;" />'
+                . '<label for="tinypress-global-autolink-maximum-keywords" style="display:block;margin:12px 0 8px;"><strong>' . esc_html__('Maximum Keywords Linked', 'tinypress') . '</strong></label>'
                 . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Default maximum times a keyword should be autolinked per post.', 'tinypress') . '</p>'
-                . '<input type="number" disabled value="0" style="width:80px;" />'
-                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Maximum Links Per Post', 'tinypress') . '</strong></p>'
+                . '<input id="tinypress-global-autolink-maximum-keywords" type="number" disabled value="0" style="width:80px;" />'
+                . '<label for="tinypress-global-autolink-maximum-links" style="display:block;margin:12px 0 8px;"><strong>' . esc_html__('Maximum Links Per Post', 'tinypress') . '</strong></label>'
                 . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Total maximum autolinks allowed per post/page.', 'tinypress') . '</p>'
-                . '<input type="number" disabled value="0" style="width:80px;" />'
-                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Minimum Character Length', 'tinypress') . '</strong></p>'
+                . '<input id="tinypress-global-autolink-maximum-links" type="number" disabled value="0" style="width:80px;" />'
+                . '<label for="tinypress-global-autolink-minimum-length" style="display:block;margin:12px 0 8px;"><strong>' . esc_html__('Minimum Character Length', 'tinypress') . '</strong></label>'
                 . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Keywords shorter than this will not be autolinked.', 'tinypress') . '</p>'
-                . '<input type="number" disabled value="0" style="width:80px;" />'
-                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Maximum Character Length', 'tinypress') . '</strong></p>'
+                . '<input id="tinypress-global-autolink-minimum-length" type="number" disabled value="0" style="width:80px;" />'
+                . '<label for="tinypress-global-autolink-maximum-length" style="display:block;margin:12px 0 8px;"><strong>' . esc_html__('Maximum Character Length', 'tinypress') . '</strong></label>'
                 . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Keywords longer than this will not be autolinked.', 'tinypress') . '</p>'
-                . '<input type="number" disabled value="0" style="width:80px;" />'
+                . '<input id="tinypress-global-autolink-maximum-length" type="number" disabled value="0" style="width:80px;" />'
                 . '</div>' . $nudge,
         );
 
@@ -770,12 +783,12 @@ class ShortlinksCoreAdmin
             'type'    => 'content',
             'title'   => esc_html__('Auto-Link Exceptions', 'tinypress'),
             'content' => '<div style="opacity:0.5;pointer-events:none;">'
-                . '<p style="margin:0 0 12px;"><strong>' . esc_html__('Exclude Terms from Auto Links', 'tinypress') . '</strong></p>'
+                . '<label for="tinypress-autolink-excluded-terms" style="display:block;margin:0 0 12px;"><strong>' . esc_html__('Exclude Terms from Auto Links', 'tinypress') . '</strong></label>'
                 . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('These terms will never be autolinked.', 'tinypress') . '</p>'
-                . '<textarea disabled rows="2" style="width:100%;max-width:400px;" placeholder="WordPress, Website, Click here"></textarea>'
-                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Prevent Auto Links Inside Classes or IDs', 'tinypress') . '</strong></p>'
+                . '<textarea id="tinypress-autolink-excluded-terms" disabled rows="2" style="width:100%;max-width:400px;" placeholder="WordPress, Website, Click here"></textarea>'
+                . '<label for="tinypress-autolink-excluded-selectors" style="display:block;margin:12px 0 8px;"><strong>' . esc_html__('Prevent Auto Links Inside Classes or IDs', 'tinypress') . '</strong></label>'
                 . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Content inside elements with these classes or IDs will not have autolinks applied.', 'tinypress') . '</p>'
-                . '<textarea disabled rows="2" style="width:100%;max-width:400px;" placeholder=".notag, #main-header"></textarea>'
+                . '<textarea id="tinypress-autolink-excluded-selectors" disabled rows="2" style="width:100%;max-width:400px;" placeholder=".notag, #main-header"></textarea>'
                 . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Prevent Auto Links Inside Elements', 'tinypress') . '</strong></p>'
                 . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Terms inside these HTML tags will not have autolinks applied.', 'tinypress') . '</p>'
                 . '<div style="display:flex;gap:10px;flex-wrap:wrap;">'
@@ -790,12 +803,12 @@ class ShortlinksCoreAdmin
                 . '<label><input type="checkbox" disabled checked> pre</label>'
                 . '<label><input type="checkbox" disabled checked> code</label>'
                 . '</div>'
-                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Prevent Auto Links on Shortcodes', 'tinypress') . '</strong></p>'
+                . '<label for="tinypress-autolink-excluded-shortcodes" style="display:block;margin:12px 0 8px;"><strong>' . esc_html__('Prevent Auto Links on Shortcodes', 'tinypress') . '</strong></label>'
                 . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Terms inside these shortcodes will not have autolinks applied.', 'tinypress') . '</p>'
-                . '<textarea disabled rows="2" style="width:100%;max-width:400px;" placeholder="read_more, gallery"></textarea>'
-                . '<p style="margin:12px 0 8px;"><strong>' . esc_html__('Prevent Auto Links on Blocks', 'tinypress') . '</strong></p>'
+                . '<textarea id="tinypress-autolink-excluded-shortcodes" disabled rows="2" style="width:100%;max-width:400px;" placeholder="read_more, gallery"></textarea>'
+                . '<label for="tinypress-autolink-excluded-blocks" style="display:block;margin:12px 0 8px;"><strong>' . esc_html__('Prevent Auto Links on Blocks', 'tinypress') . '</strong></label>'
                 . '<p style="margin:0 0 8px; font-style:italic; font-size:0.9em;">' . esc_html__('Terms inside these Gutenberg blocks will not have autolinks applied.', 'tinypress') . '</p>'
-                . '<select disabled style="width:100%;max-width:400px;"><option>' . esc_html__('Search and select blocks...', 'tinypress') . '</option></select>'
+                . '<select id="tinypress-autolink-excluded-blocks" disabled style="width:100%;max-width:400px;"><option>' . esc_html__('Search and select blocks...', 'tinypress') . '</option></select>'
                 . '</div>' . $nudge,
         );
 
