@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
-"PO-Revision-Date: 2026-07-31 14:32+0000\n"
+"PO-Revision-Date: 2026-09-07 16:04+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 ">= 2 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
@@ -38,17 +38,18 @@ msgstr ""
 "Geriausias nuorodų valdytojas WordPress. Jūsų nuorodos yra prekės ženklui "
 "tinkamos, sekamos ir gali turėti pasirinktinius peržiūros leidimus."
 
-#: tinypress.php:9
+#: tinypress.php:11
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: tinypress.php:10, fuzzy
+#: tinypress.php:12, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: includes-core/ShortlinksCoreAdmin.php:91
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:88
+#: includes-core/ShortlinksCoreAdmin.php:110
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
@@ -56,33 +57,36 @@ msgstr ""
 "Naudojate PublishPress Shortlinks Free. Pro versija turi daugiau funkcijų "
 "ir palaikymo. "
 
-#: includes-core/ShortlinksCoreAdmin.php:92
-#: includes-core/ShortlinksCoreAdmin.php:109
-#: includes-core/ShortlinksCoreAdmin.php:110
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:89
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:106
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:107
+#: includes-core/ShortlinksCoreAdmin.php:111
+#: includes-core/ShortlinksCoreAdmin.php:128
+#: includes-core/ShortlinksCoreAdmin.php:129
 msgid "Upgrade to Pro"
 msgstr "Atnaujinti į Pro"
 
-#: includes-core/ShortlinksCoreAdmin.php:120
-#: includes-core/ShortlinksCoreAdmin.php:121
-#: includes-core/ShortlinksCoreAdmin.php:163
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:117
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:118
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:148
+#: includes-core/ShortlinksCoreAdmin.php:139
+#: includes-core/ShortlinksCoreAdmin.php:140
+#: includes-core/ShortlinksCoreAdmin.php:188
 msgid "Link Health"
 msgstr "Nuorodų sveikata"
 
-#: includes-core/ShortlinksCoreAdmin.php:132
-#: includes-core/ShortlinksCoreAdmin.php:133
-#: includes-core/ShortlinksCoreAdmin.php:224
-msgid "Reports"
-msgstr "Ataskaitos"
-
-#: includes-core/ShortlinksCoreAdmin.php:146
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:131
+#: includes-core/ShortlinksCoreAdmin.php:171
 msgid "Pro Feature"
 msgstr "Pro funkcija"
 
-#: includes-core/ShortlinksCoreAdmin.php:149
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:134
+#: includes-core/ShortlinksCoreAdmin.php:174
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "Ši funkcija yra prieinama PublishPress Shortlinks Pro."
 
-#: includes-core/ShortlinksCoreAdmin.php:165
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:150
+#: includes-core/ShortlinksCoreAdmin.php:190
 msgid ""
 "Check whether your shortlinks redirect visitors to working destination "
 "pages."
@@ -90,185 +94,121 @@ msgstr ""
 "Patikrinkite, ar jūsų trumpinės nuorodos nukreipia lankytojus į veikiančias "
 "paskirties svetaines."
 
-#: includes-core/ShortlinksCoreAdmin.php:173
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:158
+#: includes-core/ShortlinksCoreAdmin.php:198
 msgid "Check Visible Links"
 msgstr "Patikrinkite matomas nuorodas"
 
-#: includes-core/ShortlinksCoreAdmin.php:177
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:162
+#: includes-core/ShortlinksCoreAdmin.php:202
 msgid "Check All Links"
 msgstr "Patikrinkite visas nuorodas"
 
-#: includes-core/ShortlinksCoreAdmin.php:184
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:169
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:54
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:552
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:159
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:231
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:164
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:29
+#: includes-core/ShortlinksCoreAdmin.php:209
 #: includes/classes/class-columns-link.php:56
-#: includes/classes/class-columns-link.php:588
+#: includes/classes/class-columns-link.php:614
 #: includes/classes/class-gutenberg-shortlink.php:163
 #: includes/classes/class-hooks.php:307
 #: includes/classes/class-table-logs.php:168
-#: templates/admin-modal-new-link.php:29
+#: templates/admin-modal-new-link.php:30
 msgid "Shortlink"
 msgstr "Trumpa nuoroda"
 
-#: includes-core/ShortlinksCoreAdmin.php:185
-#: includes/classes/class-gutenberg-shortlink.php:173
-#: includes/classes/class-import-export.php:1095
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:170
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:169
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1053
+#: includes-core/ShortlinksCoreAdmin.php:210
+#: includes/classes/class-gutenberg-shortlink.php:174
+#: includes/classes/class-import-export.php:1156
 msgid "Target URL"
 msgstr "Paskirties URL"
 
-#: includes-core/ShortlinksCoreAdmin.php:186
-#: includes/classes/class-meta-boxes.php:546
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:171
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:542
+#: includes-core/ShortlinksCoreAdmin.php:211
+#: includes/classes/class-meta-boxes.php:888
 msgid "Status"
 msgstr "Statusas"
 
-#: includes-core/ShortlinksCoreAdmin.php:187, fuzzy
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:172
+#: includes-core/ShortlinksCoreAdmin.php:212, fuzzy
 msgid "HTTP"
 msgstr "HTTP"
 
-#: includes-core/ShortlinksCoreAdmin.php:188
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:173
+#: includes-core/ShortlinksCoreAdmin.php:213
 msgid "Redirects"
 msgstr "Nukreipimai"
 
-#: includes-core/ShortlinksCoreAdmin.php:189
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:174
+#: includes-core/ShortlinksCoreAdmin.php:214
 msgid "Final URL"
 msgstr "Galutinis URL"
 
-#: includes-core/ShortlinksCoreAdmin.php:196
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:181
+#: includes-core/ShortlinksCoreAdmin.php:221
 msgid "Working"
 msgstr "Veikiantis"
 
-#: includes-core/ShortlinksCoreAdmin.php:204
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:189
+#: includes-core/ShortlinksCoreAdmin.php:229
 msgid "Broken"
 msgstr "Sugedęs"
 
-#: includes-core/ShortlinksCoreAdmin.php:226
-msgid ""
-"Get aggregated insights into your shortlink performance with detailed "
-"analytics reports."
-msgstr ""
-"Gaukite suvestinę įžvalgą apie savo trumpųjų nuorodų našumą su išsamiomis "
-"analitikos ataskaitomis."
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:212
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:236
+#: includes-core/ShortlinksCoreAdmin.php:519
+msgid "Expired Redirect Settings"
+msgstr "Pasibaigusių nukreipimų nustatymai"
 
-#: includes-core/ShortlinksCoreAdmin.php:232
-#: templates/admin/analytics.php:123
-msgid "Date Range:"
-msgstr "Datos intervalas:"
-
-#: includes-core/ShortlinksCoreAdmin.php:234
-#: templates/admin/analytics.php:127
-msgid "Last 7 Days"
-msgstr "Paskutinės 7 dienos"
-
-#: includes-core/ShortlinksCoreAdmin.php:236
-#: templates/admin/analytics.php:156
-msgid "Apply"
-msgstr "Taikyti"
-
-#: includes-core/ShortlinksCoreAdmin.php:244
-#: templates/admin/analytics.php:169
-msgid "Total Clicks"
-msgstr "Bendras paspaudimų skaičius"
-
-#: includes-core/ShortlinksCoreAdmin.php:251
-#: templates/admin/analytics.php:177
-msgid "Unique Visitors"
-msgstr "Unikalūs lankytojai"
-
-#: includes-core/ShortlinksCoreAdmin.php:258
-msgid "Active Links"
-msgstr "Aktyvios nuorodos"
-
-#: includes-core/ShortlinksCoreAdmin.php:265
-msgid "Avg. Clicks/Link"
-msgstr "Vid. paspaudimai/nuoroda"
-
-#: includes-core/ShortlinksCoreAdmin.php:272
-msgid "Top Performing Links"
-msgstr "Geriausiai veikiančios nuorodos"
-
-#: includes-core/ShortlinksCoreAdmin.php:276
-msgid "Link"
-msgstr "Nuoroda"
-
-#: includes-core/ShortlinksCoreAdmin.php:277
-msgid "Clicks"
-msgstr "Paspaudimai"
-
-#: includes-core/ShortlinksCoreAdmin.php:288
-msgid "Top Locations"
-msgstr "Geriausios vietos"
-
-#: includes-core/ShortlinksCoreAdmin.php:312
-msgid "Scheduled Expiration Settings"
-msgstr "Naplaninės galiojimo nustatymo parinktys"
-
-#: includes-core/ShortlinksCoreAdmin.php:315
-msgid "Activation Date"
-msgstr "Aktyvavimo data"
-
-#: includes-core/ShortlinksCoreAdmin.php:316
-msgid "Choose when this shortlink should start working."
-msgstr "Pasirinkite, kada ši trumpa nuoroda turėtų pradėti veikti."
-
-#: includes-core/ShortlinksCoreAdmin.php:317, fuzzy
-msgid "dd-mm-yyyy"
-msgstr "dd-mm-yyyy"
-
-#: includes-core/ShortlinksCoreAdmin.php:318
-msgid "Activation Time"
-msgstr "Aktyvavimo laikas"
-
-#: includes-core/ShortlinksCoreAdmin.php:319
-msgid "Choose the time this shortlink should start working."
-msgstr "Pasirinkite laiką, kada ši trumpa nuoroda turėtų pradėti veikti."
-
-#: includes-core/ShortlinksCoreAdmin.php:320, fuzzy
-msgid "12:00 PM"
-msgstr "12:00 PM"
-
-#: includes-core/ShortlinksCoreAdmin.php:321
-msgid "Expiration Click Limit"
-msgstr "Paspaudimų limitas galiojimui"
-
-#: includes-core/ShortlinksCoreAdmin.php:322
-msgid "Expire this shortlink after a number of clicks."
-msgstr "Pasibaigti šiam trumpam nuorodui po tam tikro paspaudimų skaičiaus."
-
-#: includes-core/ShortlinksCoreAdmin.php:324
-#: includes-core/ShortlinksCoreAdmin.php:348
-#: includes/classes/class-import-export.php:1106
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:215
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:239
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1064
+#: includes-core/ShortlinksCoreAdmin.php:395
+#: includes-core/ShortlinksCoreAdmin.php:522
+#: includes/classes/class-import-export.php:1167
 msgid "Expired Redirect URL"
 msgstr "Pasibaigusio nukreipimo URL"
 
-#: includes-core/ShortlinksCoreAdmin.php:325
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:216
 msgid "Choose where visitors should go when they click an expired link."
 msgstr ""
 "Pasirinkite, kur lankytojai turėtų eiti, kai paspaudžia pasibaigusios "
 "nuorodos."
 
-#: includes-core/ShortlinksCoreAdmin.php:327
-#: includes-core/ShortlinksCoreAdmin.php:351
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:218
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:242
+#: includes-core/ShortlinksCoreAdmin.php:417
+#: includes-core/ShortlinksCoreAdmin.php:525
 msgid "Show Expiration Notice"
 msgstr "Rodyti galiojimo pranešimą"
 
-#: includes-core/ShortlinksCoreAdmin.php:328
-#: includes-core/ShortlinksCoreAdmin.php:352
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:219
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:243
+#: includes-core/ShortlinksCoreAdmin.php:526
 msgid "Display a custom notice page before automatically redirecting visitors."
 msgstr "Rodyti užsakytą pranešimo puslapį prieš automatiškai nukreipiant lankytojus."
 
-#: includes-core/ShortlinksCoreAdmin.php:331
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:222
 msgid "Show a notice page for expired shortlinks briefly before redirecting."
 msgstr ""
 "Rodyti pranešimo puslapį apie pasibaigusias trumpines trumpai prieš "
 "nukreipiant."
 
-#: includes-core/ShortlinksCoreAdmin.php:345
-msgid "Expired Redirect Settings"
-msgstr "Pasibaigusių nukreipimų nustatymai"
-
-#: includes-core/ShortlinksCoreAdmin.php:349
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:240
+#: includes-core/ShortlinksCoreAdmin.php:523
 msgid "Set the default destination for all expired shortlinks."
 msgstr "Nustatyti numatytąją paskirtį visoms pasibaigusioms trumpinėms nuorodoms."
 
-#: includes-core/ShortlinksCoreAdmin.php:355
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:246
+#: includes-core/ShortlinksCoreAdmin.php:529
 msgid ""
 "Show a notice page for expired shortlinks briefly before redirecting. You "
 "can customize the content of this message."
@@ -276,588 +216,729 @@ msgstr ""
 "Rodyti pranešimo puslapį apie pasibaigusias trumpines trumpai prieš "
 "nukreipiant. Galite pritaikyti šio pranešimo turinį."
 
-#: includes-core/ShortlinksCoreAdmin.php:369
-msgid "Conditional Redirect Rules"
-msgstr "Sąlyginiai nukreipimo taisyklės"
-
-#: includes-core/ShortlinksCoreAdmin.php:371
-msgid "Enable Dynamic Redirects"
-msgstr "Įjungti dinamiškus nukreipimus"
-
-#: includes-core/ShortlinksCoreAdmin.php:374
-msgid "Send visitors to different destinations when they match a rule."
-msgstr "Nukreipti lankytojus į skirtingas vietas, kai jie atitinka taisyklę."
-
-#: includes-core/ShortlinksCoreAdmin.php:376
-msgid "Redirect Rules"
-msgstr "Nukreipimo taisyklės"
-
-#: includes-core/ShortlinksCoreAdmin.php:378
-msgid "Nigeria mobile visitors"
-msgstr "Nigerijos mobiliųjų lankytojų"
-
-#: includes-core/ShortlinksCoreAdmin.php:380
-msgid "Country and device conditions"
-msgstr "Šalies ir įrenginio sąlygos"
-
-#: includes-core/ShortlinksCoreAdmin.php:415
-#: includes-core/ShortlinksCoreAdmin.php:442
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:281
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:308
+#: includes-core/ShortlinksCoreAdmin.php:720
+#: includes-core/ShortlinksCoreAdmin.php:747
 msgid "Advanced Auto-Link Settings"
 msgstr "Išplėstinės automatinio nuorodų nustatymų"
 
-#: includes-core/ShortlinksCoreAdmin.php:417
-#: includes-core/ShortlinksCoreAdmin.php:445
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:283
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:311
+#: includes-core/ShortlinksCoreAdmin.php:722
+#: includes-core/ShortlinksCoreAdmin.php:750
 msgid "Minimum Keyword Usage"
 msgstr "Minimalus raktažodžio naudojimas"
 
-#: includes-core/ShortlinksCoreAdmin.php:418
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:284
+#: includes-core/ShortlinksCoreAdmin.php:723
 msgid "Keyword must appear this many times before being autolinked."
 msgstr "Raktažodis turi pasirodyti tiek kartų, kad būtų automatiškai susietas."
 
-#: includes-core/ShortlinksCoreAdmin.php:420
-#: includes-core/ShortlinksCoreAdmin.php:448
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:286
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:314
+#: includes-core/ShortlinksCoreAdmin.php:725
+#: includes-core/ShortlinksCoreAdmin.php:753
 msgid "Maximum Keywords Linked"
 msgstr "Maksimalus susietų raktinių žodžių skaičius"
 
-#: includes-core/ShortlinksCoreAdmin.php:421
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:287
+#: includes-core/ShortlinksCoreAdmin.php:726
 msgid "Maximum number of times this keyword should be autolinked per post."
 msgstr ""
 "Maksimalus kartų skaičius, kai šis raktinis žodis turi būti automatiškai "
 "susietas per įrašą."
 
-#: includes-core/ShortlinksCoreAdmin.php:446
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:312
+#: includes-core/ShortlinksCoreAdmin.php:751
 msgid "Default minimum times a keyword must appear before being autolinked."
 msgstr ""
 "Numatytas minimalus kartų skaičius, kai raktinis žodis turi pasirodyti "
 "prieš būdamas automatiškai susietas."
 
-#: includes-core/ShortlinksCoreAdmin.php:449
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:315
+#: includes-core/ShortlinksCoreAdmin.php:754
 msgid "Default maximum times a keyword should be autolinked per post."
 msgstr ""
 "Numatytas maksimalus kartų skaičius, kai raktinis žodis turėtų būti "
 "automatiškai susietas per įrašą."
 
-#: includes-core/ShortlinksCoreAdmin.php:451
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:317
+#: includes-core/ShortlinksCoreAdmin.php:756
 msgid "Maximum Links Per Post"
 msgstr "Maksimalus nuorodų skaičius per įrašą"
 
-#: includes-core/ShortlinksCoreAdmin.php:452
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:318
+#: includes-core/ShortlinksCoreAdmin.php:757
 msgid "Total maximum autolinks allowed per post/page."
 msgstr "Bendras maksimalus automatiškai susietų nuorodų skaičius per įrašą/puslapį."
 
-#: includes-core/ShortlinksCoreAdmin.php:454
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:320
+#: includes-core/ShortlinksCoreAdmin.php:759
 msgid "Minimum Character Length"
 msgstr "Minimalus simbolių ilgis"
 
-#: includes-core/ShortlinksCoreAdmin.php:455
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:321
+#: includes-core/ShortlinksCoreAdmin.php:760
 msgid "Keywords shorter than this will not be autolinked."
 msgstr "Raktiniai žodžiai, trumpesni nei šis, nebus automatiškai susieti."
 
-#: includes-core/ShortlinksCoreAdmin.php:457
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:323
+#: includes-core/ShortlinksCoreAdmin.php:762
 msgid "Maximum Character Length"
 msgstr "Maksimalus simbolių ilgis"
 
-#: includes-core/ShortlinksCoreAdmin.php:458
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:324
+#: includes-core/ShortlinksCoreAdmin.php:763
 msgid "Keywords longer than this will not be autolinked."
 msgstr "Raktiniai žodžiai, ilgesni nei šis, nebus automatiškai susieti."
 
-#: includes-core/ShortlinksCoreAdmin.php:479
-#: includes/classes/class-settings.php:1059
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:345
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:850
+#: includes-core/ShortlinksCoreAdmin.php:784
+#: includes/classes/class-settings.php:1087
 msgid "Auto-Link Exceptions"
 msgstr "Automatinio susiejimo išimtys"
 
-#: includes-core/ShortlinksCoreAdmin.php:481
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:347
+#: includes-core/ShortlinksCoreAdmin.php:786
 msgid "Exclude Terms from Auto Links"
 msgstr "Išskirti terminus iš automatiškai susietų nuorodų"
 
-#: includes-core/ShortlinksCoreAdmin.php:482
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:348
+#: includes-core/ShortlinksCoreAdmin.php:787
 msgid "These terms will never be autolinked."
 msgstr "Šie terminai niekada nebus automatiškai susieti."
 
-#: includes-core/ShortlinksCoreAdmin.php:484
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:350
+#: includes-core/ShortlinksCoreAdmin.php:789
 msgid "Prevent Auto Links Inside Classes or IDs"
 msgstr "Užkirsti kelią automatinėms nuorodoms viduje klasių ar ID"
 
-#: includes-core/ShortlinksCoreAdmin.php:485
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:351
+#: includes-core/ShortlinksCoreAdmin.php:790
 msgid ""
 "Content inside elements with these classes or IDs will not have autolinks "
 "applied."
 msgstr "Turinys elementuose su šiomis klasėmis ar ID nebus automatiškai susietas."
 
-#: includes-core/ShortlinksCoreAdmin.php:487
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:353
+#: includes-core/ShortlinksCoreAdmin.php:792
 msgid "Prevent Auto Links Inside Elements"
 msgstr "Užkirsti kelią automatinėms nuorodoms viduje elementų"
 
-#: includes-core/ShortlinksCoreAdmin.php:488
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:354
+#: includes-core/ShortlinksCoreAdmin.php:793
 msgid "Terms inside these HTML tags will not have autolinks applied."
 msgstr "Terminai šiuose HTML žymėse nebus automatiškai susieti."
 
-#: includes-core/ShortlinksCoreAdmin.php:501
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:367
+#: includes-core/ShortlinksCoreAdmin.php:806
 msgid "Prevent Auto Links on Shortcodes"
 msgstr "Užkirsti kelią automatinėms nuorodoms ant trumpųjų kodų"
 
-#: includes-core/ShortlinksCoreAdmin.php:502
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:368
+#: includes-core/ShortlinksCoreAdmin.php:807
 msgid "Terms inside these shortcodes will not have autolinks applied."
 msgstr "Terminai šiuose trumpuosiuose koduose nebus automatiškai susieti."
 
-#: includes-core/ShortlinksCoreAdmin.php:504
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:370
+#: includes-core/ShortlinksCoreAdmin.php:809
 msgid "Prevent Auto Links on Blocks"
 msgstr "Užkirsti kelią automatinėms nuorodoms ant blokų"
 
-#: includes-core/ShortlinksCoreAdmin.php:505
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:371
+#: includes-core/ShortlinksCoreAdmin.php:810
 msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
 msgstr ""
 "Šių Gutenberg blokų viduje terminams nebus taikomi automatiniai nuorodų "
 "ryšiai."
 
-#: includes-core/ShortlinksCoreAdmin.php:506
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:372
+#: includes-core/ShortlinksCoreAdmin.php:811
 msgid "Search and select blocks..."
 msgstr "Ieškoti ir pasirinkti blokus..."
 
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:39
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:204
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:234
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:285
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:329
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:204
-#: includes/classes/class-gutenberg-shortlink.php:238
-#: includes/classes/class-gutenberg-shortlink.php:289
-#: includes/classes/class-gutenberg-shortlink.php:333
+#: includes/classes/class-autolist-ajax.php:203
+#: includes/classes/class-gutenberg-shortlink.php:239
+#: includes/classes/class-gutenberg-shortlink.php:290
+#: includes/classes/class-gutenberg-shortlink.php:334
 msgid "Permission denied"
 msgstr "Prieiga atimta"
 
-#: includes/classes/class-autolist-ajax.php:47
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:47
+#: includes/classes/class-autolist-ajax.php:46
 msgid "Post type is required"
 msgstr "Post type yra privalomas"
 
-#: includes/classes/class-autolist-ajax.php:53
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:53
+#: includes/classes/class-autolist-ajax.php:52
 #. translators: %s: post type name
 msgid "\"%%s\" is not a registered post type"
 msgstr "\"%%s\" nėra registruotas post type"
 
-#: includes/classes/class-autolist-ajax.php:61
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:61
+#: includes/classes/class-autolist-ajax.php:60
 #. translators: %s: post type name
 msgid "\"%%s\" is not a public post type"
 msgstr "\"%%s\" nėra viešas post type"
 
-#: includes/classes/class-autolist-ajax.php:68
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:68
+#: includes/classes/class-autolist-ajax.php:67
 #. translators: %s: post type name
 msgid "\"%%s\" cannot be used for auto-listing"
 msgstr "\"%%s\" negali būti naudojamas automatiškai sąrašui sudaryti"
 
-#: includes/classes/class-autolist-ajax.php:78
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:78
+#: includes/classes/class-autolist-ajax.php:77
 #. translators: %s: post type name
 msgid "\"%%s\" is already configured"
 msgstr "\"%%s\" jau yra sukonfigūruotas"
 
-#: includes/classes/class-autolist-ajax.php:85
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:85
+#: includes/classes/class-autolist-ajax.php:84
 #. translators: %s: post type label
 msgid "Valid: %%s"
 msgstr "Galioja: %%s"
 
-#: includes/classes/class-autolist-ajax.php:99
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:99
+#: includes/classes/class-autolist-ajax.php:98
 msgid "Permission denied - you must be an administrator"
 msgstr "Prieiga atimta - turite būti administratorius"
 
-#: includes/classes/class-autolist-ajax.php:107
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:107
+#: includes/classes/class-autolist-ajax.php:106
 msgid "Invalid configuration format - expected array"
 msgstr "Neteisingas konfigūracijos formatas - tikėtasi masyvo"
 
-#: includes/classes/class-autolist-ajax.php:128
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:128
+#: includes/classes/class-autolist-ajax.php:127
 msgid "Configuration unchanged (already saved)"
 msgstr "Konfigūracija nepakitusi (jau išsaugota)"
 
-#: includes/classes/class-autolist-ajax.php:132
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:132
+#: includes/classes/class-autolist-ajax.php:131
 msgid "Failed to save configuration to database"
 msgstr "Nepavyko išsaugoti konfigūracijos duomenų bazėje"
 
-#: includes/classes/class-autolist-ajax.php:137
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:137
+#: includes/classes/class-autolist-ajax.php:136
 msgid "Configuration saved successfully"
 msgstr "Konfigūracija sėkmingai išsaugota"
 
-#: includes/classes/class-autolist-ajax.php:149
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:149
+#: includes/classes/class-autolist-ajax.php:148
 #. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "Klaida: %s"
 
-#: includes/classes/class-autolist-ajax.php:293
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:293
+#: includes/classes/class-autolist-ajax.php:291
 msgid "Validating..."
 msgstr "Tikrinama..."
 
-#: includes/classes/class-autolist-ajax.php:294
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:294
+#: includes/classes/class-autolist-ajax.php:292
 msgid "Saving..."
 msgstr "Išsaugoma..."
 
-#: includes/classes/class-autolist-ajax.php:295
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:295
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Saved!"
 msgstr "Išsaugota!"
 
-#: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-gutenberg-shortlink.php:179
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:296
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:175
+#: includes/classes/class-autolist-ajax.php:294
+#: includes/classes/class-gutenberg-shortlink.php:180
 msgid "Error"
 msgstr "Klaida"
 
-#: includes/classes/class-autolist-ajax.php:297
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:297
+#: includes/classes/class-autolist-ajax.php:295
 msgid "Are you sure you want to remove this post type?"
 msgstr "Ar tikrai norite pašalinti šį post type?"
 
-#: includes/classes/class-autolist-ajax.php:298
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:298
+#: includes/classes/class-autolist-ajax.php:296
 msgid "Select a post type"
 msgstr "Pasirinkite post type"
 
-#: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:1241
-#: includes/classes/class-settings.php:1339
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:299
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1032
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1130
+#: includes/classes/class-autolist-ajax.php:297
+#: includes/classes/class-settings.php:1274
+#: includes/classes/class-settings.php:1372
 msgid "Never"
 msgstr "Niekuomet"
 
-#: includes/classes/class-autolist-ajax.php:300
-#: includes/classes/class-settings.php:1239
-#: includes/classes/class-settings.php:1341
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:300
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1030
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1132
+#: includes/classes/class-autolist-ajax.php:298
+#: includes/classes/class-settings.php:1272
+#: includes/classes/class-settings.php:1374
 msgid "When Link is First Used"
 msgstr "Kai nuoroda yra pirmą kartą naudojama"
 
-#: includes/classes/class-autolist-ajax.php:301
-#: includes/classes/class-settings.php:1343
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:301
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1134
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:1376
 msgid "When Post is Published"
 msgstr "Kai įrašas yra paskelbtas"
 
-#: includes/classes/class-autolist-ajax.php:302
-#: includes/classes/class-settings.php:1342
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:302
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1133
+#: includes/classes/class-autolist-ajax.php:300
+#: includes/classes/class-settings.php:1375
 msgid "When Post is Created"
 msgstr "Kai įrašas yra sukurtas"
 
-#: includes/classes/class-autolist-ajax.php:303
-#: includes/classes/class-settings.php:1340
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:303
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1131
+#: includes/classes/class-autolist-ajax.php:301
+#: includes/classes/class-settings.php:1373
 msgid "When Link is First Used or Post Created"
 msgstr "Kai nuoroda yra pirmą kartą naudojama arba įrašas sukurtas"
 
+#: dist/publishpress-shortlinks/includes/classes/class-autolist.php:119
 #: includes/classes/class-autolist.php:123
 msgid "Invalid post ID or post type."
 msgstr "Neteisingas įrašo ID arba įrašo tipas."
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:76
 #: includes/classes/class-columns-link.php:78
 msgid "No shortlink"
 msgstr "Nėra trumpos nuorodos"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:97
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:232
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:234
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:163
 #: includes/classes/class-columns-link.php:99
 #: includes/classes/class-hooks.php:308
 #: includes/classes/class-hooks.php:310
-#: includes/classes/class-meta-boxes.php:167
+#: includes/classes/class-meta-boxes.php:176
+#: includes/classes/class-meta-boxes.php:376
 msgid "Shortlinks"
 msgstr "Trumpas nuorodas"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:188
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:335
 #: includes/classes/class-columns-link.php:190
 #: includes/classes/class-columns-link.php:337
 msgid "Internal"
 msgstr "Vidinė"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:188
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:336
 #: includes/classes/class-columns-link.php:190
 #: includes/classes/class-columns-link.php:338
 msgid "External"
 msgstr "Išorinė"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:189
 #: includes/classes/class-columns-link.php:191
 msgid "This links to your post"
 msgstr "Ši nuoroda veda į jūsų įrašą"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:189
 #: includes/classes/class-columns-link.php:191
 msgid "This links to an external website"
 msgstr "Ši nuoroda veda į išorinį svetainę"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:193
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:337
 #: includes/classes/class-columns-link.php:195
 #: includes/classes/class-columns-link.php:339
 msgid "Revision"
 msgstr "Revizija"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:194
 #: includes/classes/class-columns-link.php:196
 msgid "This links to a revision"
 msgstr "Ši nuoroda veda į reviziją"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:203
 #: includes/classes/class-columns-link.php:205
 msgid "Not yet submitted"
 msgstr "Dar nepatvirtinta"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:204
 #: includes/classes/class-columns-link.php:206
 msgid "Submitted for approval"
 msgstr "Pateikta patvirtinimui"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:205
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:365
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:706
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:714
+#: dist/publishpress-shortlinks/includes/functions.php:273
+#: dist/publishpress-shortlinks/includes/functions.php:307
 #: includes/classes/class-columns-link.php:207
-#: includes/classes/class-settings.php:433
-#: includes/classes/class-settings.php:900
-#: includes/classes/class-settings.php:908
+#: includes/classes/class-settings.php:461
+#: includes/classes/class-settings.php:928
+#: includes/classes/class-settings.php:936
 #: includes/functions.php:379
 #: includes/functions.php:413
 msgid "Scheduled"
 msgstr "Planuota"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:206
 #: includes/classes/class-columns-link.php:208
 msgid "Deferred"
 msgstr "Atidėta"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:207
 #: includes/classes/class-columns-link.php:209
 msgid "Needs work"
 msgstr "Reikia patobulinimų"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:208
 #: includes/classes/class-columns-link.php:210
 msgid "Rejected"
 msgstr "Atmestas"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:212
 #: includes/classes/class-columns-link.php:214
 #. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "Peržiūra: %s"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:233
 #: includes/classes/class-columns-link.php:235
 #. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "Paspausta %s kartų"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:241
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:198
 #: includes/classes/class-columns-link.php:243
-#: includes/classes/class-table-logs.php:202
+#: includes/classes/class-table-logs.php:207
 msgid "Edit"
 msgstr "Redaguoti"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:246
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:179
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:200
 #: includes/classes/class-columns-link.php:248
-#: includes/classes/class-table-logs.php:183
-#: includes/classes/class-table-logs.php:204
+#: includes/classes/class-table-logs.php:188
+#: includes/classes/class-table-logs.php:209
 msgid "Delete"
 msgstr "Ištrinti"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:332
 #: includes/classes/class-columns-link.php:334
 msgid "Filter by link type"
 msgstr "Filtruoti pagal nuorodų tipą"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:334
 #: includes/classes/class-columns-link.php:336
 msgid "All link types"
 msgstr "Visi nuorodų tipai"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:350
 #: includes/classes/class-columns-link.php:352
 msgid "Filter by category"
 msgstr "Filtruoti pagal kategoriją"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:352
 #: includes/classes/class-columns-link.php:354
 msgid "All categories"
 msgstr "Visos kategorijos"
 
-#: includes/classes/class-columns-link.php:457
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:446
+#: includes/classes/class-columns-link.php:483
 msgid "Filters"
 msgstr "Filtrai"
 
-#: includes/classes/class-columns-link.php:460
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:449
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:257
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:814
+#: includes/classes/class-columns-link.php:486
 #: includes/classes/class-hooks.php:333
-#: includes/classes/class-meta-boxes.php:840
+#: includes/classes/class-meta-boxes.php:1195
 msgid "Categories"
 msgstr "Kategorijos"
 
-#: includes/classes/class-columns-link.php:478
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:467
+#: includes/classes/class-columns-link.php:504
 msgid "Permission denied."
 msgstr "Leidimas atsisakytas."
 
-#: includes/classes/class-columns-link.php:587
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:551
+#: includes/classes/class-columns-link.php:613
 msgid "Link Title"
 msgstr "Nuorodos pavadinimas"
 
-#: includes/classes/class-columns-link.php:589
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:553
+#: includes/classes/class-columns-link.php:615
 msgid "Link Type"
 msgstr "Nuorodos tipas"
 
-#: includes/classes/class-columns-link.php:593
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:557
+#: includes/classes/class-columns-link.php:619
 msgid "Stats"
 msgstr "Statistika"
 
-#: includes/classes/class-columns-link.php:596
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:560
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:166
+#: includes/classes/class-columns-link.php:622
 #: includes/classes/class-table-logs.php:170
 msgid "Actions"
 msgstr "Veiksmai"
 
+#: dist/publishpress-shortlinks/includes/classes/class-functions.php:43
 #: includes/classes/class-functions.php:43
 msgid "Click to copy"
 msgstr "Paspauskite, kad kopijuotumėte"
 
+#: dist/publishpress-shortlinks/includes/classes/class-functions.php:51
 #: includes/classes/class-functions.php:51
+#: includes/classes/class-meta-boxes.php:372
 msgid "Copied"
 msgstr "Kopijuota"
 
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:160
 #: includes/classes/class-gutenberg-shortlink.php:164
 msgid "Search shortlinks..."
 msgstr "Ieškoti trumpųjų nuorodų..."
 
-#: includes/classes/class-gutenberg-shortlink.php:165
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:161
+#: includes/classes/class-gutenberg-shortlink.php:166
 msgid "Insert Shortlink"
 msgstr "Įterpti trumpąją nuorodą"
 
-#: includes/classes/class-gutenberg-shortlink.php:166
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:162
+#: includes/classes/class-gutenberg-shortlink.php:167
 msgid "Create New Shortlink"
 msgstr "Sukurti naują trumpąją nuorodą"
 
-#: includes/classes/class-gutenberg-shortlink.php:167
-#: includes/classes/class-settings.php:930
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:163
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:721
+#: includes/classes/class-gutenberg-shortlink.php:168
+#: includes/classes/class-settings.php:958
 msgid "Options"
 msgstr "Parinktys"
 
-#: includes/classes/class-gutenberg-shortlink.php:168
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:164
+#: includes/classes/class-gutenberg-shortlink.php:169
 msgid "Open in New Tab"
 msgstr "Atidaryti naujame skirtuke"
 
-#: includes/classes/class-gutenberg-shortlink.php:169
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:165
+#: includes/classes/class-gutenberg-shortlink.php:170
 msgid "Nofollow"
 msgstr "Nefollow"
 
-#: includes/classes/class-gutenberg-shortlink.php:170
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:166
+#: includes/classes/class-gutenberg-shortlink.php:171
 msgid "Sponsored Link"
 msgstr "Remiama nuoroda"
 
-#: includes/classes/class-gutenberg-shortlink.php:171
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:167
+#: includes/classes/class-gutenberg-shortlink.php:172
 msgid "Label"
 msgstr "Žymė"
 
-#: includes/classes/class-gutenberg-shortlink.php:172
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:168
+#: includes/classes/class-gutenberg-shortlink.php:173
 msgid "Optional shortlink label"
 msgstr "Pasirinktinė trumposios nuorodos žymė"
 
-#: includes/classes/class-gutenberg-shortlink.php:174
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:170
+#: includes/classes/class-gutenberg-shortlink.php:175
 msgid "Create"
 msgstr "Sukurti"
 
-#: includes/classes/class-gutenberg-shortlink.php:175
-#: includes/classes/class-import-export.php:1270
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:171
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1202
+#: includes/classes/class-gutenberg-shortlink.php:176
+#: includes/classes/class-import-export.php:1331
 msgid "Cancel"
 msgstr "Atšaukti"
 
-#: includes/classes/class-gutenberg-shortlink.php:176
-#: templates/admin-modal-new-link.php:37
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:172
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:37
+#: includes/classes/class-gutenberg-shortlink.php:177
+#: templates/admin-modal-new-link.php:38
 msgid "Close"
 msgstr "Uždaryti"
 
-#: includes/classes/class-gutenberg-shortlink.php:177
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:173
+#: includes/classes/class-gutenberg-shortlink.php:178
 msgid "Creating..."
 msgstr "Kuriama..."
 
-#: includes/classes/class-gutenberg-shortlink.php:178
-#: includes/classes/class-gutenberg-shortlink.php:321
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:174
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:317
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:103
+#: includes/classes/class-gutenberg-shortlink.php:179
+#: includes/classes/class-gutenberg-shortlink.php:322
 #: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "Trumpa nuoroda sėkmingai sukurta."
 
-#: includes/classes/class-gutenberg-shortlink.php:180
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:176
+#: includes/classes/class-gutenberg-shortlink.php:181
 msgid "Please enter a valid URL"
 msgstr "Prašome įvesti galiojantį URL"
 
-#: includes/classes/class-gutenberg-shortlink.php:181
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:177
+#: includes/classes/class-gutenberg-shortlink.php:182
 msgid "No shortlinks found"
 msgstr "Nerasta jokių trumposioms nuorodoms"
 
-#: includes/classes/class-gutenberg-shortlink.php:247
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:243
+#: includes/classes/class-gutenberg-shortlink.php:248
 msgid "Search term is required"
 msgstr "Ieškos terminas yra privalomas"
 
-#: includes/classes/class-gutenberg-shortlink.php:262
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:258
+#: dist/publishpress-shortlinks/includes/functions.php:447
+#: includes/classes/class-gutenberg-shortlink.php:263
 #: includes/functions.php:553
 #. translators: %s: link ID number
 #, php-format
 msgid "Link - %s"
 msgstr "Nuoroda - %s"
 
-#: includes/classes/class-gutenberg-shortlink.php:298
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:294
+#: includes/classes/class-gutenberg-shortlink.php:299
 msgid "Target URL is required"
 msgstr "Tikslo URL yra privalomas"
 
-#: includes/classes/class-gutenberg-shortlink.php:340
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:336
+#: includes/classes/class-gutenberg-shortlink.php:341
 msgid "Invalid shortlink ID"
 msgstr "Neteisingas trumpųjų nuorodų ID"
 
-#: includes/classes/class-gutenberg-shortlink.php:346
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:342
+#: includes/classes/class-gutenberg-shortlink.php:347
 msgid "Shortlink not found"
 msgstr "Trumpasis nuorodos nerastas"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:69
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:119
 #: includes/classes/class-hooks.php:69
-#: includes/classes/class-import-export.php:119
+#: includes/classes/class-import-export.php:121
 msgid "Security check failed."
 msgstr "Saugumo patikra nepavyko."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:73
 #: includes/classes/class-hooks.php:73
 msgid "You do not have permission to create shortlinks."
 msgstr "Neturite leidimo kurti trumpus nuorodas."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:80
 #: includes/classes/class-hooks.php:80
 msgid "Invalid or empty URL"
 msgstr "Neteisingas arba tuščias URL"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:112
 #: includes/classes/class-hooks.php:112
 msgid "Invalid nonce verification."
 msgstr "Neteisingas nonce patikrinimas."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:116
 #: includes/classes/class-hooks.php:116
 msgid "You do not have permission to reset analytics."
 msgstr "Neturite leidimo atnaujinti analizės."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:123
 #: includes/classes/class-hooks.php:123
 msgid "Invalid post ID."
 msgstr "Neteisingas įrašo ID."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:129
 #: includes/classes/class-hooks.php:129
 msgid "Invalid shortlink ID."
 msgstr "Neteisingas trumposios nuorodos ID."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:133
 #: includes/classes/class-hooks.php:133
 msgid "You do not have permission to reset analytics for this shortlink."
 msgstr "Neturite teisės atstatyti analizės šiai trumpajai nuorodai."
 
-#: includes/classes/class-hooks.php:189
-#: includes/classes/class-hooks.php:201
-msgid "Invalid custom date range."
-msgstr "Neteisingas pasirinktinis datų intervalas."
-
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:164
 #: includes/classes/class-hooks.php:240
 msgid "Analytics reset successfully."
 msgstr "Analizė sėkmingai atnaujinta."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:166
 #: includes/classes/class-hooks.php:242
 msgid "Failed to reset analytics."
 msgstr "Nepavyko atnaujinti analizės."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:192
 #: includes/classes/class-hooks.php:268
 msgid "Shorten"
 msgstr "Trumpinti"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:235
 #: includes/classes/class-hooks.php:311
 msgid "All Shortlinks"
 msgstr "Visi trumpi nuorodos"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:236
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:237
 #: includes/classes/class-hooks.php:312
 #: includes/classes/class-hooks.php:313
 msgid "Add Shortlink"
 msgstr "Pridėti trumpą nuorodą"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:238
 #: includes/classes/class-hooks.php:314
 msgid "Search Shortlinks"
 msgstr "Ieškoti trumpų nuorodų"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:256
 #: includes/classes/class-hooks.php:332
 msgid "Category"
 msgstr "Kategorija"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:283
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:284
 #: includes/classes/class-hooks.php:359
 #: includes/classes/class-hooks.php:360
 msgid "Logs"
 msgstr "Žurnalai"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:312
 #: includes/classes/class-hooks.php:388
 msgid "All Logs"
 msgstr "Visi žurnalai"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:312
 #: includes/classes/class-hooks.php:388
 msgid "Are you sure you want to clear all logs?"
 msgstr "Ar tikrai norite išvalyti visus žurnalus?"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:312
 #: includes/classes/class-hooks.php:388
 msgid "Clear Logs"
 msgstr "Išvalyti žurnalus"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:606
 #: includes/classes/class-hooks.php:682
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Atsiprašome, neturite teisės prieiti prie trumpų nuorodų."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:607
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:628
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:639
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:660
 #: includes/classes/class-hooks.php:683
 #: includes/classes/class-hooks.php:704
 #: includes/classes/class-hooks.php:715
@@ -865,125 +946,164 @@ msgstr "Atsiprašome, neturite teisės prieiti prie trumpų nuorodų."
 msgid "Access Denied"
 msgstr "Prieiga atmetama"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:627
 #: includes/classes/class-hooks.php:703
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Atsiprašome, neturite teisės kurti trumpų nuorodų."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:638
 #: includes/classes/class-hooks.php:714
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Atsiprašome, neturite teisės redaguoti trumpų nuorodų."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:659
 #: includes/classes/class-hooks.php:735
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Atsiprašome, neturite teisės prieiti prie trumpų nuorodų nustatymų."
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:48
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:49
 #: includes/classes/class-import-export.php:48
 #: includes/classes/class-import-export.php:49
 msgid "Import / Export"
 msgstr "Importuoti / Eksportuoti"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:87
 #: includes/classes/class-import-export.php:87
 msgid "Importing..."
 msgstr "Importuojama..."
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:88
 #: includes/classes/class-import-export.php:88
 msgid "Import complete!"
 msgstr "Importas baigtas!"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:89
 #: includes/classes/class-import-export.php:89
 msgid "Import failed. Please check the file and try again."
 msgstr "Importas nepavyko. Prašome patikrinti failą ir bandyti dar kartą."
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:90
 #: includes/classes/class-import-export.php:90
 msgid "Please select a CSV file."
 msgstr "Prašome pasirinkti CSV failą."
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:91
 #: includes/classes/class-import-export.php:91
 msgid "This will import shortlinks from the CSV file. Continue?"
 msgstr "Tai importuos trumpąsias nuorodas iš CSV failo. Tęsti?"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:92
 #: includes/classes/class-import-export.php:92
 msgid "Previewing..."
 msgstr "Peržiūra..."
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:93
 #: includes/classes/class-import-export.php:93
 msgid "Preview failed."
 msgstr "Peržiūra nepavyko."
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:94
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1197
 #: includes/classes/class-import-export.php:94
-#: includes/classes/class-import-export.php:1265
+#: includes/classes/class-import-export.php:1326
 msgid "See More Rows"
 msgstr "Rodyti daugiau eilučių"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:95
 #: includes/classes/class-import-export.php:95
 msgid "Show Less"
 msgstr "Rodyti mažiau"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:96
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1160
 #: includes/classes/class-import-export.php:96
-#: includes/classes/class-import-export.php:1228
+#: includes/classes/class-import-export.php:1289
 msgid "Preview"
 msgstr "Peržiūra"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:97
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1151
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1164
 #: includes/classes/class-import-export.php:97
-#: includes/classes/class-import-export.php:1219
-#: includes/classes/class-import-export.php:1232
+#: includes/classes/class-import-export.php:1280
+#: includes/classes/class-import-export.php:1293
 msgid "Import CSV"
 msgstr "Importuoti CSV"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:98
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:731
 #: includes/classes/class-import-export.php:98
-#: includes/classes/class-import-export.php:758
+#: includes/classes/class-import-export.php:834
 #. translators: %d: number of successfully imported shortlinks
 #, php-format
 msgid "%d shortlinks successfully imported"
 msgstr "%d trumpųjų nuorodų sėkmingai importuota"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:99
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:753
 #: includes/classes/class-import-export.php:99
-#: includes/classes/class-import-export.php:780
+#: includes/classes/class-import-export.php:856
 #. translators: %d: number of failed imports
 #, php-format
 msgid "%d shortlinks failed to import"
 msgstr "%d trumpųjų nuorodų importas nepavyko"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:100
 #: includes/classes/class-import-export.php:100
 msgid "Error(s) for TinyPress Slug:"
 msgstr "Klaida(-os) TinyPress Slug:"
 
-#: includes/classes/class-import-export.php:115
-#: includes/classes/class-import-export.php:571
-#: includes/classes/class-import-export.php:949
-#: includes/classes/class-import-export.php:1090
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:115
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:546
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:907
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1048
+#: includes/classes/class-import-export.php:116
+#: includes/classes/class-import-export.php:662
+#: includes/classes/class-import-export.php:1025
+#: includes/classes/class-import-export.php:1151
 #: includes/classes/class-migration.php:440
 #: includes/classes/class-url-metadata.php:39
 msgid "Unauthorized."
 msgstr "Nepatikrintas."
 
-#: includes/classes/class-import-export.php:307
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:303
+#: dist/publishpress-shortlinks/includes/functions.php:402
+#: includes/classes/class-import-export.php:398
 #: includes/functions.php:508
 msgid "Invalid URL."
 msgstr "Neteisingas URL."
 
-#: includes/classes/class-import-export.php:576
-#: includes/classes/class-import-export.php:954
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:551
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:912
+#: includes/classes/class-import-export.php:181
+#: includes/classes/class-import-export.php:189
 msgid "No file uploaded or upload error."
 msgstr "Nėra įkeltų failų arba įkėlimo klaida."
 
-#: includes/classes/class-import-export.php:585
-#: includes/classes/class-import-export.php:963
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:560
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:921
+#: includes/classes/class-import-export.php:206
 msgid "Please upload a CSV file."
 msgstr "Prašome įkelti CSV failą."
 
-#: includes/classes/class-import-export.php:591
-#: includes/classes/class-import-export.php:969
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:566
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:927
+#: includes/classes/class-import-export.php:244
 msgid "Could not read the file."
 msgstr "Nepavyko perskaityti failo."
 
-#: includes/classes/class-import-export.php:598
-#: includes/classes/class-import-export.php:976
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:573
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:934
+#: includes/classes/class-import-export.php:674
+#: includes/classes/class-import-export.php:1037
 msgid "Empty CSV file."
 msgstr "Tuščias CSV failas."
 
-#: includes/classes/class-import-export.php:621
-#: includes/classes/class-import-export.php:1000
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:596
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:958
+#: includes/classes/class-import-export.php:697
+#: includes/classes/class-import-export.php:1061
 msgid ""
 "CSV must contain a column for target URL (e.g., \"url\", \"target_url\", "
 "\"destination_url\")."
@@ -991,119 +1111,156 @@ msgstr ""
 "CSV turi turėti stulpelį tikslinei URL (pvz., \"url\", \"target_url\", "
 "\"destination_url\")."
 
-#: includes/classes/class-import-export.php:688
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:663
+#: includes/classes/class-import-export.php:764
 #. translators: %s: error message
 #, php-format
 msgid "Failed to create shortlink: %s"
 msgstr "Nepavyko sukurti trumpinio: %s"
 
-#: includes/classes/class-import-export.php:689
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:664
+#: includes/classes/class-import-export.php:765
 msgid "Unknown error."
 msgstr "Nežinoma klaida."
 
-#: includes/classes/class-import-export.php:769
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:742
+#: includes/classes/class-import-export.php:845
 #. translators: %d: number of updated shortlinks
 #, php-format
 msgid "%d shortlinks updated"
 msgstr "%d trumpiniai atnaujinti"
 
-#: includes/classes/class-import-export.php:1037
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:995
+#: includes/classes/class-import-export.php:1098
 #. translators: 1: original column name, 2: mapped field name
 #, fuzzy, php-format
 msgid "\"%1$s\" → %2$s"
 msgstr "\"%1$s\" → %2$s"
 
-#: includes/classes/class-import-export.php:1048
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1006
+#: includes/classes/class-import-export.php:1109
 #. translators: %s: field mappings
 #, php-format
 msgid "Field mappings: %s"
 msgstr "Lauko žemėlapiai: %s"
 
-#: includes/classes/class-import-export.php:1075
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1033
+#: includes/classes/class-import-export.php:1136
 #. translators: 1: number of preview rows, 2: total number of importable rows
 #, php-format
 msgid "Showing %1$d preview row(s) from %2$d importable row(s)."
 msgstr "Rodo %1$d peržiūros eilutę(ų) iš %2$d importuojamų eilutė(ų)."
 
-#: includes/classes/class-import-export.php:1094
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1052
+#: includes/classes/class-import-export.php:1155
 msgid "Link Label"
 msgstr "Nuorodos etiketė"
 
-#: includes/classes/class-import-export.php:1096
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1054
+#: includes/classes/class-import-export.php:1157
 msgid "Short Slug"
 msgstr "Trumpas slugas"
 
-#: includes/classes/class-import-export.php:1097
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1055
+#: includes/classes/class-import-export.php:1158
 msgid "Post Status"
 msgstr "Įrašo būsena"
 
-#: includes/classes/class-import-export.php:1098
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1056
+#: includes/classes/class-import-export.php:1159
 msgid "Link Status"
 msgstr "Nuorodos būsena"
 
-#: includes/classes/class-import-export.php:1099
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1057
+#: includes/classes/class-import-export.php:1160
 msgid "Redirect Method"
 msgstr "Peradresavimo metodas"
 
-#: includes/classes/class-import-export.php:1100
-#: includes/classes/class-meta-boxes.php:669
-#: includes/classes/class-settings.php:1148, fuzzy
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1058
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:664
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:939
+#: includes/classes/class-import-export.php:1161
+#: includes/classes/class-meta-boxes.php:1011
+#: includes/classes/class-settings.php:1176, fuzzy
 msgid "NoFollow"
 msgstr "NoFollow"
 
-#: includes/classes/class-import-export.php:1101
-#: includes/classes/class-meta-boxes.php:645
-#: includes/classes/class-settings.php:1140
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1059
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:642
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:931
+#: includes/classes/class-import-export.php:1162
+#: includes/classes/class-meta-boxes.php:987
+#: includes/classes/class-settings.php:1168
 msgid "Sponsored"
 msgstr "Remiamas"
 
-#: includes/classes/class-import-export.php:1102
-#: includes/classes/class-meta-boxes.php:693
-#: includes/classes/class-settings.php:1156
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1060
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:686
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:947
+#: includes/classes/class-import-export.php:1163
+#: includes/classes/class-meta-boxes.php:1035
+#: includes/classes/class-settings.php:1184
 msgid "Parameter Forwarding"
 msgstr "Parametrų perdavimas"
 
-#: includes/classes/class-import-export.php:1103
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1061
+#: includes/classes/class-import-export.php:1164
 msgid "Expiration Enabled"
 msgstr "Galiojimo laikas įjungtas"
 
-#: includes/classes/class-import-export.php:1104
-#: includes/classes/class-meta-boxes.php:796
-#: includes/classes/class-settings.php:1197
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1062
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:770
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:988
+#: includes/classes/class-import-export.php:1165
+#: includes/classes/class-meta-boxes.php:1151
+#: includes/classes/class-settings.php:1230
 msgid "Expiration Date"
 msgstr "Galiojimo data"
 
-#: includes/classes/class-import-export.php:1105
-#: includes/classes/class-meta-boxes.php:810
-#: includes/classes/class-settings.php:1210
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1063
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:784
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1001
+#: includes/classes/class-import-export.php:1166
+#: includes/classes/class-meta-boxes.php:1165
+#: includes/classes/class-settings.php:1243
 msgid "Expiration Time"
 msgstr "Galiojimo laikas"
 
-#: includes/classes/class-import-export.php:1107
-#: includes/classes/class-meta-boxes.php:556
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1065
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:552
+#: includes/classes/class-import-export.php:1168
+#: includes/classes/class-meta-boxes.php:898
 msgid "Notes"
 msgstr "Pastabos"
 
-#: includes/classes/class-import-export.php:1108
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1066
+#: includes/classes/class-import-export.php:1169
 msgid "Autolink Keywords"
 msgstr "Automatiniai raktiniai žodžiai"
 
-#: includes/classes/class-import-export.php:1137
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1095
+#: includes/classes/class-import-export.php:1198
 msgid "Import / Export Shortlinks"
 msgstr "Importuoti / Eksportuoti trumpas nuorodas"
 
-#: includes/classes/class-import-export.php:1141
-#: includes/classes/class-import-export.php:1179
-#: includes/classes/class-import-export.php:1274
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1099
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1137
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1206
+#: includes/classes/class-import-export.php:1202
+#: includes/classes/class-import-export.php:1240
+#: includes/classes/class-import-export.php:1335
 msgid "Import"
 msgstr "Importuoti"
 
-#: includes/classes/class-import-export.php:1144
-#: includes/classes/class-import-export.php:1153
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1102
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1111
+#: includes/classes/class-import-export.php:1205
+#: includes/classes/class-import-export.php:1214
 msgid "Export"
 msgstr "Eksportuoti"
 
-#: includes/classes/class-import-export.php:1156
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1114
+#: includes/classes/class-import-export.php:1217
 msgid ""
 "Download all your shortlinks as a CSV file. The export includes labels, "
 "target URLs, slugs, redirect settings, global-setting modes, and more. "
@@ -1114,17 +1271,20 @@ msgstr ""
 "nustatymų režimus ir daugiau. Slaptažodžio apsaugos nustatymai nėra "
 "eksportuojami."
 
-#: includes/classes/class-import-export.php:1161
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1119
+#: includes/classes/class-import-export.php:1222
 #. translators: %d: number of shortlinks
 #, php-format
 msgid "%d shortlink(s) will be exported."
 msgstr "%d trumpinis(iai) bus eksportuoti."
 
-#: includes/classes/class-import-export.php:1169
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1127
+#: includes/classes/class-import-export.php:1230
 msgid "Export CSV"
 msgstr "Eksportuoti CSV"
 
-#: includes/classes/class-import-export.php:1182
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1140
+#: includes/classes/class-import-export.php:1243
 msgid ""
 "Upload a CSV file to bulk-create shortlinks. The CSV must contain at "
 "minimum a \"target_url\" column. Password protection settings are "
@@ -1134,119 +1294,166 @@ msgstr ""
 "turėti bent jau \"target_url\" stulpelį. Slaptažodžio apsaugos nustatymai "
 "buvo tyčia neimportuoti."
 
-#: includes/classes/class-import-export.php:1208
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1142
+#: includes/classes/class-import-export.php:1269
 msgid "Supported columns:"
 msgstr "Palaikomi stulpeliai:"
 
-#: includes/classes/class-import-export.php:1235
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1167
+#: includes/classes/class-import-export.php:1296
 msgid "Change File"
 msgstr "Keisti failą"
 
-#: includes/classes/class-import-export.php:1252
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1184
+#: includes/classes/class-import-export.php:1313
 msgid "Import Preview"
 msgstr "Importavimo peržiūra"
 
-#: includes/classes/class-meta-boxes.php:391
-#: includes/classes/class-meta-boxes.php:457
-#: includes/classes/class-meta-boxes.php:482
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:387
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:453
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:478
+#: includes-core/ShortlinksCoreAdmin.php:398
+#: includes-core/ShortlinksCoreAdmin.php:420
+#: includes-core/ShortlinksCoreAdmin.php:434
+#: includes-core/ShortlinksCoreAdmin.php:456
+#: includes-core/ShortlinksCoreAdmin.php:482
+#: includes/classes/class-meta-boxes.php:733
+#: includes/classes/class-meta-boxes.php:799
+#: includes/classes/class-meta-boxes.php:824
 #. translators: %s: current global setting value
 msgid "Use global settings"
 msgstr "Naudoti globalius nustatymus"
 
-#: includes/classes/class-meta-boxes.php:392
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:388
+#: includes-core/ShortlinksCoreAdmin.php:421
+#: includes/classes/class-meta-boxes.php:734
 msgid "Enabled"
 msgstr "Įjungta"
 
-#: includes/classes/class-meta-boxes.php:393
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:389
+#: includes-core/ShortlinksCoreAdmin.php:422
+#: includes/classes/class-meta-boxes.php:735
 msgid "Disabled"
 msgstr "Išjungta"
 
-#: includes/classes/class-meta-boxes.php:453
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:449
+#: includes/classes/class-meta-boxes.php:795
 msgid "ON"
 msgstr "ĮJUNGTA"
 
-#: includes/classes/class-meta-boxes.php:453
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:449
+#: includes/classes/class-meta-boxes.php:795
 msgid "OFF"
 msgstr "IŠJUNGTA"
 
-#: includes/classes/class-meta-boxes.php:485
-#: includes/classes/class-settings.php:1131
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:481
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:922
+#: includes/classes/class-meta-boxes.php:827
+#: includes/classes/class-settings.php:1159
 msgid "307 (Temporary)"
 msgstr "307 (Laikinas)"
 
-#: includes/classes/class-meta-boxes.php:486
-#: includes/classes/class-settings.php:1132
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:482
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:923
+#: includes/classes/class-meta-boxes.php:828
+#: includes/classes/class-settings.php:1160
 msgid "302 (Temporary)"
 msgstr "302 (Laikinas)"
 
-#: includes/classes/class-meta-boxes.php:487
-#: includes/classes/class-settings.php:1133
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:483
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:924
+#: includes/classes/class-meta-boxes.php:829
+#: includes/classes/class-settings.php:1161
 msgid "301 (Permanent)"
 msgstr "301 (Nuolatinis)"
 
-#: includes/classes/class-meta-boxes.php:500
-#: includes/classes/class-settings.php:596
-#: tinypress.php:473
-#: tinypress.php:586
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:496
+#: dist/publishpress-shortlinks/tinypress.php:399
+#: dist/publishpress-shortlinks/tinypress.php:492
+#: includes/classes/class-meta-boxes.php:842
+#: includes/classes/class-settings.php:624
+#: tinypress.php:476
+#: tinypress.php:589
 msgid "PublishPress Shortlinks"
 msgstr "PublishPress trumpi nuorodos"
 
-#: includes/classes/class-meta-boxes.php:513
-#: includes/classes/class-settings.php:912
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:509
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:718
+#: includes/classes/class-meta-boxes.php:855
+#: includes/classes/class-settings.php:940
 msgid "General"
 msgstr "Bendra"
 
-#: includes/classes/class-meta-boxes.php:518
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:514
+#: includes/classes/class-meta-boxes.php:860
 msgid "Label *"
 msgstr "Žymė *"
 
-#: includes/classes/class-meta-boxes.php:520
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:516
+#: includes/classes/class-meta-boxes.php:862
 msgid "For admin purpose only."
 msgstr "Tik administravimo tikslams."
 
-#: includes/classes/class-meta-boxes.php:529
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:525
+#: includes/classes/class-meta-boxes.php:871
 msgid "Target URL *"
 msgstr "Tikslo URL *"
 
-#: includes/classes/class-meta-boxes.php:539
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:535
+#: includes/classes/class-meta-boxes.php:881
 msgid "Short String *"
 msgstr "Trumpas tekstas *"
 
-#: includes/classes/class-meta-boxes.php:540
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:536
+#: includes/classes/class-meta-boxes.php:882
 msgid "Short string of this URL."
 msgstr "Šio URL trumpas tekstas."
 
-#: includes/classes/class-meta-boxes.php:547
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:543
+#: includes/classes/class-meta-boxes.php:889
 msgid "Enable or disable the shortlink."
 msgstr "Įjungti arba išjungti trumpą nuorodą."
 
-#: includes/classes/class-meta-boxes.php:548
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:544
+#: includes-core/ShortlinksCoreAdmin.php:543
+#: includes-core/ShortlinksCoreAdmin.php:585
+#: includes/classes/class-meta-boxes.php:890
 msgid "Enable"
 msgstr "Įjungti"
 
-#: includes/classes/class-meta-boxes.php:549
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:545
+#: includes-core/ShortlinksCoreAdmin.php:544
+#: includes-core/ShortlinksCoreAdmin.php:586
+#: includes/classes/class-meta-boxes.php:891
 msgid "Disable"
 msgstr "Išjungti"
 
-#: includes/classes/class-meta-boxes.php:580
-#: includes/classes/class-meta-boxes.php:586
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:576
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:582
+#: includes/classes/class-meta-boxes.php:922
+#: includes/classes/class-meta-boxes.php:928
 msgid "Shortlink Label"
 msgstr "Trumpa nuorodos etiketė"
 
-#: includes/classes/class-meta-boxes.php:581
-#: includes/classes/class-meta-boxes.php:587
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:577
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:583
+#: includes/classes/class-meta-boxes.php:923
+#: includes/classes/class-meta-boxes.php:929
 msgid "Custom Text"
 msgstr "Pasirinktinis tekstas"
 
-#: includes/classes/class-meta-boxes.php:585
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:581
+#: includes/classes/class-meta-boxes.php:927
 msgid "Post Title"
 msgstr "Įrašo pavadinimas"
 
-#: includes/classes/class-meta-boxes.php:597
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:593
+#: includes/classes/class-meta-boxes.php:939
 msgid "Keywords"
 msgstr "Raktiniai žodžiai"
 
-#: includes/classes/class-meta-boxes.php:598
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:594
+#: includes/classes/class-meta-boxes.php:940
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
@@ -1254,21 +1461,25 @@ msgstr ""
 "Pridėkite raktinius žodžius, atskirtus kableliais arba naujose eilutėse. "
 "Kiekvienas raktinis žodis bus susietas su šiuo trumpuoju nuoroda."
 
-#: includes/classes/class-meta-boxes.php:603
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:599
+#: includes/classes/class-meta-boxes.php:945
 msgid "Link Alt Text"
 msgstr "Nuorodos alternatyvus tekstas"
 
-#: includes/classes/class-meta-boxes.php:604
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:600
+#: includes/classes/class-meta-boxes.php:946
 msgid "Set the alt text for the linked keywords in the frontend of the site."
 msgstr ""
 "Nustatykite alternatyvų tekstą susietiems raktiniams žodžiams svetainės "
 "priekyje."
 
-#: includes/classes/class-meta-boxes.php:611
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:607
+#: includes/classes/class-meta-boxes.php:953
 msgid "Custom Alt Text"
 msgstr "Pasirinktinis alternatyvus tekstas"
 
-#: includes/classes/class-meta-boxes.php:612
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:608
+#: includes/classes/class-meta-boxes.php:954
 msgid ""
 "Enter custom alt text for the linked keywords. This is only used if "
 "\"Custom Text\" is selected above."
@@ -1276,34 +1487,45 @@ msgstr ""
 "Įrašykite pasirinktinį alt tekstą susietiems raktažodžiams. Tai naudojama "
 "tik tuo atveju, jei pasirinktas \"Pasirinktinis tekstas\" aukščiau."
 
-#: includes/classes/class-meta-boxes.php:622
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:619
+#: includes/classes/class-meta-boxes.php:964
 msgid "Auto-linking"
 msgstr "Automatinis nuorodų kūrimas"
 
-#: includes/classes/class-meta-boxes.php:631
-#: includes/classes/class-settings.php:1123
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:628
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:914
+#: includes/classes/class-meta-boxes.php:973
+#: includes/classes/class-settings.php:1151
 msgid "Redirection"
 msgstr "Peradresavimas"
 
-#: includes/classes/class-meta-boxes.php:636
-#: includes/classes/class-settings.php:1128
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:633
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:919
+#: includes/classes/class-meta-boxes.php:978
+#: includes/classes/class-settings.php:1156
 msgid "Redirection Method"
 msgstr "Peradresavimo metodas"
 
-#: includes/classes/class-meta-boxes.php:637
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:634
+#: includes/classes/class-meta-boxes.php:979
 msgid "Select redirection method"
 msgstr "Pasirinkite peradresavimo metodą"
 
-#: includes/classes/class-meta-boxes.php:638
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:635
+#: includes/classes/class-meta-boxes.php:980
 msgid "Select a method"
 msgstr "Pasirinkite metodą"
 
-#: includes/classes/class-meta-boxes.php:648
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:645
+#: includes/classes/class-meta-boxes.php:990
 msgid "Mark links as sponsored content."
 msgstr "Žymėti nuorodas kaip remiamą turinį."
 
-#: includes/classes/class-meta-boxes.php:649
-#: includes/classes/class-settings.php:1142
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:646
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:656
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:933
+#: includes/classes/class-meta-boxes.php:991
+#: includes/classes/class-settings.php:1170
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -1311,12 +1533,16 @@ msgstr ""
 "Prideda rel=\"remiamas\" atributą. Rekomenduojama partnerių nuorodoms ir "
 "mokamoms reklamos kampanijoms."
 
-#: includes/classes/class-meta-boxes.php:672
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:667
+#: includes/classes/class-meta-boxes.php:1014
 msgid "Prevent search engines from following this link."
 msgstr "Užkirsti kelią paieškos sistemoms sekti šią nuorodą."
 
-#: includes/classes/class-meta-boxes.php:673
-#: includes/classes/class-settings.php:1150
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:668
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:678
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:941
+#: includes/classes/class-meta-boxes.php:1015
+#: includes/classes/class-settings.php:1178
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -1324,12 +1550,16 @@ msgstr ""
 "Prideda rel=\"nofollow\" atributą. Rekomenduojama išoriniams nuorodoms ir "
 "nepatikimiems šaltiniams."
 
-#: includes/classes/class-meta-boxes.php:696
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:689
+#: includes/classes/class-meta-boxes.php:1038
 msgid "Pass URL parameters to the target link."
 msgstr "Perduoti URL parametrus tiksliniam nuorodai."
 
-#: includes/classes/class-meta-boxes.php:697
-#: includes/classes/class-settings.php:1158
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:690
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:700
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:949
+#: includes/classes/class-meta-boxes.php:1039
+#: includes/classes/class-settings.php:1186
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -1337,51 +1567,63 @@ msgstr ""
 "Bet kurie parametrai, pridėti prie trumpos URL (pavyzdžiui, "
 "?utm_source=email), bus perduoti tiksliniam URL."
 
-#: includes/classes/class-meta-boxes.php:724
-msgid "Dynamic Redirects"
-msgstr "Dinamiški nukreipimai"
-
-#: includes/classes/class-meta-boxes.php:735
-#: includes/classes/class-settings.php:1169
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:713
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:960
+#: includes/classes/class-meta-boxes.php:1077
+#: includes/classes/class-settings.php:1197
 msgid "Password Protection"
 msgstr "Slaptažodžio apsauga"
 
-#: includes/classes/class-meta-boxes.php:738
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:716
+#: includes/classes/class-meta-boxes.php:1080
 msgid "Secure your shortlink."
 msgstr "Apsaugokite savo trumpą nuorodą."
 
-#: includes/classes/class-meta-boxes.php:739
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:717
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:727
+#: includes/classes/class-meta-boxes.php:1081
 msgid "Users must enter the password to redirect to the target link."
 msgstr "Naudotojai turi įvesti slaptažodį, kad būtų nukreipti į tikslinę nuorodą."
 
-#: includes/classes/class-meta-boxes.php:759
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:735
+#: includes/classes/class-meta-boxes.php:1101
 msgid "Password"
 msgstr "Slaptažodis"
 
-#: includes/classes/class-meta-boxes.php:760
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:736
+#: includes/classes/class-meta-boxes.php:1102
 msgid "Share this with users."
 msgstr "Pasidalykite šiuo su naudotojais."
 
-#: includes/classes/class-meta-boxes.php:761
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:737
+#: includes/classes/class-meta-boxes.php:1103
 msgid "Passwords are case sensitive."
 msgstr "Slaptažodžiai yra jautrūs didžiosioms ir mažosioms raidėms."
 
-#: includes/classes/class-meta-boxes.php:762
-#: includes/classes/class-settings.php:1180, fuzzy
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:738
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:971
+#: includes/classes/class-meta-boxes.php:1104
+#: includes/classes/class-settings.php:1208, fuzzy
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:772
-#: includes/classes/class-settings.php:1189
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:748
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:980
+#: includes/classes/class-meta-boxes.php:1127
+#: includes/classes/class-settings.php:1222
 msgid "Enable Expiration"
 msgstr "Įgalinti galiojimą"
 
-#: includes/classes/class-meta-boxes.php:775
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:751
+#: includes/classes/class-meta-boxes.php:1130
 msgid "Set an expiration date and time for shortlinks."
 msgstr "Nustatykite galiojimo datą ir laiką trumpiesiems nuorodoms."
 
-#: includes/classes/class-meta-boxes.php:776
-#: includes/classes/class-settings.php:1191
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:752
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:762
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:982
+#: includes/classes/class-meta-boxes.php:1131
+#: includes/classes/class-settings.php:1224
 msgid ""
 "After the expiration date and time pass, visitors will no longer be able to "
 "access the shortlink."
@@ -1389,16 +1631,20 @@ msgstr ""
 "Praėjus galiojimo datai ir laikui, lankytojai nebegalės pasiekti trumposios "
 "nuorodos."
 
-#: includes/classes/class-meta-boxes.php:797
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:771
+#: includes/classes/class-meta-boxes.php:1152
 msgid "Select the date when this shortlink should stop working."
 msgstr "Pasirinkite datą, kada ši trumpoji nuoroda turėtų nustoti veikti."
 
-#: includes/classes/class-meta-boxes.php:811
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:785
+#: includes/classes/class-meta-boxes.php:1166
 msgid "Select the time when the shortlink should expire."
 msgstr "Pasirinkite laiką, kada trumpoji nuoroda turėtų pasibaigti."
 
-#: includes/classes/class-meta-boxes.php:812
-#: includes/classes/class-settings.php:1212
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:786
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1003
+#: includes/classes/class-meta-boxes.php:1167
+#: includes/classes/class-settings.php:1245
 msgid ""
 "Must be at least 1 minute in the future. Combined with the date above to "
 "set the exact expiration moment."
@@ -1406,19 +1652,1322 @@ msgstr ""
 "Turi būti bent 1 minutė ateityje. Sujungta su aukščiau nurodyta data, kad "
 "nustatytumėte tikslią galiojimo akimirką."
 
-#: includes/classes/class-meta-boxes.php:830
-#: includes/classes/class-settings.php:1164
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:804
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:955
+#: includes/classes/class-meta-boxes.php:1117
+#: includes/classes/class-settings.php:1192
 msgid "Security"
 msgstr "Saugumas"
 
-#: includes/classes/class-meta-boxes.php:849
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:823
+#: includes/classes/class-meta-boxes.php:1204
 msgid "QR Code"
 msgstr "QR kodas"
 
-#: includes/classes/class-meta-boxes.php:859
-#: tinypress.php:470
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:833
+#: dist/publishpress-shortlinks/tinypress.php:396
+#: includes/classes/class-meta-boxes.php:1214
+#: tinypress.php:473
 msgid "Analytics"
 msgstr "Analitika"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1044
+#: includes/classes/class-redirection.php:1242
+msgid "Post not found."
+msgstr "Įrašas nerastas."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1188
+#: dist/publishpress-shortlinks/includes/functions.php:361
+#: dist/publishpress-shortlinks/includes/functions.php:362
+#: dist/publishpress-shortlinks/includes/functions.php:363
+#: dist/publishpress-shortlinks/includes/functions.php:369
+#: dist/publishpress-shortlinks/tinypress.php:303
+#: dist/publishpress-shortlinks/tinypress.php:304
+#: dist/publishpress-shortlinks/tinypress.php:305
+#: includes/classes/class-redirection.php:1386
+#: includes/functions.php:467
+#: includes/functions.php:468
+#: includes/functions.php:469
+#: includes/functions.php:475
+#: tinypress.php:375
+#: tinypress.php:376
+#: tinypress.php:377
+msgid "This post is in {status} status. It is not visible to the public."
+msgstr "Šis įrašas yra {status} būsenoje. Jis nėra matomas visuomenei."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1236
+#: includes-core/ShortlinksCoreAdmin.php:445
+#: includes/classes/class-redirection.php:1434
+msgid "This link has expired"
+msgstr "Ši nuoroda pasibaigė"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1240
+#: includes-core/ShortlinksCoreAdmin.php:467
+#: includes/classes/class-redirection.php:1438
+msgid "You will be redirected shortly."
+msgstr "Jūs būsite peradresuotas netrukus."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1244
+#: includes-core/ShortlinksCoreAdmin.php:493
+#: includes/classes/class-redirection.php:1442
+msgid "Click here if you are not redirected"
+msgstr "Paspauskite čia, jei nesate peradresuotas"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1261
+#: includes/classes/class-redirection.php:1459
+msgid "Link Expired"
+msgstr "Nuoroda pasibaigė"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1423
+#: includes/classes/class-redirection.php:1680
+#: includes/classes/class-redirection.php:1688
+msgid "This link is not active."
+msgstr "Ši nuoroda nėra aktyvi."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1460
+#: includes/classes/class-redirection.php:310
+#: includes/classes/class-redirection.php:1707
+msgid "This link is expired."
+msgstr "Ši nuoroda yra pasibaigusi."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1479
+#: includes/classes/class-redirection.php:1727
+msgid "Incorrect password. Please try again."
+msgstr "Neteisingas slaptažodis. Prašome bandyti dar kartą."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1494
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1499
+#: includes/classes/class-redirection.php:1746
+#: includes/classes/class-redirection.php:1751
+msgid "Password Protected Link"
+msgstr "Slaptažodžiu apsaugota nuoroda"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1505
+#: includes/classes/class-redirection.php:1757
+msgid "Enter password to continue:"
+msgstr "Įveskite slaptažodį, kad tęstumėte:"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1507
+#: includes/classes/class-redirection.php:1759
+msgid "Submit"
+msgstr "Pateikti"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1631
+#: includes/classes/class-redirection.php:1864
+msgid "This link is not containing the right prefix slug."
+msgstr "Ši nuoroda neturi teisingo prefikso slug."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1672
+#: includes/classes/class-redirection.php:1905
+msgid "Too many invalid shortlink requests. Please try again later."
+msgstr "Per daug neteisingų trumposios nuorodos užklausų. Prašome bandyti vėliau."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1673
+#: includes/classes/class-redirection.php:1906
+msgid "Too Many Requests"
+msgstr "Per daug užklausų"
+
+#: dist/publishpress-shortlinks/includes/classes/class-revision.php:439
+#: includes/classes/class-revision.php:465
+msgid "Invalid revision ID."
+msgstr "Neteisingas revizijos ID."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:362
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:703
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:711
+#: dist/publishpress-shortlinks/includes/functions.php:270
+#: dist/publishpress-shortlinks/includes/functions.php:304
+#: includes/classes/class-settings.php:458
+#: includes/classes/class-settings.php:925
+#: includes/classes/class-settings.php:933
+#: includes/functions.php:376
+#: includes/functions.php:410
+msgid "Draft"
+msgstr "Juodraštis"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:363
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:704
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:712
+#: dist/publishpress-shortlinks/includes/functions.php:271
+#: dist/publishpress-shortlinks/includes/functions.php:305
+#: includes/classes/class-settings.php:459
+#: includes/classes/class-settings.php:926
+#: includes/classes/class-settings.php:934
+#: includes/functions.php:377
+#: includes/functions.php:411
+msgid "Pending Review"
+msgstr "Laukiama peržiūros"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:364
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:705
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:713
+#: dist/publishpress-shortlinks/includes/functions.php:272
+#: dist/publishpress-shortlinks/includes/functions.php:306
+#: includes/classes/class-settings.php:460
+#: includes/classes/class-settings.php:927
+#: includes/classes/class-settings.php:935
+#: includes/functions.php:378
+#: includes/functions.php:412
+msgid "Private"
+msgstr "Privatus"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:369
+#: includes/classes/class-settings.php:465
+msgid ""
+"Customize the notice shown for each enabled non-published status. Available "
+"placeholders: {status}, {date}, {title}."
+msgstr ""
+"Pridėkite pranešimą, rodomą kiekvienam įgalintam nepublikuotam statusui. "
+"Galimi pakeičiamosios vietos: {status}, {date}, {title}."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:405
+#: includes/classes/class-settings.php:501
+#: includes/classes/class-settings.php:550
+msgid "All"
+msgstr "Visi"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:444
+#: includes/classes/class-settings.php:623
+msgid "Settings"
+msgstr "Nustatymai"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:528
+#: includes/classes/class-settings.php:750
+msgid ""
+"Select which post statuses are accessible when visiting a PublishPress "
+"shortlink."
+msgstr ""
+"Pasirinkite, kurie įrašų statusai yra pasiekiami, kai lankotės PublishPress "
+"trumpąja nuoroda."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:544
+#: includes/classes/class-settings.php:766
+#, fuzzy
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "PublishPress Shortlinks Free"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:545
+#: includes/classes/class-settings.php:767
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr ""
+"Norėdami naudoti pagrindinius PublishPress statusus su Shortlinks, prašome "
+"įjungti Shortlinks post type PublishPress Statusų darbo eigoje."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:564
+#: includes/classes/class-settings.php:786
+msgid "Elementor Detected:"
+msgstr "Aptiktas Elementor:"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:565
+#: includes/classes/class-settings.php:787
+msgid ""
+"Shortlink prefix is required for proper rendering of Elementor revisions. "
+"It is advisable to keep it enabled."
+msgstr ""
+"Trumpųjų nuorodų prefiksas yra būtinas tinkamam Elementor revizijų "
+"atvaizdavimui. Rekomenduojama jį palikti įjungtą."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:597
+#: includes/classes/class-settings.php:819
+msgid "TinyPress Shortlinks Notice:"
+msgstr "TinyPress trumpųjų nuorodų pranešimas:"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:598
+#: includes/classes/class-settings.php:820
+msgid ""
+"Elementor is active. Shortlink prefix has been automatically disabled, it "
+"is required for optimal compatibility with Elementor revisions."
+msgstr ""
+"Elementor yra aktyvus. Trumpųjų nuorodų prefiksas buvo automatiškai "
+"išjungtas, jis reikalingas optimaliam suderinamumui su Elementor "
+"revizijomis."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:702
+#: dist/publishpress-shortlinks/includes/functions.php:269
+#: dist/publishpress-shortlinks/includes/functions.php:303
+#: includes/classes/class-settings.php:924
+#: includes/functions.php:375
+#: includes/functions.php:409
+msgid "Published"
+msgstr "Paskelbtas"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:726
+#: includes/classes/class-settings.php:963
+msgid "Shortlink Prefix"
+msgstr "Trumpųjų nuorodų prefiksas"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:727
+#: includes/classes/class-settings.php:964
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "Pridėkite prefiksą tarp savo domeno vardo ir trumpinio."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:734
+#: includes/classes/class-settings.php:971
+msgid "Prefix Slug"
+msgstr "Prefikso Slug"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:735
+#: includes/classes/class-settings.php:972
+msgid "Custom prefix slug."
+msgstr "Pasirinktinis prefikso slug."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:736
+#: includes/classes/class-settings.php:973
+msgid "This text will be added between your domain name and shortlink."
+msgstr "Šis tekstas bus pridėtas tarp jūsų domeno vardo ir trumpinio."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:737
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:738
+#: includes/classes/class-settings.php:974
+#: includes/classes/class-settings.php:975
+msgid "go"
+msgstr "eiti"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:744
+#: includes/classes/class-settings.php:981
+msgid "Keyboard Shortcut"
+msgstr "Klaviatūros Klavišas"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:745
+#: includes/classes/class-settings.php:982
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
+msgstr "Sukurkite trumpinius iš bet kurios vietos savo WordPress valdymo skydelyje."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:746
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:747
+#: includes/classes/class-settings.php:983
+#: includes/classes/class-settings.php:984
+msgid "Ctrl or Cmd + /"
+msgstr "Ctrl arba Cmd + /"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:756
+#: includes/classes/class-settings.php:993
+msgid "Remove from Admin Bar"
+msgstr "Pašalinti iš Administratoriaus Juostos"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:757
+#: includes/classes/class-settings.php:994
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "Paslėpti „Trumpinti“ mygtuką iš WordPress administratoriaus juostos."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:763
+#: includes/classes/class-settings.php:1000
+msgid "Role Management"
+msgstr "Vaidmenų Valdymas"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:768
+#: includes/classes/class-settings.php:1005
+msgid "Who Can View The All Shortlinks Screen"
+msgstr "Kas gali peržiūrėti visų trumpųjų nuorodų ekraną"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:769
+#: includes/classes/class-settings.php:1006
+msgid "Only selected user roles can view the complete list of Shortlinks."
+msgstr ""
+"Tik pasirinktos vartotojo rolės gali peržiūrėti visą trumpųjų nuorodų "
+"sąrašą."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:777
+#: includes/classes/class-settings.php:1014
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "Kas gali kurti/redaguoti trumpinius"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:778
+#: includes/classes/class-settings.php:1015
+msgid "Only selected user roles can create or edit links."
+msgstr "Tik pasirinktų vartotojų vaidmenys gali kurti ar redaguoti nuorodas."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:787
+#: includes/classes/class-settings.php:1024
+msgid "Who Can See Logs"
+msgstr "Kas gali matyti žurnalus"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:788
+#: includes/classes/class-settings.php:1025
+msgid "Only selected user roles can see the Analytics tab and the Logs screen."
+msgstr ""
+"Tik pasirinktos vartotojo rolės gali matyti Analitikos skirtuką ir Žurnalų "
+"ekraną."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:797
+#: includes/classes/class-settings.php:1034
+msgid "Who Can Control Settings"
+msgstr "Kas gali kontroliuoti nustatymus"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:798
+#: includes/classes/class-settings.php:1035
+msgid "Only selected user roles can access the Settings screen."
+msgstr "Tik pasirinktos vartotojo rolės gali pasiekti Nustatymų ekraną."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:807
+#: includes/classes/class-settings.php:1044
+msgid "Auto-Linking"
+msgstr "Automatinis nuorodų kūrimas"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:812
+#: includes/classes/class-settings.php:1049
+msgid "Enable Auto-Linking"
+msgstr "Įjungti automatinį nuorodų kūrimą"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:813
+#: includes/classes/class-settings.php:1050
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr ""
+"Automatiškai paversti raktinius žodžius trumpomis nuorodomis turinio "
+"įrašuose."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:814
+#: includes/classes/class-settings.php:1051
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr ""
+"Kai įjungta, raktiniai žodžiai, sukonfigūruoti trumpųjų nuorodų "
+"nustatymuose, bus automatiškai susieti jūsų turinyje."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:820
+#: includes/classes/class-settings.php:943
+#: includes/classes/class-settings.php:948
+#: includes/classes/class-settings.php:1057, fuzzy
+msgid "Post Types"
+msgstr "Post Types"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:821
+#: includes/classes/class-settings.php:1058
+msgid "Where should auto-linking be applied?"
+msgstr "Kur turėtų būti taikomas automatinis nuorodų jungimas?"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:830
+#: includes/classes/class-settings.php:1067
+msgid "Open Auto-Links In"
+msgstr "Atidaryti automatinės nuorodos"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:831
+#: includes/classes/class-settings.php:1068
+msgid "Choose how auto-linked keywords should open."
+msgstr "Pasirinkite, kaip turėtų atsidaryti automatiškai susieti raktiniai žodžiai."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:833
+#: includes/classes/class-settings.php:1070
+msgid "Same tab"
+msgstr "Tas pats skyrius"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:834
+#: includes/classes/class-settings.php:1071
+msgid "New tab"
+msgstr "Naujas skyrius"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:842
+#: includes/classes/class-settings.php:1079
+msgid "Auto-Link Color"
+msgstr "Automatinės nuorodos spalva"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:843
+#: includes/classes/class-settings.php:1080
+msgid "Choose the color for auto-linked keywords."
+msgstr "Pasirinkite spalvą automatiškai susietiems raktiniams žodžiams."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:854
+#: includes/classes/class-settings.php:1091
+msgid "Auto-List Links"
+msgstr "Automatinis Nuorodų Sąrašas"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:859
+#: includes/classes/class-settings.php:1096, fuzzy
+msgid "Auto-List Shortlinks"
+msgstr "Auto-List Shortlinks"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:860
+#: includes/classes/class-settings.php:1097
+msgid ""
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
+msgstr ""
+"Kai įjungta, trumpieji nuorodos pasirodys \"Visos nuorodos\" lentelėje, "
+"atsižvelgiant į elgesį, kurį sukonfigūruosite žemiau."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:866
+#: includes/classes/class-settings.php:1103
+msgid "Configure Post Types"
+msgstr "Konfigūruoti post types"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:867
+#: includes/classes/class-settings.php:1104
+msgid "Set when links should be auto-listed for each post type"
+msgstr ""
+"Nustatyti, kada nuorodos turėtų būti automatiškai išvardytos kiekvienam "
+"post type"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:868
+#: includes/classes/class-settings.php:1105
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr ""
+"Pridėti post types ir sukonfigūruoti, kada jų trumpieji nuorodos turėtų "
+"pasirodyti \"Visos nuorodos\" lentelėje. Pasikeitimai išsaugomi "
+"automatiškai."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:875
+#: dist/publishpress-shortlinks/includes/classes/class-statuses.php:233
+#: includes/classes/class-settings.php:1112
+#: includes/classes/class-statuses.php:233
+msgid "Post Status Visibility"
+msgstr "Įrašų statuso matomumas"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:880
+#: includes/classes/class-settings.php:1117
+msgid "Allowed Post Statuses"
+msgstr "Leidžiami įrašų statusai"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:889
+#: includes/classes/class-settings.php:1126
+msgid "Unpublished Content Notice"
+msgstr "Nepublikuoto turinio pranešimas"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:890
+#: includes/classes/class-settings.php:1127
+msgid ""
+"Show a frontend notice when an internal shortlink displays a post that is "
+"not published."
+msgstr ""
+"Rodyti pranešimą svetainėje, kai vidinė trumpoji nuoroda rodo įrašą, kuris "
+"nėra publikuotas."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:896
+#: includes/classes/class-settings.php:1133
+msgid "Notice Post Statuses"
+msgstr "Pranešimo įrašų būsenos"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:897
+#: includes/classes/class-settings.php:1134
+msgid ""
+"This notice only applies to internal shortlinks that render post content "
+"directly. External shortlinks are not affected."
+msgstr ""
+"Šis pranešimas taikomas tik vidinėms trumposioms nuorodoms, kurios "
+"tiesiogiai pateikia įrašų turinį. Išorinės trumposios nuorodos nėra "
+"paveiktos."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:906
+#: includes/classes/class-settings.php:1143
+msgid "Notice Messages"
+msgstr "Pranešimų žinutės"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:920
+#: includes/classes/class-settings.php:1157
+msgid "Default redirection method for shortlinks"
+msgstr "Numatytoji persiuntimo metodika trumpiesiems nuorodoms"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:932
+#: includes/classes/class-settings.php:1169
+msgid "Mark links as sponsored content"
+msgstr "Žymėti nuorodas kaip remiamą turinį"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:940
+#: includes/classes/class-settings.php:1177
+msgid "Prevent search engines from following links"
+msgstr "Užkirsti kelią paieškos sistemoms sekti nuorodas"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:948
+#: includes/classes/class-settings.php:1185
+msgid "Pass URL parameters to target links"
+msgstr "Perduoti URL parametrus tikslinėms nuorodoms"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:961
+#: includes/classes/class-settings.php:1198
+msgid "Secure your shortlinks"
+msgstr "Apsaugokite savo trumpąsias nuorodas"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:962
+#: includes/classes/class-settings.php:1199
+msgid "Users must enter a password to redirect to the target link."
+msgstr "Vartotojai turi įvesti slaptažodį, kad būtų nukreipti į tikslinį nuorodą."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:968
+#: includes/classes/class-settings.php:1205
+msgid "Default Password"
+msgstr "Numatytasis slaptažodis"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:969
+#: includes/classes/class-settings.php:1206
+msgid "Default password for protected links"
+msgstr "Numatytasis slaptažodis apsaugotoms nuorodoms"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:970
+#: includes/classes/class-settings.php:1207
+msgid ""
+"This password will be used for links that have password protection enabled "
+"via global settings. Passwords are case sensitive."
+msgstr ""
+"Šis slaptažodis bus naudojamas nuorodoms, kurioms slaptažodžio apsauga yra "
+"įjungta per globalius nustatymus. Slaptažodžiai yra jautrūs didžiosioms ir "
+"mažosioms raidėms."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:981
+#: includes/classes/class-settings.php:1223
+msgid "Set an expiration date and time for shortlinks"
+msgstr "Nustatykite galiojimo datą ir laiką trumpoms nuorodoms"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:989
+#: includes/classes/class-settings.php:1231
+msgid "Select the date when this shortlink should stop working"
+msgstr "Pasirinkite datą, kada ši trumpa nuoroda turėtų nustoti veikti"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1002
+#: includes/classes/class-settings.php:1244
+msgid "Select the time when the shortlink should expire"
+msgstr "Pasirinkite laiką, kada trumpa nuoroda turėtų pasibaigti"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1021
+#: includes/classes/class-settings.php:1263
+msgid "Revisions"
+msgstr "Revizijos"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1026
+#: includes/classes/class-settings.php:1268
+msgid "Revision Link Visibility"
+msgstr "Revizijos nuorodos matomumas"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1027
+#: includes/classes/class-settings.php:1269
+msgid ""
+"When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
+"table based on the behavior you configure below."
+msgstr ""
+"Kai įjungta, revizijų trumpieji nuorodos pasirodys \"Visos trumpinės "
+"nuorodos\" lentelėje, atsižvelgiant į elgesį, kurį sukonfigūruosite žemiau."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1029
+#: includes/classes/class-settings.php:1271
+msgid "When Revision is Created"
+msgstr "Kai sukuriama revizija"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1031
+#: includes/classes/class-settings.php:1273
+msgid "When Revision is Created or Link is First Used"
+msgstr "Kai sukuriama revizija arba pirmą kartą naudojamas nuoroda"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1039
+#: includes/classes/class-settings.php:1281
+msgid "Show Shortlink in Revision Table"
+msgstr "Rodyti trumpąją nuorodą revizijų lentelėje"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1040
+#: includes/classes/class-settings.php:1282
+msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
+msgstr ""
+"Rodyti trumpųjų nuorodų stulpelį peržiūrint revizijas PublishPress "
+"Revizijose."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1046
+#: includes/classes/class-settings.php:1288
+msgid "Revision Visibility for Visitors"
+msgstr "Revizijos matomumas lankytojams"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1047
+#: includes/classes/class-settings.php:1289
+msgid "Allow logged-out visitors to view revision content via shortlinks."
+msgstr ""
+"Leisti neprisijungusiems lankytojams peržiūrėti revizijos turinį per "
+"trumpąsias nuorodas."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1048
+#: includes/classes/class-settings.php:1290
+msgid ""
+"By default, PublishPress Revisions blocks visitors from viewing revision "
+"previews. When enabled, revision shortlinks will render the revision "
+"content directly for logged-out visitors instead of redirecting to the "
+"preview URL."
+msgstr ""
+"Pagal numatytuosius nustatymus, PublishPress Revizijos blokuoja lankytojus, "
+"kad jie nematytų revizijų peržiūrų. Kai įjungta, revizijų trumposios "
+"nuorodos tiesiogiai pateiks revizijos turinį neprisijungusiems lankytojams, "
+"o ne nukreips į peržiūros URL."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1071
+#: includes/classes/class-settings.php:1313, fuzzy
+msgid "Dummy"
+msgstr "Dummy"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1115
+#: includes/classes/class-settings.php:1357
+msgid "No post types configured yet. Click \"Add Post Type\" to get started."
+msgstr ""
+"Dar nėra sukonfigūruotų įrašų tipų. Paspauskite \"Pridėti įrašų tipą\", kad "
+"pradėtumėte."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1147
+#: includes/classes/class-settings.php:1389
+msgid "Add Post Type"
+msgstr "Pridėti įrašų tipą"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:70
+#: includes/classes/class-table-logs.php:70
+msgid "Log entry deleted successfully."
+msgstr "Žurnalo įrašas sėkmingai ištrintas."
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:80
+#: includes/classes/class-table-logs.php:80
+#. translators: %d: number of log entries deleted
+#, php-format
+msgid "%d log entries deleted successfully."
+msgstr "%d žurnalo įrašai sėkmingai ištrinti."
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:84
+#: includes/classes/class-table-logs.php:84
+msgid "All logs have been cleared."
+msgstr "Visi žurnalai buvo išvalyti."
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:163
+#: includes/classes/class-table-logs.php:167
+msgid "Title"
+msgstr "Pavadinimas"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:165
+#: includes/classes/class-table-logs.php:169
+msgid "Details"
+msgstr "Detalės"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:200
+#: includes/classes/class-table-logs.php:209
+msgid "Are you sure you want to delete this log entry?"
+msgstr "Ar tikrai norite ištrinti šį žurnalo įrašą?"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:260
+#: includes/classes/class-table-logs.php:269
+msgid "View Analytics"
+msgstr "Peržiūrėti analitiką"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:278
+#: includes-core/ShortlinksCoreAdmin.php:642
+#: includes/classes/class-table-logs.php:289
+msgid "Tablet"
+msgstr "Planšetinis"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:280
+#: includes-core/ShortlinksCoreAdmin.php:643
+#: includes/classes/class-table-logs.php:292
+msgid "Mobile"
+msgstr "Mobilus"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:282
+#: includes-core/ShortlinksCoreAdmin.php:641
+#: includes/classes/class-table-logs.php:295
+msgid "Desktop"
+msgstr "Darbalaukis"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:336
+#: includes/classes/class-table-logs.php:356
+#. translators: 1: user display name, 2: location name, 3: visit date/time
+#, php-format
+msgid "%1$s from %2$s visited at %3$s"
+msgstr "%1$s iš %2$s apsilankė %3$s"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:339
+#: includes/classes/class-table-logs.php:359
+#. translators: 1: user display name, 2: visit date/time
+#, php-format
+msgid "%1$s visited at %2$s"
+msgstr "%1$s aplankė %2$s"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:343
+#: includes/classes/class-table-logs.php:363
+#. translators: 1: location name, 2: visit date/time
+#, php-format
+msgid "From %1$s, visited at %2$s"
+msgstr "Iš %1$s, aplankė %2$s"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:346
+#: includes/classes/class-table-logs.php:366
+#. translators: %s: visit date/time
+#, php-format
+msgid "Visited at %s"
+msgstr "Aplankyta %s"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:358
+#: includes/classes/class-table-logs.php:378
+#. translators: %s: device type and browser name, e.g. "Mobile Chrome"
+#, php-format
+msgid "via %s"
+msgstr "per %s"
+
+#: dist/publishpress-shortlinks/includes/functions.php:225
+#: includes/classes/class-meta-boxes.php:374
+#: includes/functions.php:331
+msgid "Edit shortlink settings"
+msgstr "Redaguoti trumpalaikio nuorodos nustatymus"
+
+#: dist/publishpress-shortlinks/includes/functions.php:364
+#: dist/publishpress-shortlinks/tinypress.php:306
+#: includes/functions.php:470
+#: tinypress.php:378
+msgid ""
+"This post is in {status} status. It will become visible to the public on "
+"{date}."
+msgstr "Šis įrašas yra {status} būsenoje. Jis taps matomas viešai {date}."
+
+#: dist/publishpress-shortlinks/includes/functions.php:389
+#: includes/functions.php:495
+msgid "Target url not found."
+msgstr "Tikslo URL nerastas."
+
+#: dist/publishpress-shortlinks/includes/functions.php:396
+#: includes/functions.php:502
+msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
+msgstr "Neteisinga URL schema. Leidžiamos tik http, https, ftp, ftps ir mailto."
+
+#: dist/publishpress-shortlinks/includes/functions.php:428
+#: includes/functions.php:534
+msgid "Tiny slug could not created."
+msgstr "Mažas slugas negalėjo būti sukurtas."
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:12
+#: templates/admin-modal-new-link.php:12
+msgid "Shortlink will appear here"
+msgstr "Trumpalaikė nuoroda pasirodys čia"
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:20
+#: templates/admin-modal-new-link.php:21
+msgid "Enter a long URL and make a shortlink"
+msgstr "Įveskite ilgą URL ir sukurkite trumpalaikę nuorodą"
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:25
+#: templates/admin-modal-new-link.php:26
+msgid "Long URL"
+msgstr "Ilgas URL"
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:38
+#: templates/admin-modal-new-link.php:39
+msgid "Create Shortlink"
+msgstr "Sukurti trumpalaikę nuorodą"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:49
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:68
+#: templates/admin/analytics.php:95
+msgid "Reset Today's Analytics"
+msgstr "Atstatyti šiandienos analizę"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:50
+#: templates/admin/analytics.php:97
+msgid "Reset Week's Analytics"
+msgstr "Atstatyti savaitės analizę"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:51
+#: templates/admin/analytics.php:99
+msgid "Reset Month's Analytics"
+msgstr "Atstatyti mėnesio analizę"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:52
+#: templates/admin/analytics.php:101
+msgid "Reset Year's Analytics"
+msgstr "Atstatyti metų analizę"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:53
+#: templates/admin/analytics.php:105
+msgid ""
+"Are you sure you want to reset the analytics for this period? This action "
+"cannot be undone."
+msgstr ""
+"Ar tikrai norite atstatyti analizę už šį laikotarpį? Šios operacijos "
+"negalima atšaukti."
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:61
+#: templates/admin/analytics.php:127
+msgid "Today"
+msgstr "Šiandien"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:62
+#: includes-core/ShortlinksCoreAdmin.php:259
+#: templates/admin/analytics.php:129
+msgid "Last 7 Days"
+msgstr "Paskutinės 7 dienos"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:63
+msgid "Last 1 Month"
+msgstr "Paskutinį 1 mėnesį"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:64
+msgid "Last 1 Year"
+msgstr "Paskutinį 1 metus"
+
+#: dist/publishpress-shortlinks/templates/admin/footer.php:16
+#: templates/admin/footer.php:16
+#. translators: %1$s: plugin name, %2$s: star rating icon
+#, php-format
+msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
+msgstr "Jei jums patinka %1$s, prašome palikti mums %2$s įvertinimą. Ačiū!"
+
+#: dist/publishpress-shortlinks/templates/admin/footer.php:24
+#: templates/admin/footer.php:24
+msgid "About"
+msgstr "Apie"
+
+#: dist/publishpress-shortlinks/templates/admin/footer.php:29
+#: templates/admin/footer.php:29
+msgid "Documentation"
+msgstr "Dokumentacija"
+
+#: dist/publishpress-shortlinks/templates/admin/footer.php:33
+#: templates/admin/footer.php:33
+msgid "Contact"
+msgstr "Kontaktai"
+
+#: dist/publishpress-shortlinks/templates/admin/qr-code.php:16
+#: templates/admin/qr-code.php:17
+msgid "Download QR Code"
+msgstr "Atsisiųsti QR kodą"
+
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:8
+#: templates/admin/settings/browsers.php:8
+msgid "We have developed extensions for the below browsers."
+msgstr "Mes sukūrėme plėtinius žemiau išvardintoms naršyklėms."
+
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:9
+#: templates/admin/settings/browsers.php:9
+msgid "Click on your preferred one to Download the extension."
+msgstr "Paspauskite ant pageidaujamos, kad atsisiųstumėte plėtinį."
+
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:16
+#: templates/admin/settings/browsers.php:16
+msgid "Download the Extension"
+msgstr "Atsisiųsti plėtinį"
+
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:17
+#: templates/admin/settings/supports.php:17
+msgid "Need PublishPress Shortlinks Support?"
+msgstr "Reikia PublishPress trumpųjų nuorodų palaikymo?"
+
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:22
+#: templates/admin/settings/supports.php:22
+msgid "If you need help or have a new feature request, let us know."
+msgstr ""
+"Jei jums reikia pagalbos arba turite naujų funkcijų prašymų, praneškite "
+"mums."
+
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:24
+#: templates/admin/settings/supports.php:24
+msgid "Request Support"
+msgstr "Prašyti palaikymo"
+
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:29
+#: templates/admin/settings/supports.php:29
+msgid "Detailed documentation is also available on the plugin website."
+msgstr "Išsami dokumentacija taip pat prieinama papildinio svetainėje."
+
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:31
+#: templates/admin/settings/supports.php:31
+msgid "View Knowledge Base"
+msgstr "Peržiūrėti žinių bazę"
+
+#: dist/publishpress-shortlinks/tinypress.php:98
+#: tinypress.php:145
+msgid "This plugin can be deleted."
+msgstr "Šį papildinį galima pašalinti."
+
+#: dist/publishpress-shortlinks/tinypress.php:395
+#: tinypress.php:472
+msgid "Copied."
+msgstr "Nukopijuota."
+
+#: dist/publishpress-shortlinks/tinypress.php:397
+#: tinypress.php:474
+msgid ""
+"This setting is inherited from global settings. Choose another option to "
+"override it for this shortlink."
+msgstr ""
+"Šis nustatymas paveldimas iš globalių nustatymų. Pasirinkite kitą parinktį, "
+"kad ją perrašytumėte šiai trumpai nuorodai."
+
+#: dist/publishpress-shortlinks/tinypress.php:398
+#: tinypress.php:475
+msgid "Working..."
+msgstr "Veikia..."
+
+#: includes-core/ShortlinksCoreAdmin.php:151
+#: includes-core/ShortlinksCoreAdmin.php:152
+#: includes-core/ShortlinksCoreAdmin.php:249
+msgid "Reports"
+msgstr "Ataskaitos"
+
+#: includes-core/ShortlinksCoreAdmin.php:251
+msgid ""
+"Get aggregated insights into your shortlink performance with detailed "
+"analytics reports."
+msgstr ""
+"Gaukite suvestinę įžvalgą apie savo trumpųjų nuorodų našumą su išsamiomis "
+"analitikos ataskaitomis."
+
+#: includes-core/ShortlinksCoreAdmin.php:257
+#: templates/admin/analytics.php:125
+msgid "Date Range:"
+msgstr "Datos intervalas:"
+
+#: includes-core/ShortlinksCoreAdmin.php:261
+#: templates/admin/analytics.php:158
+msgid "Apply"
+msgstr "Taikyti"
+
+#: includes-core/ShortlinksCoreAdmin.php:269
+#: templates/admin/analytics.php:172
+msgid "Total Clicks"
+msgstr "Bendras paspaudimų skaičius"
+
+#: includes-core/ShortlinksCoreAdmin.php:276
+#: templates/admin/analytics.php:180
+msgid "Unique Visitors"
+msgstr "Unikalūs lankytojai"
+
+#: includes-core/ShortlinksCoreAdmin.php:283
+msgid "Active Links"
+msgstr "Aktyvios nuorodos"
+
+#: includes-core/ShortlinksCoreAdmin.php:290
+msgid "Avg. Clicks/Link"
+msgstr "Vid. paspaudimai/nuoroda"
+
+#: includes-core/ShortlinksCoreAdmin.php:297
+msgid "Top Performing Links"
+msgstr "Geriausiai veikiančios nuorodos"
+
+#: includes-core/ShortlinksCoreAdmin.php:301
+msgid "Link"
+msgstr "Nuoroda"
+
+#: includes-core/ShortlinksCoreAdmin.php:302
+msgid "Clicks"
+msgstr "Paspaudimai"
+
+#: includes-core/ShortlinksCoreAdmin.php:313
+msgid "Top Locations"
+msgstr "Geriausios vietos"
+
+#: includes-core/ShortlinksCoreAdmin.php:336
+msgid "Enable Activation"
+msgstr "Įjungti aktyvavimą"
+
+#: includes-core/ShortlinksCoreAdmin.php:337
+msgid "Schedule when this shortlink should start working."
+msgstr "Naplanavoti, kada šis trumpas nuoroda turėtų pradėti veikti."
+
+#: includes-core/ShortlinksCoreAdmin.php:338
+msgid ""
+"When enabled, the shortlink remains inactive until its activation date and "
+"time."
+msgstr ""
+"Kai įjungta, trumpas nuoroda lieka neaktyvus iki jo aktyvavimo datos ir "
+"laiko."
+
+#: includes-core/ShortlinksCoreAdmin.php:346
+msgid "Activation Date"
+msgstr "Aktyvavimo data"
+
+#: includes-core/ShortlinksCoreAdmin.php:347
+msgid "Select the date when this shortlink should start working."
+msgstr "Pasirinkite datą, kada šis trumpas nuoroda turėtų pradėti veikti."
+
+#: includes-core/ShortlinksCoreAdmin.php:348
+msgid "Leave empty to make the shortlink active immediately."
+msgstr "Palikite tuščią, kad trumpas nuoroda taptų aktyvus iš karto."
+
+#: includes-core/ShortlinksCoreAdmin.php:361
+msgid "Activation Time"
+msgstr "Aktyvavimo laikas"
+
+#: includes-core/ShortlinksCoreAdmin.php:362
+msgid "Select the time when this shortlink should start working."
+msgstr "Pasirinkite laiką, kada šis trumpas nuoroda turėtų pradėti veikti."
+
+#: includes-core/ShortlinksCoreAdmin.php:363
+msgid ""
+"Only used when an activation date is set. Leave empty to activate at the "
+"start of that date."
+msgstr ""
+"Naudojama tik tada, kai nustatyta aktyvavimo data. Palikite tuščią, kad "
+"aktyvuotųsi tos datos pradžioje."
+
+#: includes-core/ShortlinksCoreAdmin.php:381
+msgid "Expiration Click Limit"
+msgstr "Paspaudimų limitas galiojimui"
+
+#: includes-core/ShortlinksCoreAdmin.php:382
+msgid "Expire this shortlink after a number of clicks."
+msgstr "Pasibaigti šiam trumpam nuorodui po tam tikro paspaudimų skaičiaus."
+
+#: includes-core/ShortlinksCoreAdmin.php:383
+msgid "Set to 0 for no click limit."
+msgstr "Nustatykite 0, kad nebūtų paspaudimų limito."
+
+#: includes-core/ShortlinksCoreAdmin.php:396
+msgid "Where should visitors be sent when they click an expired link?"
+msgstr "Kur turėtų būti siunčiami lankytojai, kai paspaudžia pasibaigusią nuorodą?"
+
+#: includes-core/ShortlinksCoreAdmin.php:399
+msgid "Custom URL"
+msgstr "Pritaikyta URL"
+
+#: includes-core/ShortlinksCoreAdmin.php:409
+msgid ""
+"When a shortlink expires, visitors are redirected to this URL. If left "
+"empty, visitors are redirected to the homepage."
+msgstr ""
+"Kai trumpas nuoroda pasibaigia, lankytojai nukreipiami į šį URL. Jei "
+"paliekama tuščia, lankytojai nukreipiami į pagrindinį puslapį."
+
+#: includes-core/ShortlinksCoreAdmin.php:418
+msgid "Display a custom notice page before redirecting expired links."
+msgstr ""
+"Rodyti pasirinktą pranešimo puslapį prieš nukreipiant pasibaigusias "
+"nuorodas."
+
+#: includes-core/ShortlinksCoreAdmin.php:431
+msgid "Expiration Notice Title"
+msgstr "Pasibaigimo pranešimo pavadinimas"
+
+#: includes-core/ShortlinksCoreAdmin.php:432
+msgid "The heading of the expiration notice page"
+msgstr "Pasibaigimo pranešimo puslapio antraštė"
+
+#: includes-core/ShortlinksCoreAdmin.php:435
+#: includes-core/ShortlinksCoreAdmin.php:457
+#: includes-core/ShortlinksCoreAdmin.php:483
+msgid "Custom text"
+msgstr "Pasirinktinė žinutė"
+
+#: includes-core/ShortlinksCoreAdmin.php:446
+msgid "This is the main heading visitors see when they click an expired link."
+msgstr ""
+"Tai pagrindinė antraštė, kurią lankytojai mato, kai paspaudžia pasibaigusią "
+"nuorodą."
+
+#: includes-core/ShortlinksCoreAdmin.php:453
+msgid "Expiration Notice Message"
+msgstr "Pasibaigimo pranešimo žinutė"
+
+#: includes-core/ShortlinksCoreAdmin.php:454
+msgid "The message shown to visitors on the expiration notice page"
+msgstr "Žinutė, rodoma lankytojams pasibaigimo pranešimo puslapyje"
+
+#: includes-core/ShortlinksCoreAdmin.php:468
+msgid ""
+"This is the body text explaining what happened and when visitors will be "
+"redirected."
+msgstr ""
+"Tai yra kūno tekstas, paaiškinantis, kas įvyko ir kada lankytojai bus "
+"nukreipti."
+
+#: includes-core/ShortlinksCoreAdmin.php:479
+msgid "Expiration Notice Link Text"
+msgstr "Galiojimo pabaigos pranešimo nuorodos tekstas"
+
+#: includes-core/ShortlinksCoreAdmin.php:480
+msgid "The text for the button visitors click to continue"
+msgstr "Tekstas mygtukui, kurį lankytojai paspaudžia, kad tęstų"
+
+#: includes-core/ShortlinksCoreAdmin.php:494
+msgid ""
+"This is the text displayed on the clickable button at the bottom of the "
+"notice page."
+msgstr "Tai yra tekstas, rodomas spustelėjamame mygtuke pranešimo puslapio apačioje."
+
+#: includes-core/ShortlinksCoreAdmin.php:541
+msgid "Enable Dynamic Redirects"
+msgstr "Įjungti dinamiškus nukreipimus"
+
+#: includes-core/ShortlinksCoreAdmin.php:542
+msgid "Send visitors to different destinations when they match an enabled rule."
+msgstr ""
+"Nukreipkite lankytojus į skirtingus tikslus, kai jie atitinka įgalintą "
+"taisyklę."
+
+#: includes-core/ShortlinksCoreAdmin.php:554
+msgid "Fallback Destination"
+msgstr "Atsarginis tikslas"
+
+#: includes-core/ShortlinksCoreAdmin.php:555
+msgid "The Target URL in the General tab is used whenever no enabled rule matches."
+msgstr ""
+"Tikslinis URL bendroje skiltyje naudojamas, kai nėra atitinkančios "
+"įgalintos taisyklės."
+
+#: includes-core/ShortlinksCoreAdmin.php:562
+msgid "Redirect Rules"
+msgstr "Nukreipimo taisyklės"
+
+#: includes-core/ShortlinksCoreAdmin.php:563
+msgid "Rules are checked from top to bottom. The first matching rule is used."
+msgstr ""
+"Taisyklės tikrinamos nuo viršaus iki apačios. Naudojama pirmoji atitinkanti "
+"taisyklė."
+
+#: includes-core/ShortlinksCoreAdmin.php:564
+msgid "Add Rule"
+msgstr "Pridėti taisyklę"
+
+#: includes-core/ShortlinksCoreAdmin.php:566
+msgid "A shortlink can contain up to 100 redirect rules."
+msgstr "Trumpas nuoroda gali turėti iki 100 nukreipimo taisyklių."
+
+#: includes-core/ShortlinksCoreAdmin.php:570
+#: includes-core/ShortlinksCoreAdmin.php:596
+msgid "Redirect Rule"
+msgstr "Nukreipimo taisyklė"
+
+#: includes-core/ShortlinksCoreAdmin.php:584
+msgid "Rule Status"
+msgstr "Taisyklės būsena"
+
+#: includes-core/ShortlinksCoreAdmin.php:594
+msgid "Rule Name"
+msgstr "Taisyklės pavadinimas"
+
+#: includes-core/ShortlinksCoreAdmin.php:595
+msgid "Example: Redirect Rule 1"
+msgstr "Pavyzdys: Nukreipimo taisyklė 1"
+
+#: includes-core/ShortlinksCoreAdmin.php:602
+msgid "Destination URL"
+msgstr "Tikslinis URL"
+
+#: includes-core/ShortlinksCoreAdmin.php:604
+msgid ""
+"Use an HTTP or HTTPS URL. Empty, invalid, and self-referencing rules are "
+"saved as disabled."
+msgstr ""
+"Naudokite HTTP arba HTTPS URL. Tuščios, neteisingos ir savireferencinės "
+"taisyklės išsaugomos kaip neįgalintos."
+
+#: includes-core/ShortlinksCoreAdmin.php:611
+msgid "Countries"
+msgstr "Šalys"
+
+#: includes-core/ShortlinksCoreAdmin.php:613
+msgid "Any country"
+msgstr "Bet kuri šalis"
+
+#: includes-core/ShortlinksCoreAdmin.php:614
+msgid "Only selected countries"
+msgstr "Tik pasirinktos šalys"
+
+#: includes-core/ShortlinksCoreAdmin.php:616
+msgid "All except selected countries"
+msgstr "Visos, išskyrus pasirinktas šalis"
+
+#: includes-core/ShortlinksCoreAdmin.php:624
+msgid "Selected Countries"
+msgstr "Pasirinktos šalys"
+
+#: includes-core/ShortlinksCoreAdmin.php:626
+msgid "United Kingdom"
+msgstr "Jungtinė Karalystė"
+
+#: includes-core/ShortlinksCoreAdmin.php:627
+msgid "Nigeria"
+msgstr "Nigerija"
+
+#: includes-core/ShortlinksCoreAdmin.php:628
+msgid "United States"
+msgstr "Jungtinės Valstijos"
+
+#: includes-core/ShortlinksCoreAdmin.php:632
+msgid "Select countries"
+msgstr "Pasirinkti šalis"
+
+#: includes-core/ShortlinksCoreAdmin.php:639
+msgid "Devices"
+msgstr "Įrenginiai"
+
+#: includes-core/ShortlinksCoreAdmin.php:646
+msgid "Leave every option unchecked to match any device."
+msgstr "Palikite kiekvieną parinktį nepažymėtą, kad atitiktų bet kurį įrenginį."
+
+#: includes-core/ShortlinksCoreAdmin.php:653
+msgid "Referrer"
+msgstr "Referentas"
+
+#: includes-core/ShortlinksCoreAdmin.php:655
+msgid "Any referrer"
+msgstr "Bet koks referentas"
+
+#: includes-core/ShortlinksCoreAdmin.php:656
+msgid "Direct or unknown only"
+msgstr "Tiesioginis arba nežinomas tik"
+
+#: includes-core/ShortlinksCoreAdmin.php:657
+msgid "Only selected domains"
+msgstr "Tik pasirinkti domenai"
+
+#: includes-core/ShortlinksCoreAdmin.php:659
+msgid "All except selected domains"
+msgstr "Visi, išskyrus pasirinktus domenus"
+
+#: includes-core/ShortlinksCoreAdmin.php:667
+msgid "Referrer Domains"
+msgstr "Referento domenai"
+
+#: includes-core/ShortlinksCoreAdmin.php:669
+msgid ""
+"Enter domains separated by commas or new lines. Subdomains also match their "
+"parent domain."
+msgstr ""
+"Įveskite domenus, atskirtus kableliais arba naujomis eilutėmis. Subdomenai "
+"taip pat atitinka savo tėvų domeną."
+
+#: includes/classes/class-gutenberg-shortlink.php:165
+msgid "Search shortlinks"
+msgstr "Ieškoti trumpųjų nuorodų"
+
+#: includes/classes/class-hooks.php:189
+#: includes/classes/class-hooks.php:201
+msgid "Invalid custom date range."
+msgstr "Neteisingas pasirinktinis datų intervalas."
+
+#: includes/classes/class-import-export.php:202
+msgid "Invalid uploaded file."
+msgstr "Neteisingas įkeltas failas."
+
+#: includes/classes/class-import-export.php:237
+msgid "Please upload a valid CSV file."
+msgstr "Prašome įkelti galiojantį CSV failą."
+
+#: includes/classes/class-import-export.php:1200
+msgid "Import and export"
+msgstr "Importuoti ir eksportuoti"
+
+#: includes/classes/class-import-export.php:1303
+msgid "Import progress"
+msgstr "Importavimo pažanga"
+
+#: includes/classes/class-meta-boxes.php:193
+msgid "PublishPress Shortlinks slug."
+msgstr "PublishPress trumpųjų nuorodų slug."
+
+#: includes/classes/class-meta-boxes.php:373
+msgid "Copy"
+msgstr "Kopijuoti"
+
+#: includes/classes/class-meta-boxes.php:375
+msgid "Enter a shortlink slug to create a shortlink URL."
+msgstr "Įveskite trumpinimo slug, kad sukurtumėte trumpą URL."
+
+#: includes/classes/class-meta-boxes.php:377
+msgid "Shortlink Slug"
+msgstr "Trumpinimo slug"
+
+#: includes/classes/class-meta-boxes.php:378
+msgid "Shortlink URL"
+msgstr "Trumpas URL"
+
+#: includes/classes/class-meta-boxes.php:1066
+msgid "Dynamic Redirects"
+msgstr "Dinamiški nukreipimai"
+
+#: includes/classes/class-meta-boxes.php:1185
+#: includes/classes/class-settings.php:1217
+msgid "Scheduling"
+msgstr "Tvarkaraštis"
 
 #: includes/classes/class-migration.php:52
 msgid "Pretty Links"
@@ -1540,7 +3089,7 @@ msgid "Remind me later"
 msgstr "Priminti vėliau"
 
 #: includes/classes/class-migration.php:297
-#: tinypress.php:482
+#: tinypress.php:485
 msgid "Dismiss"
 msgstr "Atmesti"
 
@@ -1614,623 +3163,63 @@ msgstr "Trūksta trumpinimo slug."
 msgid "Could not create shortlink."
 msgstr "Nepavyko sukurti trumpinimo."
 
-#: includes/classes/class-redirection.php:310
-#: includes/classes/class-redirection.php:1707
-msgid "This link is expired."
-msgstr "Ši nuoroda yra pasibaigusi."
-
 #: includes/classes/class-redirection.php:1016
 #: includes/classes/class-redirection.php:1602
-#: includes/classes/class-table-logs.php:382
+#: includes/classes/class-table-logs.php:387
 msgid "Default Target"
 msgstr "Numatytasis tikslas"
 
-#: includes/classes/class-redirection.php:1242
-msgid "Post not found."
-msgstr "Įrašas nerastas."
+#: includes/classes/class-settings.php:66
+msgid "Settings sections"
+msgstr "Nustatymų skyriai"
 
-#: includes/classes/class-redirection.php:1386
-#: includes/functions.php:467
-#: includes/functions.php:468
-#: includes/functions.php:469
-#: includes/functions.php:475
-#: tinypress.php:373
-#: tinypress.php:374
-#: tinypress.php:375
-msgid "This post is in {status} status. It is not visible to the public."
-msgstr "Šis įrašas yra {status} būsenoje. Jis nėra matomas visuomenei."
+#: includes/classes/class-settings.php:67
+msgid "Search settings"
+msgstr "Paieškos nustatymai"
 
-#: includes/classes/class-redirection.php:1434
-msgid "This link has expired"
-msgstr "Ši nuoroda pasibaigė"
-
-#: includes/classes/class-redirection.php:1438
-msgid "You will be redirected shortly."
-msgstr "Jūs būsite peradresuotas netrukus."
-
-#: includes/classes/class-redirection.php:1442
-msgid "Click here if you are not redirected"
-msgstr "Paspauskite čia, jei nesate peradresuotas"
-
-#: includes/classes/class-redirection.php:1459
-msgid "Link Expired"
-msgstr "Nuoroda pasibaigė"
-
-#: includes/classes/class-redirection.php:1680
-#: includes/classes/class-redirection.php:1688
-msgid "This link is not active."
-msgstr "Ši nuoroda nėra aktyvi."
-
-#: includes/classes/class-redirection.php:1727
-msgid "Incorrect password. Please try again."
-msgstr "Neteisingas slaptažodis. Prašome bandyti dar kartą."
-
-#: includes/classes/class-redirection.php:1746
-#: includes/classes/class-redirection.php:1751
-msgid "Password Protected Link"
-msgstr "Slaptažodžiu apsaugota nuoroda"
-
-#: includes/classes/class-redirection.php:1757
-msgid "Enter password to continue:"
-msgstr "Įveskite slaptažodį, kad tęstumėte:"
-
-#: includes/classes/class-redirection.php:1759
-msgid "Submit"
-msgstr "Pateikti"
-
-#: includes/classes/class-redirection.php:1864
-msgid "This link is not containing the right prefix slug."
-msgstr "Ši nuoroda neturi teisingo prefikso slug."
-
-#: includes/classes/class-redirection.php:1905
-msgid "Too many invalid shortlink requests. Please try again later."
-msgstr "Per daug neteisingų trumposios nuorodos užklausų. Prašome bandyti vėliau."
-
-#: includes/classes/class-redirection.php:1906
-msgid "Too Many Requests"
-msgstr "Per daug užklausų"
-
-#: includes/classes/class-revision.php:439
-msgid "Invalid revision ID."
-msgstr "Neteisingas revizijos ID."
-
-#: includes/classes/class-settings.php:430
-#: includes/classes/class-settings.php:897
-#: includes/classes/class-settings.php:905
-#: includes/functions.php:376
-#: includes/functions.php:410
-msgid "Draft"
-msgstr "Juodraštis"
-
-#: includes/classes/class-settings.php:431
-#: includes/classes/class-settings.php:898
-#: includes/classes/class-settings.php:906
-#: includes/functions.php:377
-#: includes/functions.php:411
-msgid "Pending Review"
-msgstr "Laukiama peržiūros"
-
-#: includes/classes/class-settings.php:432
-#: includes/classes/class-settings.php:899
-#: includes/classes/class-settings.php:907
-#: includes/functions.php:378
-#: includes/functions.php:412
-msgid "Private"
-msgstr "Privatus"
-
-#: includes/classes/class-settings.php:437
-msgid ""
-"Customize the notice shown for each enabled non-published status. Available "
-"placeholders: {status}, {date}, {title}."
-msgstr ""
-"Pridėkite pranešimą, rodomą kiekvienam įgalintam nepublikuotam statusui. "
-"Galimi pakeičiamosios vietos: {status}, {date}, {title}."
-
-#: includes/classes/class-settings.php:473
-#: includes/classes/class-settings.php:522
-msgid "All"
-msgstr "Visi"
-
-#: includes/classes/class-settings.php:486
-#: includes/classes/class-settings.php:535
+#: includes/classes/class-settings.php:514
+#: includes/classes/class-settings.php:563
 msgid "Search post types"
 msgstr "Ieškoti įrašų tipų"
 
-#: includes/classes/class-settings.php:487
-#: includes/classes/class-settings.php:536
+#: includes/classes/class-settings.php:515
+#: includes/classes/class-settings.php:564
 msgid "Filter post types..."
 msgstr "Filtruoti įrašų tipus..."
 
-#: includes/classes/class-settings.php:504
-#: includes/classes/class-settings.php:553
+#: includes/classes/class-settings.php:532
+#: includes/classes/class-settings.php:581
 msgid "No post types match your search."
 msgstr "Nėra įrašų tipų, atitinkančių jūsų paiešką."
 
-#: includes/classes/class-settings.php:528
+#: includes/classes/class-settings.php:556
 msgid "No data available."
 msgstr "Duomenų nėra."
 
-#: includes/classes/class-settings.php:595
-msgid "Settings"
-msgstr "Nustatymai"
-
-#: includes/classes/class-settings.php:722
-msgid ""
-"Select which post statuses are accessible when visiting a PublishPress "
-"shortlink."
-msgstr ""
-"Pasirinkite, kurie įrašų statusai yra pasiekiami, kai lankotės PublishPress "
-"trumpąja nuoroda."
-
-#: includes/classes/class-settings.php:738
-#, fuzzy
-msgid "PublishPress Statuses Plugin Detected:"
-msgstr "PublishPress Shortlinks Free"
-
-#: includes/classes/class-settings.php:739
-msgid ""
-"To use core PublishPress statuses with Shortlinks, Please enable the "
-"Shortlinks post type in PublishPress Statuses workflow settings."
-msgstr ""
-"Norėdami naudoti pagrindinius PublishPress statusus su Shortlinks, prašome "
-"įjungti Shortlinks post type PublishPress Statusų darbo eigoje."
-
-#: includes/classes/class-settings.php:758
-msgid "Elementor Detected:"
-msgstr "Aptiktas Elementor:"
-
-#: includes/classes/class-settings.php:759
-msgid ""
-"Shortlink prefix is required for proper rendering of Elementor revisions. "
-"It is advisable to keep it enabled."
-msgstr ""
-"Trumpųjų nuorodų prefiksas yra būtinas tinkamam Elementor revizijų "
-"atvaizdavimui. Rekomenduojama jį palikti įjungtą."
-
-#: includes/classes/class-settings.php:791
-msgid "TinyPress Shortlinks Notice:"
-msgstr "TinyPress trumpųjų nuorodų pranešimas:"
-
-#: includes/classes/class-settings.php:792
-msgid ""
-"Elementor is active. Shortlink prefix has been automatically disabled, it "
-"is required for optimal compatibility with Elementor revisions."
-msgstr ""
-"Elementor yra aktyvus. Trumpųjų nuorodų prefiksas buvo automatiškai "
-"išjungtas, jis reikalingas optimaliam suderinamumui su Elementor "
-"revizijomis."
-
-#: includes/classes/class-settings.php:896
-#: includes/functions.php:375
-#: includes/functions.php:409
-msgid "Published"
-msgstr "Paskelbtas"
-
-#: includes/classes/class-settings.php:915
-#: includes/classes/class-settings.php:920
-#: includes/classes/class-settings.php:1029, fuzzy
-msgid "Post Types"
-msgstr "Post Types"
-
-#: includes/classes/class-settings.php:921
+#: includes/classes/class-settings.php:949
 msgid "Select which post types will have shortlinks available."
 msgstr "Pasirinkite, kuriems įrašų tipams bus prieinami trumpinimai."
 
-#: includes/classes/class-settings.php:922
+#: includes/classes/class-settings.php:950
 msgid "Shortlinks metabox and column will only appear on selected post types."
 msgstr ""
 "Trumpinimo metaduomenų langas ir stulpelis pasirodys tik pasirinktų įrašų "
 "tipų."
 
-#: includes/classes/class-settings.php:935
-msgid "Shortlink Prefix"
-msgstr "Trumpųjų nuorodų prefiksas"
-
-#: includes/classes/class-settings.php:936
-msgid "Add a prefix between your domain name and shortlink."
-msgstr "Pridėkite prefiksą tarp savo domeno vardo ir trumpinio."
-
-#: includes/classes/class-settings.php:943
-msgid "Prefix Slug"
-msgstr "Prefikso Slug"
-
-#: includes/classes/class-settings.php:944
-msgid "Custom prefix slug."
-msgstr "Pasirinktinis prefikso slug."
-
-#: includes/classes/class-settings.php:945
-msgid "This text will be added between your domain name and shortlink."
-msgstr "Šis tekstas bus pridėtas tarp jūsų domeno vardo ir trumpinio."
-
-#: includes/classes/class-settings.php:946
-#: includes/classes/class-settings.php:947
-msgid "go"
-msgstr "eiti"
-
-#: includes/classes/class-settings.php:953
-msgid "Keyboard Shortcut"
-msgstr "Klaviatūros Klavišas"
-
-#: includes/classes/class-settings.php:954
-msgid "Create shortlinks from anywhere inside your WordPress dashboard."
-msgstr "Sukurkite trumpinius iš bet kurios vietos savo WordPress valdymo skydelyje."
-
-#: includes/classes/class-settings.php:955
-#: includes/classes/class-settings.php:956
-msgid "Ctrl or Cmd + /"
-msgstr "Ctrl arba Cmd + /"
-
-#: includes/classes/class-settings.php:965
-msgid "Remove from Admin Bar"
-msgstr "Pašalinti iš Administratoriaus Juostos"
-
-#: includes/classes/class-settings.php:966
-msgid "Hide the \"Shorten\" button from the WordPress admin bar."
-msgstr "Paslėpti „Trumpinti“ mygtuką iš WordPress administratoriaus juostos."
-
-#: includes/classes/class-settings.php:972
-msgid "Role Management"
-msgstr "Vaidmenų Valdymas"
-
-#: includes/classes/class-settings.php:977
-msgid "Who Can View The All Shortlinks Screen"
-msgstr "Kas gali peržiūrėti visų trumpųjų nuorodų ekraną"
-
-#: includes/classes/class-settings.php:978
-msgid "Only selected user roles can view the complete list of Shortlinks."
-msgstr ""
-"Tik pasirinktos vartotojo rolės gali peržiūrėti visą trumpųjų nuorodų "
-"sąrašą."
-
-#: includes/classes/class-settings.php:986
-msgid "Who Can Create/Edit Shortlinks"
-msgstr "Kas gali kurti/redaguoti trumpinius"
-
-#: includes/classes/class-settings.php:987
-msgid "Only selected user roles can create or edit links."
-msgstr "Tik pasirinktų vartotojų vaidmenys gali kurti ar redaguoti nuorodas."
-
-#: includes/classes/class-settings.php:996
-msgid "Who Can See Logs"
-msgstr "Kas gali matyti žurnalus"
-
-#: includes/classes/class-settings.php:997
-msgid "Only selected user roles can see the Analytics tab and the Logs screen."
-msgstr ""
-"Tik pasirinktos vartotojo rolės gali matyti Analitikos skirtuką ir Žurnalų "
-"ekraną."
-
-#: includes/classes/class-settings.php:1006
-msgid "Who Can Control Settings"
-msgstr "Kas gali kontroliuoti nustatymus"
-
-#: includes/classes/class-settings.php:1007
-msgid "Only selected user roles can access the Settings screen."
-msgstr "Tik pasirinktos vartotojo rolės gali pasiekti Nustatymų ekraną."
-
-#: includes/classes/class-settings.php:1016
-msgid "Auto-Linking"
-msgstr "Automatinis nuorodų kūrimas"
-
-#: includes/classes/class-settings.php:1021
-msgid "Enable Auto-Linking"
-msgstr "Įjungti automatinį nuorodų kūrimą"
-
-#: includes/classes/class-settings.php:1022
-msgid "Automatically convert keywords to shortlinks in post content."
-msgstr ""
-"Automatiškai paversti raktinius žodžius trumpomis nuorodomis turinio "
-"įrašuose."
-
-#: includes/classes/class-settings.php:1023
-msgid ""
-"When enabled, keywords configured in shortlink settings will be "
-"automatically linked in your content."
-msgstr ""
-"Kai įjungta, raktiniai žodžiai, sukonfigūruoti trumpųjų nuorodų "
-"nustatymuose, bus automatiškai susieti jūsų turinyje."
-
-#: includes/classes/class-settings.php:1030
-msgid "Where should auto-linking be applied?"
-msgstr "Kur turėtų būti taikomas automatinis nuorodų jungimas?"
-
-#: includes/classes/class-settings.php:1039
-msgid "Open Auto-Links In"
-msgstr "Atidaryti automatinės nuorodos"
-
-#: includes/classes/class-settings.php:1040
-msgid "Choose how auto-linked keywords should open."
-msgstr "Pasirinkite, kaip turėtų atsidaryti automatiškai susieti raktiniai žodžiai."
-
-#: includes/classes/class-settings.php:1042
-msgid "Same tab"
-msgstr "Tas pats skyrius"
-
-#: includes/classes/class-settings.php:1043
-msgid "New tab"
-msgstr "Naujas skyrius"
-
-#: includes/classes/class-settings.php:1051
-msgid "Auto-Link Color"
-msgstr "Automatinės nuorodos spalva"
-
-#: includes/classes/class-settings.php:1052
-msgid "Choose the color for auto-linked keywords."
-msgstr "Pasirinkite spalvą automatiškai susietiems raktiniams žodžiams."
-
-#: includes/classes/class-settings.php:1063
-msgid "Auto-List Links"
-msgstr "Automatinis Nuorodų Sąrašas"
-
-#: includes/classes/class-settings.php:1068, fuzzy
-msgid "Auto-List Shortlinks"
-msgstr "Auto-List Shortlinks"
-
-#: includes/classes/class-settings.php:1069
-msgid ""
-"When enabled, shortlinks will appear in the \"All Links\" table based on "
-"the behavior you configure below."
-msgstr ""
-"Kai įjungta, trumpieji nuorodos pasirodys \"Visos nuorodos\" lentelėje, "
-"atsižvelgiant į elgesį, kurį sukonfigūruosite žemiau."
-
-#: includes/classes/class-settings.php:1075
-msgid "Configure Post Types"
-msgstr "Konfigūruoti post types"
-
-#: includes/classes/class-settings.php:1076
-msgid "Set when links should be auto-listed for each post type"
-msgstr ""
-"Nustatyti, kada nuorodos turėtų būti automatiškai išvardytos kiekvienam "
-"post type"
-
-#: includes/classes/class-settings.php:1077
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr ""
-"Pridėti post types ir sukonfigūruoti, kada jų trumpieji nuorodos turėtų "
-"pasirodyti \"Visos nuorodos\" lentelėje. Pasikeitimai išsaugomi "
-"automatiškai."
-
-#: includes/classes/class-settings.php:1084
-#: includes/classes/class-statuses.php:233
-msgid "Post Status Visibility"
-msgstr "Įrašų statuso matomumas"
-
-#: includes/classes/class-settings.php:1089
-msgid "Allowed Post Statuses"
-msgstr "Leidžiami įrašų statusai"
-
-#: includes/classes/class-settings.php:1098
-msgid "Unpublished Content Notice"
-msgstr "Nepublikuoto turinio pranešimas"
-
-#: includes/classes/class-settings.php:1099
-msgid ""
-"Show a frontend notice when an internal shortlink displays a post that is "
-"not published."
-msgstr ""
-"Rodyti pranešimą svetainėje, kai vidinė trumpoji nuoroda rodo įrašą, kuris "
-"nėra publikuotas."
-
-#: includes/classes/class-settings.php:1105
-msgid "Notice Post Statuses"
-msgstr "Pranešimo įrašų būsenos"
-
-#: includes/classes/class-settings.php:1106
-msgid ""
-"This notice only applies to internal shortlinks that render post content "
-"directly. External shortlinks are not affected."
-msgstr ""
-"Šis pranešimas taikomas tik vidinėms trumposioms nuorodoms, kurios "
-"tiesiogiai pateikia įrašų turinį. Išorinės trumposios nuorodos nėra "
-"paveiktos."
-
-#: includes/classes/class-settings.php:1115
-msgid "Notice Messages"
-msgstr "Pranešimų žinutės"
-
-#: includes/classes/class-settings.php:1129
-msgid "Default redirection method for shortlinks"
-msgstr "Numatytoji persiuntimo metodika trumpiesiems nuorodoms"
-
-#: includes/classes/class-settings.php:1141
-msgid "Mark links as sponsored content"
-msgstr "Žymėti nuorodas kaip remiamą turinį"
-
-#: includes/classes/class-settings.php:1149
-msgid "Prevent search engines from following links"
-msgstr "Užkirsti kelią paieškos sistemoms sekti nuorodas"
-
-#: includes/classes/class-settings.php:1157
-msgid "Pass URL parameters to target links"
-msgstr "Perduoti URL parametrus tikslinėms nuorodoms"
-
-#: includes/classes/class-settings.php:1170
-msgid "Secure your shortlinks"
-msgstr "Apsaugokite savo trumpąsias nuorodas"
-
-#: includes/classes/class-settings.php:1171
-msgid "Users must enter a password to redirect to the target link."
-msgstr "Vartotojai turi įvesti slaptažodį, kad būtų nukreipti į tikslinį nuorodą."
-
-#: includes/classes/class-settings.php:1177
-msgid "Default Password"
-msgstr "Numatytasis slaptažodis"
-
-#: includes/classes/class-settings.php:1178
-msgid "Default password for protected links"
-msgstr "Numatytasis slaptažodis apsaugotoms nuorodoms"
-
-#: includes/classes/class-settings.php:1179
-msgid ""
-"This password will be used for links that have password protection enabled "
-"via global settings. Passwords are case sensitive."
-msgstr ""
-"Šis slaptažodis bus naudojamas nuorodoms, kurioms slaptažodžio apsauga yra "
-"įjungta per globalius nustatymus. Slaptažodžiai yra jautrūs didžiosioms ir "
-"mažosioms raidėms."
-
-#: includes/classes/class-settings.php:1190
-msgid "Set an expiration date and time for shortlinks"
-msgstr "Nustatykite galiojimo datą ir laiką trumpoms nuorodoms"
-
-#: includes/classes/class-settings.php:1198
-msgid "Select the date when this shortlink should stop working"
-msgstr "Pasirinkite datą, kada ši trumpa nuoroda turėtų nustoti veikti"
-
-#: includes/classes/class-settings.php:1211
-msgid "Select the time when the shortlink should expire"
-msgstr "Pasirinkite laiką, kada trumpa nuoroda turėtų pasibaigti"
-
-#: includes/classes/class-settings.php:1230
-msgid "Revisions"
-msgstr "Revizijos"
-
-#: includes/classes/class-settings.php:1235
-msgid "Revision Link Visibility"
-msgstr "Revizijos nuorodos matomumas"
-
-#: includes/classes/class-settings.php:1236
-msgid ""
-"When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
-"table based on the behavior you configure below."
-msgstr ""
-"Kai įjungta, revizijų trumpieji nuorodos pasirodys \"Visos trumpinės "
-"nuorodos\" lentelėje, atsižvelgiant į elgesį, kurį sukonfigūruosite žemiau."
-
-#: includes/classes/class-settings.php:1238
-msgid "When Revision is Created"
-msgstr "Kai sukuriama revizija"
-
-#: includes/classes/class-settings.php:1240
-msgid "When Revision is Created or Link is First Used"
-msgstr "Kai sukuriama revizija arba pirmą kartą naudojamas nuoroda"
-
-#: includes/classes/class-settings.php:1248
-msgid "Show Shortlink in Revision Table"
-msgstr "Rodyti trumpąją nuorodą revizijų lentelėje"
-
-#: includes/classes/class-settings.php:1249
-msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
-msgstr ""
-"Rodyti trumpųjų nuorodų stulpelį peržiūrint revizijas PublishPress "
-"Revizijose."
-
-#: includes/classes/class-settings.php:1255
-msgid "Revision Visibility for Visitors"
-msgstr "Revizijos matomumas lankytojams"
-
-#: includes/classes/class-settings.php:1256
-msgid "Allow logged-out visitors to view revision content via shortlinks."
-msgstr ""
-"Leisti neprisijungusiems lankytojams peržiūrėti revizijos turinį per "
-"trumpąsias nuorodas."
-
-#: includes/classes/class-settings.php:1257
-msgid ""
-"By default, PublishPress Revisions blocks visitors from viewing revision "
-"previews. When enabled, revision shortlinks will render the revision "
-"content directly for logged-out visitors instead of redirecting to the "
-"preview URL."
-msgstr ""
-"Pagal numatytuosius nustatymus, PublishPress Revizijos blokuoja lankytojus, "
-"kad jie nematytų revizijų peržiūrų. Kai įjungta, revizijų trumposios "
-"nuorodos tiesiogiai pateiks revizijos turinį neprisijungusiems lankytojams, "
-"o ne nukreips į peržiūros URL."
-
-#: includes/classes/class-settings.php:1280, fuzzy
-msgid "Dummy"
-msgstr "Dummy"
-
-#: includes/classes/class-settings.php:1324
-msgid "No post types configured yet. Click \"Add Post Type\" to get started."
-msgstr ""
-"Dar nėra sukonfigūruotų įrašų tipų. Paspauskite \"Pridėti įrašų tipą\", kad "
-"pradėtumėte."
-
-#: includes/classes/class-settings.php:1356
-msgid "Add Post Type"
-msgstr "Pridėti įrašų tipą"
-
-#: includes/classes/class-table-logs.php:70
-msgid "Log entry deleted successfully."
-msgstr "Žurnalo įrašas sėkmingai ištrintas."
-
-#: includes/classes/class-table-logs.php:80
-#. translators: %d: number of log entries deleted
+#: includes/classes/class-table-logs.php:166
+msgid "Select all logs"
+msgstr "Pasirinkti visus žurnalo įrašus"
+
+#: includes/classes/class-table-logs.php:181
 #, php-format
-msgid "%d log entries deleted successfully."
-msgstr "%d žurnalo įrašai sėkmingai ištrinti."
+msgid "Select log entry %d"
+msgstr "Pasirinkti žurnalo įrašą %d"
 
-#: includes/classes/class-table-logs.php:84
-msgid "All logs have been cleared."
-msgstr "Visi žurnalai buvo išvalyti."
-
-#: includes/classes/class-table-logs.php:167
-msgid "Title"
-msgstr "Pavadinimas"
-
-#: includes/classes/class-table-logs.php:169
-msgid "Details"
-msgstr "Detalės"
-
-#: includes/classes/class-table-logs.php:204
-msgid "Are you sure you want to delete this log entry?"
-msgstr "Ar tikrai norite ištrinti šį žurnalo įrašą?"
-
-#: includes/classes/class-table-logs.php:264
-msgid "View Analytics"
-msgstr "Peržiūrėti analitiką"
-
-#: includes/classes/class-table-logs.php:284
-msgid "Tablet"
-msgstr "Planšetinis"
-
-#: includes/classes/class-table-logs.php:287
-msgid "Mobile"
-msgstr "Mobilus"
-
-#: includes/classes/class-table-logs.php:290
-msgid "Desktop"
-msgstr "Darbalaukis"
-
-#: includes/classes/class-table-logs.php:351
-#. translators: 1: user display name, 2: location name, 3: visit date/time
-#, php-format
-msgid "%1$s from %2$s visited at %3$s"
-msgstr "%1$s iš %2$s apsilankė %3$s"
-
-#: includes/classes/class-table-logs.php:354
-#. translators: 1: user display name, 2: visit date/time
-#, php-format
-msgid "%1$s visited at %2$s"
-msgstr "%1$s aplankė %2$s"
-
-#: includes/classes/class-table-logs.php:358
-#. translators: 1: location name, 2: visit date/time
-#, php-format
-msgid "From %1$s, visited at %2$s"
-msgstr "Iš %1$s, aplankė %2$s"
-
-#: includes/classes/class-table-logs.php:361
-#. translators: %s: visit date/time
-#, php-format
-msgid "Visited at %s"
-msgstr "Aplankyta %s"
-
-#: includes/classes/class-table-logs.php:373
-#. translators: %s: device type and browser name, e.g. "Mobile Chrome"
-#, php-format
-msgid "via %s"
-msgstr "per %s"
-
-#: includes/classes/class-table-logs.php:382
+#: includes/classes/class-table-logs.php:387
 msgid "Dynamic Redirect"
 msgstr "Dinaminis nukreipimas"
 
-#: includes/classes/class-table-logs.php:387
+#: includes/classes/class-table-logs.php:392
 #. translators: %s: redirect rule name
 #, php-format
 msgid "Redirected by %s"
@@ -2240,281 +3229,155 @@ msgstr "Nukreipta pagal %s"
 msgid "Could not fetch target URL details."
 msgstr "Nepavyko gauti tikslo URL detalių."
 
-#: includes/functions.php:331
-msgid "Edit shortlink settings"
-msgstr "Redaguoti trumpalaikio nuorodos nustatymus"
-
-#: includes/functions.php:470
-#: tinypress.php:376
-msgid ""
-"This post is in {status} status. It will become visible to the public on "
-"{date}."
-msgstr "Šis įrašas yra {status} būsenoje. Jis taps matomas viešai {date}."
-
-#: includes/functions.php:495
-msgid "Target url not found."
-msgstr "Tikslo URL nerastas."
-
-#: includes/functions.php:502
-msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
-msgstr "Neteisinga URL schema. Leidžiamos tik http, https, ftp, ftps ir mailto."
-
-#: includes/functions.php:534
-msgid "Tiny slug could not created."
-msgstr "Mažas slugas negalėjo būti sukurtas."
-
-#: templates/admin-modal-new-link.php:12
-msgid "Shortlink will appear here"
-msgstr "Trumpalaikė nuoroda pasirodys čia"
-
 #: templates/admin-modal-new-link.php:20
-msgid "Enter a long URL and make a shortlink"
-msgstr "Įveskite ilgą URL ir sukurkite trumpalaikę nuorodą"
+msgid "Create a Shortlink"
+msgstr "Sukurti trumpinimą"
 
-#: templates/admin-modal-new-link.php:25
-msgid "Long URL"
-msgstr "Ilgas URL"
-
-#: templates/admin-modal-new-link.php:38
-msgid "Create Shortlink"
-msgstr "Sukurti trumpalaikę nuorodą"
-
-#: templates/admin/analytics.php:94
-msgid "Reset Today's Analytics"
-msgstr "Atstatyti šiandienos analizę"
-
-#: templates/admin/analytics.php:95
+#: templates/admin/analytics.php:96
 msgid "Reset Yesterday's Analytics"
 msgstr "Atstatyti vakarinius analitikos duomenis"
 
-#: templates/admin/analytics.php:96
-msgid "Reset Week's Analytics"
-msgstr "Atstatyti savaitės analizę"
-
-#: templates/admin/analytics.php:97
-#: templates/admin/analytics.php:158
+#: templates/admin/analytics.php:98
+#: templates/admin/analytics.php:160
 msgid "Reset Last 30 Days Analytics"
 msgstr "Atstatyti paskutinių 30 dienų analitikos duomenis"
 
-#: templates/admin/analytics.php:98
-msgid "Reset Month's Analytics"
-msgstr "Atstatyti mėnesio analizę"
-
-#: templates/admin/analytics.php:99
+#: templates/admin/analytics.php:100
 msgid "Reset Last Month's Analytics"
 msgstr "Atstatyti praėjusio mėnesio analitikos duomenis"
 
-#: templates/admin/analytics.php:100
-msgid "Reset Year's Analytics"
-msgstr "Atstatyti metų analizę"
-
-#: templates/admin/analytics.php:101
+#: templates/admin/analytics.php:102
 msgid "Reset Last 2 Years Analytics"
 msgstr "Atstatyti paskutinių 2 metų analitikos duomenis"
 
-#: templates/admin/analytics.php:102
+#: templates/admin/analytics.php:103
 msgid "Reset Custom Range Analytics"
 msgstr "Atstatyti pasirinkto laikotarpio analitikos duomenis"
 
-#: templates/admin/analytics.php:103
+#: templates/admin/analytics.php:104
 msgid "Reset All Time Analytics"
 msgstr "Atstatyti visų laikų analitikos duomenis"
 
-#: templates/admin/analytics.php:104
-msgid ""
-"Are you sure you want to reset the analytics for this period? This action "
-"cannot be undone."
-msgstr ""
-"Ar tikrai norite atstatyti analizę už šį laikotarpį? Šios operacijos "
-"negalima atšaukti."
-
-#: templates/admin/analytics.php:105
+#: templates/admin/analytics.php:106
 #, php-format
 msgid "Showing data from %1$s to %2$s"
 msgstr "Rodyti duomenis nuo %1$s iki %2$s"
 
-#: templates/admin/analytics.php:106
-#: templates/admin/analytics.php:207
+#: templates/admin/analytics.php:107
+#, php-format
+msgid ""
+"Analytics updated. Total clicks: %1$s. Unique visitors: %2$s. Days with "
+"clicks: %3$s. Average per click day: %4$s."
+msgstr ""
+"Analitika atnaujinta. Iš viso paspaudimų: %1$s. Unikalių lankytojų: %2$s. "
+"Dienų su paspaudimais: %3$s. Vidutiniškai per dieną: %4$s."
+
+#: templates/admin/analytics.php:108
+#: templates/admin/analytics.php:210
 msgid "No click data available for this period."
 msgstr "Šiam laikotarpiui nėra pasiekiamų paspaudimų duomenų."
 
-#: templates/admin/analytics.php:107
+#: templates/admin/analytics.php:109
 msgid "click"
 msgstr "paspaudimas"
 
-#: templates/admin/analytics.php:108
+#: templates/admin/analytics.php:110
 msgid "clicks"
 msgstr "paspaudimai"
 
-#: templates/admin/analytics.php:110
-#: templates/admin/analytics.php:201
+#: templates/admin/analytics.php:112
+#: templates/admin/analytics.php:204
 msgid "Each bar shows total clicks for one day."
 msgstr "Kiekviena juosta rodo bendrą paspaudimų skaičių per vieną dieną."
 
-#: templates/admin/analytics.php:111
+#: templates/admin/analytics.php:113
 msgid "Each bar shows total clicks for a 7-day period."
 msgstr "Kiekviena juosta rodo bendrą paspaudimų skaičių per 7 dienų laikotarpį."
 
-#: templates/admin/analytics.php:112
+#: templates/admin/analytics.php:114
 msgid "Each bar shows total clicks for one month."
 msgstr "Kiekviena juosta rodo bendrą paspaudimų skaičių per vieną mėnesį."
 
-#: templates/admin/analytics.php:113
+#: templates/admin/analytics.php:115
 msgid "Each bar shows total clicks for one year."
 msgstr "Kiekviena juosta rodo bendrą paspaudimų skaičių per vienerius metus."
 
-#: templates/admin/analytics.php:125
-msgid "Today"
-msgstr "Šiandien"
-
-#: templates/admin/analytics.php:126
+#: templates/admin/analytics.php:128
 msgid "Yesterday"
 msgstr "Vakar"
 
-#: templates/admin/analytics.php:128
+#: templates/admin/analytics.php:130
 msgid "Last 30 Days"
 msgstr "Paskutinės 30 dienų"
 
-#: templates/admin/analytics.php:129
+#: templates/admin/analytics.php:131
 msgid "This Month"
 msgstr "Šis mėnuo"
 
-#: templates/admin/analytics.php:130
+#: templates/admin/analytics.php:132
 msgid "Last Month"
 msgstr "Praėjęs mėnuo"
 
-#: templates/admin/analytics.php:131
+#: templates/admin/analytics.php:133
 msgid "This Year"
 msgstr "Šie metai"
 
-#: templates/admin/analytics.php:132
+#: templates/admin/analytics.php:134
 msgid "Last 2 Years"
 msgstr "Paskutiniai 2 metai"
 
-#: templates/admin/analytics.php:133
+#: templates/admin/analytics.php:135
 msgid "Custom Range"
 msgstr "Pasirinktinis intervalas"
 
-#: templates/admin/analytics.php:134
+#: templates/admin/analytics.php:136
 msgid "All Time"
 msgstr "Visas laikas"
 
-#: templates/admin/analytics.php:138
+#: templates/admin/analytics.php:140
 msgid "From:"
 msgstr "Nuo:"
 
-#: templates/admin/analytics.php:146
+#: templates/admin/analytics.php:148
 msgid "To:"
 msgstr "Iki:"
 
-#: templates/admin/analytics.php:185
+#: templates/admin/analytics.php:188
 msgid "Days With Clicks"
 msgstr "Dienos su paspaudimais"
 
-#: templates/admin/analytics.php:193
+#: templates/admin/analytics.php:196
 msgid "Avg. per Click Day"
 msgstr "Vid. per paspaudimų dieną"
 
-#: templates/admin/analytics.php:199
+#: templates/admin/analytics.php:202
 msgid "Clicks Over Time"
 msgstr "Paspaudimai per laiką"
 
-#: templates/admin/footer.php:16
-#. translators: %1$s: plugin name, %2$s: star rating icon
-#, php-format
-msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
-msgstr "Jei jums patinka %1$s, prašome palikti mums %2$s įvertinimą. Ačiū!"
+#: templates/admin/qr-code.php:16
+msgid "QR code for this shortlink"
+msgstr "QR kodas šiam trumpinimui"
 
-#: templates/admin/footer.php:24
-msgid "About"
-msgstr "Apie"
-
-#: templates/admin/footer.php:29
-msgid "Documentation"
-msgstr "Dokumentacija"
-
-#: templates/admin/footer.php:33
-msgid "Contact"
-msgstr "Kontaktai"
-
-#: templates/admin/qr-code.php:17
-msgid "Download QR Code"
-msgstr "Atsisiųsti QR kodą"
-
-#: templates/admin/settings/browsers.php:8
-msgid "We have developed extensions for the below browsers."
-msgstr "Mes sukūrėme plėtinius žemiau išvardintoms naršyklėms."
-
-#: templates/admin/settings/browsers.php:9
-msgid "Click on your preferred one to Download the extension."
-msgstr "Paspauskite ant pageidaujamos, kad atsisiųstumėte plėtinį."
-
-#: templates/admin/settings/browsers.php:16
-msgid "Download the Extension"
-msgstr "Atsisiųsti plėtinį"
-
-#: templates/admin/settings/supports.php:17
-msgid "Need PublishPress Shortlinks Support?"
-msgstr "Reikia PublishPress trumpųjų nuorodų palaikymo?"
-
-#: templates/admin/settings/supports.php:22
-msgid "If you need help or have a new feature request, let us know."
-msgstr ""
-"Jei jums reikia pagalbos arba turite naujų funkcijų prašymų, praneškite "
-"mums."
-
-#: templates/admin/settings/supports.php:24
-msgid "Request Support"
-msgstr "Prašyti palaikymo"
-
-#: templates/admin/settings/supports.php:29
-msgid "Detailed documentation is also available on the plugin website."
-msgstr "Išsami dokumentacija taip pat prieinama papildinio svetainėje."
-
-#: templates/admin/settings/supports.php:31
-msgid "View Knowledge Base"
-msgstr "Peržiūrėti žinių bazę"
-
-#: tinypress.php:143
-msgid "This plugin can be deleted."
-msgstr "Šį papildinį galima pašalinti."
-
-#: tinypress.php:469
-msgid "Copied."
-msgstr "Nukopijuota."
-
-#: tinypress.php:471
-msgid ""
-"This setting is inherited from global settings. Choose another option to "
-"override it for this shortlink."
-msgstr ""
-"Šis nustatymas paveldimas iš globalių nustatymų. Pasirinkite kitą parinktį, "
-"kad ją perrašytumėte šiai trumpai nuorodai."
-
-#: tinypress.php:472
-msgid "Working..."
-msgstr "Veikia..."
-
-#: tinypress.php:476
+#: tinypress.php:479
 msgid "Suggested Label from target URL"
 msgstr "Pasiūlytas ženklas iš tikslinio URL"
 
-#: tinypress.php:477
+#: tinypress.php:480
 msgid "Suggested Notes from target URL"
 msgstr "Pasiūlytos pastabos iš tikslinio URL"
 
-#: tinypress.php:478
+#: tinypress.php:481
 msgid "Overwrite label?"
 msgstr "Perrašyti ženklą?"
 
-#: tinypress.php:479
+#: tinypress.php:482
 msgid "Overwrite notes?"
 msgstr "Perrašyti pastabas?"
 
-#: tinypress.php:480
+#: tinypress.php:483
 msgid "Yes"
 msgstr "Taip"
 
-#: tinypress.php:481
+#: tinypress.php:484
 msgid "No"
 msgstr "Ne"

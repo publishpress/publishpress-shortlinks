@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
-"PO-Revision-Date: 2026-07-31 14:25+0000\n"
+"PO-Revision-Date: 2026-09-07 16:01+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -35,17 +35,18 @@ msgstr ""
 "Parim linkide haldur WordPressile. Teie lingid on bränditavad, jälgitavad "
 "ja võivad omada kohandatud vaatamisõigusi."
 
-#: tinypress.php:9
+#: tinypress.php:11
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: tinypress.php:10, fuzzy
+#: tinypress.php:12, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: includes-core/ShortlinksCoreAdmin.php:91
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:88
+#: includes-core/ShortlinksCoreAdmin.php:110
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
@@ -53,33 +54,36 @@ msgstr ""
 "Kasutate PublishPress Shortlinks Free. Pro versioonil on rohkem funktsioone "
 "ja tuge. "
 
-#: includes-core/ShortlinksCoreAdmin.php:92
-#: includes-core/ShortlinksCoreAdmin.php:109
-#: includes-core/ShortlinksCoreAdmin.php:110
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:89
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:106
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:107
+#: includes-core/ShortlinksCoreAdmin.php:111
+#: includes-core/ShortlinksCoreAdmin.php:128
+#: includes-core/ShortlinksCoreAdmin.php:129
 msgid "Upgrade to Pro"
 msgstr "Uuenda Pro versiooniks"
 
-#: includes-core/ShortlinksCoreAdmin.php:120
-#: includes-core/ShortlinksCoreAdmin.php:121
-#: includes-core/ShortlinksCoreAdmin.php:163
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:117
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:118
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:148
+#: includes-core/ShortlinksCoreAdmin.php:139
+#: includes-core/ShortlinksCoreAdmin.php:140
+#: includes-core/ShortlinksCoreAdmin.php:188
 msgid "Link Health"
 msgstr "Lingid Tervisele"
 
-#: includes-core/ShortlinksCoreAdmin.php:132
-#: includes-core/ShortlinksCoreAdmin.php:133
-#: includes-core/ShortlinksCoreAdmin.php:224
-msgid "Reports"
-msgstr "Aruanded"
-
-#: includes-core/ShortlinksCoreAdmin.php:146
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:131
+#: includes-core/ShortlinksCoreAdmin.php:171
 msgid "Pro Feature"
 msgstr "Pro funktsioon"
 
-#: includes-core/ShortlinksCoreAdmin.php:149
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:134
+#: includes-core/ShortlinksCoreAdmin.php:174
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "See funktsioon on saadaval PublishPress Shortlinks Pro-s."
 
-#: includes-core/ShortlinksCoreAdmin.php:165
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:150
+#: includes-core/ShortlinksCoreAdmin.php:190
 msgid ""
 "Check whether your shortlinks redirect visitors to working destination "
 "pages."
@@ -87,181 +91,117 @@ msgstr ""
 "Kontrollige, kas teie lühilinkid suunavad külastajad toimivatele "
 "sihtlehtedele."
 
-#: includes-core/ShortlinksCoreAdmin.php:173
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:158
+#: includes-core/ShortlinksCoreAdmin.php:198
 msgid "Check Visible Links"
 msgstr "Kontrollige nähtavaid linke"
 
-#: includes-core/ShortlinksCoreAdmin.php:177
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:162
+#: includes-core/ShortlinksCoreAdmin.php:202
 msgid "Check All Links"
 msgstr "Kontrollige kõiki linke"
 
-#: includes-core/ShortlinksCoreAdmin.php:184
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:169
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:54
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:552
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:159
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:231
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:164
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:29
+#: includes-core/ShortlinksCoreAdmin.php:209
 #: includes/classes/class-columns-link.php:56
-#: includes/classes/class-columns-link.php:588
+#: includes/classes/class-columns-link.php:614
 #: includes/classes/class-gutenberg-shortlink.php:163
 #: includes/classes/class-hooks.php:307
 #: includes/classes/class-table-logs.php:168
-#: templates/admin-modal-new-link.php:29, fuzzy
+#: templates/admin-modal-new-link.php:30, fuzzy
 msgid "Shortlink"
 msgstr "Shortlink"
 
-#: includes-core/ShortlinksCoreAdmin.php:185
-#: includes/classes/class-gutenberg-shortlink.php:173
-#: includes/classes/class-import-export.php:1095
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:170
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:169
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1053
+#: includes-core/ShortlinksCoreAdmin.php:210
+#: includes/classes/class-gutenberg-shortlink.php:174
+#: includes/classes/class-import-export.php:1156
 msgid "Target URL"
 msgstr "Siht-URL"
 
-#: includes-core/ShortlinksCoreAdmin.php:186
-#: includes/classes/class-meta-boxes.php:546
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:171
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:542
+#: includes-core/ShortlinksCoreAdmin.php:211
+#: includes/classes/class-meta-boxes.php:888
 msgid "Status"
 msgstr "Olek"
 
-#: includes-core/ShortlinksCoreAdmin.php:187, fuzzy
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:172
+#: includes-core/ShortlinksCoreAdmin.php:212, fuzzy
 msgid "HTTP"
 msgstr "HTTP"
 
-#: includes-core/ShortlinksCoreAdmin.php:188
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:173
+#: includes-core/ShortlinksCoreAdmin.php:213
 msgid "Redirects"
 msgstr "Suunamised"
 
-#: includes-core/ShortlinksCoreAdmin.php:189
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:174
+#: includes-core/ShortlinksCoreAdmin.php:214
 msgid "Final URL"
 msgstr "Lõplik URL"
 
-#: includes-core/ShortlinksCoreAdmin.php:196
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:181
+#: includes-core/ShortlinksCoreAdmin.php:221
 msgid "Working"
 msgstr "Töötav"
 
-#: includes-core/ShortlinksCoreAdmin.php:204
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:189
+#: includes-core/ShortlinksCoreAdmin.php:229
 msgid "Broken"
 msgstr "Katkine"
 
-#: includes-core/ShortlinksCoreAdmin.php:226
-msgid ""
-"Get aggregated insights into your shortlink performance with detailed "
-"analytics reports."
-msgstr ""
-"Hankige kokkuvõtlikke ülevaateid oma lühilinkide toimivusest koos "
-"detailsete analüüsiraportitega."
-
-#: includes-core/ShortlinksCoreAdmin.php:232
-#: templates/admin/analytics.php:123
-msgid "Date Range:"
-msgstr "Kuupäevavahemik:"
-
-#: includes-core/ShortlinksCoreAdmin.php:234
-#: templates/admin/analytics.php:127
-msgid "Last 7 Days"
-msgstr "Viimased 7 päeva"
-
-#: includes-core/ShortlinksCoreAdmin.php:236
-#: templates/admin/analytics.php:156
-msgid "Apply"
-msgstr "Kinnita"
-
-#: includes-core/ShortlinksCoreAdmin.php:244
-#: templates/admin/analytics.php:169
-msgid "Total Clicks"
-msgstr "Kokku klikke"
-
-#: includes-core/ShortlinksCoreAdmin.php:251
-#: templates/admin/analytics.php:177
-msgid "Unique Visitors"
-msgstr "Ainulaadsed külastajad"
-
-#: includes-core/ShortlinksCoreAdmin.php:258
-msgid "Active Links"
-msgstr "Aktiivsed lingid"
-
-#: includes-core/ShortlinksCoreAdmin.php:265
-msgid "Avg. Clicks/Link"
-msgstr "Keskm. klikke/link"
-
-#: includes-core/ShortlinksCoreAdmin.php:272
-msgid "Top Performing Links"
-msgstr "Parimad toimivad lingid"
-
-#: includes-core/ShortlinksCoreAdmin.php:276, fuzzy
-msgid "Link"
-msgstr "Link"
-
-#: includes-core/ShortlinksCoreAdmin.php:277
-msgid "Clicks"
-msgstr "Klikid"
-
-#: includes-core/ShortlinksCoreAdmin.php:288
-msgid "Top Locations"
-msgstr "Parimad asukohad"
-
-#: includes-core/ShortlinksCoreAdmin.php:312
-msgid "Scheduled Expiration Settings"
-msgstr "Planeeritud aegumisseaded"
-
-#: includes-core/ShortlinksCoreAdmin.php:315
-msgid "Activation Date"
-msgstr "Aktiveerimise kuupäev"
-
-#: includes-core/ShortlinksCoreAdmin.php:316
-msgid "Choose when this shortlink should start working."
-msgstr "Valige, millal see lühilink peaks tööle hakkama."
-
-#: includes-core/ShortlinksCoreAdmin.php:317
-msgid "dd-mm-yyyy"
-msgstr "pp-kk-aa"
-
-#: includes-core/ShortlinksCoreAdmin.php:318
-msgid "Activation Time"
-msgstr "Aktiveerimise aeg"
-
-#: includes-core/ShortlinksCoreAdmin.php:319
-msgid "Choose the time this shortlink should start working."
-msgstr "Valige aeg, millal see lühilink peaks tööle hakkama."
-
-#: includes-core/ShortlinksCoreAdmin.php:320
-msgid "12:00 PM"
-msgstr "12:00"
-
-#: includes-core/ShortlinksCoreAdmin.php:321
-msgid "Expiration Click Limit"
-msgstr "Aegumise klikkide limiit"
-
-#: includes-core/ShortlinksCoreAdmin.php:322
-msgid "Expire this shortlink after a number of clicks."
-msgstr "Käivita see lühilingi pärast teatud arvu klikke."
-
-#: includes-core/ShortlinksCoreAdmin.php:324
-#: includes-core/ShortlinksCoreAdmin.php:348
-#: includes/classes/class-import-export.php:1106
-msgid "Expired Redirect URL"
-msgstr "Aegunud suunamise URL"
-
-#: includes-core/ShortlinksCoreAdmin.php:325
-msgid "Choose where visitors should go when they click an expired link."
-msgstr "Valige, kuhu külastajad peaksid minema, kui nad klikivad aegunud lingil."
-
-#: includes-core/ShortlinksCoreAdmin.php:327
-#: includes-core/ShortlinksCoreAdmin.php:351
-msgid "Show Expiration Notice"
-msgstr "Kuva aegumise teade"
-
-#: includes-core/ShortlinksCoreAdmin.php:328
-#: includes-core/ShortlinksCoreAdmin.php:352
-msgid "Display a custom notice page before automatically redirecting visitors."
-msgstr "Kuva kohandatud teate leht enne, kui suunate külastajad automaatselt."
-
-#: includes-core/ShortlinksCoreAdmin.php:331
-msgid "Show a notice page for expired shortlinks briefly before redirecting."
-msgstr "Kuva teate leht aegunud lühilinkide jaoks lühidalt enne suunamist."
-
-#: includes-core/ShortlinksCoreAdmin.php:345
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:212
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:236
+#: includes-core/ShortlinksCoreAdmin.php:519
 msgid "Expired Redirect Settings"
 msgstr "Aegunud suunamise seaded"
 
-#: includes-core/ShortlinksCoreAdmin.php:349
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:215
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:239
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1064
+#: includes-core/ShortlinksCoreAdmin.php:395
+#: includes-core/ShortlinksCoreAdmin.php:522
+#: includes/classes/class-import-export.php:1167
+msgid "Expired Redirect URL"
+msgstr "Aegunud suunamise URL"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:216
+msgid "Choose where visitors should go when they click an expired link."
+msgstr "Valige, kuhu külastajad peaksid minema, kui nad klikivad aegunud lingil."
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:218
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:242
+#: includes-core/ShortlinksCoreAdmin.php:417
+#: includes-core/ShortlinksCoreAdmin.php:525
+msgid "Show Expiration Notice"
+msgstr "Kuva aegumise teade"
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:219
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:243
+#: includes-core/ShortlinksCoreAdmin.php:526
+msgid "Display a custom notice page before automatically redirecting visitors."
+msgstr "Kuva kohandatud teate leht enne, kui suunate külastajad automaatselt."
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:222
+msgid "Show a notice page for expired shortlinks briefly before redirecting."
+msgstr "Kuva teate leht aegunud lühilinkide jaoks lühidalt enne suunamist."
+
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:240
+#: includes-core/ShortlinksCoreAdmin.php:523
 msgid "Set the default destination for all expired shortlinks."
 msgstr "Määrake vaikimisi sihtkoht kõigile aegunud lühilinkidele."
 
-#: includes-core/ShortlinksCoreAdmin.php:355
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:246
+#: includes-core/ShortlinksCoreAdmin.php:529
 msgid ""
 "Show a notice page for expired shortlinks briefly before redirecting. You "
 "can customize the content of this message."
@@ -269,586 +209,727 @@ msgstr ""
 "Kuva teate leht aegunud lühilinkide jaoks lühidalt enne suunamist. Saate "
 "kohandada selle sõnumi sisu."
 
-#: includes-core/ShortlinksCoreAdmin.php:369
-msgid "Conditional Redirect Rules"
-msgstr "Tingimuslikud suunamisreeglid"
-
-#: includes-core/ShortlinksCoreAdmin.php:371
-msgid "Enable Dynamic Redirects"
-msgstr "Aktiveeri dünaamilised suunamised"
-
-#: includes-core/ShortlinksCoreAdmin.php:374
-msgid "Send visitors to different destinations when they match a rule."
-msgstr "Saada külastajad erinevatesse sihtkohtadesse, kui nad vastavad reeglile."
-
-#: includes-core/ShortlinksCoreAdmin.php:376
-msgid "Redirect Rules"
-msgstr "Suunamisreeglid"
-
-#: includes-core/ShortlinksCoreAdmin.php:378
-msgid "Nigeria mobile visitors"
-msgstr "Nigeeria mobiilikülastajad"
-
-#: includes-core/ShortlinksCoreAdmin.php:380
-msgid "Country and device conditions"
-msgstr "Riigi ja seadme tingimused"
-
-#: includes-core/ShortlinksCoreAdmin.php:415
-#: includes-core/ShortlinksCoreAdmin.php:442
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:281
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:308
+#: includes-core/ShortlinksCoreAdmin.php:720
+#: includes-core/ShortlinksCoreAdmin.php:747
 msgid "Advanced Auto-Link Settings"
 msgstr "Täpsemad automaatlinkide seaded"
 
-#: includes-core/ShortlinksCoreAdmin.php:417
-#: includes-core/ShortlinksCoreAdmin.php:445
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:283
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:311
+#: includes-core/ShortlinksCoreAdmin.php:722
+#: includes-core/ShortlinksCoreAdmin.php:750
 msgid "Minimum Keyword Usage"
 msgstr "Minimaalne märksõna kasutamine"
 
-#: includes-core/ShortlinksCoreAdmin.php:418
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:284
+#: includes-core/ShortlinksCoreAdmin.php:723
 msgid "Keyword must appear this many times before being autolinked."
 msgstr "Märksõna peab ilmuma nii palju kordi enne, kui see automaatselt lingitakse."
 
-#: includes-core/ShortlinksCoreAdmin.php:420
-#: includes-core/ShortlinksCoreAdmin.php:448
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:286
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:314
+#: includes-core/ShortlinksCoreAdmin.php:725
+#: includes-core/ShortlinksCoreAdmin.php:753
 msgid "Maximum Keywords Linked"
 msgstr "Maksimaalne seotud märksõnade arv"
 
-#: includes-core/ShortlinksCoreAdmin.php:421
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:287
+#: includes-core/ShortlinksCoreAdmin.php:726
 msgid "Maximum number of times this keyword should be autolinked per post."
 msgstr ""
 "Maksimaalne arv kordi, kui seda märksõna tuleks postituses automaatselt "
 "lingida."
 
-#: includes-core/ShortlinksCoreAdmin.php:446
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:312
+#: includes-core/ShortlinksCoreAdmin.php:751
 msgid "Default minimum times a keyword must appear before being autolinked."
 msgstr ""
 "Vaikimisi minimaalne arv kordi, kui märksõna peab ilmuma enne automaatset "
 "lingimist."
 
-#: includes-core/ShortlinksCoreAdmin.php:449
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:315
+#: includes-core/ShortlinksCoreAdmin.php:754
 msgid "Default maximum times a keyword should be autolinked per post."
 msgstr ""
 "Vaikimisi maksimaalne arv kordi, kui märksõna tuleks postituses "
 "automaatselt lingida."
 
-#: includes-core/ShortlinksCoreAdmin.php:451
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:317
+#: includes-core/ShortlinksCoreAdmin.php:756
 msgid "Maximum Links Per Post"
 msgstr "Maksimaalne linkide arv postituse kohta"
 
-#: includes-core/ShortlinksCoreAdmin.php:452
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:318
+#: includes-core/ShortlinksCoreAdmin.php:757
 msgid "Total maximum autolinks allowed per post/page."
 msgstr "Kokku lubatud maksimaalsed automaatsed lingid postituse/lehe kohta."
 
-#: includes-core/ShortlinksCoreAdmin.php:454
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:320
+#: includes-core/ShortlinksCoreAdmin.php:759
 msgid "Minimum Character Length"
 msgstr "Minimaalne tähemärkide pikkus"
 
-#: includes-core/ShortlinksCoreAdmin.php:455
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:321
+#: includes-core/ShortlinksCoreAdmin.php:760
 msgid "Keywords shorter than this will not be autolinked."
 msgstr "Märksõnad, mis on lühemad kui see, ei ole automaatselt lingitud."
 
-#: includes-core/ShortlinksCoreAdmin.php:457
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:323
+#: includes-core/ShortlinksCoreAdmin.php:762
 msgid "Maximum Character Length"
 msgstr "Maksimaalne tähemärkide pikkus"
 
-#: includes-core/ShortlinksCoreAdmin.php:458
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:324
+#: includes-core/ShortlinksCoreAdmin.php:763
 msgid "Keywords longer than this will not be autolinked."
 msgstr "Märksõnad, mis on pikemad kui see, ei ole automaatselt lingitud."
 
-#: includes-core/ShortlinksCoreAdmin.php:479
-#: includes/classes/class-settings.php:1059
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:345
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:850
+#: includes-core/ShortlinksCoreAdmin.php:784
+#: includes/classes/class-settings.php:1087
 msgid "Auto-Link Exceptions"
 msgstr "Automaatsete linkide erandid"
 
-#: includes-core/ShortlinksCoreAdmin.php:481
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:347
+#: includes-core/ShortlinksCoreAdmin.php:786
 msgid "Exclude Terms from Auto Links"
 msgstr "Käsi terminid automaatsetest linkidest"
 
-#: includes-core/ShortlinksCoreAdmin.php:482
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:348
+#: includes-core/ShortlinksCoreAdmin.php:787
 msgid "These terms will never be autolinked."
 msgstr "Need terminid ei ole kunagi automaatselt lingitud."
 
-#: includes-core/ShortlinksCoreAdmin.php:484
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:350
+#: includes-core/ShortlinksCoreAdmin.php:789
 msgid "Prevent Auto Links Inside Classes or IDs"
 msgstr "Takista automaatseid linke klasside või ID-de sees"
 
-#: includes-core/ShortlinksCoreAdmin.php:485
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:351
+#: includes-core/ShortlinksCoreAdmin.php:790
 msgid ""
 "Content inside elements with these classes or IDs will not have autolinks "
 "applied."
 msgstr "Sisu, mis on nende klasside või ID-de sees, ei saa automaatseid linke."
 
-#: includes-core/ShortlinksCoreAdmin.php:487
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:353
+#: includes-core/ShortlinksCoreAdmin.php:792
 msgid "Prevent Auto Links Inside Elements"
 msgstr "Takista automaatseid linke elementide sees"
 
-#: includes-core/ShortlinksCoreAdmin.php:488
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:354
+#: includes-core/ShortlinksCoreAdmin.php:793
 msgid "Terms inside these HTML tags will not have autolinks applied."
 msgstr "Terminid, mis on nende HTML-siltide sees, ei saa automaatseid linke."
 
-#: includes-core/ShortlinksCoreAdmin.php:501
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:367
+#: includes-core/ShortlinksCoreAdmin.php:806
 msgid "Prevent Auto Links on Shortcodes"
 msgstr "Takista automaatseid linke lühikoodide peal"
 
-#: includes-core/ShortlinksCoreAdmin.php:502
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:368
+#: includes-core/ShortlinksCoreAdmin.php:807
 msgid "Terms inside these shortcodes will not have autolinks applied."
 msgstr "Terminid, mis on nende lühikoodide sees, ei saa automaatseid linke."
 
-#: includes-core/ShortlinksCoreAdmin.php:504
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:370
+#: includes-core/ShortlinksCoreAdmin.php:809
 msgid "Prevent Auto Links on Blocks"
 msgstr "Takista automaatseid linke plokkide peal"
 
-#: includes-core/ShortlinksCoreAdmin.php:505
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:371
+#: includes-core/ShortlinksCoreAdmin.php:810
 msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
 msgstr "Gutenbergi plokkidesse lisatud tingimustele ei rakendata automaatlinke."
 
-#: includes-core/ShortlinksCoreAdmin.php:506
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:372
+#: includes-core/ShortlinksCoreAdmin.php:811
 msgid "Search and select blocks..."
 msgstr "Otsi ja vali plokid..."
 
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:39
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:204
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:234
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:285
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:329
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:204
-#: includes/classes/class-gutenberg-shortlink.php:238
-#: includes/classes/class-gutenberg-shortlink.php:289
-#: includes/classes/class-gutenberg-shortlink.php:333
+#: includes/classes/class-autolist-ajax.php:203
+#: includes/classes/class-gutenberg-shortlink.php:239
+#: includes/classes/class-gutenberg-shortlink.php:290
+#: includes/classes/class-gutenberg-shortlink.php:334
 msgid "Permission denied"
 msgstr "Luba keelatud"
 
-#: includes/classes/class-autolist-ajax.php:47
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:47
+#: includes/classes/class-autolist-ajax.php:46
 msgid "Post type is required"
 msgstr "Post type on kohustuslik"
 
-#: includes/classes/class-autolist-ajax.php:53
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:53
+#: includes/classes/class-autolist-ajax.php:52
 #. translators: %s: post type name
 msgid "\"%%s\" is not a registered post type"
 msgstr "\"%s\" ei ole registreeritud post type"
 
-#: includes/classes/class-autolist-ajax.php:61
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:61
+#: includes/classes/class-autolist-ajax.php:60
 #. translators: %s: post type name
 msgid "\"%%s\" is not a public post type"
 msgstr "\"%s\" ei ole avalik post type"
 
-#: includes/classes/class-autolist-ajax.php:68
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:68
+#: includes/classes/class-autolist-ajax.php:67
 #. translators: %s: post type name
 msgid "\"%%s\" cannot be used for auto-listing"
 msgstr "\"%s\" ei saa kasutada automaatse loetlemise jaoks"
 
-#: includes/classes/class-autolist-ajax.php:78
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:78
+#: includes/classes/class-autolist-ajax.php:77
 #. translators: %s: post type name
 msgid "\"%%s\" is already configured"
 msgstr "\"%s\" on juba konfigureeritud"
 
-#: includes/classes/class-autolist-ajax.php:85
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:85
+#: includes/classes/class-autolist-ajax.php:84
 #. translators: %s: post type label
 msgid "Valid: %%s"
 msgstr "Kehtiv: %s"
 
-#: includes/classes/class-autolist-ajax.php:99
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:99
+#: includes/classes/class-autolist-ajax.php:98
 msgid "Permission denied - you must be an administrator"
 msgstr "Luba keelatud - peate olema administraator"
 
-#: includes/classes/class-autolist-ajax.php:107
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:107
+#: includes/classes/class-autolist-ajax.php:106
 msgid "Invalid configuration format - expected array"
 msgstr "Kehtetu konfiguratsiooni formaat - oodati massiivi"
 
-#: includes/classes/class-autolist-ajax.php:128
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:128
+#: includes/classes/class-autolist-ajax.php:127
 msgid "Configuration unchanged (already saved)"
 msgstr "Konfiguratsioon muutmata (juba salvestatud)"
 
-#: includes/classes/class-autolist-ajax.php:132
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:132
+#: includes/classes/class-autolist-ajax.php:131
 msgid "Failed to save configuration to database"
 msgstr "Konfiguratsiooni salvestamine andmebaasi ebaõnnestus"
 
-#: includes/classes/class-autolist-ajax.php:137
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:137
+#: includes/classes/class-autolist-ajax.php:136
 msgid "Configuration saved successfully"
 msgstr "Konfiguratsioon salvestatud edukalt"
 
-#: includes/classes/class-autolist-ajax.php:149
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:149
+#: includes/classes/class-autolist-ajax.php:148
 #. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "Viga: %s"
 
-#: includes/classes/class-autolist-ajax.php:293
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:293
+#: includes/classes/class-autolist-ajax.php:291
 msgid "Validating..."
 msgstr "Kontrollimine..."
 
-#: includes/classes/class-autolist-ajax.php:294
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:294
+#: includes/classes/class-autolist-ajax.php:292
 msgid "Saving..."
 msgstr "Salvestamine..."
 
-#: includes/classes/class-autolist-ajax.php:295
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:295
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Saved!"
 msgstr "Salvestatud!"
 
-#: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-gutenberg-shortlink.php:179
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:296
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:175
+#: includes/classes/class-autolist-ajax.php:294
+#: includes/classes/class-gutenberg-shortlink.php:180
 msgid "Error"
 msgstr "Viga"
 
-#: includes/classes/class-autolist-ajax.php:297
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:297
+#: includes/classes/class-autolist-ajax.php:295
 msgid "Are you sure you want to remove this post type?"
 msgstr "Kas olete kindel, et soovite selle post type'i eemaldada?"
 
-#: includes/classes/class-autolist-ajax.php:298
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:298
+#: includes/classes/class-autolist-ajax.php:296
 msgid "Select a post type"
 msgstr "Valige post type"
 
-#: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:1241
-#: includes/classes/class-settings.php:1339
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:299
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1032
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1130
+#: includes/classes/class-autolist-ajax.php:297
+#: includes/classes/class-settings.php:1274
+#: includes/classes/class-settings.php:1372
 msgid "Never"
 msgstr "Kunagi"
 
-#: includes/classes/class-autolist-ajax.php:300
-#: includes/classes/class-settings.php:1239
-#: includes/classes/class-settings.php:1341
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:300
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1030
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1132
+#: includes/classes/class-autolist-ajax.php:298
+#: includes/classes/class-settings.php:1272
+#: includes/classes/class-settings.php:1374
 msgid "When Link is First Used"
 msgstr "Kui link on esmakordselt kasutatud"
 
-#: includes/classes/class-autolist-ajax.php:301
-#: includes/classes/class-settings.php:1343
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:301
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1134
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:1376
 msgid "When Post is Published"
 msgstr "Kui postitus on avaldatud"
 
-#: includes/classes/class-autolist-ajax.php:302
-#: includes/classes/class-settings.php:1342
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:302
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1133
+#: includes/classes/class-autolist-ajax.php:300
+#: includes/classes/class-settings.php:1375
 msgid "When Post is Created"
 msgstr "Kui postitus on loodud"
 
-#: includes/classes/class-autolist-ajax.php:303
-#: includes/classes/class-settings.php:1340
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:303
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1131
+#: includes/classes/class-autolist-ajax.php:301
+#: includes/classes/class-settings.php:1373
 msgid "When Link is First Used or Post Created"
 msgstr "Kui link on esmakordselt kasutatud või postitus on loodud"
 
+#: dist/publishpress-shortlinks/includes/classes/class-autolist.php:119
 #: includes/classes/class-autolist.php:123
 msgid "Invalid post ID or post type."
 msgstr "Vale postituse ID või postituse tüüp."
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:76
 #: includes/classes/class-columns-link.php:78
 msgid "No shortlink"
 msgstr "Shortlinki pole"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:97
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:232
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:234
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:163
 #: includes/classes/class-columns-link.php:99
 #: includes/classes/class-hooks.php:308
 #: includes/classes/class-hooks.php:310
-#: includes/classes/class-meta-boxes.php:167
+#: includes/classes/class-meta-boxes.php:176
+#: includes/classes/class-meta-boxes.php:376
 msgid "Shortlinks"
 msgstr "Shortlinkid"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:188
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:335
 #: includes/classes/class-columns-link.php:190
 #: includes/classes/class-columns-link.php:337
 msgid "Internal"
 msgstr "Sisemine"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:188
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:336
 #: includes/classes/class-columns-link.php:190
 #: includes/classes/class-columns-link.php:338
 msgid "External"
 msgstr "Väline"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:189
 #: includes/classes/class-columns-link.php:191
 msgid "This links to your post"
 msgstr "See link viib sinu postituseni"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:189
 #: includes/classes/class-columns-link.php:191
 msgid "This links to an external website"
 msgstr "See link viib välisele veebisaidile"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:193
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:337
 #: includes/classes/class-columns-link.php:195
 #: includes/classes/class-columns-link.php:339
 msgid "Revision"
 msgstr "Revisjon"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:194
 #: includes/classes/class-columns-link.php:196
 msgid "This links to a revision"
 msgstr "See link viib revisjoni juurde"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:203
 #: includes/classes/class-columns-link.php:205
 msgid "Not yet submitted"
 msgstr "Veel ei ole esitatud"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:204
 #: includes/classes/class-columns-link.php:206
 msgid "Submitted for approval"
 msgstr "Esitatud heakskiitmiseks"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:205
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:365
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:706
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:714
+#: dist/publishpress-shortlinks/includes/functions.php:273
+#: dist/publishpress-shortlinks/includes/functions.php:307
 #: includes/classes/class-columns-link.php:207
-#: includes/classes/class-settings.php:433
-#: includes/classes/class-settings.php:900
-#: includes/classes/class-settings.php:908
+#: includes/classes/class-settings.php:461
+#: includes/classes/class-settings.php:928
+#: includes/classes/class-settings.php:936
 #: includes/functions.php:379
 #: includes/functions.php:413
 msgid "Scheduled"
 msgstr "Planeeritud"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:206
 #: includes/classes/class-columns-link.php:208
 msgid "Deferred"
 msgstr "Edasilükatud"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:207
 #: includes/classes/class-columns-link.php:209
 msgid "Needs work"
 msgstr "Nõuab tööd"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:208
 #: includes/classes/class-columns-link.php:210
 msgid "Rejected"
 msgstr "Tagasi lükatud"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:212
 #: includes/classes/class-columns-link.php:214
 #. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "Muudatus: %s"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:233
 #: includes/classes/class-columns-link.php:235
 #. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "Klõpsatud %s korda"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:241
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:198
 #: includes/classes/class-columns-link.php:243
-#: includes/classes/class-table-logs.php:202
+#: includes/classes/class-table-logs.php:207
 msgid "Edit"
 msgstr "Muuda"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:246
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:179
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:200
 #: includes/classes/class-columns-link.php:248
-#: includes/classes/class-table-logs.php:183
-#: includes/classes/class-table-logs.php:204
+#: includes/classes/class-table-logs.php:188
+#: includes/classes/class-table-logs.php:209
 msgid "Delete"
 msgstr "Kustuta"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:332
 #: includes/classes/class-columns-link.php:334
 msgid "Filter by link type"
 msgstr "Filtreeri linkide tüübi järgi"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:334
 #: includes/classes/class-columns-link.php:336
 msgid "All link types"
 msgstr "Kõik linkide tüübid"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:350
 #: includes/classes/class-columns-link.php:352
 msgid "Filter by category"
 msgstr "Filtreeri kategooria järgi"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:352
 #: includes/classes/class-columns-link.php:354
 msgid "All categories"
 msgstr "Kõik kategooriad"
 
-#: includes/classes/class-columns-link.php:457
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:446
+#: includes/classes/class-columns-link.php:483
 msgid "Filters"
 msgstr "Filtrid"
 
-#: includes/classes/class-columns-link.php:460
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:449
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:257
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:814
+#: includes/classes/class-columns-link.php:486
 #: includes/classes/class-hooks.php:333
-#: includes/classes/class-meta-boxes.php:840
+#: includes/classes/class-meta-boxes.php:1195
 msgid "Categories"
 msgstr "Kategooriad"
 
-#: includes/classes/class-columns-link.php:478
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:467
+#: includes/classes/class-columns-link.php:504
 msgid "Permission denied."
 msgstr "Ligipääs keelatud."
 
-#: includes/classes/class-columns-link.php:587
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:551
+#: includes/classes/class-columns-link.php:613
 msgid "Link Title"
 msgstr "Linginimi"
 
-#: includes/classes/class-columns-link.php:589
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:553
+#: includes/classes/class-columns-link.php:615
 msgid "Link Type"
 msgstr "Lingitüüp"
 
-#: includes/classes/class-columns-link.php:593
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:557
+#: includes/classes/class-columns-link.php:619
 msgid "Stats"
 msgstr "Statistika"
 
-#: includes/classes/class-columns-link.php:596
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:560
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:166
+#: includes/classes/class-columns-link.php:622
 #: includes/classes/class-table-logs.php:170
 msgid "Actions"
 msgstr "Toimingud"
 
+#: dist/publishpress-shortlinks/includes/classes/class-functions.php:43
 #: includes/classes/class-functions.php:43
 msgid "Click to copy"
 msgstr "Klõpsa kopeerimiseks"
 
+#: dist/publishpress-shortlinks/includes/classes/class-functions.php:51
 #: includes/classes/class-functions.php:51
+#: includes/classes/class-meta-boxes.php:372
 msgid "Copied"
 msgstr "Kopeeritud"
 
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:160
 #: includes/classes/class-gutenberg-shortlink.php:164
 msgid "Search shortlinks..."
 msgstr "Otsi lühilinke..."
 
-#: includes/classes/class-gutenberg-shortlink.php:165
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:161
+#: includes/classes/class-gutenberg-shortlink.php:166
 msgid "Insert Shortlink"
 msgstr "Lisa lühilink"
 
-#: includes/classes/class-gutenberg-shortlink.php:166
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:162
+#: includes/classes/class-gutenberg-shortlink.php:167
 msgid "Create New Shortlink"
 msgstr "Loo uus lühilink"
 
-#: includes/classes/class-gutenberg-shortlink.php:167
-#: includes/classes/class-settings.php:930
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:163
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:721
+#: includes/classes/class-gutenberg-shortlink.php:168
+#: includes/classes/class-settings.php:958
 msgid "Options"
 msgstr "Valikud"
 
-#: includes/classes/class-gutenberg-shortlink.php:168
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:164
+#: includes/classes/class-gutenberg-shortlink.php:169
 msgid "Open in New Tab"
 msgstr "Ava uues vahekaartis"
 
-#: includes/classes/class-gutenberg-shortlink.php:169, fuzzy
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:165
+#: includes/classes/class-gutenberg-shortlink.php:170, fuzzy
 msgid "Nofollow"
 msgstr "Nofollow"
 
-#: includes/classes/class-gutenberg-shortlink.php:170
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:166
+#: includes/classes/class-gutenberg-shortlink.php:171
 msgid "Sponsored Link"
 msgstr "Sponsoreeritud link"
 
-#: includes/classes/class-gutenberg-shortlink.php:171
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:167
+#: includes/classes/class-gutenberg-shortlink.php:172
 msgid "Label"
 msgstr "Märgistus"
 
-#: includes/classes/class-gutenberg-shortlink.php:172
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:168
+#: includes/classes/class-gutenberg-shortlink.php:173
 msgid "Optional shortlink label"
 msgstr "Valikuline lühilinke märgistus"
 
-#: includes/classes/class-gutenberg-shortlink.php:174
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:170
+#: includes/classes/class-gutenberg-shortlink.php:175
 msgid "Create"
 msgstr "Loo"
 
-#: includes/classes/class-gutenberg-shortlink.php:175
-#: includes/classes/class-import-export.php:1270
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:171
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1202
+#: includes/classes/class-gutenberg-shortlink.php:176
+#: includes/classes/class-import-export.php:1331
 msgid "Cancel"
 msgstr "Tühista"
 
-#: includes/classes/class-gutenberg-shortlink.php:176
-#: templates/admin-modal-new-link.php:37
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:172
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:37
+#: includes/classes/class-gutenberg-shortlink.php:177
+#: templates/admin-modal-new-link.php:38
 msgid "Close"
 msgstr "Sulge"
 
-#: includes/classes/class-gutenberg-shortlink.php:177
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:173
+#: includes/classes/class-gutenberg-shortlink.php:178
 msgid "Creating..."
 msgstr "Loomine..."
 
-#: includes/classes/class-gutenberg-shortlink.php:178
-#: includes/classes/class-gutenberg-shortlink.php:321
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:174
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:317
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:103
+#: includes/classes/class-gutenberg-shortlink.php:179
+#: includes/classes/class-gutenberg-shortlink.php:322
 #: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "Lühilink loodud edukalt."
 
-#: includes/classes/class-gutenberg-shortlink.php:180
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:176
+#: includes/classes/class-gutenberg-shortlink.php:181
 msgid "Please enter a valid URL"
 msgstr "Palun sisestage kehtiv URL"
 
-#: includes/classes/class-gutenberg-shortlink.php:181
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:177
+#: includes/classes/class-gutenberg-shortlink.php:182
 msgid "No shortlinks found"
 msgstr "Lühilinke ei leitud"
 
-#: includes/classes/class-gutenberg-shortlink.php:247
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:243
+#: includes/classes/class-gutenberg-shortlink.php:248
 msgid "Search term is required"
 msgstr "Otsingutermin on kohustuslik"
 
-#: includes/classes/class-gutenberg-shortlink.php:262
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:258
+#: dist/publishpress-shortlinks/includes/functions.php:447
+#: includes/classes/class-gutenberg-shortlink.php:263
 #: includes/functions.php:553
 #. translators: %s: link ID number
 #, fuzzy, php-format
 msgid "Link - %s"
 msgstr "Link - %s"
 
-#: includes/classes/class-gutenberg-shortlink.php:298
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:294
+#: includes/classes/class-gutenberg-shortlink.php:299
 msgid "Target URL is required"
 msgstr "Siht-URL on kohustuslik"
 
-#: includes/classes/class-gutenberg-shortlink.php:340
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:336
+#: includes/classes/class-gutenberg-shortlink.php:341
 msgid "Invalid shortlink ID"
 msgstr "Vale lühilinki ID"
 
-#: includes/classes/class-gutenberg-shortlink.php:346
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:342
+#: includes/classes/class-gutenberg-shortlink.php:347
 msgid "Shortlink not found"
 msgstr "Lühilinki ei leitud"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:69
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:119
 #: includes/classes/class-hooks.php:69
-#: includes/classes/class-import-export.php:119
+#: includes/classes/class-import-export.php:121
 msgid "Security check failed."
 msgstr "Turvakontroll ebaõnnestus."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:73
 #: includes/classes/class-hooks.php:73
 msgid "You do not have permission to create shortlinks."
 msgstr "Sul ei ole luba lühilinkide loomiseks."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:80
 #: includes/classes/class-hooks.php:80
 msgid "Invalid or empty URL"
 msgstr "Vale või tühi URL"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:112
 #: includes/classes/class-hooks.php:112
 msgid "Invalid nonce verification."
 msgstr "Vale nonce'i kontrollimine."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:116
 #: includes/classes/class-hooks.php:116
 msgid "You do not have permission to reset analytics."
 msgstr "Sul ei ole luba analüütikat lähtestada."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:123
 #: includes/classes/class-hooks.php:123
 msgid "Invalid post ID."
 msgstr "Vale postituse ID."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:129
 #: includes/classes/class-hooks.php:129
 msgid "Invalid shortlink ID."
 msgstr "Kehtetu lühilinki ID."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:133
 #: includes/classes/class-hooks.php:133
 msgid "You do not have permission to reset analytics for this shortlink."
 msgstr "Teil ei ole õigust analüütikat selle lühilinki jaoks lähtestada."
 
-#: includes/classes/class-hooks.php:189
-#: includes/classes/class-hooks.php:201
-msgid "Invalid custom date range."
-msgstr "Vale kohandatud kuupäevavahemik."
-
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:164
 #: includes/classes/class-hooks.php:240
 msgid "Analytics reset successfully."
 msgstr "Analüütika lähtestatud edukalt."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:166
 #: includes/classes/class-hooks.php:242
 msgid "Failed to reset analytics."
 msgstr "Analüütika lähtestamine ebaõnnestus."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:192
 #: includes/classes/class-hooks.php:268
 msgid "Shorten"
 msgstr "Lühenda"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:235
 #: includes/classes/class-hooks.php:311
 msgid "All Shortlinks"
 msgstr "Kõik lühilinkid"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:236
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:237
 #: includes/classes/class-hooks.php:312
 #: includes/classes/class-hooks.php:313
 msgid "Add Shortlink"
 msgstr "Lisa lühilink"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:238
 #: includes/classes/class-hooks.php:314
 msgid "Search Shortlinks"
 msgstr "Otsi lühilinke"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:256
 #: includes/classes/class-hooks.php:332
 msgid "Category"
 msgstr "Kategooria"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:283
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:284
 #: includes/classes/class-hooks.php:359
 #: includes/classes/class-hooks.php:360
 msgid "Logs"
 msgstr "Logid"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:312
 #: includes/classes/class-hooks.php:388
 msgid "All Logs"
 msgstr "Kõik logid"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:312
 #: includes/classes/class-hooks.php:388
 msgid "Are you sure you want to clear all logs?"
 msgstr "Kas olete kindel, et soovite kõik logid kustutada?"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:312
 #: includes/classes/class-hooks.php:388
 msgid "Clear Logs"
 msgstr "Kustuta logid"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:606
 #: includes/classes/class-hooks.php:682
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Kahjuks ei ole teil lühilinkidele juurdepääsu."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:607
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:628
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:639
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:660
 #: includes/classes/class-hooks.php:683
 #: includes/classes/class-hooks.php:704
 #: includes/classes/class-hooks.php:715
@@ -856,125 +937,164 @@ msgstr "Kahjuks ei ole teil lühilinkidele juurdepääsu."
 msgid "Access Denied"
 msgstr "Juurdepääs keelatud"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:627
 #: includes/classes/class-hooks.php:703
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Kahjuks ei ole teil lühilinkide loomise õigust."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:638
 #: includes/classes/class-hooks.php:714
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Kahjuks ei ole teil lühilinkide redigeerimise õigust."
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:659
 #: includes/classes/class-hooks.php:735
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Kahjuks ei ole teil lühilinkide seadetesse juurdepääsu."
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:48
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:49
 #: includes/classes/class-import-export.php:48
 #: includes/classes/class-import-export.php:49
 msgid "Import / Export"
 msgstr "Import / Eksport"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:87
 #: includes/classes/class-import-export.php:87
 msgid "Importing..."
 msgstr "Importimine..."
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:88
 #: includes/classes/class-import-export.php:88
 msgid "Import complete!"
 msgstr "Importimine lõpetatud!"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:89
 #: includes/classes/class-import-export.php:89
 msgid "Import failed. Please check the file and try again."
 msgstr "Importimine ebaõnnestus. Palun kontrollige faili ja proovige uuesti."
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:90
 #: includes/classes/class-import-export.php:90
 msgid "Please select a CSV file."
 msgstr "Palun valige CSV-fail."
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:91
 #: includes/classes/class-import-export.php:91
 msgid "This will import shortlinks from the CSV file. Continue?"
 msgstr "See impordib lühilinke CSV-failist. Kas jätkata?"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:92
 #: includes/classes/class-import-export.php:92
 msgid "Previewing..."
 msgstr "Eelvaatamine..."
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:93
 #: includes/classes/class-import-export.php:93
 msgid "Preview failed."
 msgstr "Eelvaatamine ebaõnnestus."
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:94
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1197
 #: includes/classes/class-import-export.php:94
-#: includes/classes/class-import-export.php:1265
+#: includes/classes/class-import-export.php:1326
 msgid "See More Rows"
 msgstr "Kuva rohkem ridu"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:95
 #: includes/classes/class-import-export.php:95
 msgid "Show Less"
 msgstr "Kuva vähem"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:96
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1160
 #: includes/classes/class-import-export.php:96
-#: includes/classes/class-import-export.php:1228
+#: includes/classes/class-import-export.php:1289
 msgid "Preview"
 msgstr "Eelvaade"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:97
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1151
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1164
 #: includes/classes/class-import-export.php:97
-#: includes/classes/class-import-export.php:1219
-#: includes/classes/class-import-export.php:1232
+#: includes/classes/class-import-export.php:1280
+#: includes/classes/class-import-export.php:1293
 msgid "Import CSV"
 msgstr "Impordi CSV"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:98
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:731
 #: includes/classes/class-import-export.php:98
-#: includes/classes/class-import-export.php:758
+#: includes/classes/class-import-export.php:834
 #. translators: %d: number of successfully imported shortlinks
 #, php-format
 msgid "%d shortlinks successfully imported"
 msgstr "%d lühilinki imporditi edukalt"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:99
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:753
 #: includes/classes/class-import-export.php:99
-#: includes/classes/class-import-export.php:780
+#: includes/classes/class-import-export.php:856
 #. translators: %d: number of failed imports
 #, php-format
 msgid "%d shortlinks failed to import"
 msgstr "%d lühilinki ei õnnestunud importida"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:100
 #: includes/classes/class-import-export.php:100
 msgid "Error(s) for TinyPress Slug:"
 msgstr "Viga(d) TinyPress Slugi jaoks:"
 
-#: includes/classes/class-import-export.php:115
-#: includes/classes/class-import-export.php:571
-#: includes/classes/class-import-export.php:949
-#: includes/classes/class-import-export.php:1090
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:115
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:546
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:907
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1048
+#: includes/classes/class-import-export.php:116
+#: includes/classes/class-import-export.php:662
+#: includes/classes/class-import-export.php:1025
+#: includes/classes/class-import-export.php:1151
 #: includes/classes/class-migration.php:440
 #: includes/classes/class-url-metadata.php:39
 msgid "Unauthorized."
 msgstr "Volitamata."
 
-#: includes/classes/class-import-export.php:307
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:303
+#: dist/publishpress-shortlinks/includes/functions.php:402
+#: includes/classes/class-import-export.php:398
 #: includes/functions.php:508
 msgid "Invalid URL."
 msgstr "Kehtetu URL."
 
-#: includes/classes/class-import-export.php:576
-#: includes/classes/class-import-export.php:954
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:551
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:912
+#: includes/classes/class-import-export.php:181
+#: includes/classes/class-import-export.php:189
 msgid "No file uploaded or upload error."
 msgstr "Faili ei ole üles laaditud või laadimise viga."
 
-#: includes/classes/class-import-export.php:585
-#: includes/classes/class-import-export.php:963
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:560
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:921
+#: includes/classes/class-import-export.php:206
 msgid "Please upload a CSV file."
 msgstr "Palun laadige üles CSV-fail."
 
-#: includes/classes/class-import-export.php:591
-#: includes/classes/class-import-export.php:969
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:566
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:927
+#: includes/classes/class-import-export.php:244
 msgid "Could not read the file."
 msgstr "Faili ei õnnestunud lugeda."
 
-#: includes/classes/class-import-export.php:598
-#: includes/classes/class-import-export.php:976
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:573
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:934
+#: includes/classes/class-import-export.php:674
+#: includes/classes/class-import-export.php:1037
 msgid "Empty CSV file."
 msgstr "Tühi CSV fail."
 
-#: includes/classes/class-import-export.php:621
-#: includes/classes/class-import-export.php:1000
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:596
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:958
+#: includes/classes/class-import-export.php:697
+#: includes/classes/class-import-export.php:1061
 msgid ""
 "CSV must contain a column for target URL (e.g., \"url\", \"target_url\", "
 "\"destination_url\")."
@@ -982,119 +1102,156 @@ msgstr ""
 "CSV-s peab olema veerg siht-URL-i jaoks (nt \"url\", \"target_url\", "
 "\"destination_url\")."
 
-#: includes/classes/class-import-export.php:688
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:663
+#: includes/classes/class-import-export.php:764
 #. translators: %s: error message
 #, php-format
 msgid "Failed to create shortlink: %s"
 msgstr "Lühilinki ei õnnestunud luua: %s"
 
-#: includes/classes/class-import-export.php:689
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:664
+#: includes/classes/class-import-export.php:765
 msgid "Unknown error."
 msgstr "Tundmatu viga."
 
-#: includes/classes/class-import-export.php:769
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:742
+#: includes/classes/class-import-export.php:845
 #. translators: %d: number of updated shortlinks
 #, php-format
 msgid "%d shortlinks updated"
 msgstr "%d lühilinki uuendatud"
 
-#: includes/classes/class-import-export.php:1037
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:995
+#: includes/classes/class-import-export.php:1098
 #. translators: 1: original column name, 2: mapped field name
 #, fuzzy, php-format
 msgid "\"%1$s\" → %2$s"
 msgstr "\"%1$s\" → %2$s"
 
-#: includes/classes/class-import-export.php:1048
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1006
+#: includes/classes/class-import-export.php:1109
 #. translators: %s: field mappings
 #, php-format
 msgid "Field mappings: %s"
 msgstr "Väljade kaardistamine: %s"
 
-#: includes/classes/class-import-export.php:1075
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1033
+#: includes/classes/class-import-export.php:1136
 #. translators: 1: number of preview rows, 2: total number of importable rows
 #, php-format
 msgid "Showing %1$d preview row(s) from %2$d importable row(s)."
 msgstr "Kuvatakse %1$d eelvaate rida(rida) %2$d imporditavast reast."
 
-#: includes/classes/class-import-export.php:1094
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1052
+#: includes/classes/class-import-export.php:1155
 msgid "Link Label"
 msgstr "Linginimi"
 
-#: includes/classes/class-import-export.php:1096
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1054
+#: includes/classes/class-import-export.php:1157
 msgid "Short Slug"
 msgstr "Lühike slug"
 
-#: includes/classes/class-import-export.php:1097
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1055
+#: includes/classes/class-import-export.php:1158
 msgid "Post Status"
 msgstr "Postitusstaatus"
 
-#: includes/classes/class-import-export.php:1098
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1056
+#: includes/classes/class-import-export.php:1159
 msgid "Link Status"
 msgstr "Lingistaatus"
 
-#: includes/classes/class-import-export.php:1099
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1057
+#: includes/classes/class-import-export.php:1160
 msgid "Redirect Method"
 msgstr "Redirecti meetod"
 
-#: includes/classes/class-import-export.php:1100
-#: includes/classes/class-meta-boxes.php:669
-#: includes/classes/class-settings.php:1148, fuzzy
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1058
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:664
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:939
+#: includes/classes/class-import-export.php:1161
+#: includes/classes/class-meta-boxes.php:1011
+#: includes/classes/class-settings.php:1176, fuzzy
 msgid "NoFollow"
 msgstr "NoFollow"
 
-#: includes/classes/class-import-export.php:1101
-#: includes/classes/class-meta-boxes.php:645
-#: includes/classes/class-settings.php:1140
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1059
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:642
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:931
+#: includes/classes/class-import-export.php:1162
+#: includes/classes/class-meta-boxes.php:987
+#: includes/classes/class-settings.php:1168
 msgid "Sponsored"
 msgstr "Sponsoreeritud"
 
-#: includes/classes/class-import-export.php:1102
-#: includes/classes/class-meta-boxes.php:693
-#: includes/classes/class-settings.php:1156
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1060
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:686
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:947
+#: includes/classes/class-import-export.php:1163
+#: includes/classes/class-meta-boxes.php:1035
+#: includes/classes/class-settings.php:1184
 msgid "Parameter Forwarding"
 msgstr "Parameetri edastamine"
 
-#: includes/classes/class-import-export.php:1103
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1061
+#: includes/classes/class-import-export.php:1164
 msgid "Expiration Enabled"
 msgstr "Aegumine lubatud"
 
-#: includes/classes/class-import-export.php:1104
-#: includes/classes/class-meta-boxes.php:796
-#: includes/classes/class-settings.php:1197
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1062
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:770
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:988
+#: includes/classes/class-import-export.php:1165
+#: includes/classes/class-meta-boxes.php:1151
+#: includes/classes/class-settings.php:1230
 msgid "Expiration Date"
 msgstr "Aegumise kuupäev"
 
-#: includes/classes/class-import-export.php:1105
-#: includes/classes/class-meta-boxes.php:810
-#: includes/classes/class-settings.php:1210
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1063
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:784
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1001
+#: includes/classes/class-import-export.php:1166
+#: includes/classes/class-meta-boxes.php:1165
+#: includes/classes/class-settings.php:1243
 msgid "Expiration Time"
 msgstr "Aegumise kellaaeg"
 
-#: includes/classes/class-import-export.php:1107
-#: includes/classes/class-meta-boxes.php:556
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1065
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:552
+#: includes/classes/class-import-export.php:1168
+#: includes/classes/class-meta-boxes.php:898
 msgid "Notes"
 msgstr "Märkmed"
 
-#: includes/classes/class-import-export.php:1108
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1066
+#: includes/classes/class-import-export.php:1169
 msgid "Autolink Keywords"
 msgstr "Autolinkige märksõnad"
 
-#: includes/classes/class-import-export.php:1137
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1095
+#: includes/classes/class-import-export.php:1198
 msgid "Import / Export Shortlinks"
 msgstr "Import / Eksport lühilinke"
 
-#: includes/classes/class-import-export.php:1141
-#: includes/classes/class-import-export.php:1179
-#: includes/classes/class-import-export.php:1274
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1099
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1137
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1206
+#: includes/classes/class-import-export.php:1202
+#: includes/classes/class-import-export.php:1240
+#: includes/classes/class-import-export.php:1335
 msgid "Import"
 msgstr "Impordi"
 
-#: includes/classes/class-import-export.php:1144
-#: includes/classes/class-import-export.php:1153
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1102
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1111
+#: includes/classes/class-import-export.php:1205
+#: includes/classes/class-import-export.php:1214
 msgid "Export"
 msgstr "Ekspordi"
 
-#: includes/classes/class-import-export.php:1156
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1114
+#: includes/classes/class-import-export.php:1217
 msgid ""
 "Download all your shortlinks as a CSV file. The export includes labels, "
 "target URLs, slugs, redirect settings, global-setting modes, and more. "
@@ -1104,17 +1261,20 @@ msgstr ""
 "siht-URL-id, slugid, ümbersuunamisseaded, globaalsete seadete viisid ja "
 "palju muud. Paroolikaitse seadeid ei ekspordita."
 
-#: includes/classes/class-import-export.php:1161
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1119
+#: includes/classes/class-import-export.php:1222
 #. translators: %d: number of shortlinks
 #, php-format
 msgid "%d shortlink(s) will be exported."
 msgstr "%d lühilink(i) eksporditakse."
 
-#: includes/classes/class-import-export.php:1169
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1127
+#: includes/classes/class-import-export.php:1230
 msgid "Export CSV"
 msgstr "Ekspordi CSV"
 
-#: includes/classes/class-import-export.php:1182
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1140
+#: includes/classes/class-import-export.php:1243
 msgid ""
 "Upload a CSV file to bulk-create shortlinks. The CSV must contain at "
 "minimum a \"target_url\" column. Password protection settings are "
@@ -1123,119 +1283,166 @@ msgstr ""
 "Laadi üles CSV fail, et luua hulgi lühilingid. CSV peab sisaldama vähemalt "
 "\"target_url\" veergu. Paroolikaitse seadeid ei impordita tahtlikult."
 
-#: includes/classes/class-import-export.php:1208
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1142
+#: includes/classes/class-import-export.php:1269
 msgid "Supported columns:"
 msgstr "Toetatud veerud:"
 
-#: includes/classes/class-import-export.php:1235
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1167
+#: includes/classes/class-import-export.php:1296
 msgid "Change File"
 msgstr "Muuda faili"
 
-#: includes/classes/class-import-export.php:1252
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1184
+#: includes/classes/class-import-export.php:1313
 msgid "Import Preview"
 msgstr "Impordi eelvaade"
 
-#: includes/classes/class-meta-boxes.php:391
-#: includes/classes/class-meta-boxes.php:457
-#: includes/classes/class-meta-boxes.php:482
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:387
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:453
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:478
+#: includes-core/ShortlinksCoreAdmin.php:398
+#: includes-core/ShortlinksCoreAdmin.php:420
+#: includes-core/ShortlinksCoreAdmin.php:434
+#: includes-core/ShortlinksCoreAdmin.php:456
+#: includes-core/ShortlinksCoreAdmin.php:482
+#: includes/classes/class-meta-boxes.php:733
+#: includes/classes/class-meta-boxes.php:799
+#: includes/classes/class-meta-boxes.php:824
 #. translators: %s: current global setting value
 msgid "Use global settings"
 msgstr "Kasutage globaalseid seadeid"
 
-#: includes/classes/class-meta-boxes.php:392
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:388
+#: includes-core/ShortlinksCoreAdmin.php:421
+#: includes/classes/class-meta-boxes.php:734
 msgid "Enabled"
 msgstr "Lubatud"
 
-#: includes/classes/class-meta-boxes.php:393
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:389
+#: includes-core/ShortlinksCoreAdmin.php:422
+#: includes/classes/class-meta-boxes.php:735
 msgid "Disabled"
 msgstr "Keelatud"
 
-#: includes/classes/class-meta-boxes.php:453
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:449
+#: includes/classes/class-meta-boxes.php:795
 msgid "ON"
 msgstr "SEES"
 
-#: includes/classes/class-meta-boxes.php:453
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:449
+#: includes/classes/class-meta-boxes.php:795
 msgid "OFF"
 msgstr "VÄLJAS"
 
-#: includes/classes/class-meta-boxes.php:485
-#: includes/classes/class-settings.php:1131
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:481
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:922
+#: includes/classes/class-meta-boxes.php:827
+#: includes/classes/class-settings.php:1159
 msgid "307 (Temporary)"
 msgstr "307 (Ajutine)"
 
-#: includes/classes/class-meta-boxes.php:486
-#: includes/classes/class-settings.php:1132
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:482
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:923
+#: includes/classes/class-meta-boxes.php:828
+#: includes/classes/class-settings.php:1160
 msgid "302 (Temporary)"
 msgstr "302 (Ajutine)"
 
-#: includes/classes/class-meta-boxes.php:487
-#: includes/classes/class-settings.php:1133
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:483
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:924
+#: includes/classes/class-meta-boxes.php:829
+#: includes/classes/class-settings.php:1161
 msgid "301 (Permanent)"
 msgstr "301 (Püsiv)"
 
-#: includes/classes/class-meta-boxes.php:500
-#: includes/classes/class-settings.php:596
-#: tinypress.php:473
-#: tinypress.php:586
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:496
+#: dist/publishpress-shortlinks/tinypress.php:399
+#: dist/publishpress-shortlinks/tinypress.php:492
+#: includes/classes/class-meta-boxes.php:842
+#: includes/classes/class-settings.php:624
+#: tinypress.php:476
+#: tinypress.php:589
 msgid "PublishPress Shortlinks"
 msgstr "PublishPress lühilinkid"
 
-#: includes/classes/class-meta-boxes.php:513
-#: includes/classes/class-settings.php:912
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:509
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:718
+#: includes/classes/class-meta-boxes.php:855
+#: includes/classes/class-settings.php:940
 msgid "General"
 msgstr "Üldine"
 
-#: includes/classes/class-meta-boxes.php:518
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:514
+#: includes/classes/class-meta-boxes.php:860
 msgid "Label *"
 msgstr "Silt *"
 
-#: includes/classes/class-meta-boxes.php:520
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:516
+#: includes/classes/class-meta-boxes.php:862
 msgid "For admin purpose only."
 msgstr "Ainult admini eesmärgil."
 
-#: includes/classes/class-meta-boxes.php:529
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:525
+#: includes/classes/class-meta-boxes.php:871
 msgid "Target URL *"
 msgstr "Siht-URL *"
 
-#: includes/classes/class-meta-boxes.php:539
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:535
+#: includes/classes/class-meta-boxes.php:881
 msgid "Short String *"
 msgstr "Lühike string *"
 
-#: includes/classes/class-meta-boxes.php:540
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:536
+#: includes/classes/class-meta-boxes.php:882
 msgid "Short string of this URL."
 msgstr "Selle URL-i lühike string."
 
-#: includes/classes/class-meta-boxes.php:547
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:543
+#: includes/classes/class-meta-boxes.php:889
 msgid "Enable or disable the shortlink."
 msgstr "Luba või keela lühilink."
 
-#: includes/classes/class-meta-boxes.php:548
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:544
+#: includes-core/ShortlinksCoreAdmin.php:543
+#: includes-core/ShortlinksCoreAdmin.php:585
+#: includes/classes/class-meta-boxes.php:890
 msgid "Enable"
 msgstr "Luba"
 
-#: includes/classes/class-meta-boxes.php:549
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:545
+#: includes-core/ShortlinksCoreAdmin.php:544
+#: includes-core/ShortlinksCoreAdmin.php:586
+#: includes/classes/class-meta-boxes.php:891
 msgid "Disable"
 msgstr "Keela"
 
-#: includes/classes/class-meta-boxes.php:580
-#: includes/classes/class-meta-boxes.php:586
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:576
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:582
+#: includes/classes/class-meta-boxes.php:922
+#: includes/classes/class-meta-boxes.php:928
 msgid "Shortlink Label"
 msgstr "Lühilingi silt"
 
-#: includes/classes/class-meta-boxes.php:581
-#: includes/classes/class-meta-boxes.php:587
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:577
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:583
+#: includes/classes/class-meta-boxes.php:923
+#: includes/classes/class-meta-boxes.php:929
 msgid "Custom Text"
 msgstr "Kohandatud tekst"
 
-#: includes/classes/class-meta-boxes.php:585
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:581
+#: includes/classes/class-meta-boxes.php:927
 msgid "Post Title"
 msgstr "Postituse pealkiri"
 
-#: includes/classes/class-meta-boxes.php:597
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:593
+#: includes/classes/class-meta-boxes.php:939
 msgid "Keywords"
 msgstr "Märksõnad"
 
-#: includes/classes/class-meta-boxes.php:598
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:594
+#: includes/classes/class-meta-boxes.php:940
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
@@ -1243,19 +1450,23 @@ msgstr ""
 "Lisa märksõnad koma või eraldi ridadega. Iga märksõna linkib sellele "
 "lühilingile."
 
-#: includes/classes/class-meta-boxes.php:603
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:599
+#: includes/classes/class-meta-boxes.php:945
 msgid "Link Alt Text"
 msgstr "Lingivalik teksti"
 
-#: includes/classes/class-meta-boxes.php:604
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:600
+#: includes/classes/class-meta-boxes.php:946
 msgid "Set the alt text for the linked keywords in the frontend of the site."
 msgstr "Seadista lingitud märksõnade alt tekst saidi esiplaanil."
 
-#: includes/classes/class-meta-boxes.php:611
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:607
+#: includes/classes/class-meta-boxes.php:953
 msgid "Custom Alt Text"
 msgstr "Kohandatud alt tekst"
 
-#: includes/classes/class-meta-boxes.php:612
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:608
+#: includes/classes/class-meta-boxes.php:954
 msgid ""
 "Enter custom alt text for the linked keywords. This is only used if "
 "\"Custom Text\" is selected above."
@@ -1263,34 +1474,45 @@ msgstr ""
 "Sisestage kohandatud alternatiivtekst lingitud märksõnade jaoks. Seda "
 "kasutatakse ainult siis, kui \"Kohandatud tekst\" on ülal valitud."
 
-#: includes/classes/class-meta-boxes.php:622
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:619
+#: includes/classes/class-meta-boxes.php:964
 msgid "Auto-linking"
 msgstr "Automaatlinkimine"
 
-#: includes/classes/class-meta-boxes.php:631
-#: includes/classes/class-settings.php:1123
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:628
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:914
+#: includes/classes/class-meta-boxes.php:973
+#: includes/classes/class-settings.php:1151
 msgid "Redirection"
 msgstr "Suunamine"
 
-#: includes/classes/class-meta-boxes.php:636
-#: includes/classes/class-settings.php:1128
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:633
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:919
+#: includes/classes/class-meta-boxes.php:978
+#: includes/classes/class-settings.php:1156
 msgid "Redirection Method"
 msgstr "Suunamismeetod"
 
-#: includes/classes/class-meta-boxes.php:637
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:634
+#: includes/classes/class-meta-boxes.php:979
 msgid "Select redirection method"
 msgstr "Vali suunamismeetod"
 
-#: includes/classes/class-meta-boxes.php:638
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:635
+#: includes/classes/class-meta-boxes.php:980
 msgid "Select a method"
 msgstr "Vali meetod"
 
-#: includes/classes/class-meta-boxes.php:648
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:645
+#: includes/classes/class-meta-boxes.php:990
 msgid "Mark links as sponsored content."
 msgstr "Märgi lingid sponsoreeritud sisuna."
 
-#: includes/classes/class-meta-boxes.php:649
-#: includes/classes/class-settings.php:1142
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:646
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:656
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:933
+#: includes/classes/class-meta-boxes.php:991
+#: includes/classes/class-settings.php:1170
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -1298,12 +1520,16 @@ msgstr ""
 "Lisab rel=\"sponsored\" atribuudi. Soovitatav affiliate-linkide ja "
 "tasuliste reklaamide jaoks."
 
-#: includes/classes/class-meta-boxes.php:672
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:667
+#: includes/classes/class-meta-boxes.php:1014
 msgid "Prevent search engines from following this link."
 msgstr "Aita otsingumootoreid selle lingi jälgimisest."
 
-#: includes/classes/class-meta-boxes.php:673
-#: includes/classes/class-settings.php:1150
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:668
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:678
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:941
+#: includes/classes/class-meta-boxes.php:1015
+#: includes/classes/class-settings.php:1178
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -1311,12 +1537,16 @@ msgstr ""
 "Lisab rel=\"nofollow\" atribuudi. Soovitatav väliste linkide ja "
 "usaldamatute allikate jaoks."
 
-#: includes/classes/class-meta-boxes.php:696
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:689
+#: includes/classes/class-meta-boxes.php:1038
 msgid "Pass URL parameters to the target link."
 msgstr "Edasta URL parameetrid sihtlinki."
 
-#: includes/classes/class-meta-boxes.php:697
-#: includes/classes/class-settings.php:1158
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:690
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:700
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:949
+#: includes/classes/class-meta-boxes.php:1039
+#: includes/classes/class-settings.php:1186
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -1324,51 +1554,63 @@ msgstr ""
 "Kõik lühikese URL-i juurde lisatud parameetrid (nt ?utm_source=email) "
 "edastatakse siht-URL-ile."
 
-#: includes/classes/class-meta-boxes.php:724
-msgid "Dynamic Redirects"
-msgstr "Dünaamilised suunamised"
-
-#: includes/classes/class-meta-boxes.php:735
-#: includes/classes/class-settings.php:1169
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:713
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:960
+#: includes/classes/class-meta-boxes.php:1077
+#: includes/classes/class-settings.php:1197
 msgid "Password Protection"
 msgstr "Paroolikaitse"
 
-#: includes/classes/class-meta-boxes.php:738
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:716
+#: includes/classes/class-meta-boxes.php:1080
 msgid "Secure your shortlink."
 msgstr "Kaitse oma lühilinki."
 
-#: includes/classes/class-meta-boxes.php:739
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:717
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:727
+#: includes/classes/class-meta-boxes.php:1081
 msgid "Users must enter the password to redirect to the target link."
 msgstr "Kasutajad peavad sihtlinki suunamiseks sisestama parooli."
 
-#: includes/classes/class-meta-boxes.php:759
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:735
+#: includes/classes/class-meta-boxes.php:1101
 msgid "Password"
 msgstr "Parool"
 
-#: includes/classes/class-meta-boxes.php:760
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:736
+#: includes/classes/class-meta-boxes.php:1102
 msgid "Share this with users."
 msgstr "Jaga seda kasutajatega."
 
-#: includes/classes/class-meta-boxes.php:761
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:737
+#: includes/classes/class-meta-boxes.php:1103
 msgid "Passwords are case sensitive."
 msgstr "Paroolid on suur- ja väiketähti tundlikud."
 
-#: includes/classes/class-meta-boxes.php:762
-#: includes/classes/class-settings.php:1180, fuzzy
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:738
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:971
+#: includes/classes/class-meta-boxes.php:1104
+#: includes/classes/class-settings.php:1208, fuzzy
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:772
-#: includes/classes/class-settings.php:1189
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:748
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:980
+#: includes/classes/class-meta-boxes.php:1127
+#: includes/classes/class-settings.php:1222
 msgid "Enable Expiration"
 msgstr "Luba aegumine"
 
-#: includes/classes/class-meta-boxes.php:775
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:751
+#: includes/classes/class-meta-boxes.php:1130
 msgid "Set an expiration date and time for shortlinks."
 msgstr "Määrake lühilinkide aegumiskuupäev ja kellaaeg."
 
-#: includes/classes/class-meta-boxes.php:776
-#: includes/classes/class-settings.php:1191
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:752
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:762
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:982
+#: includes/classes/class-meta-boxes.php:1131
+#: includes/classes/class-settings.php:1224
 msgid ""
 "After the expiration date and time pass, visitors will no longer be able to "
 "access the shortlink."
@@ -1376,16 +1618,20 @@ msgstr ""
 "Pärast aegumiskuupäeva ja kellaaega ei saa külastajad enam lühilinkile "
 "juurde pääseda."
 
-#: includes/classes/class-meta-boxes.php:797
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:771
+#: includes/classes/class-meta-boxes.php:1152
 msgid "Select the date when this shortlink should stop working."
 msgstr "Valige kuupäev, millal see lühilink peaks lõpetama töötamise."
 
-#: includes/classes/class-meta-boxes.php:811
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:785
+#: includes/classes/class-meta-boxes.php:1166
 msgid "Select the time when the shortlink should expire."
 msgstr "Valige kellaaeg, millal lühilink peab aeguma."
 
-#: includes/classes/class-meta-boxes.php:812
-#: includes/classes/class-settings.php:1212
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:786
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1003
+#: includes/classes/class-meta-boxes.php:1167
+#: includes/classes/class-settings.php:1245
 msgid ""
 "Must be at least 1 minute in the future. Combined with the date above to "
 "set the exact expiration moment."
@@ -1393,19 +1639,1307 @@ msgstr ""
 "Peab olema vähemalt 1 minut tulevikus. Koos ülaltoodud kuupäevaga, et "
 "määrata täpne aegumise hetk."
 
-#: includes/classes/class-meta-boxes.php:830
-#: includes/classes/class-settings.php:1164
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:804
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:955
+#: includes/classes/class-meta-boxes.php:1117
+#: includes/classes/class-settings.php:1192
 msgid "Security"
 msgstr "Turvalisus"
 
-#: includes/classes/class-meta-boxes.php:849
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:823
+#: includes/classes/class-meta-boxes.php:1204
 msgid "QR Code"
 msgstr "QR-kood"
 
-#: includes/classes/class-meta-boxes.php:859
-#: tinypress.php:470
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:833
+#: dist/publishpress-shortlinks/tinypress.php:396
+#: includes/classes/class-meta-boxes.php:1214
+#: tinypress.php:473
 msgid "Analytics"
 msgstr "Analüütika"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1044
+#: includes/classes/class-redirection.php:1242
+msgid "Post not found."
+msgstr "Postitust ei leitud."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1188
+#: dist/publishpress-shortlinks/includes/functions.php:361
+#: dist/publishpress-shortlinks/includes/functions.php:362
+#: dist/publishpress-shortlinks/includes/functions.php:363
+#: dist/publishpress-shortlinks/includes/functions.php:369
+#: dist/publishpress-shortlinks/tinypress.php:303
+#: dist/publishpress-shortlinks/tinypress.php:304
+#: dist/publishpress-shortlinks/tinypress.php:305
+#: includes/classes/class-redirection.php:1386
+#: includes/functions.php:467
+#: includes/functions.php:468
+#: includes/functions.php:469
+#: includes/functions.php:475
+#: tinypress.php:375
+#: tinypress.php:376
+#: tinypress.php:377
+msgid "This post is in {status} status. It is not visible to the public."
+msgstr "See postitus on {status} staatuses. See ei ole avalikkusele nähtav."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1236
+#: includes-core/ShortlinksCoreAdmin.php:445
+#: includes/classes/class-redirection.php:1434
+msgid "This link has expired"
+msgstr "See link on aegunud"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1240
+#: includes-core/ShortlinksCoreAdmin.php:467
+#: includes/classes/class-redirection.php:1438
+msgid "You will be redirected shortly."
+msgstr "Teid suunatakse varsti."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1244
+#: includes-core/ShortlinksCoreAdmin.php:493
+#: includes/classes/class-redirection.php:1442
+msgid "Click here if you are not redirected"
+msgstr "Klõpsake siia, kui teid ei suunata"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1261
+#: includes/classes/class-redirection.php:1459
+msgid "Link Expired"
+msgstr "Link on aegunud"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1423
+#: includes/classes/class-redirection.php:1680
+#: includes/classes/class-redirection.php:1688
+msgid "This link is not active."
+msgstr "See link ei ole aktiivne."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1460
+#: includes/classes/class-redirection.php:310
+#: includes/classes/class-redirection.php:1707
+msgid "This link is expired."
+msgstr "See link on aegunud."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1479
+#: includes/classes/class-redirection.php:1727
+msgid "Incorrect password. Please try again."
+msgstr "Vale parool. Palun proovige uuesti."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1494
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1499
+#: includes/classes/class-redirection.php:1746
+#: includes/classes/class-redirection.php:1751
+msgid "Password Protected Link"
+msgstr "Parooliga kaitstud link"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1505
+#: includes/classes/class-redirection.php:1757
+msgid "Enter password to continue:"
+msgstr "Sisestage parool jätkamiseks:"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1507
+#: includes/classes/class-redirection.php:1759
+msgid "Submit"
+msgstr "Esita"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1631
+#: includes/classes/class-redirection.php:1864
+msgid "This link is not containing the right prefix slug."
+msgstr "See link ei sisalda õiget eesliidet."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1672
+#: includes/classes/class-redirection.php:1905
+msgid "Too many invalid shortlink requests. Please try again later."
+msgstr "Liiga palju kehtetuid lühilinkide päringuid. Palun proovige hiljem uuesti."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1673
+#: includes/classes/class-redirection.php:1906
+msgid "Too Many Requests"
+msgstr "Liiga palju päringuid"
+
+#: dist/publishpress-shortlinks/includes/classes/class-revision.php:439
+#: includes/classes/class-revision.php:465
+msgid "Invalid revision ID."
+msgstr "Kehtetu revisjoni ID."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:362
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:703
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:711
+#: dist/publishpress-shortlinks/includes/functions.php:270
+#: dist/publishpress-shortlinks/includes/functions.php:304
+#: includes/classes/class-settings.php:458
+#: includes/classes/class-settings.php:925
+#: includes/classes/class-settings.php:933
+#: includes/functions.php:376
+#: includes/functions.php:410
+msgid "Draft"
+msgstr "Mustand"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:363
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:704
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:712
+#: dist/publishpress-shortlinks/includes/functions.php:271
+#: dist/publishpress-shortlinks/includes/functions.php:305
+#: includes/classes/class-settings.php:459
+#: includes/classes/class-settings.php:926
+#: includes/classes/class-settings.php:934
+#: includes/functions.php:377
+#: includes/functions.php:411
+msgid "Pending Review"
+msgstr "Ootel Ülevaatus"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:364
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:705
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:713
+#: dist/publishpress-shortlinks/includes/functions.php:272
+#: dist/publishpress-shortlinks/includes/functions.php:306
+#: includes/classes/class-settings.php:460
+#: includes/classes/class-settings.php:927
+#: includes/classes/class-settings.php:935
+#: includes/functions.php:378
+#: includes/functions.php:412
+msgid "Private"
+msgstr "Privaatne"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:369
+#: includes/classes/class-settings.php:465
+msgid ""
+"Customize the notice shown for each enabled non-published status. Available "
+"placeholders: {status}, {date}, {title}."
+msgstr ""
+"Kohandage teade, mis kuvatakse iga lubatud avaldamata staatuse jaoks. "
+"Saadaval olevad kohandatavad kohad: {status}, {date}, {title}."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:405
+#: includes/classes/class-settings.php:501
+#: includes/classes/class-settings.php:550
+msgid "All"
+msgstr "Kõik"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:444
+#: includes/classes/class-settings.php:623
+msgid "Settings"
+msgstr "Seaded"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:528
+#: includes/classes/class-settings.php:750
+msgid ""
+"Select which post statuses are accessible when visiting a PublishPress "
+"shortlink."
+msgstr ""
+"Vali, millised postituse staatused on ligipääsetavad PublishPress lühilinki "
+"külastades."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:544
+#: includes/classes/class-settings.php:766
+#, fuzzy
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "PublishPress Shortlinks Free"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:545
+#: includes/classes/class-settings.php:767
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr ""
+"Kasutamiseks põhivälja PublishPress staatustega koos Shortlinkidega, palun "
+"lubage Shortlinkide postitüübi kasutamine PublishPressi staatuste töövoo "
+"seadetes."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:564
+#: includes/classes/class-settings.php:786
+msgid "Elementor Detected:"
+msgstr "Elementor tuvastatud:"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:565
+#: includes/classes/class-settings.php:787
+msgid ""
+"Shortlink prefix is required for proper rendering of Elementor revisions. "
+"It is advisable to keep it enabled."
+msgstr ""
+"Elementori revisjonide õige renderdamise jaoks on vajalik lühilinki "
+"eesliide. Soovitav on see sisse lülitada."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:597
+#: includes/classes/class-settings.php:819
+msgid "TinyPress Shortlinks Notice:"
+msgstr "TinyPress lühilinkide teade:"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:598
+#: includes/classes/class-settings.php:820
+msgid ""
+"Elementor is active. Shortlink prefix has been automatically disabled, it "
+"is required for optimal compatibility with Elementor revisions."
+msgstr ""
+"Elementor on aktiivne. Lühilinki eesliide on automaatselt keelatud, see on "
+"vajalik Elementori revisjonide optimaalse ühilduvuse tagamiseks."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:702
+#: dist/publishpress-shortlinks/includes/functions.php:269
+#: dist/publishpress-shortlinks/includes/functions.php:303
+#: includes/classes/class-settings.php:924
+#: includes/functions.php:375
+#: includes/functions.php:409
+msgid "Published"
+msgstr "Avaldatud"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:726
+#: includes/classes/class-settings.php:963
+msgid "Shortlink Prefix"
+msgstr "Lühilinki eesliide"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:727
+#: includes/classes/class-settings.php:964
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "Lisa eelistus oma domeeninime ja lühilinki vahele."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:734
+#: includes/classes/class-settings.php:971
+msgid "Prefix Slug"
+msgstr "Eelistuse slug"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:735
+#: includes/classes/class-settings.php:972
+msgid "Custom prefix slug."
+msgstr "Kohandatud eelistuse slug."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:736
+#: includes/classes/class-settings.php:973
+msgid "This text will be added between your domain name and shortlink."
+msgstr "See tekst lisatakse teie domeeninime ja lühilinki vahele."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:737
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:738
+#: includes/classes/class-settings.php:974
+#: includes/classes/class-settings.php:975
+msgid "go"
+msgstr "mine"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:744
+#: includes/classes/class-settings.php:981
+msgid "Keyboard Shortcut"
+msgstr "Klaviatuuri otsetee"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:745
+#: includes/classes/class-settings.php:982
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
+msgstr "Loo lühilinke igal pool oma WordPressi juhtpaneelis."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:746
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:747
+#: includes/classes/class-settings.php:983
+#: includes/classes/class-settings.php:984
+msgid "Ctrl or Cmd + /"
+msgstr "Ctrl või Cmd + /"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:756
+#: includes/classes/class-settings.php:993
+msgid "Remove from Admin Bar"
+msgstr "Eemalda administraatori tööriistaribalt"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:757
+#: includes/classes/class-settings.php:994
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "Peida \"Lühenda\" nupp WordPressi administraatori tööriistaribalt."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:763
+#: includes/classes/class-settings.php:1000
+msgid "Role Management"
+msgstr "Rollihaldus"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:768
+#: includes/classes/class-settings.php:1005
+msgid "Who Can View The All Shortlinks Screen"
+msgstr "Kes saab vaadata kõiki lühilinkide ekraane"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:769
+#: includes/classes/class-settings.php:1006
+msgid "Only selected user roles can view the complete list of Shortlinks."
+msgstr ""
+"Ainult valitud kasutajarollid saavad vaadata kõiki lühilinkide täielikku "
+"loendit."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:777
+#: includes/classes/class-settings.php:1014
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "Kes saab lühilinke luua/redigeerida"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:778
+#: includes/classes/class-settings.php:1015
+msgid "Only selected user roles can create or edit links."
+msgstr "Ainult valitud kasutajarollid saavad linke luua või redigeerida."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:787
+#: includes/classes/class-settings.php:1024
+msgid "Who Can See Logs"
+msgstr "Kes saab logisid näha"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:788
+#: includes/classes/class-settings.php:1025
+msgid "Only selected user roles can see the Analytics tab and the Logs screen."
+msgstr ""
+"Ainult valitud kasutajarollid saavad näha analüüsi vahekaarti ja logide "
+"ekraani."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:797
+#: includes/classes/class-settings.php:1034
+msgid "Who Can Control Settings"
+msgstr "Kes saab seadeid juhtida"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:798
+#: includes/classes/class-settings.php:1035
+msgid "Only selected user roles can access the Settings screen."
+msgstr "Ainult valitud kasutajarollid saavad pääseda seadete ekraanile."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:807
+#: includes/classes/class-settings.php:1044
+msgid "Auto-Linking"
+msgstr "Automaatlinkimine"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:812
+#: includes/classes/class-settings.php:1049
+msgid "Enable Auto-Linking"
+msgstr "Luba automaatlinkimine"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:813
+#: includes/classes/class-settings.php:1050
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr "Märksõnade automaatne muutmine lühilingideks postituse sisus."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:814
+#: includes/classes/class-settings.php:1051
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr ""
+"Kui lubatud, linkitakse lühilingi seadetes konfigureeritud märksõnad "
+"automaatselt sinu sisus."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:820
+#: includes/classes/class-settings.php:943
+#: includes/classes/class-settings.php:948
+#: includes/classes/class-settings.php:1057, fuzzy
+msgid "Post Types"
+msgstr "Post Types"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:821
+#: includes/classes/class-settings.php:1058
+msgid "Where should auto-linking be applied?"
+msgstr "Kus tuleks automaatlinkimist rakendada?"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:830
+#: includes/classes/class-settings.php:1067
+msgid "Open Auto-Links In"
+msgstr "Ava automaatlingid"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:831
+#: includes/classes/class-settings.php:1068
+msgid "Choose how auto-linked keywords should open."
+msgstr "Vali, kuidas automaatlinkitud märksõnad peaksid avanema."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:833
+#: includes/classes/class-settings.php:1070
+msgid "Same tab"
+msgstr "Samas vahekaardis"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:834
+#: includes/classes/class-settings.php:1071
+msgid "New tab"
+msgstr "Uues vahekaardis"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:842
+#: includes/classes/class-settings.php:1079
+msgid "Auto-Link Color"
+msgstr "Automaatlinkimise värv"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:843
+#: includes/classes/class-settings.php:1080
+msgid "Choose the color for auto-linked keywords."
+msgstr "Valige automaatse lingitud märksõnade värv."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:854
+#: includes/classes/class-settings.php:1091
+msgid "Auto-List Links"
+msgstr "Automaatne loetelu linkidest"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:859
+#: includes/classes/class-settings.php:1096
+msgid "Auto-List Shortlinks"
+msgstr "Auto-List Lühilinkide"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:860
+#: includes/classes/class-settings.php:1097
+msgid ""
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
+msgstr ""
+"Kui lubatud, kuvatakse lühilinkid \"Kõik lingid\" tabelis vastavalt allpool "
+"konfigureeritud käitumisele."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:866
+#: includes/classes/class-settings.php:1103
+msgid "Configure Post Types"
+msgstr "Konfigureeri Postituse Tüübid"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:867
+#: includes/classes/class-settings.php:1104
+msgid "Set when links should be auto-listed for each post type"
+msgstr ""
+"Määra, millal lingid peaksid olema automaatselt loetletud iga postituse "
+"tüübi jaoks"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:868
+#: includes/classes/class-settings.php:1105
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr ""
+"Lisa postituse tüüpe ja konfigureeri, millal nende lühilinkid peaksid "
+"ilmuma \"Kõik lingid\" tabelis. Muudatused salvestatakse automaatselt."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:875
+#: dist/publishpress-shortlinks/includes/classes/class-statuses.php:233
+#: includes/classes/class-settings.php:1112
+#: includes/classes/class-statuses.php:233
+msgid "Post Status Visibility"
+msgstr "Postituse Staatusi Nähtavus"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:880
+#: includes/classes/class-settings.php:1117
+msgid "Allowed Post Statuses"
+msgstr "Lubatud Postituse Staatused"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:889
+#: includes/classes/class-settings.php:1126
+msgid "Unpublished Content Notice"
+msgstr "Avaldamata sisu teade"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:890
+#: includes/classes/class-settings.php:1127
+msgid ""
+"Show a frontend notice when an internal shortlink displays a post that is "
+"not published."
+msgstr ""
+"Kuva frontendi teade, kui sisemine lühilink kuvab postitust, mis ei ole "
+"avaldatud."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:896
+#: includes/classes/class-settings.php:1133
+msgid "Notice Post Statuses"
+msgstr "Teade postituse staatuste kohta"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:897
+#: includes/classes/class-settings.php:1134
+msgid ""
+"This notice only applies to internal shortlinks that render post content "
+"directly. External shortlinks are not affected."
+msgstr ""
+"See teade kehtib ainult sisemiste lühilinkide kohta, mis kuvavad postituse "
+"sisu otse. Välised lühilinkid ei mõjuta."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:906
+#: includes/classes/class-settings.php:1143
+msgid "Notice Messages"
+msgstr "Teate sõnumid"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:920
+#: includes/classes/class-settings.php:1157
+msgid "Default redirection method for shortlinks"
+msgstr "Lühilinkide vaikeümbersuunamise meetod"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:932
+#: includes/classes/class-settings.php:1169
+msgid "Mark links as sponsored content"
+msgstr "Märgistage lingid sponsoreeritud sisuna"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:940
+#: includes/classes/class-settings.php:1177
+msgid "Prevent search engines from following links"
+msgstr "Kaitske otsingumootoreid linkide järgimisest"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:948
+#: includes/classes/class-settings.php:1185
+msgid "Pass URL parameters to target links"
+msgstr "Edastage URL parameetrid sihtlinkidele"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:961
+#: includes/classes/class-settings.php:1198
+msgid "Secure your shortlinks"
+msgstr "Kaitske oma lühilinke"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:962
+#: includes/classes/class-settings.php:1199
+msgid "Users must enter a password to redirect to the target link."
+msgstr "Kasutajad peavad suunamiseks sihtlingile sisestama parooli."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:968
+#: includes/classes/class-settings.php:1205
+msgid "Default Password"
+msgstr "Vaikimisi parool"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:969
+#: includes/classes/class-settings.php:1206
+msgid "Default password for protected links"
+msgstr "Vaikimisi parool kaitstud linkide jaoks"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:970
+#: includes/classes/class-settings.php:1207
+msgid ""
+"This password will be used for links that have password protection enabled "
+"via global settings. Passwords are case sensitive."
+msgstr ""
+"Seda parooli kasutatakse linkide jaoks, millel on globaalsete seadete kaudu "
+"lubatud paroolikaitse. Paroolid on suur- ja väiketähemärkide osas tundlikud."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:981
+#: includes/classes/class-settings.php:1223
+msgid "Set an expiration date and time for shortlinks"
+msgstr "Määra lühilinkidele aegumiskuupäev ja -aeg"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:989
+#: includes/classes/class-settings.php:1231
+msgid "Select the date when this shortlink should stop working"
+msgstr "Vali kuupäev, millal see lühilink peaks lõpetama toimimise"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1002
+#: includes/classes/class-settings.php:1244
+msgid "Select the time when the shortlink should expire"
+msgstr "Vali aeg, millal lühilink peaks aeguma"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1021
+#: includes/classes/class-settings.php:1263
+msgid "Revisions"
+msgstr "Muudatused"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1026
+#: includes/classes/class-settings.php:1268
+msgid "Revision Link Visibility"
+msgstr "Muudatuste Lingi Nähtavus"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1027
+#: includes/classes/class-settings.php:1269
+msgid ""
+"When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
+"table based on the behavior you configure below."
+msgstr ""
+"Kui lubatud, kuvatakse muudatuste lühilinkid \"Kõik Lühilinkid\" tabelis "
+"vastavalt allpool konfigureeritud käitumisele."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1029
+#: includes/classes/class-settings.php:1271
+msgid "When Revision is Created"
+msgstr "Kui revisjon on loodud"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1031
+#: includes/classes/class-settings.php:1273
+msgid "When Revision is Created or Link is First Used"
+msgstr "Kui revisjon on loodud või link on esmakordselt kasutatud"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1039
+#: includes/classes/class-settings.php:1281
+msgid "Show Shortlink in Revision Table"
+msgstr "Kuva lühilink revisjoni tabelis"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1040
+#: includes/classes/class-settings.php:1282
+msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
+msgstr "Kuva lühilinki veerus, kui vaatate revisjone PublishPress Revisionsis."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1046
+#: includes/classes/class-settings.php:1288
+msgid "Revision Visibility for Visitors"
+msgstr "Revisjoni nähtavus külastajatele"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1047
+#: includes/classes/class-settings.php:1289
+msgid "Allow logged-out visitors to view revision content via shortlinks."
+msgstr "Luba sisse logimata külastajatel vaadata revisjoni sisu lühilinkide kaudu."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1048
+#: includes/classes/class-settings.php:1290
+msgid ""
+"By default, PublishPress Revisions blocks visitors from viewing revision "
+"previews. When enabled, revision shortlinks will render the revision "
+"content directly for logged-out visitors instead of redirecting to the "
+"preview URL."
+msgstr ""
+"Vaikimisi blokeerib PublishPress Revisions külastajatel revisjoni "
+"eelvaateid vaatamast. Kui see on lubatud, kuvavad revisjoni lühilinkid "
+"revisjoni sisu otse sisse logimata külastajatele, selle asemel et suunata "
+"eelvaate URL-ile."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1071
+#: includes/classes/class-settings.php:1313, fuzzy
+msgid "Dummy"
+msgstr "Dummy"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1115
+#: includes/classes/class-settings.php:1357
+msgid "No post types configured yet. Click \"Add Post Type\" to get started."
+msgstr ""
+"Postituste tüüpe pole veel konfigureeritud. Klõpsake \"Lisa postituse "
+"tüüp\", et alustada."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1147
+#: includes/classes/class-settings.php:1389
+msgid "Add Post Type"
+msgstr "Lisa postituse tüüp"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:70
+#: includes/classes/class-table-logs.php:70
+msgid "Log entry deleted successfully."
+msgstr "Logikirje on edukalt kustutatud."
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:80
+#: includes/classes/class-table-logs.php:80
+#. translators: %d: number of log entries deleted
+#, php-format
+msgid "%d log entries deleted successfully."
+msgstr "%d logikirjet on edukalt kustutatud."
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:84
+#: includes/classes/class-table-logs.php:84
+msgid "All logs have been cleared."
+msgstr "Kõik logid on kustutatud."
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:163
+#: includes/classes/class-table-logs.php:167
+msgid "Title"
+msgstr "Pealkiri"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:165
+#: includes/classes/class-table-logs.php:169
+msgid "Details"
+msgstr "Detailid"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:200
+#: includes/classes/class-table-logs.php:209
+msgid "Are you sure you want to delete this log entry?"
+msgstr "Kas olete kindel, et soovite selle logikirje kustutada?"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:260
+#: includes/classes/class-table-logs.php:269
+msgid "View Analytics"
+msgstr "Vaata analüüsi"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:278
+#: includes-core/ShortlinksCoreAdmin.php:642
+#: includes/classes/class-table-logs.php:289
+msgid "Tablet"
+msgstr "Tablett"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:280
+#: includes-core/ShortlinksCoreAdmin.php:643
+#: includes/classes/class-table-logs.php:292
+msgid "Mobile"
+msgstr "Mobiil"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:282
+#: includes-core/ShortlinksCoreAdmin.php:641
+#: includes/classes/class-table-logs.php:295
+msgid "Desktop"
+msgstr "Arvuti"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:336
+#: includes/classes/class-table-logs.php:356
+#. translators: 1: user display name, 2: location name, 3: visit date/time
+#, php-format
+msgid "%1$s from %2$s visited at %3$s"
+msgstr "%1$s külastas %2$s %3$s"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:339
+#: includes/classes/class-table-logs.php:359
+#. translators: 1: user display name, 2: visit date/time
+#, php-format
+msgid "%1$s visited at %2$s"
+msgstr "%1$s külastas %2$s"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:343
+#: includes/classes/class-table-logs.php:363
+#. translators: 1: location name, 2: visit date/time
+#, php-format
+msgid "From %1$s, visited at %2$s"
+msgstr "Kohast %1$s, külastatud %2$s"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:346
+#: includes/classes/class-table-logs.php:366
+#. translators: %s: visit date/time
+#, php-format
+msgid "Visited at %s"
+msgstr "Külastatud %s"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:358
+#: includes/classes/class-table-logs.php:378
+#. translators: %s: device type and browser name, e.g. "Mobile Chrome"
+#, fuzzy, php-format
+msgid "via %s"
+msgstr "via %s"
+
+#: dist/publishpress-shortlinks/includes/functions.php:225
+#: includes/classes/class-meta-boxes.php:374
+#: includes/functions.php:331
+msgid "Edit shortlink settings"
+msgstr "Muuda lühilinki seadeid"
+
+#: dist/publishpress-shortlinks/includes/functions.php:364
+#: dist/publishpress-shortlinks/tinypress.php:306
+#: includes/functions.php:470
+#: tinypress.php:378
+msgid ""
+"This post is in {status} status. It will become visible to the public on "
+"{date}."
+msgstr "See postitus on {status} olekus. See muutub avalikuks {date}."
+
+#: dist/publishpress-shortlinks/includes/functions.php:389
+#: includes/functions.php:495
+msgid "Target url not found."
+msgstr "Siht-URL-i ei leitud."
+
+#: dist/publishpress-shortlinks/includes/functions.php:396
+#: includes/functions.php:502
+msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
+msgstr "Kehtetu URL-i skeem. Lubatud on ainult http, https, ftp, ftps ja mailto."
+
+#: dist/publishpress-shortlinks/includes/functions.php:428
+#: includes/functions.php:534
+msgid "Tiny slug could not created."
+msgstr "Tiny slug ei saanud loodud."
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:12
+#: templates/admin-modal-new-link.php:12
+msgid "Shortlink will appear here"
+msgstr "Lühilink ilmub siia"
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:20
+#: templates/admin-modal-new-link.php:21
+msgid "Enter a long URL and make a shortlink"
+msgstr "Sisestage pikk URL ja looge lühilink"
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:25
+#: templates/admin-modal-new-link.php:26
+msgid "Long URL"
+msgstr "Pikk URL"
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:38
+#: templates/admin-modal-new-link.php:39
+msgid "Create Shortlink"
+msgstr "Loo lühilink"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:49
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:68
+#: templates/admin/analytics.php:95
+msgid "Reset Today's Analytics"
+msgstr "Nulli täna analüüsid"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:50
+#: templates/admin/analytics.php:97
+msgid "Reset Week's Analytics"
+msgstr "Nulli nädala analüüsid"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:51
+#: templates/admin/analytics.php:99
+msgid "Reset Month's Analytics"
+msgstr "Nulli kuu analüüsid"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:52
+#: templates/admin/analytics.php:101
+msgid "Reset Year's Analytics"
+msgstr "Nulli aasta analüüsid"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:53
+#: templates/admin/analytics.php:105
+msgid ""
+"Are you sure you want to reset the analytics for this period? This action "
+"cannot be undone."
+msgstr ""
+"Kas olete kindel, et soovite selle perioodi analüüsid nullida? Seda "
+"toimingut ei saa tagasi võtta."
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:61
+#: templates/admin/analytics.php:127
+msgid "Today"
+msgstr "Täna"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:62
+#: includes-core/ShortlinksCoreAdmin.php:259
+#: templates/admin/analytics.php:129
+msgid "Last 7 Days"
+msgstr "Viimased 7 päeva"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:63
+msgid "Last 1 Month"
+msgstr "Viimane 1 kuu"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:64
+msgid "Last 1 Year"
+msgstr "Viimane 1 aasta"
+
+#: dist/publishpress-shortlinks/templates/admin/footer.php:16
+#: templates/admin/footer.php:16
+#. translators: %1$s: plugin name, %2$s: star rating icon
+#, php-format
+msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
+msgstr "Kui teile meeldib %1$s, palun jätke meile %2$s hinnang. Aitäh!"
+
+#: dist/publishpress-shortlinks/templates/admin/footer.php:24
+#: templates/admin/footer.php:24
+msgid "About"
+msgstr "Teave"
+
+#: dist/publishpress-shortlinks/templates/admin/footer.php:29
+#: templates/admin/footer.php:29
+msgid "Documentation"
+msgstr "Dokumentatsioon"
+
+#: dist/publishpress-shortlinks/templates/admin/footer.php:33
+#: templates/admin/footer.php:33
+msgid "Contact"
+msgstr "Kontakt"
+
+#: dist/publishpress-shortlinks/templates/admin/qr-code.php:16
+#: templates/admin/qr-code.php:17
+msgid "Download QR Code"
+msgstr "Laadi alla QR-kood"
+
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:8
+#: templates/admin/settings/browsers.php:8
+msgid "We have developed extensions for the below browsers."
+msgstr "Oleme välja töötanud laiendused allpool loetletud brauseritele."
+
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:9
+#: templates/admin/settings/browsers.php:9
+msgid "Click on your preferred one to Download the extension."
+msgstr "Klõpsake oma eelistatud brauseril, et laiendust alla laadida."
+
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:16
+#: templates/admin/settings/browsers.php:16
+msgid "Download the Extension"
+msgstr "Laadi alla laiendus"
+
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:17
+#: templates/admin/settings/supports.php:17
+msgid "Need PublishPress Shortlinks Support?"
+msgstr "Kas vajate PublishPressi lühilinkide tuge?"
+
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:22
+#: templates/admin/settings/supports.php:22
+msgid "If you need help or have a new feature request, let us know."
+msgstr "Kui vajate abi või teil on uus funktsioonipäring, andke meile teada."
+
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:24
+#: templates/admin/settings/supports.php:24
+msgid "Request Support"
+msgstr "Küsi tuge"
+
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:29
+#: templates/admin/settings/supports.php:29
+msgid "Detailed documentation is also available on the plugin website."
+msgstr "Üksikasjalik dokumentatsioon on saadaval ka plugina veebisaidil."
+
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:31
+#: templates/admin/settings/supports.php:31
+msgid "View Knowledge Base"
+msgstr "Vaata teadmusbaasi"
+
+#: dist/publishpress-shortlinks/tinypress.php:98
+#: tinypress.php:145
+msgid "This plugin can be deleted."
+msgstr "Seda plugina saab kustutada."
+
+#: dist/publishpress-shortlinks/tinypress.php:395
+#: tinypress.php:472
+msgid "Copied."
+msgstr "Kopeeritud."
+
+#: dist/publishpress-shortlinks/tinypress.php:397
+#: tinypress.php:474
+msgid ""
+"This setting is inherited from global settings. Choose another option to "
+"override it for this shortlink."
+msgstr ""
+"See seade on pärit globaalsetest seadistustest. Valige teine valik, et see "
+"lühilink ülekirjutada."
+
+#: dist/publishpress-shortlinks/tinypress.php:398
+#: tinypress.php:475
+msgid "Working..."
+msgstr "Töötamine..."
+
+#: includes-core/ShortlinksCoreAdmin.php:151
+#: includes-core/ShortlinksCoreAdmin.php:152
+#: includes-core/ShortlinksCoreAdmin.php:249
+msgid "Reports"
+msgstr "Aruanded"
+
+#: includes-core/ShortlinksCoreAdmin.php:251
+msgid ""
+"Get aggregated insights into your shortlink performance with detailed "
+"analytics reports."
+msgstr ""
+"Hankige kokkuvõtlikke ülevaateid oma lühilinkide toimivusest koos "
+"detailsete analüüsiraportitega."
+
+#: includes-core/ShortlinksCoreAdmin.php:257
+#: templates/admin/analytics.php:125
+msgid "Date Range:"
+msgstr "Kuupäevavahemik:"
+
+#: includes-core/ShortlinksCoreAdmin.php:261
+#: templates/admin/analytics.php:158
+msgid "Apply"
+msgstr "Kinnita"
+
+#: includes-core/ShortlinksCoreAdmin.php:269
+#: templates/admin/analytics.php:172
+msgid "Total Clicks"
+msgstr "Kokku klikke"
+
+#: includes-core/ShortlinksCoreAdmin.php:276
+#: templates/admin/analytics.php:180
+msgid "Unique Visitors"
+msgstr "Ainulaadsed külastajad"
+
+#: includes-core/ShortlinksCoreAdmin.php:283
+msgid "Active Links"
+msgstr "Aktiivsed lingid"
+
+#: includes-core/ShortlinksCoreAdmin.php:290
+msgid "Avg. Clicks/Link"
+msgstr "Keskm. klikke/link"
+
+#: includes-core/ShortlinksCoreAdmin.php:297
+msgid "Top Performing Links"
+msgstr "Parimad toimivad lingid"
+
+#: includes-core/ShortlinksCoreAdmin.php:301, fuzzy
+msgid "Link"
+msgstr "Link"
+
+#: includes-core/ShortlinksCoreAdmin.php:302
+msgid "Clicks"
+msgstr "Klikid"
+
+#: includes-core/ShortlinksCoreAdmin.php:313
+msgid "Top Locations"
+msgstr "Parimad asukohad"
+
+#: includes-core/ShortlinksCoreAdmin.php:336
+msgid "Enable Activation"
+msgstr "Aktiveerimise lubamine"
+
+#: includes-core/ShortlinksCoreAdmin.php:337
+msgid "Schedule when this shortlink should start working."
+msgstr "Planeeri, millal see lühilink peaks tööle hakkama."
+
+#: includes-core/ShortlinksCoreAdmin.php:338
+msgid ""
+"When enabled, the shortlink remains inactive until its activation date and "
+"time."
+msgstr ""
+"Kui lubatud, jääb lühilink passiivseks kuni selle aktiveerimise kuupäeva ja "
+"kellaajani."
+
+#: includes-core/ShortlinksCoreAdmin.php:346
+msgid "Activation Date"
+msgstr "Aktiveerimise kuupäev"
+
+#: includes-core/ShortlinksCoreAdmin.php:347
+msgid "Select the date when this shortlink should start working."
+msgstr "Vali kuupäev, millal see lühilink peaks tööle hakkama."
+
+#: includes-core/ShortlinksCoreAdmin.php:348
+msgid "Leave empty to make the shortlink active immediately."
+msgstr "Jäta tühi, et teha lühilink kohe aktiivseks."
+
+#: includes-core/ShortlinksCoreAdmin.php:361
+msgid "Activation Time"
+msgstr "Aktiveerimise aeg"
+
+#: includes-core/ShortlinksCoreAdmin.php:362
+msgid "Select the time when this shortlink should start working."
+msgstr "Vali kellaaeg, millal see lühilink peaks tööle hakkama."
+
+#: includes-core/ShortlinksCoreAdmin.php:363
+msgid ""
+"Only used when an activation date is set. Leave empty to activate at the "
+"start of that date."
+msgstr ""
+"Kasutatakse ainult siis, kui on seadistatud aktiveerimise kuupäev. Jäta "
+"tühi, et aktiveerida selle kuupäeva alguses."
+
+#: includes-core/ShortlinksCoreAdmin.php:381
+msgid "Expiration Click Limit"
+msgstr "Aegumise klikkide limiit"
+
+#: includes-core/ShortlinksCoreAdmin.php:382
+msgid "Expire this shortlink after a number of clicks."
+msgstr "Käivita see lühilingi pärast teatud arvu klikke."
+
+#: includes-core/ShortlinksCoreAdmin.php:383
+msgid "Set to 0 for no click limit."
+msgstr "Seadista 0, et piirangut klikkide arvu ei oleks."
+
+#: includes-core/ShortlinksCoreAdmin.php:396
+msgid "Where should visitors be sent when they click an expired link?"
+msgstr "Kuhu peaksid külastajad minema, kui nad klikivad aegunud lingile?"
+
+#: includes-core/ShortlinksCoreAdmin.php:399
+msgid "Custom URL"
+msgstr "Kohandatud URL"
+
+#: includes-core/ShortlinksCoreAdmin.php:409
+msgid ""
+"When a shortlink expires, visitors are redirected to this URL. If left "
+"empty, visitors are redirected to the homepage."
+msgstr ""
+"Kui lühilink aegub, suunatakse külastajad sellele URL-ile. Kui jäetakse "
+"tühi, suunatakse külastajad avalehele."
+
+#: includes-core/ShortlinksCoreAdmin.php:418
+msgid "Display a custom notice page before redirecting expired links."
+msgstr "Kuva kohandatud teate leht enne aegunud linkide suunamist."
+
+#: includes-core/ShortlinksCoreAdmin.php:431
+msgid "Expiration Notice Title"
+msgstr "Aegumise teate pealkiri"
+
+#: includes-core/ShortlinksCoreAdmin.php:432
+msgid "The heading of the expiration notice page"
+msgstr "Aegumise teate lehe pealkiri"
+
+#: includes-core/ShortlinksCoreAdmin.php:435
+#: includes-core/ShortlinksCoreAdmin.php:457
+#: includes-core/ShortlinksCoreAdmin.php:483
+msgid "Custom text"
+msgstr "Kohandatud tekst"
+
+#: includes-core/ShortlinksCoreAdmin.php:446
+msgid "This is the main heading visitors see when they click an expired link."
+msgstr ""
+"See on peamine pealkiri, mida külastajad näevad, kui nad klikivad aegunud "
+"lingile."
+
+#: includes-core/ShortlinksCoreAdmin.php:453
+msgid "Expiration Notice Message"
+msgstr "Aegumise teate sõnum"
+
+#: includes-core/ShortlinksCoreAdmin.php:454
+msgid "The message shown to visitors on the expiration notice page"
+msgstr "Sõnum, mis kuvatakse külastajatele aegumise teate lehel"
+
+#: includes-core/ShortlinksCoreAdmin.php:468
+msgid ""
+"This is the body text explaining what happened and when visitors will be "
+"redirected."
+msgstr "See on põhitekst, mis selgitab, mis juhtus ja millal külastajad suunatakse."
+
+#: includes-core/ShortlinksCoreAdmin.php:479
+msgid "Expiration Notice Link Text"
+msgstr "Aegumise Teate Lingitekst"
+
+#: includes-core/ShortlinksCoreAdmin.php:480
+msgid "The text for the button visitors click to continue"
+msgstr "Tekst nupule, millele külastajad klõpsavad, et jätkata"
+
+#: includes-core/ShortlinksCoreAdmin.php:494
+msgid ""
+"This is the text displayed on the clickable button at the bottom of the "
+"notice page."
+msgstr "See on tekst, mis kuvatakse klikataval nupul teate lehe allosas."
+
+#: includes-core/ShortlinksCoreAdmin.php:541
+msgid "Enable Dynamic Redirects"
+msgstr "Aktiveeri dünaamilised suunamised"
+
+#: includes-core/ShortlinksCoreAdmin.php:542
+msgid "Send visitors to different destinations when they match an enabled rule."
+msgstr ""
+"Suunake külastajad erinevatesse sihtkohtadesse, kui need vastavad lubatud "
+"reeglitele."
+
+#: includes-core/ShortlinksCoreAdmin.php:554
+msgid "Fallback Destination"
+msgstr "Tagasiulatuv Sihtkoht"
+
+#: includes-core/ShortlinksCoreAdmin.php:555
+msgid "The Target URL in the General tab is used whenever no enabled rule matches."
+msgstr ""
+"Üldvahekaartide siht-URL-i kasutatakse alati, kui ükski lubatud reegel ei "
+"vasta."
+
+#: includes-core/ShortlinksCoreAdmin.php:562
+msgid "Redirect Rules"
+msgstr "Suunamisreeglid"
+
+#: includes-core/ShortlinksCoreAdmin.php:563
+msgid "Rules are checked from top to bottom. The first matching rule is used."
+msgstr ""
+"Reeglid kontrollitakse ülaltoimest allapoole. Kasutatakse esimest vastavat "
+"reeglit."
+
+#: includes-core/ShortlinksCoreAdmin.php:564
+msgid "Add Rule"
+msgstr "Lisa Reegel"
+
+#: includes-core/ShortlinksCoreAdmin.php:566
+msgid "A shortlink can contain up to 100 redirect rules."
+msgstr "Lühilink võib sisaldada kuni 100 suunamisreeglit."
+
+#: includes-core/ShortlinksCoreAdmin.php:570
+#: includes-core/ShortlinksCoreAdmin.php:596
+msgid "Redirect Rule"
+msgstr "Suunamisreegel"
+
+#: includes-core/ShortlinksCoreAdmin.php:584
+msgid "Rule Status"
+msgstr "Reegli Staatus"
+
+#: includes-core/ShortlinksCoreAdmin.php:594
+msgid "Rule Name"
+msgstr "Reegli Nimi"
+
+#: includes-core/ShortlinksCoreAdmin.php:595
+msgid "Example: Redirect Rule 1"
+msgstr "Näide: Suunamisreegel 1"
+
+#: includes-core/ShortlinksCoreAdmin.php:602
+msgid "Destination URL"
+msgstr "Siht-URL"
+
+#: includes-core/ShortlinksCoreAdmin.php:604
+msgid ""
+"Use an HTTP or HTTPS URL. Empty, invalid, and self-referencing rules are "
+"saved as disabled."
+msgstr ""
+"Kasutage HTTP või HTTPS URL-i. Tühjad, kehtetud ja enda viitavad reeglid "
+"salvestatakse kui keelatud."
+
+#: includes-core/ShortlinksCoreAdmin.php:611
+msgid "Countries"
+msgstr "Riigid"
+
+#: includes-core/ShortlinksCoreAdmin.php:613
+msgid "Any country"
+msgstr "Igasugune riik"
+
+#: includes-core/ShortlinksCoreAdmin.php:614
+msgid "Only selected countries"
+msgstr "Ainult valitud riigid"
+
+#: includes-core/ShortlinksCoreAdmin.php:616
+msgid "All except selected countries"
+msgstr "Kõik, välja arvatud valitud riigid"
+
+#: includes-core/ShortlinksCoreAdmin.php:624
+msgid "Selected Countries"
+msgstr "Valitud riigid"
+
+#: includes-core/ShortlinksCoreAdmin.php:626
+msgid "United Kingdom"
+msgstr "Ühendkuningriik"
+
+#: includes-core/ShortlinksCoreAdmin.php:627
+msgid "Nigeria"
+msgstr "Nigeeria"
+
+#: includes-core/ShortlinksCoreAdmin.php:628
+msgid "United States"
+msgstr "Ameerika Ühendriigid"
+
+#: includes-core/ShortlinksCoreAdmin.php:632
+msgid "Select countries"
+msgstr "Vali riigid"
+
+#: includes-core/ShortlinksCoreAdmin.php:639
+msgid "Devices"
+msgstr "Seadmed"
+
+#: includes-core/ShortlinksCoreAdmin.php:646
+msgid "Leave every option unchecked to match any device."
+msgstr "Jäta kõik valikud tühjaks, et sobida mis tahes seadmega."
+
+#: includes-core/ShortlinksCoreAdmin.php:653
+msgid "Referrer"
+msgstr "Suunaja"
+
+#: includes-core/ShortlinksCoreAdmin.php:655
+msgid "Any referrer"
+msgstr "Mingi suunaja"
+
+#: includes-core/ShortlinksCoreAdmin.php:656
+msgid "Direct or unknown only"
+msgstr "Ainult otsene või tundmatu"
+
+#: includes-core/ShortlinksCoreAdmin.php:657
+msgid "Only selected domains"
+msgstr "Ainult valitud domeenid"
+
+#: includes-core/ShortlinksCoreAdmin.php:659
+msgid "All except selected domains"
+msgstr "Kõik, välja arvatud valitud domeenid"
+
+#: includes-core/ShortlinksCoreAdmin.php:667
+msgid "Referrer Domains"
+msgstr "Suunaja domeenid"
+
+#: includes-core/ShortlinksCoreAdmin.php:669
+msgid ""
+"Enter domains separated by commas or new lines. Subdomains also match their "
+"parent domain."
+msgstr ""
+"Sisesta domeenid, eraldatud komade või uute ridadega. Alamdomeenid sobivad "
+"samuti oma vanemdomeeniga."
+
+#: includes/classes/class-gutenberg-shortlink.php:165
+msgid "Search shortlinks"
+msgstr "Otsi lühikesi linke"
+
+#: includes/classes/class-hooks.php:189
+#: includes/classes/class-hooks.php:201
+msgid "Invalid custom date range."
+msgstr "Vale kohandatud kuupäevavahemik."
+
+#: includes/classes/class-import-export.php:202
+msgid "Invalid uploaded file."
+msgstr "Vigane üleslaaditud fail."
+
+#: includes/classes/class-import-export.php:237
+msgid "Please upload a valid CSV file."
+msgstr "Palun laadi üles kehtiv CSV-fail."
+
+#: includes/classes/class-import-export.php:1200
+msgid "Import and export"
+msgstr "Impordi ja ekspordi"
+
+#: includes/classes/class-import-export.php:1303
+msgid "Import progress"
+msgstr "Impordi edenemine"
+
+#: includes/classes/class-meta-boxes.php:193
+msgid "PublishPress Shortlinks slug."
+msgstr "PublishPress lühilinkide slug."
+
+#: includes/classes/class-meta-boxes.php:373
+msgid "Copy"
+msgstr "Kopeeri"
+
+#: includes/classes/class-meta-boxes.php:375
+msgid "Enter a shortlink slug to create a shortlink URL."
+msgstr "Sisestage lühilinki slug, et luua lühilinki URL."
+
+#: includes/classes/class-meta-boxes.php:377
+msgid "Shortlink Slug"
+msgstr "Lühilinki slug"
+
+#: includes/classes/class-meta-boxes.php:378
+msgid "Shortlink URL"
+msgstr "Lühilinki URL"
+
+#: includes/classes/class-meta-boxes.php:1066
+msgid "Dynamic Redirects"
+msgstr "Dünaamilised suunamised"
+
+#: includes/classes/class-meta-boxes.php:1185
+#: includes/classes/class-settings.php:1217
+msgid "Scheduling"
+msgstr "Ajastamine"
 
 #: includes/classes/class-migration.php:52
 msgid "Pretty Links"
@@ -1525,7 +3059,7 @@ msgid "Remind me later"
 msgstr "Tuletage meelde hiljem"
 
 #: includes/classes/class-migration.php:297
-#: tinypress.php:482
+#: tinypress.php:485
 msgid "Dismiss"
 msgstr "Lükka tagasi"
 
@@ -1598,612 +3132,61 @@ msgstr "Lühilinki slug puudub."
 msgid "Could not create shortlink."
 msgstr "Lühilinki ei õnnestunud luua."
 
-#: includes/classes/class-redirection.php:310
-#: includes/classes/class-redirection.php:1707
-msgid "This link is expired."
-msgstr "See link on aegunud."
-
 #: includes/classes/class-redirection.php:1016
 #: includes/classes/class-redirection.php:1602
-#: includes/classes/class-table-logs.php:382
+#: includes/classes/class-table-logs.php:387
 msgid "Default Target"
 msgstr "Vaikimisi siht"
 
-#: includes/classes/class-redirection.php:1242
-msgid "Post not found."
-msgstr "Postitust ei leitud."
+#: includes/classes/class-settings.php:66
+msgid "Settings sections"
+msgstr "Seadete osad"
 
-#: includes/classes/class-redirection.php:1386
-#: includes/functions.php:467
-#: includes/functions.php:468
-#: includes/functions.php:469
-#: includes/functions.php:475
-#: tinypress.php:373
-#: tinypress.php:374
-#: tinypress.php:375
-msgid "This post is in {status} status. It is not visible to the public."
-msgstr "See postitus on {status} staatuses. See ei ole avalikkusele nähtav."
+#: includes/classes/class-settings.php:67
+msgid "Search settings"
+msgstr "Otsingu seaded"
 
-#: includes/classes/class-redirection.php:1434
-msgid "This link has expired"
-msgstr "See link on aegunud"
-
-#: includes/classes/class-redirection.php:1438
-msgid "You will be redirected shortly."
-msgstr "Teid suunatakse varsti."
-
-#: includes/classes/class-redirection.php:1442
-msgid "Click here if you are not redirected"
-msgstr "Klõpsake siia, kui teid ei suunata"
-
-#: includes/classes/class-redirection.php:1459
-msgid "Link Expired"
-msgstr "Link on aegunud"
-
-#: includes/classes/class-redirection.php:1680
-#: includes/classes/class-redirection.php:1688
-msgid "This link is not active."
-msgstr "See link ei ole aktiivne."
-
-#: includes/classes/class-redirection.php:1727
-msgid "Incorrect password. Please try again."
-msgstr "Vale parool. Palun proovige uuesti."
-
-#: includes/classes/class-redirection.php:1746
-#: includes/classes/class-redirection.php:1751
-msgid "Password Protected Link"
-msgstr "Parooliga kaitstud link"
-
-#: includes/classes/class-redirection.php:1757
-msgid "Enter password to continue:"
-msgstr "Sisestage parool jätkamiseks:"
-
-#: includes/classes/class-redirection.php:1759
-msgid "Submit"
-msgstr "Esita"
-
-#: includes/classes/class-redirection.php:1864
-msgid "This link is not containing the right prefix slug."
-msgstr "See link ei sisalda õiget eesliidet."
-
-#: includes/classes/class-redirection.php:1905
-msgid "Too many invalid shortlink requests. Please try again later."
-msgstr "Liiga palju kehtetuid lühilinkide päringuid. Palun proovige hiljem uuesti."
-
-#: includes/classes/class-redirection.php:1906
-msgid "Too Many Requests"
-msgstr "Liiga palju päringuid"
-
-#: includes/classes/class-revision.php:439
-msgid "Invalid revision ID."
-msgstr "Kehtetu revisjoni ID."
-
-#: includes/classes/class-settings.php:430
-#: includes/classes/class-settings.php:897
-#: includes/classes/class-settings.php:905
-#: includes/functions.php:376
-#: includes/functions.php:410
-msgid "Draft"
-msgstr "Mustand"
-
-#: includes/classes/class-settings.php:431
-#: includes/classes/class-settings.php:898
-#: includes/classes/class-settings.php:906
-#: includes/functions.php:377
-#: includes/functions.php:411
-msgid "Pending Review"
-msgstr "Ootel Ülevaatus"
-
-#: includes/classes/class-settings.php:432
-#: includes/classes/class-settings.php:899
-#: includes/classes/class-settings.php:907
-#: includes/functions.php:378
-#: includes/functions.php:412
-msgid "Private"
-msgstr "Privaatne"
-
-#: includes/classes/class-settings.php:437
-msgid ""
-"Customize the notice shown for each enabled non-published status. Available "
-"placeholders: {status}, {date}, {title}."
-msgstr ""
-"Kohandage teade, mis kuvatakse iga lubatud avaldamata staatuse jaoks. "
-"Saadaval olevad kohandatavad kohad: {status}, {date}, {title}."
-
-#: includes/classes/class-settings.php:473
-#: includes/classes/class-settings.php:522
-msgid "All"
-msgstr "Kõik"
-
-#: includes/classes/class-settings.php:486
-#: includes/classes/class-settings.php:535
+#: includes/classes/class-settings.php:514
+#: includes/classes/class-settings.php:563
 msgid "Search post types"
 msgstr "Otsi postituste tüüpe"
 
-#: includes/classes/class-settings.php:487
-#: includes/classes/class-settings.php:536
+#: includes/classes/class-settings.php:515
+#: includes/classes/class-settings.php:564
 msgid "Filter post types..."
 msgstr "Filtreeri postituste tüüpe..."
 
-#: includes/classes/class-settings.php:504
-#: includes/classes/class-settings.php:553
+#: includes/classes/class-settings.php:532
+#: includes/classes/class-settings.php:581
 msgid "No post types match your search."
 msgstr "Ükski postituste tüüp ei vasta sinu otsingule."
 
-#: includes/classes/class-settings.php:528
+#: includes/classes/class-settings.php:556
 msgid "No data available."
 msgstr "Andmed puuduvad."
 
-#: includes/classes/class-settings.php:595
-msgid "Settings"
-msgstr "Seaded"
-
-#: includes/classes/class-settings.php:722
-msgid ""
-"Select which post statuses are accessible when visiting a PublishPress "
-"shortlink."
-msgstr ""
-"Vali, millised postituse staatused on ligipääsetavad PublishPress lühilinki "
-"külastades."
-
-#: includes/classes/class-settings.php:738
-#, fuzzy
-msgid "PublishPress Statuses Plugin Detected:"
-msgstr "PublishPress Shortlinks Free"
-
-#: includes/classes/class-settings.php:739
-msgid ""
-"To use core PublishPress statuses with Shortlinks, Please enable the "
-"Shortlinks post type in PublishPress Statuses workflow settings."
-msgstr ""
-"Kasutamiseks põhivälja PublishPress staatustega koos Shortlinkidega, palun "
-"lubage Shortlinkide postitüübi kasutamine PublishPressi staatuste töövoo "
-"seadetes."
-
-#: includes/classes/class-settings.php:758
-msgid "Elementor Detected:"
-msgstr "Elementor tuvastatud:"
-
-#: includes/classes/class-settings.php:759
-msgid ""
-"Shortlink prefix is required for proper rendering of Elementor revisions. "
-"It is advisable to keep it enabled."
-msgstr ""
-"Elementori revisjonide õige renderdamise jaoks on vajalik lühilinki "
-"eesliide. Soovitav on see sisse lülitada."
-
-#: includes/classes/class-settings.php:791
-msgid "TinyPress Shortlinks Notice:"
-msgstr "TinyPress lühilinkide teade:"
-
-#: includes/classes/class-settings.php:792
-msgid ""
-"Elementor is active. Shortlink prefix has been automatically disabled, it "
-"is required for optimal compatibility with Elementor revisions."
-msgstr ""
-"Elementor on aktiivne. Lühilinki eesliide on automaatselt keelatud, see on "
-"vajalik Elementori revisjonide optimaalse ühilduvuse tagamiseks."
-
-#: includes/classes/class-settings.php:896
-#: includes/functions.php:375
-#: includes/functions.php:409
-msgid "Published"
-msgstr "Avaldatud"
-
-#: includes/classes/class-settings.php:915
-#: includes/classes/class-settings.php:920
-#: includes/classes/class-settings.php:1029, fuzzy
-msgid "Post Types"
-msgstr "Post Types"
-
-#: includes/classes/class-settings.php:921
+#: includes/classes/class-settings.php:949
 msgid "Select which post types will have shortlinks available."
 msgstr "Vali, millistel postituste tüüpidel on lühilinkide kasutamine saadaval."
 
-#: includes/classes/class-settings.php:922
+#: includes/classes/class-settings.php:950
 msgid "Shortlinks metabox and column will only appear on selected post types."
 msgstr "Lühilinkide metakast ja veerg ilmuvad ainult valitud postituste tüüpidele."
 
-#: includes/classes/class-settings.php:935
-msgid "Shortlink Prefix"
-msgstr "Lühilinki eesliide"
-
-#: includes/classes/class-settings.php:936
-msgid "Add a prefix between your domain name and shortlink."
-msgstr "Lisa eelistus oma domeeninime ja lühilinki vahele."
-
-#: includes/classes/class-settings.php:943
-msgid "Prefix Slug"
-msgstr "Eelistuse slug"
-
-#: includes/classes/class-settings.php:944
-msgid "Custom prefix slug."
-msgstr "Kohandatud eelistuse slug."
-
-#: includes/classes/class-settings.php:945
-msgid "This text will be added between your domain name and shortlink."
-msgstr "See tekst lisatakse teie domeeninime ja lühilinki vahele."
-
-#: includes/classes/class-settings.php:946
-#: includes/classes/class-settings.php:947
-msgid "go"
-msgstr "mine"
-
-#: includes/classes/class-settings.php:953
-msgid "Keyboard Shortcut"
-msgstr "Klaviatuuri otsetee"
-
-#: includes/classes/class-settings.php:954
-msgid "Create shortlinks from anywhere inside your WordPress dashboard."
-msgstr "Loo lühilinke igal pool oma WordPressi juhtpaneelis."
-
-#: includes/classes/class-settings.php:955
-#: includes/classes/class-settings.php:956
-msgid "Ctrl or Cmd + /"
-msgstr "Ctrl või Cmd + /"
-
-#: includes/classes/class-settings.php:965
-msgid "Remove from Admin Bar"
-msgstr "Eemalda administraatori tööriistaribalt"
-
-#: includes/classes/class-settings.php:966
-msgid "Hide the \"Shorten\" button from the WordPress admin bar."
-msgstr "Peida \"Lühenda\" nupp WordPressi administraatori tööriistaribalt."
-
-#: includes/classes/class-settings.php:972
-msgid "Role Management"
-msgstr "Rollihaldus"
-
-#: includes/classes/class-settings.php:977
-msgid "Who Can View The All Shortlinks Screen"
-msgstr "Kes saab vaadata kõiki lühilinkide ekraane"
-
-#: includes/classes/class-settings.php:978
-msgid "Only selected user roles can view the complete list of Shortlinks."
-msgstr ""
-"Ainult valitud kasutajarollid saavad vaadata kõiki lühilinkide täielikku "
-"loendit."
-
-#: includes/classes/class-settings.php:986
-msgid "Who Can Create/Edit Shortlinks"
-msgstr "Kes saab lühilinke luua/redigeerida"
-
-#: includes/classes/class-settings.php:987
-msgid "Only selected user roles can create or edit links."
-msgstr "Ainult valitud kasutajarollid saavad linke luua või redigeerida."
-
-#: includes/classes/class-settings.php:996
-msgid "Who Can See Logs"
-msgstr "Kes saab logisid näha"
-
-#: includes/classes/class-settings.php:997
-msgid "Only selected user roles can see the Analytics tab and the Logs screen."
-msgstr ""
-"Ainult valitud kasutajarollid saavad näha analüüsi vahekaarti ja logide "
-"ekraani."
-
-#: includes/classes/class-settings.php:1006
-msgid "Who Can Control Settings"
-msgstr "Kes saab seadeid juhtida"
-
-#: includes/classes/class-settings.php:1007
-msgid "Only selected user roles can access the Settings screen."
-msgstr "Ainult valitud kasutajarollid saavad pääseda seadete ekraanile."
-
-#: includes/classes/class-settings.php:1016
-msgid "Auto-Linking"
-msgstr "Automaatlinkimine"
-
-#: includes/classes/class-settings.php:1021
-msgid "Enable Auto-Linking"
-msgstr "Luba automaatlinkimine"
-
-#: includes/classes/class-settings.php:1022
-msgid "Automatically convert keywords to shortlinks in post content."
-msgstr "Märksõnade automaatne muutmine lühilingideks postituse sisus."
-
-#: includes/classes/class-settings.php:1023
-msgid ""
-"When enabled, keywords configured in shortlink settings will be "
-"automatically linked in your content."
-msgstr ""
-"Kui lubatud, linkitakse lühilingi seadetes konfigureeritud märksõnad "
-"automaatselt sinu sisus."
-
-#: includes/classes/class-settings.php:1030
-msgid "Where should auto-linking be applied?"
-msgstr "Kus tuleks automaatlinkimist rakendada?"
-
-#: includes/classes/class-settings.php:1039
-msgid "Open Auto-Links In"
-msgstr "Ava automaatlingid"
-
-#: includes/classes/class-settings.php:1040
-msgid "Choose how auto-linked keywords should open."
-msgstr "Vali, kuidas automaatlinkitud märksõnad peaksid avanema."
-
-#: includes/classes/class-settings.php:1042
-msgid "Same tab"
-msgstr "Samas vahekaardis"
-
-#: includes/classes/class-settings.php:1043
-msgid "New tab"
-msgstr "Uues vahekaardis"
-
-#: includes/classes/class-settings.php:1051
-msgid "Auto-Link Color"
-msgstr "Automaatlinkimise värv"
-
-#: includes/classes/class-settings.php:1052
-msgid "Choose the color for auto-linked keywords."
-msgstr "Valige automaatse lingitud märksõnade värv."
-
-#: includes/classes/class-settings.php:1063
-msgid "Auto-List Links"
-msgstr "Automaatne loetelu linkidest"
-
-#: includes/classes/class-settings.php:1068
-msgid "Auto-List Shortlinks"
-msgstr "Auto-List Lühilinkide"
-
-#: includes/classes/class-settings.php:1069
-msgid ""
-"When enabled, shortlinks will appear in the \"All Links\" table based on "
-"the behavior you configure below."
-msgstr ""
-"Kui lubatud, kuvatakse lühilinkid \"Kõik lingid\" tabelis vastavalt allpool "
-"konfigureeritud käitumisele."
-
-#: includes/classes/class-settings.php:1075
-msgid "Configure Post Types"
-msgstr "Konfigureeri Postituse Tüübid"
-
-#: includes/classes/class-settings.php:1076
-msgid "Set when links should be auto-listed for each post type"
-msgstr ""
-"Määra, millal lingid peaksid olema automaatselt loetletud iga postituse "
-"tüübi jaoks"
-
-#: includes/classes/class-settings.php:1077
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr ""
-"Lisa postituse tüüpe ja konfigureeri, millal nende lühilinkid peaksid "
-"ilmuma \"Kõik lingid\" tabelis. Muudatused salvestatakse automaatselt."
-
-#: includes/classes/class-settings.php:1084
-#: includes/classes/class-statuses.php:233
-msgid "Post Status Visibility"
-msgstr "Postituse Staatusi Nähtavus"
-
-#: includes/classes/class-settings.php:1089
-msgid "Allowed Post Statuses"
-msgstr "Lubatud Postituse Staatused"
-
-#: includes/classes/class-settings.php:1098
-msgid "Unpublished Content Notice"
-msgstr "Avaldamata sisu teade"
-
-#: includes/classes/class-settings.php:1099
-msgid ""
-"Show a frontend notice when an internal shortlink displays a post that is "
-"not published."
-msgstr ""
-"Kuva frontendi teade, kui sisemine lühilink kuvab postitust, mis ei ole "
-"avaldatud."
-
-#: includes/classes/class-settings.php:1105
-msgid "Notice Post Statuses"
-msgstr "Teade postituse staatuste kohta"
-
-#: includes/classes/class-settings.php:1106
-msgid ""
-"This notice only applies to internal shortlinks that render post content "
-"directly. External shortlinks are not affected."
-msgstr ""
-"See teade kehtib ainult sisemiste lühilinkide kohta, mis kuvavad postituse "
-"sisu otse. Välised lühilinkid ei mõjuta."
-
-#: includes/classes/class-settings.php:1115
-msgid "Notice Messages"
-msgstr "Teate sõnumid"
-
-#: includes/classes/class-settings.php:1129
-msgid "Default redirection method for shortlinks"
-msgstr "Lühilinkide vaikeümbersuunamise meetod"
-
-#: includes/classes/class-settings.php:1141
-msgid "Mark links as sponsored content"
-msgstr "Märgistage lingid sponsoreeritud sisuna"
-
-#: includes/classes/class-settings.php:1149
-msgid "Prevent search engines from following links"
-msgstr "Kaitske otsingumootoreid linkide järgimisest"
-
-#: includes/classes/class-settings.php:1157
-msgid "Pass URL parameters to target links"
-msgstr "Edastage URL parameetrid sihtlinkidele"
-
-#: includes/classes/class-settings.php:1170
-msgid "Secure your shortlinks"
-msgstr "Kaitske oma lühilinke"
-
-#: includes/classes/class-settings.php:1171
-msgid "Users must enter a password to redirect to the target link."
-msgstr "Kasutajad peavad suunamiseks sihtlingile sisestama parooli."
-
-#: includes/classes/class-settings.php:1177
-msgid "Default Password"
-msgstr "Vaikimisi parool"
-
-#: includes/classes/class-settings.php:1178
-msgid "Default password for protected links"
-msgstr "Vaikimisi parool kaitstud linkide jaoks"
-
-#: includes/classes/class-settings.php:1179
-msgid ""
-"This password will be used for links that have password protection enabled "
-"via global settings. Passwords are case sensitive."
-msgstr ""
-"Seda parooli kasutatakse linkide jaoks, millel on globaalsete seadete kaudu "
-"lubatud paroolikaitse. Paroolid on suur- ja väiketähemärkide osas tundlikud."
-
-#: includes/classes/class-settings.php:1190
-msgid "Set an expiration date and time for shortlinks"
-msgstr "Määra lühilinkidele aegumiskuupäev ja -aeg"
-
-#: includes/classes/class-settings.php:1198
-msgid "Select the date when this shortlink should stop working"
-msgstr "Vali kuupäev, millal see lühilink peaks lõpetama toimimise"
-
-#: includes/classes/class-settings.php:1211
-msgid "Select the time when the shortlink should expire"
-msgstr "Vali aeg, millal lühilink peaks aeguma"
-
-#: includes/classes/class-settings.php:1230
-msgid "Revisions"
-msgstr "Muudatused"
-
-#: includes/classes/class-settings.php:1235
-msgid "Revision Link Visibility"
-msgstr "Muudatuste Lingi Nähtavus"
-
-#: includes/classes/class-settings.php:1236
-msgid ""
-"When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
-"table based on the behavior you configure below."
-msgstr ""
-"Kui lubatud, kuvatakse muudatuste lühilinkid \"Kõik Lühilinkid\" tabelis "
-"vastavalt allpool konfigureeritud käitumisele."
-
-#: includes/classes/class-settings.php:1238
-msgid "When Revision is Created"
-msgstr "Kui revisjon on loodud"
-
-#: includes/classes/class-settings.php:1240
-msgid "When Revision is Created or Link is First Used"
-msgstr "Kui revisjon on loodud või link on esmakordselt kasutatud"
-
-#: includes/classes/class-settings.php:1248
-msgid "Show Shortlink in Revision Table"
-msgstr "Kuva lühilink revisjoni tabelis"
-
-#: includes/classes/class-settings.php:1249
-msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
-msgstr "Kuva lühilinki veerus, kui vaatate revisjone PublishPress Revisionsis."
-
-#: includes/classes/class-settings.php:1255
-msgid "Revision Visibility for Visitors"
-msgstr "Revisjoni nähtavus külastajatele"
-
-#: includes/classes/class-settings.php:1256
-msgid "Allow logged-out visitors to view revision content via shortlinks."
-msgstr "Luba sisse logimata külastajatel vaadata revisjoni sisu lühilinkide kaudu."
-
-#: includes/classes/class-settings.php:1257
-msgid ""
-"By default, PublishPress Revisions blocks visitors from viewing revision "
-"previews. When enabled, revision shortlinks will render the revision "
-"content directly for logged-out visitors instead of redirecting to the "
-"preview URL."
-msgstr ""
-"Vaikimisi blokeerib PublishPress Revisions külastajatel revisjoni "
-"eelvaateid vaatamast. Kui see on lubatud, kuvavad revisjoni lühilinkid "
-"revisjoni sisu otse sisse logimata külastajatele, selle asemel et suunata "
-"eelvaate URL-ile."
-
-#: includes/classes/class-settings.php:1280, fuzzy
-msgid "Dummy"
-msgstr "Dummy"
-
-#: includes/classes/class-settings.php:1324
-msgid "No post types configured yet. Click \"Add Post Type\" to get started."
-msgstr ""
-"Postituste tüüpe pole veel konfigureeritud. Klõpsake \"Lisa postituse "
-"tüüp\", et alustada."
-
-#: includes/classes/class-settings.php:1356
-msgid "Add Post Type"
-msgstr "Lisa postituse tüüp"
-
-#: includes/classes/class-table-logs.php:70
-msgid "Log entry deleted successfully."
-msgstr "Logikirje on edukalt kustutatud."
-
-#: includes/classes/class-table-logs.php:80
-#. translators: %d: number of log entries deleted
+#: includes/classes/class-table-logs.php:166
+msgid "Select all logs"
+msgstr "Vali kõik logid"
+
+#: includes/classes/class-table-logs.php:181
 #, php-format
-msgid "%d log entries deleted successfully."
-msgstr "%d logikirjet on edukalt kustutatud."
+msgid "Select log entry %d"
+msgstr "Vali logi sissekanne %d"
 
-#: includes/classes/class-table-logs.php:84
-msgid "All logs have been cleared."
-msgstr "Kõik logid on kustutatud."
-
-#: includes/classes/class-table-logs.php:167
-msgid "Title"
-msgstr "Pealkiri"
-
-#: includes/classes/class-table-logs.php:169
-msgid "Details"
-msgstr "Detailid"
-
-#: includes/classes/class-table-logs.php:204
-msgid "Are you sure you want to delete this log entry?"
-msgstr "Kas olete kindel, et soovite selle logikirje kustutada?"
-
-#: includes/classes/class-table-logs.php:264
-msgid "View Analytics"
-msgstr "Vaata analüüsi"
-
-#: includes/classes/class-table-logs.php:284
-msgid "Tablet"
-msgstr "Tablett"
-
-#: includes/classes/class-table-logs.php:287
-msgid "Mobile"
-msgstr "Mobiil"
-
-#: includes/classes/class-table-logs.php:290
-msgid "Desktop"
-msgstr "Arvuti"
-
-#: includes/classes/class-table-logs.php:351
-#. translators: 1: user display name, 2: location name, 3: visit date/time
-#, php-format
-msgid "%1$s from %2$s visited at %3$s"
-msgstr "%1$s külastas %2$s %3$s"
-
-#: includes/classes/class-table-logs.php:354
-#. translators: 1: user display name, 2: visit date/time
-#, php-format
-msgid "%1$s visited at %2$s"
-msgstr "%1$s külastas %2$s"
-
-#: includes/classes/class-table-logs.php:358
-#. translators: 1: location name, 2: visit date/time
-#, php-format
-msgid "From %1$s, visited at %2$s"
-msgstr "Kohast %1$s, külastatud %2$s"
-
-#: includes/classes/class-table-logs.php:361
-#. translators: %s: visit date/time
-#, php-format
-msgid "Visited at %s"
-msgstr "Külastatud %s"
-
-#: includes/classes/class-table-logs.php:373
-#. translators: %s: device type and browser name, e.g. "Mobile Chrome"
-#, fuzzy, php-format
-msgid "via %s"
-msgstr "via %s"
-
-#: includes/classes/class-table-logs.php:382
+#: includes/classes/class-table-logs.php:387
 msgid "Dynamic Redirect"
 msgstr "Dünaamiline ümber suunamine"
 
-#: includes/classes/class-table-logs.php:387
+#: includes/classes/class-table-logs.php:392
 #. translators: %s: redirect rule name
 #, php-format
 msgid "Redirected by %s"
@@ -2213,279 +3196,155 @@ msgstr "Ümber suunatud %s poolt"
 msgid "Could not fetch target URL details."
 msgstr "Siht-URL andmeid ei õnnestunud hankida."
 
-#: includes/functions.php:331
-msgid "Edit shortlink settings"
-msgstr "Muuda lühilinki seadeid"
-
-#: includes/functions.php:470
-#: tinypress.php:376
-msgid ""
-"This post is in {status} status. It will become visible to the public on "
-"{date}."
-msgstr "See postitus on {status} olekus. See muutub avalikuks {date}."
-
-#: includes/functions.php:495
-msgid "Target url not found."
-msgstr "Siht-URL-i ei leitud."
-
-#: includes/functions.php:502
-msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
-msgstr "Kehtetu URL-i skeem. Lubatud on ainult http, https, ftp, ftps ja mailto."
-
-#: includes/functions.php:534
-msgid "Tiny slug could not created."
-msgstr "Tiny slug ei saanud loodud."
-
-#: templates/admin-modal-new-link.php:12
-msgid "Shortlink will appear here"
-msgstr "Lühilink ilmub siia"
-
 #: templates/admin-modal-new-link.php:20
-msgid "Enter a long URL and make a shortlink"
-msgstr "Sisestage pikk URL ja looge lühilink"
-
-#: templates/admin-modal-new-link.php:25
-msgid "Long URL"
-msgstr "Pikk URL"
-
-#: templates/admin-modal-new-link.php:38
-msgid "Create Shortlink"
+msgid "Create a Shortlink"
 msgstr "Loo lühilink"
 
-#: templates/admin/analytics.php:94
-msgid "Reset Today's Analytics"
-msgstr "Nulli täna analüüsid"
-
-#: templates/admin/analytics.php:95
+#: templates/admin/analytics.php:96
 msgid "Reset Yesterday's Analytics"
 msgstr "Nulli eilse analüütika"
 
-#: templates/admin/analytics.php:96
-msgid "Reset Week's Analytics"
-msgstr "Nulli nädala analüüsid"
-
-#: templates/admin/analytics.php:97
-#: templates/admin/analytics.php:158
+#: templates/admin/analytics.php:98
+#: templates/admin/analytics.php:160
 msgid "Reset Last 30 Days Analytics"
 msgstr "Nulli viimase 30 päeva analüütika"
 
-#: templates/admin/analytics.php:98
-msgid "Reset Month's Analytics"
-msgstr "Nulli kuu analüüsid"
-
-#: templates/admin/analytics.php:99
+#: templates/admin/analytics.php:100
 msgid "Reset Last Month's Analytics"
 msgstr "Nulli eelmise kuu analüütika"
 
-#: templates/admin/analytics.php:100
-msgid "Reset Year's Analytics"
-msgstr "Nulli aasta analüüsid"
-
-#: templates/admin/analytics.php:101
+#: templates/admin/analytics.php:102
 msgid "Reset Last 2 Years Analytics"
 msgstr "Nulli viimase 2 aasta analüütika"
 
-#: templates/admin/analytics.php:102
+#: templates/admin/analytics.php:103
 msgid "Reset Custom Range Analytics"
 msgstr "Nulli kohandatud vahemiku analüütika"
 
-#: templates/admin/analytics.php:103
+#: templates/admin/analytics.php:104
 msgid "Reset All Time Analytics"
 msgstr "Nulli kogu aeg analüütika"
 
-#: templates/admin/analytics.php:104
-msgid ""
-"Are you sure you want to reset the analytics for this period? This action "
-"cannot be undone."
-msgstr ""
-"Kas olete kindel, et soovite selle perioodi analüüsid nullida? Seda "
-"toimingut ei saa tagasi võtta."
-
-#: templates/admin/analytics.php:105
+#: templates/admin/analytics.php:106
 #, php-format
 msgid "Showing data from %1$s to %2$s"
 msgstr "Kuvatakse andmeid ajavahemikus %1$s kuni %2$s"
 
-#: templates/admin/analytics.php:106
-#: templates/admin/analytics.php:207
+#: templates/admin/analytics.php:107
+#, php-format
+msgid ""
+"Analytics updated. Total clicks: %1$s. Unique visitors: %2$s. Days with "
+"clicks: %3$s. Average per click day: %4$s."
+msgstr ""
+"Analüütika uuendatud. Kokku klikke: %1$s. Ainulaadsed külastajad: %2$s. "
+"Klikkidega päevad: %3$s. Keskmine klikkide päev: %4$s."
+
+#: templates/admin/analytics.php:108
+#: templates/admin/analytics.php:210
 msgid "No click data available for this period."
 msgstr "Selle perioodi jaoks ei ole klikiandmeid saadaval."
 
-#: templates/admin/analytics.php:107
+#: templates/admin/analytics.php:109
 msgid "click"
 msgstr "klikk"
 
-#: templates/admin/analytics.php:108
+#: templates/admin/analytics.php:110
 msgid "clicks"
 msgstr "klikid"
 
-#: templates/admin/analytics.php:110
-#: templates/admin/analytics.php:201
+#: templates/admin/analytics.php:112
+#: templates/admin/analytics.php:204
 msgid "Each bar shows total clicks for one day."
 msgstr "Iga riba näitab kokku klikke ühe päeva jooksul."
 
-#: templates/admin/analytics.php:111
+#: templates/admin/analytics.php:113
 msgid "Each bar shows total clicks for a 7-day period."
 msgstr "Iga riba näitab kokku klikke 7-päevase perioodi jooksul."
 
-#: templates/admin/analytics.php:112
+#: templates/admin/analytics.php:114
 msgid "Each bar shows total clicks for one month."
 msgstr "Iga riba näitab kokku klikke ühe kuu jooksul."
 
-#: templates/admin/analytics.php:113
+#: templates/admin/analytics.php:115
 msgid "Each bar shows total clicks for one year."
 msgstr "Iga riba näitab kokku klikke ühe aasta jooksul."
 
-#: templates/admin/analytics.php:125
-msgid "Today"
-msgstr "Täna"
-
-#: templates/admin/analytics.php:126
+#: templates/admin/analytics.php:128
 msgid "Yesterday"
 msgstr "Eile"
 
-#: templates/admin/analytics.php:128
+#: templates/admin/analytics.php:130
 msgid "Last 30 Days"
 msgstr "Viimased 30 päeva"
 
-#: templates/admin/analytics.php:129
+#: templates/admin/analytics.php:131
 msgid "This Month"
 msgstr "Käesolev kuu"
 
-#: templates/admin/analytics.php:130
+#: templates/admin/analytics.php:132
 msgid "Last Month"
 msgstr "Eelmine kuu"
 
-#: templates/admin/analytics.php:131
+#: templates/admin/analytics.php:133
 msgid "This Year"
 msgstr "Käesolev aasta"
 
-#: templates/admin/analytics.php:132
+#: templates/admin/analytics.php:134
 msgid "Last 2 Years"
 msgstr "Viimased 2 aastat"
 
-#: templates/admin/analytics.php:133
+#: templates/admin/analytics.php:135
 msgid "Custom Range"
 msgstr "Kohandatud vahemik"
 
-#: templates/admin/analytics.php:134
+#: templates/admin/analytics.php:136
 msgid "All Time"
 msgstr "Kogu aeg"
 
-#: templates/admin/analytics.php:138
+#: templates/admin/analytics.php:140
 msgid "From:"
 msgstr "Alates:"
 
-#: templates/admin/analytics.php:146
+#: templates/admin/analytics.php:148
 msgid "To:"
 msgstr "Kuni:"
 
-#: templates/admin/analytics.php:185
+#: templates/admin/analytics.php:188
 msgid "Days With Clicks"
 msgstr "Päevad koos klikkidega"
 
-#: templates/admin/analytics.php:193
+#: templates/admin/analytics.php:196
 msgid "Avg. per Click Day"
 msgstr "Keskmine kliki kohta päevas"
 
-#: templates/admin/analytics.php:199
+#: templates/admin/analytics.php:202
 msgid "Clicks Over Time"
 msgstr "Klikid ajas"
 
-#: templates/admin/footer.php:16
-#. translators: %1$s: plugin name, %2$s: star rating icon
-#, php-format
-msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
-msgstr "Kui teile meeldib %1$s, palun jätke meile %2$s hinnang. Aitäh!"
+#: templates/admin/qr-code.php:16
+msgid "QR code for this shortlink"
+msgstr "QR-kood selle lühilinki jaoks"
 
-#: templates/admin/footer.php:24
-msgid "About"
-msgstr "Teave"
-
-#: templates/admin/footer.php:29
-msgid "Documentation"
-msgstr "Dokumentatsioon"
-
-#: templates/admin/footer.php:33
-msgid "Contact"
-msgstr "Kontakt"
-
-#: templates/admin/qr-code.php:17
-msgid "Download QR Code"
-msgstr "Laadi alla QR-kood"
-
-#: templates/admin/settings/browsers.php:8
-msgid "We have developed extensions for the below browsers."
-msgstr "Oleme välja töötanud laiendused allpool loetletud brauseritele."
-
-#: templates/admin/settings/browsers.php:9
-msgid "Click on your preferred one to Download the extension."
-msgstr "Klõpsake oma eelistatud brauseril, et laiendust alla laadida."
-
-#: templates/admin/settings/browsers.php:16
-msgid "Download the Extension"
-msgstr "Laadi alla laiendus"
-
-#: templates/admin/settings/supports.php:17
-msgid "Need PublishPress Shortlinks Support?"
-msgstr "Kas vajate PublishPressi lühilinkide tuge?"
-
-#: templates/admin/settings/supports.php:22
-msgid "If you need help or have a new feature request, let us know."
-msgstr "Kui vajate abi või teil on uus funktsioonipäring, andke meile teada."
-
-#: templates/admin/settings/supports.php:24
-msgid "Request Support"
-msgstr "Küsi tuge"
-
-#: templates/admin/settings/supports.php:29
-msgid "Detailed documentation is also available on the plugin website."
-msgstr "Üksikasjalik dokumentatsioon on saadaval ka plugina veebisaidil."
-
-#: templates/admin/settings/supports.php:31
-msgid "View Knowledge Base"
-msgstr "Vaata teadmusbaasi"
-
-#: tinypress.php:143
-msgid "This plugin can be deleted."
-msgstr "Seda plugina saab kustutada."
-
-#: tinypress.php:469
-msgid "Copied."
-msgstr "Kopeeritud."
-
-#: tinypress.php:471
-msgid ""
-"This setting is inherited from global settings. Choose another option to "
-"override it for this shortlink."
-msgstr ""
-"See seade on pärit globaalsetest seadistustest. Valige teine valik, et see "
-"lühilink ülekirjutada."
-
-#: tinypress.php:472
-msgid "Working..."
-msgstr "Töötamine..."
-
-#: tinypress.php:476
+#: tinypress.php:479
 msgid "Suggested Label from target URL"
 msgstr "Soovitatud silt siht-URL-ist"
 
-#: tinypress.php:477
+#: tinypress.php:480
 msgid "Suggested Notes from target URL"
 msgstr "Soovitatud märkmed siht-URL-ist"
 
-#: tinypress.php:478
+#: tinypress.php:481
 msgid "Overwrite label?"
 msgstr "Ülekirjutada silt?"
 
-#: tinypress.php:479
+#: tinypress.php:482
 msgid "Overwrite notes?"
 msgstr "Ülekirjutada märkmed?"
 
-#: tinypress.php:480
+#: tinypress.php:483
 msgid "Yes"
 msgstr "Jah"
 
-#: tinypress.php:481
+#: tinypress.php:484
 msgid "No"
 msgstr "Ei"

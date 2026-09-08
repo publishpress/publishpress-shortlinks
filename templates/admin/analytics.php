@@ -108,12 +108,6 @@ $analytics_data = array(
     'noDataText'         => esc_html__('No click data available for this period.', 'tinypress'),
     'clickSingularText'  => esc_html__('click', 'tinypress'),
     'clickPluralText'    => esc_html__('clicks', 'tinypress'),
-    'chartDescriptions'  => array(
-        'day'   => esc_html__('Each bar shows total clicks for one day.', 'tinypress'),
-        'week'  => esc_html__('Each bar shows total clicks for a 7-day period.', 'tinypress'),
-        'month' => esc_html__('Each bar shows total clicks for one month.', 'tinypress'),
-        'year'  => esc_html__('Each bar shows total clicks for one year.', 'tinypress'),
-    ),
 );
 
 $analytics_data = apply_filters('tinypress_analytics_localized_data', $analytics_data, $post_id);
@@ -200,9 +194,6 @@ wp_localize_script('tinypress-analytics', 'tinypressAnalytics', $analytics_data)
 
     <div id="chart" class="tinypress-report-section tinypress-report-chart tinypress-analytics-chart-section">
         <h2><?php esc_html_e('Clicks Over Time', 'tinypress'); ?></h2>
-        <p class="tinypress-report-section-description" data-chart-description>
-            <?php esc_html_e('Each bar shows total clicks for one day.', 'tinypress'); ?>
-        </p>
         <div class="tinypress-chart-container">
             <div id="chart-timeline"></div>
         </div>

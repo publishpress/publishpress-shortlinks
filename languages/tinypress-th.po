@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
-"PO-Revision-Date: 2026-07-31 14:39+0000\n"
+"PO-Revision-Date: 2026-09-07 16:08+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Language: th\n"
@@ -35,17 +35,18 @@ msgstr ""
 "ตัวจัดการลิงก์ที่ดีที่สุดสำหรับ WordPress ลิงก์ของคุณสามารถสร้างแบรนด์ได้ "
 "ติดตามได้ และสามารถกำหนดสิทธิ์การดูแบบกำหนดเองได้。"
 
-#: tinypress.php:9
+#: tinypress.php:11
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: tinypress.php:10, fuzzy
+#: tinypress.php:12, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: includes-core/ShortlinksCoreAdmin.php:91
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:88
+#: includes-core/ShortlinksCoreAdmin.php:110
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
@@ -53,217 +54,156 @@ msgstr ""
 "คุณกำลังใช้ PublishPress Shortlinks Free เวอร์ชัน Pro "
 "มีฟีเจอร์และการสนับสนุนมากขึ้น"
 
-#: includes-core/ShortlinksCoreAdmin.php:92
-#: includes-core/ShortlinksCoreAdmin.php:109
-#: includes-core/ShortlinksCoreAdmin.php:110
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:89
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:106
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:107
+#: includes-core/ShortlinksCoreAdmin.php:111
+#: includes-core/ShortlinksCoreAdmin.php:128
+#: includes-core/ShortlinksCoreAdmin.php:129
 msgid "Upgrade to Pro"
 msgstr "อัปเกรดเป็น Pro"
 
-#: includes-core/ShortlinksCoreAdmin.php:120
-#: includes-core/ShortlinksCoreAdmin.php:121
-#: includes-core/ShortlinksCoreAdmin.php:163
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:117
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:118
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:148
+#: includes-core/ShortlinksCoreAdmin.php:139
+#: includes-core/ShortlinksCoreAdmin.php:140
+#: includes-core/ShortlinksCoreAdmin.php:188
 msgid "Link Health"
 msgstr "ลิงก์สุขภาพ"
 
-#: includes-core/ShortlinksCoreAdmin.php:132
-#: includes-core/ShortlinksCoreAdmin.php:133
-#: includes-core/ShortlinksCoreAdmin.php:224
-msgid "Reports"
-msgstr "รายงาน"
-
-#: includes-core/ShortlinksCoreAdmin.php:146
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:131
+#: includes-core/ShortlinksCoreAdmin.php:171
 msgid "Pro Feature"
 msgstr "ฟีเจอร์ Pro"
 
-#: includes-core/ShortlinksCoreAdmin.php:149
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:134
+#: includes-core/ShortlinksCoreAdmin.php:174
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "ฟีเจอร์นี้มีอยู่ใน PublishPress Shortlinks Pro"
 
-#: includes-core/ShortlinksCoreAdmin.php:165
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:150
+#: includes-core/ShortlinksCoreAdmin.php:190
 msgid ""
 "Check whether your shortlinks redirect visitors to working destination "
 "pages."
 msgstr "ตรวจสอบว่าลิงก์สั้นของคุณนำผู้เยี่ยมชมไปยังหน้าเว็บที่ทำงานอยู่หรือไม่"
 
-#: includes-core/ShortlinksCoreAdmin.php:173
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:158
+#: includes-core/ShortlinksCoreAdmin.php:198
 msgid "Check Visible Links"
 msgstr "ตรวจสอบลิงก์ที่มองเห็นได้"
 
-#: includes-core/ShortlinksCoreAdmin.php:177
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:162
+#: includes-core/ShortlinksCoreAdmin.php:202
 msgid "Check All Links"
 msgstr "ตรวจสอบลิงก์ทั้งหมด"
 
-#: includes-core/ShortlinksCoreAdmin.php:184
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:169
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:54
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:552
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:159
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:231
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:164
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:29
+#: includes-core/ShortlinksCoreAdmin.php:209
 #: includes/classes/class-columns-link.php:56
-#: includes/classes/class-columns-link.php:588
+#: includes/classes/class-columns-link.php:614
 #: includes/classes/class-gutenberg-shortlink.php:163
 #: includes/classes/class-hooks.php:307
 #: includes/classes/class-table-logs.php:168
-#: templates/admin-modal-new-link.php:29, fuzzy
+#: templates/admin-modal-new-link.php:30, fuzzy
 msgid "Shortlink"
 msgstr "Shortlink"
 
-#: includes-core/ShortlinksCoreAdmin.php:185
-#: includes/classes/class-gutenberg-shortlink.php:173
-#: includes/classes/class-import-export.php:1095
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:170
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:169
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1053
+#: includes-core/ShortlinksCoreAdmin.php:210
+#: includes/classes/class-gutenberg-shortlink.php:174
+#: includes/classes/class-import-export.php:1156
 msgid "Target URL"
 msgstr "URL เป้าหมาย"
 
-#: includes-core/ShortlinksCoreAdmin.php:186
-#: includes/classes/class-meta-boxes.php:546
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:171
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:542
+#: includes-core/ShortlinksCoreAdmin.php:211
+#: includes/classes/class-meta-boxes.php:888
 msgid "Status"
 msgstr "สถานะ"
 
-#: includes-core/ShortlinksCoreAdmin.php:187, fuzzy
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:172
+#: includes-core/ShortlinksCoreAdmin.php:212, fuzzy
 msgid "HTTP"
 msgstr "HTTP"
 
-#: includes-core/ShortlinksCoreAdmin.php:188
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:173
+#: includes-core/ShortlinksCoreAdmin.php:213
 msgid "Redirects"
 msgstr "การเปลี่ยนเส้นทาง"
 
-#: includes-core/ShortlinksCoreAdmin.php:189
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:174
+#: includes-core/ShortlinksCoreAdmin.php:214
 msgid "Final URL"
 msgstr "URL สุดท้าย"
 
-#: includes-core/ShortlinksCoreAdmin.php:196
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:181
+#: includes-core/ShortlinksCoreAdmin.php:221
 msgid "Working"
 msgstr "ใช้งาน"
 
-#: includes-core/ShortlinksCoreAdmin.php:204
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:189
+#: includes-core/ShortlinksCoreAdmin.php:229
 msgid "Broken"
 msgstr "เสีย"
 
-#: includes-core/ShortlinksCoreAdmin.php:226
-msgid ""
-"Get aggregated insights into your shortlink performance with detailed "
-"analytics reports."
-msgstr ""
-"รับข้อมูลเชิงลึกที่รวมไว้เกี่ยวกับประสิทธิภาพของลิงก์สั้นของคุณด้วยรายงานการ"
-"วิเคราะห์ที่ละเอียด"
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:212
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:236
+#: includes-core/ShortlinksCoreAdmin.php:519
+msgid "Expired Redirect Settings"
+msgstr "การตั้งค่าการเปลี่ยนเส้นทางที่หมดอายุ"
 
-#: includes-core/ShortlinksCoreAdmin.php:232
-#: templates/admin/analytics.php:123
-msgid "Date Range:"
-msgstr "ช่วงวันที่:"
-
-#: includes-core/ShortlinksCoreAdmin.php:234
-#: templates/admin/analytics.php:127
-msgid "Last 7 Days"
-msgstr "7 วันที่ผ่านมา"
-
-#: includes-core/ShortlinksCoreAdmin.php:236
-#: templates/admin/analytics.php:156
-msgid "Apply"
-msgstr "นำไปใช้"
-
-#: includes-core/ShortlinksCoreAdmin.php:244
-#: templates/admin/analytics.php:169
-msgid "Total Clicks"
-msgstr "คลิกทั้งหมด"
-
-#: includes-core/ShortlinksCoreAdmin.php:251
-#: templates/admin/analytics.php:177
-msgid "Unique Visitors"
-msgstr "ผู้เข้าชมที่ไม่ซ้ำ"
-
-#: includes-core/ShortlinksCoreAdmin.php:258
-msgid "Active Links"
-msgstr "ลิงก์ที่ใช้งาน"
-
-#: includes-core/ShortlinksCoreAdmin.php:265
-msgid "Avg. Clicks/Link"
-msgstr "เฉลี่ยคลิก/ลิงก์"
-
-#: includes-core/ShortlinksCoreAdmin.php:272
-msgid "Top Performing Links"
-msgstr "ลิงก์ที่มีประสิทธิภาพสูงสุด"
-
-#: includes-core/ShortlinksCoreAdmin.php:276
-msgid "Link"
-msgstr "ลิงก์"
-
-#: includes-core/ShortlinksCoreAdmin.php:277
-msgid "Clicks"
-msgstr "คลิก"
-
-#: includes-core/ShortlinksCoreAdmin.php:288
-msgid "Top Locations"
-msgstr "สถานที่ยอดนิยม"
-
-#: includes-core/ShortlinksCoreAdmin.php:312
-msgid "Scheduled Expiration Settings"
-msgstr "การตั้งค่าการหมดอายุที่กำหนดไว้"
-
-#: includes-core/ShortlinksCoreAdmin.php:315
-msgid "Activation Date"
-msgstr "วันที่เปิดใช้งาน"
-
-#: includes-core/ShortlinksCoreAdmin.php:316
-msgid "Choose when this shortlink should start working."
-msgstr "เลือกเวลาที่ลิงก์สั้นนี้ควรเริ่มทำงาน"
-
-#: includes-core/ShortlinksCoreAdmin.php:317, fuzzy
-msgid "dd-mm-yyyy"
-msgstr "dd-mm-yyyy"
-
-#: includes-core/ShortlinksCoreAdmin.php:318
-msgid "Activation Time"
-msgstr "เวลาที่เปิดใช้งาน"
-
-#: includes-core/ShortlinksCoreAdmin.php:319
-msgid "Choose the time this shortlink should start working."
-msgstr "เลือกเวลาที่ลิงก์สั้นนี้ควรเริ่มทำงาน"
-
-#: includes-core/ShortlinksCoreAdmin.php:320, fuzzy
-msgid "12:00 PM"
-msgstr "12:00 PM"
-
-#: includes-core/ShortlinksCoreAdmin.php:321
-msgid "Expiration Click Limit"
-msgstr "ขีดจำกัดการคลิกหมดอายุ"
-
-#: includes-core/ShortlinksCoreAdmin.php:322
-msgid "Expire this shortlink after a number of clicks."
-msgstr "หมดอายุลิงก์สั้นนี้หลังจากจำนวนคลิก"
-
-#: includes-core/ShortlinksCoreAdmin.php:324
-#: includes-core/ShortlinksCoreAdmin.php:348
-#: includes/classes/class-import-export.php:1106
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:215
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:239
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1064
+#: includes-core/ShortlinksCoreAdmin.php:395
+#: includes-core/ShortlinksCoreAdmin.php:522
+#: includes/classes/class-import-export.php:1167
 msgid "Expired Redirect URL"
 msgstr "URL การเปลี่ยนเส้นทางที่หมดอายุ"
 
-#: includes-core/ShortlinksCoreAdmin.php:325
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:216
 msgid "Choose where visitors should go when they click an expired link."
 msgstr "เลือกว่าผู้เยี่ยมชมควรไปที่ไหนเมื่อคลิกลิงก์ที่หมดอายุ"
 
-#: includes-core/ShortlinksCoreAdmin.php:327
-#: includes-core/ShortlinksCoreAdmin.php:351
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:218
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:242
+#: includes-core/ShortlinksCoreAdmin.php:417
+#: includes-core/ShortlinksCoreAdmin.php:525
 msgid "Show Expiration Notice"
 msgstr "แสดงการแจ้งเตือนหมดอายุ"
 
-#: includes-core/ShortlinksCoreAdmin.php:328
-#: includes-core/ShortlinksCoreAdmin.php:352
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:219
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:243
+#: includes-core/ShortlinksCoreAdmin.php:526
 msgid "Display a custom notice page before automatically redirecting visitors."
 msgstr ""
 "แสดงหน้าข้อความแจ้งเตือนที่กำหนดเองก่อนที่จะเปลี่ยนเส้นทางผู้เยี่ยมชมโดยอัตโ"
 "นมัติ"
 
-#: includes-core/ShortlinksCoreAdmin.php:331
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:222
 msgid "Show a notice page for expired shortlinks briefly before redirecting."
 msgstr ""
 "แสดงหน้าข้อความแจ้งเตือนสำหรับลิงก์สั้นที่หมดอายุเป็นระยะเวลาสั้น ๆ "
 "ก่อนที่จะเปลี่ยนเส้นทาง"
 
-#: includes-core/ShortlinksCoreAdmin.php:345
-msgid "Expired Redirect Settings"
-msgstr "การตั้งค่าการเปลี่ยนเส้นทางที่หมดอายุ"
-
-#: includes-core/ShortlinksCoreAdmin.php:349
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:240
+#: includes-core/ShortlinksCoreAdmin.php:523
 msgid "Set the default destination for all expired shortlinks."
 msgstr "ตั้งค่าเป้าหมายเริ่มต้นสำหรับลิงก์สั้นที่หมดอายุทั้งหมด"
 
-#: includes-core/ShortlinksCoreAdmin.php:355
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:246
+#: includes-core/ShortlinksCoreAdmin.php:529
 msgid ""
 "Show a notice page for expired shortlinks briefly before redirecting. You "
 "can customize the content of this message."
@@ -271,580 +211,721 @@ msgstr ""
 "แสดงหน้าข้อความแจ้งเตือนสำหรับลิงก์สั้นที่หมดอายุเป็นระยะเวลาสั้น ๆ "
 "ก่อนที่จะเปลี่ยนเส้นทาง คุณสามารถปรับแต่งเนื้อหาของข้อความนี้ได้"
 
-#: includes-core/ShortlinksCoreAdmin.php:369
-msgid "Conditional Redirect Rules"
-msgstr "กฎการเปลี่ยนเส้นทางตามเงื่อนไข"
-
-#: includes-core/ShortlinksCoreAdmin.php:371
-msgid "Enable Dynamic Redirects"
-msgstr "เปิดใช้งานการเปลี่ยนเส้นทางแบบไดนามิก"
-
-#: includes-core/ShortlinksCoreAdmin.php:374
-msgid "Send visitors to different destinations when they match a rule."
-msgstr "ส่งผู้เข้าชมไปยังจุดหมายปลายทางที่แตกต่างกันเมื่อพวกเขาตรงตามกฎ"
-
-#: includes-core/ShortlinksCoreAdmin.php:376
-msgid "Redirect Rules"
-msgstr "กฎการเปลี่ยนเส้นทาง"
-
-#: includes-core/ShortlinksCoreAdmin.php:378
-msgid "Nigeria mobile visitors"
-msgstr "ผู้เข้าชมมือถือจากไนจีเรีย"
-
-#: includes-core/ShortlinksCoreAdmin.php:380
-msgid "Country and device conditions"
-msgstr "เงื่อนไขประเทศและอุปกรณ์"
-
-#: includes-core/ShortlinksCoreAdmin.php:415
-#: includes-core/ShortlinksCoreAdmin.php:442
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:281
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:308
+#: includes-core/ShortlinksCoreAdmin.php:720
+#: includes-core/ShortlinksCoreAdmin.php:747
 msgid "Advanced Auto-Link Settings"
 msgstr "การตั้งค่าลิงก์อัตโนมัติขั้นสูง"
 
-#: includes-core/ShortlinksCoreAdmin.php:417
-#: includes-core/ShortlinksCoreAdmin.php:445
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:283
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:311
+#: includes-core/ShortlinksCoreAdmin.php:722
+#: includes-core/ShortlinksCoreAdmin.php:750
 msgid "Minimum Keyword Usage"
 msgstr "การใช้คีย์เวิร์ดขั้นต่ำ"
 
-#: includes-core/ShortlinksCoreAdmin.php:418
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:284
+#: includes-core/ShortlinksCoreAdmin.php:723
 msgid "Keyword must appear this many times before being autolinked."
 msgstr "คีย์เวิร์ดต้องปรากฏจำนวนครั้งนี้ก่อนที่จะถูกเชื่อมโยงโดยอัตโนมัติ"
 
-#: includes-core/ShortlinksCoreAdmin.php:420
-#: includes-core/ShortlinksCoreAdmin.php:448
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:286
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:314
+#: includes-core/ShortlinksCoreAdmin.php:725
+#: includes-core/ShortlinksCoreAdmin.php:753
 msgid "Maximum Keywords Linked"
 msgstr "การเชื่อมโยงคำหลักสูงสุด"
 
-#: includes-core/ShortlinksCoreAdmin.php:421
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:287
+#: includes-core/ShortlinksCoreAdmin.php:726
 msgid "Maximum number of times this keyword should be autolinked per post."
 msgstr "จำนวนครั้งสูงสุดที่คำหลักนี้ควรถูกเชื่อมโยงโดยอัตโนมัติในแต่ละโพสต์."
 
-#: includes-core/ShortlinksCoreAdmin.php:446
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:312
+#: includes-core/ShortlinksCoreAdmin.php:751
 msgid "Default minimum times a keyword must appear before being autolinked."
 msgstr "จำนวนน้อยที่สุดเริ่มต้นที่คำหลักต้องปรากฏก่อนที่จะถูกเชื่อมโยงโดยอัตโนมัติ."
 
-#: includes-core/ShortlinksCoreAdmin.php:449
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:315
+#: includes-core/ShortlinksCoreAdmin.php:754
 msgid "Default maximum times a keyword should be autolinked per post."
 msgstr "จำนวนครั้งสูงสุดเริ่มต้นที่คำหลักควรจะถูกเชื่อมโยงโดยอัตโนมัติในแต่ละโพสต์."
 
-#: includes-core/ShortlinksCoreAdmin.php:451
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:317
+#: includes-core/ShortlinksCoreAdmin.php:756
 msgid "Maximum Links Per Post"
 msgstr "ลิงก์สูงสุดต่อโพสต์"
 
-#: includes-core/ShortlinksCoreAdmin.php:452
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:318
+#: includes-core/ShortlinksCoreAdmin.php:757
 msgid "Total maximum autolinks allowed per post/page."
 msgstr "จำนวนลิงก์โดยรวมสูงสุดที่อนุญาตต่อโพสต์/หน้า."
 
-#: includes-core/ShortlinksCoreAdmin.php:454
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:320
+#: includes-core/ShortlinksCoreAdmin.php:759
 msgid "Minimum Character Length"
 msgstr "ความยาวตัวอักษรขั้นต่ำ"
 
-#: includes-core/ShortlinksCoreAdmin.php:455
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:321
+#: includes-core/ShortlinksCoreAdmin.php:760
 msgid "Keywords shorter than this will not be autolinked."
 msgstr "คำหลักที่สั้นกว่านี้จะไม่ถูกเชื่อมโยงโดยอัตโนมัติ."
 
-#: includes-core/ShortlinksCoreAdmin.php:457
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:323
+#: includes-core/ShortlinksCoreAdmin.php:762
 msgid "Maximum Character Length"
 msgstr "ความยาวตัวอักษรสูงสุด"
 
-#: includes-core/ShortlinksCoreAdmin.php:458
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:324
+#: includes-core/ShortlinksCoreAdmin.php:763
 msgid "Keywords longer than this will not be autolinked."
 msgstr "คำหลักที่ยาวกว่านี้จะไม่ถูกเชื่อมโยงโดยอัตโนมัติ."
 
-#: includes-core/ShortlinksCoreAdmin.php:479
-#: includes/classes/class-settings.php:1059
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:345
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:850
+#: includes-core/ShortlinksCoreAdmin.php:784
+#: includes/classes/class-settings.php:1087
 msgid "Auto-Link Exceptions"
 msgstr "ข้อยกเว้นการเชื่อมโยงอัตโนมัติ"
 
-#: includes-core/ShortlinksCoreAdmin.php:481
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:347
+#: includes-core/ShortlinksCoreAdmin.php:786
 msgid "Exclude Terms from Auto Links"
 msgstr "ไม่รวมคำจากลิงก์อัตโนมัติ"
 
-#: includes-core/ShortlinksCoreAdmin.php:482
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:348
+#: includes-core/ShortlinksCoreAdmin.php:787
 msgid "These terms will never be autolinked."
 msgstr "คำเหล่านี้จะไม่ถูกเชื่อมโยงโดยอัตโนมัติ."
 
-#: includes-core/ShortlinksCoreAdmin.php:484
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:350
+#: includes-core/ShortlinksCoreAdmin.php:789
 msgid "Prevent Auto Links Inside Classes or IDs"
 msgstr "ป้องกันการเชื่อมโยงอัตโนมัติภายในคลาสหรือ ID"
 
-#: includes-core/ShortlinksCoreAdmin.php:485
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:351
+#: includes-core/ShortlinksCoreAdmin.php:790
 msgid ""
 "Content inside elements with these classes or IDs will not have autolinks "
 "applied."
 msgstr "เนื้อหาภายในองค์ประกอบที่มีคลาสหรือ ID เหล่านี้จะไม่มีการเชื่อมโยงอัตโนมัติ."
 
-#: includes-core/ShortlinksCoreAdmin.php:487
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:353
+#: includes-core/ShortlinksCoreAdmin.php:792
 msgid "Prevent Auto Links Inside Elements"
 msgstr "ป้องกันการเชื่อมโยงอัตโนมัติภายในองค์ประกอบ"
 
-#: includes-core/ShortlinksCoreAdmin.php:488
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:354
+#: includes-core/ShortlinksCoreAdmin.php:793
 msgid "Terms inside these HTML tags will not have autolinks applied."
 msgstr "คำภายในแท็ก HTML เหล่านี้จะไม่มีการเชื่อมโยงอัตโนมัติ."
 
-#: includes-core/ShortlinksCoreAdmin.php:501
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:367
+#: includes-core/ShortlinksCoreAdmin.php:806
 msgid "Prevent Auto Links on Shortcodes"
 msgstr "ป้องกันการเชื่อมโยงอัตโนมัติในรหัสสั้น"
 
-#: includes-core/ShortlinksCoreAdmin.php:502
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:368
+#: includes-core/ShortlinksCoreAdmin.php:807
 msgid "Terms inside these shortcodes will not have autolinks applied."
 msgstr "คำภายในรหัสสั้นเหล่านี้จะไม่มีการเชื่อมโยงอัตโนมัติ."
 
-#: includes-core/ShortlinksCoreAdmin.php:504
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:370
+#: includes-core/ShortlinksCoreAdmin.php:809
 msgid "Prevent Auto Links on Blocks"
 msgstr "ป้องกันการเชื่อมโยงอัตโนมัติในบล็อก"
 
-#: includes-core/ShortlinksCoreAdmin.php:505
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:371
+#: includes-core/ShortlinksCoreAdmin.php:810
 msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
 msgstr "ข้อกำหนดภายในบล็อก Gutenberg เหล่านี้จะไม่มีลิงก์อัตโนมัติถูกนำไปใช้."
 
-#: includes-core/ShortlinksCoreAdmin.php:506
+#: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:372
+#: includes-core/ShortlinksCoreAdmin.php:811
 msgid "Search and select blocks..."
 msgstr "ค้นหาและเลือกบล็อก..."
 
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:39
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:204
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:234
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:285
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:329
 #: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:204
-#: includes/classes/class-gutenberg-shortlink.php:238
-#: includes/classes/class-gutenberg-shortlink.php:289
-#: includes/classes/class-gutenberg-shortlink.php:333
+#: includes/classes/class-autolist-ajax.php:203
+#: includes/classes/class-gutenberg-shortlink.php:239
+#: includes/classes/class-gutenberg-shortlink.php:290
+#: includes/classes/class-gutenberg-shortlink.php:334
 msgid "Permission denied"
 msgstr "การอนุญาตถูกปฏิเสธ"
 
-#: includes/classes/class-autolist-ajax.php:47
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:47
+#: includes/classes/class-autolist-ajax.php:46
 msgid "Post type is required"
 msgstr "จำเป็นต้องมี post type"
 
-#: includes/classes/class-autolist-ajax.php:53
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:53
+#: includes/classes/class-autolist-ajax.php:52
 #. translators: %s: post type name
 msgid "\"%%s\" is not a registered post type"
 msgstr "\"%%s\" ไม่ใช่ประเภทโพสต์ที่ลงทะเบียน"
 
-#: includes/classes/class-autolist-ajax.php:61
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:61
+#: includes/classes/class-autolist-ajax.php:60
 #. translators: %s: post type name
 msgid "\"%%s\" is not a public post type"
 msgstr "\"%%s\" ไม่ใช่ประเภทโพสต์สาธารณะ"
 
-#: includes/classes/class-autolist-ajax.php:68
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:68
+#: includes/classes/class-autolist-ajax.php:67
 #. translators: %s: post type name
 msgid "\"%%s\" cannot be used for auto-listing"
 msgstr "\"%%s\" ไม่สามารถใช้สำหรับการสร้างรายการอัตโนมัติ"
 
-#: includes/classes/class-autolist-ajax.php:78
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:78
+#: includes/classes/class-autolist-ajax.php:77
 #. translators: %s: post type name
 msgid "\"%%s\" is already configured"
 msgstr "\"%%s\" ได้ถูกกำหนดค่าไว้แล้ว"
 
-#: includes/classes/class-autolist-ajax.php:85
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:85
+#: includes/classes/class-autolist-ajax.php:84
 #. translators: %s: post type label
 msgid "Valid: %%s"
 msgstr "ถูกต้อง: %%s"
 
-#: includes/classes/class-autolist-ajax.php:99
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:99
+#: includes/classes/class-autolist-ajax.php:98
 msgid "Permission denied - you must be an administrator"
 msgstr "การอนุญาตถูกปฏิเสธ - คุณต้องเป็นผู้ดูแลระบบ"
 
-#: includes/classes/class-autolist-ajax.php:107
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:107
+#: includes/classes/class-autolist-ajax.php:106
 msgid "Invalid configuration format - expected array"
 msgstr "รูปแบบการกำหนดค่าที่ไม่ถูกต้อง - คาดว่าเป็นอาเรย์"
 
-#: includes/classes/class-autolist-ajax.php:128
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:128
+#: includes/classes/class-autolist-ajax.php:127
 msgid "Configuration unchanged (already saved)"
 msgstr "การกำหนดค่าไม่มีการเปลี่ยนแปลง (บันทึกแล้ว)"
 
-#: includes/classes/class-autolist-ajax.php:132
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:132
+#: includes/classes/class-autolist-ajax.php:131
 msgid "Failed to save configuration to database"
 msgstr "ไม่สามารถบันทึกการกำหนดค่าไปยังฐานข้อมูล"
 
-#: includes/classes/class-autolist-ajax.php:137
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:137
+#: includes/classes/class-autolist-ajax.php:136
 msgid "Configuration saved successfully"
 msgstr "การกำหนดบันทึกเรียบร้อยแล้ว"
 
-#: includes/classes/class-autolist-ajax.php:149
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:149
+#: includes/classes/class-autolist-ajax.php:148
 #. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "ข้อผิดพลาด: %s"
 
-#: includes/classes/class-autolist-ajax.php:293
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:293
+#: includes/classes/class-autolist-ajax.php:291
 msgid "Validating..."
 msgstr "กำลังตรวจสอบ..."
 
-#: includes/classes/class-autolist-ajax.php:294
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:294
+#: includes/classes/class-autolist-ajax.php:292
 msgid "Saving..."
 msgstr "กำลังบันทึก..."
 
-#: includes/classes/class-autolist-ajax.php:295
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:295
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Saved!"
 msgstr "บันทึกแล้ว!"
 
-#: includes/classes/class-autolist-ajax.php:296
-#: includes/classes/class-gutenberg-shortlink.php:179
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:296
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:175
+#: includes/classes/class-autolist-ajax.php:294
+#: includes/classes/class-gutenberg-shortlink.php:180
 msgid "Error"
 msgstr "ข้อผิดพลาด"
 
-#: includes/classes/class-autolist-ajax.php:297
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:297
+#: includes/classes/class-autolist-ajax.php:295
 msgid "Are you sure you want to remove this post type?"
 msgstr "คุณแน่ใจหรือว่าต้องการลบ post type นี้?"
 
-#: includes/classes/class-autolist-ajax.php:298
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:298
+#: includes/classes/class-autolist-ajax.php:296
 msgid "Select a post type"
 msgstr "เลือก post type"
 
-#: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:1241
-#: includes/classes/class-settings.php:1339
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:299
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1032
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1130
+#: includes/classes/class-autolist-ajax.php:297
+#: includes/classes/class-settings.php:1274
+#: includes/classes/class-settings.php:1372
 msgid "Never"
 msgstr "ไม่เคย"
 
-#: includes/classes/class-autolist-ajax.php:300
-#: includes/classes/class-settings.php:1239
-#: includes/classes/class-settings.php:1341
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:300
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1030
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1132
+#: includes/classes/class-autolist-ajax.php:298
+#: includes/classes/class-settings.php:1272
+#: includes/classes/class-settings.php:1374
 msgid "When Link is First Used"
 msgstr "เมื่อใช้ลิงก์ครั้งแรก"
 
-#: includes/classes/class-autolist-ajax.php:301
-#: includes/classes/class-settings.php:1343
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:301
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1134
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:1376
 msgid "When Post is Published"
 msgstr "เมื่อโพสต์ถูกเผยแพร่"
 
-#: includes/classes/class-autolist-ajax.php:302
-#: includes/classes/class-settings.php:1342
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:302
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1133
+#: includes/classes/class-autolist-ajax.php:300
+#: includes/classes/class-settings.php:1375
 msgid "When Post is Created"
 msgstr "เมื่อโพสต์ถูกสร้าง"
 
-#: includes/classes/class-autolist-ajax.php:303
-#: includes/classes/class-settings.php:1340
+#: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:303
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1131
+#: includes/classes/class-autolist-ajax.php:301
+#: includes/classes/class-settings.php:1373
 msgid "When Link is First Used or Post Created"
 msgstr "เมื่อใช้ลิงก์ครั้งแรกหรือโพสต์ถูกสร้าง"
 
+#: dist/publishpress-shortlinks/includes/classes/class-autolist.php:119
 #: includes/classes/class-autolist.php:123
 msgid "Invalid post ID or post type."
 msgstr "ID โพสต์หรือประเภทโพสต์ไม่ถูกต้อง"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:76
 #: includes/classes/class-columns-link.php:78
 msgid "No shortlink"
 msgstr "ไม่มี shortlink"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:97
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:232
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:234
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:163
 #: includes/classes/class-columns-link.php:99
 #: includes/classes/class-hooks.php:308
 #: includes/classes/class-hooks.php:310
-#: includes/classes/class-meta-boxes.php:167, fuzzy
+#: includes/classes/class-meta-boxes.php:176
+#: includes/classes/class-meta-boxes.php:376, fuzzy
 msgid "Shortlinks"
 msgstr "Shortlinks"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:188
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:335
 #: includes/classes/class-columns-link.php:190
 #: includes/classes/class-columns-link.php:337
 msgid "Internal"
 msgstr "ภายใน"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:188
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:336
 #: includes/classes/class-columns-link.php:190
 #: includes/classes/class-columns-link.php:338
 msgid "External"
 msgstr "ภายนอก"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:189
 #: includes/classes/class-columns-link.php:191
 msgid "This links to your post"
 msgstr "ลิงก์นี้ไปที่โพสต์ของคุณ"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:189
 #: includes/classes/class-columns-link.php:191
 msgid "This links to an external website"
 msgstr "ลิงก์นี้ไปที่เว็บไซต์ภายนอก"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:193
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:337
 #: includes/classes/class-columns-link.php:195
 #: includes/classes/class-columns-link.php:339
 msgid "Revision"
 msgstr "การแก้ไข"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:194
 #: includes/classes/class-columns-link.php:196
 msgid "This links to a revision"
 msgstr "ลิงก์นี้ไปที่การแก้ไข"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:203
 #: includes/classes/class-columns-link.php:205
 msgid "Not yet submitted"
 msgstr "ยังไม่ได้ส่ง"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:204
 #: includes/classes/class-columns-link.php:206
 msgid "Submitted for approval"
 msgstr "ส่งเพื่อขออนุมัติ"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:205
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:365
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:706
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:714
+#: dist/publishpress-shortlinks/includes/functions.php:273
+#: dist/publishpress-shortlinks/includes/functions.php:307
 #: includes/classes/class-columns-link.php:207
-#: includes/classes/class-settings.php:433
-#: includes/classes/class-settings.php:900
-#: includes/classes/class-settings.php:908
+#: includes/classes/class-settings.php:461
+#: includes/classes/class-settings.php:928
+#: includes/classes/class-settings.php:936
 #: includes/functions.php:379
 #: includes/functions.php:413
 msgid "Scheduled"
 msgstr "กำหนดการ"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:206
 #: includes/classes/class-columns-link.php:208
 msgid "Deferred"
 msgstr "เลื่อนเวลา"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:207
 #: includes/classes/class-columns-link.php:209
 msgid "Needs work"
 msgstr "ต้องทำงาน"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:208
 #: includes/classes/class-columns-link.php:210
 msgid "Rejected"
 msgstr "ถูกปฏิเสธ"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:212
 #: includes/classes/class-columns-link.php:214
 #. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "การแก้ไข: %s"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:233
 #: includes/classes/class-columns-link.php:235
 #. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
 msgstr "คลิก %s ครั้ง"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:241
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:198
 #: includes/classes/class-columns-link.php:243
-#: includes/classes/class-table-logs.php:202
+#: includes/classes/class-table-logs.php:207
 msgid "Edit"
 msgstr "แก้ไข"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:246
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:179
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:200
 #: includes/classes/class-columns-link.php:248
-#: includes/classes/class-table-logs.php:183
-#: includes/classes/class-table-logs.php:204
+#: includes/classes/class-table-logs.php:188
+#: includes/classes/class-table-logs.php:209
 msgid "Delete"
 msgstr "ลบ"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:332
 #: includes/classes/class-columns-link.php:334
 msgid "Filter by link type"
 msgstr "กรองตามประเภทลิงก์"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:334
 #: includes/classes/class-columns-link.php:336
 msgid "All link types"
 msgstr "ทุกประเภทลิงก์"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:350
 #: includes/classes/class-columns-link.php:352
 msgid "Filter by category"
 msgstr "กรองตามหมวดหมู่"
 
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:352
 #: includes/classes/class-columns-link.php:354
 msgid "All categories"
 msgstr "หมวดหมู่ทั้งหมด"
 
-#: includes/classes/class-columns-link.php:457
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:446
+#: includes/classes/class-columns-link.php:483
 msgid "Filters"
 msgstr "ตัวกรอง"
 
-#: includes/classes/class-columns-link.php:460
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:449
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:257
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:814
+#: includes/classes/class-columns-link.php:486
 #: includes/classes/class-hooks.php:333
-#: includes/classes/class-meta-boxes.php:840
+#: includes/classes/class-meta-boxes.php:1195
 msgid "Categories"
 msgstr "หมวดหมู่"
 
-#: includes/classes/class-columns-link.php:478
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:467
+#: includes/classes/class-columns-link.php:504
 msgid "Permission denied."
 msgstr "การเข้าถึงถูกปฏิเสธ"
 
-#: includes/classes/class-columns-link.php:587
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:551
+#: includes/classes/class-columns-link.php:613
 msgid "Link Title"
 msgstr "ชื่อลิงก์"
 
-#: includes/classes/class-columns-link.php:589
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:553
+#: includes/classes/class-columns-link.php:615
 msgid "Link Type"
 msgstr "ประเภทลิงก์"
 
-#: includes/classes/class-columns-link.php:593
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:557
+#: includes/classes/class-columns-link.php:619
 msgid "Stats"
 msgstr "สถิติ"
 
-#: includes/classes/class-columns-link.php:596
+#: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:560
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:166
+#: includes/classes/class-columns-link.php:622
 #: includes/classes/class-table-logs.php:170
 msgid "Actions"
 msgstr "การกระทำ"
 
+#: dist/publishpress-shortlinks/includes/classes/class-functions.php:43
 #: includes/classes/class-functions.php:43
 msgid "Click to copy"
 msgstr "คลิกเพื่อคัดลอก"
 
+#: dist/publishpress-shortlinks/includes/classes/class-functions.php:51
 #: includes/classes/class-functions.php:51
+#: includes/classes/class-meta-boxes.php:372
 msgid "Copied"
 msgstr "คัดลอกแล้ว"
 
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:160
 #: includes/classes/class-gutenberg-shortlink.php:164
 msgid "Search shortlinks..."
 msgstr "ค้นหาลิงก์สั้น..."
 
-#: includes/classes/class-gutenberg-shortlink.php:165
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:161
+#: includes/classes/class-gutenberg-shortlink.php:166
 msgid "Insert Shortlink"
 msgstr "แทรกลิงก์สั้น"
 
-#: includes/classes/class-gutenberg-shortlink.php:166
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:162
+#: includes/classes/class-gutenberg-shortlink.php:167
 msgid "Create New Shortlink"
 msgstr "สร้างลิงก์สั้นใหม่"
 
-#: includes/classes/class-gutenberg-shortlink.php:167
-#: includes/classes/class-settings.php:930
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:163
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:721
+#: includes/classes/class-gutenberg-shortlink.php:168
+#: includes/classes/class-settings.php:958
 msgid "Options"
 msgstr "ตัวเลือก"
 
-#: includes/classes/class-gutenberg-shortlink.php:168
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:164
+#: includes/classes/class-gutenberg-shortlink.php:169
 msgid "Open in New Tab"
 msgstr "เปิดในแท็บใหม่"
 
-#: includes/classes/class-gutenberg-shortlink.php:169
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:165
+#: includes/classes/class-gutenberg-shortlink.php:170
 msgid "Nofollow"
 msgstr "ไม่ติดตาม"
 
-#: includes/classes/class-gutenberg-shortlink.php:170
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:166
+#: includes/classes/class-gutenberg-shortlink.php:171
 msgid "Sponsored Link"
 msgstr "ลิงก์ที่สนับสนุน"
 
-#: includes/classes/class-gutenberg-shortlink.php:171
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:167
+#: includes/classes/class-gutenberg-shortlink.php:172
 msgid "Label"
 msgstr "ป้ายกำกับ"
 
-#: includes/classes/class-gutenberg-shortlink.php:172
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:168
+#: includes/classes/class-gutenberg-shortlink.php:173
 msgid "Optional shortlink label"
 msgstr "ป้ายกำกับลิงก์สั้น (ตัวเลือก)"
 
-#: includes/classes/class-gutenberg-shortlink.php:174
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:170
+#: includes/classes/class-gutenberg-shortlink.php:175
 msgid "Create"
 msgstr "สร้าง"
 
-#: includes/classes/class-gutenberg-shortlink.php:175
-#: includes/classes/class-import-export.php:1270
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:171
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1202
+#: includes/classes/class-gutenberg-shortlink.php:176
+#: includes/classes/class-import-export.php:1331
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: includes/classes/class-gutenberg-shortlink.php:176
-#: templates/admin-modal-new-link.php:37
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:172
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:37
+#: includes/classes/class-gutenberg-shortlink.php:177
+#: templates/admin-modal-new-link.php:38
 msgid "Close"
 msgstr "ปิด"
 
-#: includes/classes/class-gutenberg-shortlink.php:177
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:173
+#: includes/classes/class-gutenberg-shortlink.php:178
 msgid "Creating..."
 msgstr "กำลังสร้าง..."
 
-#: includes/classes/class-gutenberg-shortlink.php:178
-#: includes/classes/class-gutenberg-shortlink.php:321
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:174
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:317
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:103
+#: includes/classes/class-gutenberg-shortlink.php:179
+#: includes/classes/class-gutenberg-shortlink.php:322
 #: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "สร้างลิงก์สั้นสำเร็จ"
 
-#: includes/classes/class-gutenberg-shortlink.php:180
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:176
+#: includes/classes/class-gutenberg-shortlink.php:181
 msgid "Please enter a valid URL"
 msgstr "กรุณาใส่ URL ที่ถูกต้อง"
 
-#: includes/classes/class-gutenberg-shortlink.php:181
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:177
+#: includes/classes/class-gutenberg-shortlink.php:182
 msgid "No shortlinks found"
 msgstr "ไม่พบลิงก์สั้น"
 
-#: includes/classes/class-gutenberg-shortlink.php:247
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:243
+#: includes/classes/class-gutenberg-shortlink.php:248
 msgid "Search term is required"
 msgstr "ต้องการคำค้นหา"
 
-#: includes/classes/class-gutenberg-shortlink.php:262
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:258
+#: dist/publishpress-shortlinks/includes/functions.php:447
+#: includes/classes/class-gutenberg-shortlink.php:263
 #: includes/functions.php:553
 #. translators: %s: link ID number
 #, php-format
 msgid "Link - %s"
 msgstr "ลิงก์ - %s"
 
-#: includes/classes/class-gutenberg-shortlink.php:298
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:294
+#: includes/classes/class-gutenberg-shortlink.php:299
 msgid "Target URL is required"
 msgstr "ต้องการ URL เป้าหมาย"
 
-#: includes/classes/class-gutenberg-shortlink.php:340
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:336
+#: includes/classes/class-gutenberg-shortlink.php:341
 msgid "Invalid shortlink ID"
 msgstr "รหัสลิงก์สั้นไม่ถูกต้อง"
 
-#: includes/classes/class-gutenberg-shortlink.php:346
+#: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:342
+#: includes/classes/class-gutenberg-shortlink.php:347
 msgid "Shortlink not found"
 msgstr "ไม่พบลิงก์สั้น"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:69
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:119
 #: includes/classes/class-hooks.php:69
-#: includes/classes/class-import-export.php:119
+#: includes/classes/class-import-export.php:121
 msgid "Security check failed."
 msgstr "การตรวจสอบความปลอดภัยล้มเหลว"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:73
 #: includes/classes/class-hooks.php:73
 msgid "You do not have permission to create shortlinks."
 msgstr "คุณไม่มีสิทธิ์ในการสร้างลิงก์สั้น"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:80
 #: includes/classes/class-hooks.php:80
 msgid "Invalid or empty URL"
 msgstr "URL ไม่ถูกต้องหรือว่างเปล่า"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:112
 #: includes/classes/class-hooks.php:112
 msgid "Invalid nonce verification."
 msgstr "การตรวจสอบ nonce ไม่ถูกต้อง"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:116
 #: includes/classes/class-hooks.php:116
 msgid "You do not have permission to reset analytics."
 msgstr "คุณไม่มีสิทธิ์ในการรีเซ็ตการวิเคราะห์"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:123
 #: includes/classes/class-hooks.php:123
 msgid "Invalid post ID."
 msgstr "ID โพสต์ไม่ถูกต้อง"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:129
 #: includes/classes/class-hooks.php:129
 msgid "Invalid shortlink ID."
 msgstr "รหัสลิงก์สั้นไม่ถูกต้อง"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:133
 #: includes/classes/class-hooks.php:133
 msgid "You do not have permission to reset analytics for this shortlink."
 msgstr "คุณไม่มีสิทธิ์ในการรีเซ็ตการวิเคราะห์สำหรับลิงก์สั้นนี้"
 
-#: includes/classes/class-hooks.php:189
-#: includes/classes/class-hooks.php:201
-msgid "Invalid custom date range."
-msgstr "ช่วงวันที่กำหนดเองไม่ถูกต้อง"
-
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:164
 #: includes/classes/class-hooks.php:240
 msgid "Analytics reset successfully."
 msgstr "รีเซ็ตการวิเคราะห์สำเร็จ"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:166
 #: includes/classes/class-hooks.php:242
 msgid "Failed to reset analytics."
 msgstr "ไม่สามารถรีเซ็ตการวิเคราะห์ได้"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:192
 #: includes/classes/class-hooks.php:268
 msgid "Shorten"
 msgstr "ย่อ"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:235
 #: includes/classes/class-hooks.php:311
 msgid "All Shortlinks"
 msgstr "ลิงก์สั้นทั้งหมด"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:236
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:237
 #: includes/classes/class-hooks.php:312
 #: includes/classes/class-hooks.php:313
 msgid "Add Shortlink"
 msgstr "เพิ่มลิงก์สั้น"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:238
 #: includes/classes/class-hooks.php:314
 msgid "Search Shortlinks"
 msgstr "ค้นหาลิงก์สั้น"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:256
 #: includes/classes/class-hooks.php:332
 msgid "Category"
 msgstr "หมวดหมู่"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:283
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:284
 #: includes/classes/class-hooks.php:359
 #: includes/classes/class-hooks.php:360
 msgid "Logs"
 msgstr "บันทึก"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:312
 #: includes/classes/class-hooks.php:388
 msgid "All Logs"
 msgstr "บันทึกทั้งหมด"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:312
 #: includes/classes/class-hooks.php:388
 msgid "Are you sure you want to clear all logs?"
 msgstr "คุณแน่ใจหรือว่าต้องการลบข้อมูลบันทึกทั้งหมด?"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:312
 #: includes/classes/class-hooks.php:388
 msgid "Clear Logs"
 msgstr "ลบบันทึก"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:606
 #: includes/classes/class-hooks.php:682
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "ขอโทษ, คุณไม่ได้รับอนุญาตให้เข้าถึงลิงก์สั้น"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:607
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:628
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:639
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:660
 #: includes/classes/class-hooks.php:683
 #: includes/classes/class-hooks.php:704
 #: includes/classes/class-hooks.php:715
@@ -852,125 +933,164 @@ msgstr "ขอโทษ, คุณไม่ได้รับอนุญาต�
 msgid "Access Denied"
 msgstr "การเข้าถึงถูกปฏิเสธ"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:627
 #: includes/classes/class-hooks.php:703
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "ขอโทษ, คุณไม่ได้รับอนุญาตให้สร้างลิงก์สั้น"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:638
 #: includes/classes/class-hooks.php:714
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "ขอโทษ, คุณไม่ได้รับอนุญาตให้แก้ไขลิงก์สั้น"
 
+#: dist/publishpress-shortlinks/includes/classes/class-hooks.php:659
 #: includes/classes/class-hooks.php:735
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "ขอโทษ, คุณไม่ได้รับอนุญาตให้เข้าถึงการตั้งค่าลิงก์สั้น"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:48
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:49
 #: includes/classes/class-import-export.php:48
 #: includes/classes/class-import-export.php:49
 msgid "Import / Export"
 msgstr "นำเข้า / ส่งออก"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:87
 #: includes/classes/class-import-export.php:87
 msgid "Importing..."
 msgstr "กำลังนำเข้า..."
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:88
 #: includes/classes/class-import-export.php:88
 msgid "Import complete!"
 msgstr "นำเข้าสำเร็จ!"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:89
 #: includes/classes/class-import-export.php:89
 msgid "Import failed. Please check the file and try again."
 msgstr "นำเข้าสำเร็จล้มเหลว โปรดตรวจสอบไฟล์และลองอีกครั้ง"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:90
 #: includes/classes/class-import-export.php:90
 msgid "Please select a CSV file."
 msgstr "โปรดเลือกไฟล์ CSV"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:91
 #: includes/classes/class-import-export.php:91
 msgid "This will import shortlinks from the CSV file. Continue?"
 msgstr "นี่จะนำเข้าลิงก์สั้นจากไฟล์ CSV ต่อไป?"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:92
 #: includes/classes/class-import-export.php:92
 msgid "Previewing..."
 msgstr "กำลังแสดงตัวอย่าง..."
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:93
 #: includes/classes/class-import-export.php:93
 msgid "Preview failed."
 msgstr "การแสดงตัวอย่างล้มเหลว"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:94
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1197
 #: includes/classes/class-import-export.php:94
-#: includes/classes/class-import-export.php:1265
+#: includes/classes/class-import-export.php:1326
 msgid "See More Rows"
 msgstr "ดูแถวเพิ่มเติม"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:95
 #: includes/classes/class-import-export.php:95
 msgid "Show Less"
 msgstr "แสดงน้อยลง"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:96
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1160
 #: includes/classes/class-import-export.php:96
-#: includes/classes/class-import-export.php:1228
+#: includes/classes/class-import-export.php:1289
 msgid "Preview"
 msgstr "แสดงตัวอย่าง"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:97
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1151
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1164
 #: includes/classes/class-import-export.php:97
-#: includes/classes/class-import-export.php:1219
-#: includes/classes/class-import-export.php:1232
+#: includes/classes/class-import-export.php:1280
+#: includes/classes/class-import-export.php:1293
 msgid "Import CSV"
 msgstr "นำเข้า CSV"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:98
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:731
 #: includes/classes/class-import-export.php:98
-#: includes/classes/class-import-export.php:758
+#: includes/classes/class-import-export.php:834
 #. translators: %d: number of successfully imported shortlinks
 #, php-format
 msgid "%d shortlinks successfully imported"
 msgstr "%d ลิงก์สั้นนำเข้าสำเร็จ"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:99
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:753
 #: includes/classes/class-import-export.php:99
-#: includes/classes/class-import-export.php:780
+#: includes/classes/class-import-export.php:856
 #. translators: %d: number of failed imports
 #, php-format
 msgid "%d shortlinks failed to import"
 msgstr "%d ลิงก์สั้นนำเข้าสำเร็จล้มเหลว"
 
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:100
 #: includes/classes/class-import-export.php:100
 msgid "Error(s) for TinyPress Slug:"
 msgstr "ข้อผิดพลาดสำหรับ TinyPress Slug:"
 
-#: includes/classes/class-import-export.php:115
-#: includes/classes/class-import-export.php:571
-#: includes/classes/class-import-export.php:949
-#: includes/classes/class-import-export.php:1090
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:115
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:546
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:907
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1048
+#: includes/classes/class-import-export.php:116
+#: includes/classes/class-import-export.php:662
+#: includes/classes/class-import-export.php:1025
+#: includes/classes/class-import-export.php:1151
 #: includes/classes/class-migration.php:440
 #: includes/classes/class-url-metadata.php:39
 msgid "Unauthorized."
 msgstr "ไม่ได้รับอนุญาต"
 
-#: includes/classes/class-import-export.php:307
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:303
+#: dist/publishpress-shortlinks/includes/functions.php:402
+#: includes/classes/class-import-export.php:398
 #: includes/functions.php:508
 msgid "Invalid URL."
 msgstr "URL ไม่ถูกต้อง."
 
-#: includes/classes/class-import-export.php:576
-#: includes/classes/class-import-export.php:954
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:551
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:912
+#: includes/classes/class-import-export.php:181
+#: includes/classes/class-import-export.php:189
 msgid "No file uploaded or upload error."
 msgstr "ไม่มีไฟล์ที่อัปโหลดหรือเกิดข้อผิดพลาดในการอัปโหลด"
 
-#: includes/classes/class-import-export.php:585
-#: includes/classes/class-import-export.php:963
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:560
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:921
+#: includes/classes/class-import-export.php:206
 msgid "Please upload a CSV file."
 msgstr "โปรดอัปโหลดไฟล์ CSV"
 
-#: includes/classes/class-import-export.php:591
-#: includes/classes/class-import-export.php:969
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:566
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:927
+#: includes/classes/class-import-export.php:244
 msgid "Could not read the file."
 msgstr "ไม่สามารถอ่านไฟล์ได้。"
 
-#: includes/classes/class-import-export.php:598
-#: includes/classes/class-import-export.php:976
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:573
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:934
+#: includes/classes/class-import-export.php:674
+#: includes/classes/class-import-export.php:1037
 msgid "Empty CSV file."
 msgstr "ไฟล์ CSV ว่างเปล่า。"
 
-#: includes/classes/class-import-export.php:621
-#: includes/classes/class-import-export.php:1000
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:596
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:958
+#: includes/classes/class-import-export.php:697
+#: includes/classes/class-import-export.php:1061
 msgid ""
 "CSV must contain a column for target URL (e.g., \"url\", \"target_url\", "
 "\"destination_url\")."
@@ -978,119 +1098,156 @@ msgstr ""
 "CSV ต้องมีคอลัมน์สำหรับ URL เป้าหมาย (เช่น \"url\", \"target_url\", "
 "\"destination_url\")."
 
-#: includes/classes/class-import-export.php:688
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:663
+#: includes/classes/class-import-export.php:764
 #. translators: %s: error message
 #, php-format
 msgid "Failed to create shortlink: %s"
 msgstr "ไม่สามารถสร้างลิงก์สั้นได้: %s"
 
-#: includes/classes/class-import-export.php:689
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:664
+#: includes/classes/class-import-export.php:765
 msgid "Unknown error."
 msgstr "ข้อผิดพลาดที่ไม่รู้จัก。"
 
-#: includes/classes/class-import-export.php:769
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:742
+#: includes/classes/class-import-export.php:845
 #. translators: %d: number of updated shortlinks
 #, php-format
 msgid "%d shortlinks updated"
 msgstr "%d ลิงก์สั้นถูกอัปเดต"
 
-#: includes/classes/class-import-export.php:1037
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:995
+#: includes/classes/class-import-export.php:1098
 #. translators: 1: original column name, 2: mapped field name
 #, fuzzy, php-format
 msgid "\"%1$s\" → %2$s"
 msgstr "\"%1$s\" → %2$s"
 
-#: includes/classes/class-import-export.php:1048
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1006
+#: includes/classes/class-import-export.php:1109
 #. translators: %s: field mappings
 #, php-format
 msgid "Field mappings: %s"
 msgstr "การแมพฟิลด์: %s"
 
-#: includes/classes/class-import-export.php:1075
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1033
+#: includes/classes/class-import-export.php:1136
 #. translators: 1: number of preview rows, 2: total number of importable rows
 #, php-format
 msgid "Showing %1$d preview row(s) from %2$d importable row(s)."
 msgstr "แสดง %1$d แถวตัวอย่างจาก %2$d แถวที่นำเข้าได้。"
 
-#: includes/classes/class-import-export.php:1094
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1052
+#: includes/classes/class-import-export.php:1155
 msgid "Link Label"
 msgstr "ชื่อลิงก์"
 
-#: includes/classes/class-import-export.php:1096
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1054
+#: includes/classes/class-import-export.php:1157
 msgid "Short Slug"
 msgstr "สั้นๆ"
 
-#: includes/classes/class-import-export.php:1097
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1055
+#: includes/classes/class-import-export.php:1158
 msgid "Post Status"
 msgstr "สถานะโพสต์"
 
-#: includes/classes/class-import-export.php:1098
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1056
+#: includes/classes/class-import-export.php:1159
 msgid "Link Status"
 msgstr "สถานะลิงก์"
 
-#: includes/classes/class-import-export.php:1099
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1057
+#: includes/classes/class-import-export.php:1160
 msgid "Redirect Method"
 msgstr "วิธีการเปลี่ยนเส้นทาง"
 
-#: includes/classes/class-import-export.php:1100
-#: includes/classes/class-meta-boxes.php:669
-#: includes/classes/class-settings.php:1148, fuzzy
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1058
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:664
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:939
+#: includes/classes/class-import-export.php:1161
+#: includes/classes/class-meta-boxes.php:1011
+#: includes/classes/class-settings.php:1176, fuzzy
 msgid "NoFollow"
 msgstr "NoFollow"
 
-#: includes/classes/class-import-export.php:1101
-#: includes/classes/class-meta-boxes.php:645
-#: includes/classes/class-settings.php:1140
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1059
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:642
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:931
+#: includes/classes/class-import-export.php:1162
+#: includes/classes/class-meta-boxes.php:987
+#: includes/classes/class-settings.php:1168
 msgid "Sponsored"
 msgstr "สปอนเซอร์"
 
-#: includes/classes/class-import-export.php:1102
-#: includes/classes/class-meta-boxes.php:693
-#: includes/classes/class-settings.php:1156
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1060
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:686
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:947
+#: includes/classes/class-import-export.php:1163
+#: includes/classes/class-meta-boxes.php:1035
+#: includes/classes/class-settings.php:1184
 msgid "Parameter Forwarding"
 msgstr "การส่งพารามิเตอร์"
 
-#: includes/classes/class-import-export.php:1103
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1061
+#: includes/classes/class-import-export.php:1164
 msgid "Expiration Enabled"
 msgstr "เปิดใช้งานการหมดอายุ"
 
-#: includes/classes/class-import-export.php:1104
-#: includes/classes/class-meta-boxes.php:796
-#: includes/classes/class-settings.php:1197
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1062
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:770
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:988
+#: includes/classes/class-import-export.php:1165
+#: includes/classes/class-meta-boxes.php:1151
+#: includes/classes/class-settings.php:1230
 msgid "Expiration Date"
 msgstr "วันที่หมดอายุ"
 
-#: includes/classes/class-import-export.php:1105
-#: includes/classes/class-meta-boxes.php:810
-#: includes/classes/class-settings.php:1210
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1063
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:784
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1001
+#: includes/classes/class-import-export.php:1166
+#: includes/classes/class-meta-boxes.php:1165
+#: includes/classes/class-settings.php:1243
 msgid "Expiration Time"
 msgstr "เวลาหมดอายุ"
 
-#: includes/classes/class-import-export.php:1107
-#: includes/classes/class-meta-boxes.php:556
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1065
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:552
+#: includes/classes/class-import-export.php:1168
+#: includes/classes/class-meta-boxes.php:898
 msgid "Notes"
 msgstr "หมายเหตุ"
 
-#: includes/classes/class-import-export.php:1108
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1066
+#: includes/classes/class-import-export.php:1169
 msgid "Autolink Keywords"
 msgstr "คำหลักอัตโนมัติ"
 
-#: includes/classes/class-import-export.php:1137
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1095
+#: includes/classes/class-import-export.php:1198
 msgid "Import / Export Shortlinks"
 msgstr "นำเข้า / ส่งออก Shortlinks"
 
-#: includes/classes/class-import-export.php:1141
-#: includes/classes/class-import-export.php:1179
-#: includes/classes/class-import-export.php:1274
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1099
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1137
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1206
+#: includes/classes/class-import-export.php:1202
+#: includes/classes/class-import-export.php:1240
+#: includes/classes/class-import-export.php:1335
 msgid "Import"
 msgstr "นำเข้า"
 
-#: includes/classes/class-import-export.php:1144
-#: includes/classes/class-import-export.php:1153
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1102
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1111
+#: includes/classes/class-import-export.php:1205
+#: includes/classes/class-import-export.php:1214
 msgid "Export"
 msgstr "ส่งออก"
 
-#: includes/classes/class-import-export.php:1156
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1114
+#: includes/classes/class-import-export.php:1217
 msgid ""
 "Download all your shortlinks as a CSV file. The export includes labels, "
 "target URLs, slugs, redirect settings, global-setting modes, and more. "
@@ -1100,17 +1257,20 @@ msgstr ""
 "เป้าหมาย, slugs, การตั้งค่าการเปลี่ยนเส้นทาง, โหมดการตั้งค่าทั่วไป และอื่นๆ "
 "การตั้งค่าการป้องกันด้วยรหัสผ่านจะไม่ถูกส่งออก."
 
-#: includes/classes/class-import-export.php:1161
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1119
+#: includes/classes/class-import-export.php:1222
 #. translators: %d: number of shortlinks
 #, php-format
 msgid "%d shortlink(s) will be exported."
 msgstr "%d ลิงก์สั้นจะถูกส่งออก。"
 
-#: includes/classes/class-import-export.php:1169
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1127
+#: includes/classes/class-import-export.php:1230
 msgid "Export CSV"
 msgstr "ส่งออก CSV"
 
-#: includes/classes/class-import-export.php:1182
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1140
+#: includes/classes/class-import-export.php:1243
 msgid ""
 "Upload a CSV file to bulk-create shortlinks. The CSV must contain at "
 "minimum a \"target_url\" column. Password protection settings are "
@@ -1120,119 +1280,166 @@ msgstr ""
 "\"target_url\" อย่างน้อย "
 "การตั้งค่าการป้องกันด้วยรหัสผ่านจะไม่ถูกนำเข้าตั้งใจ."
 
-#: includes/classes/class-import-export.php:1208
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1142
+#: includes/classes/class-import-export.php:1269
 msgid "Supported columns:"
 msgstr "คอลัมน์ที่รองรับ:"
 
-#: includes/classes/class-import-export.php:1235
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1167
+#: includes/classes/class-import-export.php:1296
 msgid "Change File"
 msgstr "เปลี่ยนไฟล์"
 
-#: includes/classes/class-import-export.php:1252
+#: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1184
+#: includes/classes/class-import-export.php:1313
 msgid "Import Preview"
 msgstr "ตัวอย่างการนำเข้า"
 
-#: includes/classes/class-meta-boxes.php:391
-#: includes/classes/class-meta-boxes.php:457
-#: includes/classes/class-meta-boxes.php:482
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:387
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:453
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:478
+#: includes-core/ShortlinksCoreAdmin.php:398
+#: includes-core/ShortlinksCoreAdmin.php:420
+#: includes-core/ShortlinksCoreAdmin.php:434
+#: includes-core/ShortlinksCoreAdmin.php:456
+#: includes-core/ShortlinksCoreAdmin.php:482
+#: includes/classes/class-meta-boxes.php:733
+#: includes/classes/class-meta-boxes.php:799
+#: includes/classes/class-meta-boxes.php:824
 #. translators: %s: current global setting value
 msgid "Use global settings"
 msgstr "ใช้การตั้งค่าทั่วไป"
 
-#: includes/classes/class-meta-boxes.php:392
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:388
+#: includes-core/ShortlinksCoreAdmin.php:421
+#: includes/classes/class-meta-boxes.php:734
 msgid "Enabled"
 msgstr "เปิดใช้งาน"
 
-#: includes/classes/class-meta-boxes.php:393
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:389
+#: includes-core/ShortlinksCoreAdmin.php:422
+#: includes/classes/class-meta-boxes.php:735
 msgid "Disabled"
 msgstr "ปิดใช้งาน"
 
-#: includes/classes/class-meta-boxes.php:453
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:449
+#: includes/classes/class-meta-boxes.php:795
 msgid "ON"
 msgstr "เปิด"
 
-#: includes/classes/class-meta-boxes.php:453
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:449
+#: includes/classes/class-meta-boxes.php:795
 msgid "OFF"
 msgstr "ปิด"
 
-#: includes/classes/class-meta-boxes.php:485
-#: includes/classes/class-settings.php:1131
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:481
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:922
+#: includes/classes/class-meta-boxes.php:827
+#: includes/classes/class-settings.php:1159
 msgid "307 (Temporary)"
 msgstr "307 (ชั่วคราว)"
 
-#: includes/classes/class-meta-boxes.php:486
-#: includes/classes/class-settings.php:1132
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:482
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:923
+#: includes/classes/class-meta-boxes.php:828
+#: includes/classes/class-settings.php:1160
 msgid "302 (Temporary)"
 msgstr "302 (ชั่วคราว)"
 
-#: includes/classes/class-meta-boxes.php:487
-#: includes/classes/class-settings.php:1133
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:483
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:924
+#: includes/classes/class-meta-boxes.php:829
+#: includes/classes/class-settings.php:1161
 msgid "301 (Permanent)"
 msgstr "301 (ถาวร)"
 
-#: includes/classes/class-meta-boxes.php:500
-#: includes/classes/class-settings.php:596
-#: tinypress.php:473
-#: tinypress.php:586
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:496
+#: dist/publishpress-shortlinks/tinypress.php:399
+#: dist/publishpress-shortlinks/tinypress.php:492
+#: includes/classes/class-meta-boxes.php:842
+#: includes/classes/class-settings.php:624
+#: tinypress.php:476
+#: tinypress.php:589
 msgid "PublishPress Shortlinks"
 msgstr "ลิงก์สั้น PublishPress"
 
-#: includes/classes/class-meta-boxes.php:513
-#: includes/classes/class-settings.php:912
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:509
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:718
+#: includes/classes/class-meta-boxes.php:855
+#: includes/classes/class-settings.php:940
 msgid "General"
 msgstr "ทั่วไป"
 
-#: includes/classes/class-meta-boxes.php:518
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:514
+#: includes/classes/class-meta-boxes.php:860
 msgid "Label *"
 msgstr "ป้ายกำกับ *"
 
-#: includes/classes/class-meta-boxes.php:520
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:516
+#: includes/classes/class-meta-boxes.php:862
 msgid "For admin purpose only."
 msgstr "สำหรับวัตถุประสงค์ของผู้ดูแลระบบเท่านั้น"
 
-#: includes/classes/class-meta-boxes.php:529
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:525
+#: includes/classes/class-meta-boxes.php:871
 msgid "Target URL *"
 msgstr "URL เป้าหมาย *"
 
-#: includes/classes/class-meta-boxes.php:539
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:535
+#: includes/classes/class-meta-boxes.php:881
 msgid "Short String *"
 msgstr "ข้อความสั้น *"
 
-#: includes/classes/class-meta-boxes.php:540
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:536
+#: includes/classes/class-meta-boxes.php:882
 msgid "Short string of this URL."
 msgstr "สั้นๆ ของ URL นี้."
 
-#: includes/classes/class-meta-boxes.php:547
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:543
+#: includes/classes/class-meta-boxes.php:889
 msgid "Enable or disable the shortlink."
 msgstr "เปิดหรือปิดใช้งานลิงก์สั้น"
 
-#: includes/classes/class-meta-boxes.php:548
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:544
+#: includes-core/ShortlinksCoreAdmin.php:543
+#: includes-core/ShortlinksCoreAdmin.php:585
+#: includes/classes/class-meta-boxes.php:890
 msgid "Enable"
 msgstr "เปิดใช้งาน"
 
-#: includes/classes/class-meta-boxes.php:549
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:545
+#: includes-core/ShortlinksCoreAdmin.php:544
+#: includes-core/ShortlinksCoreAdmin.php:586
+#: includes/classes/class-meta-boxes.php:891
 msgid "Disable"
 msgstr "ปิดใช้งาน"
 
-#: includes/classes/class-meta-boxes.php:580
-#: includes/classes/class-meta-boxes.php:586
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:576
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:582
+#: includes/classes/class-meta-boxes.php:922
+#: includes/classes/class-meta-boxes.php:928
 msgid "Shortlink Label"
 msgstr "ป้ายชื่อลิงก์สั้น"
 
-#: includes/classes/class-meta-boxes.php:581
-#: includes/classes/class-meta-boxes.php:587
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:577
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:583
+#: includes/classes/class-meta-boxes.php:923
+#: includes/classes/class-meta-boxes.php:929
 msgid "Custom Text"
 msgstr "ข้อความที่กำหนดเอง"
 
-#: includes/classes/class-meta-boxes.php:585
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:581
+#: includes/classes/class-meta-boxes.php:927
 msgid "Post Title"
 msgstr "ชื่อโพสต์"
 
-#: includes/classes/class-meta-boxes.php:597
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:593
+#: includes/classes/class-meta-boxes.php:939
 msgid "Keywords"
 msgstr "คำสำคัญ"
 
-#: includes/classes/class-meta-boxes.php:598
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:594
+#: includes/classes/class-meta-boxes.php:940
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
@@ -1240,19 +1447,23 @@ msgstr ""
 "เพิ่มคำสำคัญที่แยกด้วยเครื่องหมายจุลภาคหรือในบรรทัดแยกต่างหาก "
 "คำสำคัญแต่ละคำจะเชื่อมโยงไปยังลิงก์สั้นนี้"
 
-#: includes/classes/class-meta-boxes.php:603
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:599
+#: includes/classes/class-meta-boxes.php:945
 msgid "Link Alt Text"
 msgstr "ข้อความทางเลือกของลิงก์"
 
-#: includes/classes/class-meta-boxes.php:604
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:600
+#: includes/classes/class-meta-boxes.php:946
 msgid "Set the alt text for the linked keywords in the frontend of the site."
 msgstr "ตั้งค่าข้อความทางเลือกสำหรับคำหลักที่เชื่อมโยงในหน้าเว็บของไซต์."
 
-#: includes/classes/class-meta-boxes.php:611
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:607
+#: includes/classes/class-meta-boxes.php:953
 msgid "Custom Alt Text"
 msgstr "ข้อความทางเลือกที่กำหนดเอง"
 
-#: includes/classes/class-meta-boxes.php:612
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:608
+#: includes/classes/class-meta-boxes.php:954
 msgid ""
 "Enter custom alt text for the linked keywords. This is only used if "
 "\"Custom Text\" is selected above."
@@ -1260,34 +1471,45 @@ msgstr ""
 "กรอกข้อความ alt ที่กำหนดเองสำหรับคำหลักที่เชื่อมโยง "
 "นี่จะถูกใช้เฉพาะเมื่อเลือก \"ข้อความที่กำหนดเอง\" ข้างต้น"
 
-#: includes/classes/class-meta-boxes.php:622
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:619
+#: includes/classes/class-meta-boxes.php:964
 msgid "Auto-linking"
 msgstr "การเชื่อมโยงอัตโนมัติ"
 
-#: includes/classes/class-meta-boxes.php:631
-#: includes/classes/class-settings.php:1123
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:628
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:914
+#: includes/classes/class-meta-boxes.php:973
+#: includes/classes/class-settings.php:1151
 msgid "Redirection"
 msgstr "การเปลี่ยนเส้นทาง"
 
-#: includes/classes/class-meta-boxes.php:636
-#: includes/classes/class-settings.php:1128
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:633
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:919
+#: includes/classes/class-meta-boxes.php:978
+#: includes/classes/class-settings.php:1156
 msgid "Redirection Method"
 msgstr "วิธีการเปลี่ยนเส้นทาง"
 
-#: includes/classes/class-meta-boxes.php:637
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:634
+#: includes/classes/class-meta-boxes.php:979
 msgid "Select redirection method"
 msgstr "เลือกวิธีการเปลี่ยนเส้นทาง"
 
-#: includes/classes/class-meta-boxes.php:638
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:635
+#: includes/classes/class-meta-boxes.php:980
 msgid "Select a method"
 msgstr "เลือกวิธี"
 
-#: includes/classes/class-meta-boxes.php:648
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:645
+#: includes/classes/class-meta-boxes.php:990
 msgid "Mark links as sponsored content."
 msgstr "ทำเครื่องหมายลิงก์เป็นเนื้อหาสปอนเซอร์."
 
-#: includes/classes/class-meta-boxes.php:649
-#: includes/classes/class-settings.php:1142
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:646
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:656
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:933
+#: includes/classes/class-meta-boxes.php:991
+#: includes/classes/class-settings.php:1170
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -1295,12 +1517,16 @@ msgstr ""
 "เพิ่มแอตทริบิวต์ rel=\"sponsored\". "
 "แนะนำสำหรับลิงก์พันธมิตรและการโปรโมทที่ชำระเงิน."
 
-#: includes/classes/class-meta-boxes.php:672
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:667
+#: includes/classes/class-meta-boxes.php:1014
 msgid "Prevent search engines from following this link."
 msgstr "ป้องกันไม่ให้เสิร์ชเอนจินติดตามลิงก์นี้."
 
-#: includes/classes/class-meta-boxes.php:673
-#: includes/classes/class-settings.php:1150
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:668
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:678
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:941
+#: includes/classes/class-meta-boxes.php:1015
+#: includes/classes/class-settings.php:1178
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -1308,12 +1534,16 @@ msgstr ""
 "เพิ่มแอตทริบิวต์ rel=\"nofollow\". "
 "แนะนำสำหรับลิงก์ภายนอกและแหล่งข้อมูลที่ไม่เชื่อถือ."
 
-#: includes/classes/class-meta-boxes.php:696
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:689
+#: includes/classes/class-meta-boxes.php:1038
 msgid "Pass URL parameters to the target link."
 msgstr "ส่งพารามิเตอร์ URL ไปยังลิงก์เป้าหมาย."
 
-#: includes/classes/class-meta-boxes.php:697
-#: includes/classes/class-settings.php:1158
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:690
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:700
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:949
+#: includes/classes/class-meta-boxes.php:1039
+#: includes/classes/class-settings.php:1186
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -1321,51 +1551,63 @@ msgstr ""
 "พารามิเตอร์ใด ๆ ที่เพิ่มเข้าไปใน URL สั้น (เช่น ?utm_source=email) "
 "จะถูกส่งต่อไปยัง URL เป้าหมาย."
 
-#: includes/classes/class-meta-boxes.php:724
-msgid "Dynamic Redirects"
-msgstr "การเปลี่ยนเส้นทางแบบไดนามิก"
-
-#: includes/classes/class-meta-boxes.php:735
-#: includes/classes/class-settings.php:1169
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:713
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:960
+#: includes/classes/class-meta-boxes.php:1077
+#: includes/classes/class-settings.php:1197
 msgid "Password Protection"
 msgstr "การป้องกันด้วยรหัสผ่าน"
 
-#: includes/classes/class-meta-boxes.php:738
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:716
+#: includes/classes/class-meta-boxes.php:1080
 msgid "Secure your shortlink."
 msgstr "รักษาความปลอดภัยลิงก์สั้นของคุณ."
 
-#: includes/classes/class-meta-boxes.php:739
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:717
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:727
+#: includes/classes/class-meta-boxes.php:1081
 msgid "Users must enter the password to redirect to the target link."
 msgstr "ผู้ใช้ต้องป้อนรหัสผ่านเพื่อเปลี่ยนเส้นทางไปยังลิงก์เป้าหมาย."
 
-#: includes/classes/class-meta-boxes.php:759
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:735
+#: includes/classes/class-meta-boxes.php:1101
 msgid "Password"
 msgstr "รหัสผ่าน"
 
-#: includes/classes/class-meta-boxes.php:760
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:736
+#: includes/classes/class-meta-boxes.php:1102
 msgid "Share this with users."
 msgstr "แชร์สิ่งนี้กับผู้ใช้."
 
-#: includes/classes/class-meta-boxes.php:761
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:737
+#: includes/classes/class-meta-boxes.php:1103
 msgid "Passwords are case sensitive."
 msgstr "รหัสผ่านมีความไวต่อการพิมพ์ตัวพิมพ์ใหญ่และตัวพิมพ์เล็ก."
 
-#: includes/classes/class-meta-boxes.php:762
-#: includes/classes/class-settings.php:1180, fuzzy
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:738
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:971
+#: includes/classes/class-meta-boxes.php:1104
+#: includes/classes/class-settings.php:1208, fuzzy
 msgid "********"
 msgstr "********"
 
-#: includes/classes/class-meta-boxes.php:772
-#: includes/classes/class-settings.php:1189
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:748
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:980
+#: includes/classes/class-meta-boxes.php:1127
+#: includes/classes/class-settings.php:1222
 msgid "Enable Expiration"
 msgstr "เปิดใช้งานการหมดอายุ"
 
-#: includes/classes/class-meta-boxes.php:775
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:751
+#: includes/classes/class-meta-boxes.php:1130
 msgid "Set an expiration date and time for shortlinks."
 msgstr "ตั้งวันหมดอายุและเวลาสำหรับลิงก์สั้น"
 
-#: includes/classes/class-meta-boxes.php:776
-#: includes/classes/class-settings.php:1191
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:752
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:762
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:982
+#: includes/classes/class-meta-boxes.php:1131
+#: includes/classes/class-settings.php:1224
 msgid ""
 "After the expiration date and time pass, visitors will no longer be able to "
 "access the shortlink."
@@ -1373,16 +1615,20 @@ msgstr ""
 "หลังจากวันที่และเวลาหมดอายุผ่านไป "
 "ผู้เข้าชมจะไม่สามารถเข้าถึงลิงก์สั้นได้อีกต่อไป"
 
-#: includes/classes/class-meta-boxes.php:797
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:771
+#: includes/classes/class-meta-boxes.php:1152
 msgid "Select the date when this shortlink should stop working."
 msgstr "เลือกวันที่ที่ลิงก์สั้นนี้ควรหยุดทำงาน"
 
-#: includes/classes/class-meta-boxes.php:811
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:785
+#: includes/classes/class-meta-boxes.php:1166
 msgid "Select the time when the shortlink should expire."
 msgstr "เลือกเวลาที่ลิงก์สั้นควรหมดอายุ"
 
-#: includes/classes/class-meta-boxes.php:812
-#: includes/classes/class-settings.php:1212
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:786
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1003
+#: includes/classes/class-meta-boxes.php:1167
+#: includes/classes/class-settings.php:1245
 msgid ""
 "Must be at least 1 minute in the future. Combined with the date above to "
 "set the exact expiration moment."
@@ -1390,19 +1636,1294 @@ msgstr ""
 "ต้องอยู่ในอนาคตอย่างน้อย 1 นาที "
 "ร่วมกับวันที่ข้างต้นเพื่อตั้งเวลาหมดอายุที่แน่นอน"
 
-#: includes/classes/class-meta-boxes.php:830
-#: includes/classes/class-settings.php:1164
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:804
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:955
+#: includes/classes/class-meta-boxes.php:1117
+#: includes/classes/class-settings.php:1192
 msgid "Security"
 msgstr "ความปลอดภัย"
 
-#: includes/classes/class-meta-boxes.php:849
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:823
+#: includes/classes/class-meta-boxes.php:1204
 msgid "QR Code"
 msgstr "รหัส QR"
 
-#: includes/classes/class-meta-boxes.php:859
-#: tinypress.php:470
+#: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:833
+#: dist/publishpress-shortlinks/tinypress.php:396
+#: includes/classes/class-meta-boxes.php:1214
+#: tinypress.php:473
 msgid "Analytics"
 msgstr "การวิเคราะห์"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1044
+#: includes/classes/class-redirection.php:1242
+msgid "Post not found."
+msgstr "ไม่พบบทความ."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1188
+#: dist/publishpress-shortlinks/includes/functions.php:361
+#: dist/publishpress-shortlinks/includes/functions.php:362
+#: dist/publishpress-shortlinks/includes/functions.php:363
+#: dist/publishpress-shortlinks/includes/functions.php:369
+#: dist/publishpress-shortlinks/tinypress.php:303
+#: dist/publishpress-shortlinks/tinypress.php:304
+#: dist/publishpress-shortlinks/tinypress.php:305
+#: includes/classes/class-redirection.php:1386
+#: includes/functions.php:467
+#: includes/functions.php:468
+#: includes/functions.php:469
+#: includes/functions.php:475
+#: tinypress.php:375
+#: tinypress.php:376
+#: tinypress.php:377
+msgid "This post is in {status} status. It is not visible to the public."
+msgstr "โพสต์นี้อยู่ในสถานะ {status} มันไม่สามารถมองเห็นได้สำหรับสาธารณะ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1236
+#: includes-core/ShortlinksCoreAdmin.php:445
+#: includes/classes/class-redirection.php:1434
+msgid "This link has expired"
+msgstr "ลิงก์นี้หมดอายุแล้ว"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1240
+#: includes-core/ShortlinksCoreAdmin.php:467
+#: includes/classes/class-redirection.php:1438
+msgid "You will be redirected shortly."
+msgstr "คุณจะถูกนำทางไปยังหน้าอื่นในไม่ช้า."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1244
+#: includes-core/ShortlinksCoreAdmin.php:493
+#: includes/classes/class-redirection.php:1442
+msgid "Click here if you are not redirected"
+msgstr "คลิกที่นี่หากคุณไม่ได้รับการนำทาง"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1261
+#: includes/classes/class-redirection.php:1459
+msgid "Link Expired"
+msgstr "ลิงก์หมดอายุ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1423
+#: includes/classes/class-redirection.php:1680
+#: includes/classes/class-redirection.php:1688
+msgid "This link is not active."
+msgstr "ลิงก์นี้ไม่ทำงาน."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1460
+#: includes/classes/class-redirection.php:310
+#: includes/classes/class-redirection.php:1707
+msgid "This link is expired."
+msgstr "ลิงก์นี้หมดอายุ."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1479
+#: includes/classes/class-redirection.php:1727
+msgid "Incorrect password. Please try again."
+msgstr "รหัสผ่านไม่ถูกต้อง กรุณาลองอีกครั้ง."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1494
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1499
+#: includes/classes/class-redirection.php:1746
+#: includes/classes/class-redirection.php:1751
+msgid "Password Protected Link"
+msgstr "ลิงก์ที่มีการป้องกันด้วยรหัสผ่าน"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1505
+#: includes/classes/class-redirection.php:1757
+msgid "Enter password to continue:"
+msgstr "กรอกรหัสผ่านเพื่อดำเนินการต่อ:"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1507
+#: includes/classes/class-redirection.php:1759
+msgid "Submit"
+msgstr "ส่ง"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1631
+#: includes/classes/class-redirection.php:1864
+msgid "This link is not containing the right prefix slug."
+msgstr "ลิงก์นี้ไม่มีส่วนที่เป็นคำนำหน้าที่ถูกต้อง."
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1672
+#: includes/classes/class-redirection.php:1905
+msgid "Too many invalid shortlink requests. Please try again later."
+msgstr "มีคำขอลิงก์สั้นที่ไม่ถูกต้องมากเกินไป กรุณาลองอีกครั้งในภายหลัง"
+
+#: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1673
+#: includes/classes/class-redirection.php:1906
+msgid "Too Many Requests"
+msgstr "คำขอมากเกินไป"
+
+#: dist/publishpress-shortlinks/includes/classes/class-revision.php:439
+#: includes/classes/class-revision.php:465
+msgid "Invalid revision ID."
+msgstr "ID การแก้ไขไม่ถูกต้อง."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:362
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:703
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:711
+#: dist/publishpress-shortlinks/includes/functions.php:270
+#: dist/publishpress-shortlinks/includes/functions.php:304
+#: includes/classes/class-settings.php:458
+#: includes/classes/class-settings.php:925
+#: includes/classes/class-settings.php:933
+#: includes/functions.php:376
+#: includes/functions.php:410
+msgid "Draft"
+msgstr "ร่าง"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:363
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:704
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:712
+#: dist/publishpress-shortlinks/includes/functions.php:271
+#: dist/publishpress-shortlinks/includes/functions.php:305
+#: includes/classes/class-settings.php:459
+#: includes/classes/class-settings.php:926
+#: includes/classes/class-settings.php:934
+#: includes/functions.php:377
+#: includes/functions.php:411
+msgid "Pending Review"
+msgstr "รอดำเนินการตรวจสอบ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:364
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:705
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:713
+#: dist/publishpress-shortlinks/includes/functions.php:272
+#: dist/publishpress-shortlinks/includes/functions.php:306
+#: includes/classes/class-settings.php:460
+#: includes/classes/class-settings.php:927
+#: includes/classes/class-settings.php:935
+#: includes/functions.php:378
+#: includes/functions.php:412
+msgid "Private"
+msgstr "ส่วนตัว"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:369
+#: includes/classes/class-settings.php:465
+msgid ""
+"Customize the notice shown for each enabled non-published status. Available "
+"placeholders: {status}, {date}, {title}."
+msgstr ""
+"ปรับแต่งประกาศที่แสดงสำหรับสถานะที่ยังไม่เผยแพร่ที่เปิดใช้งาน "
+"ประเภทที่ใช้ได้: {status}, {date}, {title}."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:405
+#: includes/classes/class-settings.php:501
+#: includes/classes/class-settings.php:550
+msgid "All"
+msgstr "ทั้งหมด"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:444
+#: includes/classes/class-settings.php:623
+msgid "Settings"
+msgstr "การตั้งค่า"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:528
+#: includes/classes/class-settings.php:750
+msgid ""
+"Select which post statuses are accessible when visiting a PublishPress "
+"shortlink."
+msgstr ""
+"เลือกสถานะโพสต์ที่สามารถเข้าถึงได้เมื่อเข้าเยี่ยมชมลิงก์สั้นของ "
+"PublishPress."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:544
+#: includes/classes/class-settings.php:766
+#, fuzzy
+msgid "PublishPress Statuses Plugin Detected:"
+msgstr "PublishPress Shortlinks Free"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:545
+#: includes/classes/class-settings.php:767
+msgid ""
+"To use core PublishPress statuses with Shortlinks, Please enable the "
+"Shortlinks post type in PublishPress Statuses workflow settings."
+msgstr ""
+"เพื่อใช้งานสถานะของ PublishPress ที่เป็นหลักกับ Shortlinks "
+"กรุณาเปิดใช้งานประเภทโพสต์ Shortlinks ในการตั้งค่าการทำงานของสถานะ "
+"PublishPress."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:564
+#: includes/classes/class-settings.php:786
+msgid "Elementor Detected:"
+msgstr "ตรวจพบ Elementor:"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:565
+#: includes/classes/class-settings.php:787
+msgid ""
+"Shortlink prefix is required for proper rendering of Elementor revisions. "
+"It is advisable to keep it enabled."
+msgstr ""
+"คำนำหน้าลิงก์สั้นจำเป็นสำหรับการแสดงผลที่ถูกต้องของการแก้ไข Elementor "
+"แนะนำให้เปิดใช้งานไว้."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:597
+#: includes/classes/class-settings.php:819
+msgid "TinyPress Shortlinks Notice:"
+msgstr "ประกาศเกี่ยวกับลิงก์สั้น TinyPress:"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:598
+#: includes/classes/class-settings.php:820
+msgid ""
+"Elementor is active. Shortlink prefix has been automatically disabled, it "
+"is required for optimal compatibility with Elementor revisions."
+msgstr ""
+"Elementor กำลังทำงานอยู่ คำนำหน้าลิงก์สั้นถูกปิดใช้งานโดยอัตโนมัติ "
+"จำเป็นสำหรับการทำงานร่วมกันที่ดีที่สุดกับการแก้ไข Elementor."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:702
+#: dist/publishpress-shortlinks/includes/functions.php:269
+#: dist/publishpress-shortlinks/includes/functions.php:303
+#: includes/classes/class-settings.php:924
+#: includes/functions.php:375
+#: includes/functions.php:409
+msgid "Published"
+msgstr "เผยแพร่"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:726
+#: includes/classes/class-settings.php:963
+msgid "Shortlink Prefix"
+msgstr "คำนำหน้าลิงก์สั้น"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:727
+#: includes/classes/class-settings.php:964
+msgid "Add a prefix between your domain name and shortlink."
+msgstr "เพิ่มคำนำหน้าระหว่างชื่อโดเมนของคุณและลิงก์สั้น"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:734
+#: includes/classes/class-settings.php:971, fuzzy
+msgid "Prefix Slug"
+msgstr "Prefix Slug"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:735
+#: includes/classes/class-settings.php:972
+msgid "Custom prefix slug."
+msgstr "คำนำหน้าสลักแบบกำหนดเอง"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:736
+#: includes/classes/class-settings.php:973
+msgid "This text will be added between your domain name and shortlink."
+msgstr "ข้อความนี้จะถูกเพิ่มระหว่างชื่อโดเมนของคุณกับลิงก์สั้น"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:737
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:738
+#: includes/classes/class-settings.php:974
+#: includes/classes/class-settings.php:975
+msgid "go"
+msgstr "ไป"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:744
+#: includes/classes/class-settings.php:981
+msgid "Keyboard Shortcut"
+msgstr "ทางลัดคีย์บอร์ด"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:745
+#: includes/classes/class-settings.php:982
+msgid "Create shortlinks from anywhere inside your WordPress dashboard."
+msgstr "สร้างลิงก์สั้นจากที่ใดก็ได้ภายในแดชบอร์ด WordPress ของคุณ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:746
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:747
+#: includes/classes/class-settings.php:983
+#: includes/classes/class-settings.php:984
+msgid "Ctrl or Cmd + /"
+msgstr "Ctrl หรือ Cmd + /"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:756
+#: includes/classes/class-settings.php:993
+msgid "Remove from Admin Bar"
+msgstr "ลบจากแถบผู้ดูแลระบบ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:757
+#: includes/classes/class-settings.php:994
+msgid "Hide the \"Shorten\" button from the WordPress admin bar."
+msgstr "ซ่อนปุ่ม \"ย่อ\" จากแถบผู้ดูแลระบบ WordPress"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:763
+#: includes/classes/class-settings.php:1000
+msgid "Role Management"
+msgstr "การจัดการบทบาท"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:768
+#: includes/classes/class-settings.php:1005
+msgid "Who Can View The All Shortlinks Screen"
+msgstr "ใครสามารถดูหน้าจอลิงก์สั้นทั้งหมด"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:769
+#: includes/classes/class-settings.php:1006
+msgid "Only selected user roles can view the complete list of Shortlinks."
+msgstr "เฉพาะบทบาทผู้ใช้ที่เลือกเท่านั้นที่สามารถดูรายการลิงก์สั้นทั้งหมดได้"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:777
+#: includes/classes/class-settings.php:1014
+msgid "Who Can Create/Edit Shortlinks"
+msgstr "ใครสามารถสร้าง/แก้ไขลิงก์สั้น"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:778
+#: includes/classes/class-settings.php:1015
+msgid "Only selected user roles can create or edit links."
+msgstr "เฉพาะบทบาทผู้ใช้ที่เลือกเท่านั้นที่สามารถสร้างหรือแก้ไขลิงก์ได้"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:787
+#: includes/classes/class-settings.php:1024
+msgid "Who Can See Logs"
+msgstr "ใครสามารถดูบันทึก"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:788
+#: includes/classes/class-settings.php:1025
+msgid "Only selected user roles can see the Analytics tab and the Logs screen."
+msgstr ""
+"เฉพาะบทบาทผู้ใช้ที่เลือกเท่านั้นที่สามารถดูแท็บการวิเคราะห์และหน้าจอบันทึกได"
+"้"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:797
+#: includes/classes/class-settings.php:1034
+msgid "Who Can Control Settings"
+msgstr "ใครสามารถควบคุมการตั้งค่า"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:798
+#: includes/classes/class-settings.php:1035
+msgid "Only selected user roles can access the Settings screen."
+msgstr "เฉพาะบทบาทผู้ใช้ที่เลือกเท่านั้นที่สามารถเข้าถึงหน้าจอการตั้งค่าได้"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:807
+#: includes/classes/class-settings.php:1044
+msgid "Auto-Linking"
+msgstr "การเชื่อมโยงอัตโนมัติ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:812
+#: includes/classes/class-settings.php:1049
+msgid "Enable Auto-Linking"
+msgstr "เปิดใช้งานการเชื่อมโยงอัตโนมัติ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:813
+#: includes/classes/class-settings.php:1050
+msgid "Automatically convert keywords to shortlinks in post content."
+msgstr "แปลงคำสำคัญเป็นลิงก์สั้นในเนื้อหาโพสต์โดยอัตโนมัติ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:814
+#: includes/classes/class-settings.php:1051
+msgid ""
+"When enabled, keywords configured in shortlink settings will be "
+"automatically linked in your content."
+msgstr ""
+"เมื่อเปิดใช้งาน "
+"คำสำคัญที่กำหนดค่าในการตั้งค่าลิงก์สั้นจะถูกเชื่อมโยงโดยอัตโนมัติในเนื้อหาขอ"
+"งคุณ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:820
+#: includes/classes/class-settings.php:943
+#: includes/classes/class-settings.php:948
+#: includes/classes/class-settings.php:1057
+msgid "Post Types"
+msgstr "ประเภทโพสต์"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:821
+#: includes/classes/class-settings.php:1058
+msgid "Where should auto-linking be applied?"
+msgstr "ควรใช้การเชื่อมโยงอัตโนมัติที่ใด?"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:830
+#: includes/classes/class-settings.php:1067
+msgid "Open Auto-Links In"
+msgstr "เปิดลิงก์อัตโนมัติใน"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:831
+#: includes/classes/class-settings.php:1068
+msgid "Choose how auto-linked keywords should open."
+msgstr "เลือกวิธีที่คำสำคัญที่เชื่อมโยงอัตโนมัติควรเปิด"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:833
+#: includes/classes/class-settings.php:1070
+msgid "Same tab"
+msgstr "แท็บเดียวกัน"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:834
+#: includes/classes/class-settings.php:1071
+msgid "New tab"
+msgstr "แท็บใหม่"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:842
+#: includes/classes/class-settings.php:1079
+msgid "Auto-Link Color"
+msgstr "สีลิงก์อัตโนมัติ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:843
+#: includes/classes/class-settings.php:1080
+msgid "Choose the color for auto-linked keywords."
+msgstr "เลือกสีสำหรับคำหลักที่เชื่อมโยงอัตโนมัติ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:854
+#: includes/classes/class-settings.php:1091
+msgid "Auto-List Links"
+msgstr "รายการลิงก์อัตโนมัติ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:859
+#: includes/classes/class-settings.php:1096
+msgid "Auto-List Shortlinks"
+msgstr "ลิงก์สั้นอัตโนมัติ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:860
+#: includes/classes/class-settings.php:1097
+msgid ""
+"When enabled, shortlinks will appear in the \"All Links\" table based on "
+"the behavior you configure below."
+msgstr ""
+"เมื่อเปิดใช้งาน ลิงก์สั้นจะปรากฏในตาราง \"ลิงก์ทั้งหมด\" "
+"ตามพฤติกรรมที่คุณกำหนดด้านล่าง."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:866
+#: includes/classes/class-settings.php:1103
+msgid "Configure Post Types"
+msgstr "กำหนดประเภทโพสต์"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:867
+#: includes/classes/class-settings.php:1104
+msgid "Set when links should be auto-listed for each post type"
+msgstr "ตั้งค่าเมื่อไหร่ที่ลิงก์ควรถูกสร้างอัตโนมัติสำหรับแต่ละประเภทโพสต์"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:868
+#: includes/classes/class-settings.php:1105
+msgid ""
+"Add post types and configure when their shortlinks should appear in the "
+"\"All Links\" table. Changes are saved automatically."
+msgstr ""
+"เพิ่มประเภทโพสต์และกำหนดว่าเมื่อไหร่ลิงก์สั้นของพวกเขาควรปรากฏในตาราง "
+"\"ลิงก์ทั้งหมด\" การเปลี่ยนแปลงจะถูกบันทึกโดยอัตโนมัติ."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:875
+#: dist/publishpress-shortlinks/includes/classes/class-statuses.php:233
+#: includes/classes/class-settings.php:1112
+#: includes/classes/class-statuses.php:233
+msgid "Post Status Visibility"
+msgstr "การมองเห็นสถานะโพสต์"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:880
+#: includes/classes/class-settings.php:1117
+msgid "Allowed Post Statuses"
+msgstr "สถานะโพสต์ที่อนุญาต"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:889
+#: includes/classes/class-settings.php:1126
+msgid "Unpublished Content Notice"
+msgstr "ประกาศเนื้อหาที่ยังไม่เผยแพร่"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:890
+#: includes/classes/class-settings.php:1127
+msgid ""
+"Show a frontend notice when an internal shortlink displays a post that is "
+"not published."
+msgstr "แสดงประกาศในหน้าสำหรับเมื่อมีลิงก์สั้นภายในที่แสดงโพสต์ที่ยังไม่เผยแพร่"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:896
+#: includes/classes/class-settings.php:1133
+msgid "Notice Post Statuses"
+msgstr "สถานะประกาศโพสต์"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:897
+#: includes/classes/class-settings.php:1134
+msgid ""
+"This notice only applies to internal shortlinks that render post content "
+"directly. External shortlinks are not affected."
+msgstr ""
+"ประกาศนี้ใช้ได้เฉพาะกับลิงก์สั้นภายในที่แสดงเนื้อหาโพสต์โดยตรง "
+"ลิงก์สั้นภายนอกไม่มีผลกระทบ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:906
+#: includes/classes/class-settings.php:1143
+msgid "Notice Messages"
+msgstr "ข้อความประกาศ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:920
+#: includes/classes/class-settings.php:1157
+msgid "Default redirection method for shortlinks"
+msgstr "วิธีการเปลี่ยนเส้นทางเริ่มต้นสำหรับลิงก์สั้น"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:932
+#: includes/classes/class-settings.php:1169
+msgid "Mark links as sponsored content"
+msgstr "ทำเครื่องหมายลิงก์เป็นเนื้อหาที่สนับสนุน"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:940
+#: includes/classes/class-settings.php:1177
+msgid "Prevent search engines from following links"
+msgstr "ป้องกันไม่ให้เครื่องมือค้นหาติดตามลิงก์"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:948
+#: includes/classes/class-settings.php:1185
+msgid "Pass URL parameters to target links"
+msgstr "ส่งผ่านพารามิเตอร์ URL ไปยังลิงก์เป้าหมาย"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:961
+#: includes/classes/class-settings.php:1198
+msgid "Secure your shortlinks"
+msgstr "รักษาความปลอดภัยให้กับลิงก์สั้นของคุณ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:962
+#: includes/classes/class-settings.php:1199
+msgid "Users must enter a password to redirect to the target link."
+msgstr "ผู้ใช้งานต้องป้อนรหัสผ่านเพื่อเปลี่ยนเส้นทางไปยังลิงก์เป้าหมาย."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:968
+#: includes/classes/class-settings.php:1205
+msgid "Default Password"
+msgstr "รหัสผ่านเริ่มต้น"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:969
+#: includes/classes/class-settings.php:1206
+msgid "Default password for protected links"
+msgstr "รหัสผ่านเริ่มต้นสำหรับลิงก์ที่ป้องกัน"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:970
+#: includes/classes/class-settings.php:1207
+msgid ""
+"This password will be used for links that have password protection enabled "
+"via global settings. Passwords are case sensitive."
+msgstr ""
+"รหัสผ่านนี้จะถูกใช้สำหรับลิงก์ที่เปิดใช้งานการป้องกันด้วยรหัสผ่านผ่านการตั้ง"
+"ค่าแบบทั่วโลก รหัสผ่านมีความไวต่อการใช้ตัวพิมพ์ใหญ่และตัวพิมพ์เล็ก."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:981
+#: includes/classes/class-settings.php:1223
+msgid "Set an expiration date and time for shortlinks"
+msgstr "ตั้งค่าวันที่และเวลาหมดอายุสำหรับลิงก์สั้น"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:989
+#: includes/classes/class-settings.php:1231
+msgid "Select the date when this shortlink should stop working"
+msgstr "เลือกวันที่ลิงก์สั้นนี้ควรหยุดทำงาน"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1002
+#: includes/classes/class-settings.php:1244
+msgid "Select the time when the shortlink should expire"
+msgstr "เลือกเวลาที่ลิงก์สั้นนี้ควรหมดอายุ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1021
+#: includes/classes/class-settings.php:1263
+msgid "Revisions"
+msgstr "การแก้ไข"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1026
+#: includes/classes/class-settings.php:1268
+msgid "Revision Link Visibility"
+msgstr "การมองเห็นลิงก์การแก้ไข"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1027
+#: includes/classes/class-settings.php:1269
+msgid ""
+"When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
+"table based on the behavior you configure below."
+msgstr ""
+"เมื่อเปิดใช้งาน ลิงก์การแก้ไขจะปรากฏในตาราง \"ลิงก์สั้นทั้งหมด\" "
+"ตามพฤติกรรมที่คุณกำหนดด้านล่าง."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1029
+#: includes/classes/class-settings.php:1271
+msgid "When Revision is Created"
+msgstr "เมื่อมีการสร้างการแก้ไข"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1031
+#: includes/classes/class-settings.php:1273
+msgid "When Revision is Created or Link is First Used"
+msgstr "เมื่อมีการสร้างการแก้ไขหรือเมื่อลิงก์ถูกใช้ครั้งแรก"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1039
+#: includes/classes/class-settings.php:1281
+msgid "Show Shortlink in Revision Table"
+msgstr "แสดงลิงก์สั้นในตารางการแก้ไข"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1040
+#: includes/classes/class-settings.php:1282
+msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
+msgstr "แสดงคอลัมน์ลิงก์สั้นเมื่อดูการแก้ไขใน PublishPress Revisions."
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1046
+#: includes/classes/class-settings.php:1288
+msgid "Revision Visibility for Visitors"
+msgstr "ความสามารถในการมองเห็นการแก้ไขสำหรับผู้เข้าชม"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1047
+#: includes/classes/class-settings.php:1289
+msgid "Allow logged-out visitors to view revision content via shortlinks."
+msgstr "อนุญาตให้ผู้เข้าชมที่ออกจากระบบสามารถดูเนื้อหาการแก้ไขผ่านลิงก์สั้นได้"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1048
+#: includes/classes/class-settings.php:1290
+msgid ""
+"By default, PublishPress Revisions blocks visitors from viewing revision "
+"previews. When enabled, revision shortlinks will render the revision "
+"content directly for logged-out visitors instead of redirecting to the "
+"preview URL."
+msgstr ""
+"โดยค่าเริ่มต้น PublishPress Revisions "
+"จะบล็อกผู้เข้าชมไม่ให้ดูตัวอย่างการแก้ไข เมื่อเปิดใช้งาน "
+"ลิงก์สั้นสำหรับการแก้ไขจะทำให้เนื้อหาการแก้ไขแสดงโดยตรงสำหรับผู้เข้าชมที่ออก"
+"จากระบบแทนที่จะเปลี่ยนเส้นทางไปยัง URL ตัวอย่าง"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1071
+#: includes/classes/class-settings.php:1313, fuzzy
+msgid "Dummy"
+msgstr "Dummy"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1115
+#: includes/classes/class-settings.php:1357
+msgid "No post types configured yet. Click \"Add Post Type\" to get started."
+msgstr "ยังไม่มีประเภทโพสต์ที่กำหนดไว้ คลิก \"เพิ่มประเภทโพสต์\" เพื่อเริ่มต้น"
+
+#: dist/publishpress-shortlinks/includes/classes/class-settings.php:1147
+#: includes/classes/class-settings.php:1389
+msgid "Add Post Type"
+msgstr "เพิ่มประเภทโพสต์"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:70
+#: includes/classes/class-table-logs.php:70
+msgid "Log entry deleted successfully."
+msgstr "ลายเซ็นถูกลบเรียบร้อยแล้ว"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:80
+#: includes/classes/class-table-logs.php:80
+#. translators: %d: number of log entries deleted
+#, php-format
+msgid "%d log entries deleted successfully."
+msgstr "%d ลายเซ็นถูกลบเรียบร้อยแล้ว"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:84
+#: includes/classes/class-table-logs.php:84
+msgid "All logs have been cleared."
+msgstr "ลายเซ็นทั้งหมดถูกล้างแล้ว"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:163
+#: includes/classes/class-table-logs.php:167
+msgid "Title"
+msgstr "ชื่อเรื่อง"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:165
+#: includes/classes/class-table-logs.php:169
+msgid "Details"
+msgstr "รายละเอียด"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:200
+#: includes/classes/class-table-logs.php:209
+msgid "Are you sure you want to delete this log entry?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบลายเซ็นนี้?"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:260
+#: includes/classes/class-table-logs.php:269
+msgid "View Analytics"
+msgstr "ดูการวิเคราะห์"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:278
+#: includes-core/ShortlinksCoreAdmin.php:642
+#: includes/classes/class-table-logs.php:289
+msgid "Tablet"
+msgstr "แท็บเล็ต"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:280
+#: includes-core/ShortlinksCoreAdmin.php:643
+#: includes/classes/class-table-logs.php:292
+msgid "Mobile"
+msgstr "มือถือ"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:282
+#: includes-core/ShortlinksCoreAdmin.php:641
+#: includes/classes/class-table-logs.php:295
+msgid "Desktop"
+msgstr "เดสก์ท็อป"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:336
+#: includes/classes/class-table-logs.php:356
+#. translators: 1: user display name, 2: location name, 3: visit date/time
+#, php-format
+msgid "%1$s from %2$s visited at %3$s"
+msgstr "%1$s จาก %2$s เข้าชมเมื่อ %3$s"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:339
+#: includes/classes/class-table-logs.php:359
+#. translators: 1: user display name, 2: visit date/time
+#, php-format
+msgid "%1$s visited at %2$s"
+msgstr "%1$s ได้เยี่ยมชมเมื่อ %2$s"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:343
+#: includes/classes/class-table-logs.php:363
+#. translators: 1: location name, 2: visit date/time
+#, php-format
+msgid "From %1$s, visited at %2$s"
+msgstr "จาก %1$s, ได้เยี่ยมชมเมื่อ %2$s"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:346
+#: includes/classes/class-table-logs.php:366
+#. translators: %s: visit date/time
+#, php-format
+msgid "Visited at %s"
+msgstr "ได้เยี่ยมชมเมื่อ %s"
+
+#: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:358
+#: includes/classes/class-table-logs.php:378
+#. translators: %s: device type and browser name, e.g. "Mobile Chrome"
+#, php-format
+msgid "via %s"
+msgstr "ผ่าน %s"
+
+#: dist/publishpress-shortlinks/includes/functions.php:225
+#: includes/classes/class-meta-boxes.php:374
+#: includes/functions.php:331
+msgid "Edit shortlink settings"
+msgstr "แก้ไขการตั้งค่าลิงก์สั้น"
+
+#: dist/publishpress-shortlinks/includes/functions.php:364
+#: dist/publishpress-shortlinks/tinypress.php:306
+#: includes/functions.php:470
+#: tinypress.php:378
+msgid ""
+"This post is in {status} status. It will become visible to the public on "
+"{date}."
+msgstr "โพสต์นี้อยู่ในสถานะ {status} จะปรากฏให้สาธารณชนเห็นในวันที่ {date}."
+
+#: dist/publishpress-shortlinks/includes/functions.php:389
+#: includes/functions.php:495
+msgid "Target url not found."
+msgstr "ไม่พบ URL เป้าหมาย."
+
+#: dist/publishpress-shortlinks/includes/functions.php:396
+#: includes/functions.php:502
+msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
+msgstr ""
+"รูปแบบ URL ไม่ถูกต้อง อนุญาตเฉพาะ http, https, ftp, ftps, และ mailto "
+"เท่านั้น."
+
+#: dist/publishpress-shortlinks/includes/functions.php:428
+#: includes/functions.php:534
+msgid "Tiny slug could not created."
+msgstr "ไม่สามารถสร้าง slug สั้นได้."
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:12
+#: templates/admin-modal-new-link.php:12
+msgid "Shortlink will appear here"
+msgstr "ลิงก์สั้นจะปรากฏที่นี่"
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:20
+#: templates/admin-modal-new-link.php:21
+msgid "Enter a long URL and make a shortlink"
+msgstr "ใส่ URL ยาวและสร้างลิงก์สั้น"
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:25
+#: templates/admin-modal-new-link.php:26
+msgid "Long URL"
+msgstr "URL ยาว"
+
+#: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:38
+#: templates/admin-modal-new-link.php:39
+msgid "Create Shortlink"
+msgstr "สร้างลิงก์สั้น"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:49
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:68
+#: templates/admin/analytics.php:95
+msgid "Reset Today's Analytics"
+msgstr "รีเซ็ตการวิเคราะห์ของวันนี้"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:50
+#: templates/admin/analytics.php:97
+msgid "Reset Week's Analytics"
+msgstr "รีเซ็ตการวิเคราะห์ของสัปดาห์"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:51
+#: templates/admin/analytics.php:99
+msgid "Reset Month's Analytics"
+msgstr "รีเซ็ตการวิเคราะห์ของเดือน"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:52
+#: templates/admin/analytics.php:101
+msgid "Reset Year's Analytics"
+msgstr "รีเซ็ตการวิเคราะห์ของปี"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:53
+#: templates/admin/analytics.php:105
+msgid ""
+"Are you sure you want to reset the analytics for this period? This action "
+"cannot be undone."
+msgstr ""
+"คุณแน่ใจหรือว่าต้องการรีเซ็ตการวิเคราะห์สำหรับช่วงเวลานี้? "
+"การดำเนินการนี้ไม่สามารถย้อนกลับได้."
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:61
+#: templates/admin/analytics.php:127
+msgid "Today"
+msgstr "วันนี้"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:62
+#: includes-core/ShortlinksCoreAdmin.php:259
+#: templates/admin/analytics.php:129
+msgid "Last 7 Days"
+msgstr "7 วันที่ผ่านมา"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:63
+msgid "Last 1 Month"
+msgstr "เดือนที่แล้ว 1 เดือน"
+
+#: dist/publishpress-shortlinks/templates/admin/analytics.php:64
+msgid "Last 1 Year"
+msgstr "ปีที่แล้ว 1 ปี"
+
+#: dist/publishpress-shortlinks/templates/admin/footer.php:16
+#: templates/admin/footer.php:16
+#. translators: %1$s: plugin name, %2$s: star rating icon
+#, php-format
+msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
+msgstr "ถ้าคุณชอบ %1$s กรุณาให้คะแนน %2$s กับเรา ขอบคุณ!"
+
+#: dist/publishpress-shortlinks/templates/admin/footer.php:24
+#: templates/admin/footer.php:24
+msgid "About"
+msgstr "เกี่ยวกับ"
+
+#: dist/publishpress-shortlinks/templates/admin/footer.php:29
+#: templates/admin/footer.php:29
+msgid "Documentation"
+msgstr "เอกสารประกอบ"
+
+#: dist/publishpress-shortlinks/templates/admin/footer.php:33
+#: templates/admin/footer.php:33
+msgid "Contact"
+msgstr "ติดต่อ"
+
+#: dist/publishpress-shortlinks/templates/admin/qr-code.php:16
+#: templates/admin/qr-code.php:17
+msgid "Download QR Code"
+msgstr "ดาวน์โหลด QR Code"
+
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:8
+#: templates/admin/settings/browsers.php:8
+msgid "We have developed extensions for the below browsers."
+msgstr "เราพัฒนา extensions สำหรับเว็บเบราว์เซอร์ด้านล่างนี้."
+
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:9
+#: templates/admin/settings/browsers.php:9
+msgid "Click on your preferred one to Download the extension."
+msgstr "คลิกที่เบราว์เซอร์ที่คุณต้องการเพื่อดาวน์โหลด extension."
+
+#: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:16
+#: templates/admin/settings/browsers.php:16
+msgid "Download the Extension"
+msgstr "ดาวน์โหลด Extension"
+
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:17
+#: templates/admin/settings/supports.php:17
+msgid "Need PublishPress Shortlinks Support?"
+msgstr "ต้องการความช่วยเหลือเกี่ยวกับ PublishPress Shortlinks?"
+
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:22
+#: templates/admin/settings/supports.php:22
+msgid "If you need help or have a new feature request, let us know."
+msgstr "ถ้าคุณต้องการความช่วยเหลือหรือมีคำขอฟีเจอร์ใหม่ กรุณาแจ้งให้เราทราบ."
+
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:24
+#: templates/admin/settings/supports.php:24
+msgid "Request Support"
+msgstr "ขอความช่วยเหลือ"
+
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:29
+#: templates/admin/settings/supports.php:29
+msgid "Detailed documentation is also available on the plugin website."
+msgstr "เอกสารรายละเอียดยังมีให้บริการบนเว็บไซต์ปลั๊กอิน."
+
+#: dist/publishpress-shortlinks/templates/admin/settings/supports.php:31
+#: templates/admin/settings/supports.php:31
+msgid "View Knowledge Base"
+msgstr "ดูฐานความรู้"
+
+#: dist/publishpress-shortlinks/tinypress.php:98
+#: tinypress.php:145
+msgid "This plugin can be deleted."
+msgstr "ปลั๊กอินนี้สามารถถูกลบได้."
+
+#: dist/publishpress-shortlinks/tinypress.php:395
+#: tinypress.php:472
+msgid "Copied."
+msgstr "คัดลอกแล้ว."
+
+#: dist/publishpress-shortlinks/tinypress.php:397
+#: tinypress.php:474
+msgid ""
+"This setting is inherited from global settings. Choose another option to "
+"override it for this shortlink."
+msgstr ""
+"การตั้งค่านี้สืบทอดมาจากการตั้งค่าทั่วไป "
+"เลือกตัวเลือกอื่นเพื่อเขียนทับสำหรับลิงก์สั้นนี้"
+
+#: dist/publishpress-shortlinks/tinypress.php:398
+#: tinypress.php:475
+msgid "Working..."
+msgstr "กำลังทำงาน..."
+
+#: includes-core/ShortlinksCoreAdmin.php:151
+#: includes-core/ShortlinksCoreAdmin.php:152
+#: includes-core/ShortlinksCoreAdmin.php:249
+msgid "Reports"
+msgstr "รายงาน"
+
+#: includes-core/ShortlinksCoreAdmin.php:251
+msgid ""
+"Get aggregated insights into your shortlink performance with detailed "
+"analytics reports."
+msgstr ""
+"รับข้อมูลเชิงลึกที่รวมไว้เกี่ยวกับประสิทธิภาพของลิงก์สั้นของคุณด้วยรายงานการ"
+"วิเคราะห์ที่ละเอียด"
+
+#: includes-core/ShortlinksCoreAdmin.php:257
+#: templates/admin/analytics.php:125
+msgid "Date Range:"
+msgstr "ช่วงวันที่:"
+
+#: includes-core/ShortlinksCoreAdmin.php:261
+#: templates/admin/analytics.php:158
+msgid "Apply"
+msgstr "นำไปใช้"
+
+#: includes-core/ShortlinksCoreAdmin.php:269
+#: templates/admin/analytics.php:172
+msgid "Total Clicks"
+msgstr "คลิกทั้งหมด"
+
+#: includes-core/ShortlinksCoreAdmin.php:276
+#: templates/admin/analytics.php:180
+msgid "Unique Visitors"
+msgstr "ผู้เข้าชมที่ไม่ซ้ำ"
+
+#: includes-core/ShortlinksCoreAdmin.php:283
+msgid "Active Links"
+msgstr "ลิงก์ที่ใช้งาน"
+
+#: includes-core/ShortlinksCoreAdmin.php:290
+msgid "Avg. Clicks/Link"
+msgstr "เฉลี่ยคลิก/ลิงก์"
+
+#: includes-core/ShortlinksCoreAdmin.php:297
+msgid "Top Performing Links"
+msgstr "ลิงก์ที่มีประสิทธิภาพสูงสุด"
+
+#: includes-core/ShortlinksCoreAdmin.php:301
+msgid "Link"
+msgstr "ลิงก์"
+
+#: includes-core/ShortlinksCoreAdmin.php:302
+msgid "Clicks"
+msgstr "คลิก"
+
+#: includes-core/ShortlinksCoreAdmin.php:313
+msgid "Top Locations"
+msgstr "สถานที่ยอดนิยม"
+
+#: includes-core/ShortlinksCoreAdmin.php:336
+msgid "Enable Activation"
+msgstr "เปิดใช้งานการเปิดใช้งาน"
+
+#: includes-core/ShortlinksCoreAdmin.php:337
+msgid "Schedule when this shortlink should start working."
+msgstr "กำหนดเวลาที่ลิงก์สั้นนี้ควรเริ่มทำงาน"
+
+#: includes-core/ShortlinksCoreAdmin.php:338
+msgid ""
+"When enabled, the shortlink remains inactive until its activation date and "
+"time."
+msgstr "เมื่อเปิดใช้งาน ลิงก์สั้นจะยังคงไม่ทำงานจนกว่าจะถึงวันและเวลาที่เปิดใช้งาน"
+
+#: includes-core/ShortlinksCoreAdmin.php:346
+msgid "Activation Date"
+msgstr "วันที่เปิดใช้งาน"
+
+#: includes-core/ShortlinksCoreAdmin.php:347
+msgid "Select the date when this shortlink should start working."
+msgstr "เลือกวันที่ลิงก์สั้นนี้ควรเริ่มทำงาน"
+
+#: includes-core/ShortlinksCoreAdmin.php:348
+msgid "Leave empty to make the shortlink active immediately."
+msgstr "ปล่อยว่างเพื่อให้ลิงก์สั้นทำงานทันที"
+
+#: includes-core/ShortlinksCoreAdmin.php:361
+msgid "Activation Time"
+msgstr "เวลาที่เปิดใช้งาน"
+
+#: includes-core/ShortlinksCoreAdmin.php:362
+msgid "Select the time when this shortlink should start working."
+msgstr "เลือกเวลาที่ลิงก์สั้นนี้ควรเริ่มทำงาน"
+
+#: includes-core/ShortlinksCoreAdmin.php:363
+msgid ""
+"Only used when an activation date is set. Leave empty to activate at the "
+"start of that date."
+msgstr ""
+"ใช้เฉพาะเมื่อกำหนดวันเปิดใช้งาน "
+"ปล่อยว่างเพื่อเปิดใช้งานที่เริ่มต้นของวันนั้น"
+
+#: includes-core/ShortlinksCoreAdmin.php:381
+msgid "Expiration Click Limit"
+msgstr "ขีดจำกัดการคลิกหมดอายุ"
+
+#: includes-core/ShortlinksCoreAdmin.php:382
+msgid "Expire this shortlink after a number of clicks."
+msgstr "หมดอายุลิงก์สั้นนี้หลังจากจำนวนคลิก"
+
+#: includes-core/ShortlinksCoreAdmin.php:383
+msgid "Set to 0 for no click limit."
+msgstr "ตั้งค่าเป็น 0 สำหรับไม่จำกัดการคลิก"
+
+#: includes-core/ShortlinksCoreAdmin.php:396
+msgid "Where should visitors be sent when they click an expired link?"
+msgstr "ผู้เข้าชมควรถูกส่งไปที่ไหนเมื่อคลิกลิงก์ที่หมดอายุ?"
+
+#: includes-core/ShortlinksCoreAdmin.php:399
+msgid "Custom URL"
+msgstr "URL ที่กำหนดเอง"
+
+#: includes-core/ShortlinksCoreAdmin.php:409
+msgid ""
+"When a shortlink expires, visitors are redirected to this URL. If left "
+"empty, visitors are redirected to the homepage."
+msgstr ""
+"เมื่อลิงก์สั้นหมดอายุ ผู้เข้าชมจะถูกเปลี่ยนเส้นทางไปที่ URL นี้ "
+"หากปล่อยว่าง ผู้เข้าชมจะถูกเปลี่ยนเส้นทางไปที่หน้าแรก"
+
+#: includes-core/ShortlinksCoreAdmin.php:418
+msgid "Display a custom notice page before redirecting expired links."
+msgstr "แสดงหน้าประกาศที่กำหนดเองก่อนที่จะเปลี่ยนเส้นทางลิงก์ที่หมดอายุ"
+
+#: includes-core/ShortlinksCoreAdmin.php:431
+msgid "Expiration Notice Title"
+msgstr "หัวข้อประกาศหมดอายุ"
+
+#: includes-core/ShortlinksCoreAdmin.php:432
+msgid "The heading of the expiration notice page"
+msgstr "หัวข้อของหน้าประกาศหมดอายุ"
+
+#: includes-core/ShortlinksCoreAdmin.php:435
+#: includes-core/ShortlinksCoreAdmin.php:457
+#: includes-core/ShortlinksCoreAdmin.php:483
+msgid "Custom text"
+msgstr "ข้อความที่กำหนดเอง"
+
+#: includes-core/ShortlinksCoreAdmin.php:446
+msgid "This is the main heading visitors see when they click an expired link."
+msgstr "นี่คือหัวข้อหลักที่ผู้เข้าชมเห็นเมื่อคลิกลิงก์ที่หมดอายุ"
+
+#: includes-core/ShortlinksCoreAdmin.php:453
+msgid "Expiration Notice Message"
+msgstr "ข้อความประกาศหมดอายุ"
+
+#: includes-core/ShortlinksCoreAdmin.php:454
+msgid "The message shown to visitors on the expiration notice page"
+msgstr "ข้อความที่แสดงให้ผู้เข้าชมในหน้าประกาศหมดอายุ"
+
+#: includes-core/ShortlinksCoreAdmin.php:468
+msgid ""
+"This is the body text explaining what happened and when visitors will be "
+"redirected."
+msgstr ""
+"นี่คือเนื้อความที่อธิบายว่าเกิดอะไรขึ้นและเมื่อไหร่ที่ผู้เยี่ยมชมจะถูกเปลี่ย"
+"นเส้นทางไปยังหน้าอื่น"
+
+#: includes-core/ShortlinksCoreAdmin.php:479
+msgid "Expiration Notice Link Text"
+msgstr "ข้อความลิงค์การแจ้งเตือนวันหมดอายุ"
+
+#: includes-core/ShortlinksCoreAdmin.php:480
+msgid "The text for the button visitors click to continue"
+msgstr "ข้อความสำหรับปุ่มที่ผู้เยี่ยมชมคลิกเพื่อต่อไป"
+
+#: includes-core/ShortlinksCoreAdmin.php:494
+msgid ""
+"This is the text displayed on the clickable button at the bottom of the "
+"notice page."
+msgstr "นี่คือข้อความที่แสดงบนปุ่มที่คลิกได้ที่ด้านล่างของหน้าแจ้งเตือน"
+
+#: includes-core/ShortlinksCoreAdmin.php:541
+msgid "Enable Dynamic Redirects"
+msgstr "เปิดใช้งานการเปลี่ยนเส้นทางแบบไดนามิก"
+
+#: includes-core/ShortlinksCoreAdmin.php:542
+msgid "Send visitors to different destinations when they match an enabled rule."
+msgstr ""
+"ส่งผู้เยี่ยมชมไปยังจุดหมายปลายทางที่แตกต่างกันเมื่อพวกเขาตรงตามกฎที่เปิดใช้ง"
+"าน"
+
+#: includes-core/ShortlinksCoreAdmin.php:554
+msgid "Fallback Destination"
+msgstr "จุดหมายปลายทางสำรอง"
+
+#: includes-core/ShortlinksCoreAdmin.php:555
+msgid "The Target URL in the General tab is used whenever no enabled rule matches."
+msgstr "URL เป้าหมายในแท็บทั่วไปจะถูกใช้เมื่อไม่มีการจับคู่กับกฎที่เปิดใช้งาน"
+
+#: includes-core/ShortlinksCoreAdmin.php:562
+msgid "Redirect Rules"
+msgstr "กฎการเปลี่ยนเส้นทาง"
+
+#: includes-core/ShortlinksCoreAdmin.php:563
+msgid "Rules are checked from top to bottom. The first matching rule is used."
+msgstr "กฎจะถูกตรวจสอบจากบนลงล่าง กฎแรกที่ตรงกันจะถูกใช้"
+
+#: includes-core/ShortlinksCoreAdmin.php:564
+msgid "Add Rule"
+msgstr "เพิ่มกฎ"
+
+#: includes-core/ShortlinksCoreAdmin.php:566
+msgid "A shortlink can contain up to 100 redirect rules."
+msgstr "ลิงค์สั้นสามารถมีได้สูงสุด 100 กฎการเปลี่ยนเส้นทาง"
+
+#: includes-core/ShortlinksCoreAdmin.php:570
+#: includes-core/ShortlinksCoreAdmin.php:596
+msgid "Redirect Rule"
+msgstr "กฎการเปลี่ยนเส้นทาง"
+
+#: includes-core/ShortlinksCoreAdmin.php:584
+msgid "Rule Status"
+msgstr "สถานะของกฎ"
+
+#: includes-core/ShortlinksCoreAdmin.php:594
+msgid "Rule Name"
+msgstr "ชื่อกฎ"
+
+#: includes-core/ShortlinksCoreAdmin.php:595
+msgid "Example: Redirect Rule 1"
+msgstr "ตัวอย่าง: กฎการเปลี่ยนเส้นทาง 1"
+
+#: includes-core/ShortlinksCoreAdmin.php:602
+msgid "Destination URL"
+msgstr "URL จุดหมายปลายทาง"
+
+#: includes-core/ShortlinksCoreAdmin.php:604
+msgid ""
+"Use an HTTP or HTTPS URL. Empty, invalid, and self-referencing rules are "
+"saved as disabled."
+msgstr ""
+"ใช้ URL HTTP หรือ HTTPS กฎที่ว่างเปล่า ไม่ถูกต้อง "
+"และอ้างอิงตนเองจะถูกบันทึกเป็นปิดใช้งาน"
+
+#: includes-core/ShortlinksCoreAdmin.php:611
+msgid "Countries"
+msgstr "ประเทศ"
+
+#: includes-core/ShortlinksCoreAdmin.php:613
+msgid "Any country"
+msgstr "ทุกประเทศ"
+
+#: includes-core/ShortlinksCoreAdmin.php:614
+msgid "Only selected countries"
+msgstr "เฉพาะประเทศที่เลือก"
+
+#: includes-core/ShortlinksCoreAdmin.php:616
+msgid "All except selected countries"
+msgstr "ทุกประเทศยกเว้นประเทศที่เลือก"
+
+#: includes-core/ShortlinksCoreAdmin.php:624
+msgid "Selected Countries"
+msgstr "ประเทศที่เลือก"
+
+#: includes-core/ShortlinksCoreAdmin.php:626
+msgid "United Kingdom"
+msgstr "สหราชอาณาจักร"
+
+#: includes-core/ShortlinksCoreAdmin.php:627
+msgid "Nigeria"
+msgstr "ไนจีเรีย"
+
+#: includes-core/ShortlinksCoreAdmin.php:628
+msgid "United States"
+msgstr "สหรัฐอเมริกา"
+
+#: includes-core/ShortlinksCoreAdmin.php:632
+msgid "Select countries"
+msgstr "เลือกประเทศ"
+
+#: includes-core/ShortlinksCoreAdmin.php:639
+msgid "Devices"
+msgstr "อุปกรณ์"
+
+#: includes-core/ShortlinksCoreAdmin.php:646
+msgid "Leave every option unchecked to match any device."
+msgstr "ไม่เลือกตัวเลือกใด ๆ เพื่อให้ตรงกับอุปกรณ์ใด ๆ."
+
+#: includes-core/ShortlinksCoreAdmin.php:653
+msgid "Referrer"
+msgstr "ผู้แนะนำ"
+
+#: includes-core/ShortlinksCoreAdmin.php:655
+msgid "Any referrer"
+msgstr "ผู้แนะนำใด ๆ"
+
+#: includes-core/ShortlinksCoreAdmin.php:656
+msgid "Direct or unknown only"
+msgstr "เฉพาะตรงหรือไม่ทราบเท่านั้น"
+
+#: includes-core/ShortlinksCoreAdmin.php:657
+msgid "Only selected domains"
+msgstr "เฉพาะโดเมนที่เลือก"
+
+#: includes-core/ShortlinksCoreAdmin.php:659
+msgid "All except selected domains"
+msgstr "ทั้งหมดที่ไม่รวมโดเมนที่เลือก"
+
+#: includes-core/ShortlinksCoreAdmin.php:667
+msgid "Referrer Domains"
+msgstr "โดเมนผู้แนะนำ"
+
+#: includes-core/ShortlinksCoreAdmin.php:669
+msgid ""
+"Enter domains separated by commas or new lines. Subdomains also match their "
+"parent domain."
+msgstr "กรอกโดเมนที่แยกด้วยลูกน้ำหรือบรรทัดใหม่ โดเมนย่อยยังตรงกับโดเมนหลักของมัน."
+
+#: includes/classes/class-gutenberg-shortlink.php:165
+msgid "Search shortlinks"
+msgstr "ค้นหาลิงค์สั้น"
+
+#: includes/classes/class-hooks.php:189
+#: includes/classes/class-hooks.php:201
+msgid "Invalid custom date range."
+msgstr "ช่วงวันที่กำหนดเองไม่ถูกต้อง"
+
+#: includes/classes/class-import-export.php:202
+msgid "Invalid uploaded file."
+msgstr "ไฟล์ที่อัปโหลดไม่ถูกต้อง."
+
+#: includes/classes/class-import-export.php:237
+msgid "Please upload a valid CSV file."
+msgstr "กรุณาอัปโหลดไฟล์ CSV ที่ถูกต้อง."
+
+#: includes/classes/class-import-export.php:1200
+msgid "Import and export"
+msgstr "นำเข้าและส่งออก"
+
+#: includes/classes/class-import-export.php:1303
+msgid "Import progress"
+msgstr "ความก้าวหน้าของการนำเข้า"
+
+#: includes/classes/class-meta-boxes.php:193
+msgid "PublishPress Shortlinks slug."
+msgstr "Slug ของลิงค์สั้น PublishPress."
+
+#: includes/classes/class-meta-boxes.php:373
+msgid "Copy"
+msgstr "คัดลอก"
+
+#: includes/classes/class-meta-boxes.php:375
+msgid "Enter a shortlink slug to create a shortlink URL."
+msgstr "ป้อน slug ของลิงก์สั้นเพื่อสร้าง URL ลิงก์สั้น"
+
+#: includes/classes/class-meta-boxes.php:377
+msgid "Shortlink Slug"
+msgstr "Slug ลิงก์สั้น"
+
+#: includes/classes/class-meta-boxes.php:378
+msgid "Shortlink URL"
+msgstr "URL ลิงก์สั้น"
+
+#: includes/classes/class-meta-boxes.php:1066
+msgid "Dynamic Redirects"
+msgstr "การเปลี่ยนเส้นทางแบบไดนามิก"
+
+#: includes/classes/class-meta-boxes.php:1185
+#: includes/classes/class-settings.php:1217
+msgid "Scheduling"
+msgstr "การจัดตารางเวลา"
 
 #: includes/classes/class-migration.php:52
 msgid "Pretty Links"
@@ -1520,7 +3041,7 @@ msgid "Remind me later"
 msgstr "เตือนฉันภายหลัง"
 
 #: includes/classes/class-migration.php:297
-#: tinypress.php:482
+#: tinypress.php:485
 msgid "Dismiss"
 msgstr "ปฏิเสธ"
 
@@ -1593,605 +3114,61 @@ msgstr "ไม่มีสลักลิงก์สั้น."
 msgid "Could not create shortlink."
 msgstr "ไม่สามารถสร้างลิงก์สั้นได้."
 
-#: includes/classes/class-redirection.php:310
-#: includes/classes/class-redirection.php:1707
-msgid "This link is expired."
-msgstr "ลิงก์นี้หมดอายุ."
-
 #: includes/classes/class-redirection.php:1016
 #: includes/classes/class-redirection.php:1602
-#: includes/classes/class-table-logs.php:382
+#: includes/classes/class-table-logs.php:387
 msgid "Default Target"
 msgstr "เป้าหมายเริ่มต้น"
 
-#: includes/classes/class-redirection.php:1242
-msgid "Post not found."
-msgstr "ไม่พบบทความ."
+#: includes/classes/class-settings.php:66
+msgid "Settings sections"
+msgstr "ส่วนการตั้งค่า"
 
-#: includes/classes/class-redirection.php:1386
-#: includes/functions.php:467
-#: includes/functions.php:468
-#: includes/functions.php:469
-#: includes/functions.php:475
-#: tinypress.php:373
-#: tinypress.php:374
-#: tinypress.php:375
-msgid "This post is in {status} status. It is not visible to the public."
-msgstr "โพสต์นี้อยู่ในสถานะ {status} มันไม่สามารถมองเห็นได้สำหรับสาธารณะ"
+#: includes/classes/class-settings.php:67
+msgid "Search settings"
+msgstr "การตั้งค่าการค้นหา"
 
-#: includes/classes/class-redirection.php:1434
-msgid "This link has expired"
-msgstr "ลิงก์นี้หมดอายุแล้ว"
-
-#: includes/classes/class-redirection.php:1438
-msgid "You will be redirected shortly."
-msgstr "คุณจะถูกนำทางไปยังหน้าอื่นในไม่ช้า."
-
-#: includes/classes/class-redirection.php:1442
-msgid "Click here if you are not redirected"
-msgstr "คลิกที่นี่หากคุณไม่ได้รับการนำทาง"
-
-#: includes/classes/class-redirection.php:1459
-msgid "Link Expired"
-msgstr "ลิงก์หมดอายุ"
-
-#: includes/classes/class-redirection.php:1680
-#: includes/classes/class-redirection.php:1688
-msgid "This link is not active."
-msgstr "ลิงก์นี้ไม่ทำงาน."
-
-#: includes/classes/class-redirection.php:1727
-msgid "Incorrect password. Please try again."
-msgstr "รหัสผ่านไม่ถูกต้อง กรุณาลองอีกครั้ง."
-
-#: includes/classes/class-redirection.php:1746
-#: includes/classes/class-redirection.php:1751
-msgid "Password Protected Link"
-msgstr "ลิงก์ที่มีการป้องกันด้วยรหัสผ่าน"
-
-#: includes/classes/class-redirection.php:1757
-msgid "Enter password to continue:"
-msgstr "กรอกรหัสผ่านเพื่อดำเนินการต่อ:"
-
-#: includes/classes/class-redirection.php:1759
-msgid "Submit"
-msgstr "ส่ง"
-
-#: includes/classes/class-redirection.php:1864
-msgid "This link is not containing the right prefix slug."
-msgstr "ลิงก์นี้ไม่มีส่วนที่เป็นคำนำหน้าที่ถูกต้อง."
-
-#: includes/classes/class-redirection.php:1905
-msgid "Too many invalid shortlink requests. Please try again later."
-msgstr "มีคำขอลิงก์สั้นที่ไม่ถูกต้องมากเกินไป กรุณาลองอีกครั้งในภายหลัง"
-
-#: includes/classes/class-redirection.php:1906
-msgid "Too Many Requests"
-msgstr "คำขอมากเกินไป"
-
-#: includes/classes/class-revision.php:439
-msgid "Invalid revision ID."
-msgstr "ID การแก้ไขไม่ถูกต้อง."
-
-#: includes/classes/class-settings.php:430
-#: includes/classes/class-settings.php:897
-#: includes/classes/class-settings.php:905
-#: includes/functions.php:376
-#: includes/functions.php:410
-msgid "Draft"
-msgstr "ร่าง"
-
-#: includes/classes/class-settings.php:431
-#: includes/classes/class-settings.php:898
-#: includes/classes/class-settings.php:906
-#: includes/functions.php:377
-#: includes/functions.php:411
-msgid "Pending Review"
-msgstr "รอดำเนินการตรวจสอบ"
-
-#: includes/classes/class-settings.php:432
-#: includes/classes/class-settings.php:899
-#: includes/classes/class-settings.php:907
-#: includes/functions.php:378
-#: includes/functions.php:412
-msgid "Private"
-msgstr "ส่วนตัว"
-
-#: includes/classes/class-settings.php:437
-msgid ""
-"Customize the notice shown for each enabled non-published status. Available "
-"placeholders: {status}, {date}, {title}."
-msgstr ""
-"ปรับแต่งประกาศที่แสดงสำหรับสถานะที่ยังไม่เผยแพร่ที่เปิดใช้งาน "
-"ประเภทที่ใช้ได้: {status}, {date}, {title}."
-
-#: includes/classes/class-settings.php:473
-#: includes/classes/class-settings.php:522
-msgid "All"
-msgstr "ทั้งหมด"
-
-#: includes/classes/class-settings.php:486
-#: includes/classes/class-settings.php:535
+#: includes/classes/class-settings.php:514
+#: includes/classes/class-settings.php:563
 msgid "Search post types"
 msgstr "ค้นหาประเภทโพสต์"
 
-#: includes/classes/class-settings.php:487
-#: includes/classes/class-settings.php:536
+#: includes/classes/class-settings.php:515
+#: includes/classes/class-settings.php:564
 msgid "Filter post types..."
 msgstr "กรองประเภทโพสต์..."
 
-#: includes/classes/class-settings.php:504
-#: includes/classes/class-settings.php:553
+#: includes/classes/class-settings.php:532
+#: includes/classes/class-settings.php:581
 msgid "No post types match your search."
 msgstr "ไม่มีประเภทโพสต์ที่ตรงกับการค้นหาของคุณ."
 
-#: includes/classes/class-settings.php:528
+#: includes/classes/class-settings.php:556
 msgid "No data available."
 msgstr "ไม่มีข้อมูลให้บริการ."
 
-#: includes/classes/class-settings.php:595
-msgid "Settings"
-msgstr "การตั้งค่า"
-
-#: includes/classes/class-settings.php:722
-msgid ""
-"Select which post statuses are accessible when visiting a PublishPress "
-"shortlink."
-msgstr ""
-"เลือกสถานะโพสต์ที่สามารถเข้าถึงได้เมื่อเข้าเยี่ยมชมลิงก์สั้นของ "
-"PublishPress."
-
-#: includes/classes/class-settings.php:738
-#, fuzzy
-msgid "PublishPress Statuses Plugin Detected:"
-msgstr "PublishPress Shortlinks Free"
-
-#: includes/classes/class-settings.php:739
-msgid ""
-"To use core PublishPress statuses with Shortlinks, Please enable the "
-"Shortlinks post type in PublishPress Statuses workflow settings."
-msgstr ""
-"เพื่อใช้งานสถานะของ PublishPress ที่เป็นหลักกับ Shortlinks "
-"กรุณาเปิดใช้งานประเภทโพสต์ Shortlinks ในการตั้งค่าการทำงานของสถานะ "
-"PublishPress."
-
-#: includes/classes/class-settings.php:758
-msgid "Elementor Detected:"
-msgstr "ตรวจพบ Elementor:"
-
-#: includes/classes/class-settings.php:759
-msgid ""
-"Shortlink prefix is required for proper rendering of Elementor revisions. "
-"It is advisable to keep it enabled."
-msgstr ""
-"คำนำหน้าลิงก์สั้นจำเป็นสำหรับการแสดงผลที่ถูกต้องของการแก้ไข Elementor "
-"แนะนำให้เปิดใช้งานไว้."
-
-#: includes/classes/class-settings.php:791
-msgid "TinyPress Shortlinks Notice:"
-msgstr "ประกาศเกี่ยวกับลิงก์สั้น TinyPress:"
-
-#: includes/classes/class-settings.php:792
-msgid ""
-"Elementor is active. Shortlink prefix has been automatically disabled, it "
-"is required for optimal compatibility with Elementor revisions."
-msgstr ""
-"Elementor กำลังทำงานอยู่ คำนำหน้าลิงก์สั้นถูกปิดใช้งานโดยอัตโนมัติ "
-"จำเป็นสำหรับการทำงานร่วมกันที่ดีที่สุดกับการแก้ไข Elementor."
-
-#: includes/classes/class-settings.php:896
-#: includes/functions.php:375
-#: includes/functions.php:409
-msgid "Published"
-msgstr "เผยแพร่"
-
-#: includes/classes/class-settings.php:915
-#: includes/classes/class-settings.php:920
-#: includes/classes/class-settings.php:1029
-msgid "Post Types"
-msgstr "ประเภทโพสต์"
-
-#: includes/classes/class-settings.php:921
+#: includes/classes/class-settings.php:949
 msgid "Select which post types will have shortlinks available."
 msgstr "เลือกประเภทโพสต์ที่จะมีลิงก์สั้นให้ใช้งาน."
 
-#: includes/classes/class-settings.php:922
+#: includes/classes/class-settings.php:950
 msgid "Shortlinks metabox and column will only appear on selected post types."
 msgstr "กรอบและคอลัมน์ลิงก์สั้นจะปรากฏเฉพาะในประเภทโพสต์ที่เลือกเท่านั้น."
 
-#: includes/classes/class-settings.php:935
-msgid "Shortlink Prefix"
-msgstr "คำนำหน้าลิงก์สั้น"
-
-#: includes/classes/class-settings.php:936
-msgid "Add a prefix between your domain name and shortlink."
-msgstr "เพิ่มคำนำหน้าระหว่างชื่อโดเมนของคุณและลิงก์สั้น"
-
-#: includes/classes/class-settings.php:943, fuzzy
-msgid "Prefix Slug"
-msgstr "Prefix Slug"
-
-#: includes/classes/class-settings.php:944
-msgid "Custom prefix slug."
-msgstr "คำนำหน้าสลักแบบกำหนดเอง"
-
-#: includes/classes/class-settings.php:945
-msgid "This text will be added between your domain name and shortlink."
-msgstr "ข้อความนี้จะถูกเพิ่มระหว่างชื่อโดเมนของคุณกับลิงก์สั้น"
-
-#: includes/classes/class-settings.php:946
-#: includes/classes/class-settings.php:947
-msgid "go"
-msgstr "ไป"
-
-#: includes/classes/class-settings.php:953
-msgid "Keyboard Shortcut"
-msgstr "ทางลัดคีย์บอร์ด"
-
-#: includes/classes/class-settings.php:954
-msgid "Create shortlinks from anywhere inside your WordPress dashboard."
-msgstr "สร้างลิงก์สั้นจากที่ใดก็ได้ภายในแดชบอร์ด WordPress ของคุณ"
-
-#: includes/classes/class-settings.php:955
-#: includes/classes/class-settings.php:956
-msgid "Ctrl or Cmd + /"
-msgstr "Ctrl หรือ Cmd + /"
-
-#: includes/classes/class-settings.php:965
-msgid "Remove from Admin Bar"
-msgstr "ลบจากแถบผู้ดูแลระบบ"
-
-#: includes/classes/class-settings.php:966
-msgid "Hide the \"Shorten\" button from the WordPress admin bar."
-msgstr "ซ่อนปุ่ม \"ย่อ\" จากแถบผู้ดูแลระบบ WordPress"
-
-#: includes/classes/class-settings.php:972
-msgid "Role Management"
-msgstr "การจัดการบทบาท"
-
-#: includes/classes/class-settings.php:977
-msgid "Who Can View The All Shortlinks Screen"
-msgstr "ใครสามารถดูหน้าจอลิงก์สั้นทั้งหมด"
-
-#: includes/classes/class-settings.php:978
-msgid "Only selected user roles can view the complete list of Shortlinks."
-msgstr "เฉพาะบทบาทผู้ใช้ที่เลือกเท่านั้นที่สามารถดูรายการลิงก์สั้นทั้งหมดได้"
-
-#: includes/classes/class-settings.php:986
-msgid "Who Can Create/Edit Shortlinks"
-msgstr "ใครสามารถสร้าง/แก้ไขลิงก์สั้น"
-
-#: includes/classes/class-settings.php:987
-msgid "Only selected user roles can create or edit links."
-msgstr "เฉพาะบทบาทผู้ใช้ที่เลือกเท่านั้นที่สามารถสร้างหรือแก้ไขลิงก์ได้"
-
-#: includes/classes/class-settings.php:996
-msgid "Who Can See Logs"
-msgstr "ใครสามารถดูบันทึก"
-
-#: includes/classes/class-settings.php:997
-msgid "Only selected user roles can see the Analytics tab and the Logs screen."
-msgstr ""
-"เฉพาะบทบาทผู้ใช้ที่เลือกเท่านั้นที่สามารถดูแท็บการวิเคราะห์และหน้าจอบันทึกได"
-"้"
-
-#: includes/classes/class-settings.php:1006
-msgid "Who Can Control Settings"
-msgstr "ใครสามารถควบคุมการตั้งค่า"
-
-#: includes/classes/class-settings.php:1007
-msgid "Only selected user roles can access the Settings screen."
-msgstr "เฉพาะบทบาทผู้ใช้ที่เลือกเท่านั้นที่สามารถเข้าถึงหน้าจอการตั้งค่าได้"
-
-#: includes/classes/class-settings.php:1016
-msgid "Auto-Linking"
-msgstr "การเชื่อมโยงอัตโนมัติ"
-
-#: includes/classes/class-settings.php:1021
-msgid "Enable Auto-Linking"
-msgstr "เปิดใช้งานการเชื่อมโยงอัตโนมัติ"
-
-#: includes/classes/class-settings.php:1022
-msgid "Automatically convert keywords to shortlinks in post content."
-msgstr "แปลงคำสำคัญเป็นลิงก์สั้นในเนื้อหาโพสต์โดยอัตโนมัติ"
-
-#: includes/classes/class-settings.php:1023
-msgid ""
-"When enabled, keywords configured in shortlink settings will be "
-"automatically linked in your content."
-msgstr ""
-"เมื่อเปิดใช้งาน "
-"คำสำคัญที่กำหนดค่าในการตั้งค่าลิงก์สั้นจะถูกเชื่อมโยงโดยอัตโนมัติในเนื้อหาขอ"
-"งคุณ"
-
-#: includes/classes/class-settings.php:1030
-msgid "Where should auto-linking be applied?"
-msgstr "ควรใช้การเชื่อมโยงอัตโนมัติที่ใด?"
-
-#: includes/classes/class-settings.php:1039
-msgid "Open Auto-Links In"
-msgstr "เปิดลิงก์อัตโนมัติใน"
-
-#: includes/classes/class-settings.php:1040
-msgid "Choose how auto-linked keywords should open."
-msgstr "เลือกวิธีที่คำสำคัญที่เชื่อมโยงอัตโนมัติควรเปิด"
-
-#: includes/classes/class-settings.php:1042
-msgid "Same tab"
-msgstr "แท็บเดียวกัน"
-
-#: includes/classes/class-settings.php:1043
-msgid "New tab"
-msgstr "แท็บใหม่"
-
-#: includes/classes/class-settings.php:1051
-msgid "Auto-Link Color"
-msgstr "สีลิงก์อัตโนมัติ"
-
-#: includes/classes/class-settings.php:1052
-msgid "Choose the color for auto-linked keywords."
-msgstr "เลือกสีสำหรับคำหลักที่เชื่อมโยงอัตโนมัติ"
-
-#: includes/classes/class-settings.php:1063
-msgid "Auto-List Links"
-msgstr "รายการลิงก์อัตโนมัติ"
-
-#: includes/classes/class-settings.php:1068
-msgid "Auto-List Shortlinks"
-msgstr "ลิงก์สั้นอัตโนมัติ"
-
-#: includes/classes/class-settings.php:1069
-msgid ""
-"When enabled, shortlinks will appear in the \"All Links\" table based on "
-"the behavior you configure below."
-msgstr ""
-"เมื่อเปิดใช้งาน ลิงก์สั้นจะปรากฏในตาราง \"ลิงก์ทั้งหมด\" "
-"ตามพฤติกรรมที่คุณกำหนดด้านล่าง."
-
-#: includes/classes/class-settings.php:1075
-msgid "Configure Post Types"
-msgstr "กำหนดประเภทโพสต์"
-
-#: includes/classes/class-settings.php:1076
-msgid "Set when links should be auto-listed for each post type"
-msgstr "ตั้งค่าเมื่อไหร่ที่ลิงก์ควรถูกสร้างอัตโนมัติสำหรับแต่ละประเภทโพสต์"
-
-#: includes/classes/class-settings.php:1077
-msgid ""
-"Add post types and configure when their shortlinks should appear in the "
-"\"All Links\" table. Changes are saved automatically."
-msgstr ""
-"เพิ่มประเภทโพสต์และกำหนดว่าเมื่อไหร่ลิงก์สั้นของพวกเขาควรปรากฏในตาราง "
-"\"ลิงก์ทั้งหมด\" การเปลี่ยนแปลงจะถูกบันทึกโดยอัตโนมัติ."
-
-#: includes/classes/class-settings.php:1084
-#: includes/classes/class-statuses.php:233
-msgid "Post Status Visibility"
-msgstr "การมองเห็นสถานะโพสต์"
-
-#: includes/classes/class-settings.php:1089
-msgid "Allowed Post Statuses"
-msgstr "สถานะโพสต์ที่อนุญาต"
-
-#: includes/classes/class-settings.php:1098
-msgid "Unpublished Content Notice"
-msgstr "ประกาศเนื้อหาที่ยังไม่เผยแพร่"
-
-#: includes/classes/class-settings.php:1099
-msgid ""
-"Show a frontend notice when an internal shortlink displays a post that is "
-"not published."
-msgstr "แสดงประกาศในหน้าสำหรับเมื่อมีลิงก์สั้นภายในที่แสดงโพสต์ที่ยังไม่เผยแพร่"
-
-#: includes/classes/class-settings.php:1105
-msgid "Notice Post Statuses"
-msgstr "สถานะประกาศโพสต์"
-
-#: includes/classes/class-settings.php:1106
-msgid ""
-"This notice only applies to internal shortlinks that render post content "
-"directly. External shortlinks are not affected."
-msgstr ""
-"ประกาศนี้ใช้ได้เฉพาะกับลิงก์สั้นภายในที่แสดงเนื้อหาโพสต์โดยตรง "
-"ลิงก์สั้นภายนอกไม่มีผลกระทบ"
-
-#: includes/classes/class-settings.php:1115
-msgid "Notice Messages"
-msgstr "ข้อความประกาศ"
-
-#: includes/classes/class-settings.php:1129
-msgid "Default redirection method for shortlinks"
-msgstr "วิธีการเปลี่ยนเส้นทางเริ่มต้นสำหรับลิงก์สั้น"
-
-#: includes/classes/class-settings.php:1141
-msgid "Mark links as sponsored content"
-msgstr "ทำเครื่องหมายลิงก์เป็นเนื้อหาที่สนับสนุน"
-
-#: includes/classes/class-settings.php:1149
-msgid "Prevent search engines from following links"
-msgstr "ป้องกันไม่ให้เครื่องมือค้นหาติดตามลิงก์"
-
-#: includes/classes/class-settings.php:1157
-msgid "Pass URL parameters to target links"
-msgstr "ส่งผ่านพารามิเตอร์ URL ไปยังลิงก์เป้าหมาย"
-
-#: includes/classes/class-settings.php:1170
-msgid "Secure your shortlinks"
-msgstr "รักษาความปลอดภัยให้กับลิงก์สั้นของคุณ"
-
-#: includes/classes/class-settings.php:1171
-msgid "Users must enter a password to redirect to the target link."
-msgstr "ผู้ใช้งานต้องป้อนรหัสผ่านเพื่อเปลี่ยนเส้นทางไปยังลิงก์เป้าหมาย."
-
-#: includes/classes/class-settings.php:1177
-msgid "Default Password"
-msgstr "รหัสผ่านเริ่มต้น"
-
-#: includes/classes/class-settings.php:1178
-msgid "Default password for protected links"
-msgstr "รหัสผ่านเริ่มต้นสำหรับลิงก์ที่ป้องกัน"
-
-#: includes/classes/class-settings.php:1179
-msgid ""
-"This password will be used for links that have password protection enabled "
-"via global settings. Passwords are case sensitive."
-msgstr ""
-"รหัสผ่านนี้จะถูกใช้สำหรับลิงก์ที่เปิดใช้งานการป้องกันด้วยรหัสผ่านผ่านการตั้ง"
-"ค่าแบบทั่วโลก รหัสผ่านมีความไวต่อการใช้ตัวพิมพ์ใหญ่และตัวพิมพ์เล็ก."
-
-#: includes/classes/class-settings.php:1190
-msgid "Set an expiration date and time for shortlinks"
-msgstr "ตั้งค่าวันที่และเวลาหมดอายุสำหรับลิงก์สั้น"
-
-#: includes/classes/class-settings.php:1198
-msgid "Select the date when this shortlink should stop working"
-msgstr "เลือกวันที่ลิงก์สั้นนี้ควรหยุดทำงาน"
-
-#: includes/classes/class-settings.php:1211
-msgid "Select the time when the shortlink should expire"
-msgstr "เลือกเวลาที่ลิงก์สั้นนี้ควรหมดอายุ"
-
-#: includes/classes/class-settings.php:1230
-msgid "Revisions"
-msgstr "การแก้ไข"
-
-#: includes/classes/class-settings.php:1235
-msgid "Revision Link Visibility"
-msgstr "การมองเห็นลิงก์การแก้ไข"
-
-#: includes/classes/class-settings.php:1236
-msgid ""
-"When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
-"table based on the behavior you configure below."
-msgstr ""
-"เมื่อเปิดใช้งาน ลิงก์การแก้ไขจะปรากฏในตาราง \"ลิงก์สั้นทั้งหมด\" "
-"ตามพฤติกรรมที่คุณกำหนดด้านล่าง."
-
-#: includes/classes/class-settings.php:1238
-msgid "When Revision is Created"
-msgstr "เมื่อมีการสร้างการแก้ไข"
-
-#: includes/classes/class-settings.php:1240
-msgid "When Revision is Created or Link is First Used"
-msgstr "เมื่อมีการสร้างการแก้ไขหรือเมื่อลิงก์ถูกใช้ครั้งแรก"
-
-#: includes/classes/class-settings.php:1248
-msgid "Show Shortlink in Revision Table"
-msgstr "แสดงลิงก์สั้นในตารางการแก้ไข"
-
-#: includes/classes/class-settings.php:1249
-msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
-msgstr "แสดงคอลัมน์ลิงก์สั้นเมื่อดูการแก้ไขใน PublishPress Revisions."
-
-#: includes/classes/class-settings.php:1255
-msgid "Revision Visibility for Visitors"
-msgstr "ความสามารถในการมองเห็นการแก้ไขสำหรับผู้เข้าชม"
-
-#: includes/classes/class-settings.php:1256
-msgid "Allow logged-out visitors to view revision content via shortlinks."
-msgstr "อนุญาตให้ผู้เข้าชมที่ออกจากระบบสามารถดูเนื้อหาการแก้ไขผ่านลิงก์สั้นได้"
-
-#: includes/classes/class-settings.php:1257
-msgid ""
-"By default, PublishPress Revisions blocks visitors from viewing revision "
-"previews. When enabled, revision shortlinks will render the revision "
-"content directly for logged-out visitors instead of redirecting to the "
-"preview URL."
-msgstr ""
-"โดยค่าเริ่มต้น PublishPress Revisions "
-"จะบล็อกผู้เข้าชมไม่ให้ดูตัวอย่างการแก้ไข เมื่อเปิดใช้งาน "
-"ลิงก์สั้นสำหรับการแก้ไขจะทำให้เนื้อหาการแก้ไขแสดงโดยตรงสำหรับผู้เข้าชมที่ออก"
-"จากระบบแทนที่จะเปลี่ยนเส้นทางไปยัง URL ตัวอย่าง"
-
-#: includes/classes/class-settings.php:1280, fuzzy
-msgid "Dummy"
-msgstr "Dummy"
-
-#: includes/classes/class-settings.php:1324
-msgid "No post types configured yet. Click \"Add Post Type\" to get started."
-msgstr "ยังไม่มีประเภทโพสต์ที่กำหนดไว้ คลิก \"เพิ่มประเภทโพสต์\" เพื่อเริ่มต้น"
-
-#: includes/classes/class-settings.php:1356
-msgid "Add Post Type"
-msgstr "เพิ่มประเภทโพสต์"
-
-#: includes/classes/class-table-logs.php:70
-msgid "Log entry deleted successfully."
-msgstr "ลายเซ็นถูกลบเรียบร้อยแล้ว"
-
-#: includes/classes/class-table-logs.php:80
-#. translators: %d: number of log entries deleted
+#: includes/classes/class-table-logs.php:166
+msgid "Select all logs"
+msgstr "เลือกบันทึกทั้งหมด"
+
+#: includes/classes/class-table-logs.php:181
 #, php-format
-msgid "%d log entries deleted successfully."
-msgstr "%d ลายเซ็นถูกลบเรียบร้อยแล้ว"
+msgid "Select log entry %d"
+msgstr "เลือกบันทึกที่ %d"
 
-#: includes/classes/class-table-logs.php:84
-msgid "All logs have been cleared."
-msgstr "ลายเซ็นทั้งหมดถูกล้างแล้ว"
-
-#: includes/classes/class-table-logs.php:167
-msgid "Title"
-msgstr "ชื่อเรื่อง"
-
-#: includes/classes/class-table-logs.php:169
-msgid "Details"
-msgstr "รายละเอียด"
-
-#: includes/classes/class-table-logs.php:204
-msgid "Are you sure you want to delete this log entry?"
-msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบลายเซ็นนี้?"
-
-#: includes/classes/class-table-logs.php:264
-msgid "View Analytics"
-msgstr "ดูการวิเคราะห์"
-
-#: includes/classes/class-table-logs.php:284
-msgid "Tablet"
-msgstr "แท็บเล็ต"
-
-#: includes/classes/class-table-logs.php:287
-msgid "Mobile"
-msgstr "มือถือ"
-
-#: includes/classes/class-table-logs.php:290
-msgid "Desktop"
-msgstr "เดสก์ท็อป"
-
-#: includes/classes/class-table-logs.php:351
-#. translators: 1: user display name, 2: location name, 3: visit date/time
-#, php-format
-msgid "%1$s from %2$s visited at %3$s"
-msgstr "%1$s จาก %2$s เข้าชมเมื่อ %3$s"
-
-#: includes/classes/class-table-logs.php:354
-#. translators: 1: user display name, 2: visit date/time
-#, php-format
-msgid "%1$s visited at %2$s"
-msgstr "%1$s ได้เยี่ยมชมเมื่อ %2$s"
-
-#: includes/classes/class-table-logs.php:358
-#. translators: 1: location name, 2: visit date/time
-#, php-format
-msgid "From %1$s, visited at %2$s"
-msgstr "จาก %1$s, ได้เยี่ยมชมเมื่อ %2$s"
-
-#: includes/classes/class-table-logs.php:361
-#. translators: %s: visit date/time
-#, php-format
-msgid "Visited at %s"
-msgstr "ได้เยี่ยมชมเมื่อ %s"
-
-#: includes/classes/class-table-logs.php:373
-#. translators: %s: device type and browser name, e.g. "Mobile Chrome"
-#, php-format
-msgid "via %s"
-msgstr "ผ่าน %s"
-
-#: includes/classes/class-table-logs.php:382
+#: includes/classes/class-table-logs.php:387
 msgid "Dynamic Redirect"
 msgstr "การเปลี่ยนเส้นทางแบบไดนามิก"
 
-#: includes/classes/class-table-logs.php:387
+#: includes/classes/class-table-logs.php:392
 #. translators: %s: redirect rule name
 #, php-format
 msgid "Redirected by %s"
@@ -2201,281 +3178,155 @@ msgstr "เปลี่ยนเส้นทางโดย %s"
 msgid "Could not fetch target URL details."
 msgstr "ไม่สามารถดึงรายละเอียด URL เป้าหมายได้."
 
-#: includes/functions.php:331
-msgid "Edit shortlink settings"
-msgstr "แก้ไขการตั้งค่าลิงก์สั้น"
-
-#: includes/functions.php:470
-#: tinypress.php:376
-msgid ""
-"This post is in {status} status. It will become visible to the public on "
-"{date}."
-msgstr "โพสต์นี้อยู่ในสถานะ {status} จะปรากฏให้สาธารณชนเห็นในวันที่ {date}."
-
-#: includes/functions.php:495
-msgid "Target url not found."
-msgstr "ไม่พบ URL เป้าหมาย."
-
-#: includes/functions.php:502
-msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
-msgstr ""
-"รูปแบบ URL ไม่ถูกต้อง อนุญาตเฉพาะ http, https, ftp, ftps, และ mailto "
-"เท่านั้น."
-
-#: includes/functions.php:534
-msgid "Tiny slug could not created."
-msgstr "ไม่สามารถสร้าง slug สั้นได้."
-
-#: templates/admin-modal-new-link.php:12
-msgid "Shortlink will appear here"
-msgstr "ลิงก์สั้นจะปรากฏที่นี่"
-
 #: templates/admin-modal-new-link.php:20
-msgid "Enter a long URL and make a shortlink"
-msgstr "ใส่ URL ยาวและสร้างลิงก์สั้น"
-
-#: templates/admin-modal-new-link.php:25
-msgid "Long URL"
-msgstr "URL ยาว"
-
-#: templates/admin-modal-new-link.php:38
-msgid "Create Shortlink"
+msgid "Create a Shortlink"
 msgstr "สร้างลิงก์สั้น"
 
-#: templates/admin/analytics.php:94
-msgid "Reset Today's Analytics"
-msgstr "รีเซ็ตการวิเคราะห์ของวันนี้"
-
-#: templates/admin/analytics.php:95
+#: templates/admin/analytics.php:96
 msgid "Reset Yesterday's Analytics"
 msgstr "รีเซ็ตการวิเคราะห์ของเมื่อวาน"
 
-#: templates/admin/analytics.php:96
-msgid "Reset Week's Analytics"
-msgstr "รีเซ็ตการวิเคราะห์ของสัปดาห์"
-
-#: templates/admin/analytics.php:97
-#: templates/admin/analytics.php:158
+#: templates/admin/analytics.php:98
+#: templates/admin/analytics.php:160
 msgid "Reset Last 30 Days Analytics"
 msgstr "รีเซ็ตการวิเคราะห์ของ 30 วันที่ผ่านมา"
 
-#: templates/admin/analytics.php:98
-msgid "Reset Month's Analytics"
-msgstr "รีเซ็ตการวิเคราะห์ของเดือน"
-
-#: templates/admin/analytics.php:99
+#: templates/admin/analytics.php:100
 msgid "Reset Last Month's Analytics"
 msgstr "รีเซ็ตการวิเคราะห์ของเดือนที่แล้ว"
 
-#: templates/admin/analytics.php:100
-msgid "Reset Year's Analytics"
-msgstr "รีเซ็ตการวิเคราะห์ของปี"
-
-#: templates/admin/analytics.php:101
+#: templates/admin/analytics.php:102
 msgid "Reset Last 2 Years Analytics"
 msgstr "รีเซ็ตการวิเคราะห์ของ 2 ปีที่ผ่านมา"
 
-#: templates/admin/analytics.php:102
+#: templates/admin/analytics.php:103
 msgid "Reset Custom Range Analytics"
 msgstr "รีเซ็ตการวิเคราะห์ช่วงที่กำหนดเอง"
 
-#: templates/admin/analytics.php:103
+#: templates/admin/analytics.php:104
 msgid "Reset All Time Analytics"
 msgstr "รีเซ็ตการวิเคราะห์ทั้งหมด"
 
-#: templates/admin/analytics.php:104
-msgid ""
-"Are you sure you want to reset the analytics for this period? This action "
-"cannot be undone."
-msgstr ""
-"คุณแน่ใจหรือว่าต้องการรีเซ็ตการวิเคราะห์สำหรับช่วงเวลานี้? "
-"การดำเนินการนี้ไม่สามารถย้อนกลับได้."
-
-#: templates/admin/analytics.php:105
+#: templates/admin/analytics.php:106
 #, php-format
 msgid "Showing data from %1$s to %2$s"
 msgstr "แสดงข้อมูลจาก %1$s ถึง %2$s"
 
-#: templates/admin/analytics.php:106
-#: templates/admin/analytics.php:207
+#: templates/admin/analytics.php:107
+#, php-format
+msgid ""
+"Analytics updated. Total clicks: %1$s. Unique visitors: %2$s. Days with "
+"clicks: %3$s. Average per click day: %4$s."
+msgstr ""
+"ข้อมูลการวิเคราะห์ถูกอัปเดต จำนวนคลิกทั้งหมด: %1$s. ผู้เยี่ยมชมที่ไม่ซ้ำ: "
+"%2$s. วันที่มีการคลิก: %3$s. เฉลี่ยต่อวันคลิก: %4$s."
+
+#: templates/admin/analytics.php:108
+#: templates/admin/analytics.php:210
 msgid "No click data available for this period."
 msgstr "ไม่มีข้อมูลการคลิกสำหรับช่วงเวลานี้"
 
-#: templates/admin/analytics.php:107
+#: templates/admin/analytics.php:109
 msgid "click"
 msgstr "คลิก"
 
-#: templates/admin/analytics.php:108
+#: templates/admin/analytics.php:110
 msgid "clicks"
 msgstr "คลิก"
 
-#: templates/admin/analytics.php:110
-#: templates/admin/analytics.php:201
+#: templates/admin/analytics.php:112
+#: templates/admin/analytics.php:204
 msgid "Each bar shows total clicks for one day."
 msgstr "แต่ละแถบแสดงจำนวนคลิกทั้งหมดสำหรับหนึ่งวัน"
 
-#: templates/admin/analytics.php:111
+#: templates/admin/analytics.php:113
 msgid "Each bar shows total clicks for a 7-day period."
 msgstr "แต่ละแถบแสดงจำนวนคลิกทั้งหมดสำหรับช่วงเวลา 7 วัน"
 
-#: templates/admin/analytics.php:112
+#: templates/admin/analytics.php:114
 msgid "Each bar shows total clicks for one month."
 msgstr "แต่ละแถบแสดงจำนวนคลิกทั้งหมดสำหรับหนึ่งเดือน"
 
-#: templates/admin/analytics.php:113
+#: templates/admin/analytics.php:115
 msgid "Each bar shows total clicks for one year."
 msgstr "แต่ละแถบแสดงจำนวนคลิกทั้งหมดสำหรับหนึ่งปี"
 
-#: templates/admin/analytics.php:125
-msgid "Today"
-msgstr "วันนี้"
-
-#: templates/admin/analytics.php:126
+#: templates/admin/analytics.php:128
 msgid "Yesterday"
 msgstr "เมื่อวาน"
 
-#: templates/admin/analytics.php:128
+#: templates/admin/analytics.php:130
 msgid "Last 30 Days"
 msgstr "30 วันที่ผ่านมา"
 
-#: templates/admin/analytics.php:129
+#: templates/admin/analytics.php:131
 msgid "This Month"
 msgstr "เดือนนี้"
 
-#: templates/admin/analytics.php:130
+#: templates/admin/analytics.php:132
 msgid "Last Month"
 msgstr "เดือนที่แล้ว"
 
-#: templates/admin/analytics.php:131
+#: templates/admin/analytics.php:133
 msgid "This Year"
 msgstr "ปีนี้"
 
-#: templates/admin/analytics.php:132
+#: templates/admin/analytics.php:134
 msgid "Last 2 Years"
 msgstr "2 ปีที่ผ่านมา"
 
-#: templates/admin/analytics.php:133
+#: templates/admin/analytics.php:135
 msgid "Custom Range"
 msgstr "ช่วงที่กำหนดเอง"
 
-#: templates/admin/analytics.php:134
+#: templates/admin/analytics.php:136
 msgid "All Time"
 msgstr "ตลอดเวลา"
 
-#: templates/admin/analytics.php:138
+#: templates/admin/analytics.php:140
 msgid "From:"
 msgstr "จาก:"
 
-#: templates/admin/analytics.php:146
+#: templates/admin/analytics.php:148
 msgid "To:"
 msgstr "ถึง:"
 
-#: templates/admin/analytics.php:185
+#: templates/admin/analytics.php:188
 msgid "Days With Clicks"
 msgstr "วันที่มีคลิก"
 
-#: templates/admin/analytics.php:193
+#: templates/admin/analytics.php:196
 msgid "Avg. per Click Day"
 msgstr "เฉลี่ยต่อวันต่อคลิก"
 
-#: templates/admin/analytics.php:199
+#: templates/admin/analytics.php:202
 msgid "Clicks Over Time"
 msgstr "คลิกตามเวลา"
 
-#: templates/admin/footer.php:16
-#. translators: %1$s: plugin name, %2$s: star rating icon
-#, php-format
-msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
-msgstr "ถ้าคุณชอบ %1$s กรุณาให้คะแนน %2$s กับเรา ขอบคุณ!"
+#: templates/admin/qr-code.php:16
+msgid "QR code for this shortlink"
+msgstr "QR โค้ดสำหรับลิงก์สั้นนี้"
 
-#: templates/admin/footer.php:24
-msgid "About"
-msgstr "เกี่ยวกับ"
-
-#: templates/admin/footer.php:29
-msgid "Documentation"
-msgstr "เอกสารประกอบ"
-
-#: templates/admin/footer.php:33
-msgid "Contact"
-msgstr "ติดต่อ"
-
-#: templates/admin/qr-code.php:17
-msgid "Download QR Code"
-msgstr "ดาวน์โหลด QR Code"
-
-#: templates/admin/settings/browsers.php:8
-msgid "We have developed extensions for the below browsers."
-msgstr "เราพัฒนา extensions สำหรับเว็บเบราว์เซอร์ด้านล่างนี้."
-
-#: templates/admin/settings/browsers.php:9
-msgid "Click on your preferred one to Download the extension."
-msgstr "คลิกที่เบราว์เซอร์ที่คุณต้องการเพื่อดาวน์โหลด extension."
-
-#: templates/admin/settings/browsers.php:16
-msgid "Download the Extension"
-msgstr "ดาวน์โหลด Extension"
-
-#: templates/admin/settings/supports.php:17
-msgid "Need PublishPress Shortlinks Support?"
-msgstr "ต้องการความช่วยเหลือเกี่ยวกับ PublishPress Shortlinks?"
-
-#: templates/admin/settings/supports.php:22
-msgid "If you need help or have a new feature request, let us know."
-msgstr "ถ้าคุณต้องการความช่วยเหลือหรือมีคำขอฟีเจอร์ใหม่ กรุณาแจ้งให้เราทราบ."
-
-#: templates/admin/settings/supports.php:24
-msgid "Request Support"
-msgstr "ขอความช่วยเหลือ"
-
-#: templates/admin/settings/supports.php:29
-msgid "Detailed documentation is also available on the plugin website."
-msgstr "เอกสารรายละเอียดยังมีให้บริการบนเว็บไซต์ปลั๊กอิน."
-
-#: templates/admin/settings/supports.php:31
-msgid "View Knowledge Base"
-msgstr "ดูฐานความรู้"
-
-#: tinypress.php:143
-msgid "This plugin can be deleted."
-msgstr "ปลั๊กอินนี้สามารถถูกลบได้."
-
-#: tinypress.php:469
-msgid "Copied."
-msgstr "คัดลอกแล้ว."
-
-#: tinypress.php:471
-msgid ""
-"This setting is inherited from global settings. Choose another option to "
-"override it for this shortlink."
-msgstr ""
-"การตั้งค่านี้สืบทอดมาจากการตั้งค่าทั่วไป "
-"เลือกตัวเลือกอื่นเพื่อเขียนทับสำหรับลิงก์สั้นนี้"
-
-#: tinypress.php:472
-msgid "Working..."
-msgstr "กำลังทำงาน..."
-
-#: tinypress.php:476
+#: tinypress.php:479
 msgid "Suggested Label from target URL"
 msgstr "ป้ายกำกับที่แนะนำจาก URL เป้าหมาย"
 
-#: tinypress.php:477
+#: tinypress.php:480
 msgid "Suggested Notes from target URL"
 msgstr "โน้ตที่แนะนำจาก URL เป้าหมาย"
 
-#: tinypress.php:478
+#: tinypress.php:481
 msgid "Overwrite label?"
 msgstr "เขียนทับป้ายกำกับหรือไม่?"
 
-#: tinypress.php:479
+#: tinypress.php:482
 msgid "Overwrite notes?"
 msgstr "เขียนทับโน้ตหรือไม่?"
 
-#: tinypress.php:480
+#: tinypress.php:483
 msgid "Yes"
 msgstr "ใช่"
 
-#: tinypress.php:481
+#: tinypress.php:484
 msgid "No"
 msgstr "ไม่"
