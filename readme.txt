@@ -209,6 +209,10 @@ It's similar to link sharing plugins such as Bitly, Better Links, and URL Shortl
 
 It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliates because it enables you to create affiliate URLs for promoting your partners.
 
+== Changelog == 
+
+The full changelog can be found on [GitHub](https://github.com/publishpress/publishpress-shortlinks/blob/main/CHANGELOG.md).
+
 == Screenshots ==
 
 1. You can get the shortlink for any post via the Posts screen.
@@ -218,7 +222,3 @@ It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliate
 5. You can password protect your shortlinks and add expiry dates
 6. The All Logs screen will keep details of everyone accessing your links
 7. Select which post statuses are accessible when visiting a PublishPress shortlink
-
-== Changelog == 
-
-The full changelog can be found on [GitHub](https://github.com/publishpress/publishpress-shortlinks/blob/main/CHANGELOG.md).
