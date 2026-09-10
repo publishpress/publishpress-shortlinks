@@ -211,6 +211,43 @@ It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliate
 
 == Changelog == 
 
+## [1.10.0] - 08 September, 2026 =
+
+* Update: Move Activation and Expiration to a separate tab, #377
+* Update: Referrer Domains field, #379
+* Update: Update WP "Requires at least" and "Requires PHP" fields in readme header, #391
+* Update: Update the metabox to be ready for WordPress visual revisions, #393
+* Update: Announce asynchronous admin updates, #387
+* Improve: Improve accessibility of admin form controls, #384
+* Improve: Improve QR code accessibility, #388
+* Improve: Improve accessibility of admin semantics, #390
+* Fixed: Remove extra spaces in settings, #378
+* Fixed: Some settings tab have an issue with the left sidebar menu, #392
+* Security: Harden CSV import upload validation, #397
+* Security: Harden WPDK privileged writes, #398
+
+= [1.9.0] - 04 August, 2026 =
+
+* Fixed: License tab does not reflect proper license status on save, #354
+* Fixed: Metabox design issue in WordPress 7.1, #363
+* Fixed: This plugin can be deleted, #366
+* Update: Consistency between Analytics and Reports screens, #355
+* Update: Scheduled Link Health and email digest, #357
+* Update: Dynamic redirect engine, #358
+* Update: Improve Shortlinks Expiration, #360
+
+= [1.8.0] - 14 July, 2026 =
+
+* Update: Suggest Label and description from target url while adding shortlinks, #345
+* Update: Need a post type selector, #343
+* Update: Redesign settings UI, #344
+* Added: Search box on the Link Health screen, #337
+* Fixed: Prevent auto-drafts from creating shortlink entries, #335
+* Fixed: Clarify tooltip message: Redirect loop, #338
+* Fixed: Edit Shortlinks design issue with some admin themes, #336
+* Feature: Reports feature, #321
+* Feature: Detect other plugins and offer a migration, #317
+
 The full changelog can be found on [GitHub](https://github.com/publishpress/publishpress-shortlinks/blob/main/CHANGELOG.md).
 
 == Screenshots ==
