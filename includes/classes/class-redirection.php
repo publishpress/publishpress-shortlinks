@@ -419,11 +419,33 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
             $tiny_slug = $this->get_tiny_slug_from_request_uri($uri);
 
-            if (empty($tiny_slug)) {
+            if (! empty($tiny_slug)) {
+                $link_id = absint(tinypress()->tiny_slug_to_post_id($tiny_slug));
+                if (! empty($link_id)) {
+                    return $link_id;
+                }
+            }
+
+            return $this->get_legacy_link_id_from_request_uri($uri);
+        }
+
+        /**
+         * Resolve an original source-plugin path saved during migration.
+         *
+         * @param string $uri Request URI or path.
+         * @return int
+         */
+        private function get_legacy_link_id_from_request_uri($uri)
+        {
+            $uri              = $this->get_request_path($uri);
+            $link_prefix      = Utils::get_option('tinypress_link_prefix');
+            $link_prefix_slug = Utils::get_option('tinypress_link_prefix_slug', 'go');
+
+            if ('' === $uri || ('1' === (string) $link_prefix && $this->request_matches_link_prefix($uri, $link_prefix_slug))) {
                 return 0;
             }
 
-            return absint(tinypress()->tiny_slug_to_post_id($tiny_slug));
+            return absint(tinypress()->legacy_slug_to_post_id($uri));
         }
 
         /**
@@ -1831,7 +1853,13 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 return;
             }
 
-            $link_id     = tinypress()->tiny_slug_to_post_id($tiny_slug_4);
+            $link_id = ! empty($tiny_slug_4) ? tinypress()->tiny_slug_to_post_id($tiny_slug_4) : 0;
+            $legacy_link_id = empty($link_id) ? $this->get_legacy_link_id_from_request_uri($tiny_slug_1) : 0;
+            $is_legacy_request = ! empty($legacy_link_id);
+
+            if ($is_legacy_request) {
+                $link_id = $legacy_link_id;
+            }
 
             if ((empty($link_id) || $link_id === 0) && $is_prefix_request && ! empty($tiny_slug_4)) {
                 $this->redirection_done = true;
@@ -1844,7 +1872,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 $is_definite_shortlink = false;
 
                 if ('1' == $link_prefix) {
-                    $is_shortlink_request = $is_prefix_request && ! empty($tiny_slug_4);
+                    $is_shortlink_request = ($is_prefix_request && ! empty($tiny_slug_4)) || $is_legacy_request;
                     $is_definite_shortlink = $is_shortlink_request;
                 } else {
                     $resolved_post_type = get_post_type($link_id);
@@ -1860,7 +1888,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 }
 
                 if ($is_shortlink_request && ($is_definite_shortlink || ! is_page($tiny_slug_4))) {
-                    if ('1' == $link_prefix && ! $is_prefix_request) {
+                    if ('1' == $link_prefix && ! $is_prefix_request && ! $is_legacy_request) {
                         wp_die(esc_html__('This link is not containing the right prefix slug.', 'tinypress'));
                     }
 
@@ -1981,15 +2009,15 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $link_prefix_slug = Utils::get_option('tinypress_link_prefix_slug', 'go');
             $is_prefix_request = ('1' == $link_prefix && $this->request_matches_link_prefix($uri, $link_prefix_slug));
 
-            if (empty($tiny_slug)) {
+            $request_slug = ! empty($tiny_slug) ? $tiny_slug : $this->get_request_path($uri);
+            if ($this->should_bypass_shortlink_for_current_content($is_prefix_request, $request_slug)) {
                 return false;
             }
 
-            if ($this->should_bypass_shortlink_for_current_content($is_prefix_request, $tiny_slug)) {
-                return false;
+            $link_id = ! empty($tiny_slug) ? tinypress()->tiny_slug_to_post_id($tiny_slug) : 0;
+            if (empty($link_id)) {
+                $link_id = $this->get_legacy_link_id_from_request_uri($uri);
             }
-
-            $link_id = tinypress()->tiny_slug_to_post_id($tiny_slug);
 
             return ! empty($link_id) && $link_id !== 0;
         }
@@ -2014,11 +2042,8 @@ if (! class_exists('TINYPRESS_Redirection')) {
             $is_prefix_request = ('1' == $link_prefix && $this->request_matches_link_prefix($uri, $link_prefix_slug));
             $tiny_slug = $this->get_tiny_slug_from_request_uri($uri);
 
-            if (empty($tiny_slug)) {
-                return false;
-            }
-
-            if ($this->should_bypass_shortlink_for_current_content($is_prefix_request, $tiny_slug)) {
+            $request_slug = ! empty($tiny_slug) ? $tiny_slug : $this->get_request_path($uri);
+            if ($this->should_bypass_shortlink_for_current_content($is_prefix_request, $request_slug)) {
                 return false;
             }
 
@@ -2026,7 +2051,15 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 return $this->is_shortlink_request($uri);
             }
 
+            if (empty($tiny_slug)) {
+                return false;
+            }
+
             $link_id = tinypress()->tiny_slug_to_post_id($tiny_slug);
+
+            if (empty($link_id)) {
+                $link_id = $this->get_legacy_link_id_from_request_uri($uri);
+            }
 
             if (empty($link_id) || $link_id === 0) {
                 return false;

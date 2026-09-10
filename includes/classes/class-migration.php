@@ -681,7 +681,10 @@ if (! class_exists('TINYPRESS_Migration')) {
             }
 
             $label = '' !== $data['label'] ? sanitize_text_field($data['label']) : $target_url;
-            $link_id = $this->find_existing_link_id($slug);
+            $link_id = $this->find_migrated_link_id($source_key, $data['source_id']);
+            if (empty($link_id)) {
+                $link_id = $this->find_existing_link_id($slug);
+            }
             $is_update = (bool) $link_id;
 
             if ($is_update) {
@@ -727,6 +730,13 @@ if (! class_exists('TINYPRESS_Migration')) {
             update_post_meta($link_id, '_tinypress_migration_source', sanitize_key($source_key));
             update_post_meta($link_id, '_tinypress_migration_source_id', sanitize_text_field((string) $data['source_id']));
 
+            $legacy_path = $this->sanitize_migration_slug($data['legacy_path'], false);
+            if ('' !== $legacy_path) {
+                update_post_meta($link_id, '_tinypress_migration_legacy_path', $legacy_path);
+            } else {
+                delete_post_meta($link_id, '_tinypress_migration_legacy_path');
+            }
+
             return $is_update ? 'updated' : 'imported';
         }
 
@@ -737,6 +747,7 @@ if (! class_exists('TINYPRESS_Migration')) {
                 'label'                 => '',
                 'target_url'            => '',
                 'short_slug'            => '',
+                'legacy_path'           => '',
                 'redirect_method'       => 302,
                 'nofollow'              => false,
                 'sponsored'             => false,
@@ -753,6 +764,7 @@ if (! class_exists('TINYPRESS_Migration')) {
                         'label'           => $row['name'] ?? '',
                         'target_url'      => $row['url'] ?? '',
                         'short_slug'      => $this->get_first_row_value($row, array('slug')),
+                        'legacy_path'     => $this->get_first_row_value($row, array('slug')),
                         'redirect_method' => $row['redirect_type'] ?? 302,
                         'nofollow'        => $row['nofollow'] ?? false,
                         'sponsored'       => $row['sponsored'] ?? false,
@@ -761,11 +773,14 @@ if (! class_exists('TINYPRESS_Migration')) {
                     ));
 
                 case 'betterlinks':
+                    $legacy_path = $this->get_first_row_value($row, array('short_url', 'link_slug'));
+
                     return array_merge($defaults, array(
                         'source_id'            => $row['ID'] ?? '',
                         'label'                => $row['link_title'] ?? '',
                         'target_url'           => $row['target_url'] ?? '',
-                        'short_slug'           => $this->get_first_row_value($row, array('short_url', 'link_slug')),
+                        'short_slug'           => $this->get_first_row_value($row, array('link_slug', 'short_url')),
+                        'legacy_path'          => $legacy_path,
                         'redirect_method'      => $row['redirect_type'] ?? 302,
                         'nofollow'             => $row['nofollow'] ?? false,
                         'sponsored'            => $row['sponsored'] ?? false,
@@ -780,6 +795,7 @@ if (! class_exists('TINYPRESS_Migration')) {
                         'label'                => $row['title'] ?? '',
                         'target_url'           => $row['url'] ?? '',
                         'short_slug'           => $this->get_first_row_value($row, array('slug')),
+                        'legacy_path'          => $this->get_first_row_value($row, array('slug')),
                         'redirect_method'      => $row['redirect_type'] ?? 307,
                         'nofollow'             => $row['nofollow'] ?? false,
                         'sponsored'            => $row['sponsored'] ?? false,
@@ -793,6 +809,7 @@ if (! class_exists('TINYPRESS_Migration')) {
                         'label'                => $row['name'] ?? '',
                         'target_url'           => $row['url'] ?? '',
                         'short_slug'           => $this->get_first_row_value($row, array('slug')),
+                        'legacy_path'          => $this->get_first_row_value($row, array('slug')),
                         'redirect_method'      => $row['redirect_type'] ?? 302,
                         'nofollow'             => $row['nofollow'] ?? false,
                         'sponsored'            => $row['sponsored'] ?? false,
@@ -806,8 +823,9 @@ if (! class_exists('TINYPRESS_Migration')) {
                     $post_id = (int) ($row['ID'] ?? 0);
                     $prefix = (string) get_option('ta_link_prefix_custom', '');
                     $slug = $row['post_name'] ?? '';
+                    $legacy_path = $slug;
                     if ('' !== $prefix) {
-                        $slug = trim($prefix, '/') . '/' . $slug;
+                        $legacy_path = trim($prefix, '/') . '/' . $slug;
                     }
 
                     $nofollow = get_post_meta($post_id, '_ta_no_follow', true);
@@ -822,6 +840,7 @@ if (! class_exists('TINYPRESS_Migration')) {
                         'label'                => $row['post_title'] ?? '',
                         'target_url'           => get_post_meta($post_id, '_ta_destination_url', true),
                         'short_slug'           => $slug,
+                        'legacy_path'          => $legacy_path,
                         'redirect_method'      => $redirect_type,
                         'nofollow'             => $nofollow,
                         'parameter_forwarding' => $parameter_forwarding,
@@ -839,6 +858,7 @@ if (! class_exists('TINYPRESS_Migration')) {
                         'label'                => $row['post_title'] ?? '',
                         'target_url'           => get_post_meta($post_id, '_linkcentral_destination_url', true),
                         'short_slug'           => $row['post_name'] ?? '',
+                        'legacy_path'          => $row['post_name'] ?? '',
                         'redirect_method'      => $redirect_type,
                         'nofollow'             => $this->parse_linkcentral_global_value(get_post_meta($post_id, '_linkcentral_nofollow', true), 'linkcentral_global_nofollow'),
                         'sponsored'            => $this->parse_linkcentral_global_value(get_post_meta($post_id, '_linkcentral_sponsored', true), 'linkcentral_global_sponsored'),
@@ -889,7 +909,34 @@ if (! class_exists('TINYPRESS_Migration')) {
             // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
         }
 
-        private function sanitize_migration_slug($slug)
+        private function find_migrated_link_id($source_key, $source_id)
+        {
+            if ('' === (string) $source_id) {
+                return 0;
+            }
+
+            global $wpdb;
+
+            // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Migration identifies previously imported records by their stable source identity.
+            return (int) $wpdb->get_var($wpdb->prepare(
+                "SELECT source_meta.post_id
+                FROM {$wpdb->postmeta} source_meta
+                INNER JOIN {$wpdb->postmeta} id_meta ON source_meta.post_id = id_meta.post_id
+                INNER JOIN {$wpdb->posts} p ON source_meta.post_id = p.ID
+                WHERE source_meta.meta_key = '_tinypress_migration_source'
+                AND source_meta.meta_value = %s
+                AND id_meta.meta_key = '_tinypress_migration_source_id'
+                AND id_meta.meta_value = %s
+                AND p.post_type = 'tinypress_link'
+                ORDER BY source_meta.post_id DESC
+                LIMIT 1",
+                sanitize_key($source_key),
+                (string) $source_id
+            ));
+            // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+        }
+
+        private function sanitize_migration_slug($slug, $strip_current_prefix = true)
         {
             $slug = trim((string) $slug);
 
@@ -913,7 +960,7 @@ if (! class_exists('TINYPRESS_Migration')) {
             $prefix_settings = function_exists('tinypress_get_link_prefix_settings') ? tinypress_get_link_prefix_settings() : array();
             $prefix = ! empty($prefix_settings['enabled']) && ! empty($prefix_settings['slug']) ? trim((string) $prefix_settings['slug'], '/') : '';
 
-            if ('' !== $prefix && 0 === strpos($slug . '/', $prefix . '/')) {
+            if ($strip_current_prefix && '' !== $prefix && 0 === strpos($slug . '/', $prefix . '/')) {
                 $slug = ltrim(substr($slug, strlen($prefix)), '/');
             }
 
