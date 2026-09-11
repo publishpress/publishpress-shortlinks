@@ -92,6 +92,33 @@ if (! class_exists('TINYPRESS_Functions')) {
 
             return $link_id;
         }
+
+        /**
+         * Find an imported shortlink by its original public path.
+         *
+         * @param string $path Original source-plugin request path.
+         * @return int
+         */
+        public function legacy_slug_to_post_id($path)
+        {
+            $path = trim((string) $path, '/');
+
+            if ('' === $path) {
+                return 0;
+            }
+
+            global $wpdb;
+
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Exact cross-table lookup for a migrated legacy path.
+            return (int) $wpdb->get_var($wpdb->prepare("SELECT pm.post_id FROM {$wpdb->postmeta} pm
+                INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
+                WHERE pm.meta_key = '_tinypress_migration_legacy_path'
+                AND pm.meta_value = %s
+                AND p.post_type = 'tinypress_link'
+                AND p.post_status = 'publish'
+                ORDER BY p.ID DESC
+                LIMIT 1", $path));
+        }
     }
     // phpcs:enable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps
 }
