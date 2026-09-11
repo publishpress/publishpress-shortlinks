@@ -5,9 +5,10 @@
  * Plugin URI:  https://publishpress.com/shortlinks/
  * Description: The best link manager for WordPress. Your links are brandable, trackable, and can have custom view permissions.
  * Version: 1.10.0
- * Requires at least: 5.5
- * Requires PHP: 7.2.5
+ * Requires at least: 6.7
+ * Requires PHP: 7.4
  * Text Domain: tinypress
+ * Domain Path: /languages
  * Author: PublishPress
  * Author URI: https://publishpress.com/
  * License: GPLv2 or later
