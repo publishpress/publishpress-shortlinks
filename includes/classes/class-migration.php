@@ -587,8 +587,9 @@ if (! class_exists('TINYPRESS_Migration')) {
                         return array();
                     }
                     $deleted_clause = $this->table_has_column($table, 'deleted_at') ? ' AND deleted_at IS NULL' : '';
+                    $status_column = $this->table_has_column($table, 'link_status') ? ', link_status' : '';
                     return $wpdb->get_results($wpdb->prepare(
-                        "SELECT id, name, url, slug, nofollow, sponsored, redirect_type, description, created_at
+                        "SELECT id, name, url, slug, nofollow, sponsored, redirect_type, description, created_at{$status_column}
                         FROM {$table}
                         WHERE url IS NOT NULL AND url != ''{$deleted_clause}
                         ORDER BY id ASC
@@ -772,7 +773,7 @@ if (! class_exists('TINYPRESS_Migration')) {
 
             switch ($source_key) {
                 case 'pretty-links':
-                    return array_merge($defaults, array(
+                    $mapped = array(
                         'source_id'       => $row['id'] ?? '',
                         'label'           => $row['name'] ?? '',
                         'target_url'      => $row['url'] ?? '',
@@ -782,7 +783,13 @@ if (! class_exists('TINYPRESS_Migration')) {
                         'nofollow'        => $row['nofollow'] ?? false,
                         'sponsored'       => $row['sponsored'] ?? false,
                         'notes'           => $row['description'] ?? '',
-                    ));
+                    );
+
+                    if (array_key_exists('link_status', $row)) {
+                        $mapped['enabled'] = 'disabled' !== strtolower((string) $row['link_status']);
+                    }
+
+                    return array_merge($defaults, $mapped);
 
                 case 'betterlinks':
                     $legacy_path = $this->get_first_row_value($row, array('short_url', 'link_slug'));
