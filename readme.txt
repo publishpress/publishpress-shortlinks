@@ -23,7 +23,7 @@ PublishPress Shortlinks is the best link manager available for WordPress. With P
 ## PublishPress Shortlinks Pro ##
 
 > <strong>Upgrade to Shortlinks Pro</strong><br />
-> This plugin is the free version of the Shortlinks Pro plugin. The Pro version of PublishPress Shortlinks allows you to control access to editing shortlinks and viewing the click analytics. You can also show a custom message when someone is blocked from accessing a link. And you can import and export links. <a href="https://publishpress.com/shortlinks" title="Shortlinks Pro">Click here to purchase the best WordPress link manager now!</a>
+> This plugin is the free version of the Shortlinks Pro plugin. The Pro version of PublishPress Shortlinks allows you to control access to editing shortlinks and viewing click analytics. You can also create dynamic redirects, schedule Link Health email digests, and customize the message shown when someone is blocked from accessing a link. <a href="https://publishpress.com/shortlinks" title="Shortlinks Pro">Click here to purchase the best WordPress link manager now!</a>
 
 
 ## Key Link Management Features in PublishPress Shortlinks ##
@@ -59,13 +59,13 @@ When you're writing a draft post, do you sometimes need to share it with someone
 
 ## Add password protection to your shortlinks
 
-Edit a shortlink and go to the "Security" tab. You'll be able to create a password for your sharable links. Nobody will be able to access the post via your shortlink unless they know the password.
+Edit a shortlink and go to the "Security" tab. You'll be able to create a password for your shareable links. Nobody will be able to access the post via your shortlink unless they know the password.
 
 [More on passwords for shortlinks](https://publishpress.com/knowledge-base/protect-shortlinks/).
 
 ## Automatically expire your shortlinks on a specific date
 
-Edit a shortlink and go to the "Security" tab. You'll be able to choose an expiration date for your shortlink. Anyone trying to visit your link after the expiration date will see the message, "This link is expired."
+Edit a shortlink and go to the "Scheduling" tab. You'll be able to choose an expiration date for your shortlink. Anyone trying to visit your link after the expiration date will see the message, "This link is expired."
 
 [More on expiry dates for shortlinks](https://publishpress.com/knowledge-base/protect-shortlinks/).
 
@@ -174,7 +174,7 @@ The Link Health screen scans your links and lists the ones whose destination no 
 
 = Can I protect a link with a password, or make it expire? =
 
-Both. Edit a shortlink and open the "Security" tab. You can set a password, an expiry date, or both. After the expiry date a visitor sees a message rather than the content.
+Use the "Security" tab to set a password and the "Scheduling" tab to set an expiry date. After the expiry date a visitor sees a message rather than the content.
 
 = Which redirect should I choose: 301, 302 or 307? =
 
