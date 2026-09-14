@@ -425,6 +425,8 @@ if (! defined('TINYPRESS_LOADED')) {
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/functions.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-meta-boxes.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-columns-link.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-duplicate-link.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-favorite-links.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-settings.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-redirection.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-autolink.php';
@@ -457,6 +459,8 @@ if (! defined('TINYPRESS_LOADED')) {
                 // Initialize columns late to catch all registered post types
                 add_action('init', function () {
                     new TINYPRESS_Column_link();
+                    new TINYPRESS_Duplicate_Link();
+                    new TINYPRESS_Favorite_Links();
                 }, 999);
             }
 

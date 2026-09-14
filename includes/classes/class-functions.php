@@ -78,16 +78,19 @@ if (! class_exists('TINYPRESS_Functions')) {
 				WHERE pm.meta_key = 'tiny_slug' 
 				AND pm.meta_value = %s 
 				AND p.post_type = 'tinypress_link'
-				ORDER BY CASE WHEN p.post_status = 'publish' THEN 0 ELSE 1 END, p.ID DESC
+				AND p.post_status = 'publish'
+				ORDER BY p.ID DESC
 				LIMIT 1", $slug));
-            // If no tinypress_link found, look for any post with this slug
+            // If no published tinypress_link is found, look for another post type with this slug.
             if (empty($link_id)) {
-                // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Fallback lookup by meta_key; not cacheable via standard WP functions
-                $link_id = (int) $wpdb->get_var($wpdb->prepare("SELECT post_id FROM {$wpdb->postmeta} 
-					WHERE meta_key = 'tiny_slug' 
-					AND meta_value = %s
-					ORDER BY post_id DESC
-					LIMIT 1", $slug));
+                // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Cross-table fallback excludes unpublished shortlink records.
+                $link_id = (int) $wpdb->get_var($wpdb->prepare("SELECT pm.post_id FROM {$wpdb->postmeta} pm
+                    INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
+                    WHERE pm.meta_key = 'tiny_slug'
+                    AND pm.meta_value = %s
+                    AND (p.post_type != 'tinypress_link' OR p.post_status = 'publish')
+                    ORDER BY pm.post_id DESC
+                    LIMIT 1", $slug));
             }
 
             return $link_id;
@@ -101,16 +104,27 @@ if (! class_exists('TINYPRESS_Functions')) {
          */
         public function legacy_slug_to_post_id($path)
         {
+            static $resolved_paths = array();
+
             $path = trim((string) $path, '/');
 
             if ('' === $path) {
                 return 0;
             }
 
+            if (array_key_exists($path, $resolved_paths)) {
+                return $resolved_paths[$path];
+            }
+
+            if (! $this->has_legacy_migration_paths()) {
+                $resolved_paths[$path] = 0;
+                return 0;
+            }
+
             global $wpdb;
 
             // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Exact cross-table lookup for a migrated legacy path.
-            return (int) $wpdb->get_var($wpdb->prepare("SELECT pm.post_id FROM {$wpdb->postmeta} pm
+            $resolved_paths[$path] = (int) $wpdb->get_var($wpdb->prepare("SELECT pm.post_id FROM {$wpdb->postmeta} pm
                 INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
                 WHERE pm.meta_key = '_tinypress_migration_legacy_path'
                 AND pm.meta_value = %s
@@ -118,6 +132,30 @@ if (! class_exists('TINYPRESS_Functions')) {
                 AND p.post_status = 'publish'
                 ORDER BY p.ID DESC
                 LIMIT 1", $path));
+
+            return $resolved_paths[$path];
+        }
+
+        /**
+         * Check whether any imported links retain their original public path.
+         *
+         * @return bool
+         */
+        private function has_legacy_migration_paths()
+        {
+            $has_legacy_paths = get_option('tinypress_has_legacy_migration_paths', null);
+
+            if (null !== $has_legacy_paths) {
+                return '1' === (string) $has_legacy_paths;
+            }
+
+            global $wpdb;
+
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- One-time upgrade detection, persisted as an option.
+            $has_legacy_paths = (bool) $wpdb->get_var("SELECT 1 FROM {$wpdb->postmeta} WHERE meta_key = '_tinypress_migration_legacy_path' LIMIT 1");
+            update_option('tinypress_has_legacy_migration_paths', $has_legacy_paths ? '1' : '0');
+
+            return $has_legacy_paths;
         }
     }
     // phpcs:enable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps

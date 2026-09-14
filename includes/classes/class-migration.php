@@ -747,6 +747,7 @@ if (! class_exists('TINYPRESS_Migration')) {
             $legacy_path = $this->sanitize_migration_slug($data['legacy_path'], false);
             if ('' !== $legacy_path) {
                 update_post_meta($link_id, '_tinypress_migration_legacy_path', $legacy_path);
+                update_option('tinypress_has_legacy_migration_paths', '1');
             } else {
                 delete_post_meta($link_id, '_tinypress_migration_legacy_path');
             }
