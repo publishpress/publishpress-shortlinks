@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
-"PO-Revision-Date: 2026-09-07 16:09+0000\n"
+"PO-Revision-Date: 2026-09-15 02:20+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 ">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
@@ -38,12 +38,12 @@ msgstr ""
 "Найкращий менеджер посилань для WordPress. Ваші посилання можуть бути "
 "брендовими, відстежуваними і можуть мати власні дозволи на перегляд."
 
-#: tinypress.php:11
+#: tinypress.php:12
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: tinypress.php:12, fuzzy
+#: tinypress.php:13, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -1386,8 +1386,8 @@ msgstr "301 (Постійний)"
 #: dist/publishpress-shortlinks/tinypress.php:492
 #: includes/classes/class-meta-boxes.php:842
 #: includes/classes/class-settings.php:624
-#: tinypress.php:476
-#: tinypress.php:589
+#: tinypress.php:481
+#: tinypress.php:594
 msgid "PublishPress Shortlinks"
 msgstr "PublishPress Скорочені посилання"
 
@@ -1683,12 +1683,12 @@ msgstr "QR-код"
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:833
 #: dist/publishpress-shortlinks/tinypress.php:396
 #: includes/classes/class-meta-boxes.php:1214
-#: tinypress.php:473
+#: tinypress.php:478
 msgid "Analytics"
 msgstr "Аналітика"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1044
-#: includes/classes/class-redirection.php:1242
+#: includes/classes/class-redirection.php:1264
 msgid "Post not found."
 msgstr "Пост не знайдено."
 
@@ -1700,88 +1700,88 @@ msgstr "Пост не знайдено."
 #: dist/publishpress-shortlinks/tinypress.php:303
 #: dist/publishpress-shortlinks/tinypress.php:304
 #: dist/publishpress-shortlinks/tinypress.php:305
-#: includes/classes/class-redirection.php:1386
+#: includes/classes/class-redirection.php:1408
 #: includes/functions.php:467
 #: includes/functions.php:468
 #: includes/functions.php:469
 #: includes/functions.php:475
-#: tinypress.php:375
 #: tinypress.php:376
 #: tinypress.php:377
+#: tinypress.php:378
 msgid "This post is in {status} status. It is not visible to the public."
 msgstr "Цей пост має статус {status}. Він не видим для публіки."
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1236
 #: includes-core/ShortlinksCoreAdmin.php:445
-#: includes/classes/class-redirection.php:1434
+#: includes/classes/class-redirection.php:1456
 msgid "This link has expired"
 msgstr "Це посилання вже не дійсне"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1240
 #: includes-core/ShortlinksCoreAdmin.php:467
-#: includes/classes/class-redirection.php:1438
+#: includes/classes/class-redirection.php:1460
 msgid "You will be redirected shortly."
 msgstr "Вас незабаром перенаправлять."
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1244
 #: includes-core/ShortlinksCoreAdmin.php:493
-#: includes/classes/class-redirection.php:1442
+#: includes/classes/class-redirection.php:1464
 msgid "Click here if you are not redirected"
 msgstr "Натисніть тут, якщо вас не перенаправили"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1261
-#: includes/classes/class-redirection.php:1459
+#: includes/classes/class-redirection.php:1481
 msgid "Link Expired"
 msgstr "Посилання закінчилося"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1423
-#: includes/classes/class-redirection.php:1680
-#: includes/classes/class-redirection.php:1688
+#: includes/classes/class-redirection.php:1702
+#: includes/classes/class-redirection.php:1710
 msgid "This link is not active."
 msgstr "Це посилання неактивне."
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1460
 #: includes/classes/class-redirection.php:310
-#: includes/classes/class-redirection.php:1707
+#: includes/classes/class-redirection.php:1729
 msgid "This link is expired."
 msgstr "Це посилання прострочене."
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1479
-#: includes/classes/class-redirection.php:1727
+#: includes/classes/class-redirection.php:1749
 msgid "Incorrect password. Please try again."
 msgstr "Неправильний пароль. Будь ласка, спробуйте ще раз."
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1494
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1499
-#: includes/classes/class-redirection.php:1746
-#: includes/classes/class-redirection.php:1751
+#: includes/classes/class-redirection.php:1768
+#: includes/classes/class-redirection.php:1773
 msgid "Password Protected Link"
 msgstr "Посилання з паролем"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1505
-#: includes/classes/class-redirection.php:1757
+#: includes/classes/class-redirection.php:1779
 msgid "Enter password to continue:"
 msgstr "Введіть пароль, щоб продовжити:"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1507
-#: includes/classes/class-redirection.php:1759
+#: includes/classes/class-redirection.php:1781
 msgid "Submit"
 msgstr "Надіслати"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1631
-#: includes/classes/class-redirection.php:1864
+#: includes/classes/class-redirection.php:1892
 msgid "This link is not containing the right prefix slug."
 msgstr "Це посилання не містить правильного префікса slug."
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1672
-#: includes/classes/class-redirection.php:1905
+#: includes/classes/class-redirection.php:1933
 msgid "Too many invalid shortlink requests. Please try again later."
 msgstr ""
 "Забагато недійсних запитів на короткі посилання. Будь ласка, спробуйте ще "
 "раз пізніше."
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1673
-#: includes/classes/class-redirection.php:1906
+#: includes/classes/class-redirection.php:1934
 msgid "Too Many Requests"
 msgstr "Забагато запитів"
 
@@ -2421,7 +2421,7 @@ msgstr "Редагувати налаштування короткого пос�
 #: dist/publishpress-shortlinks/includes/functions.php:364
 #: dist/publishpress-shortlinks/tinypress.php:306
 #: includes/functions.php:470
-#: tinypress.php:378
+#: tinypress.php:379
 msgid ""
 "This post is in {status} status. It will become visible to the public on "
 "{date}."
@@ -2493,13 +2493,13 @@ msgstr ""
 "скасувати."
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:61
-#: templates/admin/analytics.php:127
+#: templates/admin/analytics.php:121
 msgid "Today"
 msgstr "Сьогодні"
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:62
 #: includes-core/ShortlinksCoreAdmin.php:259
-#: templates/admin/analytics.php:129
+#: templates/admin/analytics.php:123
 msgid "Last 7 Days"
 msgstr "Останні 7 днів"
 
@@ -2581,17 +2581,17 @@ msgid "View Knowledge Base"
 msgstr "Переглянути базу знань"
 
 #: dist/publishpress-shortlinks/tinypress.php:98
-#: tinypress.php:145
+#: tinypress.php:146
 msgid "This plugin can be deleted."
 msgstr "Цей плагін можна видалити."
 
 #: dist/publishpress-shortlinks/tinypress.php:395
-#: tinypress.php:472
+#: tinypress.php:477
 msgid "Copied."
 msgstr "Скопійовано."
 
 #: dist/publishpress-shortlinks/tinypress.php:397
-#: tinypress.php:474
+#: tinypress.php:479
 msgid ""
 "This setting is inherited from global settings. Choose another option to "
 "override it for this shortlink."
@@ -2600,7 +2600,7 @@ msgstr ""
 "варіант, щоб переопределити його для цього короткого посилання."
 
 #: dist/publishpress-shortlinks/tinypress.php:398
-#: tinypress.php:475
+#: tinypress.php:480
 msgid "Working..."
 msgstr "Виконується..."
 
@@ -2619,22 +2619,22 @@ msgstr ""
 "докладними аналітичними звітами."
 
 #: includes-core/ShortlinksCoreAdmin.php:257
-#: templates/admin/analytics.php:125
+#: templates/admin/analytics.php:119
 msgid "Date Range:"
 msgstr "Діапазон дат:"
 
 #: includes-core/ShortlinksCoreAdmin.php:261
-#: templates/admin/analytics.php:158
+#: templates/admin/analytics.php:152
 msgid "Apply"
 msgstr "Застосувати"
 
 #: includes-core/ShortlinksCoreAdmin.php:269
-#: templates/admin/analytics.php:172
+#: templates/admin/analytics.php:166
 msgid "Total Clicks"
 msgstr "Загальна кількість кліків"
 
 #: includes-core/ShortlinksCoreAdmin.php:276
-#: templates/admin/analytics.php:180
+#: templates/admin/analytics.php:174
 msgid "Unique Visitors"
 msgstr "Унікальні відвідувачі"
 
@@ -2942,6 +2942,57 @@ msgstr ""
 "Введіть домени, розділені комами або новими рядками. Піддомени також "
 "відповідають їх батьківському домену."
 
+#: includes/classes/class-duplicate-link.php:42
+#: includes/classes/class-meta-boxes.php:373
+msgid "Copy"
+msgstr "Копіювати"
+
+#: includes/classes/class-duplicate-link.php:63
+msgid "You are not allowed to copy this shortlink."
+msgstr "Вам не дозволено копіювати це коротке посилання."
+
+#: includes/classes/class-duplicate-link.php:64
+#: includes/classes/class-duplicate-link.php:74
+#: includes/classes/class-duplicate-link.php:98
+msgid "Shortlink copy failed"
+msgstr "Не вдалося скопіювати коротке посилання"
+
+#: includes/classes/class-duplicate-link.php:73
+msgid "The original shortlink could not be found."
+msgstr "Оригінальне коротке посилання не знайдено."
+
+#: includes/classes/class-duplicate-link.php:85
+#. translators: %s: original shortlink title.
+#, php-format
+msgid "Copy of %s"
+msgstr "Копія %s"
+
+#: includes/classes/class-duplicate-link.php:179
+msgid "Shortlink copied as a draft. Review it, then publish when ready."
+msgstr ""
+"Коротке посилання скопійовано як чернетку. Перегляньте його, а потім "
+"опублікуйте, коли будете готові."
+
+#: includes/classes/class-favorite-links.php:41
+msgid "Remove from favorites"
+msgstr "Видалити з обраного"
+
+#: includes/classes/class-favorite-links.php:41
+msgid "Add to favorites"
+msgstr "Додати в обране"
+
+#: includes/classes/class-favorite-links.php:92
+msgid "Favorites"
+msgstr "Обране"
+
+#: includes/classes/class-favorite-links.php:164
+msgid "You are not allowed to favorite this shortlink."
+msgstr "Вам не дозволено додавати це коротке посилання в обране."
+
+#: includes/classes/class-favorite-links.php:165
+msgid "Favorite could not be updated"
+msgstr "Обране не вдалося оновити"
+
 #: includes/classes/class-gutenberg-shortlink.php:165
 msgid "Search shortlinks"
 msgstr "Шукати короткі посилання"
@@ -2970,10 +3021,6 @@ msgstr "Прогрес імпорту"
 #: includes/classes/class-meta-boxes.php:193
 msgid "PublishPress Shortlinks slug."
 msgstr "Slug коротких посилань PublishPress."
-
-#: includes/classes/class-meta-boxes.php:373
-msgid "Copy"
-msgstr "Копіювати"
 
 #: includes/classes/class-meta-boxes.php:375
 msgid "Enter a shortlink slug to create a shortlink URL."
@@ -3118,7 +3165,7 @@ msgid "Remind me later"
 msgstr "Нагадати мені пізніше"
 
 #: includes/classes/class-migration.php:297
-#: tinypress.php:485
+#: tinypress.php:490
 msgid "Dismiss"
 msgstr "Відхилити"
 
@@ -3181,20 +3228,20 @@ msgstr ""
 "Пряма міграція ще не доступна для цього плагіна. Будь ласка, використовуйте "
 "Інструменти імпорту з експорту CSV."
 
-#: includes/classes/class-migration.php:666
+#: includes/classes/class-migration.php:680
 msgid "Missing target URL."
 msgstr "Відсутня цільова URL-адреса."
 
-#: includes/classes/class-migration.php:680
+#: includes/classes/class-migration.php:694
 msgid "Missing shortlink slug."
 msgstr "Відсутній короткий слуг."
 
-#: includes/classes/class-migration.php:701
+#: includes/classes/class-migration.php:718
 msgid "Could not create shortlink."
 msgstr "Не вдалося створити коротке посилання."
 
-#: includes/classes/class-redirection.php:1016
-#: includes/classes/class-redirection.php:1602
+#: includes/classes/class-redirection.php:1038
+#: includes/classes/class-redirection.php:1624
 #: includes/classes/class-table-logs.php:387
 msgid "Default Target"
 msgstr "За замовчуванням ціль"
@@ -3268,7 +3315,7 @@ msgid "Reset Yesterday's Analytics"
 msgstr "Скинути аналітику за вчора"
 
 #: templates/admin/analytics.php:98
-#: templates/admin/analytics.php:160
+#: templates/admin/analytics.php:154
 msgid "Reset Last 30 Days Analytics"
 msgstr "Скинути аналітику за останні 30 днів"
 
@@ -3303,7 +3350,7 @@ msgstr ""
 "%2$s. Дні з кліками: %3$s. Середнє на день кліків: %4$s."
 
 #: templates/admin/analytics.php:108
-#: templates/admin/analytics.php:210
+#: templates/admin/analytics.php:201
 msgid "No click data available for this period."
 msgstr "Дані про кліки недоступні за цей період."
 
@@ -3315,72 +3362,55 @@ msgstr "клік"
 msgid "clicks"
 msgstr "кліки"
 
-#: templates/admin/analytics.php:112
-#: templates/admin/analytics.php:204
-msgid "Each bar shows total clicks for one day."
-msgstr "Кожна смуга показує загальну кількість кліків за один день."
-
-#: templates/admin/analytics.php:113
-msgid "Each bar shows total clicks for a 7-day period."
-msgstr "Кожна смуга показує загальну кількість кліків за 7-денний період."
-
-#: templates/admin/analytics.php:114
-msgid "Each bar shows total clicks for one month."
-msgstr "Кожна смуга показує загальну кількість кліків за один місяць."
-
-#: templates/admin/analytics.php:115
-msgid "Each bar shows total clicks for one year."
-msgstr "Кожна смуга показує загальну кількість кліків за один рік."
-
-#: templates/admin/analytics.php:128
+#: templates/admin/analytics.php:122
 msgid "Yesterday"
 msgstr "Вчора"
 
-#: templates/admin/analytics.php:130
+#: templates/admin/analytics.php:124
 msgid "Last 30 Days"
 msgstr "Останні 30 днів"
 
-#: templates/admin/analytics.php:131
+#: templates/admin/analytics.php:125
 msgid "This Month"
 msgstr "Цей місяць"
 
-#: templates/admin/analytics.php:132
+#: templates/admin/analytics.php:126
 msgid "Last Month"
 msgstr "Минулий місяць"
 
-#: templates/admin/analytics.php:133
+#: templates/admin/analytics.php:127
 msgid "This Year"
 msgstr "Цей рік"
 
-#: templates/admin/analytics.php:134
+#: templates/admin/analytics.php:128
 msgid "Last 2 Years"
 msgstr "Останні 2 роки"
 
-#: templates/admin/analytics.php:135
+#: templates/admin/analytics.php:129
 msgid "Custom Range"
 msgstr "Користувацький діапазон"
 
-#: templates/admin/analytics.php:136
+#: templates/admin/analytics.php:130
 msgid "All Time"
 msgstr "За весь час"
 
-#: templates/admin/analytics.php:140
+#: templates/admin/analytics.php:134
 msgid "From:"
 msgstr "Від:"
 
-#: templates/admin/analytics.php:148
+#: templates/admin/analytics.php:142
 msgid "To:"
 msgstr "До:"
 
-#: templates/admin/analytics.php:188
+#: templates/admin/analytics.php:182
 msgid "Days With Clicks"
 msgstr "Дні з кліками"
 
-#: templates/admin/analytics.php:196
+#: templates/admin/analytics.php:190
 msgid "Avg. per Click Day"
 msgstr "Середнє на день кліків"
 
-#: templates/admin/analytics.php:202
+#: templates/admin/analytics.php:196
 msgid "Clicks Over Time"
 msgstr "Кліки з часом"
 
@@ -3388,26 +3418,26 @@ msgstr "Кліки з часом"
 msgid "QR code for this shortlink"
 msgstr "QR-код для цього короткого посилання"
 
-#: tinypress.php:479
+#: tinypress.php:484
 msgid "Suggested Label from target URL"
 msgstr "Пропонована мітка з цільового URL"
 
-#: tinypress.php:480
+#: tinypress.php:485
 msgid "Suggested Notes from target URL"
 msgstr "Пропоновані нотатки з цільового URL"
 
-#: tinypress.php:481
+#: tinypress.php:486
 msgid "Overwrite label?"
 msgstr "Перезаписати мітку?"
 
-#: tinypress.php:482
+#: tinypress.php:487
 msgid "Overwrite notes?"
 msgstr "Перезаписати нотатки?"
 
-#: tinypress.php:483
+#: tinypress.php:488
 msgid "Yes"
 msgstr "Так"
 
-#: tinypress.php:484
+#: tinypress.php:489
 msgid "No"
 msgstr "Ні"
