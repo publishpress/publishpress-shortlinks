@@ -4,10 +4,11 @@
  * Plugin Name: PublishPress Shortlinks Free
  * Plugin URI:  https://publishpress.com/shortlinks/
  * Description: The best link manager for WordPress. Your links are brandable, trackable, and can have custom view permissions.
- * Version: 1.10.0
- * Requires at least: 5.5
- * Requires PHP: 7.2.5
+ * Version: 1.10.1
+ * Requires at least: 6.7
+ * Requires PHP: 7.4
  * Text Domain: tinypress
+ * Domain Path: /languages
  * Author: PublishPress
  * Author URI: https://publishpress.com/
  * License: GPLv2 or later
@@ -56,7 +57,7 @@ if (! defined('TINYPRESS_LOADED')) {
     define('TINYPRESS_LOADED', 1);
 
     define('TINYPRESS_FILE', __DIR__ . '/tinypress.php');
-    define('TINYPRESS_PLUGIN_VERSION', '1.10.0');
+    define('TINYPRESS_PLUGIN_VERSION', '1.10.1');
 
     if (! defined('TINYPRESS_LIB_VENDOR_PATH')) {
         define('TINYPRESS_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
@@ -424,6 +425,8 @@ if (! defined('TINYPRESS_LOADED')) {
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/functions.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-meta-boxes.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-columns-link.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-duplicate-link.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-favorite-links.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-settings.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-redirection.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-autolink.php';
@@ -456,6 +459,8 @@ if (! defined('TINYPRESS_LOADED')) {
                 // Initialize columns late to catch all registered post types
                 add_action('init', function () {
                     new TINYPRESS_Column_link();
+                    new TINYPRESS_Duplicate_Link();
+                    new TINYPRESS_Favorite_Links();
                 }, 999);
             }
 

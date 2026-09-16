@@ -923,6 +923,58 @@ th#tinypress-link {
     padding-right: 50px !important;
 }
 
+.tinypress-link-title-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+    line-height: 1;
+}
+
+.tinypress-favorite-toggle {
+    display: inline-flex;
+    align-items: center;
+    color: #d63638;
+    opacity: 0.28;
+    text-decoration: none;
+    transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
+.tinypress-favorite-toggle .dashicons {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+}
+
+.tinypress-favorite-toggle:hover,
+.tinypress-favorite-toggle:focus,
+.tinypress-favorite-toggle.is-favorite {
+    color: #d63638;
+    opacity: 1;
+}
+
+.tinypress-favorite-toggle:hover {
+    transform: scale(1.08);
+}
+
+.tinypress-favorite-toggle:focus {
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px #fff, 0 0 0 3px #2271b1;
+    outline: none;
+}
+
+.tinypress-copy-link,
+.tinypress-copy-link:visited,
+.tinypress-copy-link:hover,
+.tinypress-copy-link:focus {
+    border-left: 1px solid #c3c4c7;
+    padding-left: 8px;
+    color: var(--wp-admin-theme-color, #2271b1);
+    font-size: 12px;
+    line-height: 18px;
+    text-decoration: none;
+}
+
 .tinypress-column-content .single-link {
     display: inline-block;
     position: relative;
