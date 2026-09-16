@@ -3,7 +3,7 @@ Contributors: stevejburge, publishpress, deji98
 Tags: link shortener, shortlinks, redirects, link tracking, custom URLs
 Requires at least: 6.7
 Tested up to: 7.1
-Stable tag: 1.10.0
+Stable tag: 1.10.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -211,7 +211,13 @@ It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliate
 
 == Changelog == 
 
-## [1.10.0] - 08 September, 2026 =
+## [1.10.1] - 16 September, 2026
+
+* Fixed: Preserve legacy shortlink URLs and normalize source prefixes during migration, #407
+* Update: Add Copy Action to the Shortlinks List, #411
+* Update: Add Per-User Favorites for Shortlinks, #412
+
+## [1.10.0] - 08 September, 2026
 
 * Update: Move Activation and Expiration to a separate tab, #377
 * Update: Referrer Domains field, #379
@@ -235,18 +241,6 @@ It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliate
 * Update: Scheduled Link Health and email digest, #357
 * Update: Dynamic redirect engine, #358
 * Update: Improve Shortlinks Expiration, #360
-
-= [1.8.0] - 14 July, 2026 =
-
-* Update: Suggest Label and description from target url while adding shortlinks, #345
-* Update: Need a post type selector, #343
-* Update: Redesign settings UI, #344
-* Added: Search box on the Link Health screen, #337
-* Fixed: Prevent auto-drafts from creating shortlink entries, #335
-* Fixed: Clarify tooltip message: Redirect loop, #338
-* Fixed: Edit Shortlinks design issue with some admin themes, #336
-* Feature: Reports feature, #321
-* Feature: Detect other plugins and offer a migration, #317
 
 The full changelog can be found on [GitHub](https://github.com/publishpress/publishpress-shortlinks/blob/main/CHANGELOG.md).
 

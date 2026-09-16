@@ -1,7 +1,13 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [1.10.0] - 08 September, 2026 =
+## [1.10.1] - 16 September, 2026
+
+* Fixed: Preserve legacy shortlink URLs and normalize source prefixes during migration, #407
+* Update: Add Copy Action to the Shortlinks List, #411
+* Update: Add Per-User Favorites for Shortlinks, #412
+
+## [1.10.0] - 08 September, 2026
 
 * Update: Move Activation and Expiration to a separate tab, #377
 * Update: Referrer Domains field, #379
