@@ -480,7 +480,17 @@ if (! defined('TINYPRESS_LOADED')) {
                 'working_text'             => esc_html__('Working...', 'tinypress'),
                 'plugin_title'             => esc_html__('PublishPress Shortlinks', 'tinypress'),
                 'url_metadata_nonce'       => wp_create_nonce('tinypress_fetch_url_metadata'),
+                'popup_created_text'       => esc_html__('Shortlink created:', 'tinypress'),
+                'popup_error_text'         => esc_html__('The shortlink could not be created. Please try again.', 'tinypress'),
+                'settings_search_no_results'      => esc_html__('No matching settings', 'tinypress'),
+                'settings_search_no_results_hint' => esc_html__('Try a different keyword or clear the search to see all settings.', 'tinypress'),
+                'settings_search_one_result'      => esc_html__('1 matching setting', 'tinypress'),
+                /* translators: %d: number of matching settings */
+                'settings_search_results'         => esc_html__('%d matching settings', 'tinypress'),
                 'url_metadata_i18n'        => array(
+                    'one_suggestion'        => esc_html__('1 suggestion from the target URL is available.', 'tinypress'),
+                    /* translators: %d: number of suggestions */
+                    'many_suggestions'      => esc_html__('%d suggestions from the target URL are available.', 'tinypress'),
                     'suggested_title'       => esc_html__('Suggested Label from target URL', 'tinypress'),
                     'suggested_description' => esc_html__('Suggested Notes from target URL', 'tinypress'),
                     'overwrite_title'       => esc_html__('Overwrite label?', 'tinypress'),
@@ -517,7 +527,7 @@ if (! defined('TINYPRESS_LOADED')) {
                 wp_register_script('tinypress-qr-code', TINYPRESS_PLUGIN_URL . 'assets/admin/js/qr-code.js', array( 'jquery', 'tinypress-qrcode-lib' ), tinypress_asset_version('assets/admin/js/qr-code.js'), true);
 
                 // Main scripts - always enqueue on shortlinks pages
-                wp_enqueue_script('tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/js/scripts.js', array( 'jquery' ), tinypress_asset_version('assets/admin/js/scripts.js'), true);
+                wp_enqueue_script('tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/js/scripts.js', array( 'jquery', 'wp-a11y' ), tinypress_asset_version('assets/admin/js/scripts.js'), true);
                 wp_localize_script('tinypress', 'tinypress', $this->localize_scripts());
 
                 // Always enqueue styles

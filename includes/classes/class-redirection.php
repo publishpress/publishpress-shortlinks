@@ -1428,14 +1428,16 @@ if (! class_exists('TINYPRESS_Redirection')) {
 
         private function get_non_public_notice_color($status)
         {
+            // Defaults darkened so white notice text meets 4.5:1 (WCAG 1.4.3).
+            // Sites can still override via the tinypress_non_public_notice_color filter.
             $colors = array(
-                'draft'   => '#999999',
-                'pending' => '#35b194',
+                'draft'   => '#646970',
+                'pending' => '#1f7a65',
                 'private' => '#635b93',
-                'future'  => '#799999',
+                'future'  => '#5a7373',
             );
 
-            $color = isset($colors[$status]) ? $colors[$status] : '#35b194';
+            $color = isset($colors[$status]) ? $colors[$status] : '#1f7a65';
 
             return apply_filters('tinypress_non_public_notice_color', $color, $status, $this->non_public_notice_post);
         }
@@ -1474,12 +1476,12 @@ if (! class_exists('TINYPRESS_Redirection')) {
             }
             ?>
             <!DOCTYPE html>
-            <html>
+            <html <?php language_attributes(); ?>>
             <head>
                 <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
                 <meta name="robots" content="noindex, nofollow">
                 <title><?php esc_html_e('Link Expired', 'tinypress'); ?></title>
-                <meta http-equiv="refresh" content="3;url=<?php echo esc_url($safe_url); ?>">
                 <style>
                     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #f0f0f1; color: #3c434a; }
                     .notice-box { text-align: center; background: #fff; padding: 40px 50px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.1); max-width: 480px; }
@@ -1487,14 +1489,65 @@ if (! class_exists('TINYPRESS_Redirection')) {
                     .notice-message { font-size: 14px; color: #646970; margin: 0 0 24px; line-height: 1.6; }
                     .notice-box a { display: inline-block; padding: 10px 20px; background-color: #2271b1; color: #fff; text-decoration: none; font-weight: 500; border-radius: 4px; margin-top: 8px; }
                     .notice-box a:hover { background-color: #135e96; }
+                    .notice-box a:focus-visible, .notice-redirect-stop:focus-visible { outline: 2px solid #1e1e1e; outline-offset: 2px; }
+                    .notice-redirect { font-size: 13px; color: #646970; margin: 16px 0 0; line-height: 1.6; }
+                    .notice-redirect-stop { font: inherit; font-size: 13px; color: #2271b1; background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
+                    .notice-redirect[hidden], .notice-redirect-stop[hidden] { display: none; }
                 </style>
             </head>
             <body>
-                <div class="notice-box">
-                    <div class="notice-title"><?php echo wp_kses($notice_title, $allowed_html); ?></div>
+                <main class="notice-box">
+                    <h1 class="notice-title"><?php echo wp_kses($notice_title, $allowed_html); ?></h1>
                     <div class="notice-message"><?php echo wp_kses($notice_message, $allowed_html); ?></div>
-                    <a href="<?php echo esc_url($safe_url); ?>"><?php echo esc_html($cta_text); ?></a>
-                </div>
+                    <a href="<?php echo esc_url($safe_url); ?>" id="tinypress-expired-continue"><?php echo esc_html($cta_text); ?></a>
+                    <p class="notice-redirect" id="tinypress-expired-redirect" hidden>
+                        <span id="tinypress-expired-redirect-text">
+                            <?php
+                            /* translators: %s: number of seconds */
+                            printf(esc_html__('Redirecting automatically in %s seconds.', 'tinypress'), '<span id="tinypress-expired-countdown">20</span>');
+                            ?>
+                        </span>
+                        <button type="button" class="notice-redirect-stop" id="tinypress-expired-stop"><?php esc_html_e('Stop redirect', 'tinypress'); ?></button>
+                    </p>
+                    <p class="notice-redirect" id="tinypress-expired-stopped" role="status" aria-live="polite"></p>
+                </main>
+                <script>
+                (function () {
+                    var seconds = 20;
+                    var url = <?php echo wp_json_encode(esc_url_raw($redirect_url)); ?>;
+                    var box = document.getElementById('tinypress-expired-redirect');
+                    var counter = document.getElementById('tinypress-expired-countdown');
+                    var stop = document.getElementById('tinypress-expired-stop');
+                    var stopped = document.getElementById('tinypress-expired-stopped');
+                    var timer;
+
+                    if (!box || !url) {
+                        return;
+                    }
+
+                    box.hidden = false;
+                    timer = window.setInterval(function () {
+                        seconds -= 1;
+                        if (counter) {
+                            counter.textContent = String(seconds);
+                        }
+                        if (seconds <= 0) {
+                            window.clearInterval(timer);
+                            window.location.href = url;
+                        }
+                    }, 1000);
+
+                    stop.addEventListener('click', function () {
+                        window.clearInterval(timer);
+                        box.hidden = true;
+                        stopped.textContent = <?php echo wp_json_encode(__('Automatic redirect stopped.', 'tinypress')); ?>;
+                        var link = document.getElementById('tinypress-expired-continue');
+                        if (link) {
+                            link.focus();
+                        }
+                    });
+                })();
+                </script>
             </body>
             </html>
             <?php
@@ -1769,18 +1822,18 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 <link rel="stylesheet" href="<?php echo esc_url($css_url); ?>">
             </head>
             <body class="tinypress-password-page">
-                <div class="tinypress-password-form">
-                    <h2><?php esc_html_e('Password Protected Link', 'tinypress'); ?></h2>
+                <main class="tinypress-password-form">
+                    <h1 class="tinypress-password-title"><?php esc_html_e('Password Protected Link', 'tinypress'); ?></h1>
                     <?php if (! empty($error_message)) : ?>
-                        <div class="tinypress-password-error"><?php echo esc_html($error_message); ?></div>
+                        <div class="tinypress-password-error" id="tinypress_password_error" role="alert"><?php echo esc_html($error_message); ?></div>
                     <?php endif; ?>
                     <form method="post" action="">
                         <input type="hidden" name="tinypress_pw_nonce" value="<?php echo esc_attr($form_nonce); ?>">
                         <label for="tinypress_password"><?php esc_html_e('Enter password to continue:', 'tinypress'); ?></label>
-                        <input type="password" name="tinypress_password" id="tinypress_password" required autofocus>
+                        <input type="password" name="tinypress_password" id="tinypress_password" autocomplete="current-password" required autofocus<?php echo ! empty($error_message) ? ' aria-invalid="true" aria-describedby="tinypress_password_error"' : ''; ?>>
                         <button type="submit"><?php esc_html_e('Submit', 'tinypress'); ?></button>
                     </form>
-                </div>
+                </main>
             </body>
             </html>
             <?php

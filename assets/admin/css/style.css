@@ -606,14 +606,15 @@ table.tinypress_link_page_tinypress-reports th#details {
 .link-actions a.action {
     display: inline-block;
     background: var(--tinypress-color-yellow);
-    color: #fff;
+    color: #1d2327; /* was #fff: 1.9:1 on #ffb200 (WCAG 1.4.3) */
     padding: 3px 8px;
     margin-right: 5px;
     border-radius: 4px;
 }
 
 .link-actions a.action.action-delete {
-    background: var(--tinypress-color-red);
+    background: #b32d2e; /* was #f44336: 3.7:1 with white text (WCAG 1.4.3) */
+    color: #fff;
 }
 
 .tinypress-meta-analytics {
@@ -731,6 +732,28 @@ body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-report-card-c
 body.post-type-tinypress_link .tinypress-meta-analytics .tinypress-report-card-content p {
 	color: #646970;
 	font-size: 12px;
+	margin: 0;
+}
+
+/* Summary cards as <dl>: label (dt) first in DOM, value (dd) shown on top. */
+body.post-type-tinypress_link .tinypress-meta-analytics dl.tinypress-report-card-content {
+	display: flex;
+	flex-direction: column-reverse;
+	margin: 0;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics dl.tinypress-report-card-content dd {
+	color: #1d2327;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 1;
+	margin: 0 0 4px;
+}
+
+body.post-type-tinypress_link .tinypress-meta-analytics dl.tinypress-report-card-content dt {
+	color: #646970;
+	font-size: 12px;
+	font-weight: 400;
 	margin: 0;
 }
 
@@ -1047,6 +1070,8 @@ th#tinypress-link {
     background: #fff;
     border-radius: 5px;
     width: 420px;
+    max-width: calc(100vw - 32px); /* reflow at 320px (WCAG 1.4.10) */
+    box-sizing: border-box;
     position: absolute;
     transition: all 0.3s ease-in-out;
     text-align: center;
@@ -1275,6 +1300,7 @@ th#tinypress-link {
     margin: 0 !important;
 }
 
+.tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings-title h3,
 .tinypress-settings-layout .wpdk_settings-section .wpdk_settings-field .wpdk_settings-title h4 {
     margin: 0 0 8px;
     color: #1d2327;
@@ -1734,6 +1760,19 @@ body.tinypress_link_page_tinypress-logs #wpwrap {
     color: #1d2327;
 }
 
+/* h1 styled to match the former h2. */
+.tinypress-password-form .tinypress-password-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0 0 0.83em;
+    color: #1d2327;
+}
+
+.tinypress-password-form button:focus-visible {
+    outline: 2px solid #1d2327;
+    outline-offset: 2px;
+}
+
 .tinypress-password-form label {
     display: block;
     margin-bottom: 0.5rem;
@@ -1745,7 +1784,7 @@ body.tinypress_link_page_tinypress-logs #wpwrap {
     width: 100%;
     padding: 0.5rem;
     margin: 0.5rem 0 1rem 0;
-    border: 1px solid #ddd;
+    border: 1px solid #8c8f94;
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 14px;
@@ -1753,7 +1792,8 @@ body.tinypress_link_page_tinypress-logs #wpwrap {
 
 .tinypress-password-form input[type="password"]:focus {
     border-color: #2271b1;
-    outline: none;
+    outline: 2px solid #2271b1;
+    outline-offset: 1px;
     box-shadow: 0 0 0 1px #2271b1;
 }
 
@@ -1774,7 +1814,7 @@ body.tinypress_link_page_tinypress-logs #wpwrap {
 }
 
 .tinypress-password-error {
-    color: #d63638;
+    color: #b32d2e;
     margin-bottom: 1rem;
     padding: 0.75rem;
     background: #fcf0f1;
@@ -3225,6 +3265,7 @@ body.post-type-tinypress_link .tinypress-edit-settings-panel * {
 	padding: 26px 0 8px;
 }
 
+.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-section-title h2,
 .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-section-title h3 {
 	color: var(--tinypress-admin-text);
 	font-size: 18px;
@@ -3257,6 +3298,7 @@ body.post-type-tinypress_link .tinypress-edit-settings-panel * {
 	width: auto !important;
 }
 
+.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-section .wpdk_settings-field .wpdk_settings-title h3,
 .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-section .wpdk_settings-field .wpdk_settings-title h4 {
 	color: var(--tinypress-admin-text);
 	font-size: 14px;
@@ -4235,6 +4277,7 @@ body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section-titl
 	padding: 0;
 }
 
+.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-section-title h2,
 .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-section-title h3,
 body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section-title h3 {
 	color: var(--tinypress-admin-text);
@@ -4296,6 +4339,7 @@ body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-field .wpdk_
 	width: auto !important;
 }
 
+.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-title h3,
 .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-title h4,
 body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-title h4 {
 	color: var(--tinypress-admin-text);
@@ -5347,4 +5391,82 @@ body.post-php.post-type-tinypress_link #tinypress_meta_main .tinypress-global-vi
     margin: 0;
     font-size: 18px;
     line-height: 18px;
+}
+
+
+/* ==========================================================================
+   Accessibility: visible keyboard focus (WCAG 2.4.7) and status messages
+   ========================================================================== */
+
+.side-qr-code .qr-download:focus-visible,
+ul.tinypress-extensions-list > li > a:focus-visible,
+.settings-block .learn-more:focus-visible,
+.tinypress-popup .tinypress-popup-box .popup-content .tinypress-logo a:focus-visible,
+#tinypress_link_catdiv .taxonomy-add-new:focus-visible,
+#tinypress_link_catdiv .category-tabs > li > a:focus-visible,
+.tinypress-side-category-panel .taxonomy-add-new:focus-visible,
+.tinypress-side-category-panel .category-tabs > li > a:focus-visible,
+.tiny-slug-wrap .tiny-slug-preview:focus-visible,
+.tinypress-column-content .single-link.copy-link:focus-visible,
+.link-actions a.action:focus-visible,
+.tinypress-popup .popup-action:focus-visible {
+    outline: 2px solid var(--wp-admin-theme-color, #2271b1) !important;
+    outline-offset: 2px !important;
+}
+
+/* Inputs previously indicated focus by border colour only: add an outline. */
+body.post-type-tinypress_link .wpdk_settings-field-text input:focus,
+body.post-type-tinypress_link .wpdk_settings-field-textarea textarea:focus,
+.tiny-slug-wrap .tinypress-slug-field input[type=text]:focus,
+.tiny-slug-wrap .tinypress-slug-field textarea:focus,
+.tinypress-popup .tinypress-popup-box .popup-content input[type="url"]:focus,
+#newtinypress_link_cat:focus,
+body.tinypress_link_page_settings input:focus-visible,
+body.tinypress_link_page_settings select:focus-visible,
+body.tinypress_link_page_settings textarea:focus-visible,
+body.post-new-php.post-type-tinypress_link input:focus-visible,
+body.post-new-php.post-type-tinypress_link select:focus-visible,
+body.post-new-php.post-type-tinypress_link textarea:focus-visible,
+body.post-php.post-type-tinypress_link input:focus-visible,
+body.post-php.post-type-tinypress_link select:focus-visible,
+body.post-php.post-type-tinypress_link textarea:focus-visible {
+    outline: 2px solid var(--wp-admin-theme-color, #2271b1) !important;
+    outline-offset: 1px !important;
+}
+
+/* Show the copy tooltip on keyboard focus as well as hover. */
+.tiny-slug-wrap .tiny-slug-preview[class*=hint--]:focus-visible:after,
+.tiny-slug-wrap .tiny-slug-preview[class*=hint--]:focus-visible:before,
+.tinypress-column-content .single-link[class*=hint--]:focus-visible:after,
+.tinypress-column-content .single-link[class*=hint--]:focus-visible:before {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tiny-slug-wrap .tiny-slug-preview.hint--top:focus-visible:before,
+.tinypress-column-content .single-link.hint--top:focus-visible:before {
+    transform: translateY(-8px);
+}
+
+.tiny-slug-wrap .tiny-slug-preview.hint--top:focus-visible:after,
+.tinypress-column-content .single-link.hint--top:focus-visible:after {
+    transform: translateX(-50%) translateY(-8px);
+}
+
+/* Slug validation message (WCAG 3.3.1). */
+.tiny-slug-wrap .tinypress-slug-error {
+    color: #b32d2e;
+    font-size: 12px;
+    margin: 4px 0 0;
+}
+
+.tiny-slug-wrap .tinypress-slug-error[hidden] {
+    display: none;
+}
+
+/* New-link popup error message. */
+.tinypress-popup .tinypress-popup-error {
+    color: #b32d2e;
+    font-size: 13px;
+    margin: 0 0 10px;
 }

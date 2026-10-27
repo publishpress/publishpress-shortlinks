@@ -857,6 +857,17 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 }
 
                 $a->appendChild($dom->createTextNode($part['value']));
+
+                if ('new_tab' === $this->global_target) {
+                    // Visually hidden new-tab hint. Inline clip styles so it stays
+                    // hidden even if the theme has no .screen-reader-text rule.
+                    $sr = $dom->createElement('span');
+                    $sr->setAttribute('class', 'screen-reader-text tinypress-sr-only');
+                    $sr->setAttribute('style', 'position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;');
+                    $sr->appendChild($dom->createTextNode(' ' . __('(opens in a new tab)', 'tinypress')));
+                    $a->appendChild($sr);
+                }
+
                 $fragment->appendChild($a);
             }
 

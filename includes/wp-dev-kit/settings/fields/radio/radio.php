@@ -38,7 +38,7 @@ if (! class_exists('WPDK_Settings_Field_radio')) {
                 $options = (is_array($options)) ? $options : array_filter($this->field_data($options, false, $args['query_args']));
 
                 if (is_array($options) && ! empty($options)) {
-                    echo '<ul' . $inline_class . '>';
+                    echo '<ul' . $inline_class . $this->a11y_html_attributes('radiogroup') . '>';
 
                     foreach ($options as $option_key => $option_value) {
                         if (is_array($option_value) && ! empty($option_value)) {
@@ -49,7 +49,7 @@ if (! class_exists('WPDK_Settings_Field_radio')) {
                                 $checked = ($sub_key == $this->value) ? ' checked' : '';
                                 echo '<li>';
                                 echo '<label>';
-                                echo '<input type="radio" name="' . esc_attr($this->field_name()) . '" value="' . esc_attr($sub_key) . '"' . $this->field_attributes() . esc_attr($checked) . '/>';
+                                echo '<input type="radio" name="' . esc_attr($this->field_name()) . '" value="' . esc_attr($sub_key) . '"' . $this->field_attributes(array(), false) . esc_attr($checked) . '/>';
                                 echo '<span class="wpdk_settings--text">' . esc_attr($sub_value) . '</span>';
                                 echo '</label>';
                                 echo '</li>';
@@ -61,7 +61,7 @@ if (! class_exists('WPDK_Settings_Field_radio')) {
 
                             echo '<li>';
                             echo '<label>';
-                            echo '<input type="radio" name="' . esc_attr($this->field_name()) . '" value="' . esc_attr($option_key) . '"' . $this->field_attributes() . esc_attr($checked) . '/>';
+                            echo '<input type="radio" name="' . esc_attr($this->field_name()) . '" value="' . esc_attr($option_key) . '"' . $this->field_attributes(array(), false) . esc_attr($checked) . '/>';
                             echo '<span class="wpdk_settings--text">' . esc_attr($option_value) . '</span>';
                             echo '</label>';
                             echo '</li>';
@@ -74,8 +74,10 @@ if (! class_exists('WPDK_Settings_Field_radio')) {
                 }
             } else {
                 $label = (isset($this->field['label'])) ? $this->field['label'] : '';
-                echo '<label><input type="radio" name="' . esc_attr($this->field_name()) . '" value="1"' . $this->field_attributes() . esc_attr(checked($this->value, 1, false)) . '/>';
-                echo (! empty($this->field['label'])) ? '<span class="wpdk_settings--text">' . esc_attr($this->field['label']) . '</span>' : '';
+                $label_id = (! empty($this->field['label'])) ? $this->a11y_id('label') : '';
+
+                echo '<label><input type="radio" name="' . esc_attr($this->field_name()) . '" value="1"' . $this->field_attributes(array(), (empty($this->field['_a11y']['title']) && $label_id) ? 'describe' : 'control', $label_id) . esc_attr(checked($this->value, 1, false)) . '/>';
+                echo (! empty($this->field['label'])) ? '<span class="wpdk_settings--text"' . ($label_id ? ' id="' . esc_attr($label_id) . '"' : '') . '>' . esc_attr($this->field['label']) . '</span>' : '';
                 echo '</label>';
             }
 

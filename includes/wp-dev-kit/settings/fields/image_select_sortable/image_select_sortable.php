@@ -47,7 +47,7 @@ if (! class_exists('WPDK_Settings_Field_image_select_sortable')) {
             echo $this->field_before();
 
             if (! empty($args['options'])) {
-                echo '<div class="wpdk_settings-siblings wpdk_settings--image-group' . esc_attr($inline) . '" data-multiple="' . esc_attr($args['multiple']) . '">';
+                echo '<div class="wpdk_settings-siblings wpdk_settings--image-group' . esc_attr($inline) . '" data-multiple="' . esc_attr($args['multiple']) . '"' . $this->a11y_html_attributes('group') . '>';
 
                 $num = 1;
 
@@ -62,7 +62,7 @@ if (! class_exists('WPDK_Settings_Field_image_select_sortable')) {
                     echo '<div class="wpdk_settings--sibling wpdk_settings--image' . esc_attr($active) . '">';
                     echo '<figure>';
                     echo '<img src="' . esc_url($option) . '" alt="img-' . esc_attr($num++) . '" />';
-                    echo '<input type="' . esc_attr($type) . '" name="' . esc_attr($this->field_name($extra)) . '" value="' . esc_attr($key) . '"' . $this->field_attributes() . esc_attr($checked) . '/>';
+                    echo '<input type="' . esc_attr($type) . '" name="' . esc_attr($this->field_name($extra)) . '" value="' . esc_attr($key) . '"' . $this->field_attributes(array(), false) . esc_attr($checked) . '/>';
                     echo '</figure>';
                     echo '</div>';
                     echo '</div>';

@@ -108,6 +108,8 @@ $analytics_data = array(
     'noDataText'         => esc_html__('No click data available for this period.', 'tinypress'),
     'clickSingularText'  => esc_html__('click', 'tinypress'),
     'clickPluralText'    => esc_html__('clicks', 'tinypress'),
+    'chartLabelText'     => esc_html__('Clicks over time', 'tinypress'),
+    'opensInNewTabText'  => esc_html__('(opens in a new tab)', 'tinypress'),
 );
 
 $analytics_data = apply_filters('tinypress_analytics_localized_data', $analytics_data, $post_id);
@@ -160,42 +162,42 @@ wp_localize_script('tinypress-analytics', 'tinypressAnalytics', $analytics_data)
 
     <div class="tinypress-reports-cards tinypress-analytics-cards">
         <div class="tinypress-report-card">
-            <span class="dashicons dashicons-chart-bar"></span>
-            <div class="tinypress-report-card-content">
-                <h3 data-summary-metric="totalClicks">0</h3>
-                <p><?php esc_html_e('Total Clicks', 'tinypress'); ?></p>
-            </div>
+            <span class="dashicons dashicons-chart-bar" aria-hidden="true"></span>
+            <dl class="tinypress-report-card-content">
+                <dt><?php esc_html_e('Total Clicks', 'tinypress'); ?></dt>
+                <dd data-summary-metric="totalClicks">0</dd>
+            </dl>
         </div>
 
         <div class="tinypress-report-card">
-            <span class="dashicons dashicons-admin-users"></span>
-            <div class="tinypress-report-card-content">
-                <h3 data-summary-metric="uniqueVisitors">0</h3>
-                <p><?php esc_html_e('Unique Visitors', 'tinypress'); ?></p>
-            </div>
+            <span class="dashicons dashicons-admin-users" aria-hidden="true"></span>
+            <dl class="tinypress-report-card-content">
+                <dt><?php esc_html_e('Unique Visitors', 'tinypress'); ?></dt>
+                <dd data-summary-metric="uniqueVisitors">0</dd>
+            </dl>
         </div>
 
         <div class="tinypress-report-card">
-            <span class="dashicons dashicons-calendar-alt"></span>
-            <div class="tinypress-report-card-content">
-                <h3 data-summary-metric="clickDays">0</h3>
-                <p><?php esc_html_e('Days With Clicks', 'tinypress'); ?></p>
-            </div>
+            <span class="dashicons dashicons-calendar-alt" aria-hidden="true"></span>
+            <dl class="tinypress-report-card-content">
+                <dt><?php esc_html_e('Days With Clicks', 'tinypress'); ?></dt>
+                <dd data-summary-metric="clickDays">0</dd>
+            </dl>
         </div>
 
         <div class="tinypress-report-card">
-            <span class="dashicons dashicons-performance"></span>
-            <div class="tinypress-report-card-content">
-                <h3 data-summary-metric="avgClicksPerDay">0</h3>
-                <p><?php esc_html_e('Avg. per Click Day', 'tinypress'); ?></p>
-            </div>
+            <span class="dashicons dashicons-performance" aria-hidden="true"></span>
+            <dl class="tinypress-report-card-content">
+                <dt><?php esc_html_e('Avg. per Click Day', 'tinypress'); ?></dt>
+                <dd data-summary-metric="avgClicksPerDay">0</dd>
+            </dl>
         </div>
     </div>
 
     <div id="chart" class="tinypress-report-section tinypress-report-chart tinypress-analytics-chart-section">
         <h2><?php esc_html_e('Clicks Over Time', 'tinypress'); ?></h2>
         <div class="tinypress-chart-container">
-            <div id="chart-timeline"></div>
+            <div id="chart-timeline" role="list" aria-label="<?php esc_attr_e('Clicks over time', 'tinypress'); ?>"></div>
         </div>
         <p class="tinypress-no-data" data-chart-no-data hidden>
             <?php esc_html_e('No click data available for this period.', 'tinypress'); ?>

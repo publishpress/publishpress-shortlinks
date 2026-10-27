@@ -43,7 +43,7 @@ if (! class_exists('WPDK_Settings_Field_palette')) {
                         }
                     }
 
-                    echo '<input type="radio" name="' . esc_attr($this->field_name()) . '" value="' . esc_attr($key) . '"' . $this->field_attributes() . esc_attr($checked) . '/>';
+                    echo '<input type="radio" name="' . esc_attr($this->field_name()) . '" value="' . esc_attr($key) . '"' . $this->field_attributes(array(), false) . esc_attr($checked) . '/>';
                     echo '</div>';
                 }
 

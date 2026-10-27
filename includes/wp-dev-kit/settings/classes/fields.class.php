@@ -44,11 +44,89 @@ if (! class_exists('WPDK_Settings_Fields')) {
             return $field_name . $nested_name;
         }
 
-        public function field_attributes($custom_atts = array())
+        /**
+         * Accessibility helpers.
+         *
+         * WPDK_Settings::field() stores generated ids in $this->field['_a11y']:
+         * 'base' (id prefix), 'title' (id of the visible field title) and
+         * 'describedby' (space separated ids of subtitle/desc/help/error text).
+         */
+        public function a11y_id($part = '')
+        {
+            $base = (! empty($this->field['_a11y']['base'])) ? $this->field['_a11y']['base'] : '';
+
+            return ($base && $part) ? $base . '-' . $part : $base;
+        }
+
+        /**
+         * ARIA attributes linking a control to the field title and descriptions.
+         *
+         * @param string|false $mode             'control' (labelledby + describedby + invalid),
+         *                                        'describe' (describedby + invalid only),
+         *                                        'group' (role=group + labelledby + describedby),
+         *                                        'radiogroup' (role=radiogroup + labelledby + describedby),
+         *                                        false for none.
+         * @param string       $extra_labelledby Extra ids appended to aria-labelledby.
+         */
+        public function a11y_attributes($mode = 'control', $extra_labelledby = '')
+        {
+            $atts = array();
+
+            if (empty($mode)) {
+                return $atts;
+            }
+
+            $a11y = (! empty($this->field['_a11y']) && is_array($this->field['_a11y'])) ? $this->field['_a11y'] : array();
+
+            if (in_array($mode, array( 'group', 'radiogroup' ), true)) {
+                $atts['role'] = $mode;
+            }
+
+            if ('describe' !== $mode) {
+                $labelledby = trim((! empty($a11y['title']) ? $a11y['title'] : '') . ' ' . $extra_labelledby);
+
+                if ('' !== $labelledby) {
+                    $atts['aria-labelledby'] = $labelledby;
+                }
+            }
+
+            if (! empty($a11y['describedby'])) {
+                $atts['aria-describedby'] = $a11y['describedby'];
+            }
+
+            if (! empty($this->field['_error']) && in_array($mode, array( 'control', 'describe' ), true)) {
+                $atts['aria-invalid'] = 'true';
+            }
+
+            // A group role without a name adds nothing.
+            if (isset($atts['role']) && empty($atts['aria-labelledby'])) {
+                unset($atts['role']);
+            }
+
+            return $atts;
+        }
+
+        public function a11y_html_attributes($mode = 'control', $extra_labelledby = '')
+        {
+            $atts = '';
+
+            foreach ($this->a11y_attributes($mode, $extra_labelledby) as $key => $value) {
+                $atts .= ' ' . esc_attr($key) . '="' . esc_attr($value) . '"';
+            }
+
+            return $atts;
+        }
+
+        public function field_attributes($custom_atts = array(), $a11y = 'control', $extra_labelledby = '')
         {
 
             $field_id   = (! empty($this->field['id'])) ? $this->field['id'] : '';
             $attributes = (! empty($this->field['attributes'])) ? $this->field['attributes'] : array();
+
+            // Accessibility defaults; explicit field attributes still win.
+            if (! empty($a11y)) {
+                $custom_atts = wp_parse_args((array) $custom_atts, $this->a11y_attributes($a11y, $extra_labelledby));
+            }
 
             if (! empty($field_id) && empty($attributes['data-depend-id'])) {
                 $attributes['data-depend-id'] = $field_id;
@@ -83,10 +161,14 @@ if (! class_exists('WPDK_Settings_Fields')) {
         public function field_after()
         {
 
+            $desc_id  = $this->a11y_id('desc');
+            $help_id  = $this->a11y_id('help');
+            $error_id = $this->a11y_id('error');
+
             $output = (! empty($this->field['after'])) ? '<div class="wpdk_settings-after-text">' . $this->field['after'] . '</div>' : '';
-            $output .= (! empty($this->field['desc'])) ? '<div class="clear"></div><div class="wpdk_settings-desc-text">' . $this->field['desc'] . '</div>' : '';
-            $output .= (! empty($this->field['help'])) ? '<div class="wpdk_settings-help"><span class="wpdk_settings-help-text">' . $this->field['help'] . '</span><i class="fas fa-question-circle"></i></div>' : '';
-            $output .= (! empty($this->field['_error'])) ? '<div class="wpdk_settings-error-text">' . $this->field['_error'] . '</div>' : '';
+            $output .= (! empty($this->field['desc'])) ? '<div class="clear"></div><div class="wpdk_settings-desc-text"' . ($desc_id ? ' id="' . esc_attr($desc_id) . '"' : '') . '>' . $this->field['desc'] . '</div>' : '';
+            $output .= (! empty($this->field['help'])) ? '<div class="wpdk_settings-help" tabindex="0" role="img" aria-label="' . esc_attr__('Help', 'tinypress') . '"' . ($help_id ? ' aria-describedby="' . esc_attr($help_id) . '"' : '') . '><span class="wpdk_settings-help-text"' . ($help_id ? ' id="' . esc_attr($help_id) . '"' : '') . '>' . $this->field['help'] . '</span><i class="fas fa-question-circle" aria-hidden="true"></i></div>' : '';
+            $output .= (! empty($this->field['_error'])) ? '<div class="wpdk_settings-error-text"' . ($error_id ? ' id="' . esc_attr($error_id) . '"' : '') . '>' . $this->field['_error'] . '</div>' : '';
 
             return $output;
         }

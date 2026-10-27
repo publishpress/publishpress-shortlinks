@@ -396,6 +396,7 @@ class WP_List_Table_Logs extends WP_List_Table
             if ('' !== $redirect_url) {
                 $route_html .= ': <a href="' . esc_url($redirect_url) . '" target="_blank" rel="noopener noreferrer">'
                     . esc_html($redirect_url)
+                    . '<span class="screen-reader-text"> ' . esc_html__('(opens in a new tab)', 'tinypress') . '</span>'
                     . '</a>';
             }
 

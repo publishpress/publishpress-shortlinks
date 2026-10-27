@@ -293,8 +293,12 @@ if (! function_exists('tinypress_get_tiny_slug_copier')) {
 
         echo '<div class="tiny-slug-wrap ' . esc_attr($wrapper_class) . '">';
 
-        echo '<div class="tiny-slug-preview hint--top" aria-label="' . esc_attr(tinypress()::get_text_hint()) . '" data-text-copied="' . esc_attr(tinypress()::get_text_copied()) . '">';
+        // Keyboard-operable copy control. The accessible name comes from the
+        // visually hidden "Copy shortlink" text plus the visible URL; the
+        // tooltip text lives in data-hint so it no longer overrides the name.
+        echo '<div class="tiny-slug-preview hint--top" role="button" tabindex="0" data-hint="' . esc_attr(tinypress()::get_text_hint()) . '" data-text-hint="' . esc_attr(tinypress()::get_text_hint()) . '" data-text-copied="' . esc_attr(tinypress()::get_text_copied()) . '">';
 
+        echo '<span class="screen-reader-text">' . esc_html__('Copy shortlink', 'tinypress') . ' </span>';
         echo '<span class="tiny-slug-inner">';
         if ($preview) {
             echo '<span class="preview"> ' . esc_html($preview_text) . ' </span>';
@@ -306,11 +310,18 @@ if (! function_exists('tinypress_get_tiny_slug_copier')) {
         echo '</div>';
 
         if ($display_input_field) {
+            $slug_input_id = function_exists('wp_unique_id') ? wp_unique_id('tinypress-tiny-slug-') : 'tinypress-tiny-slug-' . absint($post_id);
+            $slug_error_id = $slug_input_id . '-error';
+            $slug_input_a11y = ' id="' . esc_attr($slug_input_id) . '" aria-describedby="' . esc_attr($slug_error_id) . '"';
+
             echo '<div class="tinypress-slug-field">';
+            echo '<label class="screen-reader-text" for="' . esc_attr($slug_input_id) . '">' . esc_html__('Shortlink slug', 'tinypress') . '</label>';
             if ('tinypress_link' == $post->post_type) {
-                echo '<input type="text" class="tinypress-tiny-slug" name="tinypress_meta_main[tiny_slug]" value="' . esc_attr($tiny_slug) . '" placeholder="ad34o">';
+                echo '<input type="text" class="tinypress-tiny-slug"' . $slug_input_a11y . ' name="tinypress_meta_main[tiny_slug]" value="' . esc_attr($tiny_slug) . '" placeholder="ad34o">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $slug_input_a11y is built with esc_attr()
+                echo '<p class="tinypress-slug-error" id="' . esc_attr($slug_error_id) . '" hidden>' . esc_html__('Enter a shortlink slug.', 'tinypress') . '</p>';
             } else {
-                echo '<input type="text" class="tinypress-tiny-slug" name="tinypress_meta_side_' . esc_attr($post->post_type) . '[tiny_slug]" value="' . esc_attr($tiny_slug) . '" placeholder="ad34o">';
+                echo '<input type="text" class="tinypress-tiny-slug"' . $slug_input_a11y . ' name="tinypress_meta_side_' . esc_attr($post->post_type) . '[tiny_slug]" value="' . esc_attr($tiny_slug) . '" placeholder="ad34o">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $slug_input_a11y is built with esc_attr()
+                echo '<p class="tinypress-slug-error" id="' . esc_attr($slug_error_id) . '" hidden>' . esc_html__('Enter a shortlink slug.', 'tinypress') . '</p>';
 
                 $link_posts = get_posts(array(
                 'post_type'      => 'tinypress_link',
@@ -328,7 +339,7 @@ if (! function_exists('tinypress_get_tiny_slug_copier')) {
 
                 if (! empty($link_posts)) {
                     $edit_url = get_edit_post_link($link_posts[0]);
-                    echo '<a href="' . esc_url($edit_url) . '" target="_blank" class="tinypress-settings-link">' . esc_html__('Edit shortlink settings', 'tinypress') . '</a>';
+                    echo '<a href="' . esc_url($edit_url) . '" target="_blank" rel="noopener noreferrer" class="tinypress-settings-link">' . esc_html__('Edit shortlink settings', 'tinypress') . '<span class="screen-reader-text"> ' . esc_html__('(opens in a new tab)', 'tinypress') . '</span></a>';
                 }
             }
             echo '</div>';

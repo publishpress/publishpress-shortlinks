@@ -467,6 +467,10 @@
                 destinationLink.target = '_blank';
                 destinationLink.rel = 'noopener noreferrer';
                 destinationLink.textContent = route.destination;
+                let newTabText = document.createElement('span');
+                newTabText.className = 'screen-reader-text';
+                newTabText.textContent = ' ' + (tinypressAnalytics.opensInNewTabText || '(opens in a new tab)');
+                destinationLink.appendChild(newTabText);
                 destinationCell.appendChild(destinationLink);
             } else {
                 destinationCell.textContent = '-';
@@ -500,6 +504,11 @@
 
         chartEl.innerHTML = '';
         chartEl.className = 'tinypress-bar-chart';
+        // Expose the bars as a list so each period/value pair is available to assistive tech.
+        chartEl.setAttribute('role', 'list');
+        if (!chartEl.getAttribute('aria-label')) {
+            chartEl.setAttribute('aria-label', tinypressAnalytics.chartLabelText || 'Clicks over time');
+        }
 
         if (periodData.length) {
             chartEl.classList.add('tinypress-bar-chart-' + periodData[0].period);
@@ -522,20 +531,31 @@
             let bar = document.createElement('div');
             let label = document.createElement('span');
 
+            let srText = document.createElement('span');
+
             wrapper.className = 'tinypress-bar-wrapper';
+            wrapper.setAttribute('role', 'listitem');
             wrapper.title = period.title + ': ' + period.clicks + ' ' + clickText;
+
+            // Screen-reader text for every period, including zero values.
+            srText.className = 'screen-reader-text';
+            srText.textContent = period.title + ': ' + period.clicks.toLocaleString() + ' ' + clickText;
+            wrapper.appendChild(srText);
 
             if (period.clicks > 0) {
                 value.className = 'tinypress-bar-value';
+                value.setAttribute('aria-hidden', 'true');
                 value.textContent = period.clicks.toLocaleString();
                 wrapper.appendChild(value);
             }
 
             bar.className = period.clicks > 0 ? 'tinypress-bar' : 'tinypress-bar tinypress-bar-zero';
+            bar.setAttribute('aria-hidden', 'true');
             bar.style.height = height + '%';
             wrapper.appendChild(bar);
 
             label.className = 'tinypress-bar-label';
+            label.setAttribute('aria-hidden', 'true');
             label.textContent = period.label;
             wrapper.appendChild(label);
 
