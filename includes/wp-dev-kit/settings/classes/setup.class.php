@@ -618,7 +618,7 @@ if (! class_exists('WPDK_Settings')) {
 
             // Main scripts
             wp_enqueue_script('wpdk_settings-plugins', self::include_plugin_url('assets/js/plugins.js'), array(), $version, true);
-            wp_enqueue_script('pb_settings', self::include_plugin_url('assets/js/main.js'), array( 'wpdk_settings-plugins' ), $version, true);
+            wp_enqueue_script('pb_settings', self::include_plugin_url('assets/js/main.js'), array( 'wpdk_settings-plugins', 'wp-a11y' ), $version, true);
 
             // Main variables
             wp_localize_script('pb_settings', 'pb_settings_vars', array(
@@ -628,6 +628,8 @@ if (! class_exists('WPDK_Settings')) {
                     'typing_text'     => esc_html__('Please enter %s or more characters'),
                     'searching_text'  => esc_html__('Searching...'),
                     'no_results_text' => esc_html__('No results found.'),
+                    'has_errors'      => __('(has errors)', 'tinypress'),
+                    'errors_found'    => __('Settings not saved. Please fix the highlighted errors.', 'tinypress'),
                 ),
             ));
 
@@ -759,14 +761,54 @@ if (! class_exists('WPDK_Settings')) {
                 $visible = (! empty($depend_visible)) ? ' wpdk_settings-depend-visible' : ' wpdk_settings-depend-hidden';
             }
 
+            // Accessibility: unique ids so controls can reference the visible
+            // title (aria-labelledby) and subtitle/desc/help/error (aria-describedby).
+            static $a11y_count = 0;
+
+            $a11y_title_id = '';
+            $a11y_sub_id   = '';
+
+            if (! empty($field_type)) {
+                $a11y_count++;
+
+                $a11y_slug = sanitize_html_class(str_replace(array( '[', ']', '_' ), '-', $unique . '-' . (! empty($field['id']) ? $field['id'] : $field_type)));
+                $a11y_base = 'wpdk_settings-field-' . trim(preg_replace('/-+/', '-', $a11y_slug), '-') . '-' . $a11y_count;
+
+                $a11y_describedby = array();
+
+                if (! empty($field['title'])) {
+                    $a11y_title_id = $a11y_base . '-title';
+
+                    if (! empty($field['subtitle'])) {
+                        $a11y_sub_id        = $a11y_base . '-subtitle';
+                        $a11y_describedby[] = $a11y_sub_id;
+                    }
+                }
+
+                foreach (array( 'desc', 'help', '_error' ) as $a11y_part) {
+                    if (! empty($field[ $a11y_part ])) {
+                        $a11y_describedby[] = $a11y_base . '-' . ltrim($a11y_part, '_');
+                    }
+                }
+
+                $field['_a11y'] = array(
+                    'base'        => $a11y_base,
+                    'title'       => $a11y_title_id,
+                    'describedby' => implode(' ', $a11y_describedby),
+                );
+            }
+
+            // Top-level fields on an options page sit under the h2 section title.
+            $title_tag = ('options' === $where) ? 'h3' : 'h4';
+
             // These attributes has been sanitized above.
             echo '<div class="wpdk_settings-field wpdk_settings-field-' . esc_attr($field_type . $is_pseudo . $class . $visible . $has_availability) . '"' . $depend . '>';
 
             if (! empty($field_type)) {
                 if (! empty($field['title'])) {
                     echo '<div class="wpdk_settings-title">';
-                    echo '<h4>' . esc_html($field['title']) . '</h4>';
-                    echo (! empty($field['subtitle'])) ? '<div class="wpdk_settings-subtitle-text">' . wp_kses_post($field['subtitle']) . '</div>' : '';
+                    echo '<' . $title_tag . ' id="' . esc_attr($a11y_title_id) . '" class="wpdk_settings-title-heading">' . esc_html($field['title']) . '</' . $title_tag . '>';
+                    echo (! empty($field['subtitle'])) ? '<div class="wpdk_settings-subtitle-text" id="' . esc_attr($a11y_sub_id) . '">' . wp_kses_post($field['subtitle']) . '</div>' : '';
                     echo '</div>';
                 }
 

@@ -28,7 +28,32 @@
     error: 'Error',
     invalidUrl: 'Please enter a valid URL',
     noResults: 'No shortlinks found',
+    loading: 'Loading',
+    searchResults: 'Shortlink search results',
+    oneResult: '1 shortlink found. Use the up and down arrow keys to choose.',
+    manyResults: '%d shortlinks found. Use the up and down arrow keys to choose.',
   };
+
+  const FOCUSABLE_SELECTOR = 'a[href]:not([tabindex="-1"]), button:not([disabled]):not([tabindex="-1"]), input:not([disabled]):not([type="hidden"]):not([tabindex="-1"]), select:not([disabled]):not([tabindex="-1"]), textarea:not([disabled]):not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])';
+
+  function speak(message) {
+    if (!message) {
+      return;
+    }
+
+    if (window.wp && window.wp.a11y && typeof window.wp.a11y.speak === 'function') {
+      window.wp.a11y.speak(String(message), 'polite');
+      return;
+    }
+
+    const region = document.getElementById('tinypress-shortlink-status');
+    if (region) {
+      region.textContent = '';
+      window.setTimeout(() => {
+        region.textContent = String(message);
+      }, 50);
+    }
+  }
 
   function getConfig() {
     const raw = window.tinypressGutenberg || {};
@@ -94,6 +119,10 @@
                   class="tinypress-shortlink-search-input"
                   placeholder="${escapeHtml(i18n.searchPlaceholder)}"
                   autocomplete="off"
+                  role="combobox"
+                  aria-autocomplete="list"
+                  aria-expanded="false"
+                  aria-controls="tinypress-shortlink-listbox"
                 />
                 <button type="button" class="tinypress-shortlink-insert-btn" title="${escapeHtml(i18n.insertShortlink)}" aria-label="${escapeHtml(i18n.insertShortlink)}">
                   <span class="dashicons dashicons-admin-links" aria-hidden="true"></span>
@@ -104,7 +133,8 @@
               </div>
             </div>
 
-            <div class="tinypress-shortlink-results-wrapper" aria-live="polite"></div>
+            <div class="tinypress-shortlink-results-wrapper"></div>
+            <div id="tinypress-shortlink-status" class="screen-reader-text" role="status" aria-live="polite" aria-atomic="true"></div>
 
             <div class="tinypress-shortlink-advanced-panel" style="display: none;">
               <div class="tinypress-shortlink-options">
@@ -163,6 +193,7 @@
       this.results = [];
       this.selectedIndex = -1;
       this.searchTimer = null;
+      this.opener = null;
     }
 
     init() {
@@ -232,6 +263,38 @@
           this.close();
         }
       });
+
+      // Keep keyboard focus inside the dialog while it is open.
+      this.modal.addEventListener('keydown', (event) => this.trapFocus(event));
+    }
+
+    trapFocus(event) {
+      if (event.key !== 'Tab' || !this.isOpen()) {
+        return;
+      }
+
+      const content = this.modal.querySelector('.tinypress-shortlink-modal-content');
+      const focusables = Array.prototype.filter.call(
+        content.querySelectorAll(FOCUSABLE_SELECTOR),
+        (el) => el.offsetWidth > 0 || el.offsetHeight > 0 || el.getClientRects().length > 0
+      );
+
+      if (!focusables.length) {
+        event.preventDefault();
+        return;
+      }
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && (active === first || !content.contains(active))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && (active === last || !content.contains(active))) {
+        event.preventDefault();
+        first.focus();
+      }
     }
 
     show() {
@@ -242,6 +305,7 @@
       }
 
       this.config = getConfig();
+      this.opener = document.activeElement && document.activeElement !== document.body ? document.activeElement : null;
       this.modal.style.display = 'block';
       this.modal.setAttribute('aria-hidden', 'false');
 
@@ -254,12 +318,21 @@
     }
 
     close() {
+      const wasOpen = this.isOpen();
+
       if (this.modal) {
         this.modal.style.display = 'none';
         this.modal.setAttribute('aria-hidden', 'true');
       }
 
       this.reset();
+
+      // Return focus to the control that opened the dialog.
+      const opener = this.opener;
+      this.opener = null;
+      if (wasOpen && opener && document.contains(opener) && typeof opener.focus === 'function') {
+        opener.focus();
+      }
     }
 
     isOpen() {
@@ -313,6 +386,7 @@
       };
       this.results = [];
       this.selectedIndex = -1;
+      this.updateComboboxState();
     }
 
     toggleOptions() {
@@ -373,6 +447,23 @@
 
       this.results = [];
       this.selectedIndex = -1;
+      this.updateComboboxState();
+    }
+
+    updateComboboxState() {
+      const searchInput = this.modal ? this.modal.querySelector('.tinypress-shortlink-search-input') : null;
+      if (!searchInput) {
+        return;
+      }
+
+      const hasResults = this.results.length > 0;
+      searchInput.setAttribute('aria-expanded', hasResults ? 'true' : 'false');
+
+      if (hasResults && this.selectedIndex >= 0) {
+        searchInput.setAttribute('aria-activedescendant', 'tinypress-shortlink-option-' + this.selectedIndex);
+      } else {
+        searchInput.removeAttribute('aria-activedescendant');
+      }
     }
 
     search() {
@@ -391,7 +482,11 @@
       }
 
       if (resultsWrapper) {
-        resultsWrapper.innerHTML = '<div class="tinypress-shortlink-loading"><span class="spinner is-active"></span></div>';
+        resultsWrapper.innerHTML = `<div class="tinypress-shortlink-loading"><span class="spinner is-active" aria-hidden="true"></span><span class="screen-reader-text">${escapeHtml(this.config.i18n.loading)}</span></div>`;
+        this.results = [];
+        this.selectedIndex = -1;
+        this.updateComboboxState();
+        speak(this.config.i18n.loading);
       }
 
       $.post(
@@ -432,18 +527,26 @@
 
       if (!this.results.length) {
         resultsWrapper.innerHTML = `<div class="tinypress-shortlink-no-results">${escapeHtml(this.config.i18n.noResults)}</div>`;
+        this.updateComboboxState();
+        speak(this.config.i18n.noResults);
         return;
       }
 
+      // Options are pointer targets only (tabindex -1); keyboard users move
+      // through them with the arrow keys via aria-activedescendant.
       const html = this.results.map((result, index) => `
-        <button type="button" class="tinypress-shortlink-result-item${index === this.selectedIndex ? ' is-selected' : ''}" data-index="${index}">
+        <button type="button" role="option" tabindex="-1" id="tinypress-shortlink-option-${index}" aria-selected="${index === this.selectedIndex ? 'true' : 'false'}" class="tinypress-shortlink-result-item${index === this.selectedIndex ? ' is-selected' : ''}" data-index="${index}">
           <span class="tinypress-shortlink-result-title">${escapeHtml(result.title)}</span>
           <span class="tinypress-shortlink-result-url">${escapeHtml(result.url)}</span>
           ${result.targetUrl ? `<span class="tinypress-shortlink-result-target">${escapeHtml(result.targetUrl)}</span>` : ''}
         </button>
       `).join('');
 
-      resultsWrapper.innerHTML = `<div class="tinypress-shortlink-results">${html}</div>`;
+      resultsWrapper.innerHTML = `<div class="tinypress-shortlink-results" role="listbox" id="tinypress-shortlink-listbox" aria-label="${escapeHtml(this.config.i18n.searchResults)}">${html}</div>`;
+      this.updateComboboxState();
+      speak(this.results.length === 1
+        ? this.config.i18n.oneResult
+        : String(this.config.i18n.manyResults).replace('%d', this.results.length));
 
       resultsWrapper.querySelectorAll('.tinypress-shortlink-result-item').forEach((item) => {
         item.addEventListener('click', () => {
@@ -472,8 +575,16 @@
       this.selectedIndex = index;
 
       this.modal.querySelectorAll('.tinypress-shortlink-result-item').forEach((item) => {
-        item.classList.toggle('is-selected', parseInt(item.dataset.index, 10) === this.selectedIndex);
+        const isSelected = parseInt(item.dataset.index, 10) === this.selectedIndex;
+        item.classList.toggle('is-selected', isSelected);
+        item.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+
+        if (isSelected && typeof item.scrollIntoView === 'function') {
+          item.scrollIntoView({ block: 'nearest' });
+        }
       });
+
+      this.updateComboboxState();
     }
 
     insertSelectedOrSearch() {
@@ -598,6 +709,11 @@
       if (resultsWrapper) {
         resultsWrapper.innerHTML = `<div class="${className}">${escapeHtml(message)}</div>`;
       }
+
+      this.results = [];
+      this.selectedIndex = -1;
+      this.updateComboboxState();
+      speak(message);
     }
 
     isValidUrl(value) {

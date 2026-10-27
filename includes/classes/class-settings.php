@@ -1353,22 +1353,38 @@ if (! class_exists('TINYPRESS_Settings')) {
                 <div class="tinypress-autolist-container">
                     <?php if (empty($config)) : ?>
                         <div class="tinypress-autolist-empty">
-                            <span class="dashicons dashicons-admin-post"></span>
+                            <span class="dashicons dashicons-admin-post" aria-hidden="true"></span>
                             <p><?php esc_html_e('No post types configured yet. Click "Add Post Type" to get started.', 'tinypress'); ?></p>
                         </div>
                     <?php else : ?>
                         <?php foreach ($config as $index => $item) : ?>
+                            <?php
+                            $row_number = (int) $index + 1;
+                            $row_uid    = 'tinypress-autolist-' . (int) $index;
+                            ?>
                             <div class="tinypress-autolist-row" data-index="<?php echo esc_attr($index); ?>">
-                                <div class="tinypress-autolist-handle">
+                                <div class="tinypress-autolist-handle" aria-hidden="true">
                                     <span class="dashicons dashicons-menu"></span>
                                 </div>
                                 <div class="tinypress-autolist-field">
-                                    <select class="tinypress-autolist-post-type" data-selected="<?php echo esc_attr($item['post_type']); ?>">
+                                    <label class="screen-reader-text tinypress-autolist-post-type-label" id="<?php echo esc_attr($row_uid . '-post-type-label'); ?>" for="<?php echo esc_attr($row_uid . '-post-type'); ?>">
+                                        <?php
+                                        /* translators: %d: row number */
+                                        echo esc_html(sprintf(__('Post type (row %d)', 'tinypress'), $row_number));
+                                        ?>
+                                    </label>
+                                    <select id="<?php echo esc_attr($row_uid . '-post-type'); ?>" class="tinypress-autolist-post-type" data-selected="<?php echo esc_attr($item['post_type']); ?>">
                                         <option value="<?php echo esc_attr($item['post_type']); ?>" selected><?php echo esc_html($item['post_type']); ?></option>
                                     </select>
                                 </div>
                                 <div class="tinypress-autolist-field">
-                                    <select class="tinypress-autolist-behavior">
+                                    <label class="screen-reader-text tinypress-autolist-behavior-label" for="<?php echo esc_attr($row_uid . '-behavior'); ?>">
+                                        <?php
+                                        /* translators: %d: row number */
+                                        echo esc_html(sprintf(__('When to list shortlinks (row %d)', 'tinypress'), $row_number));
+                                        ?>
+                                    </label>
+                                    <select id="<?php echo esc_attr($row_uid . '-behavior'); ?>" class="tinypress-autolist-behavior">
                                         <option value="never" <?php selected($item['behavior'], 'never'); ?>><?php esc_html_e('Never', 'tinypress'); ?></option>
                                         <option value="on_first_use_or_on_create" <?php selected($item['behavior'], 'on_first_use_or_on_create'); ?>><?php esc_html_e('When Link is First Used or Post Created', 'tinypress'); ?></option>
                                         <option value="on_first_use" <?php selected($item['behavior'], 'on_first_use'); ?>><?php esc_html_e('When Link is First Used', 'tinypress'); ?></option>
@@ -1377,8 +1393,32 @@ if (! class_exists('TINYPRESS_Settings')) {
                                     </select>
                                 </div>
                                 <div class="tinypress-autolist-actions">
+                                    <button type="button" class="button tinypress-autolist-move tinypress-autolist-move-up" data-direction="up">
+                                        <span class="dashicons dashicons-arrow-up-alt2" aria-hidden="true"></span>
+                                        <span class="screen-reader-text">
+                                            <?php
+                                            /* translators: %d: row number */
+                                            echo esc_html(sprintf(__('Move row %d up', 'tinypress'), $row_number));
+                                            ?>
+                                        </span>
+                                    </button>
+                                    <button type="button" class="button tinypress-autolist-move tinypress-autolist-move-down" data-direction="down">
+                                        <span class="dashicons dashicons-arrow-down-alt2" aria-hidden="true"></span>
+                                        <span class="screen-reader-text">
+                                            <?php
+                                            /* translators: %d: row number */
+                                            echo esc_html(sprintf(__('Move row %d down', 'tinypress'), $row_number));
+                                            ?>
+                                        </span>
+                                    </button>
                                     <button type="button" class="button tinypress-autolist-remove">
-                                        <span class="dashicons dashicons-trash"></span>
+                                        <span class="dashicons dashicons-trash" aria-hidden="true"></span>
+                                        <span class="screen-reader-text">
+                                            <?php
+                                            /* translators: %d: row number */
+                                            echo esc_html(sprintf(__('Remove row %d', 'tinypress'), $row_number));
+                                            ?>
+                                        </span>
                                     </button>
                                 </div>
                             </div>
@@ -1386,7 +1426,7 @@ if (! class_exists('TINYPRESS_Settings')) {
                     <?php endif; ?>
                 </div>
                 <button type="button" class="button button-primary tinypress-autolist-add">
-                    <span class="dashicons dashicons-plus-alt"></span> <?php esc_html_e('Add Post Type', 'tinypress'); ?>
+                    <span class="dashicons dashicons-plus-alt" aria-hidden="true"></span> <?php esc_html_e('Add Post Type', 'tinypress'); ?>
                 </button>
             </div>
             <?php

@@ -488,3 +488,17 @@ body.post-type-tinypress_link .wpdk_settings-section {
     font-size: 12px;
     font-weight: 600;
 }
+
+/* Accessibility: keyboard focus and Escape-dismissal for the Pro nudge tooltip. */
+.tinypress-pro-nudge-btn:focus-visible {
+    outline: 2px solid #1d2327;
+    outline-offset: 2px;
+}
+
+.pp-tooltips-library[data-toggle=tooltip].tinypress-tooltip-dismissed .tooltip-text {
+    display: none !important;
+}
+
+.tinypress-teaser-disabled[aria-disabled="true"] {
+    cursor: not-allowed;
+}

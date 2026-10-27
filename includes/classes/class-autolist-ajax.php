@@ -277,7 +277,7 @@ if (! class_exists('TINYPRESS_Autolist_Ajax')) {
             wp_register_script(
                 'tinypress-autolist-ajax',
                 TINYPRESS_PLUGIN_URL . 'assets/admin/js/autolist-ajax.js',
-                array( 'jquery', 'jquery-ui-sortable', 'tinypress-admin-select2' ),
+                array( 'jquery', 'jquery-ui-sortable', 'tinypress-admin-select2', 'wp-a11y' ),
                 tinypress_asset_version('assets/admin/js/autolist-ajax.js'),
                 true
             );
@@ -298,7 +298,20 @@ if (! class_exists('TINYPRESS_Autolist_Ajax')) {
                     'onFirstUse' => __('When Link is First Used', 'tinypress'),
                     'onPublish' => __('When Post is Published', 'tinypress'),
                     'onCreate' => __('When Post is Created', 'tinypress'),
-                    'onFirstUseOrOnCreate' => __('When Link is First Used or Post Created', 'tinypress')
+                    'onFirstUseOrOnCreate' => __('When Link is First Used or Post Created', 'tinypress'),
+                    /* translators: %d: row number */
+                    'postTypeLabel' => __('Post type (row %d)', 'tinypress'),
+                    /* translators: %d: row number */
+                    'behaviorLabel' => __('When to list shortlinks (row %d)', 'tinypress'),
+                    /* translators: %d: row number */
+                    'moveUp' => __('Move row %d up', 'tinypress'),
+                    /* translators: %d: row number */
+                    'moveDown' => __('Move row %d down', 'tinypress'),
+                    /* translators: %d: row number */
+                    'remove' => __('Remove row %d', 'tinypress'),
+                    /* translators: 1: row's new position, 2: total number of rows */
+                    'movedTo' => __('Row moved to position %1$d of %2$d.', 'tinypress'),
+                    'removed' => __('Row removed.', 'tinypress'),
                 )
             ));
         }

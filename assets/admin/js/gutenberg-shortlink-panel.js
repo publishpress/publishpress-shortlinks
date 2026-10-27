@@ -35,6 +35,8 @@
   const DEFAULT_I18N = {
     copied: 'Copied',
     copy: 'Copy',
+    copyFailed: 'Copy failed',
+    opensInNewTab: '(opens in a new tab)',
     editSettings: 'Edit shortlink settings',
     emptySlug: 'Enter a shortlink slug to create a shortlink URL.',
     panelTitle: 'Shortlinks',
@@ -94,6 +96,12 @@
     return Promise.resolve();
   }
 
+  function speak(message) {
+    if (message && wp.a11y && typeof wp.a11y.speak === 'function') {
+      wp.a11y.speak(String(message), 'polite');
+    }
+  }
+
   function ShortlinksPanel() {
     const [hasInitializedDefault, setHasInitializedDefault] = useState(false);
     const [copied, setCopied] = useState(false);
@@ -144,6 +152,9 @@
 
       copyText(shortlinkUrl).then(function() {
         setCopied(true);
+        speak(i18n.copied);
+      }, function() {
+        speak(i18n.copyFailed);
       });
     }
 
@@ -202,7 +213,8 @@
               target: '_blank',
               rel: 'noopener noreferrer',
             },
-            i18n.editSettings
+            i18n.editSettings,
+            createElement('span', { className: 'screen-reader-text' }, ' ' + i18n.opensInNewTab)
           )
           : null
       ),

@@ -48,7 +48,7 @@ if (! class_exists('WPDK_Settings_Field_link')) {
 
             echo '<div class="' . esc_attr($maybe_hidden) . '"><div class="wpdk_settings--result">' . sprintf('{url:"%s", text:"%s", target:"%s"}', $value['url'], $value['text'], $value['target']) . '</div></div>';
 
-            echo '<input type="hidden" name="' . esc_attr($this->field_name('[url]')) . '" value="' . esc_attr($value['url']) . '"' . $this->field_attributes(array( 'class' => 'wpdk_settings--url' )) . ' />';
+            echo '<input type="hidden" name="' . esc_attr($this->field_name('[url]')) . '" value="' . esc_attr($value['url']) . '"' . $this->field_attributes(array( 'class' => 'wpdk_settings--url' ), false) . ' />';
             echo '<input type="hidden" name="' . esc_attr($this->field_name('[text]')) . '" value="' . esc_attr($value['text']) . '" class="wpdk_settings--text" />';
             echo '<input type="hidden" name="' . esc_attr($this->field_name('[target]')) . '" value="' . esc_attr($value['target']) . '" class="wpdk_settings--target" />';
 
