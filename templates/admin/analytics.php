@@ -109,7 +109,7 @@ $analytics_data = array(
     'clickSingularText'  => esc_html__('click', 'tinypress'),
     'clickPluralText'    => esc_html__('clicks', 'tinypress'),
     'chartLabelText'     => esc_html__('Clicks over time', 'tinypress'),
-    'opensInNewTabText'  => esc_html__('(opens in a new tab)', 'tinypress'),
+    'opensInNewTabText'  => __('(opens in a new tab)', 'tinypress'),
 );
 
 $analytics_data = apply_filters('tinypress_analytics_localized_data', $analytics_data, $post_id);

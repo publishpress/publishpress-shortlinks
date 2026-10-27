@@ -1481,6 +1481,7 @@ if (! class_exists('TINYPRESS_Redirection')) {
                 <meta charset="utf-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <meta name="robots" content="noindex, nofollow">
+                <noscript><meta http-equiv="refresh" content="20;url=<?php echo esc_url($safe_url); ?>"></noscript>
                 <title><?php esc_html_e('Link Expired', 'tinypress'); ?></title>
                 <style>
                     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #f0f0f1; color: #3c434a; }
