@@ -131,7 +131,7 @@ if (! class_exists('TINYPRESS_Gutenberg_Shortlink')) {
             wp_register_script(
                 'tinypress-shortlink-ui',
                 TINYPRESS_PLUGIN_URL . 'assets/admin/js/components/shortlink-ui.js',
-                array( 'jquery', 'wp-i18n' ),
+                array( 'jquery', 'wp-i18n', 'wp-a11y' ),
                 tinypress_asset_version('assets/admin/js/components/shortlink-ui.js'),
                 true
             );
@@ -180,6 +180,11 @@ if (! class_exists('TINYPRESS_Gutenberg_Shortlink')) {
                     'error' => __('Error', 'tinypress'),
                     'invalidUrl' => __('Please enter a valid URL', 'tinypress'),
                     'noResults' => __('No shortlinks found', 'tinypress'),
+                    'loading' => __('Loading', 'tinypress'),
+                    'searchResults' => __('Shortlink search results', 'tinypress'),
+                    'oneResult' => __('1 shortlink found. Use the up and down arrow keys to choose.', 'tinypress'),
+                    /* translators: %d: number of shortlinks found */
+                    'manyResults' => __('%d shortlinks found. Use the up and down arrow keys to choose.', 'tinypress'),
                 )
             );
         }

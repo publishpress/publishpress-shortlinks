@@ -113,7 +113,7 @@ class ShortlinksCoreAdmin
         <div class="tinypress-version-notice-bold-purple">
             <div class="tinypress-version-notice-bold-purple-message"><?php echo wp_kses_post($message); ?></div>
             <div class="tinypress-version-notice-bold-purple-button">
-                <a href="<?php echo esc_url($upgrade_url); ?>" target="_blank"><?php echo esc_html($button_text); ?></a>
+                <a href="<?php echo esc_url($upgrade_url); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html($button_text); ?><span class="screen-reader-text"> <?php esc_html_e('(opens in a new tab)', 'tinypress'); ?></span></a>
             </div>
         </div>
         <?php
@@ -164,13 +164,18 @@ class ShortlinksCoreAdmin
             $class .= ' ' . sanitize_html_class($additional_class);
         }
 
+        // The button is focusable so keyboard users can reach the tooltip
+        // (the tooltip library shows it on :focus-within). The tooltip text is
+        // linked with aria-describedby and can be dismissed with Escape.
+        $tooltip_id = function_exists('wp_unique_id') ? wp_unique_id('tinypress-pro-nudge-tip-') : uniqid('tinypress-pro-nudge-tip-');
+
         return '<div class="' . esc_attr($class) . '" style="margin-top:10px;">'
             . '<span class="pp-tooltips-library" data-toggle="tooltip">'
-            . '<button type="button" class="tinypress-pro-nudge-btn" tabindex="-1">'
-            . '<span class="dashicons dashicons-lock tinypress-pro-nudge-lock"></span>'
+            . '<button type="button" class="tinypress-pro-nudge-btn" aria-describedby="' . esc_attr($tooltip_id) . '">'
+            . '<span class="dashicons dashicons-lock tinypress-pro-nudge-lock" aria-hidden="true"></span>'
             . esc_html__('Pro Feature', 'tinypress')
             . '</button>'
-            . '<span class="tinypress tooltip-text">'
+            . '<span class="tinypress tooltip-text" role="tooltip" id="' . esc_attr($tooltip_id) . '">'
             . esc_html__('This feature is available in PublishPress Shortlinks Pro.', 'tinypress')
             . '</span></span></div>';
     }
@@ -193,12 +198,12 @@ class ShortlinksCoreAdmin
             <div style="position:relative;max-width:1100px;margin-top:16px;">
                 <div style="opacity:0.55;pointer-events:none;">
                     <p>
-                        <button type="button" class="button button-primary">
-                            <span class="dashicons dashicons-update"></span>
+                        <button type="button" class="button button-primary tinypress-teaser-disabled" aria-disabled="true">
+                            <span class="dashicons dashicons-update" aria-hidden="true"></span>
                             <?php esc_html_e('Check Visible Links', 'tinypress'); ?>
                         </button>
-                        <button type="button" class="button">
-                            <span class="dashicons dashicons-admin-site-alt3"></span>
+                        <button type="button" class="button tinypress-teaser-disabled" aria-disabled="true">
+                            <span class="dashicons dashicons-admin-site-alt3" aria-hidden="true"></span>
                             <?php esc_html_e('Check All Links', 'tinypress'); ?>
                         </button>
                     </p>

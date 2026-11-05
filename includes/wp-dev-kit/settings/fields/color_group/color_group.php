@@ -34,8 +34,8 @@ if (! class_exists('WPDK_Settings_Field_color_group')) {
                     $default_attr = (! empty($this->field['default'][$key])) ? ' data-default-color="' . esc_attr($this->field['default'][$key]) . '"' : '';
 
                     echo '<div class="wpdk_settings--left wpdk_settings-field-color">';
-                    echo '<div class="wpdk_settings--title">' . $option . '</div>';
-                    echo '<input type="text" name="' . esc_attr($this->field_name('[' . $key . ']')) . '" value="' . esc_attr($color_value) . '" class="wpdk_settings-color"' . $default_attr . $this->field_attributes() . '/>';
+                    echo '<div class="wpdk_settings--title" id="' . esc_attr($this->a11y_id('color-' . sanitize_html_class($key))) . '">' . $option . '</div>';
+                    echo '<input type="text" name="' . esc_attr($this->field_name('[' . $key . ']')) . '" value="' . esc_attr($color_value) . '" class="wpdk_settings-color"' . $default_attr . $this->field_attributes(array(), 'control', $this->a11y_id('color-' . sanitize_html_class($key))) . '/>';
                     echo '</div>';
                 }
             }

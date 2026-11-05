@@ -36,6 +36,101 @@
     WPDK_Settings.helper = {
 
         //
+        // Accessibility: announce a message (wp.a11y.speak, else a role="status" region)
+        //
+        speak: function (message, politeness) {
+            var decoder = document.createElement('textarea');
+            decoder.innerHTML = $('<div/>').append($.parseHTML(String(message || ''))).text();
+            var text = $.trim(decoder.value);
+
+            if (!text) {
+                return;
+            }
+
+            if (window.wp && window.wp.a11y && typeof window.wp.a11y.speak === 'function') {
+                window.wp.a11y.speak(text, politeness || 'polite');
+                return;
+            }
+
+            var $region = $('#wpdk_settings-a11y-status');
+
+            if (!$region.length) {
+                $region = $('<div id="wpdk_settings-a11y-status" class="screen-reader-text" role="status" aria-live="polite" aria-atomic="true"></div>').appendTo('body');
+            }
+
+            $region.text('');
+            setTimeout(function () {
+                $region.text(text);
+            }, 100);
+        },
+
+        //
+        // Accessibility: the focusable/announced control(s) for a field input
+        //
+        field_controls: function ($field) {
+            var $controls = $field.filter(':not([type="hidden"])');
+
+            if (!$controls.length) {
+                $controls = $field.closest('.wpdk_settings-fieldset')
+                    .find('[role="switch"], [role="group"], [role="radiogroup"], input:not([type="hidden"]), select, textarea')
+                    .first();
+            }
+
+            return $controls;
+        },
+
+        //
+        // Accessibility: undo aria-invalid / aria-describedby added for AJAX errors
+        //
+        clear_field_errors: function () {
+            $('[data-wpdk-error-id]').each(function () {
+                var $control = $(this),
+                    error_id = $control.attr('data-wpdk-error-id'),
+                    describedby = $.trim((' ' + ($control.attr('aria-describedby') || '') + ' ').replace(' ' + error_id + ' ', ' '));
+
+                if (describedby) {
+                    $control.attr('aria-describedby', describedby);
+                } else {
+                    $control.removeAttr('aria-describedby');
+                }
+
+                $control.removeAttr('aria-invalid data-wpdk-error-id');
+            });
+        },
+
+        //
+        // Accessibility: safe id fragment
+        //
+        a11y_id: function (value) {
+            return String(value).replace(/[^A-Za-z0-9_-]+/g, '-');
+        },
+
+        //
+        // Accessibility: mirror the "active" nav class into aria-current,
+        // whichever script toggles it (framework or plugin code).
+        //
+        watch_nav: function ($links) {
+            var sync = function () {
+                $links.each(function () {
+                    if ($(this).hasClass('wpdk_settings-active')) {
+                        $(this).attr('aria-current', 'true');
+                    } else {
+                        $(this).removeAttr('aria-current');
+                    }
+                });
+            };
+
+            sync();
+
+            if (window.MutationObserver) {
+                var observer = new MutationObserver(sync);
+                $links.each(function () {
+                    observer.observe(this, {attributes: true, attributeFilter: ['class']});
+                });
+            }
+        },
+
+        //
         // Generate UID
         //
         uid: function (prefix) {
@@ -219,6 +314,27 @@
                 $links = $nav.find('a'),
                 $last;
 
+            // Accessibility: link each tab to its section and expose the active one.
+            $links.each(function () {
+                var $link = $(this),
+                    tab_id = $link.data('tab-id');
+
+                if (!tab_id) {
+                    return;
+                }
+
+                var $section = $('.wpdk_settings-section[data-section-id="' + tab_id + '"]').first();
+
+                if ($section.length) {
+                    if (!$section.attr('id')) {
+                        $section.attr('id', 'wpdk_settings-section-' + WPDK_Settings.helper.a11y_id(tab_id));
+                    }
+                    $link.attr('aria-controls', $section.attr('id'));
+                }
+            });
+
+            WPDK_Settings.helper.watch_nav($links);
+
             $window.on('hashchange pb_settings.hashchange', function () {
 
                 var hash = window.location.hash.replace('#tab=', '');
@@ -275,6 +391,24 @@
                 $sections = $nav.parent().find('.wpdk_settings-section'),
                 post_id = $('#post_ID').val() || 'global',
                 $last;
+
+            // Accessibility: link each tab to its section and expose the active one.
+            $links.each(function (index) {
+                var $link = $(this),
+                    $section = $sections.eq(index);
+
+                if ($link.parent().hasClass('wpdk_settings-extra-nav') || !$section.length) {
+                    return;
+                }
+
+                if (!$section.attr('id')) {
+                    $section.attr('id', 'wpdk_settings-section-' + WPDK_Settings.helper.a11y_id($link.data('section') || ('metabox-' + index)));
+                }
+
+                $link.attr('aria-controls', $section.attr('id'));
+            });
+
+            WPDK_Settings.helper.watch_nav($links);
 
             $links.each(function (index) {
 
@@ -1768,6 +1902,12 @@
 
             var $switcher = $(this).find('.wpdk_settings--switcher');
 
+            // Accessibility: keep aria-checked in step with the visual state,
+            // including when other scripts toggle the class directly.
+            var sync_checked = function () {
+                $switcher.attr('aria-checked', $switcher.hasClass('wpdk_settings--active') ? 'true' : 'false');
+            };
+
             $switcher.on('click', function () {
 
                 var value = 0;
@@ -1780,9 +1920,35 @@
                     $switcher.addClass('wpdk_settings--active');
                 }
 
+                sync_checked();
+
                 $input.val(value).trigger('change');
 
             });
+
+            // Space / Enter toggle, matching a native switch.
+            $switcher.on('keydown', function (e) {
+                if (e.which !== 32 && e.which !== 13) {
+                    return;
+                }
+
+                e.preventDefault();
+
+                // Respect states where pointer input is blocked.
+                if ($switcher.closest('.is-greyed-out, .availability').length) {
+                    return;
+                }
+
+                $switcher.trigger('click');
+            });
+
+            sync_checked();
+
+            if (window.MutationObserver) {
+                $switcher.each(function () {
+                    new MutationObserver(sync_checked).observe(this, {attributes: true, attributeFilter: ['class']});
+                });
+            }
 
         });
     };
@@ -2510,6 +2676,10 @@
 
                     $buttons.attr('value', $text);
 
+                    // The previous result stays visible until the next action (this save).
+                    clearTimeout(timeout);
+                    $('.wpdk_settings-form-success').stop(true, true).hide();
+
                     if ($this.hasClass('wpdk_settings-save-ajax')) {
 
                         e.preventDefault();
@@ -2524,18 +2694,41 @@
 
                                 // clear errors
                                 $('.wpdk_settings-error').remove();
+                                WPDK_Settings.helper.clear_field_errors();
+
+                                var i18n = (window.pb_settings_vars && window.pb_settings_vars.i18n) || {},
+                                    $first_invalid = $();
 
                                 if (Object.keys(response.errors).length) {
 
-                                    var error_icon = '<i class="wpdk_settings-label-error wpdk_settings-error">!</i>';
+                                    var error_icon = '<i class="wpdk_settings-label-error wpdk_settings-error" aria-hidden="true">!</i>' +
+                                        '<span class="screen-reader-text wpdk_settings-error"> ' + $('<div/>').text(i18n.has_errors || '(has errors)').html() + '</span>';
 
                                     $.each(response.errors, function (key, error_message) {
 
                                         var $field = $('[data-depend-id="' + key + '"]'),
                                             $link = $('a[href="#tab=' + $field.closest('.wpdk_settings-section').data('section-id') + '"]'),
-                                            $tab = $link.closest('.wpdk_settings-tab-item');
+                                            $tab = $link.closest('.wpdk_settings-tab-item'),
+                                            error_id = 'wpdk_settings-error-' + WPDK_Settings.helper.a11y_id(key);
 
-                                        $field.closest('.wpdk_settings-fieldset').append('<p class="wpdk_settings-error wpdk_settings-error-text">' + error_message + '</p>');
+                                        $field.closest('.wpdk_settings-fieldset').append('<p class="wpdk_settings-error wpdk_settings-error-text" id="' + error_id + '">' + error_message + '</p>');
+
+                                        // Connect the message to the control(s) and flag them invalid.
+                                        var $controls = WPDK_Settings.helper.field_controls($field);
+
+                                        $controls.each(function () {
+                                            var $control = $(this),
+                                                describedby = $.trim(($control.attr('aria-describedby') || '') + ' ' + error_id);
+
+                                            $control
+                                                .attr('aria-describedby', describedby)
+                                                .attr('aria-invalid', 'true')
+                                                .attr('data-wpdk-error-id', error_id);
+                                        });
+
+                                        if (!$first_invalid.length && $controls.length) {
+                                            $first_invalid = $controls.first();
+                                        }
 
                                         if (!$link.find('.wpdk_settings-error').length) {
                                             $link.append(error_icon);
@@ -2559,11 +2752,29 @@
                                 clearTimeout(timeout);
 
                                 var $result_success = $('.wpdk_settings-form-success');
-                                $result_success.empty().append(response.notice).fadeIn('fast', function () {
-                                    timeout = setTimeout(function () {
-                                        $result_success.fadeOut('fast');
-                                    }, 1000);
-                                });
+
+                                if ($first_invalid.length) {
+                                    // Show the tab holding the first invalid field, then focus it.
+                                    var $error_section = $first_invalid.closest('.wpdk_settings-section'),
+                                        section_id = $error_section.data('section-id');
+
+                                    if (section_id && $error_section.hasClass('hidden')) {
+                                        window.location.hash = 'tab=' + section_id;
+                                    }
+
+                                    WPDK_Settings.helper.speak(i18n.errors_found || response.notice, 'assertive');
+
+                                    setTimeout(function () {
+                                        var $target = $first_invalid.is(':visible') ? $first_invalid : $first_invalid.closest('.wpdk_settings-field').find(':input:visible, [tabindex="0"]').first();
+                                        $target.trigger('focus');
+                                    }, 50);
+                                } else {
+                                    WPDK_Settings.helper.speak(response.notice);
+                                }
+
+                                // Stays visible until the next action (field change or next save);
+                                // never auto-hidden in under 5 seconds.
+                                $result_success.empty().append(response.notice).fadeIn('fast');
 
                             })
                             .fail(function (response) {
@@ -2616,10 +2827,10 @@
 
             }
 
+            // Notice rendered on page load (non-AJAX save, import, reset):
+            // announce it and leave it visible until the next action.
             if ($form_success.hasClass('wpdk_settings-form-show')) {
-                setTimeout(function () {
-                    $form_success.fadeOut('fast');
-                }, 1000);
+                WPDK_Settings.helper.speak($form_success.text());
             }
 
             $(document).keydown(function (event) {
@@ -3294,26 +3505,44 @@
                 $tooltip,
                 offset_left;
 
-            $this.on({
-                mouseenter: function () {
+            var show = function () {
 
-                    $tooltip = $('<div class="wpdk_settings-tooltip"></div>').html($this.find('.wpdk_settings-help-text').html()).appendTo('body');
-                    offset_left = (WPDK_Settings.vars.is_rtl) ? ($this.offset().left + 24) : ($this.offset().left - $tooltip.outerWidth());
+                hide();
 
-                    $tooltip.css({
-                        top: $this.offset().top - (($tooltip.outerHeight() / 2) - 14),
-                        left: offset_left,
-                    });
+                $tooltip = $('<div class="wpdk_settings-tooltip" aria-hidden="true"></div>').html($this.find('.wpdk_settings-help-text').html()).appendTo('body');
+                offset_left = (WPDK_Settings.vars.is_rtl) ? ($this.offset().left + 24) : ($this.offset().left - $tooltip.outerWidth());
 
-                },
-                mouseleave: function () {
+                $tooltip.css({
+                    top: $this.offset().top - (($tooltip.outerHeight() / 2) - 14),
+                    left: offset_left,
+                });
 
-                    if ($tooltip !== undefined) {
-                        $tooltip.remove();
+                // Escape dismisses the tooltip (WCAG 1.4.13).
+                $(document).on('keydown.wpdk_settings_help', function (e) {
+                    if (e.key === 'Escape' || e.which === 27) {
+                        hide();
                     }
+                });
 
+            };
+
+            var hide = function () {
+
+                if ($tooltip !== undefined) {
+                    $tooltip.remove();
+                    $tooltip = undefined;
                 }
 
+                $(document).off('keydown.wpdk_settings_help');
+
+            };
+
+            // Keyboard users get the same tooltip on focus.
+            $this.on({
+                mouseenter: show,
+                focus: show,
+                mouseleave: hide,
+                blur: hide,
             });
 
         });

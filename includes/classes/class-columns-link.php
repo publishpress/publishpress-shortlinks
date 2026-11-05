@@ -80,8 +80,11 @@ class TINYPRESS_Column_link
         }
 
         echo '<div class="tinypress-column-content">';
-        echo '<div class="single-link copy-link hint--top" data-tiny_slug="' . esc_attr(tinypress_get_tinyurl($post_id)) . '" aria-label="' . esc_attr(tinypress()::get_text_hint()) . '" data-text-copied="' . esc_attr(tinypress()::get_text_copied()) . '">';
-        echo '<span class="dashicons dashicons-admin-links"></span>';
+        $tinypress_copy_url = tinypress_get_tinyurl($post_id);
+        echo '<div class="single-link copy-link hint--top" role="button" tabindex="0" data-tiny_slug="' . esc_attr($tinypress_copy_url) . '" data-hint="' . esc_attr(tinypress()::get_text_hint()) . '" data-text-hint="' . esc_attr(tinypress()::get_text_hint()) . '" data-text-copied="' . esc_attr(tinypress()::get_text_copied()) . '">';
+        /* translators: %s: shortlink URL */
+        echo '<span class="screen-reader-text">' . esc_html(sprintf(__('Copy shortlink %s', 'tinypress'), $tinypress_copy_url)) . '</span>';
+        echo '<span class="dashicons dashicons-admin-links" aria-hidden="true"></span>';
         echo '</div>';
         echo '</div>';
     }
@@ -115,8 +118,11 @@ class TINYPRESS_Column_link
         if ('tinypress-link' == $column_name) {
             echo '<div class="tinypress-column-content">';
 
-            echo '<div class="single-link copy-link hint--top" data-tiny_slug="' . esc_attr(tinypress_get_tinyurl($post_id)) . '" aria-label="' . esc_attr(tinypress()::get_text_hint()) . '" data-text-copied="' . esc_attr(tinypress()::get_text_copied()) . '">';
-            echo '<span class="dashicons dashicons-admin-links"></span>';
+            $tinypress_copy_url = tinypress_get_tinyurl($post_id);
+            echo '<div class="single-link copy-link hint--top" role="button" tabindex="0" data-tiny_slug="' . esc_attr($tinypress_copy_url) . '" data-hint="' . esc_attr(tinypress()::get_text_hint()) . '" data-text-hint="' . esc_attr(tinypress()::get_text_hint()) . '" data-text-copied="' . esc_attr(tinypress()::get_text_copied()) . '">';
+            /* translators: %s: shortlink URL */
+            echo '<span class="screen-reader-text">' . esc_html(sprintf(__('Copy shortlink %s', 'tinypress'), $tinypress_copy_url)) . '</span>';
+            echo '<span class="dashicons dashicons-admin-links" aria-hidden="true"></span>';
             echo '</div>';
 
             echo '</div>';

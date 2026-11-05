@@ -49,8 +49,8 @@ if (! class_exists('WPDK_Settings_Field_datetime')) {
                 'to'   => '',
                 ));
 
-                echo '<label class="wpdk_settings--from">' . esc_attr($args['text_from']) . ' <input type="text" name="' . esc_attr($this->field_name('[from]')) . '" value="' . esc_attr($value['from']) . '"' . $this->field_attributes() . ' data-type="from" /></label>';
-                echo '<label class="wpdk_settings--to">' . esc_attr($args['text_to']) . ' <input type="text" name="' . esc_attr($this->field_name('[to]')) . '" value="' . esc_attr($value['to']) . '"' . $this->field_attributes() . ' data-type="to" /></label>';
+                echo '<label class="wpdk_settings--from"><span id="' . esc_attr($this->a11y_id('from')) . '">' . esc_attr($args['text_from']) . '</span> <input type="text" name="' . esc_attr($this->field_name('[from]')) . '" value="' . esc_attr($value['from']) . '"' . $this->field_attributes(array(), 'control', $this->a11y_id('from')) . ' data-type="from" /></label>';
+                echo '<label class="wpdk_settings--to"><span id="' . esc_attr($this->a11y_id('to')) . '">' . esc_attr($args['text_to']) . '</span> <input type="text" name="' . esc_attr($this->field_name('[to]')) . '" value="' . esc_attr($value['to']) . '"' . $this->field_attributes(array(), 'control', $this->a11y_id('to')) . ' data-type="to" /></label>';
             } else {
                 echo '<input type="text" name="' . esc_attr($this->field_name()) . '" value="' . esc_attr($this->value) . '"' . $this->field_attributes() . '/>';
             }

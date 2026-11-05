@@ -857,6 +857,21 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 }
 
                 $a->appendChild($dom->createTextNode($part['value']));
+
+                // Skip while WordPress builds an auto-excerpt or a REST response: those strip tags,
+                // which would leave the hint as visible text.
+                $plain_text_context = doing_filter('get_the_excerpt') || (function_exists('wp_is_json_request') && wp_is_json_request());
+
+                if ('new_tab' === $this->global_target && ! $plain_text_context) {
+                    // Visually hidden new-tab hint. Inline clip styles so it stays
+                    // hidden even if the theme has no .screen-reader-text rule.
+                    $sr = $dom->createElement('span');
+                    $sr->setAttribute('class', 'screen-reader-text tinypress-sr-only');
+                    $sr->setAttribute('style', 'position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;');
+                    $sr->appendChild($dom->createTextNode(' ' . __('(opens in a new tab)', 'tinypress')));
+                    $a->appendChild($sr);
+                }
+
                 $fragment->appendChild($a);
             }
 
