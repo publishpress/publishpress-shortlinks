@@ -157,6 +157,30 @@ if (! class_exists('TINYPRESS_Functions')) {
 
             return $has_legacy_paths;
         }
+        /** Native per-link chart counts, without visitor identifiers. */
+        public function get_daily_analytics($post_id)
+        {
+            global $wpdb;
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching -- Live native chart counts; reset invalidates these immediately.
+            $rows = $wpdb->get_results($wpdb->prepare(
+                "SELECT DATE(datetime) AS DateOnly, COUNT(*) AS ClickCount FROM %i WHERE post_id = %d AND is_analytics_cleared = 0 GROUP BY DATE(datetime) ORDER BY DATE(datetime)",
+                TINYPRESS_TABLE_REPORTS,
+                $post_id
+            ), ARRAY_A);
+            return $wpdb->last_error ? new WP_Error('tinypress_analytics_read', __('Analytics could not be read.', 'tinypress')) : $rows;
+        }
+
+        /** Mark native chart data cleared while retaining audit logs. */
+        public function reset_analytics($post_id, $start_date = null, $end_date = null)
+        {
+            global $wpdb;
+            if ($start_date === null) {
+                // phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching -- Native write to the reports table.
+                return $wpdb->query($wpdb->prepare("UPDATE %i SET is_analytics_cleared = 1 WHERE post_id = %d", TINYPRESS_TABLE_REPORTS, $post_id));
+            }
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching -- Native write to the reports table.
+            return $wpdb->query($wpdb->prepare("UPDATE %i SET is_analytics_cleared = 1 WHERE post_id = %d AND DATE(datetime) BETWEEN %s AND %s", TINYPRESS_TABLE_REPORTS, $post_id, $start_date, $end_date));
+        }
     }
     // phpcs:enable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps
 }
