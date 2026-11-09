@@ -6,7 +6,7 @@
  * Description: The best link manager for WordPress. Your links are brandable, trackable, and can have custom view permissions.
  * Version: 1.11.0-beta.1
  * Requires at least: 6.7
- * Requires PHP: 7.4
+ * Requires PHP: 8.2
  * Text Domain: tinypress
  * Domain Path: /languages
  * Author: PublishPress
@@ -17,6 +17,31 @@
 
 defined('ABSPATH') || exit;
 global $wpdb;
+
+// Keep this entry point parseable on older PHP versions.
+$publishpress_shortlinks_minimum_php_version = '8.2';
+$publishpress_shortlinks_minimum_wp_version = '6.7';
+global $wp_version;
+if (version_compare(PHP_VERSION, $publishpress_shortlinks_minimum_php_version, '<')) {
+    $requirements_notice = function () {
+        echo '<div class="notice notice-error"><p>'
+            . esc_html__('PublishPress Shortlinks Free requires PHP 8.2 or newer. The plugin cannot run until PHP is updated.', 'tinypress')
+            . '</p></div>';
+    };
+    add_action('admin_notices', $requirements_notice);
+    add_action('network_admin_notices', $requirements_notice);
+    return;
+}
+if (version_compare($wp_version, $publishpress_shortlinks_minimum_wp_version, '<')) {
+    $requirements_notice = function () {
+        echo '<div class="notice notice-error"><p>'
+            . esc_html__('PublishPress Shortlinks Free requires WordPress 6.7 or newer. The plugin cannot run until WordPress is updated.', 'tinypress')
+            . '</p></div>';
+    };
+    add_action('admin_notices', $requirements_notice);
+    add_action('network_admin_notices', $requirements_notice);
+    return;
+}
 
 $includeFileRelativePath = '/publishpress/instance-protection/include.php';
 
