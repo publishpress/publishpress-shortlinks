@@ -363,6 +363,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
         private function build_rules()
         {
             $rules = array();
+            $settings = get_option('tinypress_settings', array());
 
             $allowed_statuses = $this->get_allowed_post_statuses();
             $global_post_types = $this->get_global_autolink_post_types();
@@ -409,8 +410,8 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                     continue;
                 }
 
-                $nofollow = Utils::get_meta('redirection_no_follow', $link_id);
-                $sponsored = Utils::get_meta('redirection_sponsored', $link_id);
+                $nofollow = TINYPRESS_Meta_boxes::get_toggle_value($link_id, 'redirection_no_follow', 'redirection_no_follow_use_global', $settings['redirection_no_follow'] ?? Utils::get_option('redirection_no_follow', true));
+                $sponsored = TINYPRESS_Meta_boxes::get_toggle_value($link_id, 'redirection_sponsored', 'redirection_sponsored_use_global', $settings['redirection_sponsored'] ?? Utils::get_option('redirection_sponsored', false));
 
                 $rel = array();
                 if ('1' === $nofollow || true === $nofollow) {

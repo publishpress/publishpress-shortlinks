@@ -4,7 +4,7 @@
  * Plugin Name: PublishPress Shortlinks Free
  * Plugin URI:  https://publishpress.com/shortlinks/
  * Description: The best link manager for WordPress. Your links are brandable, trackable, and can have custom view permissions.
- * Version: 1.10.1
+ * Version: 1.11.0-beta.1
  * Requires at least: 6.7
  * Requires PHP: 7.4
  * Text Domain: tinypress
@@ -15,8 +15,8 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-global $wpdb;
 defined('ABSPATH') || exit;
+global $wpdb;
 
 $includeFileRelativePath = '/publishpress/instance-protection/include.php';
 
@@ -57,7 +57,7 @@ if (! defined('TINYPRESS_LOADED')) {
     define('TINYPRESS_LOADED', 1);
 
     define('TINYPRESS_FILE', __DIR__ . '/tinypress.php');
-    define('TINYPRESS_PLUGIN_VERSION', '1.10.1');
+    define('TINYPRESS_PLUGIN_VERSION', '1.11.0-beta.1');
 
     if (! defined('TINYPRESS_LIB_VENDOR_PATH')) {
         define('TINYPRESS_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
@@ -220,7 +220,7 @@ if (! defined('TINYPRESS_LOADED')) {
 
                 global $wpdb;
                 $table_name = TINYPRESS_TABLE_REPORTS;
-                $schema_version = '2.0.0';
+                $schema_version = '3.0.0';
 
                 $reports_schema_version = get_option('tinypress_reports_schema_version', '0');
 
@@ -439,6 +439,8 @@ if (! defined('TINYPRESS_LOADED')) {
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-import-export.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-migration.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-url-metadata.php';
+
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/Mcp/bootstrap.php';
 
                 new TINYPRESS_Hooks();
                 new TINYPRESS_Settings();
