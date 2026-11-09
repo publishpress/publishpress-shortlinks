@@ -2,6 +2,8 @@
 
 namespace PublishPress\Shortlinks;
 
+\defined('ABSPATH') || exit;
+
 /**
  * Class ShortlinksCoreAdmin
  *

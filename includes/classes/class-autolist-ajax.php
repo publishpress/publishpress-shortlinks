@@ -5,9 +5,7 @@
  * Handles real-time validation and auto-save
  */
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 if (! class_exists('TINYPRESS_Autolist_Ajax')) {
     /**
