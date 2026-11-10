@@ -29,7 +29,7 @@
 		}
 		$postStatus.val('-1');
 		$editRow.find('.tinypress-quick-edit-link-title').val($data.attr('data-link-title') || '');
-		$editRow.find('.tinypress-quick-edit-target-url').val($data.attr('data-target-url') || '');
+		$editRow.find('.tinypress-quick-edit-target-url').val($data.attr('data-destination') || '');
 		$editRow.find('.tinypress-quick-edit-tiny-slug').val($data.attr('data-tiny-slug') || '');
 		$editRow.find('.tinypress-quick-edit-link-status').val($data.attr('data-link-status') || '1');
 	};

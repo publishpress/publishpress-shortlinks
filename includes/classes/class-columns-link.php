@@ -196,7 +196,7 @@ class TINYPRESS_Column_link
                     if ('' === $link_status) {
                         $link_status = '1';
                     }
-                    echo '<span class="tinypress-quick-edit-data" hidden data-link-title="' . esc_attr(get_the_title($post_id)) . '" data-target-url="' . esc_attr($target_url) . '" data-tiny-slug="' . esc_attr($tiny_slug) . '" data-link-status="' . esc_attr($link_status) . '"></span>';
+                    echo '<span class="tinypress-quick-edit-data" hidden data-link-title="' . esc_attr(get_the_title($post_id)) . '" data-destination="' . esc_attr($target_url) . '" data-tiny-slug="' . esc_attr($tiny_slug) . '" data-link-status="' . esc_attr($link_status) . '"></span>';
                 }
                 break;
 
@@ -370,7 +370,7 @@ class TINYPRESS_Column_link
             return;
         }
 
-        echo '<a href="#" class="editinline tinypress-quick-edit-link">' . esc_html__('Quick Edit', 'tinypress') . '</a>';
+        echo '<a href="' . esc_url('#') . '" class="editinline tinypress-quick-edit-link">' . esc_html__('Quick Edit', 'tinypress') . '</a>';
     }
 
     /**
