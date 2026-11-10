@@ -4674,8 +4674,10 @@ body.post-php.post-type-tinypress_link #tinypress_meta_main .wpdk_settings-wrapp
 .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-section .wpdk_settings-field,
 body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-section .wpdk_settings-field {
 	align-items: flex-start !important;
+	column-gap: clamp(24px, 3vw, 40px) !important;
 	grid-template-columns: minmax(250px, 30%) minmax(0, 1fr) !important;
 	padding: 30px clamp(32px, 4vw, 56px) !important;
+	row-gap: 10px !important;
 }
 
 .tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-section .wpdk_settings-field input[type="text"],
