@@ -211,6 +211,17 @@ It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliate
 
 == Changelog == 
 
+## [1.11.0] - 10 November, 2026
+
+* Added: Private MCP actions for native Shortlinks settings, links and supported workflows, 436
+* Added: Add quick edit feature, #420
+* Update: Duplicate rather than Copy, #423
+* Update: Require PHP 8.2, #422
+* Update: Join the CHANGELOG.md introduction onto one line, #421
+* Fixed: The spacing of the setting is generally inconsistent, #428
+* Fixed: Menu visbility issues remain when editing shortlinks, #425
+* Removed: Remove Shortlinks label and notes suggestions, #426
+
 ## [1.10.1] - 16 September, 2026
 
 * Fixed: Preserve legacy shortlink URLs and normalize source prefixes during migration, #407
