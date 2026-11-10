@@ -42,7 +42,7 @@ class TINYPRESS_Duplicate_Link
             'tinypress_duplicate_link_' . absint($post_id)
         );
 
-        echo '<a href="' . esc_url($url) . '" class="tinypress-copy-link">' . esc_html__('Copy', 'tinypress') . '</a>';
+        echo '<a href="' . esc_url($url) . '" class="tinypress-copy-link">' . esc_html__('Duplicate', 'tinypress') . '</a>';
     }
 
     /**
@@ -63,8 +63,8 @@ class TINYPRESS_Duplicate_Link
             || ! current_user_can('edit_post', $post_id)
         ) {
             wp_die(
-                esc_html__('You are not allowed to copy this shortlink.', 'tinypress'),
-                esc_html__('Shortlink copy failed', 'tinypress'),
+                esc_html__('You are not allowed to duplicate this shortlink.', 'tinypress'),
+                esc_html__('Shortlink duplication failed', 'tinypress'),
                 array( 'response' => 403 )
             );
         }
@@ -85,7 +85,7 @@ class TINYPRESS_Duplicate_Link
     public static function copy_record($post_id, $authorize_metadata = null)
     {
         if (!current_user_can('tinypress_create_shortlinks') || !current_user_can('read_post', $post_id) || !current_user_can('edit_post', $post_id) || get_post_type($post_id) !== 'tinypress_link') {
-            return new WP_Error('tinypress_copy_denied', __('Shortlink copy denied.', 'tinypress'));
+            return new WP_Error('tinypress_copy_denied', __('Shortlink duplication denied.', 'tinypress'));
         }
         $source = get_post($post_id);
 
@@ -99,7 +99,7 @@ class TINYPRESS_Duplicate_Link
                 'post_status'  => 'draft',
                 'post_title'   => sprintf(
                     /* translators: %s: original shortlink title. */
-                    __('Copy of %s', 'tinypress'),
+                    __('Duplicate of %s', 'tinypress'),
                     $source->post_title
                 ),
                 'post_content' => $source->post_content,
@@ -115,14 +115,14 @@ class TINYPRESS_Duplicate_Link
 
         $copy_keys = array_values(array_diff(array_keys(get_post_meta($post_id)), self::excluded_meta_keys()));
         if ($authorize_metadata && !$authorize_metadata($duplicate_id, $copy_keys)) {
-            return new WP_Error('tinypress_copy_permission', __('The draft exists but metadata permissions prevented copying.', 'tinypress'), array('id' => $duplicate_id));
+            return new WP_Error('tinypress_copy_permission', __('The draft exists but metadata permissions prevented duplication.', 'tinypress'), array('id' => $duplicate_id));
         }
         $copied_meta = self::copy_post_meta($post_id, $duplicate_id);
         $copied_terms = self::copy_taxonomies($post_id, $duplicate_id);
         $slug = tinypress_create_url_slug();
         update_post_meta($duplicate_id, 'tiny_slug', $slug);
         if (!$copied_meta || !$copied_terms || get_post_meta($duplicate_id, 'tiny_slug', true) !== $slug) {
-            return new WP_Error('tinypress_copy_incomplete', __('The draft exists but copying was not fully confirmed.', 'tinypress'), array('id' => $duplicate_id));
+            return new WP_Error('tinypress_copy_incomplete', __('The draft exists but duplication was not fully confirmed.', 'tinypress'), array('id' => $duplicate_id));
         }
 
         return $duplicate_id;
@@ -207,7 +207,7 @@ class TINYPRESS_Duplicate_Link
         }
 
         echo '<div class="notice notice-success is-dismissible"><p>';
-        esc_html_e('Shortlink copied as a draft. Review it, then publish when ready.', 'tinypress');
+        esc_html_e('Shortlink duplicated as a draft. Review it, then publish when ready.', 'tinypress');
         echo '</p></div>';
     }
 }
