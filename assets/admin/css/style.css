@@ -4021,11 +4021,14 @@ body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav-normal {
 	align-self: start;
 	background: var(--tinypress-admin-sidebar-bg);
 	border-right: 1px solid var(--tinypress-admin-sidebar-border);
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
 	float: none;
 	height: calc(100vh - 32px - var(--tinypress-admin-topbar-height));
 	max-height: calc(100vh - 32px - var(--tinypress-admin-topbar-height));
 	min-height: 0;
-	overflow-y: auto;
+	overflow: hidden;
 	overflow-anchor: none;
 	overscroll-behavior: auto;
 	padding: 24px 0;
@@ -4042,11 +4045,13 @@ body.tinypress_link_page_settings .tinypress-settings-layout-free .wpdk_settings
 	top: calc(32px + var(--tinypress-admin-topbar-height));
 }
 
-.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav > ul::before,
-body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav > ul::before {
+.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav::before,
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav::before {
+	background: var(--tinypress-admin-sidebar-bg);
 	color: var(--tinypress-admin-soft);
 	content: "SETTINGS";
 	display: block;
+	flex: 0 0 auto;
 	font-size: 11px;
 	font-weight: 800;
 	letter-spacing: 0;
@@ -4054,7 +4059,7 @@ body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav > ul::be
 	padding: 0 20px 12px;
 }
 
-body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav > ul::before {
+body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav::before {
 	content: "SHORTLINK";
 }
 
@@ -4062,7 +4067,11 @@ body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav > ul::be
 body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav ul {
 	border: 0 !important;
 	display: block;
+	flex: 1 1 auto;
+	min-height: 0;
 	margin: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
 	padding: 0 0 56px;
 }
 
@@ -5210,6 +5219,7 @@ body.post-php.post-type-tinypress_link #tinypress_meta_main .tinypress-global-vi
 		border-bottom: 1px solid var(--tinypress-admin-sidebar-border);
 		border-right: 0;
 		display: flex;
+		flex-direction: row;
 		gap: 6px;
 		height: auto;
 		overflow-x: auto;
@@ -5219,15 +5229,18 @@ body.post-php.post-type-tinypress_link #tinypress_meta_main .tinypress-global-vi
 		width: 100%;
 	}
 
-	.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav > ul::before,
-	body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav > ul::before {
+	.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav::before,
+	body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav::before {
 		display: none;
 	}
 
 	.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav ul,
 	body.post-type-tinypress_link .wpdk_settings-metabox .wpdk_settings-nav ul {
 		display: flex;
+		flex: 0 0 auto;
 		gap: 6px;
+		overflow-x: auto;
+		overflow-y: hidden;
 	}
 
 	.tinypress-settings-layout.tinypress-design-refresh .wpdk_settings-nav ul li,
