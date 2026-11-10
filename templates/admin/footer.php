@@ -1,4 +1,6 @@
 <?php
+defined('ABSPATH') || exit;
+
 $rating_star = '<span class="tinypress-rating-stars" aria-hidden="true">';
 $rating_star .= '<span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span>';
 $rating_star .= '<span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span>';

@@ -6,6 +6,8 @@
 
 use WPDK\Utils;
 
+defined('ABSPATH') || exit;
+
 if (! current_user_can('tinypress_view_shortlink_analytics')) {
     return;
 }
@@ -17,15 +19,10 @@ $default_custom_start = gmdate('Y-m-d', strtotime('-29 days', strtotime($today))
 global $wpdb;
 
 // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant; aggregation queries are not suitable for caching.
-$reports = $wpdb->get_results($wpdb->prepare(
-    "SELECT DATE(datetime) AS DateOnly, COUNT(*) AS ClickCount
-    FROM " . TINYPRESS_TABLE_REPORTS . "
-    WHERE post_id = %d
-    AND is_analytics_cleared = 0
-    GROUP BY DATE(datetime)
-    ORDER BY DATE(datetime)",
-    $post_id
-), ARRAY_A);
+$reports = tinypress()->get_daily_analytics($post_id);
+if (is_wp_error($reports)) {
+    return;
+}
 
 $data  = array();
 

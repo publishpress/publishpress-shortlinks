@@ -555,7 +555,11 @@ if (! function_exists('tinypress_create_shorten_url')) {
             'post_author' => get_current_user_id(),
         );
 
-        $new_url_id = wp_insert_post($url_args);
+        $new_url_id = wp_insert_post(wp_slash($url_args), true);
+
+        if (is_wp_error($new_url_id)) {
+            return $new_url_id;
+        }
 
         if (empty($post_title)) {
             wp_update_post(array(
@@ -565,16 +569,16 @@ if (! function_exists('tinypress_create_shorten_url')) {
             ));
         }
 
-        if (is_wp_error($new_url_id)) {
-            return $new_url_id;
+        if (isset($args['authorize_metadata']) && is_callable($args['authorize_metadata']) && !$args['authorize_metadata']($new_url_id)) {
+            return new WP_Error('tinypress_create_permission', __('The Shortlink exists but metadata authorization prevented setup.', 'tinypress'), array('id' => $new_url_id));
         }
 
-        update_post_meta($new_url_id, 'target_url', $target_url);
-        update_post_meta($new_url_id, 'tiny_slug', $tiny_slug);
+        update_post_meta($new_url_id, 'target_url', wp_slash($target_url));
+        update_post_meta($new_url_id, 'tiny_slug', wp_slash($tiny_slug));
         update_post_meta($new_url_id, 'redirection', $redirection);
         update_post_meta($new_url_id, 'notes', $notes);
 
-        return tinypress_get_tinyurl($new_url_id);
+        return !empty($args['return_id']) ? $new_url_id : tinypress_get_tinyurl($new_url_id);
     }
 }
 
@@ -587,7 +591,7 @@ if (! function_exists('tinypress_get_tinyurl')) {
      *
      * @return mixed|null
      */
-    function tinypress_get_tinyurl($tinypress_link_id = '')
+    function tinypress_get_tinyurl($tinypress_link_id = '', $create_if_missing = true)
     {
 
         if (empty($tinypress_link_id) || $tinypress_link_id == 0) {
@@ -607,6 +611,9 @@ if (! function_exists('tinypress_get_tinyurl')) {
         $tiny_slug = Utils::get_meta('tiny_slug', $tinypress_link_id);
 
         if (empty($tiny_slug)) {
+            if (!$create_if_missing) {
+                return '';
+            }
             $tiny_slug = tinypress_create_url_slug();
             update_post_meta($tinypress_link_id, 'tiny_slug', $tiny_slug);
         }
@@ -785,4 +792,22 @@ if (! function_exists('tinypress_get_unavailable_shortlink_ids_for_post_types'))
 
         return array_values(array_unique($unavailable_ids));
     }
+}
+
+/** Shared persistence for the native editor's Short String control. */
+function tinypress_set_native_post_slug($post_id, $tiny_slug)
+{
+    $post = get_post($post_id);
+    if (!$post) {
+        return false;
+    }
+    $tiny_slug = sanitize_text_field($tiny_slug);
+    update_post_meta($post_id, 'tiny_slug', wp_slash($tiny_slug));
+    $meta_key = 'tinypress_meta_side_' . $post->post_type;
+    $data = get_post_meta($post_id, $meta_key, true);
+    $data = is_array($data) ? $data : array();
+    $data['tiny_slug'] = $tiny_slug;
+    update_post_meta($post_id, $meta_key, wp_slash($data));
+    return get_post_meta($post_id, 'tiny_slug', true) === $tiny_slug
+        && get_post_meta($post_id, $meta_key, true) === $data;
 }

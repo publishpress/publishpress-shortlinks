@@ -218,23 +218,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
                     $end_date   = $today;
             }
 
-            if ($reset_all) {
-                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant.
-                $result = $wpdb->query($wpdb->prepare(
-                    "UPDATE " . TINYPRESS_TABLE_REPORTS . " SET is_analytics_cleared = 1 WHERE post_id = %d",
-                    $post_id
-                ));
-                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
-            } else {
-                // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- Custom table; TINYPRESS_TABLE_REPORTS is a safe constant.
-                $result = $wpdb->query($wpdb->prepare(
-                    "UPDATE " . TINYPRESS_TABLE_REPORTS . " SET is_analytics_cleared = 1 WHERE post_id = %d AND DATE(datetime) BETWEEN %s AND %s",
-                    $post_id,
-                    $start_date,
-                    $end_date
-                ));
-                // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
-            }
+            $result = tinypress()->reset_analytics($post_id, $reset_all ? null : $start_date, $reset_all ? null : $end_date);
 
             if ($result !== false) {
                 wp_send_json_success(esc_html__('Analytics reset successfully.', 'tinypress'));
@@ -861,7 +845,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
          * @param mixed $roles Saved roles.
          * @return array
          */
-        private static function normalize_role_list($roles)
+        public static function normalize_role_list($roles)
         {
             if (is_string($roles)) {
                 $roles = false !== strpos($roles, ',') ? explode(',', $roles) : array( $roles );

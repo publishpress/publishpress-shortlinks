@@ -138,31 +138,12 @@ if (! class_exists('TINYPRESS_Redirection')) {
          */
         private function resolve_toggle_setting($setting_key, $use_global_key, $link_id, $global_key, $system_default)
         {
-            $use_global = Utils::get_meta($use_global_key, $link_id);
-
-            if ('enabled' === $use_global) {
-                return '1';
-            }
-
-            if ('disabled' === $use_global) {
-                return '';
-            }
-
-            $is_using_global = false;
-            if (is_array($use_global) && in_array('1', $use_global)) {
-                $is_using_global = true;
-            } elseif ($use_global === '1' || $use_global === 1 || $use_global === true) {
-                $is_using_global = true;
-            } elseif ($use_global === null) {
-                $is_using_global = true;
-            }
-
-            if ($is_using_global) {
-                $global_value = $this->get_settings_value($global_key, $system_default);
-                return $global_value ? '1' : '';
-            }
-
-            return Utils::get_meta($setting_key, $link_id);
+            return TINYPRESS_Meta_boxes::get_toggle_value(
+                $link_id,
+                $setting_key,
+                $use_global_key,
+                $this->get_settings_value($global_key, $system_default)
+            );
         }
 
         /**

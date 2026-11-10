@@ -1,8 +1,6 @@
 <?php
 
-if (! defined('ABSPATH')) {
-    die;
-} // Cannot access directly.
+defined('ABSPATH') || exit;
 /**
  *
  * Sanitize

@@ -26,6 +26,7 @@ if (! class_exists('TINYPRESS_Settings')) {
          */
         public function __construct()
         {
+            self::$_instance = $this;
             add_action('plugins_loaded', array( $this, 'register_custom_statuses_filters' ), 1);
 
             add_action('init', array( $this, 'create_settings_page' ), 5);

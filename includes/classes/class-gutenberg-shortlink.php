@@ -6,9 +6,7 @@
  * Handles Gutenberg / WordPress block editor integration for shortlinks.
  */
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 if (! class_exists('TINYPRESS_Gutenberg_Shortlink')) {
     /**

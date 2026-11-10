@@ -24,9 +24,7 @@
 
 use PublishPress\WordPressReviews\ReviewsController;
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 /**
  * Class SHORTLINKS_Reviews
