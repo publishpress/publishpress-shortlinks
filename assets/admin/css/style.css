@@ -989,13 +989,33 @@ th#tinypress-link {
 .tinypress-copy-link,
 .tinypress-copy-link:visited,
 .tinypress-copy-link:hover,
-.tinypress-copy-link:focus {
+.tinypress-copy-link:focus,
+.tinypress-quick-edit-link,
+.tinypress-quick-edit-link:visited,
+.tinypress-quick-edit-link:hover,
+.tinypress-quick-edit-link:focus {
     border-left: 1px solid #c3c4c7;
     padding-left: 8px;
     color: var(--wp-admin-theme-color, #2271b1);
     font-size: 12px;
     line-height: 18px;
     text-decoration: none;
+}
+
+.tinypress-quick-edit-link {
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.wp-list-table tr:hover .tinypress-quick-edit-link,
+.wp-list-table tr:focus-within .tinypress-quick-edit-link,
+.tinypress-quick-edit-link:focus {
+    opacity: 1;
+}
+
+.tinypress-quick-edit-fields .tinypress-quick-edit-target-url {
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .tinypress-column-content .single-link {
