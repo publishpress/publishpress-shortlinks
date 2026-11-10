@@ -1902,16 +1902,27 @@
 
             var $switcher = $(this).find('.wpdk_settings--switcher');
 
+            var is_disabled = function () {
+                return $switcher.find('input').prop('disabled') || $switcher.closest('.is-greyed-out, .availability').length > 0;
+            };
+
             // Accessibility: keep aria-checked in step with the visual state,
             // including when other scripts toggle the class directly.
             var sync_checked = function () {
-                $switcher.attr('aria-checked', $switcher.hasClass('wpdk_settings--active') ? 'true' : 'false');
+                $switcher.attr({
+                    'aria-checked': $switcher.hasClass('wpdk_settings--active') ? 'true' : 'false',
+                    'aria-disabled': is_disabled() ? 'true' : 'false'
+                });
             };
 
             $switcher.on('click', function () {
 
                 var value = 0;
                 var $input = $switcher.find('input');
+
+                if (is_disabled()) {
+                    return;
+                }
 
                 if ($switcher.hasClass('wpdk_settings--active')) {
                     $switcher.removeClass('wpdk_settings--active');
@@ -1934,8 +1945,8 @@
 
                 e.preventDefault();
 
-                // Respect states where pointer input is blocked.
-                if ($switcher.closest('.is-greyed-out, .availability').length) {
+                // Disabled switches must not be operable by keyboard.
+                if (is_disabled()) {
                     return;
                 }
 
@@ -1947,6 +1958,11 @@
             if (window.MutationObserver) {
                 $switcher.each(function () {
                     new MutationObserver(sync_checked).observe(this, {attributes: true, attributeFilter: ['class']});
+
+                    var input = $(this).find('input')[0];
+                    if (input) {
+                        new MutationObserver(sync_checked).observe(input, {attributes: true, attributeFilter: ['disabled']});
+                    }
                 });
             }
 
