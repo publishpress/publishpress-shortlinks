@@ -316,6 +316,7 @@ if (! class_exists('TINYPRESS_Hooks')) {
                         'singular'     => esc_html__('Category', 'tinypress'),
                         'plural'       => esc_html__('Categories', 'tinypress'),
                         'hierarchical' => true,
+                        'show_in_quick_edit' => true,
                     )
                 )
             );

@@ -20,6 +20,11 @@ class TINYPRESS_Column_link
         add_filter('manage_tinypress_link_posts_columns', array( $this, 'add_columns' ), 16, 1);
         add_action('manage_tinypress_link_posts_custom_column', array( $this, 'columns_content' ), 10, 2);
         add_filter('post_row_actions', array( $this, 'remove_row_actions' ), 10, 2);
+        add_action('quick_edit_custom_box', array( $this, 'render_quick_edit_fields' ), 10, 2);
+        add_action('save_post_tinypress_link', array( $this, 'save_quick_edit_fields' ), 20, 2);
+        add_action('admin_enqueue_scripts', array( $this, 'enqueue_quick_edit_script' ));
+        add_action('TINYPRESS/Actions/link_title_actions', array( $this, 'render_quick_edit_action' ), 20, 1);
+        add_filter('quick_edit_show_taxonomy', array( $this, 'filter_quick_edit_taxonomy' ), 10, 3);
         add_action('restrict_manage_posts', array( $this, 'render_link_type_filter' ));
         add_action('pre_get_posts', array( $this, 'filter_links_by_type' ));
         add_filter('screen_settings', array( $this, 'add_screen_options' ), 10, 2);
@@ -183,6 +188,16 @@ class TINYPRESS_Column_link
 
                 // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $title_html is constructed from esc_url() and get_the_title() which are already escaped
                 echo $title_html;
+
+                if ($this->can_quick_edit_post($post_id)) {
+                    $target_url  = get_post_meta($post_id, 'target_url', true);
+                    $tiny_slug   = get_post_meta($post_id, 'tiny_slug', true);
+                    $link_status = get_post_meta($post_id, 'link_status', true);
+                    if ('' === $link_status) {
+                        $link_status = '1';
+                    }
+                    echo '<span class="tinypress-quick-edit-data" hidden data-link-title="' . esc_attr(get_the_title($post_id)) . '" data-target-url="' . esc_attr($target_url) . '" data-tiny-slug="' . esc_attr($tiny_slug) . '" data-link-status="' . esc_attr($link_status) . '"></span>';
+                }
                 break;
 
             case 'short-link':
@@ -264,6 +279,186 @@ class TINYPRESS_Column_link
             default:
                 break;
         }
+    }
+
+    /**
+     * Add shortlink-specific fields to WordPress Quick Edit.
+     *
+     * @param string $column_name Current column name.
+     * @param string $post_type   Current post type.
+     * @return void
+     */
+    public function render_quick_edit_fields($column_name, $post_type)
+    {
+        if ('tinypress_link' !== $post_type || 'link-title' !== $column_name) {
+            return;
+        }
+        ?>
+        <fieldset class="inline-edit-col-left tinypress-quick-edit-fields">
+            <div class="inline-edit-col">
+                <?php wp_nonce_field('tinypress_quick_edit', 'tinypress_quick_edit_nonce'); ?>
+                <?php $post_type_object = get_post_type_object('tinypress_link'); ?>
+                <?php $can_publish = $post_type_object && current_user_can($post_type_object->cap->publish_posts); ?>
+                <label>
+                    <span class="title"><?php esc_html_e('Status', 'tinypress'); ?></span>
+                    <select name="_status" class="tinypress-quick-edit-post-status" data-can-publish="<?php echo $can_publish ? '1' : '0'; ?>">
+                        <option value="-1"><?php esc_html_e('— No Change —', 'tinypress'); ?></option>
+                        <?php if ($can_publish) : ?>
+                            <option value="publish"><?php esc_html_e('Published', 'tinypress'); ?></option>
+                            <option value="private"><?php esc_html_e('Private', 'tinypress'); ?></option>
+                        <?php endif; ?>
+                        <option value="pending"><?php esc_html_e('Pending Review', 'tinypress'); ?></option>
+                        <option value="draft"><?php esc_html_e('Draft', 'tinypress'); ?></option>
+                    </select>
+                </label>
+                <label>
+                    <span class="title"><?php esc_html_e('Label', 'tinypress'); ?></span>
+                    <span class="input-text-wrap"><input type="text" name="post_title" class="tinypress-quick-edit-link-title" required></span>
+                </label>
+                <label>
+                    <span class="title"><?php esc_html_e('Target URL', 'tinypress'); ?></span>
+                    <span class="input-text-wrap"><input type="url" name="tinypress_quick_edit[target_url]" class="tinypress-quick-edit-target-url" required></span>
+                </label>
+                <label>
+                    <span class="title"><?php esc_html_e('Short String', 'tinypress'); ?></span>
+                    <span class="input-text-wrap"><input type="text" name="tinypress_quick_edit[tiny_slug]" class="tinypress-quick-edit-tiny-slug"></span>
+                </label>
+                <label>
+                    <span class="title"><?php esc_html_e('Link Status', 'tinypress'); ?></span>
+                    <select name="tinypress_quick_edit[link_status]" class="tinypress-quick-edit-link-status">
+                        <option value="1"><?php esc_html_e('Enabled', 'tinypress'); ?></option>
+                        <option value="0"><?php esc_html_e('Disabled', 'tinypress'); ?></option>
+                    </select>
+                </label>
+            </div>
+        </fieldset>
+        <?php
+    }
+
+    /**
+     * Keep Quick Edit's taxonomy checklist limited to Shortlinks categories.
+     *
+     * @param bool   $show      Whether WordPress should display the taxonomy.
+     * @param string $taxonomy  Taxonomy name.
+     * @param string $post_type Post type name.
+     * @return bool
+     */
+    public function filter_quick_edit_taxonomy($show, $taxonomy, $post_type)
+    {
+        if ('tinypress_link' !== $post_type) {
+            return $show;
+        }
+
+        if ('tinypress_link_cat' !== $taxonomy) {
+            return false;
+        }
+
+        $taxonomy_object = get_taxonomy($taxonomy);
+
+        return $show && $taxonomy_object && current_user_can($taxonomy_object->cap->assign_terms);
+    }
+
+    /**
+     * Render Quick Edit beside the Copy action beneath the link title.
+     *
+     * @param int $post_id Shortlink post ID.
+     * @return void
+     */
+    public function render_quick_edit_action($post_id)
+    {
+        if (! $this->can_quick_edit_post($post_id)) {
+            return;
+        }
+
+        echo '<a href="#" class="editinline tinypress-quick-edit-link">' . esc_html__('Quick Edit', 'tinypress') . '</a>';
+    }
+
+    /**
+     * Save shortlink-specific Quick Edit fields.
+     *
+     * @param int     $post_id Post ID.
+     * @param WP_Post $post    Post object.
+     * @return void
+     */
+    public function save_quick_edit_fields($post_id, $post)
+    {
+        if (
+            ! $post || 'tinypress_link' !== $post->post_type ||
+            (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) ||
+            ! isset($_POST['tinypress_quick_edit_nonce']) ||
+            ! wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['tinypress_quick_edit_nonce'])), 'tinypress_quick_edit') ||
+            ! $this->can_quick_edit_post($post_id) ||
+            ! isset($_POST['tinypress_quick_edit']) || ! is_array($_POST['tinypress_quick_edit'])
+        ) {
+            return;
+        }
+
+        // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Values are unslashed and sanitized individually below.
+        $fields = wp_unslash($_POST['tinypress_quick_edit']);
+
+        if (isset($fields['target_url']) && is_scalar($fields['target_url'])) {
+            $target_url = tinypress_validate_target_url($fields['target_url']);
+            if (! is_wp_error($target_url)) {
+                update_post_meta($post_id, 'target_url', wp_slash($target_url));
+            }
+        }
+
+        if (isset($fields['tiny_slug']) && is_scalar($fields['tiny_slug'])) {
+            tinypress_set_native_post_slug($post_id, sanitize_text_field($fields['tiny_slug']));
+        }
+
+        if (isset($fields['link_status']) && is_scalar($fields['link_status']) && in_array((string) $fields['link_status'], array( '0', '1' ), true)) {
+            update_post_meta($post_id, 'link_status', (string) $fields['link_status']);
+        }
+    }
+
+    /**
+     * Enqueue the Quick Edit field population script on the Shortlinks list.
+     *
+     * @param string $hook Current admin page hook.
+     * @return void
+     */
+    public function enqueue_quick_edit_script($hook)
+    {
+        if ('edit.php' !== $hook || ! $this->is_shortlinks_list_screen(get_current_screen())) {
+            return;
+        }
+
+        wp_enqueue_script(
+            'tinypress-quick-edit',
+            TINYPRESS_PLUGIN_URL . 'assets/admin/js/quick-edit.js',
+            array( 'inline-edit-post', 'jquery' ),
+            tinypress_asset_version('assets/admin/js/quick-edit.js'),
+            true
+        );
+        wp_localize_script(
+            'tinypress-quick-edit',
+            'tinypressQuickEdit',
+            array(
+                'invalidUrl'     => __('Use an http, https, ftp, ftps, or mailto URL.', 'tinypress'),
+                'publishedLabel' => __('Published', 'tinypress'),
+            )
+        );
+    }
+
+    /**
+     * Check whether a user can safely Quick Edit a shortlink.
+     *
+     * Source-linked shortlinks sync their URL and slug back to the source post.
+     * Revision shortlinks stay under their revision workflow.
+     *
+     * @param int $post_id Shortlink post ID.
+     * @return bool
+     */
+    private function can_quick_edit_post($post_id)
+    {
+        if (! current_user_can('edit_post', $post_id) || $this->is_revision_link($post_id)) {
+            return false;
+        }
+
+        $source_post_id = absint(get_post_meta($post_id, 'source_post_id', true));
+
+        return ! $source_post_id || current_user_can('edit_post', $source_post_id);
     }
 
     /**
