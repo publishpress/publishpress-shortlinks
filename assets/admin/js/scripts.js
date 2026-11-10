@@ -6,6 +6,35 @@
     "use strict";
     var tinypressPopupOpener = null;
 
+    /**
+     * Announce a message to screen readers via wp.a11y.speak, with a
+     * plugin-owned role="status" region as a fallback.
+     */
+    function tinypressSpeak(message, politeness) {
+        if (!message) {
+            return;
+        }
+
+        message = String(message);
+
+        if (window.wp && window.wp.a11y && typeof window.wp.a11y.speak === 'function') {
+            window.wp.a11y.speak(message, politeness || 'polite');
+            return;
+        }
+
+        var $region = $('#tinypress-a11y-status');
+        if (!$region.length) {
+            $region = $('<div id="tinypress-a11y-status" class="screen-reader-text" role="status" aria-live="polite" aria-atomic="true"></div>').appendTo('body');
+        }
+
+        $region.text('');
+        setTimeout(function () {
+            $region.text(message);
+        }, 50);
+    }
+
+    window.tinypressSpeak = tinypressSpeak;
+
     function tinypressGetPopupFocusables($popup) {
         return $popup.find('a[href], area[href], input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [contenteditable], [tabindex]:not([tabindex="-1"])').filter(':visible');
     }
@@ -68,10 +97,16 @@
             tiny_slug_preview.html(tiny_slug_value);
             tiny_slug_field.val(tiny_slug_value);
 
+            var $slugError = tiny_slug_field.siblings('.tinypress-slug-error');
+
             if (tiny_slug_field.val().length === 0) {
                 $(this).css("border", "1px solid red");
+                tiny_slug_field.attr('aria-invalid', 'true');
+                $slugError.removeAttr('hidden');
             } else if ($(this).val().length > 0) {
                 $(this).css("border", "1px solid #617822");
+                tiny_slug_field.removeAttr('aria-invalid');
+                $slugError.attr('hidden', 'hidden');
             }
 
             var isPublishDisabled = true;
@@ -355,6 +390,15 @@
 
                 tinypressShowSuggestion('title', response.data.title);
                 tinypressShowSuggestion('description', response.data.description);
+
+                var suggestionCount = $('.tinypress-url-suggestion').length;
+                if (suggestionCount) {
+                    var suggestionI18n = pluginObject.url_metadata_i18n || {};
+                    var suggestionMessage = suggestionCount === 1
+                        ? (suggestionI18n.one_suggestion || '1 suggestion from the target URL is available.')
+                        : (suggestionI18n.many_suggestions || '%d suggestions from the target URL are available.').replace('%d', suggestionCount);
+                    tinypressSpeak(suggestionMessage);
+                }
             }).fail(function(xhr, status) {
                 if (status !== 'abort') {
                     tinypressLastMetadataUrl = '';
@@ -448,8 +492,8 @@
 
             $emptyState = $('<div class="tinypress-settings-search-empty-state" hidden></div>');
             $('<div class="tinypress-settings-search-empty-icon" aria-hidden="true"></div>').appendTo($emptyState);
-            $('<h3></h3>').text('No matching settings').appendTo($emptyState);
-            $('<p></p>').text('Try a different keyword or clear the search to see all settings.').appendTo($emptyState);
+            $('<h3></h3>').text(pluginObject.settings_search_no_results || 'No matching settings').appendTo($emptyState);
+            $('<p></p>').text(pluginObject.settings_search_no_results_hint || 'Try a different keyword or clear the search to see all settings.').appendTo($emptyState);
 
             $section.append($emptyState);
 
@@ -491,6 +535,8 @@
 
             if (!query.length) {
                 tinypressResetSettingsSearch($layout);
+                clearTimeout(tinypressSettingsSearchTimer);
+                tinypressLastSettingsSearchMessage = '';
                 return;
             }
 
@@ -511,10 +557,32 @@
                 $activeFields.addClass('wpdk_settings-metabox-hide');
                 $layout.addClass('tinypress-settings-search-empty');
                 tinypressEnsureSettingsSearchEmptyState($activeSection).removeAttr('hidden');
+                tinypressAnnounceSettingsSearch(pluginObject.settings_search_no_results || 'No matching settings');
                 return;
             }
 
             $layout.addClass('tinypress-settings-search-active');
+            tinypressAnnounceSettingsSearch(
+                matchCount === 1
+                    ? (pluginObject.settings_search_one_result || '1 matching setting')
+                    : (pluginObject.settings_search_results || '%d matching settings').replace('%d', matchCount)
+            );
+        }
+
+        // The search runs on several events per keystroke, so debounce and
+        // de-duplicate the announcement.
+        var tinypressSettingsSearchTimer = null;
+        var tinypressLastSettingsSearchMessage = '';
+
+        function tinypressAnnounceSettingsSearch(message) {
+            clearTimeout(tinypressSettingsSearchTimer);
+            tinypressSettingsSearchTimer = setTimeout(function () {
+                if (message === tinypressLastSettingsSearchMessage) {
+                    return;
+                }
+                tinypressLastSettingsSearchMessage = message;
+                tinypressSpeak(message);
+            }, 600);
         }
 
         function tinypressSetupSettingsSearch() {
@@ -1257,8 +1325,15 @@
                     setTimeout(function () {
                         el_response_area.find('.tiny-slug-preview .preview').text(response.data.tiny_url);
                         el_response_area.find('.item-val.long-url').text(response.data.long_url);
+                        el_response_area.find('.tinypress-popup-error').remove();
+                        tinypressSpeak((pluginObject.popup_created_text || 'Shortlink created:') + ' ' + response.data.tiny_url);
                     }, 1500);
+                } else {
+                    tinypressShowPopupError(el_response_area, response && response.data && response.data.message ? response.data.message : '');
                 }
+            },
+            error: function () {
+                tinypressShowPopupError(el_response_area, '');
             },
             complete: function () {
                 setTimeout(function () {
@@ -1270,6 +1345,13 @@
 
         return false;
     });
+
+    function tinypressShowPopupError($responseArea, message) {
+        message = message || pluginObject.popup_error_text || 'The shortlink could not be created. Please try again.';
+        $responseArea.find('.tinypress-popup-error').remove();
+        $('<p class="tinypress-popup-error"></p>').text(message).prependTo($responseArea);
+        tinypressSpeak(message, 'assertive');
+    }
 
     $(document).on('click', '#wpadminbar ul#wp-admin-bar-root-default > li.tinypress-admin-bar-icon', function () {
 
@@ -1286,51 +1368,87 @@
         copy_field.parent().find('.copied').remove();
 
         tinypress_copy_to_clipboard(copy_string);
+        copy_field.trigger('focus');
+        // Keep the confirmation visible (no auto-fade) and announce it.
         copy_field.after('<span class="copied">' + pluginObject.copy_text + '</span>');
-
-        setTimeout(function () {
-            copy_field.parent().find('.copied').fadeOut(300);
-        }, 3000);
+        tinypressSpeak(pluginObject.copy_text);
     });
 
-    $(document).on('click', '.tiny-slug-wrap .tiny-slug-preview', function () {
-
-        let el_input = document.createElement('input'),
-            el_preview = $(this),
-            text_hint = el_preview.attr('aria-label'),
-            text_copied = el_preview.data('text-copied');
+    /**
+     * Copy text via a temporary input, then return focus to the control that
+     * triggered the copy and announce the result.
+     */
+    function tinypressCopyFromControl($control, text) {
+        var el_input = document.createElement('input');
 
         document.body.appendChild(el_input);
-        el_input.value = el_preview.text().replace(' ', '');
+        el_input.value = text;
         el_input.select();
         document.execCommand('copy', false);
         el_input.remove();
 
-        el_preview.attr('aria-label', text_copied);
+        if ($control && $control.length) {
+            $control.trigger('focus');
+        }
+    }
 
-        setTimeout(function () {
-            el_preview.attr('aria-label', text_hint);
-        }, 5000);
+    function tinypressShowCopiedState($control, resetDelay) {
+        var text_hint = $control.data('text-hint') || $control.attr('data-hint'),
+            text_copied = $control.data('text-copied');
+
+        $control.attr('data-hint', text_copied);
+        tinypressSpeak(text_copied);
+
+        clearTimeout($control.data('tinypress-copy-timer'));
+        $control.data('tinypress-copy-timer', setTimeout(function () {
+            $control.attr('data-hint', text_hint);
+        }, resetDelay));
+    }
+
+    $(document).on('click', '.tiny-slug-wrap .tiny-slug-preview', function () {
+
+        let el_preview = $(this),
+            copy_text = $.trim(el_preview.find('.tiny-slug-inner').text().replace(' ', ''));
+
+        tinypressCopyFromControl(el_preview, copy_text);
+        tinypressShowCopiedState(el_preview, 5000);
     });
 
 
     // For columns content
     $(document).on('click', '.tinypress-column-content .single-link.copy-link', function () {
         let link_copier = $(this),
-            tiny_slug = link_copier.data('tiny_slug'),
-            temp_input_field = $("<input>"),
-            tool_tip_prev = link_copier.attr('aria-label'),
-            tool_tip_copied = link_copier.data('text-copied');
+            tiny_slug = link_copier.data('tiny_slug');
 
-        $('body').append(temp_input_field);
-        temp_input_field.val(tiny_slug).select();
-        document.execCommand('copy', false);
-        temp_input_field.remove();
+        tinypressCopyFromControl(link_copier, tiny_slug);
+        tinypressShowCopiedState(link_copier, 3000);
+    });
 
-        link_copier.attr('aria-label', tool_tip_copied);
-        setTimeout(function () {
-            link_copier.attr('aria-label', tool_tip_prev);
-        }, 3000);
+    // Keyboard support for the div-based copy controls (role="button").
+    $(document).on('keydown', '.tiny-slug-wrap .tiny-slug-preview[role="button"], .tinypress-column-content .single-link.copy-link[role="button"]', function (e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+            e.preventDefault();
+            $(this).trigger('click');
+        }
+    });
+
+    // Teaser controls that look disabled must not activate.
+    $(document).on('click keydown', '[aria-disabled="true"].tinypress-teaser-disabled', function (e) {
+        if (e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+        }
+    });
+
+    // Pro nudge tooltip: allow dismissing with Escape (WCAG 1.4.13).
+    $(document).on('keydown', '.pp-tooltips-library[data-toggle="tooltip"]', function (e) {
+        if (e.key === 'Escape' || e.key === 'Esc') {
+            $(this).addClass('tinypress-tooltip-dismissed');
+        }
+    });
+
+    $(document).on('focusout mouseleave', '.pp-tooltips-library[data-toggle="tooltip"]', function () {
+        $(this).removeClass('tinypress-tooltip-dismissed');
     });
 
 

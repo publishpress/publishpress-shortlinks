@@ -33,14 +33,24 @@ if (! class_exists('WPDK_Settings_Field_switcher')) {
 
             echo '<div class="wpdk_settings--switcher-wrapper">';
 
-            echo '<div class="wpdk_settings--switcher' . esc_attr($active) . '"' . $text_width . '>';
-            echo '<span class="wpdk_settings--on">' . esc_attr($text_on) . '</span>';
-            echo '<span class="wpdk_settings--off">' . esc_attr($text_off) . '</span>';
+            $label_id = (! empty($this->field['label'])) ? $this->a11y_id('label') : '';
+            $a11y     = $this->a11y_attributes('control', $label_id);
+
+            // Keyboard operable switch: role/state here, key handling in main.js.
+            $switch_atts = ' role="switch" tabindex="0" aria-checked="' . (! empty($this->value) ? 'true' : 'false') . '"';
+
+            foreach ($a11y as $a11y_key => $a11y_value) {
+                $switch_atts .= ' ' . esc_attr($a11y_key) . '="' . esc_attr($a11y_value) . '"';
+            }
+
+            echo '<div class="wpdk_settings--switcher' . esc_attr($active) . '"' . $text_width . $switch_atts . '>';
+            echo '<span class="wpdk_settings--on" aria-hidden="true">' . esc_attr($text_on) . '</span>';
+            echo '<span class="wpdk_settings--off" aria-hidden="true">' . esc_attr($text_off) . '</span>';
             echo '<span class="wpdk_settings--ball"></span>';
-            echo '<input type="hidden" name="' . esc_attr($this->field_name()) . '" value="' . esc_attr($this->value) . '"' . $this->field_attributes() . ' />';
+            echo '<input type="hidden" name="' . esc_attr($this->field_name()) . '" value="' . esc_attr($this->value) . '"' . $this->field_attributes(array(), false) . ' />';
             echo '</div>';
 
-            echo (! empty($this->field['label'])) ? '<span class="wpdk_settings--label">' . esc_attr($this->field['label']) . '</span>' : '';
+            echo (! empty($this->field['label'])) ? '<span class="wpdk_settings--label"' . ($label_id ? ' id="' . esc_attr($label_id) . '"' : '') . '>' . esc_attr($this->field['label']) . '</span>' : '';
 
             echo '</div>';
 

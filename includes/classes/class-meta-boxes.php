@@ -267,6 +267,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                     'wp-element',
                     'wp-i18n',
                     'wp-plugins',
+                    'wp-a11y',
                 ),
                 tinypress_asset_version('assets/admin/js/gutenberg-shortlink-panel.js'),
                 true
@@ -371,6 +372,8 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                 'i18n'                     => array(
                     'copied'       => __('Copied', 'tinypress'),
                     'copy'         => __('Copy', 'tinypress'),
+                    'copyFailed'   => __('Copy failed', 'tinypress'),
+                    'opensInNewTab' => __('(opens in a new tab)', 'tinypress'),
                     'editSettings' => __('Edit shortlink settings', 'tinypress'),
                     'emptySlug'    => __('Enter a shortlink slug to create a shortlink URL.', 'tinypress'),
                     'panelTitle'   => __('Shortlinks', 'tinypress'),

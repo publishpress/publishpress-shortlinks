@@ -348,6 +348,7 @@ li.wpdk_settings-tab-item.wpdk_settings-tab-expanded {
     /*border-bottom: 1px solid #eee;*/
 }
 
+.wpdk_settings-section-title h2,
 .wpdk_settings-section-title h3 {
     margin: 0;
     padding: 0;
@@ -939,12 +940,19 @@ li.wpdk_settings-tab-item.wpdk_settings-tab-expanded {
     margin-top: 0;
 }
 
+/* Options-page field titles are h3 (under the h2 section title); keep the h4 look. */
+.wpdk_settings-field .wpdk_settings-title h3 {
+    font-size: 1em;
+    font-weight: 600;
+}
+
 .wpdk_settings-field .wpdk_settings-title {
     position: relative;
     width: 20%;
     float: left;
 }
 
+.wpdk_settings-field .wpdk_settings-title h3,
 .wpdk_settings-field .wpdk_settings-title h4 {
     margin: 0;
     color: var(--wpdk_settings-text-color);
@@ -4126,7 +4134,8 @@ li.wpdk_settings-tab-item.wpdk_settings-tab-expanded {
 
 .wpdk_settings-form-success {
     color: #fff;
-    background-color: #46b450;
+    /* #008a20: 4.5:1 with white text (was #46b450, 2.66:1). */
+    background-color: #008a20;
 }
 
 .wpdk_settings-form-warning {
@@ -5998,3 +6007,53 @@ a.wpdk_settings-quick-link:before {
 a.wpdk_settings-quick-link:hover:before {
     width: 100%;
 }
+
+/**
+ * Accessibility: visible keyboard focus (WCAG 2.4.7).
+ * Several rules above remove outlines on :focus; these restore a ring for
+ * keyboard focus only (:focus-visible), so mouse clicks look unchanged.
+ */
+.pb_settings a:focus-visible,
+.pb_settings button:focus-visible,
+.pb_settings input:focus-visible,
+.pb_settings select:focus-visible,
+.pb_settings textarea:focus-visible,
+.pb_settings [tabindex]:focus-visible,
+.wpdk_settings-buttons .button:focus-visible,
+.wpdk_settings-wrapper .button-primary:focus-visible,
+.wpdk_settings-nav ul li a:focus-visible,
+.wpdk_settings-field-tabbed .wpdk_settings-tabbed-nav a:focus-visible,
+.wpdk_settings-field-accordion .wpdk_settings-accordion-title:focus-visible,
+.wpdk_settings-field-group .wpdk_settings-cloneable-title:focus-visible,
+.wpdk_settings-modal-content a:focus-visible,
+.wpdk_settings--upgrade a:focus-visible,
+.wpdk_settings-header-inner h1 > a:focus-visible,
+.wpdk_settings-help:focus-visible {
+    outline: 2px solid #2271b1 !important;
+    outline-offset: 2px !important;
+}
+
+/* Win over host-plugin "input:focus { outline: none !important }" rules. */
+body .pb_settings .wpdk_settings-field input:focus-visible,
+body .pb_settings .wpdk_settings-field select:focus-visible,
+body .pb_settings .wpdk_settings-field textarea:focus-visible,
+body .pb_settings .wpdk_settings-search input:focus-visible {
+    outline: 2px solid #2271b1 !important;
+    outline-offset: 2px !important;
+}
+
+/* Switcher toggle (role="switch"). */
+.wpdk_settings-field-switcher .wpdk_settings--switcher:focus {
+    outline: none;
+}
+
+.wpdk_settings-field-switcher .wpdk_settings--switcher:focus-visible {
+    outline: 2px solid #2271b1 !important;
+    outline-offset: 2px !important;
+}
+
+/* Nav links sit flush in the sidebar; draw the ring inside so it is not clipped. */
+.wpdk_settings-nav ul li a:focus-visible {
+    outline-offset: -2px !important;
+}
+
