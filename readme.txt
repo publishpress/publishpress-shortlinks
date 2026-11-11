@@ -211,7 +211,7 @@ It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliate
 
 == Changelog == 
 
-## [1.11.0] - 10 November, 2026
+## [1.11.0] - 11 November, 2026
 
 * Added: Private MCP actions for native Shortlinks settings, links and supported workflows, 436
 * Added: Add quick edit feature, #420

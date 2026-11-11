@@ -1,6 +1,6 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [1.11.0] - 10 November, 2026
+## [1.11.0] - 11 November, 2026
 
 * Added: Private MCP actions for native Shortlinks settings, links and supported workflows, 436
 * Added: Add quick edit feature, #420
