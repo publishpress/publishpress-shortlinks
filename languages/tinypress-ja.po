@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-07T09:15:09+00:00\n"
-"PO-Revision-Date: 2026-09-15 18:44+0000\n"
+"PO-Revision-Date: 2026-11-10 14:53+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 "Language: ja\n"
@@ -33,6 +33,7 @@ msgid ""
 msgstr "WordPressのための最高のリンクマネージャーです。あなたのリンクはブランディング可能で、追跡可能で、カスタム表示権限を持つことができます。"
 
 #: tinypress.php:12
+#: includes/Mcp/bootstrap.php:15
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
@@ -43,7 +44,7 @@ msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:88
-#: includes-core/ShortlinksCoreAdmin.php:110
+#: includes-core/ShortlinksCoreAdmin.php:112
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
@@ -52,45 +53,45 @@ msgstr "あなたは PublishPress Shortlinks Free を使用しています。Pro
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:89
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:106
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:107
-#: includes-core/ShortlinksCoreAdmin.php:111
-#: includes-core/ShortlinksCoreAdmin.php:128
-#: includes-core/ShortlinksCoreAdmin.php:129
+#: includes-core/ShortlinksCoreAdmin.php:113
+#: includes-core/ShortlinksCoreAdmin.php:130
+#: includes-core/ShortlinksCoreAdmin.php:131
 msgid "Upgrade to Pro"
 msgstr "Pro にアップグレード"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:117
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:118
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:148
-#: includes-core/ShortlinksCoreAdmin.php:139
-#: includes-core/ShortlinksCoreAdmin.php:140
-#: includes-core/ShortlinksCoreAdmin.php:188
+#: includes-core/ShortlinksCoreAdmin.php:141
+#: includes-core/ShortlinksCoreAdmin.php:142
+#: includes-core/ShortlinksCoreAdmin.php:195
 msgid "Link Health"
 msgstr "リンク健康"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:131
-#: includes-core/ShortlinksCoreAdmin.php:171
+#: includes-core/ShortlinksCoreAdmin.php:178
 msgid "Pro Feature"
 msgstr "Pro 機能"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:134
-#: includes-core/ShortlinksCoreAdmin.php:174
+#: includes-core/ShortlinksCoreAdmin.php:181
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "この機能は PublishPress Shortlinks Pro で利用可能です。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:150
-#: includes-core/ShortlinksCoreAdmin.php:190
+#: includes-core/ShortlinksCoreAdmin.php:197
 msgid ""
 "Check whether your shortlinks redirect visitors to working destination "
 "pages."
 msgstr "ショートリンクが動作する宛先ページに訪問者をリダイレクトするかどうかを確認します。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:158
-#: includes-core/ShortlinksCoreAdmin.php:198
+#: includes-core/ShortlinksCoreAdmin.php:205
 msgid "Check Visible Links"
 msgstr "表示リンクを確認"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:162
-#: includes-core/ShortlinksCoreAdmin.php:202
+#: includes-core/ShortlinksCoreAdmin.php:209
 msgid "Check All Links"
 msgstr "すべてのリンクを確認"
 
@@ -101,68 +102,70 @@ msgstr "すべてのリンクを確認"
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:231
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:164
 #: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:29
-#: includes-core/ShortlinksCoreAdmin.php:209
-#: includes/classes/class-columns-link.php:56
-#: includes/classes/class-columns-link.php:614
-#: includes/classes/class-gutenberg-shortlink.php:163
-#: includes/classes/class-hooks.php:307
+#: includes-core/ShortlinksCoreAdmin.php:216
+#: includes/classes/class-columns-link.php:61
+#: includes/classes/class-columns-link.php:815
+#: includes/classes/class-gutenberg-shortlink.php:161
+#: includes/classes/class-hooks.php:291
 #: includes/classes/class-table-logs.php:168
-#: templates/admin-modal-new-link.php:30
+#: templates/admin-modal-new-link.php:32
 msgid "Shortlink"
 msgstr "ショートリンク"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:170
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:169
 #: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1053
-#: includes-core/ShortlinksCoreAdmin.php:210
-#: includes/classes/class-gutenberg-shortlink.php:174
+#: includes-core/ShortlinksCoreAdmin.php:217
+#: includes/classes/class-columns-link.php:319
+#: includes/classes/class-gutenberg-shortlink.php:172
 #: includes/classes/class-import-export.php:1156
 msgid "Target URL"
 msgstr "ターゲットURL"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:171
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:542
-#: includes-core/ShortlinksCoreAdmin.php:211
-#: includes/classes/class-meta-boxes.php:888
+#: includes-core/ShortlinksCoreAdmin.php:218
+#: includes/classes/class-columns-link.php:303
+#: includes/classes/class-meta-boxes.php:906
 msgid "Status"
 msgstr "ステータス"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:172
-#: includes-core/ShortlinksCoreAdmin.php:212, fuzzy
+#: includes-core/ShortlinksCoreAdmin.php:219, fuzzy
 msgid "HTTP"
 msgstr "HTTP"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:173
-#: includes-core/ShortlinksCoreAdmin.php:213
+#: includes-core/ShortlinksCoreAdmin.php:220
 msgid "Redirects"
 msgstr "リダイレクト"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:174
-#: includes-core/ShortlinksCoreAdmin.php:214
+#: includes-core/ShortlinksCoreAdmin.php:221
 msgid "Final URL"
 msgstr "最終URL"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:181
-#: includes-core/ShortlinksCoreAdmin.php:221
+#: includes-core/ShortlinksCoreAdmin.php:228
 msgid "Working"
 msgstr "動作中"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:189
-#: includes-core/ShortlinksCoreAdmin.php:229
+#: includes-core/ShortlinksCoreAdmin.php:236
 msgid "Broken"
 msgstr "壊れている"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:212
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:236
-#: includes-core/ShortlinksCoreAdmin.php:519
+#: includes-core/ShortlinksCoreAdmin.php:526
 msgid "Expired Redirect Settings"
 msgstr "期限切れリダイレクト設定"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:215
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:239
 #: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1064
-#: includes-core/ShortlinksCoreAdmin.php:395
-#: includes-core/ShortlinksCoreAdmin.php:522
+#: includes-core/ShortlinksCoreAdmin.php:402
+#: includes-core/ShortlinksCoreAdmin.php:529
 #: includes/classes/class-import-export.php:1167
 msgid "Expired Redirect URL"
 msgstr "期限切れリダイレクト URL"
@@ -173,14 +176,14 @@ msgstr "期限切れのリンクをクリックしたときに訪問者が行く
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:218
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:242
-#: includes-core/ShortlinksCoreAdmin.php:417
-#: includes-core/ShortlinksCoreAdmin.php:525
+#: includes-core/ShortlinksCoreAdmin.php:424
+#: includes-core/ShortlinksCoreAdmin.php:532
 msgid "Show Expiration Notice"
 msgstr "期限切れ通知を表示"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:219
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:243
-#: includes-core/ShortlinksCoreAdmin.php:526
+#: includes-core/ShortlinksCoreAdmin.php:533
 msgid "Display a custom notice page before automatically redirecting visitors."
 msgstr "自動的に訪問者をリダイレクトする前にカスタム通知ページを表示します。"
 
@@ -189,12 +192,12 @@ msgid "Show a notice page for expired shortlinks briefly before redirecting."
 msgstr "リダイレクトする前に期限切れのショートリンクの通知ページを短時間表示します。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:240
-#: includes-core/ShortlinksCoreAdmin.php:523
+#: includes-core/ShortlinksCoreAdmin.php:530
 msgid "Set the default destination for all expired shortlinks."
 msgstr "すべての期限切れショートリンクのデフォルトの宛先を設定します。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:246
-#: includes-core/ShortlinksCoreAdmin.php:529
+#: includes-core/ShortlinksCoreAdmin.php:536
 msgid ""
 "Show a notice page for expired shortlinks briefly before redirecting. You "
 "can customize the content of this message."
@@ -202,136 +205,136 @@ msgstr "リダイレクトする前に期限切れのショートリンクの通
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:281
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:308
-#: includes-core/ShortlinksCoreAdmin.php:720
-#: includes-core/ShortlinksCoreAdmin.php:747
+#: includes-core/ShortlinksCoreAdmin.php:727
+#: includes-core/ShortlinksCoreAdmin.php:754
 msgid "Advanced Auto-Link Settings"
 msgstr "高度な自動リンク設定"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:283
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:311
-#: includes-core/ShortlinksCoreAdmin.php:722
-#: includes-core/ShortlinksCoreAdmin.php:750
+#: includes-core/ShortlinksCoreAdmin.php:729
+#: includes-core/ShortlinksCoreAdmin.php:757
 msgid "Minimum Keyword Usage"
 msgstr "最小キーワード使用量"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:284
-#: includes-core/ShortlinksCoreAdmin.php:723
+#: includes-core/ShortlinksCoreAdmin.php:730
 msgid "Keyword must appear this many times before being autolinked."
 msgstr "キーワードは自動リンクされる前にこの回数表示される必要があります。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:286
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:314
-#: includes-core/ShortlinksCoreAdmin.php:725
-#: includes-core/ShortlinksCoreAdmin.php:753
+#: includes-core/ShortlinksCoreAdmin.php:732
+#: includes-core/ShortlinksCoreAdmin.php:760
 msgid "Maximum Keywords Linked"
 msgstr "リンクされる最大キーワード数"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:287
-#: includes-core/ShortlinksCoreAdmin.php:726
+#: includes-core/ShortlinksCoreAdmin.php:733
 msgid "Maximum number of times this keyword should be autolinked per post."
 msgstr "このキーワードが投稿ごとに自動リンクされる最大回数。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:312
-#: includes-core/ShortlinksCoreAdmin.php:751
+#: includes-core/ShortlinksCoreAdmin.php:758
 msgid "Default minimum times a keyword must appear before being autolinked."
 msgstr "自動リンクされる前にキーワードが表示される必要があるデフォルトの最小回数。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:315
-#: includes-core/ShortlinksCoreAdmin.php:754
+#: includes-core/ShortlinksCoreAdmin.php:761
 msgid "Default maximum times a keyword should be autolinked per post."
 msgstr "投稿ごとにキーワードが自動リンクされるべきデフォルトの最大回数。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:317
-#: includes-core/ShortlinksCoreAdmin.php:756
+#: includes-core/ShortlinksCoreAdmin.php:763
 msgid "Maximum Links Per Post"
 msgstr "投稿ごとの最大リンク数"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:318
-#: includes-core/ShortlinksCoreAdmin.php:757
+#: includes-core/ShortlinksCoreAdmin.php:764
 msgid "Total maximum autolinks allowed per post/page."
 msgstr "投稿/ページごとに許可される自動リンクの合計最大数。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:320
-#: includes-core/ShortlinksCoreAdmin.php:759
+#: includes-core/ShortlinksCoreAdmin.php:766
 msgid "Minimum Character Length"
 msgstr "最小文字数"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:321
-#: includes-core/ShortlinksCoreAdmin.php:760
+#: includes-core/ShortlinksCoreAdmin.php:767
 msgid "Keywords shorter than this will not be autolinked."
 msgstr "これより短いキーワードは自動リンクされません。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:323
-#: includes-core/ShortlinksCoreAdmin.php:762
+#: includes-core/ShortlinksCoreAdmin.php:769
 msgid "Maximum Character Length"
 msgstr "最大文字数"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:324
-#: includes-core/ShortlinksCoreAdmin.php:763
+#: includes-core/ShortlinksCoreAdmin.php:770
 msgid "Keywords longer than this will not be autolinked."
 msgstr "これより長いキーワードは自動リンクされません。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:345
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:850
-#: includes-core/ShortlinksCoreAdmin.php:784
-#: includes/classes/class-settings.php:1087
+#: includes-core/ShortlinksCoreAdmin.php:791
+#: includes/classes/class-settings.php:1088
 msgid "Auto-Link Exceptions"
 msgstr "自動リンクの例外"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:347
-#: includes-core/ShortlinksCoreAdmin.php:786
+#: includes-core/ShortlinksCoreAdmin.php:793
 msgid "Exclude Terms from Auto Links"
 msgstr "自動リンクから除外する用語"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:348
-#: includes-core/ShortlinksCoreAdmin.php:787
+#: includes-core/ShortlinksCoreAdmin.php:794
 msgid "These terms will never be autolinked."
 msgstr "これらの用語は自動リンクされることはありません。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:350
-#: includes-core/ShortlinksCoreAdmin.php:789
+#: includes-core/ShortlinksCoreAdmin.php:796
 msgid "Prevent Auto Links Inside Classes or IDs"
 msgstr "クラスまたはID内の自動リンクを防ぐ"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:351
-#: includes-core/ShortlinksCoreAdmin.php:790
+#: includes-core/ShortlinksCoreAdmin.php:797
 msgid ""
 "Content inside elements with these classes or IDs will not have autolinks "
 "applied."
 msgstr "これらのクラスまたはIDを持つ要素内のコンテンツには自動リンクが適用されません。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:353
-#: includes-core/ShortlinksCoreAdmin.php:792
+#: includes-core/ShortlinksCoreAdmin.php:799
 msgid "Prevent Auto Links Inside Elements"
 msgstr "要素内の自動リンクを防ぐ"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:354
-#: includes-core/ShortlinksCoreAdmin.php:793
+#: includes-core/ShortlinksCoreAdmin.php:800
 msgid "Terms inside these HTML tags will not have autolinks applied."
 msgstr "これらのHTMLタグ内の用語には自動リンクが適用されません。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:367
-#: includes-core/ShortlinksCoreAdmin.php:806
+#: includes-core/ShortlinksCoreAdmin.php:813
 msgid "Prevent Auto Links on Shortcodes"
 msgstr "ショートコードでの自動リンクを防ぐ"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:368
-#: includes-core/ShortlinksCoreAdmin.php:807
+#: includes-core/ShortlinksCoreAdmin.php:814
 msgid "Terms inside these shortcodes will not have autolinks applied."
 msgstr "これらのショートコード内の用語には自動リンクが適用されません。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:370
-#: includes-core/ShortlinksCoreAdmin.php:809
+#: includes-core/ShortlinksCoreAdmin.php:816
 msgid "Prevent Auto Links on Blocks"
 msgstr "ブロック内での自動リンクを防ぐ"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:371
-#: includes-core/ShortlinksCoreAdmin.php:810
+#: includes-core/ShortlinksCoreAdmin.php:817
 msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
 msgstr "これらのグーテンベルクブロック内の用語には自動リンクが適用されません。"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:372
-#: includes-core/ShortlinksCoreAdmin.php:811
+#: includes-core/ShortlinksCoreAdmin.php:818
 msgid "Search and select blocks..."
 msgstr "ブロックを検索して選択..."
 
@@ -340,149 +343,149 @@ msgstr "ブロックを検索して選択..."
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:234
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:285
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:329
-#: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:203
-#: includes/classes/class-gutenberg-shortlink.php:239
-#: includes/classes/class-gutenberg-shortlink.php:290
-#: includes/classes/class-gutenberg-shortlink.php:334
+#: includes/classes/class-autolist-ajax.php:37
+#: includes/classes/class-autolist-ajax.php:201
+#: includes/classes/class-gutenberg-shortlink.php:242
+#: includes/classes/class-gutenberg-shortlink.php:293
+#: includes/classes/class-gutenberg-shortlink.php:337
 msgid "Permission denied"
 msgstr "権限が拒否されました"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:47
-#: includes/classes/class-autolist-ajax.php:46
+#: includes/classes/class-autolist-ajax.php:44
 msgid "Post type is required"
 msgstr "Post typeは必須です"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:53
-#: includes/classes/class-autolist-ajax.php:52
+#: includes/classes/class-autolist-ajax.php:50
 #. translators: %s: post type name
 msgid "\"%%s\" is not a registered post type"
 msgstr "\"%%s\" は登録された post type ではありません"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:61
-#: includes/classes/class-autolist-ajax.php:60
+#: includes/classes/class-autolist-ajax.php:58
 #. translators: %s: post type name
 msgid "\"%%s\" is not a public post type"
 msgstr "\"%%s\" は公開された post type ではありません"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:68
-#: includes/classes/class-autolist-ajax.php:67
+#: includes/classes/class-autolist-ajax.php:65
 #. translators: %s: post type name
 msgid "\"%%s\" cannot be used for auto-listing"
 msgstr "\"%%s\" は自動リストに使用できません"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:78
-#: includes/classes/class-autolist-ajax.php:77
+#: includes/classes/class-autolist-ajax.php:75
 #. translators: %s: post type name
 msgid "\"%%s\" is already configured"
 msgstr "\"%%s\" は既に設定されています"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:85
-#: includes/classes/class-autolist-ajax.php:84
+#: includes/classes/class-autolist-ajax.php:82
 #. translators: %s: post type label
 msgid "Valid: %%s"
 msgstr "有効: %%s"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:99
-#: includes/classes/class-autolist-ajax.php:98
+#: includes/classes/class-autolist-ajax.php:96
 msgid "Permission denied - you must be an administrator"
 msgstr "権限が拒否されました - 管理者である必要があります"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:107
-#: includes/classes/class-autolist-ajax.php:106
+#: includes/classes/class-autolist-ajax.php:104
 msgid "Invalid configuration format - expected array"
 msgstr "無効な構成形式 - 配列が必要です"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:128
-#: includes/classes/class-autolist-ajax.php:127
+#: includes/classes/class-autolist-ajax.php:125
 msgid "Configuration unchanged (already saved)"
 msgstr "構成は変更されていません（すでに保存されています）"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:132
-#: includes/classes/class-autolist-ajax.php:131
+#: includes/classes/class-autolist-ajax.php:129
 msgid "Failed to save configuration to database"
 msgstr "構成をデータベースに保存できませんでした"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:137
-#: includes/classes/class-autolist-ajax.php:136
+#: includes/classes/class-autolist-ajax.php:134
 msgid "Configuration saved successfully"
 msgstr "構成が正常に保存されました"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:149
-#: includes/classes/class-autolist-ajax.php:148
+#: includes/classes/class-autolist-ajax.php:146
 #. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "エラー: %s"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:293
-#: includes/classes/class-autolist-ajax.php:291
+#: includes/classes/class-autolist-ajax.php:289
 msgid "Validating..."
 msgstr "バリデーション中..."
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:294
-#: includes/classes/class-autolist-ajax.php:292
+#: includes/classes/class-autolist-ajax.php:290
 msgid "Saving..."
 msgstr "保存中..."
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-autolist-ajax.php:293
+#: includes/classes/class-autolist-ajax.php:291
 msgid "Saved!"
 msgstr "保存されました!"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:296
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:175
-#: includes/classes/class-autolist-ajax.php:294
-#: includes/classes/class-gutenberg-shortlink.php:180
+#: includes/classes/class-autolist-ajax.php:292
+#: includes/classes/class-gutenberg-shortlink.php:178
 msgid "Error"
 msgstr "エラー"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-autolist-ajax.php:295
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Are you sure you want to remove this post type?"
 msgstr "このpost typeを削除してもよろしいですか？"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-autolist-ajax.php:294
 msgid "Select a post type"
 msgstr "post typeを選択してください"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:299
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1032
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1130
-#: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:1274
-#: includes/classes/class-settings.php:1372
+#: includes/classes/class-autolist-ajax.php:295
+#: includes/classes/class-settings.php:1275
+#: includes/classes/class-settings.php:1389
 msgid "Never"
 msgstr "決して"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:300
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1030
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1132
-#: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:1272
-#: includes/classes/class-settings.php:1374
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-settings.php:1273
+#: includes/classes/class-settings.php:1391
 msgid "When Link is First Used"
 msgstr "リンクが最初に使用されたとき"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:301
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1134
-#: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:1376
+#: includes/classes/class-autolist-ajax.php:297
+#: includes/classes/class-settings.php:1393
 msgid "When Post is Published"
 msgstr "投稿が公開されたとき"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:302
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1133
-#: includes/classes/class-autolist-ajax.php:300
-#: includes/classes/class-settings.php:1375
+#: includes/classes/class-autolist-ajax.php:298
+#: includes/classes/class-settings.php:1392
 msgid "When Post is Created"
 msgstr "投稿が作成されたとき"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:303
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1131
-#: includes/classes/class-autolist-ajax.php:301
-#: includes/classes/class-settings.php:1373
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:1390
 msgid "When Link is First Used or Post Created"
 msgstr "リンクが最初に使用されたときまたは投稿が作成されたとき"
 
@@ -492,7 +495,7 @@ msgid "Invalid post ID or post type."
 msgstr "無効な投稿IDまたはpost type。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:76
-#: includes/classes/class-columns-link.php:78
+#: includes/classes/class-columns-link.php:83
 msgid "No shortlink"
 msgstr "ショートリンクなし"
 
@@ -500,57 +503,57 @@ msgstr "ショートリンクなし"
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:232
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:234
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:163
-#: includes/classes/class-columns-link.php:99
-#: includes/classes/class-hooks.php:308
-#: includes/classes/class-hooks.php:310
+#: includes/classes/class-columns-link.php:107
+#: includes/classes/class-hooks.php:292
+#: includes/classes/class-hooks.php:294
 #: includes/classes/class-meta-boxes.php:176
-#: includes/classes/class-meta-boxes.php:376
+#: includes/classes/class-meta-boxes.php:379
 msgid "Shortlinks"
 msgstr "ショートリンク"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:188
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:335
-#: includes/classes/class-columns-link.php:190
-#: includes/classes/class-columns-link.php:337
+#: includes/classes/class-columns-link.php:211
+#: includes/classes/class-columns-link.php:538
 msgid "Internal"
 msgstr "内部"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:188
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:336
-#: includes/classes/class-columns-link.php:190
-#: includes/classes/class-columns-link.php:338
+#: includes/classes/class-columns-link.php:211
+#: includes/classes/class-columns-link.php:539
 msgid "External"
 msgstr "外部"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:189
-#: includes/classes/class-columns-link.php:191
+#: includes/classes/class-columns-link.php:212
 msgid "This links to your post"
 msgstr "これはあなたの投稿へのリンクです"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:189
-#: includes/classes/class-columns-link.php:191
+#: includes/classes/class-columns-link.php:212
 msgid "This links to an external website"
 msgstr "これは外部ウェブサイトへのリンクです"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:193
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:337
-#: includes/classes/class-columns-link.php:195
-#: includes/classes/class-columns-link.php:339
+#: includes/classes/class-columns-link.php:216
+#: includes/classes/class-columns-link.php:540
 msgid "Revision"
 msgstr "リビジョン"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:194
-#: includes/classes/class-columns-link.php:196
+#: includes/classes/class-columns-link.php:217
 msgid "This links to a revision"
 msgstr "これはリビジョンへのリンクです"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:203
-#: includes/classes/class-columns-link.php:205
+#: includes/classes/class-columns-link.php:226
 msgid "Not yet submitted"
 msgstr "まだ提出されていません"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:204
-#: includes/classes/class-columns-link.php:206
+#: includes/classes/class-columns-link.php:227
 msgid "Submitted for approval"
 msgstr "承認のために提出されました"
 
@@ -560,39 +563,39 @@ msgstr "承認のために提出されました"
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:714
 #: dist/publishpress-shortlinks/includes/functions.php:273
 #: dist/publishpress-shortlinks/includes/functions.php:307
-#: includes/classes/class-columns-link.php:207
-#: includes/classes/class-settings.php:461
-#: includes/classes/class-settings.php:928
-#: includes/classes/class-settings.php:936
-#: includes/functions.php:379
-#: includes/functions.php:413
+#: includes/classes/class-columns-link.php:228
+#: includes/classes/class-settings.php:462
+#: includes/classes/class-settings.php:929
+#: includes/classes/class-settings.php:937
+#: includes/functions.php:390
+#: includes/functions.php:424
 msgid "Scheduled"
 msgstr "スケジュール済み"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:206
-#: includes/classes/class-columns-link.php:208
+#: includes/classes/class-columns-link.php:229
 msgid "Deferred"
 msgstr "延期"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:207
-#: includes/classes/class-columns-link.php:209
+#: includes/classes/class-columns-link.php:230
 msgid "Needs work"
 msgstr "作業が必要です"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:208
-#: includes/classes/class-columns-link.php:210
+#: includes/classes/class-columns-link.php:231
 msgid "Rejected"
 msgstr "拒否されました"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:212
-#: includes/classes/class-columns-link.php:214
+#: includes/classes/class-columns-link.php:235
 #. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "改訂: %s"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:233
-#: includes/classes/class-columns-link.php:235
+#: includes/classes/class-columns-link.php:256
 #. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
@@ -600,7 +603,7 @@ msgstr "%s 回クリックされました"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:241
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:198
-#: includes/classes/class-columns-link.php:243
+#: includes/classes/class-columns-link.php:264
 #: includes/classes/class-table-logs.php:207
 msgid "Edit"
 msgstr "編集"
@@ -608,69 +611,69 @@ msgstr "編集"
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:246
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:179
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:200
-#: includes/classes/class-columns-link.php:248
+#: includes/classes/class-columns-link.php:269
 #: includes/classes/class-table-logs.php:188
 #: includes/classes/class-table-logs.php:209
 msgid "Delete"
 msgstr "削除"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:332
-#: includes/classes/class-columns-link.php:334
+#: includes/classes/class-columns-link.php:535
 msgid "Filter by link type"
 msgstr "リンクタイプでフィルタ"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:334
-#: includes/classes/class-columns-link.php:336
+#: includes/classes/class-columns-link.php:537
 msgid "All link types"
 msgstr "すべてのリンクタイプ"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:350
-#: includes/classes/class-columns-link.php:352
+#: includes/classes/class-columns-link.php:553
 msgid "Filter by category"
 msgstr "カテゴリでフィルタ"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:352
-#: includes/classes/class-columns-link.php:354
+#: includes/classes/class-columns-link.php:555
 msgid "All categories"
 msgstr "すべてのカテゴリ"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:446
-#: includes/classes/class-columns-link.php:483
+#: includes/classes/class-columns-link.php:684
 msgid "Filters"
 msgstr "フィルタ"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:449
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:257
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:814
-#: includes/classes/class-columns-link.php:486
-#: includes/classes/class-hooks.php:333
-#: includes/classes/class-meta-boxes.php:1195
+#: includes/classes/class-columns-link.php:687
+#: includes/classes/class-hooks.php:317
+#: includes/classes/class-meta-boxes.php:1186
 msgid "Categories"
 msgstr "カテゴリー"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:467
-#: includes/classes/class-columns-link.php:504
+#: includes/classes/class-columns-link.php:705
 msgid "Permission denied."
 msgstr "権限がありません。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:551
-#: includes/classes/class-columns-link.php:613
+#: includes/classes/class-columns-link.php:814
 msgid "Link Title"
 msgstr "リンクタイトル"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:553
-#: includes/classes/class-columns-link.php:615
+#: includes/classes/class-columns-link.php:816
 msgid "Link Type"
 msgstr "リンクタイプ"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:557
-#: includes/classes/class-columns-link.php:619
+#: includes/classes/class-columns-link.php:820
 msgid "Stats"
 msgstr "統計"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:560
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:166
-#: includes/classes/class-columns-link.php:622
+#: includes/classes/class-columns-link.php:823
 #: includes/classes/class-table-logs.php:170
 msgid "Actions"
 msgstr "アクション"
@@ -682,126 +685,127 @@ msgstr "コピーするにはクリック"
 
 #: dist/publishpress-shortlinks/includes/classes/class-functions.php:51
 #: includes/classes/class-functions.php:51
-#: includes/classes/class-meta-boxes.php:372
+#: includes/classes/class-meta-boxes.php:373
 msgid "Copied"
 msgstr "コピーしました"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:160
-#: includes/classes/class-gutenberg-shortlink.php:164
+#: includes/classes/class-gutenberg-shortlink.php:162
 msgid "Search shortlinks..."
 msgstr "ショートリンクを検索..."
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:161
-#: includes/classes/class-gutenberg-shortlink.php:166
+#: includes/classes/class-gutenberg-shortlink.php:164
 msgid "Insert Shortlink"
 msgstr "ショートリンクを挿入"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:162
-#: includes/classes/class-gutenberg-shortlink.php:167
+#: includes/classes/class-gutenberg-shortlink.php:165
 msgid "Create New Shortlink"
 msgstr "新しいショートリンクを作成"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:163
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:721
-#: includes/classes/class-gutenberg-shortlink.php:168
-#: includes/classes/class-settings.php:958
+#: includes/classes/class-gutenberg-shortlink.php:166
+#: includes/classes/class-settings.php:959
 msgid "Options"
 msgstr "オプション"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:164
-#: includes/classes/class-gutenberg-shortlink.php:169
+#: includes/classes/class-gutenberg-shortlink.php:167
 msgid "Open in New Tab"
 msgstr "新しいタブで開く"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:165
-#: includes/classes/class-gutenberg-shortlink.php:170
+#: includes/classes/class-gutenberg-shortlink.php:168
 msgid "Nofollow"
 msgstr "ノーフォロー"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:166
-#: includes/classes/class-gutenberg-shortlink.php:171
+#: includes/classes/class-gutenberg-shortlink.php:169
 msgid "Sponsored Link"
 msgstr "スポンサーリンク"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:167
-#: includes/classes/class-gutenberg-shortlink.php:172
+#: includes/classes/class-columns-link.php:315
+#: includes/classes/class-gutenberg-shortlink.php:170
 msgid "Label"
 msgstr "ラベル"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:168
-#: includes/classes/class-gutenberg-shortlink.php:173
+#: includes/classes/class-gutenberg-shortlink.php:171
 msgid "Optional shortlink label"
 msgstr "オプションのショートリンクラベル"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:170
-#: includes/classes/class-gutenberg-shortlink.php:175
+#: includes/classes/class-gutenberg-shortlink.php:173
 msgid "Create"
 msgstr "作成"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:171
 #: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1202
-#: includes/classes/class-gutenberg-shortlink.php:176
+#: includes/classes/class-gutenberg-shortlink.php:174
 #: includes/classes/class-import-export.php:1331
 msgid "Cancel"
 msgstr "キャンセル"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:172
 #: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:37
-#: includes/classes/class-gutenberg-shortlink.php:177
-#: templates/admin-modal-new-link.php:38
+#: includes/classes/class-gutenberg-shortlink.php:175
+#: templates/admin-modal-new-link.php:40
 msgid "Close"
 msgstr "閉じる"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:173
-#: includes/classes/class-gutenberg-shortlink.php:178
+#: includes/classes/class-gutenberg-shortlink.php:176
 msgid "Creating..."
 msgstr "作成中..."
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:174
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:317
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:103
-#: includes/classes/class-gutenberg-shortlink.php:179
-#: includes/classes/class-gutenberg-shortlink.php:322
+#: includes/classes/class-gutenberg-shortlink.php:177
+#: includes/classes/class-gutenberg-shortlink.php:325
 #: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "ショートリンクが正常に作成されました。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:176
-#: includes/classes/class-gutenberg-shortlink.php:181
+#: includes/classes/class-gutenberg-shortlink.php:179
 msgid "Please enter a valid URL"
 msgstr "有効なURLを入力してください"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:177
-#: includes/classes/class-gutenberg-shortlink.php:182
+#: includes/classes/class-gutenberg-shortlink.php:180
 msgid "No shortlinks found"
 msgstr "ショートリンクは見つかりませんでした"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:243
-#: includes/classes/class-gutenberg-shortlink.php:248
+#: includes/classes/class-gutenberg-shortlink.php:251
 msgid "Search term is required"
 msgstr "検索用語は必須です"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:258
 #: dist/publishpress-shortlinks/includes/functions.php:447
-#: includes/classes/class-gutenberg-shortlink.php:263
-#: includes/functions.php:553
+#: includes/classes/class-gutenberg-shortlink.php:266
+#: includes/functions.php:568
 #. translators: %s: link ID number
 #, php-format
 msgid "Link - %s"
 msgstr "リンク - %s"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:294
-#: includes/classes/class-gutenberg-shortlink.php:299
+#: includes/classes/class-gutenberg-shortlink.php:302
 msgid "Target URL is required"
 msgstr "ターゲットURLは必須です"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:336
-#: includes/classes/class-gutenberg-shortlink.php:341
+#: includes/classes/class-gutenberg-shortlink.php:344
 msgid "Invalid shortlink ID"
 msgstr "無効なショートリンクID"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:342
-#: includes/classes/class-gutenberg-shortlink.php:347
+#: includes/classes/class-gutenberg-shortlink.php:350
 msgid "Shortlink not found"
 msgstr "ショートリンクが見つかりません"
 
@@ -848,66 +852,66 @@ msgid "You do not have permission to reset analytics for this shortlink."
 msgstr "このショートリンクの分析をリセットする権限がありません。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:164
-#: includes/classes/class-hooks.php:240
+#: includes/classes/class-hooks.php:224
 msgid "Analytics reset successfully."
 msgstr "分析が正常にリセットされました。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:166
-#: includes/classes/class-hooks.php:242
+#: includes/classes/class-hooks.php:226
 msgid "Failed to reset analytics."
 msgstr "分析のリセットに失敗しました。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:192
-#: includes/classes/class-hooks.php:268
+#: includes/classes/class-hooks.php:252
 msgid "Shorten"
 msgstr "短縮"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:235
-#: includes/classes/class-hooks.php:311
+#: includes/classes/class-hooks.php:295
 msgid "All Shortlinks"
 msgstr "すべてのショートリンク"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:236
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:237
-#: includes/classes/class-hooks.php:312
-#: includes/classes/class-hooks.php:313
+#: includes/classes/class-hooks.php:296
+#: includes/classes/class-hooks.php:297
 msgid "Add Shortlink"
 msgstr "ショートリンクを追加"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:238
-#: includes/classes/class-hooks.php:314
+#: includes/classes/class-hooks.php:298
 msgid "Search Shortlinks"
 msgstr "ショートリンクを検索"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:256
-#: includes/classes/class-hooks.php:332
+#: includes/classes/class-hooks.php:316
 msgid "Category"
 msgstr "カテゴリー"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:283
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:284
-#: includes/classes/class-hooks.php:359
-#: includes/classes/class-hooks.php:360
+#: includes/classes/class-hooks.php:344
+#: includes/classes/class-hooks.php:345
 msgid "Logs"
 msgstr "ログ"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:312
-#: includes/classes/class-hooks.php:388
+#: includes/classes/class-hooks.php:373
 msgid "All Logs"
 msgstr "すべてのログ"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:312
-#: includes/classes/class-hooks.php:388
+#: includes/classes/class-hooks.php:373
 msgid "Are you sure you want to clear all logs?"
 msgstr "すべてのログをクリアしてもよろしいですか？"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:312
-#: includes/classes/class-hooks.php:388
+#: includes/classes/class-hooks.php:373
 msgid "Clear Logs"
 msgstr "ログをクリア"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:606
-#: includes/classes/class-hooks.php:682
+#: includes/classes/class-hooks.php:667
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "申し訳ありませんが、ショートリンクにアクセスすることはできません。"
 
@@ -915,25 +919,25 @@ msgstr "申し訳ありませんが、ショートリンクにアクセスする
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:628
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:639
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:660
-#: includes/classes/class-hooks.php:683
-#: includes/classes/class-hooks.php:704
-#: includes/classes/class-hooks.php:715
-#: includes/classes/class-hooks.php:736
+#: includes/classes/class-hooks.php:668
+#: includes/classes/class-hooks.php:689
+#: includes/classes/class-hooks.php:700
+#: includes/classes/class-hooks.php:721
 msgid "Access Denied"
 msgstr "アクセス拒否"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:627
-#: includes/classes/class-hooks.php:703
+#: includes/classes/class-hooks.php:688
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "申し訳ありませんが、ショートリンクを作成することはできません。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:638
-#: includes/classes/class-hooks.php:714
+#: includes/classes/class-hooks.php:699
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "申し訳ありませんが、ショートリンクを編集することはできません。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:659
-#: includes/classes/class-hooks.php:735
+#: includes/classes/class-hooks.php:720
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "申し訳ありませんが、ショートリンク設定にアクセスすることはできません。"
 
@@ -1039,14 +1043,13 @@ msgstr "TinyPressスラグのエラー："
 #: includes/classes/class-import-export.php:1025
 #: includes/classes/class-import-export.php:1151
 #: includes/classes/class-migration.php:440
-#: includes/classes/class-url-metadata.php:39
 msgid "Unauthorized."
 msgstr "未承認です。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-import-export.php:303
 #: dist/publishpress-shortlinks/includes/functions.php:402
 #: includes/classes/class-import-export.php:398
-#: includes/functions.php:508
+#: includes/functions.php:519
 msgid "Invalid URL."
 msgstr "無効なURLです。"
 
@@ -1143,6 +1146,7 @@ msgid "Post Status"
 msgstr "投稿ステータス"
 
 #: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1056
+#: includes/classes/class-columns-link.php:327
 #: includes/classes/class-import-export.php:1159
 msgid "Link Status"
 msgstr "リンクステータス"
@@ -1156,8 +1160,8 @@ msgstr "リダイレクト方法"
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:664
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:939
 #: includes/classes/class-import-export.php:1161
-#: includes/classes/class-meta-boxes.php:1011
-#: includes/classes/class-settings.php:1176
+#: includes/classes/class-meta-boxes.php:1002
+#: includes/classes/class-settings.php:1177
 msgid "NoFollow"
 msgstr "ノーフォロー"
 
@@ -1165,8 +1169,8 @@ msgstr "ノーフォロー"
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:642
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:931
 #: includes/classes/class-import-export.php:1162
-#: includes/classes/class-meta-boxes.php:987
-#: includes/classes/class-settings.php:1168
+#: includes/classes/class-meta-boxes.php:978
+#: includes/classes/class-settings.php:1169
 msgid "Sponsored"
 msgstr "スポンサー付き"
 
@@ -1174,8 +1178,8 @@ msgstr "スポンサー付き"
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:686
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:947
 #: includes/classes/class-import-export.php:1163
-#: includes/classes/class-meta-boxes.php:1035
-#: includes/classes/class-settings.php:1184
+#: includes/classes/class-meta-boxes.php:1026
+#: includes/classes/class-settings.php:1185
 msgid "Parameter Forwarding"
 msgstr "パラメータ転送"
 
@@ -1188,8 +1192,8 @@ msgstr "有効期限を有効にする"
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:770
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:988
 #: includes/classes/class-import-export.php:1165
-#: includes/classes/class-meta-boxes.php:1151
-#: includes/classes/class-settings.php:1230
+#: includes/classes/class-meta-boxes.php:1142
+#: includes/classes/class-settings.php:1231
 msgid "Expiration Date"
 msgstr "有効期限日"
 
@@ -1197,15 +1201,15 @@ msgstr "有効期限日"
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:784
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1001
 #: includes/classes/class-import-export.php:1166
-#: includes/classes/class-meta-boxes.php:1165
-#: includes/classes/class-settings.php:1243
+#: includes/classes/class-meta-boxes.php:1156
+#: includes/classes/class-settings.php:1244
 msgid "Expiration Time"
 msgstr "有効期限時間"
 
 #: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1065
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:552
 #: includes/classes/class-import-export.php:1168
-#: includes/classes/class-meta-boxes.php:898
+#: includes/classes/class-meta-boxes.php:916
 msgid "Notes"
 msgstr "メモ"
 
@@ -1285,244 +1289,245 @@ msgstr "インポートプレビュー"
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:387
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:453
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:478
-#: includes-core/ShortlinksCoreAdmin.php:398
-#: includes-core/ShortlinksCoreAdmin.php:420
-#: includes-core/ShortlinksCoreAdmin.php:434
-#: includes-core/ShortlinksCoreAdmin.php:456
-#: includes-core/ShortlinksCoreAdmin.php:482
-#: includes/classes/class-meta-boxes.php:733
-#: includes/classes/class-meta-boxes.php:799
-#: includes/classes/class-meta-boxes.php:824
+#: includes-core/ShortlinksCoreAdmin.php:405
+#: includes-core/ShortlinksCoreAdmin.php:427
+#: includes-core/ShortlinksCoreAdmin.php:441
+#: includes-core/ShortlinksCoreAdmin.php:463
+#: includes-core/ShortlinksCoreAdmin.php:489
+#: includes/classes/class-meta-boxes.php:729
+#: includes/classes/class-meta-boxes.php:801
+#: includes/classes/class-meta-boxes.php:826
 #. translators: %s: current global setting value
 msgid "Use global settings"
 msgstr "グローバル設定を使用"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:388
-#: includes-core/ShortlinksCoreAdmin.php:421
-#: includes/classes/class-meta-boxes.php:734
+#: includes-core/ShortlinksCoreAdmin.php:428
+#: includes/classes/class-columns-link.php:329
+#: includes/classes/class-meta-boxes.php:730
 msgid "Enabled"
 msgstr "有効"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:389
-#: includes-core/ShortlinksCoreAdmin.php:422
-#: includes/classes/class-meta-boxes.php:735
+#: includes-core/ShortlinksCoreAdmin.php:429
+#: includes/classes/class-columns-link.php:330
+#: includes/classes/class-meta-boxes.php:731
 msgid "Disabled"
 msgstr "無効"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:449
-#: includes/classes/class-meta-boxes.php:795
+#: includes/classes/class-meta-boxes.php:797
 msgid "ON"
 msgstr "オン"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:449
-#: includes/classes/class-meta-boxes.php:795
+#: includes/classes/class-meta-boxes.php:797
 msgid "OFF"
 msgstr "オフ"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:481
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:922
-#: includes/classes/class-meta-boxes.php:827
-#: includes/classes/class-settings.php:1159
+#: includes/classes/class-meta-boxes.php:829
+#: includes/classes/class-settings.php:1160
 msgid "307 (Temporary)"
 msgstr "307（一時的）"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:482
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:923
-#: includes/classes/class-meta-boxes.php:828
-#: includes/classes/class-settings.php:1160
+#: includes/classes/class-meta-boxes.php:830
+#: includes/classes/class-settings.php:1161
 msgid "302 (Temporary)"
 msgstr "302（一時的）"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:483
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:924
-#: includes/classes/class-meta-boxes.php:829
-#: includes/classes/class-settings.php:1161
+#: includes/classes/class-meta-boxes.php:831
+#: includes/classes/class-settings.php:1162
 msgid "301 (Permanent)"
 msgstr "301（永久的）"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:496
 #: dist/publishpress-shortlinks/tinypress.php:399
 #: dist/publishpress-shortlinks/tinypress.php:492
-#: includes/classes/class-meta-boxes.php:842
-#: includes/classes/class-settings.php:624
-#: tinypress.php:481
-#: tinypress.php:594
+#: includes/classes/class-meta-boxes.php:860
+#: includes/classes/class-settings.php:625
+#: tinypress.php:504
+#: tinypress.php:614
 msgid "PublishPress Shortlinks"
 msgstr "PublishPress ショートリンク"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:509
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:718
-#: includes/classes/class-meta-boxes.php:855
-#: includes/classes/class-settings.php:940
+#: includes/classes/class-meta-boxes.php:873
+#: includes/classes/class-settings.php:941
 msgid "General"
 msgstr "一般"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:514
-#: includes/classes/class-meta-boxes.php:860
+#: includes/classes/class-meta-boxes.php:878
 msgid "Label *"
 msgstr "ラベル *"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:516
-#: includes/classes/class-meta-boxes.php:862
+#: includes/classes/class-meta-boxes.php:880
 msgid "For admin purpose only."
 msgstr "管理目的のみ。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:525
-#: includes/classes/class-meta-boxes.php:871
+#: includes/classes/class-meta-boxes.php:889
 msgid "Target URL *"
 msgstr "ターゲット URL *"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:535
-#: includes/classes/class-meta-boxes.php:881
+#: includes/classes/class-meta-boxes.php:899
 msgid "Short String *"
 msgstr "短い文字列 *"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:536
-#: includes/classes/class-meta-boxes.php:882
+#: includes/classes/class-meta-boxes.php:900
 msgid "Short string of this URL."
 msgstr "このURLの短い文字列。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:543
-#: includes/classes/class-meta-boxes.php:889
+#: includes/classes/class-meta-boxes.php:907
 msgid "Enable or disable the shortlink."
 msgstr "ショートリンクを有効または無効にします。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:544
-#: includes-core/ShortlinksCoreAdmin.php:543
-#: includes-core/ShortlinksCoreAdmin.php:585
-#: includes/classes/class-meta-boxes.php:890
+#: includes-core/ShortlinksCoreAdmin.php:550
+#: includes-core/ShortlinksCoreAdmin.php:592
+#: includes/classes/class-meta-boxes.php:908
 msgid "Enable"
 msgstr "有効"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:545
-#: includes-core/ShortlinksCoreAdmin.php:544
-#: includes-core/ShortlinksCoreAdmin.php:586
-#: includes/classes/class-meta-boxes.php:891
+#: includes-core/ShortlinksCoreAdmin.php:551
+#: includes-core/ShortlinksCoreAdmin.php:593
+#: includes/classes/class-meta-boxes.php:909
 msgid "Disable"
 msgstr "無効"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:576
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:582
-#: includes/classes/class-meta-boxes.php:922
-#: includes/classes/class-meta-boxes.php:928
+#: includes/classes/class-meta-boxes.php:842
 msgid "Shortlink Label"
 msgstr "ショートリンクラベル"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:577
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:583
-#: includes/classes/class-meta-boxes.php:923
-#: includes/classes/class-meta-boxes.php:929
+#: includes/classes/class-meta-boxes.php:843
 msgid "Custom Text"
 msgstr "カスタムテキスト"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:581
-#: includes/classes/class-meta-boxes.php:927
+#: includes/classes/class-meta-boxes.php:849
+#: includes/Mcp/Fields.php:34
 msgid "Post Title"
 msgstr "投稿タイトル"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:593
-#: includes/classes/class-meta-boxes.php:939
+#: includes/classes/class-meta-boxes.php:930
 msgid "Keywords"
 msgstr "キーワード"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:594
-#: includes/classes/class-meta-boxes.php:940
+#: includes/classes/class-meta-boxes.php:931
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
 msgstr "カンマで区切るか、別の行にキーワードを追加してください。各キーワードはこのショートリンクにリンクされます。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:599
-#: includes/classes/class-meta-boxes.php:945
+#: includes/classes/class-meta-boxes.php:936
 msgid "Link Alt Text"
 msgstr "リンクの代替テキスト"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:600
-#: includes/classes/class-meta-boxes.php:946
+#: includes/classes/class-meta-boxes.php:937
 msgid "Set the alt text for the linked keywords in the frontend of the site."
 msgstr "サイトのフロントエンドでリンクされたキーワードの代替テキストを設定します。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:607
-#: includes/classes/class-meta-boxes.php:953
+#: includes/classes/class-meta-boxes.php:944
 msgid "Custom Alt Text"
 msgstr "カスタム代替テキスト"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:608
-#: includes/classes/class-meta-boxes.php:954
+#: includes/classes/class-meta-boxes.php:945
 msgid ""
 "Enter custom alt text for the linked keywords. This is only used if "
 "\"Custom Text\" is selected above."
 msgstr "リンクされたキーワードのカスタム代替テキストを入力してください。これは上記で「カスタムテキスト」が選択されている場合のみ使用されます。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:619
-#: includes/classes/class-meta-boxes.php:964
+#: includes/classes/class-meta-boxes.php:955
 msgid "Auto-linking"
 msgstr "自動リンク"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:628
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:914
-#: includes/classes/class-meta-boxes.php:973
-#: includes/classes/class-settings.php:1151
+#: includes/classes/class-meta-boxes.php:964
+#: includes/classes/class-settings.php:1152
 msgid "Redirection"
 msgstr "リダイレクト"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:633
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:919
-#: includes/classes/class-meta-boxes.php:978
-#: includes/classes/class-settings.php:1156
+#: includes/classes/class-meta-boxes.php:969
+#: includes/classes/class-settings.php:1157
 msgid "Redirection Method"
 msgstr "リダイレクト方法"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:634
-#: includes/classes/class-meta-boxes.php:979
+#: includes/classes/class-meta-boxes.php:970
 msgid "Select redirection method"
 msgstr "リダイレクト方法を選択"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:635
-#: includes/classes/class-meta-boxes.php:980
+#: includes/classes/class-meta-boxes.php:971
 msgid "Select a method"
 msgstr "方法を選択"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:645
-#: includes/classes/class-meta-boxes.php:990
+#: includes/classes/class-meta-boxes.php:981
 msgid "Mark links as sponsored content."
 msgstr "リンクをスポンサー付きコンテンツとしてマークします。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:646
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:656
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:933
-#: includes/classes/class-meta-boxes.php:991
-#: includes/classes/class-settings.php:1170
+#: includes/classes/class-meta-boxes.php:982
+#: includes/classes/class-settings.php:1171
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
 msgstr "rel=\"sponsored\"属性を追加します。アフィリエイトリンクや有料プロモーションに推奨されます。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:667
-#: includes/classes/class-meta-boxes.php:1014
+#: includes/classes/class-meta-boxes.php:1005
 msgid "Prevent search engines from following this link."
 msgstr "検索エンジンがこのリンクをたどるのを防ぎます。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:668
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:678
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:941
-#: includes/classes/class-meta-boxes.php:1015
-#: includes/classes/class-settings.php:1178
+#: includes/classes/class-meta-boxes.php:1006
+#: includes/classes/class-settings.php:1179
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
 msgstr "rel=\"nofollow\"属性を追加します。外部リンクや信頼できないソースに推奨されます。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:689
-#: includes/classes/class-meta-boxes.php:1038
+#: includes/classes/class-meta-boxes.php:1029
 msgid "Pass URL parameters to the target link."
 msgstr "URLパラメータをターゲットリンクに渡します。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:690
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:700
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:949
-#: includes/classes/class-meta-boxes.php:1039
-#: includes/classes/class-settings.php:1186
+#: includes/classes/class-meta-boxes.php:1030
+#: includes/classes/class-settings.php:1187
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -1530,80 +1535,80 @@ msgstr "短縮URLに追加されたパラメータ（例：?utm_source=email）�
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:713
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:960
-#: includes/classes/class-meta-boxes.php:1077
-#: includes/classes/class-settings.php:1197
+#: includes/classes/class-meta-boxes.php:1068
+#: includes/classes/class-settings.php:1198
 msgid "Password Protection"
 msgstr "パスワード保護"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:716
-#: includes/classes/class-meta-boxes.php:1080
+#: includes/classes/class-meta-boxes.php:1071
 msgid "Secure your shortlink."
 msgstr "短縮リンクを保護します。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:717
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:727
-#: includes/classes/class-meta-boxes.php:1081
+#: includes/classes/class-meta-boxes.php:1072
 msgid "Users must enter the password to redirect to the target link."
 msgstr "ユーザーはターゲットリンクにリダイレクトするためにパスワードを入力する必要があります。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:735
-#: includes/classes/class-meta-boxes.php:1101
+#: includes/classes/class-meta-boxes.php:1092
 msgid "Password"
 msgstr "パスワード"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:736
-#: includes/classes/class-meta-boxes.php:1102
+#: includes/classes/class-meta-boxes.php:1093
 msgid "Share this with users."
 msgstr "これをユーザーと共有します。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:737
-#: includes/classes/class-meta-boxes.php:1103
+#: includes/classes/class-meta-boxes.php:1094
 msgid "Passwords are case sensitive."
 msgstr "パスワードは大文字と小文字を区別します。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:738
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:971
-#: includes/classes/class-meta-boxes.php:1104
-#: includes/classes/class-settings.php:1208, fuzzy
+#: includes/classes/class-meta-boxes.php:1095
+#: includes/classes/class-settings.php:1209, fuzzy
 msgid "********"
 msgstr "********"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:748
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:980
-#: includes/classes/class-meta-boxes.php:1127
-#: includes/classes/class-settings.php:1222
+#: includes/classes/class-meta-boxes.php:1118
+#: includes/classes/class-settings.php:1223
 msgid "Enable Expiration"
 msgstr "有効期限の設定"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:751
-#: includes/classes/class-meta-boxes.php:1130
+#: includes/classes/class-meta-boxes.php:1121
 msgid "Set an expiration date and time for shortlinks."
 msgstr "ショートリンクの有効期限の日付と時刻を設定します。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:752
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:762
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:982
-#: includes/classes/class-meta-boxes.php:1131
-#: includes/classes/class-settings.php:1224
+#: includes/classes/class-meta-boxes.php:1122
+#: includes/classes/class-settings.php:1225
 msgid ""
 "After the expiration date and time pass, visitors will no longer be able to "
 "access the shortlink."
 msgstr "有効期限の日付と時刻が過ぎた後、訪問者はショートリンクにアクセスできなくなります。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:771
-#: includes/classes/class-meta-boxes.php:1152
+#: includes/classes/class-meta-boxes.php:1143
 msgid "Select the date when this shortlink should stop working."
 msgstr "このショートリンクが無効になる日付を選択してください。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:785
-#: includes/classes/class-meta-boxes.php:1166
+#: includes/classes/class-meta-boxes.php:1157
 msgid "Select the time when the shortlink should expire."
 msgstr "ショートリンクが期限切れになる時刻を選択してください。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:786
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1003
-#: includes/classes/class-meta-boxes.php:1167
-#: includes/classes/class-settings.php:1245
+#: includes/classes/class-meta-boxes.php:1158
+#: includes/classes/class-settings.php:1246
 msgid ""
 "Must be at least 1 minute in the future. Combined with the date above to "
 "set the exact expiration moment."
@@ -1611,25 +1616,25 @@ msgstr "未来の時刻は少なくとも1分である必要があります。�
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:804
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:955
-#: includes/classes/class-meta-boxes.php:1117
-#: includes/classes/class-settings.php:1192
+#: includes/classes/class-meta-boxes.php:1108
+#: includes/classes/class-settings.php:1193
 msgid "Security"
 msgstr "セキュリティ"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:823
-#: includes/classes/class-meta-boxes.php:1204
+#: includes/classes/class-meta-boxes.php:1195
 msgid "QR Code"
 msgstr "QRコード"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:833
 #: dist/publishpress-shortlinks/tinypress.php:396
-#: includes/classes/class-meta-boxes.php:1214
-#: tinypress.php:478
+#: includes/classes/class-meta-boxes.php:1205
+#: tinypress.php:501
 msgid "Analytics"
 msgstr "分析"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1044
-#: includes/classes/class-redirection.php:1264
+#: includes/classes/class-redirection.php:1245
 msgid "Post not found."
 msgstr "投稿が見つかりません。"
 
@@ -1641,86 +1646,86 @@ msgstr "投稿が見つかりません。"
 #: dist/publishpress-shortlinks/tinypress.php:303
 #: dist/publishpress-shortlinks/tinypress.php:304
 #: dist/publishpress-shortlinks/tinypress.php:305
-#: includes/classes/class-redirection.php:1408
-#: includes/functions.php:467
-#: includes/functions.php:468
-#: includes/functions.php:469
-#: includes/functions.php:475
-#: tinypress.php:376
-#: tinypress.php:377
-#: tinypress.php:378
+#: includes/classes/class-redirection.php:1389
+#: includes/functions.php:478
+#: includes/functions.php:479
+#: includes/functions.php:480
+#: includes/functions.php:486
+#: tinypress.php:401
+#: tinypress.php:402
+#: tinypress.php:403
 msgid "This post is in {status} status. It is not visible to the public."
 msgstr "この投稿は{status}のステータスです。一般には表示されません。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1236
-#: includes-core/ShortlinksCoreAdmin.php:445
-#: includes/classes/class-redirection.php:1456
+#: includes-core/ShortlinksCoreAdmin.php:452
+#: includes/classes/class-redirection.php:1439
 msgid "This link has expired"
 msgstr "このリンクの有効期限が切れました"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1240
-#: includes-core/ShortlinksCoreAdmin.php:467
-#: includes/classes/class-redirection.php:1460
+#: includes-core/ShortlinksCoreAdmin.php:474
+#: includes/classes/class-redirection.php:1443
 msgid "You will be redirected shortly."
 msgstr "まもなくリダイレクトされます。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1244
-#: includes-core/ShortlinksCoreAdmin.php:493
-#: includes/classes/class-redirection.php:1464
+#: includes-core/ShortlinksCoreAdmin.php:500
+#: includes/classes/class-redirection.php:1447
 msgid "Click here if you are not redirected"
 msgstr "リダイレクトされない場合はここをクリックしてください"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1261
-#: includes/classes/class-redirection.php:1481
+#: includes/classes/class-redirection.php:1466
 msgid "Link Expired"
 msgstr "リンクの有効期限が切れました"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1423
-#: includes/classes/class-redirection.php:1702
-#: includes/classes/class-redirection.php:1710
+#: includes/classes/class-redirection.php:1737
+#: includes/classes/class-redirection.php:1745
 msgid "This link is not active."
 msgstr "このリンクはアクティブではありません。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1460
-#: includes/classes/class-redirection.php:310
-#: includes/classes/class-redirection.php:1729
+#: includes/classes/class-redirection.php:291
+#: includes/classes/class-redirection.php:1764
 msgid "This link is expired."
 msgstr "このリンクは期限切れです。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1479
-#: includes/classes/class-redirection.php:1749
+#: includes/classes/class-redirection.php:1784
 msgid "Incorrect password. Please try again."
 msgstr "パスワードが間違っています。もう一度お試しください。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1494
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1499
-#: includes/classes/class-redirection.php:1768
-#: includes/classes/class-redirection.php:1773
+#: includes/classes/class-redirection.php:1803
+#: includes/classes/class-redirection.php:1808
 msgid "Password Protected Link"
 msgstr "パスワード保護されたリンク"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1505
-#: includes/classes/class-redirection.php:1779
+#: includes/classes/class-redirection.php:1814
 msgid "Enter password to continue:"
 msgstr "続行するにはパスワードを入力してください："
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1507
-#: includes/classes/class-redirection.php:1781
+#: includes/classes/class-redirection.php:1816
 msgid "Submit"
 msgstr "送信"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1631
-#: includes/classes/class-redirection.php:1892
+#: includes/classes/class-redirection.php:1927
 msgid "This link is not containing the right prefix slug."
 msgstr "このリンクには正しいプレフィックススラッグが含まれていません。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1672
-#: includes/classes/class-redirection.php:1933
+#: includes/classes/class-redirection.php:1968
 msgid "Too many invalid shortlink requests. Please try again later."
 msgstr "無効なショートリンクリクエストが多すぎます。後でもう一度お試しください。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1673
-#: includes/classes/class-redirection.php:1934
+#: includes/classes/class-redirection.php:1969
 msgid "Too Many Requests"
 msgstr "リクエストが多すぎます"
 
@@ -1734,11 +1739,12 @@ msgstr "無効なリビジョンIDです。"
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:711
 #: dist/publishpress-shortlinks/includes/functions.php:270
 #: dist/publishpress-shortlinks/includes/functions.php:304
-#: includes/classes/class-settings.php:458
-#: includes/classes/class-settings.php:925
-#: includes/classes/class-settings.php:933
-#: includes/functions.php:376
-#: includes/functions.php:410
+#: includes/classes/class-columns-link.php:311
+#: includes/classes/class-settings.php:459
+#: includes/classes/class-settings.php:926
+#: includes/classes/class-settings.php:934
+#: includes/functions.php:387
+#: includes/functions.php:421
 msgid "Draft"
 msgstr "ドラフト"
 
@@ -1747,11 +1753,12 @@ msgstr "ドラフト"
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:712
 #: dist/publishpress-shortlinks/includes/functions.php:271
 #: dist/publishpress-shortlinks/includes/functions.php:305
-#: includes/classes/class-settings.php:459
-#: includes/classes/class-settings.php:926
-#: includes/classes/class-settings.php:934
-#: includes/functions.php:377
-#: includes/functions.php:411
+#: includes/classes/class-columns-link.php:310
+#: includes/classes/class-settings.php:460
+#: includes/classes/class-settings.php:927
+#: includes/classes/class-settings.php:935
+#: includes/functions.php:388
+#: includes/functions.php:422
 msgid "Pending Review"
 msgstr "レビュー待ち"
 
@@ -1760,46 +1767,47 @@ msgstr "レビュー待ち"
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:713
 #: dist/publishpress-shortlinks/includes/functions.php:272
 #: dist/publishpress-shortlinks/includes/functions.php:306
-#: includes/classes/class-settings.php:460
-#: includes/classes/class-settings.php:927
-#: includes/classes/class-settings.php:935
-#: includes/functions.php:378
-#: includes/functions.php:412
+#: includes/classes/class-columns-link.php:308
+#: includes/classes/class-settings.php:461
+#: includes/classes/class-settings.php:928
+#: includes/classes/class-settings.php:936
+#: includes/functions.php:389
+#: includes/functions.php:423
 msgid "Private"
 msgstr "プライベート"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:369
-#: includes/classes/class-settings.php:465
+#: includes/classes/class-settings.php:466
 msgid ""
 "Customize the notice shown for each enabled non-published status. Available "
 "placeholders: {status}, {date}, {title}."
 msgstr "有効な非公開ステータスごとに表示される通知をカスタマイズします。利用可能なプレースホルダー: {status}, {date}, {title}。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:405
-#: includes/classes/class-settings.php:501
-#: includes/classes/class-settings.php:550
+#: includes/classes/class-settings.php:502
+#: includes/classes/class-settings.php:551
 msgid "All"
 msgstr "すべて"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:444
-#: includes/classes/class-settings.php:623
+#: includes/classes/class-settings.php:624
 msgid "Settings"
 msgstr "設定"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:528
-#: includes/classes/class-settings.php:750
+#: includes/classes/class-settings.php:751
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
 msgstr "PublishPress 短縮リンクを訪問する際にアクセス可能な投稿ステータスを選択します。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:544
-#: includes/classes/class-settings.php:766
+#: includes/classes/class-settings.php:767
 msgid "PublishPress Statuses Plugin Detected:"
 msgstr "PublishPress ステータス プラグインが検出されました："
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:545
-#: includes/classes/class-settings.php:767
+#: includes/classes/class-settings.php:768
 msgid ""
 "To use core PublishPress statuses with Shortlinks, Please enable the "
 "Shortlinks post type in PublishPress Statuses workflow settings."
@@ -1808,24 +1816,24 @@ msgstr ""
 "ステータスのワークフロー設定でショートリンクの投稿タイプを有効にしてください。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:564
-#: includes/classes/class-settings.php:786
+#: includes/classes/class-settings.php:787
 msgid "Elementor Detected:"
 msgstr "Elementorが検出されました："
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:565
-#: includes/classes/class-settings.php:787
+#: includes/classes/class-settings.php:788
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
 msgstr "Elementorリビジョンの適切なレンダリングにはショートリンクプレフィックスが必要です。これを有効にしておくことをお勧めします。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:597
-#: includes/classes/class-settings.php:819
+#: includes/classes/class-settings.php:820
 msgid "TinyPress Shortlinks Notice:"
 msgstr "TinyPressショートリンクのお知らせ："
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:598
-#: includes/classes/class-settings.php:820
+#: includes/classes/class-settings.php:821
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
@@ -1836,209 +1844,211 @@ msgstr ""
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:702
 #: dist/publishpress-shortlinks/includes/functions.php:269
 #: dist/publishpress-shortlinks/includes/functions.php:303
-#: includes/classes/class-settings.php:924
-#: includes/functions.php:375
-#: includes/functions.php:409
+#: includes/classes/class-columns-link.php:307
+#: includes/classes/class-columns-link.php:439
+#: includes/classes/class-settings.php:925
+#: includes/functions.php:386
+#: includes/functions.php:420
 msgid "Published"
 msgstr "公開済み"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:726
-#: includes/classes/class-settings.php:963
+#: includes/classes/class-settings.php:964
 msgid "Shortlink Prefix"
 msgstr "ショートリンクプレフィックス"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:727
-#: includes/classes/class-settings.php:964
+#: includes/classes/class-settings.php:965
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "ドメイン名とショートリンクの間に接頭辞を追加します。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:734
-#: includes/classes/class-settings.php:971, fuzzy
+#: includes/classes/class-settings.php:972, fuzzy
 msgid "Prefix Slug"
 msgstr "Prefix Slug"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:735
-#: includes/classes/class-settings.php:972
+#: includes/classes/class-settings.php:973
 msgid "Custom prefix slug."
 msgstr "カスタム接頭辞スラッグ。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:736
-#: includes/classes/class-settings.php:973
+#: includes/classes/class-settings.php:974
 msgid "This text will be added between your domain name and shortlink."
 msgstr "このテキストは、あなたのドメイン名とショートリンクの間に追加されます。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:737
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:738
-#: includes/classes/class-settings.php:974
-#: includes/classes/class-settings.php:975, fuzzy
+#: includes/classes/class-settings.php:975
+#: includes/classes/class-settings.php:976, fuzzy
 msgid "go"
 msgstr "go"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:744
-#: includes/classes/class-settings.php:981
+#: includes/classes/class-settings.php:982
 msgid "Keyboard Shortcut"
 msgstr "キーボードショートカット"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:745
-#: includes/classes/class-settings.php:982
+#: includes/classes/class-settings.php:983
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr "WordPressダッシュボード内のどこからでもショートリンクを作成します。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:746
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:747
-#: includes/classes/class-settings.php:983
 #: includes/classes/class-settings.php:984
+#: includes/classes/class-settings.php:985
 msgid "Ctrl or Cmd + /"
 msgstr "CtrlまたはCmd + /"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:756
-#: includes/classes/class-settings.php:993
+#: includes/classes/class-settings.php:994
 msgid "Remove from Admin Bar"
 msgstr "管理バーから削除"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:757
-#: includes/classes/class-settings.php:994
+#: includes/classes/class-settings.php:995
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "WordPress管理バーから「短縮」ボタンを非表示にします。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:763
-#: includes/classes/class-settings.php:1000
+#: includes/classes/class-settings.php:1001
 msgid "Role Management"
 msgstr "ロール管理"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:768
-#: includes/classes/class-settings.php:1005
+#: includes/classes/class-settings.php:1006
 msgid "Who Can View The All Shortlinks Screen"
 msgstr "すべてのショートリンク画面を表示できるユーザー"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:769
-#: includes/classes/class-settings.php:1006
+#: includes/classes/class-settings.php:1007
 msgid "Only selected user roles can view the complete list of Shortlinks."
 msgstr "選択されたユーザーロールのみがショートリンクの完全なリストを表示できます。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:777
-#: includes/classes/class-settings.php:1014
+#: includes/classes/class-settings.php:1015
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "ショートリンクを作成/編集できるユーザー"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:778
-#: includes/classes/class-settings.php:1015
+#: includes/classes/class-settings.php:1016
 msgid "Only selected user roles can create or edit links."
 msgstr "選択されたユーザーロールのみがリンクを作成または編集できます。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:787
-#: includes/classes/class-settings.php:1024
+#: includes/classes/class-settings.php:1025
 msgid "Who Can See Logs"
 msgstr "ログを見ることができるユーザー"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:788
-#: includes/classes/class-settings.php:1025
+#: includes/classes/class-settings.php:1026
 msgid "Only selected user roles can see the Analytics tab and the Logs screen."
 msgstr "選択されたユーザーロールのみが分析タブとログ画面を見ることができます。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:797
-#: includes/classes/class-settings.php:1034
+#: includes/classes/class-settings.php:1035
 msgid "Who Can Control Settings"
 msgstr "設定を制御できるユーザー"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:798
-#: includes/classes/class-settings.php:1035
+#: includes/classes/class-settings.php:1036
 msgid "Only selected user roles can access the Settings screen."
 msgstr "選択されたユーザーロールのみが設定画面にアクセスできます。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:807
-#: includes/classes/class-settings.php:1044
+#: includes/classes/class-settings.php:1045
 msgid "Auto-Linking"
 msgstr "自動リンク"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:812
-#: includes/classes/class-settings.php:1049
+#: includes/classes/class-settings.php:1050
 msgid "Enable Auto-Linking"
 msgstr "自動リンクを有効にする"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:813
-#: includes/classes/class-settings.php:1050
+#: includes/classes/class-settings.php:1051
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr "投稿コンテンツ内のキーワードを自動的にショートリンクに変換します。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:814
-#: includes/classes/class-settings.php:1051
+#: includes/classes/class-settings.php:1052
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
 msgstr "有効にすると、ショートリンク設定で構成されたキーワードがコンテンツ内で自動的にリンクされます。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:820
-#: includes/classes/class-settings.php:943
-#: includes/classes/class-settings.php:948
-#: includes/classes/class-settings.php:1057, fuzzy
+#: includes/classes/class-settings.php:944
+#: includes/classes/class-settings.php:949
+#: includes/classes/class-settings.php:1058, fuzzy
 msgid "Post Types"
 msgstr "Post Types"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:821
-#: includes/classes/class-settings.php:1058
+#: includes/classes/class-settings.php:1059
 msgid "Where should auto-linking be applied?"
 msgstr "自動リンクをどこに適用するべきですか？"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:830
-#: includes/classes/class-settings.php:1067
+#: includes/classes/class-settings.php:1068
 msgid "Open Auto-Links In"
 msgstr "自動リンクを開く場所"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:831
-#: includes/classes/class-settings.php:1068
+#: includes/classes/class-settings.php:1069
 msgid "Choose how auto-linked keywords should open."
 msgstr "自動リンクされたキーワードがどのように開くべきかを選択してください。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:833
-#: includes/classes/class-settings.php:1070
+#: includes/classes/class-settings.php:1071
 msgid "Same tab"
 msgstr "同じタブ"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:834
-#: includes/classes/class-settings.php:1071
+#: includes/classes/class-settings.php:1072
 msgid "New tab"
 msgstr "新しいタブ"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:842
-#: includes/classes/class-settings.php:1079
+#: includes/classes/class-settings.php:1080
 msgid "Auto-Link Color"
 msgstr "自動リンクの色"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:843
-#: includes/classes/class-settings.php:1080
+#: includes/classes/class-settings.php:1081
 msgid "Choose the color for auto-linked keywords."
 msgstr "自動リンクされたキーワードの色を選択してください。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:854
-#: includes/classes/class-settings.php:1091
+#: includes/classes/class-settings.php:1092
 msgid "Auto-List Links"
 msgstr "自動リンクリスト"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:859
-#: includes/classes/class-settings.php:1096
+#: includes/classes/class-settings.php:1097
 msgid "Auto-List Shortlinks"
 msgstr "自動リンク短縮"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:860
-#: includes/classes/class-settings.php:1097
+#: includes/classes/class-settings.php:1098
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
 msgstr "有効にすると、短縮リンクは下に設定した動作に基づいて「すべてのリンク」テーブルに表示されます。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:866
-#: includes/classes/class-settings.php:1103
+#: includes/classes/class-settings.php:1104
 msgid "Configure Post Types"
 msgstr "投稿タイプの設定"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:867
-#: includes/classes/class-settings.php:1104
+#: includes/classes/class-settings.php:1105
 msgid "Set when links should be auto-listed for each post type"
 msgstr "各投稿タイプのリンクが自動リストされるタイミングを設定します"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:868
-#: includes/classes/class-settings.php:1105
+#: includes/classes/class-settings.php:1106
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -2046,156 +2056,156 @@ msgstr "投稿タイプを追加し、それらの短縮リンクが「すべて
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:875
 #: dist/publishpress-shortlinks/includes/classes/class-statuses.php:233
-#: includes/classes/class-settings.php:1112
+#: includes/classes/class-settings.php:1113
 #: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "投稿ステータスの可視性"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:880
-#: includes/classes/class-settings.php:1117
+#: includes/classes/class-settings.php:1118
 msgid "Allowed Post Statuses"
 msgstr "許可された投稿ステータス"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:889
-#: includes/classes/class-settings.php:1126
+#: includes/classes/class-settings.php:1127
 msgid "Unpublished Content Notice"
 msgstr "未公開コンテンツ通知"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:890
-#: includes/classes/class-settings.php:1127
+#: includes/classes/class-settings.php:1128
 msgid ""
 "Show a frontend notice when an internal shortlink displays a post that is "
 "not published."
 msgstr "内部ショートリンクが未公開の投稿を表示する際に、フロントエンド通知を表示します。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:896
-#: includes/classes/class-settings.php:1133
+#: includes/classes/class-settings.php:1134
 msgid "Notice Post Statuses"
 msgstr "投稿ステータスの通知"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:897
-#: includes/classes/class-settings.php:1134
+#: includes/classes/class-settings.php:1135
 msgid ""
 "This notice only applies to internal shortlinks that render post content "
 "directly. External shortlinks are not affected."
 msgstr "この通知は、投稿コンテンツを直接レンダリングする内部ショートリンクのみに適用されます。外部ショートリンクには影響しません。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:906
-#: includes/classes/class-settings.php:1143
+#: includes/classes/class-settings.php:1144
 msgid "Notice Messages"
 msgstr "通知メッセージ"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:920
-#: includes/classes/class-settings.php:1157
+#: includes/classes/class-settings.php:1158
 msgid "Default redirection method for shortlinks"
 msgstr "ショートリンクのデフォルトのリダイレクション方法"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:932
-#: includes/classes/class-settings.php:1169
+#: includes/classes/class-settings.php:1170
 msgid "Mark links as sponsored content"
 msgstr "リンクをスポンサーコンテンツとしてマークします"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:940
-#: includes/classes/class-settings.php:1177
+#: includes/classes/class-settings.php:1178
 msgid "Prevent search engines from following links"
 msgstr "検索エンジンがリンクをたどるのを防ぎます"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:948
-#: includes/classes/class-settings.php:1185
+#: includes/classes/class-settings.php:1186
 msgid "Pass URL parameters to target links"
 msgstr "ターゲットリンクにURLパラメータを渡します"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:961
-#: includes/classes/class-settings.php:1198
+#: includes/classes/class-settings.php:1199
 msgid "Secure your shortlinks"
 msgstr "ショートリンクを保護します"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:962
-#: includes/classes/class-settings.php:1199
+#: includes/classes/class-settings.php:1200
 msgid "Users must enter a password to redirect to the target link."
 msgstr "ユーザーは、ターゲットリンクにリダイレクトするためにパスワードを入力する必要があります。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:968
-#: includes/classes/class-settings.php:1205
+#: includes/classes/class-settings.php:1206
 msgid "Default Password"
 msgstr "デフォルトパスワード"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:969
-#: includes/classes/class-settings.php:1206
+#: includes/classes/class-settings.php:1207
 msgid "Default password for protected links"
 msgstr "保護されたリンクのデフォルトパスワード"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:970
-#: includes/classes/class-settings.php:1207
+#: includes/classes/class-settings.php:1208
 msgid ""
 "This password will be used for links that have password protection enabled "
 "via global settings. Passwords are case sensitive."
 msgstr "このパスワードは、グローバル設定でパスワード保護が有効になっているリンクに使用されます。パスワードは大文字と小文字を区別します。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:981
-#: includes/classes/class-settings.php:1223
+#: includes/classes/class-settings.php:1224
 msgid "Set an expiration date and time for shortlinks"
 msgstr "短縮リンクの有効期限の日付と時間を設定する"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:989
-#: includes/classes/class-settings.php:1231
+#: includes/classes/class-settings.php:1232
 msgid "Select the date when this shortlink should stop working"
 msgstr "この短縮リンクが無効になる日付を選択してください"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1002
-#: includes/classes/class-settings.php:1244
+#: includes/classes/class-settings.php:1245
 msgid "Select the time when the shortlink should expire"
 msgstr "短縮リンクが期限切れになる時間を選択してください"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1021
-#: includes/classes/class-settings.php:1263
+#: includes/classes/class-settings.php:1264
 msgid "Revisions"
 msgstr "リビジョン"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1026
-#: includes/classes/class-settings.php:1268
+#: includes/classes/class-settings.php:1269
 msgid "Revision Link Visibility"
 msgstr "リビジョンリンクの可視性"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1027
-#: includes/classes/class-settings.php:1269
+#: includes/classes/class-settings.php:1270
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
 msgstr "有効にすると、リビジョン短縮リンクは下に設定した動作に基づいて「すべての短縮リンク」テーブルに表示されます。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1029
-#: includes/classes/class-settings.php:1271
+#: includes/classes/class-settings.php:1272
 msgid "When Revision is Created"
 msgstr "リビジョンが作成されたとき"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1031
-#: includes/classes/class-settings.php:1273
+#: includes/classes/class-settings.php:1274
 msgid "When Revision is Created or Link is First Used"
 msgstr "リビジョンが作成されたとき、またはリンクが初めて使用されたとき"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1039
-#: includes/classes/class-settings.php:1281
+#: includes/classes/class-settings.php:1282
 msgid "Show Shortlink in Revision Table"
 msgstr "リビジョンテーブルにショートリンクを表示"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1040
-#: includes/classes/class-settings.php:1282
+#: includes/classes/class-settings.php:1283
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr "PublishPress Revisionsでリビジョンを表示する際にショートリンクの列を表示します。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1046
-#: includes/classes/class-settings.php:1288
+#: includes/classes/class-settings.php:1289
 msgid "Revision Visibility for Visitors"
 msgstr "訪問者のためのリビジョンの可視性"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1047
-#: includes/classes/class-settings.php:1289
+#: includes/classes/class-settings.php:1290
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr "ログアウトした訪問者がショートリンクを介してリビジョンの内容を表示できるようにします。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1048
-#: includes/classes/class-settings.php:1290
+#: includes/classes/class-settings.php:1291
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -2207,17 +2217,17 @@ msgstr ""
 "イレクトする代わりに、ログアウトした訪問者にリビジョンの内容を直接表示します。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1071
-#: includes/classes/class-settings.php:1313
+#: includes/classes/class-settings.php:1314
 msgid "Dummy"
 msgstr "ダミー"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1115
-#: includes/classes/class-settings.php:1357
+#: includes/classes/class-settings.php:1358
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr "まだ構成されている投稿タイプはありません。「投稿タイプを追加」をクリックして始めてください。"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1147
-#: includes/classes/class-settings.php:1389
+#: includes/classes/class-settings.php:1430
 msgid "Add Post Type"
 msgstr "投稿タイプを追加"
 
@@ -2259,19 +2269,19 @@ msgid "View Analytics"
 msgstr "分析を見る"
 
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:278
-#: includes-core/ShortlinksCoreAdmin.php:642
+#: includes-core/ShortlinksCoreAdmin.php:649
 #: includes/classes/class-table-logs.php:289
 msgid "Tablet"
 msgstr "タブレット"
 
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:280
-#: includes-core/ShortlinksCoreAdmin.php:643
+#: includes-core/ShortlinksCoreAdmin.php:650
 #: includes/classes/class-table-logs.php:292
 msgid "Mobile"
 msgstr "モバイル"
 
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:282
-#: includes-core/ShortlinksCoreAdmin.php:641
+#: includes-core/ShortlinksCoreAdmin.php:648
 #: includes/classes/class-table-logs.php:295
 msgid "Desktop"
 msgstr "デスクトップ"
@@ -2312,91 +2322,91 @@ msgid "via %s"
 msgstr "%s 経由"
 
 #: dist/publishpress-shortlinks/includes/functions.php:225
-#: includes/classes/class-meta-boxes.php:374
-#: includes/functions.php:331
+#: includes/classes/class-meta-boxes.php:377
+#: includes/functions.php:342
 msgid "Edit shortlink settings"
 msgstr "ショートリンク設定を編集"
 
 #: dist/publishpress-shortlinks/includes/functions.php:364
 #: dist/publishpress-shortlinks/tinypress.php:306
-#: includes/functions.php:470
-#: tinypress.php:379
+#: includes/functions.php:481
+#: tinypress.php:404
 msgid ""
 "This post is in {status} status. It will become visible to the public on "
 "{date}."
 msgstr "この投稿は{status}の状態です。{date}に一般公開されます。"
 
 #: dist/publishpress-shortlinks/includes/functions.php:389
-#: includes/functions.php:495
+#: includes/functions.php:506
 msgid "Target url not found."
 msgstr "ターゲットURLが見つかりません。"
 
 #: dist/publishpress-shortlinks/includes/functions.php:396
-#: includes/functions.php:502
+#: includes/functions.php:513
 msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr "無効なURLスキームです。http、https、ftp、ftps、およびmailtoのみが許可されています。"
 
 #: dist/publishpress-shortlinks/includes/functions.php:428
-#: includes/functions.php:534
+#: includes/functions.php:545
 msgid "Tiny slug could not created."
 msgstr "小さなスラグを作成できませんでした。"
 
 #: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:12
-#: templates/admin-modal-new-link.php:12
+#: templates/admin-modal-new-link.php:14
 msgid "Shortlink will appear here"
 msgstr "ショートリンクはここに表示されます"
 
 #: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:20
-#: templates/admin-modal-new-link.php:21
+#: templates/admin-modal-new-link.php:23
 msgid "Enter a long URL and make a shortlink"
 msgstr "長いURLを入力してショートリンクを作成"
 
 #: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:25
-#: templates/admin-modal-new-link.php:26
+#: templates/admin-modal-new-link.php:28
 msgid "Long URL"
 msgstr "長いURL"
 
 #: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:38
-#: templates/admin-modal-new-link.php:39
+#: templates/admin-modal-new-link.php:41
 msgid "Create Shortlink"
 msgstr "ショートリンクを作成"
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:49
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:68
-#: templates/admin/analytics.php:95
+#: templates/admin/analytics.php:92
 msgid "Reset Today's Analytics"
 msgstr "今日の分析をリセット"
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:50
-#: templates/admin/analytics.php:97
+#: templates/admin/analytics.php:94
 msgid "Reset Week's Analytics"
 msgstr "今週の分析をリセット"
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:51
-#: templates/admin/analytics.php:99
+#: templates/admin/analytics.php:96
 msgid "Reset Month's Analytics"
 msgstr "今月の分析をリセット"
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:52
-#: templates/admin/analytics.php:101
+#: templates/admin/analytics.php:98
 msgid "Reset Year's Analytics"
 msgstr "今年の分析をリセット"
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:53
-#: templates/admin/analytics.php:105
+#: templates/admin/analytics.php:102
 msgid ""
 "Are you sure you want to reset the analytics for this period? This action "
 "cannot be undone."
 msgstr "この期間の分析をリセットしてもよろしいですか？この操作は元に戻すことができません。"
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:61
-#: templates/admin/analytics.php:121
+#: templates/admin/analytics.php:120
 msgid "Today"
 msgstr "今日"
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:62
-#: includes-core/ShortlinksCoreAdmin.php:259
-#: templates/admin/analytics.php:123
+#: includes-core/ShortlinksCoreAdmin.php:266
+#: templates/admin/analytics.php:122
 msgid "Last 7 Days"
 msgstr "過去7日間"
 
@@ -2409,44 +2419,44 @@ msgid "Last 1 Year"
 msgstr "過去1年"
 
 #: dist/publishpress-shortlinks/templates/admin/footer.php:16
-#: templates/admin/footer.php:16
+#: templates/admin/footer.php:20
 #. translators: %1$s: plugin name, %2$s: star rating icon
 #, php-format
 msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
 msgstr "%1$sが気に入ったら、%2$sの評価をお願いします。ありがとうございます！"
 
 #: dist/publishpress-shortlinks/templates/admin/footer.php:24
-#: templates/admin/footer.php:24
+#: templates/admin/footer.php:29
 msgid "About"
 msgstr "について"
 
 #: dist/publishpress-shortlinks/templates/admin/footer.php:29
-#: templates/admin/footer.php:29
+#: templates/admin/footer.php:34
 msgid "Documentation"
 msgstr "ドキュメンテーション"
 
 #: dist/publishpress-shortlinks/templates/admin/footer.php:33
-#: templates/admin/footer.php:33
+#: templates/admin/footer.php:38
 msgid "Contact"
 msgstr "連絡先"
 
 #: dist/publishpress-shortlinks/templates/admin/qr-code.php:16
-#: templates/admin/qr-code.php:17
+#: templates/admin/qr-code.php:19
 msgid "Download QR Code"
 msgstr "QRコードをダウンロード"
 
 #: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:8
-#: templates/admin/settings/browsers.php:8
+#: templates/admin/settings/browsers.php:10
 msgid "We have developed extensions for the below browsers."
 msgstr "以下のブラウザ用に拡張機能を開発しました。"
 
 #: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:9
-#: templates/admin/settings/browsers.php:9
+#: templates/admin/settings/browsers.php:11
 msgid "Click on your preferred one to Download the extension."
 msgstr "お好みのブラウザをクリックして、拡張機能をダウンロードしてください。"
 
 #: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:16
-#: templates/admin/settings/browsers.php:16
+#: templates/admin/settings/browsers.php:18
 msgid "Download the Extension"
 msgstr "拡張機能をダウンロード"
 
@@ -2466,394 +2476,505 @@ msgid "Request Support"
 msgstr "サポートをリクエスト"
 
 #: dist/publishpress-shortlinks/templates/admin/settings/supports.php:29
-#: templates/admin/settings/supports.php:29
+#: templates/admin/settings/supports.php:30
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "詳細なドキュメンテーションは、プラグインのウェブサイトでも入手できます。"
 
 #: dist/publishpress-shortlinks/templates/admin/settings/supports.php:31
-#: templates/admin/settings/supports.php:31
+#: templates/admin/settings/supports.php:32
 msgid "View Knowledge Base"
 msgstr "ナレッジベースを表示"
 
 #: dist/publishpress-shortlinks/tinypress.php:98
-#: tinypress.php:146
+#: tinypress.php:171
 msgid "This plugin can be deleted."
 msgstr "このプラグインは削除できます。"
 
 #: dist/publishpress-shortlinks/tinypress.php:395
-#: tinypress.php:477
+#: tinypress.php:500
 msgid "Copied."
 msgstr "コピーしました。"
 
 #: dist/publishpress-shortlinks/tinypress.php:397
-#: tinypress.php:479
+#: tinypress.php:502
 msgid ""
 "This setting is inherited from global settings. Choose another option to "
 "override it for this shortlink."
 msgstr "この設定はグローバル設定から引き継がれています。このショートリンクのために上書きする別のオプションを選択してください。"
 
 #: dist/publishpress-shortlinks/tinypress.php:398
-#: tinypress.php:480
+#: tinypress.php:503
 msgid "Working..."
 msgstr "作業中..."
 
-#: includes-core/ShortlinksCoreAdmin.php:151
-#: includes-core/ShortlinksCoreAdmin.php:152
-#: includes-core/ShortlinksCoreAdmin.php:249
+#: includes-core/ShortlinksCoreAdmin.php:118
+#: includes/classes/class-autolink.php:872
+#: includes/classes/class-meta-boxes.php:376
+#: includes/classes/class-table-logs.php:399
+#: includes/functions.php:342
+#: templates/admin/analytics.php:109
+#: templates/admin/footer.php:9
+#: templates/admin/settings/supports.php:25
+#: templates/admin/settings/supports.php:33
+msgid "(opens in a new tab)"
+msgstr "(新しいタブで開く)"
+
+#: includes-core/ShortlinksCoreAdmin.php:153
+#: includes-core/ShortlinksCoreAdmin.php:154
+#: includes-core/ShortlinksCoreAdmin.php:256
 msgid "Reports"
 msgstr "レポート"
 
-#: includes-core/ShortlinksCoreAdmin.php:251
+#: includes-core/ShortlinksCoreAdmin.php:258
 msgid ""
 "Get aggregated insights into your shortlink performance with detailed "
 "analytics reports."
 msgstr "詳細な分析レポートを使用して、ショートリンクのパフォーマンスに関する集計インサイトを取得します。"
 
-#: includes-core/ShortlinksCoreAdmin.php:257
-#: templates/admin/analytics.php:119
+#: includes-core/ShortlinksCoreAdmin.php:264
+#: templates/admin/analytics.php:118
 msgid "Date Range:"
 msgstr "日付範囲："
 
-#: includes-core/ShortlinksCoreAdmin.php:261
-#: templates/admin/analytics.php:152
+#: includes-core/ShortlinksCoreAdmin.php:268
+#: templates/admin/analytics.php:151
 msgid "Apply"
 msgstr "適用"
 
-#: includes-core/ShortlinksCoreAdmin.php:269
-#: templates/admin/analytics.php:166
+#: includes-core/ShortlinksCoreAdmin.php:276
+#: templates/admin/analytics.php:164
 msgid "Total Clicks"
 msgstr "総クリック数"
 
-#: includes-core/ShortlinksCoreAdmin.php:276
-#: templates/admin/analytics.php:174
+#: includes-core/ShortlinksCoreAdmin.php:283
+#: templates/admin/analytics.php:172
 msgid "Unique Visitors"
 msgstr "ユニーク訪問者"
 
-#: includes-core/ShortlinksCoreAdmin.php:283
+#: includes-core/ShortlinksCoreAdmin.php:290
 msgid "Active Links"
 msgstr "アクティブリンク"
 
-#: includes-core/ShortlinksCoreAdmin.php:290
+#: includes-core/ShortlinksCoreAdmin.php:297
 msgid "Avg. Clicks/Link"
 msgstr "リンクあたりの平均クリック数"
 
-#: includes-core/ShortlinksCoreAdmin.php:297
+#: includes-core/ShortlinksCoreAdmin.php:304
 msgid "Top Performing Links"
 msgstr "最もパフォーマンスの高いリンク"
 
-#: includes-core/ShortlinksCoreAdmin.php:301
+#: includes-core/ShortlinksCoreAdmin.php:308
 msgid "Link"
 msgstr "リンク"
 
-#: includes-core/ShortlinksCoreAdmin.php:302
+#: includes-core/ShortlinksCoreAdmin.php:309
 msgid "Clicks"
 msgstr "クリック"
 
-#: includes-core/ShortlinksCoreAdmin.php:313
+#: includes-core/ShortlinksCoreAdmin.php:320
 msgid "Top Locations"
 msgstr "トップロケーション"
 
-#: includes-core/ShortlinksCoreAdmin.php:336
+#: includes-core/ShortlinksCoreAdmin.php:343
 msgid "Enable Activation"
 msgstr "アクティベーションを有効にする"
 
-#: includes-core/ShortlinksCoreAdmin.php:337
+#: includes-core/ShortlinksCoreAdmin.php:344
 msgid "Schedule when this shortlink should start working."
 msgstr "このショートリンクが機能し始める時間をスケジュールします。"
 
-#: includes-core/ShortlinksCoreAdmin.php:338
+#: includes-core/ShortlinksCoreAdmin.php:345
 msgid ""
 "When enabled, the shortlink remains inactive until its activation date and "
 "time."
 msgstr "有効にすると、ショートリンクはそのアクティベーション日と時間まで非アクティブのままです。"
 
-#: includes-core/ShortlinksCoreAdmin.php:346
+#: includes-core/ShortlinksCoreAdmin.php:353
 msgid "Activation Date"
 msgstr "有効化日"
 
-#: includes-core/ShortlinksCoreAdmin.php:347
+#: includes-core/ShortlinksCoreAdmin.php:354
 msgid "Select the date when this shortlink should start working."
 msgstr "このショートリンクが機能し始める日付を選択します。"
 
-#: includes-core/ShortlinksCoreAdmin.php:348
+#: includes-core/ShortlinksCoreAdmin.php:355
 msgid "Leave empty to make the shortlink active immediately."
 msgstr "空白のままにすると、ショートリンクはすぐにアクティブになります。"
 
-#: includes-core/ShortlinksCoreAdmin.php:361
+#: includes-core/ShortlinksCoreAdmin.php:368
 msgid "Activation Time"
 msgstr "有効化時間"
 
-#: includes-core/ShortlinksCoreAdmin.php:362
+#: includes-core/ShortlinksCoreAdmin.php:369
 msgid "Select the time when this shortlink should start working."
 msgstr "このショートリンクが機能し始める時間を選択します。"
 
-#: includes-core/ShortlinksCoreAdmin.php:363
+#: includes-core/ShortlinksCoreAdmin.php:370
 msgid ""
 "Only used when an activation date is set. Leave empty to activate at the "
 "start of that date."
 msgstr "アクティベーション日が設定されている場合のみ使用されます。その日付の開始時にアクティブにするには空白のままにしてください。"
 
-#: includes-core/ShortlinksCoreAdmin.php:381
+#: includes-core/ShortlinksCoreAdmin.php:388
 msgid "Expiration Click Limit"
 msgstr "クリック制限の期限"
 
-#: includes-core/ShortlinksCoreAdmin.php:382
+#: includes-core/ShortlinksCoreAdmin.php:389
 msgid "Expire this shortlink after a number of clicks."
 msgstr "この短縮リンクはクリック数に応じて期限切れにします。"
 
-#: includes-core/ShortlinksCoreAdmin.php:383
+#: includes-core/ShortlinksCoreAdmin.php:390
 msgid "Set to 0 for no click limit."
 msgstr "クリック制限なしの場合は0に設定してください。"
 
-#: includes-core/ShortlinksCoreAdmin.php:396
+#: includes-core/ShortlinksCoreAdmin.php:403
 msgid "Where should visitors be sent when they click an expired link?"
 msgstr "期限切れのリンクをクリックしたとき、訪問者はどこに送られますか？"
 
-#: includes-core/ShortlinksCoreAdmin.php:399
+#: includes-core/ShortlinksCoreAdmin.php:406
 msgid "Custom URL"
 msgstr "カスタムURL"
 
-#: includes-core/ShortlinksCoreAdmin.php:409
+#: includes-core/ShortlinksCoreAdmin.php:416
 msgid ""
 "When a shortlink expires, visitors are redirected to this URL. If left "
 "empty, visitors are redirected to the homepage."
 msgstr "ショートリンクが期限切れになると、訪問者はこのURLにリダイレクトされます。空白のままにすると、訪問者はホームページにリダイレクトされます。"
 
-#: includes-core/ShortlinksCoreAdmin.php:418
+#: includes-core/ShortlinksCoreAdmin.php:425
 msgid "Display a custom notice page before redirecting expired links."
 msgstr "期限切れのリンクをリダイレクトする前にカスタム通知ページを表示します。"
 
-#: includes-core/ShortlinksCoreAdmin.php:431
+#: includes-core/ShortlinksCoreAdmin.php:438
 msgid "Expiration Notice Title"
 msgstr "期限切れ通知タイトル"
 
-#: includes-core/ShortlinksCoreAdmin.php:432
+#: includes-core/ShortlinksCoreAdmin.php:439
 msgid "The heading of the expiration notice page"
 msgstr "期限切れ通知ページの見出し"
 
-#: includes-core/ShortlinksCoreAdmin.php:435
-#: includes-core/ShortlinksCoreAdmin.php:457
-#: includes-core/ShortlinksCoreAdmin.php:483
+#: includes-core/ShortlinksCoreAdmin.php:442
+#: includes-core/ShortlinksCoreAdmin.php:464
+#: includes-core/ShortlinksCoreAdmin.php:490
 msgid "Custom text"
 msgstr "カスタムテキスト"
 
-#: includes-core/ShortlinksCoreAdmin.php:446
+#: includes-core/ShortlinksCoreAdmin.php:453
 msgid "This is the main heading visitors see when they click an expired link."
 msgstr "これは、訪問者が期限切れのリンクをクリックしたときに見るメインの見出しです。"
 
-#: includes-core/ShortlinksCoreAdmin.php:453
+#: includes-core/ShortlinksCoreAdmin.php:460
 msgid "Expiration Notice Message"
 msgstr "期限切れ通知メッセージ"
 
-#: includes-core/ShortlinksCoreAdmin.php:454
+#: includes-core/ShortlinksCoreAdmin.php:461
 msgid "The message shown to visitors on the expiration notice page"
 msgstr "期限切れ通知ページで訪問者に表示されるメッセージ"
 
-#: includes-core/ShortlinksCoreAdmin.php:468
+#: includes-core/ShortlinksCoreAdmin.php:475
 msgid ""
 "This is the body text explaining what happened and when visitors will be "
 "redirected."
 msgstr "これは、何が起こったかと訪問者がいつリダイレクトされるかを説明する本文です。"
 
-#: includes-core/ShortlinksCoreAdmin.php:479
+#: includes-core/ShortlinksCoreAdmin.php:486
 msgid "Expiration Notice Link Text"
 msgstr "有効期限通知リンクテキスト"
 
-#: includes-core/ShortlinksCoreAdmin.php:480
+#: includes-core/ShortlinksCoreAdmin.php:487
 msgid "The text for the button visitors click to continue"
 msgstr "訪問者が続行するためにクリックするボタンのテキスト"
 
-#: includes-core/ShortlinksCoreAdmin.php:494
+#: includes-core/ShortlinksCoreAdmin.php:501
 msgid ""
 "This is the text displayed on the clickable button at the bottom of the "
 "notice page."
 msgstr "これは、通知ページの下部にあるクリック可能なボタンに表示されるテキストです。"
 
-#: includes-core/ShortlinksCoreAdmin.php:541
+#: includes-core/ShortlinksCoreAdmin.php:548
 msgid "Enable Dynamic Redirects"
 msgstr "動的リダイレクトを有効にする"
 
-#: includes-core/ShortlinksCoreAdmin.php:542
+#: includes-core/ShortlinksCoreAdmin.php:549
 msgid "Send visitors to different destinations when they match an enabled rule."
 msgstr "有効なルールに一致する場合、訪問者を異なる宛先に送ります。"
 
-#: includes-core/ShortlinksCoreAdmin.php:554
+#: includes-core/ShortlinksCoreAdmin.php:561
 msgid "Fallback Destination"
 msgstr "フォールバック先"
 
-#: includes-core/ShortlinksCoreAdmin.php:555
+#: includes-core/ShortlinksCoreAdmin.php:562
 msgid "The Target URL in the General tab is used whenever no enabled rule matches."
 msgstr "一般タブのターゲットURLは、有効なルールが一致しない場合に使用されます。"
 
-#: includes-core/ShortlinksCoreAdmin.php:562
+#: includes-core/ShortlinksCoreAdmin.php:569
 msgid "Redirect Rules"
 msgstr "リダイレクトルール"
 
-#: includes-core/ShortlinksCoreAdmin.php:563
+#: includes-core/ShortlinksCoreAdmin.php:570
 msgid "Rules are checked from top to bottom. The first matching rule is used."
 msgstr "ルールは上から下にチェックされます。最初に一致したルールが使用されます。"
 
-#: includes-core/ShortlinksCoreAdmin.php:564
+#: includes-core/ShortlinksCoreAdmin.php:571
 msgid "Add Rule"
 msgstr "ルールを追加"
 
-#: includes-core/ShortlinksCoreAdmin.php:566
+#: includes-core/ShortlinksCoreAdmin.php:573
 msgid "A shortlink can contain up to 100 redirect rules."
 msgstr "ショートリンクには、最大100のリダイレクトルールを含めることができます。"
 
-#: includes-core/ShortlinksCoreAdmin.php:570
-#: includes-core/ShortlinksCoreAdmin.php:596
+#: includes-core/ShortlinksCoreAdmin.php:577
+#: includes-core/ShortlinksCoreAdmin.php:603
 msgid "Redirect Rule"
 msgstr "リダイレクトルール"
 
-#: includes-core/ShortlinksCoreAdmin.php:584
+#: includes-core/ShortlinksCoreAdmin.php:591
 msgid "Rule Status"
 msgstr "ルールのステータス"
 
-#: includes-core/ShortlinksCoreAdmin.php:594
+#: includes-core/ShortlinksCoreAdmin.php:601
 msgid "Rule Name"
 msgstr "ルール名"
 
-#: includes-core/ShortlinksCoreAdmin.php:595
+#: includes-core/ShortlinksCoreAdmin.php:602
 msgid "Example: Redirect Rule 1"
 msgstr "例: リダイレクトルール1"
 
-#: includes-core/ShortlinksCoreAdmin.php:602
+#: includes-core/ShortlinksCoreAdmin.php:609
 msgid "Destination URL"
 msgstr "宛先URL"
 
-#: includes-core/ShortlinksCoreAdmin.php:604
+#: includes-core/ShortlinksCoreAdmin.php:611
 msgid ""
 "Use an HTTP or HTTPS URL. Empty, invalid, and self-referencing rules are "
 "saved as disabled."
 msgstr "HTTPまたはHTTPSのURLを使用してください。空の無効な自己参照ルールは、無効として保存されます。"
 
-#: includes-core/ShortlinksCoreAdmin.php:611
+#: includes-core/ShortlinksCoreAdmin.php:618
 msgid "Countries"
 msgstr "国"
 
-#: includes-core/ShortlinksCoreAdmin.php:613
+#: includes-core/ShortlinksCoreAdmin.php:620
 msgid "Any country"
 msgstr "任意の国"
 
-#: includes-core/ShortlinksCoreAdmin.php:614
+#: includes-core/ShortlinksCoreAdmin.php:621
 msgid "Only selected countries"
 msgstr "選択された国のみ"
 
-#: includes-core/ShortlinksCoreAdmin.php:616
+#: includes-core/ShortlinksCoreAdmin.php:623
 msgid "All except selected countries"
 msgstr "選択された国を除くすべて"
 
-#: includes-core/ShortlinksCoreAdmin.php:624
+#: includes-core/ShortlinksCoreAdmin.php:631
 msgid "Selected Countries"
 msgstr "選択した国"
 
-#: includes-core/ShortlinksCoreAdmin.php:626
+#: includes-core/ShortlinksCoreAdmin.php:633
 msgid "United Kingdom"
 msgstr "イギリス"
 
-#: includes-core/ShortlinksCoreAdmin.php:627
+#: includes-core/ShortlinksCoreAdmin.php:634
 msgid "Nigeria"
 msgstr "ナイジェリア"
 
-#: includes-core/ShortlinksCoreAdmin.php:628
+#: includes-core/ShortlinksCoreAdmin.php:635
 msgid "United States"
 msgstr "アメリカ合衆国"
 
-#: includes-core/ShortlinksCoreAdmin.php:632
+#: includes-core/ShortlinksCoreAdmin.php:639
 msgid "Select countries"
 msgstr "国を選択"
 
-#: includes-core/ShortlinksCoreAdmin.php:639
+#: includes-core/ShortlinksCoreAdmin.php:646
 msgid "Devices"
 msgstr "デバイス"
 
-#: includes-core/ShortlinksCoreAdmin.php:646
+#: includes-core/ShortlinksCoreAdmin.php:653
 msgid "Leave every option unchecked to match any device."
 msgstr "すべてのオプションのチェックを外して、任意のデバイスと一致させます。"
 
-#: includes-core/ShortlinksCoreAdmin.php:653
+#: includes-core/ShortlinksCoreAdmin.php:660
 msgid "Referrer"
 msgstr "リファラー"
 
-#: includes-core/ShortlinksCoreAdmin.php:655
+#: includes-core/ShortlinksCoreAdmin.php:662
 msgid "Any referrer"
 msgstr "任意のリファラー"
 
-#: includes-core/ShortlinksCoreAdmin.php:656
+#: includes-core/ShortlinksCoreAdmin.php:663
 msgid "Direct or unknown only"
 msgstr "直接または不明のみ"
 
-#: includes-core/ShortlinksCoreAdmin.php:657
+#: includes-core/ShortlinksCoreAdmin.php:664
 msgid "Only selected domains"
 msgstr "選択したドメインのみ"
 
-#: includes-core/ShortlinksCoreAdmin.php:659
+#: includes-core/ShortlinksCoreAdmin.php:666
 msgid "All except selected domains"
 msgstr "選択したドメイン以外すべて"
 
-#: includes-core/ShortlinksCoreAdmin.php:667
+#: includes-core/ShortlinksCoreAdmin.php:674
 msgid "Referrer Domains"
 msgstr "リファラードメイン"
 
-#: includes-core/ShortlinksCoreAdmin.php:669
+#: includes-core/ShortlinksCoreAdmin.php:676
 msgid ""
 "Enter domains separated by commas or new lines. Subdomains also match their "
 "parent domain."
 msgstr "カンマまたは改行で区切ったドメインを入力してください。サブドメインも親ドメインと一致します。"
 
-#: includes/classes/class-duplicate-link.php:42
-#: includes/classes/class-meta-boxes.php:373
-msgid "Copy"
-msgstr "コピー"
+#: includes/classes/class-autolist-ajax.php:301
+#: includes/classes/class-settings.php:1374
+#. translators: %d: row number
+#, fuzzy, php-format
+msgid "Post type (row %d)"
+msgstr "Post type (row %d)"
 
-#: includes/classes/class-duplicate-link.php:63
-msgid "You are not allowed to copy this shortlink."
-msgstr "このショートリンクをコピーすることはできません。"
+#: includes/classes/class-autolist-ajax.php:303
+#: includes/classes/class-settings.php:1385
+#. translators: %d: row number
+#, php-format
+msgid "When to list shortlinks (row %d)"
+msgstr "短縮リンクをリストするタイミング (row %d)"
 
-#: includes/classes/class-duplicate-link.php:64
-#: includes/classes/class-duplicate-link.php:74
-#: includes/classes/class-duplicate-link.php:98
-msgid "Shortlink copy failed"
-msgstr "ショートリンクのコピーに失敗しました"
+#: includes/classes/class-autolist-ajax.php:305
+#: includes/classes/class-settings.php:1402
+#. translators: %d: row number
+#, php-format
+msgid "Move row %d up"
+msgstr "行 %d を上に移動"
 
-#: includes/classes/class-duplicate-link.php:73
+#: includes/classes/class-autolist-ajax.php:307
+#: includes/classes/class-settings.php:1411
+#. translators: %d: row number
+#, php-format
+msgid "Move row %d down"
+msgstr "行 %d を下に移動"
+
+#: includes/classes/class-autolist-ajax.php:309
+#: includes/classes/class-settings.php:1420
+#. translators: %d: row number
+#, php-format
+msgid "Remove row %d"
+msgstr "行 %d を削除"
+
+#: includes/classes/class-autolist-ajax.php:311
+#. translators: 1: row's new position, 2: total number of rows
+#, php-format
+msgid "Row moved to position %1$d of %2$d."
+msgstr "行が %2$d の %1$d に移動しました。"
+
+#: includes/classes/class-autolist-ajax.php:312
+msgid "Row removed."
+msgstr "行が削除されました。"
+
+#: includes/classes/class-columns-link.php:91
+#: includes/classes/class-columns-link.php:129
+#. translators: %s: shortlink URL
+#, php-format
+msgid "Copy shortlink %s"
+msgstr "短縮リンク %s をコピー"
+
+#: includes/classes/class-columns-link.php:305
+msgid "— No Change —"
+msgstr "— 変更なし —"
+
+#: includes/classes/class-columns-link.php:323
+msgid "Short String"
+msgstr "短い文字列"
+
+#: includes/classes/class-columns-link.php:373
+msgid "Quick Edit"
+msgstr "クイック編集"
+
+#: includes/classes/class-columns-link.php:438
+msgid "Use an http, https, ftp, ftps, or mailto URL."
+msgstr "http、https、ftp、ftps、またはmailtoのURLを使用してください。"
+
+#: includes/classes/class-duplicate-link.php:45
+msgid "Duplicate"
+msgstr "複製"
+
+#: includes/classes/class-duplicate-link.php:66
+msgid "You are not allowed to duplicate this shortlink."
+msgstr "この短縮リンクを複製することは許可されていません。"
+
+#: includes/classes/class-duplicate-link.php:67
+msgid "Shortlink duplication failed"
+msgstr "短縮リンクの複製に失敗しました"
+
+#: includes/classes/class-duplicate-link.php:88
+msgid "Shortlink duplication denied."
+msgstr "短縮リンクの複製が拒否されました。"
+
+#: includes/classes/class-duplicate-link.php:93
 msgid "The original shortlink could not be found."
 msgstr "元のショートリンクが見つかりませんでした。"
 
-#: includes/classes/class-duplicate-link.php:85
+#: includes/classes/class-duplicate-link.php:102
 #. translators: %s: original shortlink title.
 #, php-format
-msgid "Copy of %s"
-msgstr "%sのコピー"
+msgid "Duplicate of %s"
+msgstr "%s の複製"
 
-#: includes/classes/class-duplicate-link.php:179
-msgid "Shortlink copied as a draft. Review it, then publish when ready."
-msgstr "ショートリンクがドラフトとしてコピーされました。確認して、準備ができたら公開してください。"
+#: includes/classes/class-duplicate-link.php:118
+msgid "The draft exists but metadata permissions prevented duplication."
+msgstr "ドラフトは存在しますが、メタデータの権限が複製を防ぎました。"
 
-#: includes/classes/class-favorite-links.php:41
+#: includes/classes/class-duplicate-link.php:125
+msgid "The draft exists but duplication was not fully confirmed."
+msgstr "ドラフトは存在しますが、複製は完全に確認されませんでした。"
+
+#: includes/classes/class-duplicate-link.php:210
+msgid "Shortlink duplicated as a draft. Review it, then publish when ready."
+msgstr "短縮リンクはドラフトとして複製されました。確認して、準備ができたら公開してください。"
+
+#: includes/classes/class-favorite-links.php:44
 msgid "Remove from favorites"
 msgstr "お気に入りから削除"
 
-#: includes/classes/class-favorite-links.php:41
+#: includes/classes/class-favorite-links.php:44
 msgid "Add to favorites"
 msgstr "お気に入りに追加"
 
-#: includes/classes/class-favorite-links.php:92
+#: includes/classes/class-favorite-links.php:95
 msgid "Favorites"
 msgstr "お気に入り"
 
-#: includes/classes/class-favorite-links.php:164
+#: includes/classes/class-favorite-links.php:167
 msgid "You are not allowed to favorite this shortlink."
 msgstr "このショートリンクをお気に入りにすることはできません。"
 
-#: includes/classes/class-favorite-links.php:165
+#: includes/classes/class-favorite-links.php:168
 msgid "Favorite could not be updated"
 msgstr "お気に入りを更新できませんでした"
 
-#: includes/classes/class-gutenberg-shortlink.php:165
+#: includes/classes/class-functions.php:170
+msgid "Analytics could not be read."
+msgstr "分析情報を読み取れませんでした。"
+
+#: includes/classes/class-gutenberg-shortlink.php:163
 msgid "Search shortlinks"
 msgstr "ショートリンクを検索"
+
+#: includes/classes/class-gutenberg-shortlink.php:181
+msgid "Loading"
+msgstr "読み込み中"
+
+#: includes/classes/class-gutenberg-shortlink.php:182
+msgid "Shortlink search results"
+msgstr "短縮リンク検索結果"
+
+#: includes/classes/class-gutenberg-shortlink.php:183
+msgid "1 shortlink found. Use the up and down arrow keys to choose."
+msgstr "1 件の短縮リンクが見つかりました。上矢印キーと下矢印キーを使って選択してください。"
+
+#: includes/classes/class-gutenberg-shortlink.php:185
+#. translators: %d: number of shortlinks found
+#, php-format
+msgid "%d shortlinks found. Use the up and down arrow keys to choose."
+msgstr "%d 件の短縮リンクが見つかりました。上矢印キーと下矢印キーを使って選択してください。"
 
 #: includes/classes/class-hooks.php:189
 #: includes/classes/class-hooks.php:201
@@ -2880,24 +3001,32 @@ msgstr "インポートの進行状況"
 msgid "PublishPress Shortlinks slug."
 msgstr "PublishPressショートリンクスラグ。"
 
+#: includes/classes/class-meta-boxes.php:374
+msgid "Copy"
+msgstr "コピー"
+
 #: includes/classes/class-meta-boxes.php:375
+msgid "Copy failed"
+msgstr "コピーに失敗しました"
+
+#: includes/classes/class-meta-boxes.php:378
 msgid "Enter a shortlink slug to create a shortlink URL."
 msgstr "ショートリンクのスラグを入力して、ショートリンクのURLを作成します。"
 
-#: includes/classes/class-meta-boxes.php:377
+#: includes/classes/class-meta-boxes.php:380
 msgid "Shortlink Slug"
 msgstr "ショートリンクのスラグ"
 
-#: includes/classes/class-meta-boxes.php:378
+#: includes/classes/class-meta-boxes.php:381
 msgid "Shortlink URL"
 msgstr "ショートリンクのURL"
 
-#: includes/classes/class-meta-boxes.php:1066
+#: includes/classes/class-meta-boxes.php:1057
 msgid "Dynamic Redirects"
 msgstr "動的リダイレクト"
 
-#: includes/classes/class-meta-boxes.php:1185
-#: includes/classes/class-settings.php:1217
+#: includes/classes/class-meta-boxes.php:1176
+#: includes/classes/class-settings.php:1218
 msgid "Scheduling"
 msgstr "スケジューリング"
 
@@ -3017,7 +3146,6 @@ msgid "Remind me later"
 msgstr "後でリマインド"
 
 #: includes/classes/class-migration.php:297
-#: tinypress.php:490
 msgid "Dismiss"
 msgstr "閉じる"
 
@@ -3085,44 +3213,58 @@ msgstr "ショートリンクスラッグがありません。"
 msgid "Could not create shortlink."
 msgstr "ショートリンクを作成できませんでした。"
 
-#: includes/classes/class-redirection.php:1038
-#: includes/classes/class-redirection.php:1624
+#: includes/classes/class-redirection.php:1019
+#: includes/classes/class-redirection.php:1659
 #: includes/classes/class-table-logs.php:387
 msgid "Default Target"
 msgstr "デフォルトターゲット"
 
-#: includes/classes/class-settings.php:66
+#: includes/classes/class-redirection.php:1489
+#. translators: %s: number of seconds
+#, php-format
+msgid "Redirecting automatically in %s seconds."
+msgstr "%s 秒後に自動的にリダイレクトします。"
+
+#: includes/classes/class-redirection.php:1492
+msgid "Stop redirect"
+msgstr "リダイレクトを停止"
+
+#: includes/classes/class-redirection.php:1525
+msgid "Automatic redirect stopped."
+msgstr "自動リダイレクトが停止しました。"
+
+#: includes/classes/class-settings.php:67
 msgid "Settings sections"
 msgstr "設定セクション"
 
-#: includes/classes/class-settings.php:67
+#: includes/classes/class-settings.php:68
 msgid "Search settings"
 msgstr "検索設定"
 
-#: includes/classes/class-settings.php:514
-#: includes/classes/class-settings.php:563
+#: includes/classes/class-settings.php:515
+#: includes/classes/class-settings.php:564
 msgid "Search post types"
 msgstr "投稿タイプを検索"
 
-#: includes/classes/class-settings.php:515
-#: includes/classes/class-settings.php:564
+#: includes/classes/class-settings.php:516
+#: includes/classes/class-settings.php:565
 msgid "Filter post types..."
 msgstr "投稿タイプをフィルタ..."
 
-#: includes/classes/class-settings.php:532
-#: includes/classes/class-settings.php:581
+#: includes/classes/class-settings.php:533
+#: includes/classes/class-settings.php:582
 msgid "No post types match your search."
 msgstr "検索に一致する投稿タイプはありません。"
 
-#: includes/classes/class-settings.php:556
+#: includes/classes/class-settings.php:557
 msgid "No data available."
 msgstr "利用可能なデータはありません。"
 
-#: includes/classes/class-settings.php:949
+#: includes/classes/class-settings.php:950
 msgid "Select which post types will have shortlinks available."
 msgstr "ショートリンクが利用可能な投稿タイプを選択してください。"
 
-#: includes/classes/class-settings.php:950
+#: includes/classes/class-settings.php:951
 msgid "Shortlinks metabox and column will only appear on selected post types."
 msgstr "ショートリンクメタボックスと列は、選択した投稿タイプにのみ表示されます。"
 
@@ -3145,140 +3287,624 @@ msgstr "動的リダイレクト"
 msgid "Redirected by %s"
 msgstr "%sによってリダイレクトされました"
 
-#: includes/classes/class-url-metadata.php:57
-msgid "Could not fetch target URL details."
-msgstr "ターゲットURLの詳細を取得できませんでした。"
+#: includes/functions.php:301
+msgid "Copy shortlink"
+msgstr "短縮リンクをコピー"
 
-#: templates/admin-modal-new-link.php:20
+#: includes/functions.php:318
+msgid "Shortlink slug"
+msgstr "短縮リンクスラッグ"
+
+#: includes/functions.php:321
+#: includes/functions.php:324
+msgid "Enter a shortlink slug."
+msgstr "短縮リンクスラッグを入力してください。"
+
+#: includes/functions.php:573
+msgid "The Shortlink exists but metadata authorization prevented setup."
+msgstr "短縮リンクは存在しますが、メタデータの認証により設定が防止されました。"
+
+#: includes/Mcp/Actions.php:22
+msgid "Find Shortlink categories"
+msgstr "短縮リンクカテゴリを見つける"
+
+#: includes/Mcp/Actions.php:22
+msgid "List native link categories with their current revision."
+msgstr "現在の改訂版を持つネイティブリンクカテゴリをリストします。"
+
+#: includes/Mcp/Actions.php:23
+msgid "Create or update a Shortlink category"
+msgstr "短縮リンクカテゴリを作成または更新"
+
+#: includes/Mcp/Actions.php:23
+msgid ""
+"Use native taxonomy controls and permissions. Read expected_hash from "
+"list-categories before editing; omitted fields are preserved."
+msgstr ""
+"ネイティブのタクソノミーコントロールと権限を使用します。編集前に list-categories から expected_hash "
+"を読み取ってください。省略されたフィールドは保持されます。"
+
+#: includes/Mcp/Actions.php:24
+msgid "Set Shortlink categories"
+msgstr "短縮リンクカテゴリを設定"
+
+#: includes/Mcp/Actions.php:24
+msgid ""
+"Replace native category assignments with an explicit integer list. [] "
+"clears assignments; use the current get-link revision."
+msgstr "ネイティブカテゴリの割り当てを明示的な整数リストで置き換えます。[] は割り当てをクリアします。現在の get-link 改訂版を使用してください。"
+
+#: includes/Mcp/Actions.php:25
+msgid "Set my Shortlink favorite"
+msgstr "ショートリンクのお気に入りを設定"
+
+#: includes/Mcp/Actions.php:25
+msgid ""
+"Set favorite true or false for the connected user only. Read the current "
+"get-link revision first."
+msgstr ""
+"接続されたユーザーのみのために、お気に入りを true または false に設定します。最初に現在の get-link "
+"リビジョンを読み取ってください。"
+
+#: includes/Mcp/Actions.php:27
+msgid "Update multiple Shortlinks"
+msgstr "複数のショートリンクを更新"
+
+#: includes/Mcp/Actions.php:27
+msgid ""
+"Preflight up to 20 existing links before any writes. Linked source targets "
+"must not overlap. Each item uses the original get-link revision. Native "
+"writes are not transactional: inspect complete, applied_ids and failed_id. "
+"dry_run previews all items."
+msgstr ""
+"書き込み前に最大 20 の既存リンクを事前確認します。リンクされたソースターゲットは重複してはいけません。各項目は元の get-link "
+"リビジョンを使用します。ネイティブ書き込みはトランザクションではありません: 完了、applied_ids、および failed_id "
+"を確認してください。dry_run はすべての項目をプレビューします。"
+
+#: includes/Mcp/Actions.php:28
+msgid "Delete a Shortlink category"
+msgstr "ショートリンクカテゴリを削除"
+
+#: includes/Mcp/Actions.php:28
+msgid ""
+"Delete a native category without deleting its links. Authorize every "
+"affected link and child category; read the current category revision first."
+msgstr ""
+"リンクを削除せずにネイティブカテゴリを削除します。影響を受けるすべてのリンクと子カテゴリを承認してください; "
+"まず現在のカテゴリリビジョンを読み取ってください。"
+
+#: includes/Mcp/Actions.php:29
+msgid "Read Shortlink click counts"
+msgstr "ショートリンクのクリック数を読み取る"
+
+#: includes/Mcp/Actions.php:29
+msgid ""
+"Read native daily chart counts and reset revision for one readable link. "
+"Visitor IPs, user identifiers, referrers and raw request logs are excluded."
+msgstr ""
+"1 つの読み取り可能なリンクのネイティブ日次チャートのカウントとリビジョンをリセットします。訪問者の "
+"IP、ユーザー識別子、リファラー、及び生リクエストログは除外されます。"
+
+#: includes/Mcp/Actions.php:30
+msgid "Reset Shortlink chart counts"
+msgstr "ショートリンクチャートのカウントをリセット"
+
+#: includes/Mcp/Actions.php:30
+msgid ""
+"Mark this link analytics cleared through the native reset service. Audit "
+"logs remain. Requires current analytics expected_hash, analytics and object "
+"edit permissions. dry_run previews."
+msgstr ""
+"このリンクの分析がネイティブリセットサービスを通じてクリアされたことをマークします。監査ログは残ります。現在の分析 "
+"expected_hash、分析、及びオブジェクト編集権限が必要です。dry_run はプレビューします。"
+
+#: includes/Mcp/Actions.php:32
+msgid "Read saved Shortlink health"
+msgstr "保存されたショートリンクのヘルスを読み取る"
+
+#: includes/Mcp/Actions.php:32
+msgid ""
+"Read the native Pro health status and response code for one readable link. "
+"Does not perform HTTP requests."
+msgstr "1 つの読み取り可能なリンクのネイティブ Pro ヘルスステータスとレスポンスコードを読み取ります。HTTP リクエストは実行されません。"
+
+#: includes/Mcp/Actions.php:33
+msgid "Check Shortlink health"
+msgstr "ショートリンクのヘルスをチェック"
+
+#: includes/Mcp/Actions.php:33
+msgid ""
+"Run the active native Pro link checker for an editable link and store its "
+"result. Native URL safety and type settings apply. Requires current "
+"get-link expected_hash. dry_run does not request destinations."
+msgstr ""
+"編集可能なリンクのためにアクティブなネイティブ Pro リンクチェッカーを実行し、その結果を保存します。ネイティブの URL "
+"安全性とタイプ設定が適用されます。現在の get-link expected_hash が必要です。dry_run は宛先をリクエストしません。"
+
+#: includes/Mcp/Actions.php:35
+msgid "Read a post Shortlink"
+msgstr "投稿ショートリンクを読み取る"
+
+#: includes/Mcp/Actions.php:35
+msgid ""
+"Read the native editor Short String for an enabled post type without "
+"generating a URL or changing metadata."
+msgstr "URL を生成したりメタデータを変更したりすることなく、有効な投稿タイプのためのネイティブエディタショートストリングを読み取ります。"
+
+#: includes/Mcp/Actions.php:36
+msgid "Set a post Short String"
+msgstr "投稿ショートストリングを設定する"
+
+#: includes/Mcp/Actions.php:36
+msgid ""
+"Update an enabled post native Short String, preserving other metabox "
+"values. All auto-listed mirror links need permission and are included in "
+"the revision. dry_run previews."
+msgstr ""
+"他のメタボックスの値を保持しながら、有効な投稿のネイティブショートストリングを更新します。すべての自動リストされたミラーリンクは権限が必要で、リビジョン"
+"に含まれます。dry_run はプレビューします。"
+
+#: includes/Mcp/Actions.php:37
+msgid "Set Shortlink publication status"
+msgstr "ショートリンクの公開ステータスを設定"
+
+#: includes/Mcp/Actions.php:37
+msgid ""
+"Change a native link to publish, draft, pending or private with the current "
+"revision and native publication permissions. Source-linked records retain "
+"their native source lifecycle."
+msgstr ""
+"現在のリビジョンとネイティブの公開権限を使用して、ネイティブリンクを公開、下書き、保留、または非公開に変更します。ソースリンクされたレコードは、そのネイ"
+"ティブソースライフサイクルを保持します。"
+
+#: includes/Mcp/Actions.php:38
+msgid "Duplicate a Shortlink to a draft"
+msgstr "ショートリンクを下書きに複製"
+
+#: includes/Mcp/Actions.php:38
+msgid ""
+"Use the native Duplicate service with a new Short String and the connected "
+"user as author. Requires source edit/read, category assignment and create "
+"permissions. No password values are returned. dry_run previews without "
+"creating a draft."
+msgstr ""
+"ネイティブの複製サービスを使用し、新しいショートストリングと接続されたユーザーを著者として使用します。ソースの編集/"
+"読み取り、カテゴリの割り当て、および作成権限が必要です。パスワードの値は返されません。dry_run は下書きを作成せずにプレビューします。"
+
+#: includes/Mcp/Actions.php:40
+msgid "Clear the native autolink cache"
+msgstr "ネイティブオートリンクキャッシュをクリア"
+
+#: includes/Mcp/Actions.php:40
+msgid ""
+"Invalidate native Pro autolink rules without changing links or settings. "
+"Requires native manage_options and Shortlinks settings permission. dry_run "
+"previews."
+msgstr ""
+"リンクや設定を変更せずにネイティブ Pro オートリンクルールを無効にします。ネイティブの manage_options "
+"およびショートリンク設定権限が必要です。dry_run はプレビューします。"
+
+#: includes/Mcp/Actions.php:46
+msgid "Read a Shortlinks report summary"
+msgstr "ショートリンクのレポートサマリーを読み取る"
+
+#: includes/Mcp/Actions.php:46
+msgid ""
+"Read native Pro totals, distinct visitor counts and averages for up to 20 "
+"explicit readable links between start_date and end_date (YYYY-MM-DD). No "
+"IPs, account IDs, referrers or request URLs are returned. Native report "
+"totals include retained logs after chart resets."
+msgstr ""
+"start_date から end_date (YYYY-MM-DD) までの最大 20 の明示的な読み取り可能リンクのネイティブ Pro "
+"合計、異なる訪問者数、及び平均を読み取ります。IP、アカウント ID、リファラー、またはリクエスト URL "
+"は返されません。ネイティブレポートの合計には、チャートリセット後に保持されたログが含まれます。"
+
+#: includes/Mcp/Actions.php:50
+msgid "Read Shortlinks settings"
+msgstr "ショートリンク設定を読み取る"
+
+#: includes/Mcp/Actions.php:50
+msgid ""
+"Discover exact native settings, choices and defaults. Passwords, license "
+"data and unsupported native controls are excluded. Booleans are JSON "
+"booleans, IDs integers, selections strings and lists arrays."
+msgstr ""
+"正確なネイティブの設定、選択肢、およびデフォルトを発見します。パスワード、ライセンスデータ、およびサポートされていないネイティブコントロールは除外されま"
+"す。ブール値は JSON ブール値、ID は整数、選択は文字列、リストは配列です。"
+
+#: includes/Mcp/Actions.php:51
+msgid "Update Shortlinks settings"
+msgstr "ショートリンク設定を更新"
+
+#: includes/Mcp/Actions.php:51
+msgid ""
+"Patch discovered fields using their exact schemas and current "
+"expected_hash. Omitted settings and secrets remain unchanged. dry_run "
+"previews native sanitized values."
+msgstr ""
+"発見されたフィールドをその正確なスキーマと現在の expected_hash "
+"を使用してパッチします。省略された設定と秘密は変更されません。dry_run はネイティブのサニタイズされた値をプレビューします。"
+
+#: includes/Mcp/Actions.php:52
+msgid "Find Shortlinks"
+msgstr "ショートリンクを見つける"
+
+#: includes/Mcp/Actions.php:52
+msgid ""
+"List readable Shortlinks by title or status. Returns IDs and labels only; "
+"use get-link to inspect configuration."
+msgstr ""
+"タイトルまたはステータスで読み取り可能なショートリンクをリストします。ID とラベルのみが返されます; 設定を確認するには get-link "
+"を使用してください。"
+
+#: includes/Mcp/Actions.php:53
+msgid "Read a Shortlink"
+msgstr "ショートリンクを読み取る"
+
+#: includes/Mcp/Actions.php:53
+msgid ""
+"Read native per-link fields and current expected_hash; omit id to discover "
+"defaults. No link passwords, raw visitor IPs or user-agent logs are "
+"returned."
+msgstr ""
+"ネイティブのリンクごとのフィールドと現在の expected_hash を読み取ります; デフォルトを発見するために id "
+"を省略します。リンクパスワード、生訪問者 IP、またはユーザーエージェントログは返されません。"
+
+#: includes/Mcp/Actions.php:54
+msgid "Create or update a Shortlink"
+msgstr "ショートリンクを作成または更新"
+
+#: includes/Mcp/Actions.php:54
+msgid ""
+"Create a published Shortlink with target_url and label, or patch id with "
+"current expected_hash. Native redirect, expiration, autolink and active Pro "
+"controls use discovered fields. All related source posts must be editable. "
+"dry_run previews. No destination URLs are fetched."
+msgstr ""
+"target_url とラベルを持つ公開されたショートリンクを作成するか、現在の expected_hash で id "
+"をパッチします。ネイティブのリダイレクト、有効期限、オートリンク、およびアクティブな Pro "
+"コントロールは発見されたフィールドを使用します。すべての関連ソース投稿は編集可能でなければなりません。dry_run はプレビューします。宛先 URL "
+"は取得されません。"
+
+#: includes/Mcp/Actions.php:55
+msgid "Trash, restore or delete a Shortlink"
+msgstr "ショートリンクを廃棄、復元、または削除"
+
+#: includes/Mcp/Actions.php:55
+msgid ""
+"Native Shortlink lifecycle; permanent deletion requires prior trash. "
+"Requires current expected_hash and native deletion permission. dry_run "
+"previews."
+msgstr ""
+"ネイティブショートリンクのライフサイクル; 永続的な削除には事前の廃棄が必要です。現在の expected_hash "
+"とネイティブ削除権限が必要です。dry_run はプレビューします。"
+
+#: includes/Mcp/Actions.php:140
+msgid "Narrow the search or use native administration for more than 1,000 links."
+msgstr "検索を絞り込むか、1,000 を超えるリンクのためにネイティブ管理を使用します。"
+
+#: includes/Mcp/Actions.php:173
+msgid "Revision destinations and routing follow the native revision workflow."
+msgstr "リビジョンの宛先とルーティングはネイティブのリビジョンワークフローに従います。"
+
+#: includes/Mcp/Actions.php:176
+msgid "Supply target_url for a new Shortlink."
+msgstr "新しいショートリンクのために target_url を提供してください。"
+
+#: includes/Mcp/Actions.php:187
+msgid "Use a nonempty short path with letters, numbers, dashes or underscores."
+msgstr "文字、数字、ダッシュ、またはアンダースコアを含む非空のショートパスを使用してください。"
+
+#: includes/Mcp/Actions.php:193
+msgid "The short path is unavailable."
+msgstr "ショートパスは使用できません。"
+
+#: includes/Mcp/Actions.php:200
+msgid "This label choice is not available for the destination."
+msgstr "このラベルの選択は、宛先では利用できません。"
+
+#: includes/Mcp/Actions.php:244
+msgid "The post exists but metadata permissions changed. Read before retrying."
+msgstr "投稿は存在しますが、メタデータの権限が変更されました。再試行する前に読み取ってください。"
+
+#: includes/Mcp/Actions.php:270
+msgid "Manage linked source records in native administration."
+msgstr "ネイティブ管理でリンクされたソースレコードを管理してください。"
+
+#: includes/Mcp/Actions.php:275
+msgid "Read the current lifecycle state first."
+msgstr "最初に現在のライフサイクル状態を読み取ってください。"
+
+#: includes/Mcp/Actions.php:311
+msgid "Unknown Shortlink category."
+msgstr "不明なショートリンクカテゴリ。"
+
+#: includes/Mcp/Actions.php:317
+msgid "Supply a category name."
+msgstr "カテゴリ名を提供してください。"
+
+#: includes/Mcp/Actions.php:320
+msgid "Use an existing parent without a cycle."
+msgstr "サイクルなしで既存の親を使用してください。"
+
+#: includes/Mcp/Actions.php:385
+msgid "Bulk short paths must be unique."
+msgstr "バルクショートパスは一意でなければなりません。"
+
+#: includes/Mcp/Actions.php:392
+msgid "Bulk targets and linked source records must not overlap."
+msgstr "バルクターゲットとリンクされたソースレコードは重複してはいけません。"
+
+#: includes/Mcp/Actions.php:431
+msgid "Use native administration for this category scope."
+msgstr "このカテゴリのスコープにはネイティブ管理を使用してください。"
+
+#: includes/Mcp/Actions.php:463
+msgid "Use native analytics for more than 1,000 daily records."
+msgstr "1,000件以上のデイリーレコードにはネイティブ分析を使用してください。"
+
+#: includes/Mcp/Actions.php:477
+msgid "Use native analytics for this destination scope."
+msgstr "この宛先スコープにはネイティブ分析を使用してください。"
+
+#: includes/Mcp/Actions.php:492
+msgid "Analytics changed; read it again before resetting."
+msgstr "分析が変更されました。リセットする前に再度読み取ってください。"
+
+#: includes/Mcp/Actions.php:523
+msgid "This link type is disabled in native Link Health settings."
+msgstr "このリンクタイプはネイティブリンクヘルス設定で無効になっています。"
+
+#: includes/Mcp/Actions.php:556
+msgid "Native source mirrors could not be safely read."
+msgstr "ネイティブソースミラーは安全に読み取ることができませんでした。"
+
+#: includes/Mcp/Actions.php:586
+msgid "The source or a mirror changed; read it again."
+msgstr "ソースまたはミラーが変更されました。再度読み取ってください。"
+
+#: includes/Mcp/Actions.php:598
+msgid "Use a nonempty short path."
+msgstr "非空のショートパスを使用してください。"
+
+#: includes/Mcp/Actions.php:604
+msgid "This short path is unavailable."
+msgstr "このショートパスは使用できません。"
+
+#: includes/Mcp/Actions.php:625
+msgid "Duplicate revision-linked records through the native revision workflow."
+msgstr "ネイティブリビジョンワークフローを通じてリビジョンにリンクされたレコードを重複させてください。"
+
+#: includes/Mcp/Actions.php:711
+msgid "Use valid native report dates in YYYY-MM-DD format."
+msgstr "YYYY-MM-DD形式の有効なネイティブレポート日付を使用してください。"
+
+#: includes/Mcp/Actions.php:715
+msgid "The report end date must not precede its start."
+msgstr "レポート終了日が開始日より前であってはいけません。"
+
+#: includes/Mcp/Actions.php:724
+msgid "Native report data could not be read."
+msgstr "ネイティブレポートデータを読み取ることができませんでした。"
+
+#: includes/Mcp/bootstrap.php:15
+msgid "PublishPress plugin actions."
+msgstr "PublishPressプラグインアクション。"
+
+#: includes/Mcp/Fields.php:178
+msgid "Supply each native list identifier only once."
+msgstr "各ネイティブリスト識別子を1回だけ提供してください。"
+
+#: includes/Mcp/Fields.php:191
+msgid "Use the native date or time format returned by discovery."
+msgstr "ディスカバリーによって返されたネイティブ日付または時刻形式を使用してください。"
+
+#: includes/Mcp/Fields.php:196
+msgid "A native field validator rejected this value."
+msgstr "ネイティブフィールドバリデーターがこの値を拒否しました。"
+
+#: includes/Mcp/Registry.php:47
+msgid "Use the exact fields, types and choices returned by discovery."
+msgstr "ディスカバリーによって返された正確なフィールド、タイプ、選択肢を使用してください。"
+
+#: includes/Mcp/Registry.php:52
+msgid "You do not have permission to use this Shortlinks operation."
+msgstr "このショートリンク操作を使用する権限がありません。"
+
+#: includes/Mcp/Registry.php:94
+#, php-format
+msgid "Invalid JSON type at %s."
+msgstr "無効なJSONタイプです %s。"
+
+#: includes/Mcp/Registry.php:168
+msgid ""
+"Shortlinks could not complete this operation. Inspect the current state "
+"before retrying; some changes may have been saved."
+msgstr "ショートリンクはこの操作を完了できませんでした。再試行する前に現在の状態を確認してください; いくつかの変更が保存されているかもしれません。"
+
+#: includes/Mcp/Registry.php:220
+msgid "This object changed. Read it again before saving."
+msgstr "このオブジェクトは変更されました。保存する前に再度読み取ってください。"
+
+#: includes/Mcp/Registry.php:225
+msgid ""
+"The operation could not be fully confirmed. Read the object before "
+"retrying; some changes may have been saved."
+msgstr "操作は完全には確認できませんでした。再試行する前にオブジェクトを読み取ってください; いくつかの変更が保存されているかもしれません。"
+
+#: includes/wp-dev-kit/settings/classes/admin-options.class.php:485
+#: includes/wp-dev-kit/settings/classes/metabox-options.class.php:224
+#: includes/wp-dev-kit/settings/classes/setup.class.php:631
+msgid "(has errors)"
+msgstr "(エラーがあります)"
+
+#: includes/wp-dev-kit/settings/classes/fields.class.php:170
+msgid "Help"
+msgstr "ヘルプ"
+
+#: includes/wp-dev-kit/settings/classes/setup.class.php:632
+msgid "Settings not saved. Please fix the highlighted errors."
+msgstr "設定が保存されませんでした。ハイライトされたエラーを修正してください。"
+
+#: templates/admin-modal-new-link.php:22
 msgid "Create a Shortlink"
 msgstr "ショートリンクを作成"
 
-#: templates/admin/analytics.php:96
+#: templates/admin/analytics.php:93
 msgid "Reset Yesterday's Analytics"
 msgstr "昨日の分析をリセット"
 
-#: templates/admin/analytics.php:98
-#: templates/admin/analytics.php:154
+#: templates/admin/analytics.php:95
+#: templates/admin/analytics.php:153
 msgid "Reset Last 30 Days Analytics"
 msgstr "過去30日間の分析をリセット"
 
-#: templates/admin/analytics.php:100
+#: templates/admin/analytics.php:97
 msgid "Reset Last Month's Analytics"
 msgstr "先月の分析をリセット"
 
-#: templates/admin/analytics.php:102
+#: templates/admin/analytics.php:99
 msgid "Reset Last 2 Years Analytics"
 msgstr "過去2年間の分析をリセット"
 
-#: templates/admin/analytics.php:103
+#: templates/admin/analytics.php:100
 msgid "Reset Custom Range Analytics"
 msgstr "カスタム範囲の分析をリセット"
 
-#: templates/admin/analytics.php:104
+#: templates/admin/analytics.php:101
 msgid "Reset All Time Analytics"
 msgstr "全期間の分析をリセット"
 
-#: templates/admin/analytics.php:106
+#: templates/admin/analytics.php:103
 #, php-format
 msgid "Showing data from %1$s to %2$s"
 msgstr "%1$s から %2$s までのデータを表示"
 
-#: templates/admin/analytics.php:107
+#: templates/admin/analytics.php:104
 #, php-format
 msgid ""
 "Analytics updated. Total clicks: %1$s. Unique visitors: %2$s. Days with "
 "clicks: %3$s. Average per click day: %4$s."
 msgstr "分析が更新されました。合計クリック数: %1$s。ユニーク訪問者: %2$s。クリックがあった日数: %3$s。1日あたりの平均クリック数: %4$s。"
 
-#: templates/admin/analytics.php:108
-#: templates/admin/analytics.php:201
+#: templates/admin/analytics.php:105
+#: templates/admin/analytics.php:200
 msgid "No click data available for this period."
 msgstr "この期間のクリックデータは利用できません。"
 
-#: templates/admin/analytics.php:109
+#: templates/admin/analytics.php:106
 msgid "click"
 msgstr "クリック"
 
-#: templates/admin/analytics.php:110
+#: templates/admin/analytics.php:107
 msgid "clicks"
 msgstr "クリック"
 
-#: templates/admin/analytics.php:122
+#: templates/admin/analytics.php:108
+#: templates/admin/analytics.php:197
+msgid "Clicks over time"
+msgstr "時間経過に伴うクリック数"
+
+#: templates/admin/analytics.php:121
 msgid "Yesterday"
 msgstr "昨日"
 
-#: templates/admin/analytics.php:124
+#: templates/admin/analytics.php:123
 msgid "Last 30 Days"
 msgstr "過去30日間"
 
-#: templates/admin/analytics.php:125
+#: templates/admin/analytics.php:124
 msgid "This Month"
 msgstr "今月"
 
-#: templates/admin/analytics.php:126
+#: templates/admin/analytics.php:125
 msgid "Last Month"
 msgstr "先月"
 
-#: templates/admin/analytics.php:127
+#: templates/admin/analytics.php:126
 msgid "This Year"
 msgstr "今年"
 
-#: templates/admin/analytics.php:128
+#: templates/admin/analytics.php:127
 msgid "Last 2 Years"
 msgstr "過去2年間"
 
-#: templates/admin/analytics.php:129
+#: templates/admin/analytics.php:128
 msgid "Custom Range"
 msgstr "カスタム範囲"
 
-#: templates/admin/analytics.php:130
+#: templates/admin/analytics.php:129
 msgid "All Time"
 msgstr "すべての時間"
 
-#: templates/admin/analytics.php:134
+#: templates/admin/analytics.php:133
 msgid "From:"
 msgstr "から："
 
-#: templates/admin/analytics.php:142
+#: templates/admin/analytics.php:141
 msgid "To:"
 msgstr "まで："
 
-#: templates/admin/analytics.php:182
+#: templates/admin/analytics.php:180
 msgid "Days With Clicks"
 msgstr "クリックのある日"
 
-#: templates/admin/analytics.php:190
+#: templates/admin/analytics.php:188
 msgid "Avg. per Click Day"
 msgstr "クリックごとの平均日"
 
-#: templates/admin/analytics.php:196
+#: templates/admin/analytics.php:195
 msgid "Clicks Over Time"
 msgstr "時間経過に伴うクリック"
 
-#: templates/admin/qr-code.php:16
+#: templates/admin/footer.php:8
+msgid "five-star"
+msgstr "五つ星"
+
+#: templates/admin/footer.php:44
+msgid "PublishPress (opens in a new tab)"
+msgstr "PublishPress（新しいタブで開く）"
+
+#: templates/admin/qr-code.php:18
 msgid "QR code for this shortlink"
 msgstr "このショートリンクのQRコード"
 
-#: tinypress.php:484
-msgid "Suggested Label from target URL"
-msgstr "ターゲットURLからの推奨ラベル"
+#: tinypress.php:28
+msgid ""
+"PublishPress Shortlinks Free requires PHP 8.2 or newer. The plugin cannot "
+"run until PHP is updated."
+msgstr "PublishPress Shortlinks FreeはPHP 8.2以上が必要です。このプラグインはPHPが更新されるまで実行できません。"
 
-#: tinypress.php:485
-msgid "Suggested Notes from target URL"
-msgstr "ターゲットURLからの推奨ノート"
+#: tinypress.php:38
+msgid ""
+"PublishPress Shortlinks Free requires WordPress 6.7 or newer. The plugin "
+"cannot run until WordPress is updated."
+msgstr ""
+"PublishPress Shortlinks FreeはWordPress "
+"6.7以上が必要です。このプラグインはWordPressが更新されるまで実行できません。"
 
-#: tinypress.php:486
-msgid "Overwrite label?"
-msgstr "ラベルを上書きしますか？"
+#: tinypress.php:505
+msgid "Shortlink created:"
+msgstr "作成されたショートリンク："
 
-#: tinypress.php:487
-msgid "Overwrite notes?"
-msgstr "ノートを上書きしますか？"
+#: tinypress.php:506
+msgid "The shortlink could not be created. Please try again."
+msgstr "ショートリンクを作成できませんでした。もう一度お試しください。"
 
-#: tinypress.php:488
-msgid "Yes"
-msgstr "はい"
+#: tinypress.php:507
+msgid "No matching settings"
+msgstr "一致する設定はありません"
 
-#: tinypress.php:489
-msgid "No"
-msgstr "いいえ"
+#: tinypress.php:508
+msgid "Try a different keyword or clear the search to see all settings."
+msgstr "別のキーワードを試すか、検索をクリアしてすべての設定を表示してください。"
+
+#: tinypress.php:509
+msgid "1 matching setting"
+msgstr "1件の一致する設定"
+
+#: tinypress.php:511
+#. translators: %d: number of matching settings
+#, php-format
+msgid "%d matching settings"
+msgstr "%d件の一致する設定"

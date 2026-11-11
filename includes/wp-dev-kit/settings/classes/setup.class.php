@@ -606,19 +606,26 @@ if (! class_exists('WPDK_Settings')) {
             }
 
             $version = defined('PB_CLEAN_CACHE') && PB_CLEAN_CACHE ? time() : self::$version;
+            $asset_version = static function ($path) use ($version) {
+                if ((defined('PB_CLEAN_CACHE') && PB_CLEAN_CACHE) || ! function_exists('tinypress_asset_version')) {
+                    return $version;
+                }
+
+                return tinypress_asset_version($path);
+            };
 
 
             // Main style
-            wp_enqueue_style('pb_settings', self::include_plugin_url('assets/css/style.css'), array(), $version);
+            wp_enqueue_style('pb_settings', self::include_plugin_url('assets/css/style.css'), array(), $asset_version('includes/wp-dev-kit/settings/assets/css/style.css'));
 
             // Main RTL styles
             if (is_rtl()) {
-                wp_enqueue_style('wpdk_settings-rtl', self::include_plugin_url('assets/css/style-rtl.css'), array(), $version, 'all');
+                wp_enqueue_style('wpdk_settings-rtl', self::include_plugin_url('assets/css/style-rtl.css'), array(), $asset_version('includes/wp-dev-kit/settings/assets/css/style-rtl.css'), 'all');
             }
 
             // Main scripts
-            wp_enqueue_script('wpdk_settings-plugins', self::include_plugin_url('assets/js/plugins.js'), array(), $version, true);
-            wp_enqueue_script('pb_settings', self::include_plugin_url('assets/js/main.js'), array( 'wpdk_settings-plugins', 'wp-a11y' ), $version, true);
+            wp_enqueue_script('wpdk_settings-plugins', self::include_plugin_url('assets/js/plugins.js'), array(), $asset_version('includes/wp-dev-kit/settings/assets/js/plugins.js'), true);
+            wp_enqueue_script('pb_settings', self::include_plugin_url('assets/js/main.js'), array( 'wpdk_settings-plugins', 'wp-a11y' ), $asset_version('includes/wp-dev-kit/settings/assets/js/main.js'), true);
 
             // Main variables
             wp_localize_script('pb_settings', 'pb_settings_vars', array(

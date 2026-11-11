@@ -1,8 +1,15 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [1.11.0] - 11 November, 2026
 
-* Added: Private MCP actions for native Shortlinks settings, links and supported workflows.
+* Added: Private MCP actions for native Shortlinks settings, links and supported workflows, 436
+* Added: Add quick edit feature, #420
+* Update: Duplicate rather than Copy, #423
+* Update: Require PHP 8.2, #422
+* Update: Join the CHANGELOG.md introduction onto one line, #421
+* Fixed: The spacing of the setting is generally inconsistent, #428
+* Fixed: Menu visbility issues remain when editing shortlinks, #425
+* Removed: Remove Shortlinks label and notes suggestions, #426
 
 ## [1.10.1] - 16 September, 2026
 
