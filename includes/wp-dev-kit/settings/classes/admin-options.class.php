@@ -482,7 +482,7 @@ if (! class_exists('WPDK_Settings_Options')) {
                     foreach ($sections['fields'] as $field) {
                         if (! empty($field['id'])) {
                             if (array_key_exists($field['id'], $this->errors)) {
-                                $err = '<span class="wpdk_settings-label-error">!</span>';
+                                $err = '<span class="wpdk_settings-label-error" aria-hidden="true">!</span><span class="screen-reader-text"> ' . esc_html__('(has errors)', 'tinypress') . '</span>';
                             }
                         }
                     }
@@ -556,7 +556,7 @@ if (! class_exists('WPDK_Settings_Options')) {
 
             echo ($this->args['show_form_warning']) ? '<div class="wpdk_settings-form-result wpdk_settings-form-warning">' . esc_html__('Save your changes!') . '</div>' : '';
 
-            echo ($has_nav && $this->args['show_all_options']) ? '<div class="wpdk_settings-expand-all" title="' . esc_html__('show all settings') . '"><i class="fas fa-outdent"></i></div>' : '';
+            echo ($has_nav && $this->args['show_all_options']) ? '<div class="wpdk_settings-expand-all" title="' . esc_html__('show all settings') . '"><i class="fas fa-outdent" aria-hidden="true"></i></div>' : '';
 
             echo ($this->args['show_search']) ? '<div class="wpdk_settings-search"><input type="text" name="wpdk_settings-search" placeholder="' . esc_html__('Search...') . '" autocomplete="off" /></div>' : '';
 
@@ -588,7 +588,7 @@ if (! class_exists('WPDK_Settings_Options')) {
                 foreach ($this->pre_tabs as $tab) {
                     $tab_id    = sanitize_title($tab['title']);
                     $tab_error = $this->error_check($tab);
-                    $tab_icon  = (! empty($tab['icon'])) ? '<i class="wpdk_settings-tab-icon ' . esc_attr($tab['icon']) . '"></i>' : '';
+                    $tab_icon  = (! empty($tab['icon'])) ? '<i class="wpdk_settings-tab-icon ' . esc_attr($tab['icon']) . '" aria-hidden="true"></i>' : '';
 
                     if (! empty($tab['subs'])) {
                         echo '<li class="wpdk_settings-tab-item">';
@@ -600,7 +600,7 @@ if (! class_exists('WPDK_Settings_Options')) {
                         foreach ($tab['subs'] as $sub) {
                             $sub_id    = $tab_id . '/' . sanitize_title($sub['title']);
                             $sub_error = $this->error_check($sub);
-                            $sub_icon  = (! empty($sub['icon'])) ? '<i class="wpdk_settings-tab-icon ' . esc_attr($sub['icon']) . '"></i>' : '';
+                            $sub_icon  = (! empty($sub['icon'])) ? '<i class="wpdk_settings-tab-icon ' . esc_attr($sub['icon']) . '" aria-hidden="true"></i>' : '';
 
                             echo '<li><a href="#tab=' . esc_attr($sub_id) . '" data-tab-id="' . esc_attr($sub_id) . '">' . wp_kses_post($sub_icon . $sub['title'] . $sub_error) . '</a></li>';
                         }
@@ -609,7 +609,7 @@ if (! class_exists('WPDK_Settings_Options')) {
 
                         echo '</li>';
                     } else {
-                        echo '<li class="wpdk_settings-tab-item"><a href="#tab=' . esc_attr($tab_id) . '" data-tab-id="' . esc_attr($tab_id) . '">' . esc_html($tab_icon . $tab['title'] . $tab_error) . '</a></li>';
+                        echo '<li class="wpdk_settings-tab-item"><a href="#tab=' . esc_attr($tab_id) . '" data-tab-id="' . esc_attr($tab_id) . '">' . wp_kses_post($tab_icon . $tab['title'] . $tab_error) . '</a></li>';
                     }
                 }
 
@@ -625,13 +625,14 @@ if (! class_exists('WPDK_Settings_Options')) {
             foreach ($this->pre_sections as $section) {
                 $section_onload = (! $has_nav) ? ' wpdk_settings-onload' : '';
                 $section_class  = (! empty($section['class'])) ? ' ' . $section['class'] : '';
-                $section_icon   = (! empty($section['icon'])) ? '<i class="wpdk_settings-section-icon ' . esc_attr($section['icon']) . '"></i>' : '';
+                $section_icon   = (! empty($section['icon'])) ? '<i class="wpdk_settings-section-icon ' . esc_attr($section['icon']) . '" aria-hidden="true"></i>' : '';
                 $section_title  = (! empty($section['title'])) ? $section['title'] : '';
                 $section_parent = (! empty($section['ptitle'])) ? sanitize_title($section['ptitle']) . '/' : '';
                 $section_slug   = (! empty($section['title'])) ? sanitize_title($section_title) : '';
 
                 echo '<div class="wpdk_settings-section hidden' . esc_attr($section_onload . $section_class) . '" data-section-id="' . esc_attr($section_parent . $section_slug) . '">';
-                echo ($has_nav) ? '<div class="wpdk_settings-section-title"><h3>' . wp_kses_data($section_icon . $section_title) . '</h3></div>' : '';
+                // h2: sits between the page h1 and the h3 field titles.
+                echo ($has_nav) ? '<div class="wpdk_settings-section-title"><h2 class="wpdk_settings-section-heading">' . wp_kses_post($section_icon) . wp_kses_data($section_title) . '</h2></div>' : '';
                 echo (! empty($section['description'])) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . wp_kses_data($section['description']) . '</div>' : '';
 
                 if (! empty($section['fields'])) {

@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-28T09:04:20+00:00\n"
-"PO-Revision-Date: 2026-09-15 18:44+0000\n"
+"PO-Revision-Date: 2026-11-10 14:48+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tinypress\n"
 ">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
@@ -39,6 +39,7 @@ msgstr ""
 "mogu imati prilagođene dozvole za pregled."
 
 #: tinypress.php:12
+#: includes/Mcp/bootstrap.php:15
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
@@ -49,7 +50,7 @@ msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:88
-#: includes-core/ShortlinksCoreAdmin.php:110
+#: includes-core/ShortlinksCoreAdmin.php:112
 msgid ""
 "You're using PublishPress Shortlinks Free. The Pro version has more "
 "features and support. "
@@ -60,33 +61,33 @@ msgstr ""
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:89
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:106
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:107
-#: includes-core/ShortlinksCoreAdmin.php:111
-#: includes-core/ShortlinksCoreAdmin.php:128
-#: includes-core/ShortlinksCoreAdmin.php:129
+#: includes-core/ShortlinksCoreAdmin.php:113
+#: includes-core/ShortlinksCoreAdmin.php:130
+#: includes-core/ShortlinksCoreAdmin.php:131
 msgid "Upgrade to Pro"
 msgstr "Nadogradite na Pro"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:117
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:118
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:148
-#: includes-core/ShortlinksCoreAdmin.php:139
-#: includes-core/ShortlinksCoreAdmin.php:140
-#: includes-core/ShortlinksCoreAdmin.php:188
+#: includes-core/ShortlinksCoreAdmin.php:141
+#: includes-core/ShortlinksCoreAdmin.php:142
+#: includes-core/ShortlinksCoreAdmin.php:195
 msgid "Link Health"
 msgstr "Zdravlje poveznice"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:131
-#: includes-core/ShortlinksCoreAdmin.php:171
+#: includes-core/ShortlinksCoreAdmin.php:178
 msgid "Pro Feature"
 msgstr "Pro Značajka"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:134
-#: includes-core/ShortlinksCoreAdmin.php:174
+#: includes-core/ShortlinksCoreAdmin.php:181
 msgid "This feature is available in PublishPress Shortlinks Pro."
 msgstr "Ova značajka je dostupna u PublishPress Shortlinks Pro."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:150
-#: includes-core/ShortlinksCoreAdmin.php:190
+#: includes-core/ShortlinksCoreAdmin.php:197
 msgid ""
 "Check whether your shortlinks redirect visitors to working destination "
 "pages."
@@ -95,12 +96,12 @@ msgstr ""
 "odredišne stranice."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:158
-#: includes-core/ShortlinksCoreAdmin.php:198
+#: includes-core/ShortlinksCoreAdmin.php:205
 msgid "Check Visible Links"
 msgstr "Provjeri vidljive poveznice"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:162
-#: includes-core/ShortlinksCoreAdmin.php:202
+#: includes-core/ShortlinksCoreAdmin.php:209
 msgid "Check All Links"
 msgstr "Provjeri sve poveznice"
 
@@ -111,68 +112,70 @@ msgstr "Provjeri sve poveznice"
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:231
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:164
 #: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:29
-#: includes-core/ShortlinksCoreAdmin.php:209
-#: includes/classes/class-columns-link.php:56
-#: includes/classes/class-columns-link.php:614
-#: includes/classes/class-gutenberg-shortlink.php:163
-#: includes/classes/class-hooks.php:307
+#: includes-core/ShortlinksCoreAdmin.php:216
+#: includes/classes/class-columns-link.php:61
+#: includes/classes/class-columns-link.php:815
+#: includes/classes/class-gutenberg-shortlink.php:161
+#: includes/classes/class-hooks.php:291
 #: includes/classes/class-table-logs.php:168
-#: templates/admin-modal-new-link.php:30, fuzzy
+#: templates/admin-modal-new-link.php:32, fuzzy
 msgid "Shortlink"
 msgstr "Shortlink"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:170
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:169
 #: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1053
-#: includes-core/ShortlinksCoreAdmin.php:210
-#: includes/classes/class-gutenberg-shortlink.php:174
+#: includes-core/ShortlinksCoreAdmin.php:217
+#: includes/classes/class-columns-link.php:319
+#: includes/classes/class-gutenberg-shortlink.php:172
 #: includes/classes/class-import-export.php:1156
 msgid "Target URL"
 msgstr "Odredišni URL"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:171
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:542
-#: includes-core/ShortlinksCoreAdmin.php:211
-#: includes/classes/class-meta-boxes.php:888, fuzzy
+#: includes-core/ShortlinksCoreAdmin.php:218
+#: includes/classes/class-columns-link.php:303
+#: includes/classes/class-meta-boxes.php:906, fuzzy
 msgid "Status"
 msgstr "Status"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:172
-#: includes-core/ShortlinksCoreAdmin.php:212, fuzzy
+#: includes-core/ShortlinksCoreAdmin.php:219, fuzzy
 msgid "HTTP"
 msgstr "HTTP"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:173
-#: includes-core/ShortlinksCoreAdmin.php:213
+#: includes-core/ShortlinksCoreAdmin.php:220
 msgid "Redirects"
 msgstr "Preusmjeravanja"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:174
-#: includes-core/ShortlinksCoreAdmin.php:214
+#: includes-core/ShortlinksCoreAdmin.php:221
 msgid "Final URL"
 msgstr "Završni URL"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:181
-#: includes-core/ShortlinksCoreAdmin.php:221
+#: includes-core/ShortlinksCoreAdmin.php:228
 msgid "Working"
 msgstr "Radno"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:189
-#: includes-core/ShortlinksCoreAdmin.php:229
+#: includes-core/ShortlinksCoreAdmin.php:236
 msgid "Broken"
 msgstr "Pokvareno"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:212
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:236
-#: includes-core/ShortlinksCoreAdmin.php:519
+#: includes-core/ShortlinksCoreAdmin.php:526
 msgid "Expired Redirect Settings"
 msgstr "Postavke preusmjeravanja isteka"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:215
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:239
 #: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1064
-#: includes-core/ShortlinksCoreAdmin.php:395
-#: includes-core/ShortlinksCoreAdmin.php:522
+#: includes-core/ShortlinksCoreAdmin.php:402
+#: includes-core/ShortlinksCoreAdmin.php:529
 #: includes/classes/class-import-export.php:1167
 msgid "Expired Redirect URL"
 msgstr "URL preusmjeravanja isteka"
@@ -183,14 +186,14 @@ msgstr "Odaberite kamo posjetitelji trebaju ići kada kliknu na istečeni link."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:218
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:242
-#: includes-core/ShortlinksCoreAdmin.php:417
-#: includes-core/ShortlinksCoreAdmin.php:525
+#: includes-core/ShortlinksCoreAdmin.php:424
+#: includes-core/ShortlinksCoreAdmin.php:532
 msgid "Show Expiration Notice"
 msgstr "Prikaži obavijest o isteku"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:219
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:243
-#: includes-core/ShortlinksCoreAdmin.php:526
+#: includes-core/ShortlinksCoreAdmin.php:533
 msgid "Display a custom notice page before automatically redirecting visitors."
 msgstr ""
 "Prikažite prilagođenu stranicu obavijesti prije automatskog preusmjeravanja "
@@ -203,12 +206,12 @@ msgstr ""
 "preusmjeravanja."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:240
-#: includes-core/ShortlinksCoreAdmin.php:523
+#: includes-core/ShortlinksCoreAdmin.php:530
 msgid "Set the default destination for all expired shortlinks."
 msgstr "Postavite zadano odredište za sve istečene kratke linkove."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:246
-#: includes-core/ShortlinksCoreAdmin.php:529
+#: includes-core/ShortlinksCoreAdmin.php:536
 msgid ""
 "Show a notice page for expired shortlinks briefly before redirecting. You "
 "can customize the content of this message."
@@ -218,20 +221,20 @@ msgstr ""
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:281
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:308
-#: includes-core/ShortlinksCoreAdmin.php:720
-#: includes-core/ShortlinksCoreAdmin.php:747
+#: includes-core/ShortlinksCoreAdmin.php:727
+#: includes-core/ShortlinksCoreAdmin.php:754
 msgid "Advanced Auto-Link Settings"
 msgstr "Napredne postavke automatskog povezivanja"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:283
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:311
-#: includes-core/ShortlinksCoreAdmin.php:722
-#: includes-core/ShortlinksCoreAdmin.php:750
+#: includes-core/ShortlinksCoreAdmin.php:729
+#: includes-core/ShortlinksCoreAdmin.php:757
 msgid "Minimum Keyword Usage"
 msgstr "Minimalna uporaba ključnih riječi"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:284
-#: includes-core/ShortlinksCoreAdmin.php:723
+#: includes-core/ShortlinksCoreAdmin.php:730
 msgid "Keyword must appear this many times before being autolinked."
 msgstr ""
 "Ključna riječ mora se pojaviti ovaj broj puta prije nego što bude "
@@ -239,86 +242,86 @@ msgstr ""
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:286
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:314
-#: includes-core/ShortlinksCoreAdmin.php:725
-#: includes-core/ShortlinksCoreAdmin.php:753
+#: includes-core/ShortlinksCoreAdmin.php:732
+#: includes-core/ShortlinksCoreAdmin.php:760
 msgid "Maximum Keywords Linked"
 msgstr "Maksimalni povezani ključni pojmovi"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:287
-#: includes-core/ShortlinksCoreAdmin.php:726
+#: includes-core/ShortlinksCoreAdmin.php:733
 msgid "Maximum number of times this keyword should be autolinked per post."
 msgstr ""
 "Maksimalni broj puta kada bi ovaj ključni pojam trebao biti automatski "
 "povezan po objavi."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:312
-#: includes-core/ShortlinksCoreAdmin.php:751
+#: includes-core/ShortlinksCoreAdmin.php:758
 msgid "Default minimum times a keyword must appear before being autolinked."
 msgstr ""
 "Zadani minimalni broj puta kada ključni pojam mora pojaviti prije nego što "
 "bude automatski povezan."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:315
-#: includes-core/ShortlinksCoreAdmin.php:754
+#: includes-core/ShortlinksCoreAdmin.php:761
 msgid "Default maximum times a keyword should be autolinked per post."
 msgstr ""
 "Zadani maksimalni broj puta kada bi ključni pojam trebao biti automatski "
 "povezan po objavi."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:317
-#: includes-core/ShortlinksCoreAdmin.php:756
+#: includes-core/ShortlinksCoreAdmin.php:763
 msgid "Maximum Links Per Post"
 msgstr "Maksimalni linkovi po objavi"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:318
-#: includes-core/ShortlinksCoreAdmin.php:757
+#: includes-core/ShortlinksCoreAdmin.php:764
 msgid "Total maximum autolinks allowed per post/page."
 msgstr "Ukupni maksimalni automatski linkovi dopušteni po objavi/stranici."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:320
-#: includes-core/ShortlinksCoreAdmin.php:759
+#: includes-core/ShortlinksCoreAdmin.php:766
 msgid "Minimum Character Length"
 msgstr "Minimalna duljina znakova"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:321
-#: includes-core/ShortlinksCoreAdmin.php:760
+#: includes-core/ShortlinksCoreAdmin.php:767
 msgid "Keywords shorter than this will not be autolinked."
 msgstr "Ključni pojmovi kraći od ovoga neće biti automatski povezani."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:323
-#: includes-core/ShortlinksCoreAdmin.php:762
+#: includes-core/ShortlinksCoreAdmin.php:769
 msgid "Maximum Character Length"
 msgstr "Maksimalna duljina znakova"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:324
-#: includes-core/ShortlinksCoreAdmin.php:763
+#: includes-core/ShortlinksCoreAdmin.php:770
 msgid "Keywords longer than this will not be autolinked."
 msgstr "Ključni pojmovi duži od ovoga neće biti automatski povezani."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:345
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:850
-#: includes-core/ShortlinksCoreAdmin.php:784
-#: includes/classes/class-settings.php:1087
+#: includes-core/ShortlinksCoreAdmin.php:791
+#: includes/classes/class-settings.php:1088
 msgid "Auto-Link Exceptions"
 msgstr "Izuzeci automatskog povezivanja"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:347
-#: includes-core/ShortlinksCoreAdmin.php:786
+#: includes-core/ShortlinksCoreAdmin.php:793
 msgid "Exclude Terms from Auto Links"
 msgstr "Isključi pojmove iz automatskih linkova"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:348
-#: includes-core/ShortlinksCoreAdmin.php:787
+#: includes-core/ShortlinksCoreAdmin.php:794
 msgid "These terms will never be autolinked."
 msgstr "Ovi pojmovi nikada neće biti automatski povezani."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:350
-#: includes-core/ShortlinksCoreAdmin.php:789
+#: includes-core/ShortlinksCoreAdmin.php:796
 msgid "Prevent Auto Links Inside Classes or IDs"
 msgstr "Spriječi automatske linkove unutar klasa ili ID-a"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:351
-#: includes-core/ShortlinksCoreAdmin.php:790
+#: includes-core/ShortlinksCoreAdmin.php:797
 msgid ""
 "Content inside elements with these classes or IDs will not have autolinks "
 "applied."
@@ -327,41 +330,41 @@ msgstr ""
 "automatske linkove."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:353
-#: includes-core/ShortlinksCoreAdmin.php:792
+#: includes-core/ShortlinksCoreAdmin.php:799
 msgid "Prevent Auto Links Inside Elements"
 msgstr "Spriječi automatske linkove unutar elemenata"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:354
-#: includes-core/ShortlinksCoreAdmin.php:793
+#: includes-core/ShortlinksCoreAdmin.php:800
 msgid "Terms inside these HTML tags will not have autolinks applied."
 msgstr "Pojmovi unutar ovih HTML oznaka neće imati primijenjene automatske linkove."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:367
-#: includes-core/ShortlinksCoreAdmin.php:806
+#: includes-core/ShortlinksCoreAdmin.php:813
 msgid "Prevent Auto Links on Shortcodes"
 msgstr "Spriječi automatske linkove na kratkim kodovima"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:368
-#: includes-core/ShortlinksCoreAdmin.php:807
+#: includes-core/ShortlinksCoreAdmin.php:814
 msgid "Terms inside these shortcodes will not have autolinks applied."
 msgstr ""
 "Pojmovi unutar ovih kratkih kodova neće imati primijenjene automatske "
 "linkove."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:370
-#: includes-core/ShortlinksCoreAdmin.php:809
+#: includes-core/ShortlinksCoreAdmin.php:816
 msgid "Prevent Auto Links on Blocks"
 msgstr "Spriječi automatske linkove na blokovima"
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:371
-#: includes-core/ShortlinksCoreAdmin.php:810
+#: includes-core/ShortlinksCoreAdmin.php:817
 msgid "Terms inside these Gutenberg blocks will not have autolinks applied."
 msgstr ""
 "Uvjeti unutar ovih Gutenberg blokova neće imati primijenjene automatske "
 "poveznice."
 
 #: dist/publishpress-shortlinks/includes-core/ShortlinksCoreAdmin.php:372
-#: includes-core/ShortlinksCoreAdmin.php:811
+#: includes-core/ShortlinksCoreAdmin.php:818
 msgid "Search and select blocks..."
 msgstr "Pretraži i odaberi blokove..."
 
@@ -370,149 +373,149 @@ msgstr "Pretraži i odaberi blokove..."
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:234
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:285
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:329
-#: includes/classes/class-autolist-ajax.php:39
-#: includes/classes/class-autolist-ajax.php:203
-#: includes/classes/class-gutenberg-shortlink.php:239
-#: includes/classes/class-gutenberg-shortlink.php:290
-#: includes/classes/class-gutenberg-shortlink.php:334
+#: includes/classes/class-autolist-ajax.php:37
+#: includes/classes/class-autolist-ajax.php:201
+#: includes/classes/class-gutenberg-shortlink.php:242
+#: includes/classes/class-gutenberg-shortlink.php:293
+#: includes/classes/class-gutenberg-shortlink.php:337
 msgid "Permission denied"
 msgstr "Dozvola odbijena"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:47
-#: includes/classes/class-autolist-ajax.php:46
+#: includes/classes/class-autolist-ajax.php:44
 msgid "Post type is required"
 msgstr "Post type je obavezan"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:53
-#: includes/classes/class-autolist-ajax.php:52
+#: includes/classes/class-autolist-ajax.php:50
 #. translators: %s: post type name
 msgid "\"%%s\" is not a registered post type"
 msgstr "\"%%s\" nije registrirani post type"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:61
-#: includes/classes/class-autolist-ajax.php:60
+#: includes/classes/class-autolist-ajax.php:58
 #. translators: %s: post type name
 msgid "\"%%s\" is not a public post type"
 msgstr "\"%%s\" nije javni post type"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:68
-#: includes/classes/class-autolist-ajax.php:67
+#: includes/classes/class-autolist-ajax.php:65
 #. translators: %s: post type name
 msgid "\"%%s\" cannot be used for auto-listing"
 msgstr "\"%%s\" se ne može koristiti za automatsko povezivanje"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:78
-#: includes/classes/class-autolist-ajax.php:77
+#: includes/classes/class-autolist-ajax.php:75
 #. translators: %s: post type name
 msgid "\"%%s\" is already configured"
 msgstr "\"%%s\" je već konfiguriran"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:85
-#: includes/classes/class-autolist-ajax.php:84
+#: includes/classes/class-autolist-ajax.php:82
 #. translators: %s: post type label
 msgid "Valid: %%s"
 msgstr "Valjan: %%s"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:99
-#: includes/classes/class-autolist-ajax.php:98
+#: includes/classes/class-autolist-ajax.php:96
 msgid "Permission denied - you must be an administrator"
 msgstr "Dozvola odbijena - morate biti administrator"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:107
-#: includes/classes/class-autolist-ajax.php:106
+#: includes/classes/class-autolist-ajax.php:104
 msgid "Invalid configuration format - expected array"
 msgstr "Nevažeći format konfiguracije - očekivani niz"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:128
-#: includes/classes/class-autolist-ajax.php:127
+#: includes/classes/class-autolist-ajax.php:125
 msgid "Configuration unchanged (already saved)"
 msgstr "Konfiguracija nije promijenjena (već je spremljena)"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:132
-#: includes/classes/class-autolist-ajax.php:131
+#: includes/classes/class-autolist-ajax.php:129
 msgid "Failed to save configuration to database"
 msgstr "Neuspjeh pri spremanju konfiguracije u bazu podataka"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:137
-#: includes/classes/class-autolist-ajax.php:136
+#: includes/classes/class-autolist-ajax.php:134
 msgid "Configuration saved successfully"
 msgstr "Konfiguracija je uspješno spremljena"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:149
-#: includes/classes/class-autolist-ajax.php:148
+#: includes/classes/class-autolist-ajax.php:146
 #. translators: %s: error message
 #, php-format
 msgid "Error: %s"
 msgstr "Greška: %s"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:293
-#: includes/classes/class-autolist-ajax.php:291
+#: includes/classes/class-autolist-ajax.php:289
 msgid "Validating..."
 msgstr "Provjera valjanosti..."
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:294
-#: includes/classes/class-autolist-ajax.php:292
+#: includes/classes/class-autolist-ajax.php:290
 msgid "Saving..."
 msgstr "Spremanje..."
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:295
-#: includes/classes/class-autolist-ajax.php:293
+#: includes/classes/class-autolist-ajax.php:291
 msgid "Saved!"
 msgstr "Spremljeno!"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:296
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:175
-#: includes/classes/class-autolist-ajax.php:294
-#: includes/classes/class-gutenberg-shortlink.php:180
+#: includes/classes/class-autolist-ajax.php:292
+#: includes/classes/class-gutenberg-shortlink.php:178
 msgid "Error"
 msgstr "Greška"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-autolist-ajax.php:295
+#: includes/classes/class-autolist-ajax.php:293
 msgid "Are you sure you want to remove this post type?"
 msgstr "Jeste li sigurni da želite ukloniti ovaj post type?"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-autolist-ajax.php:294
 msgid "Select a post type"
 msgstr "Odaberite post type"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:299
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1032
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1130
-#: includes/classes/class-autolist-ajax.php:297
-#: includes/classes/class-settings.php:1274
-#: includes/classes/class-settings.php:1372
+#: includes/classes/class-autolist-ajax.php:295
+#: includes/classes/class-settings.php:1275
+#: includes/classes/class-settings.php:1389
 msgid "Never"
 msgstr "Nikad"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:300
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1030
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1132
-#: includes/classes/class-autolist-ajax.php:298
-#: includes/classes/class-settings.php:1272
-#: includes/classes/class-settings.php:1374
+#: includes/classes/class-autolist-ajax.php:296
+#: includes/classes/class-settings.php:1273
+#: includes/classes/class-settings.php:1391
 msgid "When Link is First Used"
 msgstr "Kada je veza prvi put korištena"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:301
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1134
-#: includes/classes/class-autolist-ajax.php:299
-#: includes/classes/class-settings.php:1376
+#: includes/classes/class-autolist-ajax.php:297
+#: includes/classes/class-settings.php:1393
 msgid "When Post is Published"
 msgstr "Kada je post objavljen"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:302
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1133
-#: includes/classes/class-autolist-ajax.php:300
-#: includes/classes/class-settings.php:1375
+#: includes/classes/class-autolist-ajax.php:298
+#: includes/classes/class-settings.php:1392
 msgid "When Post is Created"
 msgstr "Kada je post kreiran"
 
 #: dist/publishpress-shortlinks/includes/classes/class-autolist-ajax.php:303
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1131
-#: includes/classes/class-autolist-ajax.php:301
-#: includes/classes/class-settings.php:1373
+#: includes/classes/class-autolist-ajax.php:299
+#: includes/classes/class-settings.php:1390
 msgid "When Link is First Used or Post Created"
 msgstr "Kada je veza prvi put korištena ili post kreiran"
 
@@ -522,7 +525,7 @@ msgid "Invalid post ID or post type."
 msgstr "Nevažeći ID posta ili tip posta."
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:76
-#: includes/classes/class-columns-link.php:78
+#: includes/classes/class-columns-link.php:83
 msgid "No shortlink"
 msgstr "Nema shortlink"
 
@@ -530,57 +533,57 @@ msgstr "Nema shortlink"
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:232
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:234
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:163
-#: includes/classes/class-columns-link.php:99
-#: includes/classes/class-hooks.php:308
-#: includes/classes/class-hooks.php:310
+#: includes/classes/class-columns-link.php:107
+#: includes/classes/class-hooks.php:292
+#: includes/classes/class-hooks.php:294
 #: includes/classes/class-meta-boxes.php:176
-#: includes/classes/class-meta-boxes.php:376
+#: includes/classes/class-meta-boxes.php:379
 msgid "Shortlinks"
 msgstr "Shortlinkovi"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:188
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:335
-#: includes/classes/class-columns-link.php:190
-#: includes/classes/class-columns-link.php:337
+#: includes/classes/class-columns-link.php:211
+#: includes/classes/class-columns-link.php:538
 msgid "Internal"
 msgstr "Interni"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:188
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:336
-#: includes/classes/class-columns-link.php:190
-#: includes/classes/class-columns-link.php:338
+#: includes/classes/class-columns-link.php:211
+#: includes/classes/class-columns-link.php:539
 msgid "External"
 msgstr "Vanjski"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:189
-#: includes/classes/class-columns-link.php:191
+#: includes/classes/class-columns-link.php:212
 msgid "This links to your post"
 msgstr "Ovo vodi do vašeg posta"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:189
-#: includes/classes/class-columns-link.php:191
+#: includes/classes/class-columns-link.php:212
 msgid "This links to an external website"
 msgstr "Ovo vodi do vanjske web stranice"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:193
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:337
-#: includes/classes/class-columns-link.php:195
-#: includes/classes/class-columns-link.php:339
+#: includes/classes/class-columns-link.php:216
+#: includes/classes/class-columns-link.php:540
 msgid "Revision"
 msgstr "Revizija"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:194
-#: includes/classes/class-columns-link.php:196
+#: includes/classes/class-columns-link.php:217
 msgid "This links to a revision"
 msgstr "Ovo vodi do revizije"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:203
-#: includes/classes/class-columns-link.php:205
+#: includes/classes/class-columns-link.php:226
 msgid "Not yet submitted"
 msgstr "Još nije podneseno"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:204
-#: includes/classes/class-columns-link.php:206
+#: includes/classes/class-columns-link.php:227
 msgid "Submitted for approval"
 msgstr "Podneseno na odobrenje"
 
@@ -590,39 +593,39 @@ msgstr "Podneseno na odobrenje"
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:714
 #: dist/publishpress-shortlinks/includes/functions.php:273
 #: dist/publishpress-shortlinks/includes/functions.php:307
-#: includes/classes/class-columns-link.php:207
-#: includes/classes/class-settings.php:461
-#: includes/classes/class-settings.php:928
-#: includes/classes/class-settings.php:936
-#: includes/functions.php:379
-#: includes/functions.php:413
+#: includes/classes/class-columns-link.php:228
+#: includes/classes/class-settings.php:462
+#: includes/classes/class-settings.php:929
+#: includes/classes/class-settings.php:937
+#: includes/functions.php:390
+#: includes/functions.php:424
 msgid "Scheduled"
 msgstr "Zakazano"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:206
-#: includes/classes/class-columns-link.php:208
+#: includes/classes/class-columns-link.php:229
 msgid "Deferred"
 msgstr "Odgođeno"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:207
-#: includes/classes/class-columns-link.php:209
+#: includes/classes/class-columns-link.php:230
 msgid "Needs work"
 msgstr "Potreban rad"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:208
-#: includes/classes/class-columns-link.php:210
+#: includes/classes/class-columns-link.php:231
 msgid "Rejected"
 msgstr "Odbijeno"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:212
-#: includes/classes/class-columns-link.php:214
+#: includes/classes/class-columns-link.php:235
 #. translators: %s: revision status label
 #, php-format
 msgid "Revision: %s"
 msgstr "Revizija: %s"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:233
-#: includes/classes/class-columns-link.php:235
+#: includes/classes/class-columns-link.php:256
 #. translators: %s: number of clicks
 #, php-format
 msgid "Clicked %s times"
@@ -630,7 +633,7 @@ msgstr "Kliknuto %s puta"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:241
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:198
-#: includes/classes/class-columns-link.php:243
+#: includes/classes/class-columns-link.php:264
 #: includes/classes/class-table-logs.php:207
 msgid "Edit"
 msgstr "Uredi"
@@ -638,69 +641,69 @@ msgstr "Uredi"
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:246
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:179
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:200
-#: includes/classes/class-columns-link.php:248
+#: includes/classes/class-columns-link.php:269
 #: includes/classes/class-table-logs.php:188
 #: includes/classes/class-table-logs.php:209
 msgid "Delete"
 msgstr "Izbriši"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:332
-#: includes/classes/class-columns-link.php:334
+#: includes/classes/class-columns-link.php:535
 msgid "Filter by link type"
 msgstr "Filtriraj prema vrsti poveznice"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:334
-#: includes/classes/class-columns-link.php:336
+#: includes/classes/class-columns-link.php:537
 msgid "All link types"
 msgstr "Sve vrste poveznica"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:350
-#: includes/classes/class-columns-link.php:352
+#: includes/classes/class-columns-link.php:553
 msgid "Filter by category"
 msgstr "Filtriraj po kategoriji"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:352
-#: includes/classes/class-columns-link.php:354
+#: includes/classes/class-columns-link.php:555
 msgid "All categories"
 msgstr "Sve kategorije"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:446
-#: includes/classes/class-columns-link.php:483
+#: includes/classes/class-columns-link.php:684
 msgid "Filters"
 msgstr "Filtri"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:449
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:257
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:814
-#: includes/classes/class-columns-link.php:486
-#: includes/classes/class-hooks.php:333
-#: includes/classes/class-meta-boxes.php:1195
+#: includes/classes/class-columns-link.php:687
+#: includes/classes/class-hooks.php:317
+#: includes/classes/class-meta-boxes.php:1186
 msgid "Categories"
 msgstr "Kategorije"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:467
-#: includes/classes/class-columns-link.php:504
+#: includes/classes/class-columns-link.php:705
 msgid "Permission denied."
 msgstr "Dozvola odbijena."
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:551
-#: includes/classes/class-columns-link.php:613
+#: includes/classes/class-columns-link.php:814
 msgid "Link Title"
 msgstr "Naslov poveznice"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:553
-#: includes/classes/class-columns-link.php:615
+#: includes/classes/class-columns-link.php:816
 msgid "Link Type"
 msgstr "Vrsta poveznice"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:557
-#: includes/classes/class-columns-link.php:619
+#: includes/classes/class-columns-link.php:820
 msgid "Stats"
 msgstr "Statistika"
 
 #: dist/publishpress-shortlinks/includes/classes/class-columns-link.php:560
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:166
-#: includes/classes/class-columns-link.php:622
+#: includes/classes/class-columns-link.php:823
 #: includes/classes/class-table-logs.php:170
 msgid "Actions"
 msgstr "Radnje"
@@ -712,126 +715,127 @@ msgstr "Kliknite za kopiranje"
 
 #: dist/publishpress-shortlinks/includes/classes/class-functions.php:51
 #: includes/classes/class-functions.php:51
-#: includes/classes/class-meta-boxes.php:372
+#: includes/classes/class-meta-boxes.php:373
 msgid "Copied"
 msgstr "Kopirano"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:160
-#: includes/classes/class-gutenberg-shortlink.php:164
+#: includes/classes/class-gutenberg-shortlink.php:162
 msgid "Search shortlinks..."
 msgstr "Pretraži kratke poveznice..."
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:161
-#: includes/classes/class-gutenberg-shortlink.php:166
+#: includes/classes/class-gutenberg-shortlink.php:164
 msgid "Insert Shortlink"
 msgstr "Umetni kratku poveznicu"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:162
-#: includes/classes/class-gutenberg-shortlink.php:167
+#: includes/classes/class-gutenberg-shortlink.php:165
 msgid "Create New Shortlink"
 msgstr "Kreiraj novu kratku poveznicu"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:163
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:721
-#: includes/classes/class-gutenberg-shortlink.php:168
-#: includes/classes/class-settings.php:958
+#: includes/classes/class-gutenberg-shortlink.php:166
+#: includes/classes/class-settings.php:959
 msgid "Options"
 msgstr "Opcije"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:164
-#: includes/classes/class-gutenberg-shortlink.php:169
+#: includes/classes/class-gutenberg-shortlink.php:167
 msgid "Open in New Tab"
 msgstr "Otvorite u novoj kartici"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:165
-#: includes/classes/class-gutenberg-shortlink.php:170, fuzzy
+#: includes/classes/class-gutenberg-shortlink.php:168, fuzzy
 msgid "Nofollow"
 msgstr "Nofollow"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:166
-#: includes/classes/class-gutenberg-shortlink.php:171
+#: includes/classes/class-gutenberg-shortlink.php:169
 msgid "Sponsored Link"
 msgstr "Sponzorirana poveznica"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:167
-#: includes/classes/class-gutenberg-shortlink.php:172
+#: includes/classes/class-columns-link.php:315
+#: includes/classes/class-gutenberg-shortlink.php:170
 msgid "Label"
 msgstr "Oznaka"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:168
-#: includes/classes/class-gutenberg-shortlink.php:173
+#: includes/classes/class-gutenberg-shortlink.php:171
 msgid "Optional shortlink label"
 msgstr "Opcionalna oznaka kratke poveznice"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:170
-#: includes/classes/class-gutenberg-shortlink.php:175
+#: includes/classes/class-gutenberg-shortlink.php:173
 msgid "Create"
 msgstr "Kreiraj"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:171
 #: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1202
-#: includes/classes/class-gutenberg-shortlink.php:176
+#: includes/classes/class-gutenberg-shortlink.php:174
 #: includes/classes/class-import-export.php:1331
 msgid "Cancel"
 msgstr "Otkaži"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:172
 #: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:37
-#: includes/classes/class-gutenberg-shortlink.php:177
-#: templates/admin-modal-new-link.php:38
+#: includes/classes/class-gutenberg-shortlink.php:175
+#: templates/admin-modal-new-link.php:40
 msgid "Close"
 msgstr "Zatvori"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:173
-#: includes/classes/class-gutenberg-shortlink.php:178
+#: includes/classes/class-gutenberg-shortlink.php:176
 msgid "Creating..."
 msgstr "Kreiranje..."
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:174
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:317
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:103
-#: includes/classes/class-gutenberg-shortlink.php:179
-#: includes/classes/class-gutenberg-shortlink.php:322
+#: includes/classes/class-gutenberg-shortlink.php:177
+#: includes/classes/class-gutenberg-shortlink.php:325
 #: includes/classes/class-hooks.php:103
 msgid "Shortlink created successfully."
 msgstr "Kratka poveznica uspješno stvorena."
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:176
-#: includes/classes/class-gutenberg-shortlink.php:181
+#: includes/classes/class-gutenberg-shortlink.php:179
 msgid "Please enter a valid URL"
 msgstr "Molimo unesite valjani URL"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:177
-#: includes/classes/class-gutenberg-shortlink.php:182
+#: includes/classes/class-gutenberg-shortlink.php:180
 msgid "No shortlinks found"
 msgstr "Nema pronađenih kratkih poveznica"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:243
-#: includes/classes/class-gutenberg-shortlink.php:248
+#: includes/classes/class-gutenberg-shortlink.php:251
 msgid "Search term is required"
 msgstr "Pojam za pretraživanje je obavezan"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:258
 #: dist/publishpress-shortlinks/includes/functions.php:447
-#: includes/classes/class-gutenberg-shortlink.php:263
-#: includes/functions.php:553
+#: includes/classes/class-gutenberg-shortlink.php:266
+#: includes/functions.php:568
 #. translators: %s: link ID number
 #, php-format
 msgid "Link - %s"
 msgstr "Veza - %s"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:294
-#: includes/classes/class-gutenberg-shortlink.php:299
+#: includes/classes/class-gutenberg-shortlink.php:302
 msgid "Target URL is required"
 msgstr "Ciljani URL je obavezan"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:336
-#: includes/classes/class-gutenberg-shortlink.php:341
+#: includes/classes/class-gutenberg-shortlink.php:344
 msgid "Invalid shortlink ID"
 msgstr "Nevažeći ID kratke poveznice"
 
 #: dist/publishpress-shortlinks/includes/classes/class-gutenberg-shortlink.php:342
-#: includes/classes/class-gutenberg-shortlink.php:347
+#: includes/classes/class-gutenberg-shortlink.php:350
 msgid "Shortlink not found"
 msgstr "Kratka poveznica nije pronađena"
 
@@ -878,66 +882,66 @@ msgid "You do not have permission to reset analytics for this shortlink."
 msgstr "Nemate dopuštenje za resetiranje analitike za ovu kratku poveznicu."
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:164
-#: includes/classes/class-hooks.php:240
+#: includes/classes/class-hooks.php:224
 msgid "Analytics reset successfully."
 msgstr "Analitika uspješno resetirana."
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:166
-#: includes/classes/class-hooks.php:242
+#: includes/classes/class-hooks.php:226
 msgid "Failed to reset analytics."
 msgstr "Neuspješno resetiranje analitike."
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:192
-#: includes/classes/class-hooks.php:268
+#: includes/classes/class-hooks.php:252
 msgid "Shorten"
 msgstr "Skraćivanje"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:235
-#: includes/classes/class-hooks.php:311
+#: includes/classes/class-hooks.php:295
 msgid "All Shortlinks"
 msgstr "Sve skraćene veze"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:236
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:237
-#: includes/classes/class-hooks.php:312
-#: includes/classes/class-hooks.php:313
+#: includes/classes/class-hooks.php:296
+#: includes/classes/class-hooks.php:297
 msgid "Add Shortlink"
 msgstr "Dodaj kratku vezu"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:238
-#: includes/classes/class-hooks.php:314
+#: includes/classes/class-hooks.php:298
 msgid "Search Shortlinks"
 msgstr "Pretraži kratke veze"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:256
-#: includes/classes/class-hooks.php:332
+#: includes/classes/class-hooks.php:316
 msgid "Category"
 msgstr "Kategorija"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:283
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:284
-#: includes/classes/class-hooks.php:359
-#: includes/classes/class-hooks.php:360
+#: includes/classes/class-hooks.php:344
+#: includes/classes/class-hooks.php:345
 msgid "Logs"
 msgstr "Dnevnici"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:312
-#: includes/classes/class-hooks.php:388
+#: includes/classes/class-hooks.php:373
 msgid "All Logs"
 msgstr "Svi dnevnici"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:312
-#: includes/classes/class-hooks.php:388
+#: includes/classes/class-hooks.php:373
 msgid "Are you sure you want to clear all logs?"
 msgstr "Jeste li sigurni da želite izbrisati sve dnevnike?"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:312
-#: includes/classes/class-hooks.php:388
+#: includes/classes/class-hooks.php:373
 msgid "Clear Logs"
 msgstr "Izbriši dnevnike"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:606
-#: includes/classes/class-hooks.php:682
+#: includes/classes/class-hooks.php:667
 msgid "Sorry, you are not allowed to access shortlinks."
 msgstr "Žao nam je, nemate dopuštenje za pristup skraćenim vezama."
 
@@ -945,25 +949,25 @@ msgstr "Žao nam je, nemate dopuštenje za pristup skraćenim vezama."
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:628
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:639
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:660
-#: includes/classes/class-hooks.php:683
-#: includes/classes/class-hooks.php:704
-#: includes/classes/class-hooks.php:715
-#: includes/classes/class-hooks.php:736
+#: includes/classes/class-hooks.php:668
+#: includes/classes/class-hooks.php:689
+#: includes/classes/class-hooks.php:700
+#: includes/classes/class-hooks.php:721
 msgid "Access Denied"
 msgstr "Pristup odbijen"
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:627
-#: includes/classes/class-hooks.php:703
+#: includes/classes/class-hooks.php:688
 msgid "Sorry, you are not allowed to create shortlinks."
 msgstr "Žao nam je, nemate dopuštenje za kreiranje skraćenih veza."
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:638
-#: includes/classes/class-hooks.php:714
+#: includes/classes/class-hooks.php:699
 msgid "Sorry, you are not allowed to edit shortlinks."
 msgstr "Žao nam je, nemate dopuštenje za uređivanje skraćenih veza."
 
 #: dist/publishpress-shortlinks/includes/classes/class-hooks.php:659
-#: includes/classes/class-hooks.php:735
+#: includes/classes/class-hooks.php:720
 msgid "Sorry, you are not allowed to access shortlink settings."
 msgstr "Žao nam je, nemate dopuštenje za pristup postavkama skraćenih veza."
 
@@ -1069,14 +1073,13 @@ msgstr "Greška(e) za TinyPress Slug:"
 #: includes/classes/class-import-export.php:1025
 #: includes/classes/class-import-export.php:1151
 #: includes/classes/class-migration.php:440
-#: includes/classes/class-url-metadata.php:39
 msgid "Unauthorized."
 msgstr "Neovlašteno."
 
 #: dist/publishpress-shortlinks/includes/classes/class-import-export.php:303
 #: dist/publishpress-shortlinks/includes/functions.php:402
 #: includes/classes/class-import-export.php:398
-#: includes/functions.php:508
+#: includes/functions.php:519
 msgid "Invalid URL."
 msgstr "Nevažeći URL."
 
@@ -1173,6 +1176,7 @@ msgid "Post Status"
 msgstr "Status objave"
 
 #: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1056
+#: includes/classes/class-columns-link.php:327
 #: includes/classes/class-import-export.php:1159
 msgid "Link Status"
 msgstr "Status poveznice"
@@ -1186,8 +1190,8 @@ msgstr "Metoda preusmjeravanja"
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:664
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:939
 #: includes/classes/class-import-export.php:1161
-#: includes/classes/class-meta-boxes.php:1011
-#: includes/classes/class-settings.php:1176, fuzzy
+#: includes/classes/class-meta-boxes.php:1002
+#: includes/classes/class-settings.php:1177, fuzzy
 msgid "NoFollow"
 msgstr "NoFollow"
 
@@ -1195,8 +1199,8 @@ msgstr "NoFollow"
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:642
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:931
 #: includes/classes/class-import-export.php:1162
-#: includes/classes/class-meta-boxes.php:987
-#: includes/classes/class-settings.php:1168
+#: includes/classes/class-meta-boxes.php:978
+#: includes/classes/class-settings.php:1169
 msgid "Sponsored"
 msgstr "Sponzorirano"
 
@@ -1204,8 +1208,8 @@ msgstr "Sponzorirano"
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:686
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:947
 #: includes/classes/class-import-export.php:1163
-#: includes/classes/class-meta-boxes.php:1035
-#: includes/classes/class-settings.php:1184
+#: includes/classes/class-meta-boxes.php:1026
+#: includes/classes/class-settings.php:1185
 msgid "Parameter Forwarding"
 msgstr "Prosljeđivanje parametara"
 
@@ -1218,8 +1222,8 @@ msgstr "Omogućena istek"
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:770
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:988
 #: includes/classes/class-import-export.php:1165
-#: includes/classes/class-meta-boxes.php:1151
-#: includes/classes/class-settings.php:1230
+#: includes/classes/class-meta-boxes.php:1142
+#: includes/classes/class-settings.php:1231
 msgid "Expiration Date"
 msgstr "Datum isteka"
 
@@ -1227,15 +1231,15 @@ msgstr "Datum isteka"
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:784
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1001
 #: includes/classes/class-import-export.php:1166
-#: includes/classes/class-meta-boxes.php:1165
-#: includes/classes/class-settings.php:1243
+#: includes/classes/class-meta-boxes.php:1156
+#: includes/classes/class-settings.php:1244
 msgid "Expiration Time"
 msgstr "Vrijeme isteka"
 
 #: dist/publishpress-shortlinks/includes/classes/class-import-export.php:1065
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:552
 #: includes/classes/class-import-export.php:1168
-#: includes/classes/class-meta-boxes.php:898
+#: includes/classes/class-meta-boxes.php:916
 msgid "Notes"
 msgstr "Bilješke"
 
@@ -1317,148 +1321,149 @@ msgstr "Pregled uvoza"
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:387
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:453
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:478
-#: includes-core/ShortlinksCoreAdmin.php:398
-#: includes-core/ShortlinksCoreAdmin.php:420
-#: includes-core/ShortlinksCoreAdmin.php:434
-#: includes-core/ShortlinksCoreAdmin.php:456
-#: includes-core/ShortlinksCoreAdmin.php:482
-#: includes/classes/class-meta-boxes.php:733
-#: includes/classes/class-meta-boxes.php:799
-#: includes/classes/class-meta-boxes.php:824
+#: includes-core/ShortlinksCoreAdmin.php:405
+#: includes-core/ShortlinksCoreAdmin.php:427
+#: includes-core/ShortlinksCoreAdmin.php:441
+#: includes-core/ShortlinksCoreAdmin.php:463
+#: includes-core/ShortlinksCoreAdmin.php:489
+#: includes/classes/class-meta-boxes.php:729
+#: includes/classes/class-meta-boxes.php:801
+#: includes/classes/class-meta-boxes.php:826
 #. translators: %s: current global setting value
 msgid "Use global settings"
 msgstr "Koristi globalne postavke"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:388
-#: includes-core/ShortlinksCoreAdmin.php:421
-#: includes/classes/class-meta-boxes.php:734
+#: includes-core/ShortlinksCoreAdmin.php:428
+#: includes/classes/class-columns-link.php:329
+#: includes/classes/class-meta-boxes.php:730
 msgid "Enabled"
 msgstr "Omogućeno"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:389
-#: includes-core/ShortlinksCoreAdmin.php:422
-#: includes/classes/class-meta-boxes.php:735
+#: includes-core/ShortlinksCoreAdmin.php:429
+#: includes/classes/class-columns-link.php:330
+#: includes/classes/class-meta-boxes.php:731
 msgid "Disabled"
 msgstr "Onemogućeno"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:449
-#: includes/classes/class-meta-boxes.php:795
+#: includes/classes/class-meta-boxes.php:797
 msgid "ON"
 msgstr "UKLJUČENO"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:449
-#: includes/classes/class-meta-boxes.php:795
+#: includes/classes/class-meta-boxes.php:797
 msgid "OFF"
 msgstr "ISKLJUČENO"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:481
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:922
-#: includes/classes/class-meta-boxes.php:827
-#: includes/classes/class-settings.php:1159
+#: includes/classes/class-meta-boxes.php:829
+#: includes/classes/class-settings.php:1160
 msgid "307 (Temporary)"
 msgstr "307 (Privremeno)"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:482
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:923
-#: includes/classes/class-meta-boxes.php:828
-#: includes/classes/class-settings.php:1160
+#: includes/classes/class-meta-boxes.php:830
+#: includes/classes/class-settings.php:1161
 msgid "302 (Temporary)"
 msgstr "302 (Privremeno)"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:483
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:924
-#: includes/classes/class-meta-boxes.php:829
-#: includes/classes/class-settings.php:1161
+#: includes/classes/class-meta-boxes.php:831
+#: includes/classes/class-settings.php:1162
 msgid "301 (Permanent)"
 msgstr "301 (Trajno)"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:496
 #: dist/publishpress-shortlinks/tinypress.php:399
 #: dist/publishpress-shortlinks/tinypress.php:492
-#: includes/classes/class-meta-boxes.php:842
-#: includes/classes/class-settings.php:624
-#: tinypress.php:481
-#: tinypress.php:594
+#: includes/classes/class-meta-boxes.php:860
+#: includes/classes/class-settings.php:625
+#: tinypress.php:504
+#: tinypress.php:614
 msgid "PublishPress Shortlinks"
 msgstr "PublishPress skraćene veze"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:509
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:718
-#: includes/classes/class-meta-boxes.php:855
-#: includes/classes/class-settings.php:940
+#: includes/classes/class-meta-boxes.php:873
+#: includes/classes/class-settings.php:941
 msgid "General"
 msgstr "Općenito"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:514
-#: includes/classes/class-meta-boxes.php:860
+#: includes/classes/class-meta-boxes.php:878
 msgid "Label *"
 msgstr "Oznaka *"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:516
-#: includes/classes/class-meta-boxes.php:862
+#: includes/classes/class-meta-boxes.php:880
 msgid "For admin purpose only."
 msgstr "Samo za administrativne svrhe."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:525
-#: includes/classes/class-meta-boxes.php:871
+#: includes/classes/class-meta-boxes.php:889
 msgid "Target URL *"
 msgstr "Ciljana URL adresa *"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:535
-#: includes/classes/class-meta-boxes.php:881
+#: includes/classes/class-meta-boxes.php:899
 msgid "Short String *"
 msgstr "Kratki niz *"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:536
-#: includes/classes/class-meta-boxes.php:882
+#: includes/classes/class-meta-boxes.php:900
 msgid "Short string of this URL."
 msgstr "Kratki niz ove URL adrese."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:543
-#: includes/classes/class-meta-boxes.php:889
+#: includes/classes/class-meta-boxes.php:907
 msgid "Enable or disable the shortlink."
 msgstr "Omogući ili onemogući kratku vezu."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:544
-#: includes-core/ShortlinksCoreAdmin.php:543
-#: includes-core/ShortlinksCoreAdmin.php:585
-#: includes/classes/class-meta-boxes.php:890
+#: includes-core/ShortlinksCoreAdmin.php:550
+#: includes-core/ShortlinksCoreAdmin.php:592
+#: includes/classes/class-meta-boxes.php:908
 msgid "Enable"
 msgstr "Omogući"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:545
-#: includes-core/ShortlinksCoreAdmin.php:544
-#: includes-core/ShortlinksCoreAdmin.php:586
-#: includes/classes/class-meta-boxes.php:891
+#: includes-core/ShortlinksCoreAdmin.php:551
+#: includes-core/ShortlinksCoreAdmin.php:593
+#: includes/classes/class-meta-boxes.php:909
 msgid "Disable"
 msgstr "Onemogući"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:576
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:582
-#: includes/classes/class-meta-boxes.php:922
-#: includes/classes/class-meta-boxes.php:928
+#: includes/classes/class-meta-boxes.php:842
 msgid "Shortlink Label"
 msgstr "Oznaka kratkog linka"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:577
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:583
-#: includes/classes/class-meta-boxes.php:923
-#: includes/classes/class-meta-boxes.php:929
+#: includes/classes/class-meta-boxes.php:843
 msgid "Custom Text"
 msgstr "Prilagođeni tekst"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:581
-#: includes/classes/class-meta-boxes.php:927
+#: includes/classes/class-meta-boxes.php:849
+#: includes/Mcp/Fields.php:34
 msgid "Post Title"
 msgstr "Naslov posta"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:593
-#: includes/classes/class-meta-boxes.php:939
+#: includes/classes/class-meta-boxes.php:930
 msgid "Keywords"
 msgstr "Ključne riječi"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:594
-#: includes/classes/class-meta-boxes.php:940
+#: includes/classes/class-meta-boxes.php:931
 msgid ""
 "Add keywords separated by commas or on separate lines. Each keyword will "
 "link to this shortlink."
@@ -1467,24 +1472,24 @@ msgstr ""
 "ključna riječ će se povezati s ovom kratkom vezom."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:599
-#: includes/classes/class-meta-boxes.php:945
+#: includes/classes/class-meta-boxes.php:936
 msgid "Link Alt Text"
 msgstr "Alternativni tekst linka"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:600
-#: includes/classes/class-meta-boxes.php:946
+#: includes/classes/class-meta-boxes.php:937
 msgid "Set the alt text for the linked keywords in the frontend of the site."
 msgstr ""
 "Postavite alternativni tekst za povezane ključne riječi na frontend-u "
 "stranice."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:607
-#: includes/classes/class-meta-boxes.php:953
+#: includes/classes/class-meta-boxes.php:944
 msgid "Custom Alt Text"
 msgstr "Prilagođeni alternativni tekst"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:608
-#: includes/classes/class-meta-boxes.php:954
+#: includes/classes/class-meta-boxes.php:945
 msgid ""
 "Enter custom alt text for the linked keywords. This is only used if "
 "\"Custom Text\" is selected above."
@@ -1493,44 +1498,44 @@ msgstr ""
 "samo ako je odabran \"Prilagođeni tekst\" iznad."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:619
-#: includes/classes/class-meta-boxes.php:964
+#: includes/classes/class-meta-boxes.php:955
 msgid "Auto-linking"
 msgstr "Automatsko povezivanje"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:628
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:914
-#: includes/classes/class-meta-boxes.php:973
-#: includes/classes/class-settings.php:1151
+#: includes/classes/class-meta-boxes.php:964
+#: includes/classes/class-settings.php:1152
 msgid "Redirection"
 msgstr "Preusmjeravanje"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:633
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:919
-#: includes/classes/class-meta-boxes.php:978
-#: includes/classes/class-settings.php:1156
+#: includes/classes/class-meta-boxes.php:969
+#: includes/classes/class-settings.php:1157
 msgid "Redirection Method"
 msgstr "Metoda preusmjeravanja"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:634
-#: includes/classes/class-meta-boxes.php:979
+#: includes/classes/class-meta-boxes.php:970
 msgid "Select redirection method"
 msgstr "Odaberite metodu preusmjeravanja"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:635
-#: includes/classes/class-meta-boxes.php:980
+#: includes/classes/class-meta-boxes.php:971
 msgid "Select a method"
 msgstr "Odaberite metodu"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:645
-#: includes/classes/class-meta-boxes.php:990
+#: includes/classes/class-meta-boxes.php:981
 msgid "Mark links as sponsored content."
 msgstr "Označi veze kao sponzorirani sadržaj."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:646
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:656
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:933
-#: includes/classes/class-meta-boxes.php:991
-#: includes/classes/class-settings.php:1170
+#: includes/classes/class-meta-boxes.php:982
+#: includes/classes/class-settings.php:1171
 msgid ""
 "Adds rel=\"sponsored\" attribute. Recommended for affiliate links and paid "
 "promotions."
@@ -1539,15 +1544,15 @@ msgstr ""
 "plaćene promocije."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:667
-#: includes/classes/class-meta-boxes.php:1014
+#: includes/classes/class-meta-boxes.php:1005
 msgid "Prevent search engines from following this link."
 msgstr "Spriječi pretraživače da prate ovu vezu."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:668
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:678
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:941
-#: includes/classes/class-meta-boxes.php:1015
-#: includes/classes/class-settings.php:1178
+#: includes/classes/class-meta-boxes.php:1006
+#: includes/classes/class-settings.php:1179
 msgid ""
 "Adds rel=\"nofollow\" attribute. Recommended for external links and "
 "untrusted sources."
@@ -1556,15 +1561,15 @@ msgstr ""
 "nepouzdane izvore."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:689
-#: includes/classes/class-meta-boxes.php:1038
+#: includes/classes/class-meta-boxes.php:1029
 msgid "Pass URL parameters to the target link."
 msgstr "Proslijedite URL parametre na ciljnu vezu."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:690
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:700
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:949
-#: includes/classes/class-meta-boxes.php:1039
-#: includes/classes/class-settings.php:1186
+#: includes/classes/class-meta-boxes.php:1030
+#: includes/classes/class-settings.php:1187
 msgid ""
 "Any parameters added to the short URL (e.g., ?utm_source=email) will be "
 "forwarded to the target URL."
@@ -1574,61 +1579,61 @@ msgstr ""
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:713
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:960
-#: includes/classes/class-meta-boxes.php:1077
-#: includes/classes/class-settings.php:1197
+#: includes/classes/class-meta-boxes.php:1068
+#: includes/classes/class-settings.php:1198
 msgid "Password Protection"
 msgstr "Zaštita lozinkom"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:716
-#: includes/classes/class-meta-boxes.php:1080
+#: includes/classes/class-meta-boxes.php:1071
 msgid "Secure your shortlink."
 msgstr "Osigurajte svoju kratku vezu."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:717
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:727
-#: includes/classes/class-meta-boxes.php:1081
+#: includes/classes/class-meta-boxes.php:1072
 msgid "Users must enter the password to redirect to the target link."
 msgstr "Korisnici moraju unijeti lozinku za preusmjeravanje na ciljnu vezu."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:735
-#: includes/classes/class-meta-boxes.php:1101
+#: includes/classes/class-meta-boxes.php:1092
 msgid "Password"
 msgstr "Lozinka"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:736
-#: includes/classes/class-meta-boxes.php:1102
+#: includes/classes/class-meta-boxes.php:1093
 msgid "Share this with users."
 msgstr "Podijelite ovo s korisnicima."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:737
-#: includes/classes/class-meta-boxes.php:1103
+#: includes/classes/class-meta-boxes.php:1094
 msgid "Passwords are case sensitive."
 msgstr "Lozinke su osjetljive na velika i mala slova."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:738
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:971
-#: includes/classes/class-meta-boxes.php:1104
-#: includes/classes/class-settings.php:1208, fuzzy
+#: includes/classes/class-meta-boxes.php:1095
+#: includes/classes/class-settings.php:1209, fuzzy
 msgid "********"
 msgstr "********"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:748
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:980
-#: includes/classes/class-meta-boxes.php:1127
-#: includes/classes/class-settings.php:1222
+#: includes/classes/class-meta-boxes.php:1118
+#: includes/classes/class-settings.php:1223
 msgid "Enable Expiration"
 msgstr "Omogući isteka"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:751
-#: includes/classes/class-meta-boxes.php:1130
+#: includes/classes/class-meta-boxes.php:1121
 msgid "Set an expiration date and time for shortlinks."
 msgstr "Postavite datum i vrijeme isteka za kratke linkove."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:752
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:762
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:982
-#: includes/classes/class-meta-boxes.php:1131
-#: includes/classes/class-settings.php:1224
+#: includes/classes/class-meta-boxes.php:1122
+#: includes/classes/class-settings.php:1225
 msgid ""
 "After the expiration date and time pass, visitors will no longer be able to "
 "access the shortlink."
@@ -1637,19 +1642,19 @@ msgstr ""
 "pristupiti kratkom linku."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:771
-#: includes/classes/class-meta-boxes.php:1152
+#: includes/classes/class-meta-boxes.php:1143
 msgid "Select the date when this shortlink should stop working."
 msgstr "Odaberite datum kada bi ovaj kratki link trebao prestati raditi."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:785
-#: includes/classes/class-meta-boxes.php:1166
+#: includes/classes/class-meta-boxes.php:1157
 msgid "Select the time when the shortlink should expire."
 msgstr "Odaberite vrijeme kada bi kratki link trebao isteći."
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:786
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1003
-#: includes/classes/class-meta-boxes.php:1167
-#: includes/classes/class-settings.php:1245
+#: includes/classes/class-meta-boxes.php:1158
+#: includes/classes/class-settings.php:1246
 msgid ""
 "Must be at least 1 minute in the future. Combined with the date above to "
 "set the exact expiration moment."
@@ -1659,25 +1664,25 @@ msgstr ""
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:804
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:955
-#: includes/classes/class-meta-boxes.php:1117
-#: includes/classes/class-settings.php:1192
+#: includes/classes/class-meta-boxes.php:1108
+#: includes/classes/class-settings.php:1193
 msgid "Security"
 msgstr "Sigurnost"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:823
-#: includes/classes/class-meta-boxes.php:1204
+#: includes/classes/class-meta-boxes.php:1195
 msgid "QR Code"
 msgstr "QR kod"
 
 #: dist/publishpress-shortlinks/includes/classes/class-meta-boxes.php:833
 #: dist/publishpress-shortlinks/tinypress.php:396
-#: includes/classes/class-meta-boxes.php:1214
-#: tinypress.php:478
+#: includes/classes/class-meta-boxes.php:1205
+#: tinypress.php:501
 msgid "Analytics"
 msgstr "Analitika"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1044
-#: includes/classes/class-redirection.php:1264
+#: includes/classes/class-redirection.php:1245
 msgid "Post not found."
 msgstr "Post nije pronađen."
 
@@ -1689,86 +1694,86 @@ msgstr "Post nije pronađen."
 #: dist/publishpress-shortlinks/tinypress.php:303
 #: dist/publishpress-shortlinks/tinypress.php:304
 #: dist/publishpress-shortlinks/tinypress.php:305
-#: includes/classes/class-redirection.php:1408
-#: includes/functions.php:467
-#: includes/functions.php:468
-#: includes/functions.php:469
-#: includes/functions.php:475
-#: tinypress.php:376
-#: tinypress.php:377
-#: tinypress.php:378
+#: includes/classes/class-redirection.php:1389
+#: includes/functions.php:478
+#: includes/functions.php:479
+#: includes/functions.php:480
+#: includes/functions.php:486
+#: tinypress.php:401
+#: tinypress.php:402
+#: tinypress.php:403
 msgid "This post is in {status} status. It is not visible to the public."
 msgstr "Ova objava je u {status} statusu. Nije vidljiva javnosti."
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1236
-#: includes-core/ShortlinksCoreAdmin.php:445
-#: includes/classes/class-redirection.php:1456
+#: includes-core/ShortlinksCoreAdmin.php:452
+#: includes/classes/class-redirection.php:1439
 msgid "This link has expired"
 msgstr "Ova veza je istekao"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1240
-#: includes-core/ShortlinksCoreAdmin.php:467
-#: includes/classes/class-redirection.php:1460
+#: includes-core/ShortlinksCoreAdmin.php:474
+#: includes/classes/class-redirection.php:1443
 msgid "You will be redirected shortly."
 msgstr "Uskoro ćete biti preusmjereni."
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1244
-#: includes-core/ShortlinksCoreAdmin.php:493
-#: includes/classes/class-redirection.php:1464
+#: includes-core/ShortlinksCoreAdmin.php:500
+#: includes/classes/class-redirection.php:1447
 msgid "Click here if you are not redirected"
 msgstr "Kliknite ovdje ako niste preusmjereni"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1261
-#: includes/classes/class-redirection.php:1481
+#: includes/classes/class-redirection.php:1466
 msgid "Link Expired"
 msgstr "Veza je istekao"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1423
-#: includes/classes/class-redirection.php:1702
-#: includes/classes/class-redirection.php:1710
+#: includes/classes/class-redirection.php:1737
+#: includes/classes/class-redirection.php:1745
 msgid "This link is not active."
 msgstr "Ova veza nije aktivna."
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1460
-#: includes/classes/class-redirection.php:310
-#: includes/classes/class-redirection.php:1729
+#: includes/classes/class-redirection.php:291
+#: includes/classes/class-redirection.php:1764
 msgid "This link is expired."
 msgstr "Ova veza je istekao."
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1479
-#: includes/classes/class-redirection.php:1749
+#: includes/classes/class-redirection.php:1784
 msgid "Incorrect password. Please try again."
 msgstr "Neispravna lozinka. Pokušajte ponovo."
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1494
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1499
-#: includes/classes/class-redirection.php:1768
-#: includes/classes/class-redirection.php:1773
+#: includes/classes/class-redirection.php:1803
+#: includes/classes/class-redirection.php:1808
 msgid "Password Protected Link"
 msgstr "Veza zaštićena lozinkom"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1505
-#: includes/classes/class-redirection.php:1779
+#: includes/classes/class-redirection.php:1814
 msgid "Enter password to continue:"
 msgstr "Unesite lozinku za nastavak:"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1507
-#: includes/classes/class-redirection.php:1781
+#: includes/classes/class-redirection.php:1816
 msgid "Submit"
 msgstr "Pošalji"
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1631
-#: includes/classes/class-redirection.php:1892
+#: includes/classes/class-redirection.php:1927
 msgid "This link is not containing the right prefix slug."
 msgstr "Ova veza ne sadrži pravi prefiks slug."
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1672
-#: includes/classes/class-redirection.php:1933
+#: includes/classes/class-redirection.php:1968
 msgid "Too many invalid shortlink requests. Please try again later."
 msgstr "Previše nevažećih zahtjeva za kratke linkove. Pokušajte ponovo kasnije."
 
 #: dist/publishpress-shortlinks/includes/classes/class-redirection.php:1673
-#: includes/classes/class-redirection.php:1934
+#: includes/classes/class-redirection.php:1969
 msgid "Too Many Requests"
 msgstr "Previše zahtjeva"
 
@@ -1782,11 +1787,12 @@ msgstr "Nevažeći ID revizije."
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:711
 #: dist/publishpress-shortlinks/includes/functions.php:270
 #: dist/publishpress-shortlinks/includes/functions.php:304
-#: includes/classes/class-settings.php:458
-#: includes/classes/class-settings.php:925
-#: includes/classes/class-settings.php:933
-#: includes/functions.php:376
-#: includes/functions.php:410
+#: includes/classes/class-columns-link.php:311
+#: includes/classes/class-settings.php:459
+#: includes/classes/class-settings.php:926
+#: includes/classes/class-settings.php:934
+#: includes/functions.php:387
+#: includes/functions.php:421
 msgid "Draft"
 msgstr "Nacrt"
 
@@ -1795,11 +1801,12 @@ msgstr "Nacrt"
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:712
 #: dist/publishpress-shortlinks/includes/functions.php:271
 #: dist/publishpress-shortlinks/includes/functions.php:305
-#: includes/classes/class-settings.php:459
-#: includes/classes/class-settings.php:926
-#: includes/classes/class-settings.php:934
-#: includes/functions.php:377
-#: includes/functions.php:411
+#: includes/classes/class-columns-link.php:310
+#: includes/classes/class-settings.php:460
+#: includes/classes/class-settings.php:927
+#: includes/classes/class-settings.php:935
+#: includes/functions.php:388
+#: includes/functions.php:422
 msgid "Pending Review"
 msgstr "Na čekanju za pregled"
 
@@ -1808,16 +1815,17 @@ msgstr "Na čekanju za pregled"
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:713
 #: dist/publishpress-shortlinks/includes/functions.php:272
 #: dist/publishpress-shortlinks/includes/functions.php:306
-#: includes/classes/class-settings.php:460
-#: includes/classes/class-settings.php:927
-#: includes/classes/class-settings.php:935
-#: includes/functions.php:378
-#: includes/functions.php:412
+#: includes/classes/class-columns-link.php:308
+#: includes/classes/class-settings.php:461
+#: includes/classes/class-settings.php:928
+#: includes/classes/class-settings.php:936
+#: includes/functions.php:389
+#: includes/functions.php:423
 msgid "Private"
 msgstr "Privatno"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:369
-#: includes/classes/class-settings.php:465
+#: includes/classes/class-settings.php:466
 msgid ""
 "Customize the notice shown for each enabled non-published status. Available "
 "placeholders: {status}, {date}, {title}."
@@ -1826,18 +1834,18 @@ msgstr ""
 "Dostupni zamjenski znakovi: {status}, {date}, {title}."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:405
-#: includes/classes/class-settings.php:501
-#: includes/classes/class-settings.php:550
+#: includes/classes/class-settings.php:502
+#: includes/classes/class-settings.php:551
 msgid "All"
 msgstr "Sve"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:444
-#: includes/classes/class-settings.php:623
+#: includes/classes/class-settings.php:624
 msgid "Settings"
 msgstr "Postavke"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:528
-#: includes/classes/class-settings.php:750
+#: includes/classes/class-settings.php:751
 msgid ""
 "Select which post statuses are accessible when visiting a PublishPress "
 "shortlink."
@@ -1846,13 +1854,13 @@ msgstr ""
 "kratkom linku."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:544
-#: includes/classes/class-settings.php:766
+#: includes/classes/class-settings.php:767
 #, fuzzy
 msgid "PublishPress Statuses Plugin Detected:"
 msgstr "PublishPress Shortlinks Free"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:545
-#: includes/classes/class-settings.php:767
+#: includes/classes/class-settings.php:768
 msgid ""
 "To use core PublishPress statuses with Shortlinks, Please enable the "
 "Shortlinks post type in PublishPress Statuses workflow settings."
@@ -1861,12 +1869,12 @@ msgstr ""
 "post type kratkih veza u postavkama tijeka rada PublishPress Statusa."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:564
-#: includes/classes/class-settings.php:786
+#: includes/classes/class-settings.php:787
 msgid "Elementor Detected:"
 msgstr "Elementor otkriven:"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:565
-#: includes/classes/class-settings.php:787
+#: includes/classes/class-settings.php:788
 msgid ""
 "Shortlink prefix is required for proper rendering of Elementor revisions. "
 "It is advisable to keep it enabled."
@@ -1875,12 +1883,12 @@ msgstr ""
 "revizija. Preporučuje se da ga zadržite omogućenim."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:597
-#: includes/classes/class-settings.php:819
+#: includes/classes/class-settings.php:820
 msgid "TinyPress Shortlinks Notice:"
 msgstr "Obavijest o TinyPress kratkim vezama:"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:598
-#: includes/classes/class-settings.php:820
+#: includes/classes/class-settings.php:821
 msgid ""
 "Elementor is active. Shortlink prefix has been automatically disabled, it "
 "is required for optimal compatibility with Elementor revisions."
@@ -1891,51 +1899,53 @@ msgstr ""
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:702
 #: dist/publishpress-shortlinks/includes/functions.php:269
 #: dist/publishpress-shortlinks/includes/functions.php:303
-#: includes/classes/class-settings.php:924
-#: includes/functions.php:375
-#: includes/functions.php:409
+#: includes/classes/class-columns-link.php:307
+#: includes/classes/class-columns-link.php:439
+#: includes/classes/class-settings.php:925
+#: includes/functions.php:386
+#: includes/functions.php:420
 msgid "Published"
 msgstr "Objavljeno"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:726
-#: includes/classes/class-settings.php:963
+#: includes/classes/class-settings.php:964
 msgid "Shortlink Prefix"
 msgstr "Prefiks kratke veze"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:727
-#: includes/classes/class-settings.php:964
+#: includes/classes/class-settings.php:965
 msgid "Add a prefix between your domain name and shortlink."
 msgstr "Dodajte prefiks između vašeg domena i kratke veze."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:734
-#: includes/classes/class-settings.php:971
+#: includes/classes/class-settings.php:972
 msgid "Prefix Slug"
 msgstr "Prefiks Slug"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:735
-#: includes/classes/class-settings.php:972
+#: includes/classes/class-settings.php:973
 msgid "Custom prefix slug."
 msgstr "Prilagođeni prefiks slug."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:736
-#: includes/classes/class-settings.php:973
+#: includes/classes/class-settings.php:974
 msgid "This text will be added between your domain name and shortlink."
 msgstr "Ovaj tekst će biti dodat između vašeg domena i kratke veze."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:737
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:738
-#: includes/classes/class-settings.php:974
 #: includes/classes/class-settings.php:975
+#: includes/classes/class-settings.php:976
 msgid "go"
 msgstr "idi"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:744
-#: includes/classes/class-settings.php:981
+#: includes/classes/class-settings.php:982
 msgid "Keyboard Shortcut"
 msgstr "Prečica na tipkovnici"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:745
-#: includes/classes/class-settings.php:982
+#: includes/classes/class-settings.php:983
 msgid "Create shortlinks from anywhere inside your WordPress dashboard."
 msgstr ""
 "Kreirajte kratke veze s bilo kojeg mjesta unutar vašeg WordPress nadzorne "
@@ -1943,85 +1953,85 @@ msgstr ""
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:746
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:747
-#: includes/classes/class-settings.php:983
 #: includes/classes/class-settings.php:984
+#: includes/classes/class-settings.php:985
 msgid "Ctrl or Cmd + /"
 msgstr "Ctrl ili Cmd + /"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:756
-#: includes/classes/class-settings.php:993
+#: includes/classes/class-settings.php:994
 msgid "Remove from Admin Bar"
 msgstr "Ukloni iz Admin Trake"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:757
-#: includes/classes/class-settings.php:994
+#: includes/classes/class-settings.php:995
 msgid "Hide the \"Shorten\" button from the WordPress admin bar."
 msgstr "Sakrijte gumb \"Skraćivanje\" iz WordPress admin trake."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:763
-#: includes/classes/class-settings.php:1000
+#: includes/classes/class-settings.php:1001
 msgid "Role Management"
 msgstr "Upravljanje Ulogama"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:768
-#: includes/classes/class-settings.php:1005
+#: includes/classes/class-settings.php:1006
 msgid "Who Can View The All Shortlinks Screen"
 msgstr "Tko može vidjeti ekran svih kratkih veza"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:769
-#: includes/classes/class-settings.php:1006
+#: includes/classes/class-settings.php:1007
 msgid "Only selected user roles can view the complete list of Shortlinks."
 msgstr "Samo odabrane korisničke uloge mogu vidjeti potpuni popis kratkih veza."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:777
-#: includes/classes/class-settings.php:1014
+#: includes/classes/class-settings.php:1015
 msgid "Who Can Create/Edit Shortlinks"
 msgstr "Tko može kreirati/uređivati kratke veze"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:778
-#: includes/classes/class-settings.php:1015
+#: includes/classes/class-settings.php:1016
 msgid "Only selected user roles can create or edit links."
 msgstr "Samo odabrane korisničke uloge mogu kreirati ili uređivati veze."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:787
-#: includes/classes/class-settings.php:1024
+#: includes/classes/class-settings.php:1025
 msgid "Who Can See Logs"
 msgstr "Tko može vidjeti zapise"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:788
-#: includes/classes/class-settings.php:1025
+#: includes/classes/class-settings.php:1026
 msgid "Only selected user roles can see the Analytics tab and the Logs screen."
 msgstr ""
 "Samo odabrane korisničke uloge mogu vidjeti karticu Analitika i ekran "
 "Zapisi."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:797
-#: includes/classes/class-settings.php:1034
+#: includes/classes/class-settings.php:1035
 msgid "Who Can Control Settings"
 msgstr "Tko može kontrolirati postavke"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:798
-#: includes/classes/class-settings.php:1035
+#: includes/classes/class-settings.php:1036
 msgid "Only selected user roles can access the Settings screen."
 msgstr "Samo odabrane korisničke uloge mogu pristupiti ekranu Postavke."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:807
-#: includes/classes/class-settings.php:1044
+#: includes/classes/class-settings.php:1045
 msgid "Auto-Linking"
 msgstr "Automatsko povezivanje"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:812
-#: includes/classes/class-settings.php:1049
+#: includes/classes/class-settings.php:1050
 msgid "Enable Auto-Linking"
 msgstr "Omogući automatsko povezivanje"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:813
-#: includes/classes/class-settings.php:1050
+#: includes/classes/class-settings.php:1051
 msgid "Automatically convert keywords to shortlinks in post content."
 msgstr "Automatski pretvorite ključne riječi u kratke veze u sadržaju posta."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:814
-#: includes/classes/class-settings.php:1051
+#: includes/classes/class-settings.php:1052
 msgid ""
 "When enabled, keywords configured in shortlink settings will be "
 "automatically linked in your content."
@@ -2030,59 +2040,59 @@ msgstr ""
 "bit će automatski povezane u vašem sadržaju."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:820
-#: includes/classes/class-settings.php:943
-#: includes/classes/class-settings.php:948
-#: includes/classes/class-settings.php:1057, fuzzy
+#: includes/classes/class-settings.php:944
+#: includes/classes/class-settings.php:949
+#: includes/classes/class-settings.php:1058, fuzzy
 msgid "Post Types"
 msgstr "Post Types"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:821
-#: includes/classes/class-settings.php:1058
+#: includes/classes/class-settings.php:1059
 msgid "Where should auto-linking be applied?"
 msgstr "Gdje bi se trebalo primijeniti automatsko povezivanje?"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:830
-#: includes/classes/class-settings.php:1067
+#: includes/classes/class-settings.php:1068
 msgid "Open Auto-Links In"
 msgstr "Otvorite automatske veze u"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:831
-#: includes/classes/class-settings.php:1068
+#: includes/classes/class-settings.php:1069
 msgid "Choose how auto-linked keywords should open."
 msgstr "Odaberite kako bi se automatski povezane ključne riječi trebale otvoriti."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:833
-#: includes/classes/class-settings.php:1070
+#: includes/classes/class-settings.php:1071
 msgid "Same tab"
 msgstr "Ista kartica"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:834
-#: includes/classes/class-settings.php:1071
+#: includes/classes/class-settings.php:1072
 msgid "New tab"
 msgstr "Nova kartica"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:842
-#: includes/classes/class-settings.php:1079
+#: includes/classes/class-settings.php:1080
 msgid "Auto-Link Color"
 msgstr "Boja automatske veze"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:843
-#: includes/classes/class-settings.php:1080
+#: includes/classes/class-settings.php:1081
 msgid "Choose the color for auto-linked keywords."
 msgstr "Odaberite boju za automatski povezane ključne riječi."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:854
-#: includes/classes/class-settings.php:1091
+#: includes/classes/class-settings.php:1092
 msgid "Auto-List Links"
 msgstr "Automatski popis veza"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:859
-#: includes/classes/class-settings.php:1096
+#: includes/classes/class-settings.php:1097
 msgid "Auto-List Shortlinks"
 msgstr "Automatski popis kratkih linkova"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:860
-#: includes/classes/class-settings.php:1097
+#: includes/classes/class-settings.php:1098
 msgid ""
 "When enabled, shortlinks will appear in the \"All Links\" table based on "
 "the behavior you configure below."
@@ -2091,17 +2101,17 @@ msgstr ""
 "na temelju ponašanja koje konfigurirate u nastavku."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:866
-#: includes/classes/class-settings.php:1103
+#: includes/classes/class-settings.php:1104
 msgid "Configure Post Types"
 msgstr "Konfiguriraj post tipove"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:867
-#: includes/classes/class-settings.php:1104
+#: includes/classes/class-settings.php:1105
 msgid "Set when links should be auto-listed for each post type"
 msgstr "Postavite kada se linkovi trebaju automatski popisati za svaki post tip"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:868
-#: includes/classes/class-settings.php:1105
+#: includes/classes/class-settings.php:1106
 msgid ""
 "Add post types and configure when their shortlinks should appear in the "
 "\"All Links\" table. Changes are saved automatically."
@@ -2111,23 +2121,23 @@ msgstr ""
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:875
 #: dist/publishpress-shortlinks/includes/classes/class-statuses.php:233
-#: includes/classes/class-settings.php:1112
+#: includes/classes/class-settings.php:1113
 #: includes/classes/class-statuses.php:233
 msgid "Post Status Visibility"
 msgstr "Vidljivost statusa posta"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:880
-#: includes/classes/class-settings.php:1117
+#: includes/classes/class-settings.php:1118
 msgid "Allowed Post Statuses"
 msgstr "Dopušteni statusi postova"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:889
-#: includes/classes/class-settings.php:1126
+#: includes/classes/class-settings.php:1127
 msgid "Unpublished Content Notice"
 msgstr "Obavijest o neobjavljenom sadržaju"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:890
-#: includes/classes/class-settings.php:1127
+#: includes/classes/class-settings.php:1128
 msgid ""
 "Show a frontend notice when an internal shortlink displays a post that is "
 "not published."
@@ -2136,12 +2146,12 @@ msgstr ""
 "koja nije objavljena."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:896
-#: includes/classes/class-settings.php:1133
+#: includes/classes/class-settings.php:1134
 msgid "Notice Post Statuses"
 msgstr "Obavijesti o statusima objava"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:897
-#: includes/classes/class-settings.php:1134
+#: includes/classes/class-settings.php:1135
 msgid ""
 "This notice only applies to internal shortlinks that render post content "
 "directly. External shortlinks are not affected."
@@ -2150,52 +2160,52 @@ msgstr ""
 "prikazuju sadržaj objave. Vanjski kratki linkovi nisu pogođeni."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:906
-#: includes/classes/class-settings.php:1143
+#: includes/classes/class-settings.php:1144
 msgid "Notice Messages"
 msgstr "Obavijesti o porukama"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:920
-#: includes/classes/class-settings.php:1157
+#: includes/classes/class-settings.php:1158
 msgid "Default redirection method for shortlinks"
 msgstr "Zadani način preusmjeravanja za kratke linkove"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:932
-#: includes/classes/class-settings.php:1169
+#: includes/classes/class-settings.php:1170
 msgid "Mark links as sponsored content"
 msgstr "Označi linkove kao sponzorirani sadržaj"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:940
-#: includes/classes/class-settings.php:1177
+#: includes/classes/class-settings.php:1178
 msgid "Prevent search engines from following links"
 msgstr "Spriječite pretraživače da prate linkove"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:948
-#: includes/classes/class-settings.php:1185
+#: includes/classes/class-settings.php:1186
 msgid "Pass URL parameters to target links"
 msgstr "Proslijedite URL parametre na ciljne linkove"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:961
-#: includes/classes/class-settings.php:1198
+#: includes/classes/class-settings.php:1199
 msgid "Secure your shortlinks"
 msgstr "Osigurajte svoje kratke linkove"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:962
-#: includes/classes/class-settings.php:1199
+#: includes/classes/class-settings.php:1200
 msgid "Users must enter a password to redirect to the target link."
 msgstr "Korisnici moraju unijeti lozinku da bi se preusmjerili na ciljanu poveznicu."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:968
-#: includes/classes/class-settings.php:1205
+#: includes/classes/class-settings.php:1206
 msgid "Default Password"
 msgstr "Zadana lozinka"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:969
-#: includes/classes/class-settings.php:1206
+#: includes/classes/class-settings.php:1207
 msgid "Default password for protected links"
 msgstr "Zadana lozinka za zaštićene poveznice"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:970
-#: includes/classes/class-settings.php:1207
+#: includes/classes/class-settings.php:1208
 msgid ""
 "This password will be used for links that have password protection enabled "
 "via global settings. Passwords are case sensitive."
@@ -2205,32 +2215,32 @@ msgstr ""
 "slova."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:981
-#: includes/classes/class-settings.php:1223
+#: includes/classes/class-settings.php:1224
 msgid "Set an expiration date and time for shortlinks"
 msgstr "Postavite datum i vrijeme isteka za kratke poveznice"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:989
-#: includes/classes/class-settings.php:1231
+#: includes/classes/class-settings.php:1232
 msgid "Select the date when this shortlink should stop working"
 msgstr "Odaberite datum kada bi ova kratka poveznica trebala prestati raditi"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1002
-#: includes/classes/class-settings.php:1244
+#: includes/classes/class-settings.php:1245
 msgid "Select the time when the shortlink should expire"
 msgstr "Odaberite vrijeme kada bi kratka poveznica trebala isteći"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1021
-#: includes/classes/class-settings.php:1263
+#: includes/classes/class-settings.php:1264
 msgid "Revisions"
 msgstr "Revizije"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1026
-#: includes/classes/class-settings.php:1268
+#: includes/classes/class-settings.php:1269
 msgid "Revision Link Visibility"
 msgstr "Vidljivost poveznice revizije"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1027
-#: includes/classes/class-settings.php:1269
+#: includes/classes/class-settings.php:1270
 msgid ""
 "When enabled, revision shortlinks will appear in the \"All Shortlinks\" "
 "table based on the behavior you configure below."
@@ -2239,41 +2249,41 @@ msgstr ""
 "kratki linkovi\" na temelju ponašanja koje konfigurirate u nastavku."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1029
-#: includes/classes/class-settings.php:1271
+#: includes/classes/class-settings.php:1272
 msgid "When Revision is Created"
 msgstr "Kada je revizija stvorena"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1031
-#: includes/classes/class-settings.php:1273
+#: includes/classes/class-settings.php:1274
 msgid "When Revision is Created or Link is First Used"
 msgstr "Kada je revizija stvorena ili je poveznica prvi put korištena"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1039
-#: includes/classes/class-settings.php:1281
+#: includes/classes/class-settings.php:1282
 msgid "Show Shortlink in Revision Table"
 msgstr "Prikaži kratku poveznicu u tablici revizija"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1040
-#: includes/classes/class-settings.php:1282
+#: includes/classes/class-settings.php:1283
 msgid "Display shortlink column when viewing revisions in PublishPress Revisions."
 msgstr ""
 "Prikaži stupac kratkih poveznica prilikom pregledavanja revizija u "
 "PublishPress Revizijama."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1046
-#: includes/classes/class-settings.php:1288
+#: includes/classes/class-settings.php:1289
 msgid "Revision Visibility for Visitors"
 msgstr "Vidljivost revizije za posjetitelje"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1047
-#: includes/classes/class-settings.php:1289
+#: includes/classes/class-settings.php:1290
 msgid "Allow logged-out visitors to view revision content via shortlinks."
 msgstr ""
 "Dopusti odjavljenim posjetiteljima da pregledavaju sadržaj revizije putem "
 "kratkih poveznica."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1048
-#: includes/classes/class-settings.php:1290
+#: includes/classes/class-settings.php:1291
 msgid ""
 "By default, PublishPress Revisions blocks visitors from viewing revision "
 "previews. When enabled, revision shortlinks will render the revision "
@@ -2286,19 +2296,19 @@ msgstr ""
 "preusmjere na URL pregleda."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1071
-#: includes/classes/class-settings.php:1313, fuzzy
+#: includes/classes/class-settings.php:1314, fuzzy
 msgid "Dummy"
 msgstr "Dummy"
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1115
-#: includes/classes/class-settings.php:1357
+#: includes/classes/class-settings.php:1358
 msgid "No post types configured yet. Click \"Add Post Type\" to get started."
 msgstr ""
 "Još nisu konfigurirani nijedni tipovi objava. Kliknite \"Dodaj tip objave\" "
 "da biste započeli."
 
 #: dist/publishpress-shortlinks/includes/classes/class-settings.php:1147
-#: includes/classes/class-settings.php:1389
+#: includes/classes/class-settings.php:1430
 msgid "Add Post Type"
 msgstr "Dodaj tip objave"
 
@@ -2340,19 +2350,19 @@ msgid "View Analytics"
 msgstr "Pogledaj analitiku"
 
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:278
-#: includes-core/ShortlinksCoreAdmin.php:642
+#: includes-core/ShortlinksCoreAdmin.php:649
 #: includes/classes/class-table-logs.php:289, fuzzy
 msgid "Tablet"
 msgstr "Tablet"
 
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:280
-#: includes-core/ShortlinksCoreAdmin.php:643
+#: includes-core/ShortlinksCoreAdmin.php:650
 #: includes/classes/class-table-logs.php:292
 msgid "Mobile"
 msgstr "Mobilni"
 
 #: dist/publishpress-shortlinks/includes/classes/class-table-logs.php:282
-#: includes-core/ShortlinksCoreAdmin.php:641
+#: includes-core/ShortlinksCoreAdmin.php:648
 #: includes/classes/class-table-logs.php:295
 msgid "Desktop"
 msgstr "Računalo"
@@ -2393,78 +2403,78 @@ msgid "via %s"
 msgstr "putem %s"
 
 #: dist/publishpress-shortlinks/includes/functions.php:225
-#: includes/classes/class-meta-boxes.php:374
-#: includes/functions.php:331
+#: includes/classes/class-meta-boxes.php:377
+#: includes/functions.php:342
 msgid "Edit shortlink settings"
 msgstr "Uredi postavke kratke veze"
 
 #: dist/publishpress-shortlinks/includes/functions.php:364
 #: dist/publishpress-shortlinks/tinypress.php:306
-#: includes/functions.php:470
-#: tinypress.php:379
+#: includes/functions.php:481
+#: tinypress.php:404
 msgid ""
 "This post is in {status} status. It will become visible to the public on "
 "{date}."
 msgstr "Ova objava je u {status} statusu. Postat će vidljiva javnosti dana {date}."
 
 #: dist/publishpress-shortlinks/includes/functions.php:389
-#: includes/functions.php:495
+#: includes/functions.php:506
 msgid "Target url not found."
 msgstr "Ciljana URL adresa nije pronađena."
 
 #: dist/publishpress-shortlinks/includes/functions.php:396
-#: includes/functions.php:502
+#: includes/functions.php:513
 msgid "Invalid URL scheme. Only http, https, ftp, ftps, and mailto are allowed."
 msgstr "Nevažeći URL shema. Dozvoljeni su samo http, https, ftp, ftps i mailto."
 
 #: dist/publishpress-shortlinks/includes/functions.php:428
-#: includes/functions.php:534
+#: includes/functions.php:545
 msgid "Tiny slug could not created."
 msgstr "Tiny slug nije mogao biti kreiran."
 
 #: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:12
-#: templates/admin-modal-new-link.php:12
+#: templates/admin-modal-new-link.php:14
 msgid "Shortlink will appear here"
 msgstr "Kratka veza će se ovdje pojaviti"
 
 #: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:20
-#: templates/admin-modal-new-link.php:21
+#: templates/admin-modal-new-link.php:23
 msgid "Enter a long URL and make a shortlink"
 msgstr "Unesite dugu URL adresu i napravite kratku vezu"
 
 #: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:25
-#: templates/admin-modal-new-link.php:26
+#: templates/admin-modal-new-link.php:28
 msgid "Long URL"
 msgstr "Duga URL adresa"
 
 #: dist/publishpress-shortlinks/templates/admin-modal-new-link.php:38
-#: templates/admin-modal-new-link.php:39
+#: templates/admin-modal-new-link.php:41
 msgid "Create Shortlink"
 msgstr "Kreiraj kratku vezu"
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:49
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:68
-#: templates/admin/analytics.php:95
+#: templates/admin/analytics.php:92
 msgid "Reset Today's Analytics"
 msgstr "Resetiraj analitiku za danas"
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:50
-#: templates/admin/analytics.php:97
+#: templates/admin/analytics.php:94
 msgid "Reset Week's Analytics"
 msgstr "Resetiraj analitiku za tjedan"
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:51
-#: templates/admin/analytics.php:99
+#: templates/admin/analytics.php:96
 msgid "Reset Month's Analytics"
 msgstr "Resetiraj analitiku za mjesec"
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:52
-#: templates/admin/analytics.php:101
+#: templates/admin/analytics.php:98
 msgid "Reset Year's Analytics"
 msgstr "Resetiraj analitiku za godinu"
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:53
-#: templates/admin/analytics.php:105
+#: templates/admin/analytics.php:102
 msgid ""
 "Are you sure you want to reset the analytics for this period? This action "
 "cannot be undone."
@@ -2473,13 +2483,13 @@ msgstr ""
 "se ne može poništiti."
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:61
-#: templates/admin/analytics.php:121
+#: templates/admin/analytics.php:120
 msgid "Today"
 msgstr "Danas"
 
 #: dist/publishpress-shortlinks/templates/admin/analytics.php:62
-#: includes-core/ShortlinksCoreAdmin.php:259
-#: templates/admin/analytics.php:123
+#: includes-core/ShortlinksCoreAdmin.php:266
+#: templates/admin/analytics.php:122
 msgid "Last 7 Days"
 msgstr "Posljednjih 7 dana"
 
@@ -2492,44 +2502,44 @@ msgid "Last 1 Year"
 msgstr "Zadnja 1 Godina"
 
 #: dist/publishpress-shortlinks/templates/admin/footer.php:16
-#: templates/admin/footer.php:16
+#: templates/admin/footer.php:20
 #. translators: %1$s: plugin name, %2$s: star rating icon
 #, php-format
 msgid "If you like %1$s please leave us a %2$s rating. Thank you!"
 msgstr "Ako vam se sviđa %1$s, molimo vas da nam ostavite %2$s ocjenu. Hvala!"
 
 #: dist/publishpress-shortlinks/templates/admin/footer.php:24
-#: templates/admin/footer.php:24
+#: templates/admin/footer.php:29
 msgid "About"
 msgstr "O nama"
 
 #: dist/publishpress-shortlinks/templates/admin/footer.php:29
-#: templates/admin/footer.php:29
+#: templates/admin/footer.php:34
 msgid "Documentation"
 msgstr "Dokumentacija"
 
 #: dist/publishpress-shortlinks/templates/admin/footer.php:33
-#: templates/admin/footer.php:33
+#: templates/admin/footer.php:38
 msgid "Contact"
 msgstr "Kontakt"
 
 #: dist/publishpress-shortlinks/templates/admin/qr-code.php:16
-#: templates/admin/qr-code.php:17
+#: templates/admin/qr-code.php:19
 msgid "Download QR Code"
 msgstr "Preuzmi QR kod"
 
 #: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:8
-#: templates/admin/settings/browsers.php:8
+#: templates/admin/settings/browsers.php:10
 msgid "We have developed extensions for the below browsers."
 msgstr "Razvili smo proširenja za dolje navedene preglednike."
 
 #: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:9
-#: templates/admin/settings/browsers.php:9
+#: templates/admin/settings/browsers.php:11
 msgid "Click on your preferred one to Download the extension."
 msgstr "Kliknite na svoj omiljeni za preuzimanje proširenja."
 
 #: dist/publishpress-shortlinks/templates/admin/settings/browsers.php:16
-#: templates/admin/settings/browsers.php:16
+#: templates/admin/settings/browsers.php:18
 msgid "Download the Extension"
 msgstr "Preuzmi proširenje"
 
@@ -2549,27 +2559,27 @@ msgid "Request Support"
 msgstr "Zatražite podršku"
 
 #: dist/publishpress-shortlinks/templates/admin/settings/supports.php:29
-#: templates/admin/settings/supports.php:29
+#: templates/admin/settings/supports.php:30
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "Detaljna dokumentacija također je dostupna na web stranici dodatka."
 
 #: dist/publishpress-shortlinks/templates/admin/settings/supports.php:31
-#: templates/admin/settings/supports.php:31
+#: templates/admin/settings/supports.php:32
 msgid "View Knowledge Base"
 msgstr "Pogledajte bazu znanja"
 
 #: dist/publishpress-shortlinks/tinypress.php:98
-#: tinypress.php:146
+#: tinypress.php:171
 msgid "This plugin can be deleted."
 msgstr "Ovaj dodatak može biti izbrisan."
 
 #: dist/publishpress-shortlinks/tinypress.php:395
-#: tinypress.php:477
+#: tinypress.php:500
 msgid "Copied."
 msgstr "Kopirano."
 
 #: dist/publishpress-shortlinks/tinypress.php:397
-#: tinypress.php:479
+#: tinypress.php:502
 msgid ""
 "This setting is inherited from global settings. Choose another option to "
 "override it for this shortlink."
@@ -2578,17 +2588,29 @@ msgstr ""
 "je nadjačate za ovu kratku vezu."
 
 #: dist/publishpress-shortlinks/tinypress.php:398
-#: tinypress.php:480
+#: tinypress.php:503
 msgid "Working..."
 msgstr "Radi..."
 
-#: includes-core/ShortlinksCoreAdmin.php:151
-#: includes-core/ShortlinksCoreAdmin.php:152
-#: includes-core/ShortlinksCoreAdmin.php:249
+#: includes-core/ShortlinksCoreAdmin.php:118
+#: includes/classes/class-autolink.php:872
+#: includes/classes/class-meta-boxes.php:376
+#: includes/classes/class-table-logs.php:399
+#: includes/functions.php:342
+#: templates/admin/analytics.php:109
+#: templates/admin/footer.php:9
+#: templates/admin/settings/supports.php:25
+#: templates/admin/settings/supports.php:33
+msgid "(opens in a new tab)"
+msgstr "(otvara se u novoj kartici)"
+
+#: includes-core/ShortlinksCoreAdmin.php:153
+#: includes-core/ShortlinksCoreAdmin.php:154
+#: includes-core/ShortlinksCoreAdmin.php:256
 msgid "Reports"
 msgstr "Izvještaji"
 
-#: includes-core/ShortlinksCoreAdmin.php:251
+#: includes-core/ShortlinksCoreAdmin.php:258
 msgid ""
 "Get aggregated insights into your shortlink performance with detailed "
 "analytics reports."
@@ -2596,59 +2618,59 @@ msgstr ""
 "Dobijte agregirane uvide u izvedbu vašeg kratkog linka s detaljnim "
 "analitičkim izvještajima."
 
-#: includes-core/ShortlinksCoreAdmin.php:257
-#: templates/admin/analytics.php:119
+#: includes-core/ShortlinksCoreAdmin.php:264
+#: templates/admin/analytics.php:118
 msgid "Date Range:"
 msgstr "Raspon datuma:"
 
-#: includes-core/ShortlinksCoreAdmin.php:261
-#: templates/admin/analytics.php:152
+#: includes-core/ShortlinksCoreAdmin.php:268
+#: templates/admin/analytics.php:151
 msgid "Apply"
 msgstr "Primijeni"
 
-#: includes-core/ShortlinksCoreAdmin.php:269
-#: templates/admin/analytics.php:166
+#: includes-core/ShortlinksCoreAdmin.php:276
+#: templates/admin/analytics.php:164
 msgid "Total Clicks"
 msgstr "Ukupni klikovi"
 
-#: includes-core/ShortlinksCoreAdmin.php:276
-#: templates/admin/analytics.php:174
+#: includes-core/ShortlinksCoreAdmin.php:283
+#: templates/admin/analytics.php:172
 msgid "Unique Visitors"
 msgstr "Jedinstveni posjetitelji"
 
-#: includes-core/ShortlinksCoreAdmin.php:283
+#: includes-core/ShortlinksCoreAdmin.php:290
 msgid "Active Links"
 msgstr "Aktivni linkovi"
 
-#: includes-core/ShortlinksCoreAdmin.php:290
+#: includes-core/ShortlinksCoreAdmin.php:297
 msgid "Avg. Clicks/Link"
 msgstr "Pros. klikova/link"
 
-#: includes-core/ShortlinksCoreAdmin.php:297
+#: includes-core/ShortlinksCoreAdmin.php:304
 msgid "Top Performing Links"
 msgstr "Najbolje izvedeni linkovi"
 
-#: includes-core/ShortlinksCoreAdmin.php:301, fuzzy
+#: includes-core/ShortlinksCoreAdmin.php:308, fuzzy
 msgid "Link"
 msgstr "Link"
 
-#: includes-core/ShortlinksCoreAdmin.php:302
+#: includes-core/ShortlinksCoreAdmin.php:309
 msgid "Clicks"
 msgstr "Klikovi"
 
-#: includes-core/ShortlinksCoreAdmin.php:313
+#: includes-core/ShortlinksCoreAdmin.php:320
 msgid "Top Locations"
 msgstr "Najbolje lokacije"
 
-#: includes-core/ShortlinksCoreAdmin.php:336
+#: includes-core/ShortlinksCoreAdmin.php:343
 msgid "Enable Activation"
 msgstr "Omogući Aktivaciju"
 
-#: includes-core/ShortlinksCoreAdmin.php:337
+#: includes-core/ShortlinksCoreAdmin.php:344
 msgid "Schedule when this shortlink should start working."
 msgstr "Planirajte kada bi ova kratka poveznica trebala početi raditi."
 
-#: includes-core/ShortlinksCoreAdmin.php:338
+#: includes-core/ShortlinksCoreAdmin.php:345
 msgid ""
 "When enabled, the shortlink remains inactive until its activation date and "
 "time."
@@ -2656,27 +2678,27 @@ msgstr ""
 "Kada je omogućeno, kratka poveznica ostaje neaktivna do datuma i vremena "
 "aktivacije."
 
-#: includes-core/ShortlinksCoreAdmin.php:346
+#: includes-core/ShortlinksCoreAdmin.php:353
 msgid "Activation Date"
 msgstr "Datum aktivacije"
 
-#: includes-core/ShortlinksCoreAdmin.php:347
+#: includes-core/ShortlinksCoreAdmin.php:354
 msgid "Select the date when this shortlink should start working."
 msgstr "Odaberite datum kada bi ova kratka poveznica trebala početi raditi."
 
-#: includes-core/ShortlinksCoreAdmin.php:348
+#: includes-core/ShortlinksCoreAdmin.php:355
 msgid "Leave empty to make the shortlink active immediately."
 msgstr "Ostavite prazno da bi kratka poveznica postala aktivna odmah."
 
-#: includes-core/ShortlinksCoreAdmin.php:361
+#: includes-core/ShortlinksCoreAdmin.php:368
 msgid "Activation Time"
 msgstr "Vrijeme aktivacije"
 
-#: includes-core/ShortlinksCoreAdmin.php:362
+#: includes-core/ShortlinksCoreAdmin.php:369
 msgid "Select the time when this shortlink should start working."
 msgstr "Odaberite vrijeme kada bi ova kratka poveznica trebala početi raditi."
 
-#: includes-core/ShortlinksCoreAdmin.php:363
+#: includes-core/ShortlinksCoreAdmin.php:370
 msgid ""
 "Only used when an activation date is set. Leave empty to activate at the "
 "start of that date."
@@ -2684,29 +2706,29 @@ msgstr ""
 "Koristi se samo kada je postavljen datum aktivacije. Ostavite prazno za "
 "aktivaciju na početku tog datuma."
 
-#: includes-core/ShortlinksCoreAdmin.php:381
+#: includes-core/ShortlinksCoreAdmin.php:388
 msgid "Expiration Click Limit"
 msgstr "Ograničenje klikova na isteknuće"
 
-#: includes-core/ShortlinksCoreAdmin.php:382
+#: includes-core/ShortlinksCoreAdmin.php:389
 msgid "Expire this shortlink after a number of clicks."
 msgstr "Istek ovog kratkog linka nakon određenog broja klikova."
 
-#: includes-core/ShortlinksCoreAdmin.php:383
+#: includes-core/ShortlinksCoreAdmin.php:390
 msgid "Set to 0 for no click limit."
 msgstr "Postavite na 0 za bez ograničenja klikova."
 
-#: includes-core/ShortlinksCoreAdmin.php:396
+#: includes-core/ShortlinksCoreAdmin.php:403
 msgid "Where should visitors be sent when they click an expired link?"
 msgstr ""
 "Gdje bi posjetitelji trebali biti preusmjereni kada kliknu na istečenu "
 "poveznicu?"
 
-#: includes-core/ShortlinksCoreAdmin.php:399
+#: includes-core/ShortlinksCoreAdmin.php:406
 msgid "Custom URL"
 msgstr "Prilagođena URL adresa"
 
-#: includes-core/ShortlinksCoreAdmin.php:409
+#: includes-core/ShortlinksCoreAdmin.php:416
 msgid ""
 "When a shortlink expires, visitors are redirected to this URL. If left "
 "empty, visitors are redirected to the homepage."
@@ -2715,39 +2737,39 @@ msgstr ""
 "adresu. Ako se ostavi prazno, posjetitelji se preusmjeravaju na početnu "
 "stranicu."
 
-#: includes-core/ShortlinksCoreAdmin.php:418
+#: includes-core/ShortlinksCoreAdmin.php:425
 msgid "Display a custom notice page before redirecting expired links."
 msgstr "Prikažite prilagođenu obavijest prije preusmjeravanja istečenih poveznica."
 
-#: includes-core/ShortlinksCoreAdmin.php:431
+#: includes-core/ShortlinksCoreAdmin.php:438
 msgid "Expiration Notice Title"
 msgstr "Naslov Obavijesti o Isteku"
 
-#: includes-core/ShortlinksCoreAdmin.php:432
+#: includes-core/ShortlinksCoreAdmin.php:439
 msgid "The heading of the expiration notice page"
 msgstr "Naslov stranice obavijesti o isteku"
 
-#: includes-core/ShortlinksCoreAdmin.php:435
-#: includes-core/ShortlinksCoreAdmin.php:457
-#: includes-core/ShortlinksCoreAdmin.php:483
+#: includes-core/ShortlinksCoreAdmin.php:442
+#: includes-core/ShortlinksCoreAdmin.php:464
+#: includes-core/ShortlinksCoreAdmin.php:490
 msgid "Custom text"
 msgstr "Prilagođeni tekst"
 
-#: includes-core/ShortlinksCoreAdmin.php:446
+#: includes-core/ShortlinksCoreAdmin.php:453
 msgid "This is the main heading visitors see when they click an expired link."
 msgstr ""
 "Ovo je glavni naslov koji posjetitelji vide kada kliknu na istečenu "
 "poveznicu."
 
-#: includes-core/ShortlinksCoreAdmin.php:453
+#: includes-core/ShortlinksCoreAdmin.php:460
 msgid "Expiration Notice Message"
 msgstr "Poruka Obavijesti o Isteku"
 
-#: includes-core/ShortlinksCoreAdmin.php:454
+#: includes-core/ShortlinksCoreAdmin.php:461
 msgid "The message shown to visitors on the expiration notice page"
 msgstr "Poruka koja se prikazuje posjetiteljima na stranici obavijesti o isteku"
 
-#: includes-core/ShortlinksCoreAdmin.php:468
+#: includes-core/ShortlinksCoreAdmin.php:475
 msgid ""
 "This is the body text explaining what happened and when visitors will be "
 "redirected."
@@ -2755,80 +2777,80 @@ msgstr ""
 "Ovo je tekst koji objašnjava što se dogodilo i kada će posjetitelji biti "
 "preusmjereni."
 
-#: includes-core/ShortlinksCoreAdmin.php:479
+#: includes-core/ShortlinksCoreAdmin.php:486
 msgid "Expiration Notice Link Text"
 msgstr "Tekst veze za obavijest o isteku"
 
-#: includes-core/ShortlinksCoreAdmin.php:480
+#: includes-core/ShortlinksCoreAdmin.php:487
 msgid "The text for the button visitors click to continue"
 msgstr "Tekst za gumb na koji posjetitelji kliknu kako bi nastavili"
 
-#: includes-core/ShortlinksCoreAdmin.php:494
+#: includes-core/ShortlinksCoreAdmin.php:501
 msgid ""
 "This is the text displayed on the clickable button at the bottom of the "
 "notice page."
 msgstr "Ovo je tekst koji se prikazuje na kliknom gumbu na dnu stranice obavijesti."
 
-#: includes-core/ShortlinksCoreAdmin.php:541
+#: includes-core/ShortlinksCoreAdmin.php:548
 msgid "Enable Dynamic Redirects"
 msgstr "Omogući dinamička preusmjeravanja"
 
-#: includes-core/ShortlinksCoreAdmin.php:542
+#: includes-core/ShortlinksCoreAdmin.php:549
 msgid "Send visitors to different destinations when they match an enabled rule."
 msgstr ""
 "Preusmjeri posjetitelje na različite odredišne stranice kada odgovaraju "
 "omogućenom pravilu."
 
-#: includes-core/ShortlinksCoreAdmin.php:554
+#: includes-core/ShortlinksCoreAdmin.php:561
 msgid "Fallback Destination"
 msgstr "Zadano odredište"
 
-#: includes-core/ShortlinksCoreAdmin.php:555
+#: includes-core/ShortlinksCoreAdmin.php:562
 msgid "The Target URL in the General tab is used whenever no enabled rule matches."
 msgstr ""
 "Ciljana URL adresa u općoj kartici koristi se kada nijedno omogućeno "
 "pravilo ne odgovara."
 
-#: includes-core/ShortlinksCoreAdmin.php:562
+#: includes-core/ShortlinksCoreAdmin.php:569
 msgid "Redirect Rules"
 msgstr "Pravila preusmjeravanja"
 
-#: includes-core/ShortlinksCoreAdmin.php:563
+#: includes-core/ShortlinksCoreAdmin.php:570
 msgid "Rules are checked from top to bottom. The first matching rule is used."
 msgstr ""
 "Pravila se provjeravaju od vrha prema dnu. Prvo odgovarajuće pravilo se "
 "koristi."
 
-#: includes-core/ShortlinksCoreAdmin.php:564
+#: includes-core/ShortlinksCoreAdmin.php:571
 msgid "Add Rule"
 msgstr "Dodaj pravilo"
 
-#: includes-core/ShortlinksCoreAdmin.php:566
+#: includes-core/ShortlinksCoreAdmin.php:573
 msgid "A shortlink can contain up to 100 redirect rules."
 msgstr "Skraćena poveznica može sadržavati do 100 pravila preusmjeravanja."
 
-#: includes-core/ShortlinksCoreAdmin.php:570
-#: includes-core/ShortlinksCoreAdmin.php:596
+#: includes-core/ShortlinksCoreAdmin.php:577
+#: includes-core/ShortlinksCoreAdmin.php:603
 msgid "Redirect Rule"
 msgstr "Pravila preusmjeravanja"
 
-#: includes-core/ShortlinksCoreAdmin.php:584
+#: includes-core/ShortlinksCoreAdmin.php:591
 msgid "Rule Status"
 msgstr "Status pravila"
 
-#: includes-core/ShortlinksCoreAdmin.php:594
+#: includes-core/ShortlinksCoreAdmin.php:601
 msgid "Rule Name"
 msgstr "Naziv pravila"
 
-#: includes-core/ShortlinksCoreAdmin.php:595
+#: includes-core/ShortlinksCoreAdmin.php:602
 msgid "Example: Redirect Rule 1"
 msgstr "Primjer: Pravilo preusmjeravanja 1"
 
-#: includes-core/ShortlinksCoreAdmin.php:602
+#: includes-core/ShortlinksCoreAdmin.php:609
 msgid "Destination URL"
 msgstr "Odredišna URL adresa"
 
-#: includes-core/ShortlinksCoreAdmin.php:604
+#: includes-core/ShortlinksCoreAdmin.php:611
 msgid ""
 "Use an HTTP or HTTPS URL. Empty, invalid, and self-referencing rules are "
 "saved as disabled."
@@ -2836,75 +2858,75 @@ msgstr ""
 "Koristite HTTP ili HTTPS URL. Prazna, nevažeća i samoreferentna pravila se "
 "spremaju kao onemogućena."
 
-#: includes-core/ShortlinksCoreAdmin.php:611
+#: includes-core/ShortlinksCoreAdmin.php:618
 msgid "Countries"
 msgstr "Zemlje"
 
-#: includes-core/ShortlinksCoreAdmin.php:613
+#: includes-core/ShortlinksCoreAdmin.php:620
 msgid "Any country"
 msgstr "Bilo koja zemlja"
 
-#: includes-core/ShortlinksCoreAdmin.php:614
+#: includes-core/ShortlinksCoreAdmin.php:621
 msgid "Only selected countries"
 msgstr "Samo odabrane zemlje"
 
-#: includes-core/ShortlinksCoreAdmin.php:616
+#: includes-core/ShortlinksCoreAdmin.php:623
 msgid "All except selected countries"
 msgstr "Sve osim odabranih zemalja"
 
-#: includes-core/ShortlinksCoreAdmin.php:624
+#: includes-core/ShortlinksCoreAdmin.php:631
 msgid "Selected Countries"
 msgstr "Odabrane zemlje"
 
-#: includes-core/ShortlinksCoreAdmin.php:626
+#: includes-core/ShortlinksCoreAdmin.php:633
 msgid "United Kingdom"
 msgstr "Ujedinjeno Kraljevstvo"
 
-#: includes-core/ShortlinksCoreAdmin.php:627
+#: includes-core/ShortlinksCoreAdmin.php:634
 msgid "Nigeria"
 msgstr "Nigerija"
 
-#: includes-core/ShortlinksCoreAdmin.php:628
+#: includes-core/ShortlinksCoreAdmin.php:635
 msgid "United States"
 msgstr "Sjedinjene Američke Države"
 
-#: includes-core/ShortlinksCoreAdmin.php:632
+#: includes-core/ShortlinksCoreAdmin.php:639
 msgid "Select countries"
 msgstr "Odaberite zemlje"
 
-#: includes-core/ShortlinksCoreAdmin.php:639
+#: includes-core/ShortlinksCoreAdmin.php:646
 msgid "Devices"
 msgstr "Uređaji"
 
-#: includes-core/ShortlinksCoreAdmin.php:646
+#: includes-core/ShortlinksCoreAdmin.php:653
 msgid "Leave every option unchecked to match any device."
 msgstr "Ostavite svaku opciju neoznačenom da biste odgovarali bilo kojem uređaju."
 
-#: includes-core/ShortlinksCoreAdmin.php:653
+#: includes-core/ShortlinksCoreAdmin.php:660
 msgid "Referrer"
 msgstr "Referent"
 
-#: includes-core/ShortlinksCoreAdmin.php:655
+#: includes-core/ShortlinksCoreAdmin.php:662
 msgid "Any referrer"
 msgstr "Bilo koji referent"
 
-#: includes-core/ShortlinksCoreAdmin.php:656
+#: includes-core/ShortlinksCoreAdmin.php:663
 msgid "Direct or unknown only"
 msgstr "Samo izravni ili nepoznati"
 
-#: includes-core/ShortlinksCoreAdmin.php:657
+#: includes-core/ShortlinksCoreAdmin.php:664
 msgid "Only selected domains"
 msgstr "Samo odabrani domeni"
 
-#: includes-core/ShortlinksCoreAdmin.php:659
+#: includes-core/ShortlinksCoreAdmin.php:666
 msgid "All except selected domains"
 msgstr "Sve osim odabranih domena"
 
-#: includes-core/ShortlinksCoreAdmin.php:667
+#: includes-core/ShortlinksCoreAdmin.php:674
 msgid "Referrer Domains"
 msgstr "Domeni referenata"
 
-#: includes-core/ShortlinksCoreAdmin.php:669
+#: includes-core/ShortlinksCoreAdmin.php:676
 msgid ""
 "Enter domains separated by commas or new lines. Subdomains also match their "
 "parent domain."
@@ -2912,60 +2934,163 @@ msgstr ""
 "Unesite domene odvojene zarezima ili novim redovima. Poddomene također "
 "odgovaraju svojoj matičnoj domeni."
 
-#: includes/classes/class-duplicate-link.php:42
-#: includes/classes/class-meta-boxes.php:373
-msgid "Copy"
-msgstr "Kopiraj"
+#: includes/classes/class-autolist-ajax.php:301
+#: includes/classes/class-settings.php:1374
+#. translators: %d: row number
+#, php-format
+msgid "Post type (row %d)"
+msgstr "Post type (redak %d)"
 
-#: includes/classes/class-duplicate-link.php:63
-msgid "You are not allowed to copy this shortlink."
-msgstr "Niste ovlašteni kopirati ovu kratku vezu."
+#: includes/classes/class-autolist-ajax.php:303
+#: includes/classes/class-settings.php:1385
+#. translators: %d: row number
+#, php-format
+msgid "When to list shortlinks (row %d)"
+msgstr "Kada navesti kratke poveznice (redak %d)"
 
-#: includes/classes/class-duplicate-link.php:64
-#: includes/classes/class-duplicate-link.php:74
-#: includes/classes/class-duplicate-link.php:98
-msgid "Shortlink copy failed"
-msgstr "Kopiranje kratke veze nije uspjelo"
+#: includes/classes/class-autolist-ajax.php:305
+#: includes/classes/class-settings.php:1402
+#. translators: %d: row number
+#, php-format
+msgid "Move row %d up"
+msgstr "Premjesti redak %d prema gore"
 
-#: includes/classes/class-duplicate-link.php:73
+#: includes/classes/class-autolist-ajax.php:307
+#: includes/classes/class-settings.php:1411
+#. translators: %d: row number
+#, php-format
+msgid "Move row %d down"
+msgstr "Premjesti redak %d prema dolje"
+
+#: includes/classes/class-autolist-ajax.php:309
+#: includes/classes/class-settings.php:1420
+#. translators: %d: row number
+#, php-format
+msgid "Remove row %d"
+msgstr "Ukloni redak %d"
+
+#: includes/classes/class-autolist-ajax.php:311
+#. translators: 1: row's new position, 2: total number of rows
+#, php-format
+msgid "Row moved to position %1$d of %2$d."
+msgstr "Redak premješten na poziciju %1$d od %2$d."
+
+#: includes/classes/class-autolist-ajax.php:312
+msgid "Row removed."
+msgstr "Redak uklonjen."
+
+#: includes/classes/class-columns-link.php:91
+#: includes/classes/class-columns-link.php:129
+#. translators: %s: shortlink URL
+#, php-format
+msgid "Copy shortlink %s"
+msgstr "Kopiraj kratku poveznicu %s"
+
+#: includes/classes/class-columns-link.php:305
+msgid "— No Change —"
+msgstr "— Nema promjene —"
+
+#: includes/classes/class-columns-link.php:323
+msgid "Short String"
+msgstr "Kratki niz"
+
+#: includes/classes/class-columns-link.php:373
+msgid "Quick Edit"
+msgstr "Brza izmjena"
+
+#: includes/classes/class-columns-link.php:438
+msgid "Use an http, https, ftp, ftps, or mailto URL."
+msgstr "Koristite http, https, ftp, ftps ili mailto URL."
+
+#: includes/classes/class-duplicate-link.php:45
+msgid "Duplicate"
+msgstr "Duplicirati"
+
+#: includes/classes/class-duplicate-link.php:66
+msgid "You are not allowed to duplicate this shortlink."
+msgstr "Nema dopuštenja za dupliciranje ove kratke poveznice."
+
+#: includes/classes/class-duplicate-link.php:67
+msgid "Shortlink duplication failed"
+msgstr "Neuspjeh dupliciranja kratke poveznice"
+
+#: includes/classes/class-duplicate-link.php:88
+msgid "Shortlink duplication denied."
+msgstr "Dupliciranje kratke poveznice odbijeno."
+
+#: includes/classes/class-duplicate-link.php:93
 msgid "The original shortlink could not be found."
 msgstr "Izvorna kratka veza nije mogla biti pronađena."
 
-#: includes/classes/class-duplicate-link.php:85
+#: includes/classes/class-duplicate-link.php:102
 #. translators: %s: original shortlink title.
 #, php-format
-msgid "Copy of %s"
-msgstr "Kopija %s"
+msgid "Duplicate of %s"
+msgstr "Duplikat %s"
 
-#: includes/classes/class-duplicate-link.php:179
-msgid "Shortlink copied as a draft. Review it, then publish when ready."
+#: includes/classes/class-duplicate-link.php:118
+msgid "The draft exists but metadata permissions prevented duplication."
+msgstr "Nacrt postoji, ali su dozvole za metapodatke spriječile dupliciranje."
+
+#: includes/classes/class-duplicate-link.php:125
+msgid "The draft exists but duplication was not fully confirmed."
+msgstr "Nacrt postoji, ali dupliciranje nije potpuno potvrđeno."
+
+#: includes/classes/class-duplicate-link.php:210
+msgid "Shortlink duplicated as a draft. Review it, then publish when ready."
 msgstr ""
-"Kratka veza kopirana kao nacrt. Pregledajte je, a zatim objavite kada "
-"budete spremni."
+"Kratka poveznica duplicirana kao nacrt. Pregledajte je, a zatim objavite "
+"kada budete spremni."
 
-#: includes/classes/class-favorite-links.php:41
+#: includes/classes/class-favorite-links.php:44
 msgid "Remove from favorites"
 msgstr "Ukloni iz favorita"
 
-#: includes/classes/class-favorite-links.php:41
+#: includes/classes/class-favorite-links.php:44
 msgid "Add to favorites"
 msgstr "Dodaj u favorite"
 
-#: includes/classes/class-favorite-links.php:92
+#: includes/classes/class-favorite-links.php:95
 msgid "Favorites"
 msgstr "Favoriti"
 
-#: includes/classes/class-favorite-links.php:164
+#: includes/classes/class-favorite-links.php:167
 msgid "You are not allowed to favorite this shortlink."
 msgstr "Niste ovlašteni dodati ovu kratku vezu u favorite."
 
-#: includes/classes/class-favorite-links.php:165
+#: includes/classes/class-favorite-links.php:168
 msgid "Favorite could not be updated"
 msgstr "Favorit nije mogao biti ažuriran"
 
-#: includes/classes/class-gutenberg-shortlink.php:165
+#: includes/classes/class-functions.php:170
+msgid "Analytics could not be read."
+msgstr "Analitika se nije mogla pročitati."
+
+#: includes/classes/class-gutenberg-shortlink.php:163
 msgid "Search shortlinks"
 msgstr "Pretraži kratke linkove"
+
+#: includes/classes/class-gutenberg-shortlink.php:181
+msgid "Loading"
+msgstr "Učitavanje"
+
+#: includes/classes/class-gutenberg-shortlink.php:182
+msgid "Shortlink search results"
+msgstr "Rezultati pretraživanja kratkih poveznica"
+
+#: includes/classes/class-gutenberg-shortlink.php:183
+msgid "1 shortlink found. Use the up and down arrow keys to choose."
+msgstr ""
+"1 kratka poveznica pronađena. Koristite tipke sa strelicama prema gore i "
+"dolje za odabir."
+
+#: includes/classes/class-gutenberg-shortlink.php:185
+#. translators: %d: number of shortlinks found
+#, php-format
+msgid "%d shortlinks found. Use the up and down arrow keys to choose."
+msgstr ""
+"%d kratkih poveznica pronađeno. Koristite tipke sa strelicama prema gore i "
+"dolje za odabir."
 
 #: includes/classes/class-hooks.php:189
 #: includes/classes/class-hooks.php:201
@@ -2992,24 +3117,32 @@ msgstr "Napredak uvoza"
 msgid "PublishPress Shortlinks slug."
 msgstr "PublishPress Shortlinks slug."
 
+#: includes/classes/class-meta-boxes.php:374
+msgid "Copy"
+msgstr "Kopiraj"
+
 #: includes/classes/class-meta-boxes.php:375
+msgid "Copy failed"
+msgstr "Kopiranje nije uspjelo"
+
+#: includes/classes/class-meta-boxes.php:378
 msgid "Enter a shortlink slug to create a shortlink URL."
 msgstr "Unesite kratak URL slug za stvaranje kratke URL adrese."
 
-#: includes/classes/class-meta-boxes.php:377
+#: includes/classes/class-meta-boxes.php:380
 msgid "Shortlink Slug"
 msgstr "Kratki URL slug"
 
-#: includes/classes/class-meta-boxes.php:378
+#: includes/classes/class-meta-boxes.php:381
 msgid "Shortlink URL"
 msgstr "Kratka URL adresa"
 
-#: includes/classes/class-meta-boxes.php:1066
+#: includes/classes/class-meta-boxes.php:1057
 msgid "Dynamic Redirects"
 msgstr "Dinamička preusmjeravanja"
 
-#: includes/classes/class-meta-boxes.php:1185
-#: includes/classes/class-settings.php:1217
+#: includes/classes/class-meta-boxes.php:1176
+#: includes/classes/class-settings.php:1218
 msgid "Scheduling"
 msgstr "Zakazivanje"
 
@@ -3129,7 +3262,6 @@ msgid "Remind me later"
 msgstr "Podsjeti me kasnije"
 
 #: includes/classes/class-migration.php:297
-#: tinypress.php:490
 msgid "Dismiss"
 msgstr "Odbaci"
 
@@ -3204,44 +3336,58 @@ msgstr "Nedostaje kratka oznaka."
 msgid "Could not create shortlink."
 msgstr "Nije moguće stvoriti kratku vezu."
 
-#: includes/classes/class-redirection.php:1038
-#: includes/classes/class-redirection.php:1624
+#: includes/classes/class-redirection.php:1019
+#: includes/classes/class-redirection.php:1659
 #: includes/classes/class-table-logs.php:387
 msgid "Default Target"
 msgstr "Zadani cilj"
 
-#: includes/classes/class-settings.php:66
+#: includes/classes/class-redirection.php:1489
+#. translators: %s: number of seconds
+#, php-format
+msgid "Redirecting automatically in %s seconds."
+msgstr "Automatski preusmjeravanje za %s sekundi."
+
+#: includes/classes/class-redirection.php:1492
+msgid "Stop redirect"
+msgstr "Prekini preusmjeravanje"
+
+#: includes/classes/class-redirection.php:1525
+msgid "Automatic redirect stopped."
+msgstr "Automatsko preusmjeravanje zaustavljeno."
+
+#: includes/classes/class-settings.php:67
 msgid "Settings sections"
 msgstr "Odjeljci postavki"
 
-#: includes/classes/class-settings.php:67
+#: includes/classes/class-settings.php:68
 msgid "Search settings"
 msgstr "Postavke pretraživanja"
 
-#: includes/classes/class-settings.php:514
-#: includes/classes/class-settings.php:563
+#: includes/classes/class-settings.php:515
+#: includes/classes/class-settings.php:564
 msgid "Search post types"
 msgstr "Pretraži tipove objava"
 
-#: includes/classes/class-settings.php:515
-#: includes/classes/class-settings.php:564
+#: includes/classes/class-settings.php:516
+#: includes/classes/class-settings.php:565
 msgid "Filter post types..."
 msgstr "Filtriraj tipove objava..."
 
-#: includes/classes/class-settings.php:532
-#: includes/classes/class-settings.php:581
+#: includes/classes/class-settings.php:533
+#: includes/classes/class-settings.php:582
 msgid "No post types match your search."
 msgstr "Nema tipova objava koji odgovaraju vašem pretraživanju."
 
-#: includes/classes/class-settings.php:556
+#: includes/classes/class-settings.php:557
 msgid "No data available."
 msgstr "Nema dostupnih podataka."
 
-#: includes/classes/class-settings.php:949
+#: includes/classes/class-settings.php:950
 msgid "Select which post types will have shortlinks available."
 msgstr "Odaberite koje tipove objava će imati dostupne kratke veze."
 
-#: includes/classes/class-settings.php:950
+#: includes/classes/class-settings.php:951
 msgid "Shortlinks metabox and column will only appear on selected post types."
 msgstr ""
 "Metabox i kolona za kratke veze će se prikazivati samo na odabranim "
@@ -3266,45 +3412,532 @@ msgstr "Dinamičko preusmjeravanje"
 msgid "Redirected by %s"
 msgstr "Preusmjereno od %s"
 
-#: includes/classes/class-url-metadata.php:57
-msgid "Could not fetch target URL details."
-msgstr "Nije moguće dohvatiti detalje odredišnog URL-a."
+#: includes/functions.php:301
+msgid "Copy shortlink"
+msgstr "Kopiraj kratku poveznicu"
 
-#: templates/admin-modal-new-link.php:20
+#: includes/functions.php:318
+msgid "Shortlink slug"
+msgstr "Kratka poveznica slug"
+
+#: includes/functions.php:321
+#: includes/functions.php:324
+msgid "Enter a shortlink slug."
+msgstr "Unesite kratku poveznicu slug."
+
+#: includes/functions.php:573
+msgid "The Shortlink exists but metadata authorization prevented setup."
+msgstr ""
+"Kratka poveznica postoji, ali su dozvole za metapodatke spriječile "
+"postavljanje."
+
+#: includes/Mcp/Actions.php:22
+msgid "Find Shortlink categories"
+msgstr "Pronađi kategorije kratkih poveznica"
+
+#: includes/Mcp/Actions.php:22
+msgid "List native link categories with their current revision."
+msgstr "Popis native link kategorija s njihovom trenutnom revizijom."
+
+#: includes/Mcp/Actions.php:23
+msgid "Create or update a Shortlink category"
+msgstr "Kreiraj ili ažuriraj kategoriju kratkih poveznica"
+
+#: includes/Mcp/Actions.php:23
+msgid ""
+"Use native taxonomy controls and permissions. Read expected_hash from "
+"list-categories before editing; omitted fields are preserved."
+msgstr ""
+"Koristite native taxonomy kontrole i dozvole. Pročitajte expected_hash iz "
+"list-categories prije uređivanja; izostavljena polja se čuvaju."
+
+#: includes/Mcp/Actions.php:24
+msgid "Set Shortlink categories"
+msgstr "Postavi kategorije kratkih poveznica"
+
+#: includes/Mcp/Actions.php:24
+msgid ""
+"Replace native category assignments with an explicit integer list. [] "
+"clears assignments; use the current get-link revision."
+msgstr ""
+"Zamijenite native dodjele kategorija s eksplicitnim popisom cijelih "
+"brojeva. [] čisti dodjele; koristite trenutnu reviziju get-link."
+
+#: includes/Mcp/Actions.php:25
+msgid "Set my Shortlink favorite"
+msgstr "Postavi svoj omiljeni kratki link"
+
+#: includes/Mcp/Actions.php:25
+msgid ""
+"Set favorite true or false for the connected user only. Read the current "
+"get-link revision first."
+msgstr ""
+"Postavi omiljeni true ili false samo za povezane korisnike. Prvo pročitaj "
+"trenutnu reviziju get-linka."
+
+#: includes/Mcp/Actions.php:27
+msgid "Update multiple Shortlinks"
+msgstr "Ažuriraj više kratkih linkova"
+
+#: includes/Mcp/Actions.php:27
+msgid ""
+"Preflight up to 20 existing links before any writes. Linked source targets "
+"must not overlap. Each item uses the original get-link revision. Native "
+"writes are not transactional: inspect complete, applied_ids and failed_id. "
+"dry_run previews all items."
+msgstr ""
+"Preflight do 20 postojećih linkova prije bilo kakvih upisa. Povezani "
+"izvorni ciljevi ne smiju se preklapati. Svaki stavak koristi originalnu "
+"reviziju get-linka. Izvorni upisi nisu transakcijski: provjeri complete, "
+"applied_ids i failed_id. dry_run pregledava sve stavke."
+
+#: includes/Mcp/Actions.php:28
+msgid "Delete a Shortlink category"
+msgstr "Izbriši kategoriju kratkog linka"
+
+#: includes/Mcp/Actions.php:28
+msgid ""
+"Delete a native category without deleting its links. Authorize every "
+"affected link and child category; read the current category revision first."
+msgstr ""
+"Izbriši izvorne kategorije bez brisanja njenih linkova. Autoriziraj svaki "
+"pogođeni link i podkategoriju; prvo pročitaj trenutnu reviziju kategorije."
+
+#: includes/Mcp/Actions.php:29
+msgid "Read Shortlink click counts"
+msgstr "Pročitaj broj klikova na kratki link"
+
+#: includes/Mcp/Actions.php:29
+msgid ""
+"Read native daily chart counts and reset revision for one readable link. "
+"Visitor IPs, user identifiers, referrers and raw request logs are excluded."
+msgstr ""
+"Pročitaj izvorne dnevne brojke grafikona i resetiraj reviziju za jedan "
+"čitljiv link. IP adrese posjetitelja, identifikatori korisnika, refereri i "
+"sirovi dnevnici zahtjeva su isključeni."
+
+#: includes/Mcp/Actions.php:30
+msgid "Reset Shortlink chart counts"
+msgstr "Resetiraj brojke grafikona kratkog linka"
+
+#: includes/Mcp/Actions.php:30
+msgid ""
+"Mark this link analytics cleared through the native reset service. Audit "
+"logs remain. Requires current analytics expected_hash, analytics and object "
+"edit permissions. dry_run previews."
+msgstr ""
+"Označi ovu analitiku linka kao očišćenu putem izvorne reset usluge. "
+"Dnevnici revizije ostaju. Potrebne su trenutne analitičke expected_hash, "
+"analitike i dozvole za uređivanje objekata. dry_run pregledava."
+
+#: includes/Mcp/Actions.php:32
+msgid "Read saved Shortlink health"
+msgstr "Pročitaj spremljeno zdravlje kratkog linka"
+
+#: includes/Mcp/Actions.php:32
+msgid ""
+"Read the native Pro health status and response code for one readable link. "
+"Does not perform HTTP requests."
+msgstr ""
+"Pročitaj izvorni Pro status zdravlja i kod odgovora za jedan čitljiv link. "
+"Ne izvodi HTTP zahtjeve."
+
+#: includes/Mcp/Actions.php:33
+msgid "Check Shortlink health"
+msgstr "Provjeri zdravlje kratkog linka"
+
+#: includes/Mcp/Actions.php:33
+msgid ""
+"Run the active native Pro link checker for an editable link and store its "
+"result. Native URL safety and type settings apply. Requires current "
+"get-link expected_hash. dry_run does not request destinations."
+msgstr ""
+"Pokreni aktivni izvorni Pro provjerivač linkova za uređivi link i pohrani "
+"njegov rezultat. Primjenjuju se postavke sigurnosti i tipa izvorne URL "
+"adrese. Potrebna je trenutna get-link expected_hash. dry_run ne zahtijeva "
+"odredišta."
+
+#: includes/Mcp/Actions.php:35
+msgid "Read a post Shortlink"
+msgstr "Pročitaj post kratki link"
+
+#: includes/Mcp/Actions.php:35
+msgid ""
+"Read the native editor Short String for an enabled post type without "
+"generating a URL or changing metadata."
+msgstr ""
+"Pročitaj izvorni uređivač kratkog stringa za omogućeni tip objave bez "
+"generiranja URL-a ili mijenjanja metapodataka."
+
+#: includes/Mcp/Actions.php:36
+msgid "Set a post Short String"
+msgstr "Postavi post kratki string"
+
+#: includes/Mcp/Actions.php:36
+msgid ""
+"Update an enabled post native Short String, preserving other metabox "
+"values. All auto-listed mirror links need permission and are included in "
+"the revision. dry_run previews."
+msgstr ""
+"Ažuriraj omogućeni izvorni post kratki string, očuvajući druge vrijednosti "
+"metaboxa. Svi automatski navedeni ogledni linkovi trebaju dozvolu i "
+"uključeni su u reviziju. dry_run pregledava."
+
+#: includes/Mcp/Actions.php:37
+msgid "Set Shortlink publication status"
+msgstr "Postavi status objavljivanja kratkog linka"
+
+#: includes/Mcp/Actions.php:37
+msgid ""
+"Change a native link to publish, draft, pending or private with the current "
+"revision and native publication permissions. Source-linked records retain "
+"their native source lifecycle."
+msgstr ""
+"Promijeni izvorni link na objavljeno, nacrt, na čekanju ili privatno s "
+"trenutnom revizijom i izvornih dozvolama za objavljivanje. Zapisi povezani "
+"s izvorom zadržavaju svoj izvorni životni ciklus."
+
+#: includes/Mcp/Actions.php:38
+msgid "Duplicate a Shortlink to a draft"
+msgstr "Dupliciraj kratki link u nacrt"
+
+#: includes/Mcp/Actions.php:38
+msgid ""
+"Use the native Duplicate service with a new Short String and the connected "
+"user as author. Requires source edit/read, category assignment and create "
+"permissions. No password values are returned. dry_run previews without "
+"creating a draft."
+msgstr ""
+"Koristi izvorne usluge dupliciranja s novim kratkim stringom i povezanim "
+"korisnikom kao autorom. Potrebne su dozvole za uređivanje/čitanje izvora, "
+"dodjelu kategorije i stvaranje. Nema vrijednosti lozinke koje se vraćaju. "
+"dry_run pregledava bez stvaranja nacrta."
+
+#: includes/Mcp/Actions.php:40
+msgid "Clear the native autolink cache"
+msgstr "Očisti izvorni predmemorijski autolink"
+
+#: includes/Mcp/Actions.php:40
+msgid ""
+"Invalidate native Pro autolink rules without changing links or settings. "
+"Requires native manage_options and Shortlinks settings permission. dry_run "
+"previews."
+msgstr ""
+"Nevažeće izvorne Pro autolink pravila bez promjene linkova ili postavki. "
+"Potrebne su dozvole za upravljanje opcijama i postavkama kratkih linkova. "
+"dry_run pregledava."
+
+#: includes/Mcp/Actions.php:46
+msgid "Read a Shortlinks report summary"
+msgstr "Pročitaj sažetak izvještaja o kratkim linkovima"
+
+#: includes/Mcp/Actions.php:46
+msgid ""
+"Read native Pro totals, distinct visitor counts and averages for up to 20 "
+"explicit readable links between start_date and end_date (YYYY-MM-DD). No "
+"IPs, account IDs, referrers or request URLs are returned. Native report "
+"totals include retained logs after chart resets."
+msgstr ""
+"Pročitaj izvorne Pro ukupne, distinct broj posjetitelja i prosjeke za do 20 "
+"eksplicitnih čitljivih linkova između start_date i end_date (YYYY-MM-DD). "
+"Nema IP adresa, ID-a računa, referera ili URL-ova zahtjeva koji se vraćaju. "
+"Izvorni ukupni izvještaji uključuju zadržane dnevnike nakon resetiranja "
+"grafikona."
+
+#: includes/Mcp/Actions.php:50
+msgid "Read Shortlinks settings"
+msgstr "Pročitaj postavke kratkih linkova"
+
+#: includes/Mcp/Actions.php:50
+msgid ""
+"Discover exact native settings, choices and defaults. Passwords, license "
+"data and unsupported native controls are excluded. Booleans are JSON "
+"booleans, IDs integers, selections strings and lists arrays."
+msgstr ""
+"Otkrij točne izvorne postavke, izbore i zadane vrijednosti. Lozinke, podaci "
+"o licenci i nepodržavane izvorne kontrole su isključeni. Booleani su JSON "
+"booleani, ID-evi su cjelobrojni, odabiri su stringovi, a liste su nizovi."
+
+#: includes/Mcp/Actions.php:51
+msgid "Update Shortlinks settings"
+msgstr "Ažuriraj postavke kratkih linkova"
+
+#: includes/Mcp/Actions.php:51
+msgid ""
+"Patch discovered fields using their exact schemas and current "
+"expected_hash. Omitted settings and secrets remain unchanged. dry_run "
+"previews native sanitized values."
+msgstr ""
+"Ispravi otkrivene polja koristeći njihove točne sheme i trenutni "
+"expected_hash. Izostavljene postavke i tajne ostaju nepromijenjene. dry_run "
+"pregledava izvorne sanitizirane vrijednosti."
+
+#: includes/Mcp/Actions.php:52
+msgid "Find Shortlinks"
+msgstr "Pronađi kratke linkove"
+
+#: includes/Mcp/Actions.php:52
+msgid ""
+"List readable Shortlinks by title or status. Returns IDs and labels only; "
+"use get-link to inspect configuration."
+msgstr ""
+"Nabroj čitljive kratke linkove po naslovu ili statusu. Vraća samo ID-eve i "
+"oznake; koristi get-link za inspekciju konfiguracije."
+
+#: includes/Mcp/Actions.php:53
+msgid "Read a Shortlink"
+msgstr "Pročitaj kratki link"
+
+#: includes/Mcp/Actions.php:53
+msgid ""
+"Read native per-link fields and current expected_hash; omit id to discover "
+"defaults. No link passwords, raw visitor IPs or user-agent logs are "
+"returned."
+msgstr ""
+"Pročitaj izvorna polja po linku i trenutni expected_hash; izostavi id da "
+"otkriješ zadane vrijednosti. Nema lozinki za link, sirovih IP adresa "
+"posjetitelja ili dnevnike korisničkih agenata koji se vraćaju."
+
+#: includes/Mcp/Actions.php:54
+msgid "Create or update a Shortlink"
+msgstr "Kreiraj ili ažuriraj kratki link"
+
+#: includes/Mcp/Actions.php:54
+msgid ""
+"Create a published Shortlink with target_url and label, or patch id with "
+"current expected_hash. Native redirect, expiration, autolink and active Pro "
+"controls use discovered fields. All related source posts must be editable. "
+"dry_run previews. No destination URLs are fetched."
+msgstr ""
+"Kreiraj objavljeni kratki link s target_url i oznakom, ili ispravi id s "
+"trenutnim expected_hash. Izvorni preusmjeravanje, isteka, autolink i "
+"aktivne Pro kontrole koriste otkrivena polja. Svi povezani izvori moraju "
+"biti uređivi. dry_run pregledava. Nema odredišnih URL-ova koji se dohvaćaju."
+
+#: includes/Mcp/Actions.php:55
+msgid "Trash, restore or delete a Shortlink"
+msgstr "Izbaci, vrati ili izbriši kratki link"
+
+#: includes/Mcp/Actions.php:55
+msgid ""
+"Native Shortlink lifecycle; permanent deletion requires prior trash. "
+"Requires current expected_hash and native deletion permission. dry_run "
+"previews."
+msgstr ""
+"Izvorni životni ciklus kratkog linka; trajno brisanje zahtijeva prethodno "
+"izbacivanje. Potrebna je trenutna expected_hash i izvorna dozvola za "
+"brisanje. dry_run pregledava."
+
+#: includes/Mcp/Actions.php:140
+msgid "Narrow the search or use native administration for more than 1,000 links."
+msgstr "Suzi pretraživanje ili koristi izvorno upravljanje za više od 1.000 linkova."
+
+#: includes/Mcp/Actions.php:173
+msgid "Revision destinations and routing follow the native revision workflow."
+msgstr "Revizijske destinacije i usmjeravanje slijede izvorni radni tok revizije."
+
+#: includes/Mcp/Actions.php:176
+msgid "Supply target_url for a new Shortlink."
+msgstr "Unesite target_url za novu kratku vezu."
+
+#: includes/Mcp/Actions.php:187
+msgid "Use a nonempty short path with letters, numbers, dashes or underscores."
+msgstr ""
+"Koristite neispraznu kratku putanju s slovima, brojevima, crticama ili "
+"donjim crticama."
+
+#: includes/Mcp/Actions.php:193
+msgid "The short path is unavailable."
+msgstr "Kratka putanja nije dostupna."
+
+#: includes/Mcp/Actions.php:200
+msgid "This label choice is not available for the destination."
+msgstr "Ova opcija oznake nije dostupna za odredište."
+
+#: includes/Mcp/Actions.php:244
+msgid "The post exists but metadata permissions changed. Read before retrying."
+msgstr ""
+"Objava postoji, ali su se promijenile dozvole za metapodatke. Pročitajte "
+"prije ponovnog pokušaja."
+
+#: includes/Mcp/Actions.php:270
+msgid "Manage linked source records in native administration."
+msgstr "Upravljajte povezanim izvorima zapisa u izvornoj administraciji."
+
+#: includes/Mcp/Actions.php:275
+msgid "Read the current lifecycle state first."
+msgstr "Prvo pročitajte trenutnu stanje životnog ciklusa."
+
+#: includes/Mcp/Actions.php:311
+msgid "Unknown Shortlink category."
+msgstr "Nepoznata kategorija kratke veze."
+
+#: includes/Mcp/Actions.php:317
+msgid "Supply a category name."
+msgstr "Unesite naziv kategorije."
+
+#: includes/Mcp/Actions.php:320
+msgid "Use an existing parent without a cycle."
+msgstr "Koristite postojeći roditelj bez ciklusa."
+
+#: includes/Mcp/Actions.php:385
+msgid "Bulk short paths must be unique."
+msgstr "Kratke putanje u grupi moraju biti jedinstvene."
+
+#: includes/Mcp/Actions.php:392
+msgid "Bulk targets and linked source records must not overlap."
+msgstr "Ciljevi u grupi i povezani izvori zapisa ne smiju se preklapati."
+
+#: includes/Mcp/Actions.php:431
+msgid "Use native administration for this category scope."
+msgstr "Koristite izvorno upravljanje za opseg ove kategorije."
+
+#: includes/Mcp/Actions.php:463
+msgid "Use native analytics for more than 1,000 daily records."
+msgstr "Koristite izvorne analitike za više od 1.000 dnevnih zapisa."
+
+#: includes/Mcp/Actions.php:477
+msgid "Use native analytics for this destination scope."
+msgstr "Koristite izvorne analitike za opseg ovog odredišta."
+
+#: includes/Mcp/Actions.php:492
+msgid "Analytics changed; read it again before resetting."
+msgstr "Analitika se promijenila; pročitajte ponovo prije resetiranja."
+
+#: includes/Mcp/Actions.php:523
+msgid "This link type is disabled in native Link Health settings."
+msgstr "Ova vrsta veze je onemogućena u izvornim postavkama zdravlja veza."
+
+#: includes/Mcp/Actions.php:556
+msgid "Native source mirrors could not be safely read."
+msgstr "Izvorne zrcalne veze nisu mogle biti sigurno pročitane."
+
+#: includes/Mcp/Actions.php:586
+msgid "The source or a mirror changed; read it again."
+msgstr "Izvor ili zrcalo su se promijenili; pročitajte ponovo."
+
+#: includes/Mcp/Actions.php:598
+msgid "Use a nonempty short path."
+msgstr "Koristite neispraznu kratku putanju."
+
+#: includes/Mcp/Actions.php:604
+msgid "This short path is unavailable."
+msgstr "Ova kratka putanja nije dostupna."
+
+#: includes/Mcp/Actions.php:625
+msgid "Duplicate revision-linked records through the native revision workflow."
+msgstr "Duplicirajte povezane zapise revizije kroz izvorni radni tijek revizije."
+
+#: includes/Mcp/Actions.php:711
+msgid "Use valid native report dates in YYYY-MM-DD format."
+msgstr "Koristite važeće izvorne datume izvještaja u formatu YYYY-MM-DD."
+
+#: includes/Mcp/Actions.php:715
+msgid "The report end date must not precede its start."
+msgstr "Kraj datuma izvještaja ne smije prethoditi njegovom početku."
+
+#: includes/Mcp/Actions.php:724
+msgid "Native report data could not be read."
+msgstr "Izvorni podaci izvještaja nisu mogli biti pročitani."
+
+#: includes/Mcp/bootstrap.php:15
+msgid "PublishPress plugin actions."
+msgstr "Radnje PublishPress dodatka."
+
+#: includes/Mcp/Fields.php:178
+msgid "Supply each native list identifier only once."
+msgstr "Unesite svaki identifikator izvorne liste samo jednom."
+
+#: includes/Mcp/Fields.php:191
+msgid "Use the native date or time format returned by discovery."
+msgstr "Koristite izvorni format datuma ili vremena koji je vratio otkrivanje."
+
+#: includes/Mcp/Fields.php:196
+msgid "A native field validator rejected this value."
+msgstr "Izvorni validator polja odbio je ovu vrijednost."
+
+#: includes/Mcp/Registry.php:47
+msgid "Use the exact fields, types and choices returned by discovery."
+msgstr "Koristite točna polja, tipove i izbore koje je vratio otkrivanje."
+
+#: includes/Mcp/Registry.php:52
+msgid "You do not have permission to use this Shortlinks operation."
+msgstr "Nemate dozvolu za korištenje ove operacije kratkih veza."
+
+#: includes/Mcp/Registry.php:94
+#, php-format
+msgid "Invalid JSON type at %s."
+msgstr "Nevažeći JSON tip na %s."
+
+#: includes/Mcp/Registry.php:168
+msgid ""
+"Shortlinks could not complete this operation. Inspect the current state "
+"before retrying; some changes may have been saved."
+msgstr ""
+"Kratke veze nisu mogle dovršiti ovu operaciju. Istražite trenutno stanje "
+"prije ponovnog pokušaja; neke promjene možda su spremljene."
+
+#: includes/Mcp/Registry.php:220
+msgid "This object changed. Read it again before saving."
+msgstr "Ovaj objekt se promijenio. Pročitajte ga ponovo prije spremanja."
+
+#: includes/Mcp/Registry.php:225
+msgid ""
+"The operation could not be fully confirmed. Read the object before "
+"retrying; some changes may have been saved."
+msgstr ""
+"Operacija nije mogla biti potpuno potvrđena. Pročitajte objekt prije "
+"ponovnog pokušaja; neke promjene možda su spremljene."
+
+#: includes/wp-dev-kit/settings/classes/admin-options.class.php:485
+#: includes/wp-dev-kit/settings/classes/metabox-options.class.php:224
+#: includes/wp-dev-kit/settings/classes/setup.class.php:631
+msgid "(has errors)"
+msgstr "(ima grešaka)"
+
+#: includes/wp-dev-kit/settings/classes/fields.class.php:170
+msgid "Help"
+msgstr "Pomoć"
+
+#: includes/wp-dev-kit/settings/classes/setup.class.php:632
+msgid "Settings not saved. Please fix the highlighted errors."
+msgstr "Postavke nisu spremljene. Molimo ispravite označene greške."
+
+#: templates/admin-modal-new-link.php:22
 msgid "Create a Shortlink"
 msgstr "Kreiraj kratku URL adresu"
 
-#: templates/admin/analytics.php:96
+#: templates/admin/analytics.php:93
 msgid "Reset Yesterday's Analytics"
 msgstr "Resetiraj analitiku od jučer"
 
-#: templates/admin/analytics.php:98
-#: templates/admin/analytics.php:154
+#: templates/admin/analytics.php:95
+#: templates/admin/analytics.php:153
 msgid "Reset Last 30 Days Analytics"
 msgstr "Resetiraj analitiku za posljednjih 30 dana"
 
-#: templates/admin/analytics.php:100
+#: templates/admin/analytics.php:97
 msgid "Reset Last Month's Analytics"
 msgstr "Resetiraj analitiku za prošli mjesec"
 
-#: templates/admin/analytics.php:102
+#: templates/admin/analytics.php:99
 msgid "Reset Last 2 Years Analytics"
 msgstr "Resetiraj analitiku za posljednje 2 godine"
 
-#: templates/admin/analytics.php:103
+#: templates/admin/analytics.php:100
 msgid "Reset Custom Range Analytics"
 msgstr "Resetiraj analitiku za prilagođeni raspon"
 
-#: templates/admin/analytics.php:104
+#: templates/admin/analytics.php:101
 msgid "Reset All Time Analytics"
 msgstr "Resetiraj analitiku za sve vrijeme"
 
-#: templates/admin/analytics.php:106
+#: templates/admin/analytics.php:103
 #, php-format
 msgid "Showing data from %1$s to %2$s"
 msgstr "Prikazivanje podataka od %1$s do %2$s"
 
-#: templates/admin/analytics.php:107
+#: templates/admin/analytics.php:104
 #, php-format
 msgid ""
 "Analytics updated. Total clicks: %1$s. Unique visitors: %2$s. Days with "
@@ -3313,95 +3946,128 @@ msgstr ""
 "Analitika ažurirana. Ukupni klikovi: %1$s. Jedinstveni posjetitelji: %2$s. "
 "Dani s klikovima: %3$s. Prosječno po danu klika: %4$s."
 
-#: templates/admin/analytics.php:108
-#: templates/admin/analytics.php:201
+#: templates/admin/analytics.php:105
+#: templates/admin/analytics.php:200
 msgid "No click data available for this period."
 msgstr "Nema dostupnih podataka o klikovima za ovaj period."
 
-#: templates/admin/analytics.php:109
+#: templates/admin/analytics.php:106
 msgid "click"
 msgstr "klik"
 
-#: templates/admin/analytics.php:110
+#: templates/admin/analytics.php:107
 msgid "clicks"
 msgstr "klikovi"
 
-#: templates/admin/analytics.php:122
+#: templates/admin/analytics.php:108
+#: templates/admin/analytics.php:197
+msgid "Clicks over time"
+msgstr "Klikovi tijekom vremena"
+
+#: templates/admin/analytics.php:121
 msgid "Yesterday"
 msgstr "Jučer"
 
-#: templates/admin/analytics.php:124
+#: templates/admin/analytics.php:123
 msgid "Last 30 Days"
 msgstr "Posljednjih 30 dana"
 
-#: templates/admin/analytics.php:125
+#: templates/admin/analytics.php:124
 msgid "This Month"
 msgstr "Ovaj mjesec"
 
-#: templates/admin/analytics.php:126
+#: templates/admin/analytics.php:125
 msgid "Last Month"
 msgstr "Prošli mjesec"
 
-#: templates/admin/analytics.php:127
+#: templates/admin/analytics.php:126
 msgid "This Year"
 msgstr "Ova godina"
 
-#: templates/admin/analytics.php:128
+#: templates/admin/analytics.php:127
 msgid "Last 2 Years"
 msgstr "Posljednje 2 godine"
 
-#: templates/admin/analytics.php:129
+#: templates/admin/analytics.php:128
 msgid "Custom Range"
 msgstr "Prilagođeni raspon"
 
-#: templates/admin/analytics.php:130
+#: templates/admin/analytics.php:129
 msgid "All Time"
 msgstr "Svi vremenski periodi"
 
-#: templates/admin/analytics.php:134
+#: templates/admin/analytics.php:133
 msgid "From:"
 msgstr "Od:"
 
-#: templates/admin/analytics.php:142
+#: templates/admin/analytics.php:141
 msgid "To:"
 msgstr "Do:"
 
-#: templates/admin/analytics.php:182
+#: templates/admin/analytics.php:180
 msgid "Days With Clicks"
 msgstr "Dani s klikovima"
 
-#: templates/admin/analytics.php:190
+#: templates/admin/analytics.php:188
 msgid "Avg. per Click Day"
 msgstr "Prosjek po danu klikova"
 
-#: templates/admin/analytics.php:196
+#: templates/admin/analytics.php:195
 msgid "Clicks Over Time"
 msgstr "Klikovi tijekom vremena"
 
-#: templates/admin/qr-code.php:16
+#: templates/admin/footer.php:8
+msgid "five-star"
+msgstr "pet zvjezdica"
+
+#: templates/admin/footer.php:44
+msgid "PublishPress (opens in a new tab)"
+msgstr "PublishPress (otvara se u novoj kartici)"
+
+#: templates/admin/qr-code.php:18
 msgid "QR code for this shortlink"
 msgstr "QR kod za ovu kratku URL adresu"
 
-#: tinypress.php:484
-msgid "Suggested Label from target URL"
-msgstr "Preporučena oznaka iz ciljanog URL-a"
+#: tinypress.php:28
+msgid ""
+"PublishPress Shortlinks Free requires PHP 8.2 or newer. The plugin cannot "
+"run until PHP is updated."
+msgstr ""
+"PublishPress Shortlinks Free zahtijeva PHP 8.2 ili noviji. Plugin se ne "
+"može pokrenuti dok se PHP ne ažurira."
 
-#: tinypress.php:485
-msgid "Suggested Notes from target URL"
-msgstr "Preporučene bilješke iz ciljanog URL-a"
+#: tinypress.php:38
+msgid ""
+"PublishPress Shortlinks Free requires WordPress 6.7 or newer. The plugin "
+"cannot run until WordPress is updated."
+msgstr ""
+"PublishPress Shortlinks Free zahtijeva WordPress 6.7 ili noviji. Plugin se "
+"ne može pokrenuti dok se WordPress ne ažurira."
 
-#: tinypress.php:486
-msgid "Overwrite label?"
-msgstr "Zamijeniti oznaku?"
+#: tinypress.php:505
+msgid "Shortlink created:"
+msgstr "Kratka veza je kreirana:"
 
-#: tinypress.php:487
-msgid "Overwrite notes?"
-msgstr "Zamijeniti bilješke?"
+#: tinypress.php:506
+msgid "The shortlink could not be created. Please try again."
+msgstr "Kratka veza nije mogla biti kreirana. Pokušajte ponovo."
 
-#: tinypress.php:488
-msgid "Yes"
-msgstr "Da"
+#: tinypress.php:507
+msgid "No matching settings"
+msgstr "Nema odgovarajućih postavki"
 
-#: tinypress.php:489
-msgid "No"
-msgstr "Ne"
+#: tinypress.php:508
+msgid "Try a different keyword or clear the search to see all settings."
+msgstr ""
+"Pokušajte s drugačijom ključnom riječi ili očistite pretraživanje da biste "
+"vidjeli sve postavke."
+
+#: tinypress.php:509
+msgid "1 matching setting"
+msgstr "1 odgovarajuća postavka"
+
+#: tinypress.php:511
+#. translators: %d: number of matching settings
+#, php-format
+msgid "%d matching settings"
+msgstr "%d odgovarajućih postavki"

@@ -363,6 +363,7 @@ if (! class_exists('TINYPRESS_AutoLink')) {
         private function build_rules()
         {
             $rules = array();
+            $settings = get_option('tinypress_settings', array());
 
             $allowed_statuses = $this->get_allowed_post_statuses();
             $global_post_types = $this->get_global_autolink_post_types();
@@ -409,8 +410,8 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                     continue;
                 }
 
-                $nofollow = Utils::get_meta('redirection_no_follow', $link_id);
-                $sponsored = Utils::get_meta('redirection_sponsored', $link_id);
+                $nofollow = TINYPRESS_Meta_boxes::get_toggle_value($link_id, 'redirection_no_follow', 'redirection_no_follow_use_global', $settings['redirection_no_follow'] ?? Utils::get_option('redirection_no_follow', true));
+                $sponsored = TINYPRESS_Meta_boxes::get_toggle_value($link_id, 'redirection_sponsored', 'redirection_sponsored_use_global', $settings['redirection_sponsored'] ?? Utils::get_option('redirection_sponsored', false));
 
                 $rel = array();
                 if ('1' === $nofollow || true === $nofollow) {
@@ -857,6 +858,21 @@ if (! class_exists('TINYPRESS_AutoLink')) {
                 }
 
                 $a->appendChild($dom->createTextNode($part['value']));
+
+                // Skip while WordPress builds an auto-excerpt or a REST response: those strip tags,
+                // which would leave the hint as visible text.
+                $plain_text_context = doing_filter('get_the_excerpt') || (function_exists('wp_is_json_request') && wp_is_json_request());
+
+                if ('new_tab' === $this->global_target && ! $plain_text_context) {
+                    // Visually hidden new-tab hint. Inline clip styles so it stays
+                    // hidden even if the theme has no .screen-reader-text rule.
+                    $sr = $dom->createElement('span');
+                    $sr->setAttribute('class', 'screen-reader-text tinypress-sr-only');
+                    $sr->setAttribute('style', 'position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;');
+                    $sr->appendChild($dom->createTextNode(' ' . __('(opens in a new tab)', 'tinypress')));
+                    $a->appendChild($sr);
+                }
+
                 $fragment->appendChild($a);
             }
 

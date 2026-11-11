@@ -221,8 +221,8 @@ if (! class_exists('WPDK_Settings_Metabox')) {
                         continue;
                     }
 
-                    $tab_error = (! empty($errors['sections'][ $tab_key ])) ? '<i class="wpdk_settings-label-error wpdk_settings-error">!</i>' : '';
-                    $tab_icon  = (! empty($section['icon'])) ? '<i class="wpdk_settings-tab-icon ' . esc_attr($section['icon']) . '"></i>' : '';
+                    $tab_error = (! empty($errors['sections'][ $tab_key ])) ? '<i class="wpdk_settings-label-error wpdk_settings-error" aria-hidden="true">!</i><span class="screen-reader-text wpdk_settings-error"> ' . esc_html__('(has errors)', 'tinypress') . '</span>' : '';
+                    $tab_icon  = (! empty($section['icon'])) ? '<i class="wpdk_settings-tab-icon ' . esc_attr($section['icon']) . '" aria-hidden="true"></i>' : '';
 
                     printf('<li><a href="#" data-section="%s">%s%s%s</a></li>', ($this->unique . '_' . $tab_key), $tab_icon, $section['title'], $tab_error);
 
@@ -250,11 +250,11 @@ if (! class_exists('WPDK_Settings_Metabox')) {
                 $section_onload = (! $has_nav) ? ' wpdk_settings-onload' : '';
                 $section_class  = (! empty($section['class'])) ? ' ' . $section['class'] : '';
                 $section_title  = (! empty($section['title'])) ? $section['title'] : '';
-                $section_icon   = (! empty($section['icon'])) ? '<i class="wpdk_settings-section-icon ' . esc_attr($section['icon']) . '"></i>' : '';
+                $section_icon   = (! empty($section['icon'])) ? '<i class="wpdk_settings-section-icon ' . esc_attr($section['icon']) . '" aria-hidden="true"></i>' : '';
 
                 echo '<div class="wpdk_settings-section hidden' . esc_attr($section_onload . $section_class) . '">';
 
-                echo ($section_title || $section_icon) ? '<div class="wpdk_settings-section-title"><h3>' . esc_html($section_icon . $section_title) . '</h3></div>' : '';
+                echo ($section_title || $section_icon) ? '<div class="wpdk_settings-section-title"><h3>' . wp_kses_post($section_icon) . esc_html($section_title) . '</h3></div>' : '';
                 echo (! empty($section['description'])) ? '<div class="wpdk_settings-field wpdk_settings-section-description">' . esc_html($section['description']) . '</div>' : '';
 
                 if (! empty($section['fields'])) {

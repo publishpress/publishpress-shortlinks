@@ -39,7 +39,7 @@ if (! class_exists('WPDK_Settings_Field_button_set')) {
                 $options = (is_array($options)) ? $options : array_filter($this->field_data($options, false, $args['query_args']));
 
                 if (is_array($options) && ! empty($options)) {
-                    echo '<div class="wpdk_settings-siblings wpdk_settings--button-group" data-multiple="' . esc_attr($args['multiple']) . '">';
+                    echo '<div class="wpdk_settings-siblings wpdk_settings--button-group" data-multiple="' . esc_attr($args['multiple']) . '"' . $this->a11y_html_attributes('group') . '>';
 
                     foreach ($options as $key => $option) {
                         $type         = ($args['multiple']) ? 'checkbox' : 'radio';
@@ -57,7 +57,7 @@ if (! class_exists('WPDK_Settings_Field_button_set')) {
                         }
 
                         echo '<div class="wpdk_settings--sibling wpdk_settings--button' . esc_attr($active) . ' ' . esc_attr($availability) . '" ' . esc_attr($is_disabled) . '>';
-                        echo '<input type="' . esc_attr($type) . '" name="' . esc_attr($this->field_name($extra)) . '" value="' . esc_attr($key) . '"' . $this->field_attributes() . esc_attr($checked) . '/>';
+                        echo '<input type="' . esc_attr($type) . '" name="' . esc_attr($this->field_name($extra)) . '" value="' . esc_attr($key) . '"' . $this->field_attributes(array(), false) . esc_attr($checked) . '/>';
                         echo '<div class="wpdk_settings--name">' . wp_kses_post($option['label']) . '</div>';
                         echo '</div>';
                     }

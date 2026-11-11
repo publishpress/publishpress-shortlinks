@@ -3,6 +3,9 @@
 /**
  * Per-user favorite Shortlinks.
  */
+
+defined('ABSPATH') || exit;
+
 // phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace, Squiz.Classes.ValidClassName.NotCamelCaps, PSR1.Methods.CamelCapsMethodName.NotCamelCaps
 class TINYPRESS_Favorite_Links
 {
@@ -167,16 +170,7 @@ class TINYPRESS_Favorite_Links
             );
         }
 
-        $favorites = $this->get_favorites();
-
-        if (in_array($post_id, $favorites, true)) {
-            $favorites = array_values(array_diff($favorites, array( $post_id )));
-        } else {
-            $favorites[] = $post_id;
-            $favorites = array_values(array_unique(array_map('absint', $favorites)));
-        }
-
-        update_user_meta(get_current_user_id(), self::USER_META_KEY, $favorites);
+        self::set_favorite($post_id, !in_array($post_id, self::get_favorites(), true));
 
         $redirect_url = wp_get_referer();
         if (! $redirect_url) {
@@ -185,6 +179,21 @@ class TINYPRESS_Favorite_Links
 
         wp_safe_redirect($redirect_url);
         exit;
+    }
+
+    /** Persist the connected user's explicit favorite choice using native storage. */
+    public static function set_favorite($post_id, $favorite)
+    {
+        if (!current_user_can('tinypress_view_shortlinks') || !current_user_can('read_post', $post_id) || get_post_type($post_id) !== 'tinypress_link') {
+            return false;
+        }
+        $favorites = self::get_favorites();
+        $favorites = array_values(array_diff($favorites, array($post_id)));
+        if ($favorite) {
+            $favorites[] = (int) $post_id;
+        }
+        update_user_meta(get_current_user_id(), self::USER_META_KEY, $favorites);
+        return self::get_favorites() === $favorites;
     }
 
     /**
@@ -228,7 +237,7 @@ class TINYPRESS_Favorite_Links
      *
      * @return int[]
      */
-    private function get_favorites()
+    public static function get_favorites()
     {
         $favorites = get_user_meta(get_current_user_id(), self::USER_META_KEY, true);
 

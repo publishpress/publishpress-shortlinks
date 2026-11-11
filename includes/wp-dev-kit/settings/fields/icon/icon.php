@@ -37,7 +37,7 @@ if (! class_exists('WPDK_Settings_Field_icon')) {
             echo '<span class="wpdk_settings-icon-preview' . esc_attr($hidden) . '"><i class="' . esc_attr($this->value) . '"></i></span>';
             echo '<a href="#" class="button button-primary wpdk_settings-icon-add" data-nonce="' . esc_attr($nonce) . '">' . $args['button_title'] . '</a>';
             echo '<a href="#" class="button wpdk_settings-warning-primary wpdk_settings-icon-remove' . esc_attr($hidden) . '">' . $args['remove_title'] . '</a>';
-            echo '<input type="hidden" name="' . esc_attr($this->field_name()) . '" value="' . esc_attr($this->value) . '" class="wpdk_settings-icon-value"' . $this->field_attributes() . ' />';
+            echo '<input type="hidden" name="' . esc_attr($this->field_name()) . '" value="' . esc_attr($this->value) . '" class="wpdk_settings-icon-value"' . $this->field_attributes(array(), false) . ' />';
             echo '</div>';
 
             echo $this->field_after();

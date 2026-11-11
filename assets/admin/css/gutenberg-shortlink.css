@@ -470,3 +470,17 @@
     flex: 0 0 40px;
   }
 }
+
+/* Accessibility: visible keyboard focus inside the shortlink dialog (WCAG 2.4.7). */
+.tinypress-shortlink-search-input:focus,
+.tinypress-shortlink-form-group input:focus {
+  outline: 2px solid #0073aa;
+  outline-offset: 1px;
+}
+
+.tinypress-shortlink-modal-content button:focus-visible,
+.tinypress-shortlink-modal-content input[type="checkbox"]:focus-visible,
+.tinypress-gutenberg-shortlink-panel__settings:focus-visible {
+  outline: 2px solid #0073aa;
+  outline-offset: 2px;
+}

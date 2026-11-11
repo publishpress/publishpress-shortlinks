@@ -267,6 +267,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                     'wp-element',
                     'wp-i18n',
                     'wp-plugins',
+                    'wp-a11y',
                 ),
                 tinypress_asset_version('assets/admin/js/gutenberg-shortlink-panel.js'),
                 true
@@ -371,6 +372,8 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
                 'i18n'                     => array(
                     'copied'       => __('Copied', 'tinypress'),
                     'copy'         => __('Copy', 'tinypress'),
+                    'copyFailed'   => __('Copy failed', 'tinypress'),
+                    'opensInNewTab' => __('(opens in a new tab)', 'tinypress'),
                     'editSettings' => __('Edit shortlink settings', 'tinypress'),
                     'emptySlug'    => __('Enter a shortlink slug to create a shortlink URL.', 'tinypress'),
                     'panelTitle'   => __('Shortlinks', 'tinypress'),
@@ -561,14 +564,7 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
             if (isset($_POST[ $meta_key ]['tiny_slug'])) {
                 $tiny_slug = sanitize_text_field(wp_unslash((string) $_POST[ $meta_key ]['tiny_slug']));
 
-                update_post_meta($post_id, 'tiny_slug', $tiny_slug);
-
-                $meta_data = get_post_meta($post_id, $meta_key, true);
-                if (! is_array($meta_data)) {
-                    $meta_data = array();
-                }
-                $meta_data['tiny_slug'] = $tiny_slug;
-                update_post_meta($post_id, $meta_key, $meta_data);
+                tinypress_set_native_post_slug($post_id, $tiny_slug);
             }
         }
 
@@ -736,35 +732,41 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
             );
         }
 
+        /** Resolve native legacy checkbox storage to the current editor mode. */
+        public static function get_inheritance_mode($post_id, $setting_key, $mode_key, $custom = false)
+        {
+            $has_setting = $post_id && metadata_exists('post', $post_id, $setting_key);
+            $has_mode = $post_id && metadata_exists('post', $post_id, $mode_key);
+            if (!$post_id || (!$has_setting && !$has_mode)) {
+                return '1';
+            }
+            $mode = get_post_meta($post_id, $mode_key, true);
+            if ($custom && $mode === 'custom') {
+                return 'custom';
+            }
+            if (!$custom && in_array($mode, array('enabled', 'disabled'), true)) {
+                return $mode;
+            }
+            $global = is_array($mode) ? in_array('1', $mode, true) : in_array($mode, array('1', 1, true, null), true);
+            if ($global && $has_mode) {
+                return '1';
+            }
+            if ($custom) {
+                return $has_setting ? 'custom' : '1';
+            }
+            return empty(get_post_meta($post_id, $setting_key, true)) ? 'disabled' : 'enabled';
+        }
+
+        /** Resolve a toggle using the same inheritance as the native editor. */
+        public static function get_toggle_value($post_id, $setting_key, $mode_key, $global_value)
+        {
+            $mode = self::get_inheritance_mode($post_id, $setting_key, $mode_key);
+            return ($mode === '1' ? (bool) $global_value : $mode === 'enabled') ? '1' : '0';
+        }
+
         private function get_global_mode_default($setting_key, $use_global_key)
         {
-            $post_id = $this->get_current_post_id();
-
-            if (! $post_id) {
-                return '1';
-            }
-
-            $use_global = get_post_meta($post_id, $use_global_key, true);
-
-            if (! metadata_exists('post', $post_id, $use_global_key) && ! $this->post_has_saved_value($setting_key)) {
-                return '1';
-            }
-
-            if ('enabled' === $use_global || 'disabled' === $use_global) {
-                return $use_global;
-            }
-
-            if ($this->is_use_global_value($use_global) && ! $this->post_has_saved_value($setting_key)) {
-                return '1';
-            }
-
-            if ($this->is_use_global_value($use_global) && metadata_exists('post', $post_id, $use_global_key)) {
-                return '1';
-            }
-
-            $setting_value = get_post_meta($post_id, $setting_key, true);
-
-            return empty($setting_value) ? 'disabled' : 'enabled';
+            return self::get_inheritance_mode($this->get_current_post_id(), $setting_key, $use_global_key);
         }
 
         /**
@@ -833,6 +835,22 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
         /**
          * Generate meta box for slider data
          */
+        /** Native label choices depend on whether the destination is an internal post. */
+        public static function get_autolink_alt_text_options($post_id = 0, $target_url = null)
+        {
+            $options = array(
+                'shortlink_label' => esc_html__('Shortlink Label', 'tinypress'),
+                'custom' => esc_html__('Custom Text', 'tinypress'),
+            );
+            $target = $target_url !== null ? $target_url : ($post_id ? (string) get_post_meta($post_id, 'target_url', true) : '');
+            $site_host = preg_replace('/^www\./', '', (string) wp_parse_url(get_site_url(), PHP_URL_HOST));
+            $target_host = preg_replace('/^www\./', '', (string) wp_parse_url($target, PHP_URL_HOST));
+            if ($target_host !== '' && $site_host === $target_host) {
+                $options = array('post_title' => esc_html__('Post Title', 'tinypress')) + $options;
+            }
+            return $options;
+        }
+
         private function generate_tinypress_meta_box()
         {
             // Create a metabox for tinypress.
@@ -902,35 +920,8 @@ if (! class_exists('TINYPRESS_Meta_boxes')) {
             );
 
             $current_post_id = isset($_GET['post']) ? intval($_GET['post']) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-            $is_internal_link = false;
-
-            if ($current_post_id > 0) {
-                $target_url = Utils::get_meta('target_url', $current_post_id);
-                if (! empty($target_url)) {
-                    $site_url = get_site_url();
-                    $site_host = wp_parse_url($site_url, PHP_URL_HOST);
-                    $target_host = wp_parse_url($target_url, PHP_URL_HOST);
-
-                    $site_host = preg_replace('/^www\./', '', $site_host);
-                    $target_host = preg_replace('/^www\./', '', $target_host);
-
-                    $is_internal_link = ($site_host === $target_host);
-                }
-            }
-
-            $alt_text_options = array(
-                'shortlink_label' => esc_html__('Shortlink Label', 'tinypress'),
-                'custom'          => esc_html__('Custom Text', 'tinypress'),
-            );
-            if ($is_internal_link) {
-                $alt_text_options = array(
-                    'post_title'      => esc_html__('Post Title', 'tinypress'),
-                    'shortlink_label' => esc_html__('Shortlink Label', 'tinypress'),
-                    'custom'          => esc_html__('Custom Text', 'tinypress'),
-                );
-            }
-
-            $alt_text_default = $is_internal_link ? 'post_title' : 'shortlink_label';
+            $alt_text_options = self::get_autolink_alt_text_options($current_post_id);
+            $alt_text_default = key($alt_text_options);
 
             $autolink_fields = array(
                 array(

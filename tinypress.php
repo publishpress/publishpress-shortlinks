@@ -4,9 +4,9 @@
  * Plugin Name: PublishPress Shortlinks Free
  * Plugin URI:  https://publishpress.com/shortlinks/
  * Description: The best link manager for WordPress. Your links are brandable, trackable, and can have custom view permissions.
- * Version: 1.10.1
+ * Version: 1.11.0
  * Requires at least: 6.7
- * Requires PHP: 7.4
+ * Requires PHP: 8.2
  * Text Domain: tinypress
  * Domain Path: /languages
  * Author: PublishPress
@@ -15,8 +15,33 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-global $wpdb;
 defined('ABSPATH') || exit;
+global $wpdb;
+
+// Keep this entry point parseable on older PHP versions.
+$publishpress_shortlinks_minimum_php_version = '8.2';
+$publishpress_shortlinks_minimum_wp_version = '6.7';
+global $wp_version;
+if (version_compare(PHP_VERSION, $publishpress_shortlinks_minimum_php_version, '<')) {
+    $requirements_notice = function () {
+        echo '<div class="notice notice-error"><p>'
+            . esc_html__('PublishPress Shortlinks Free requires PHP 8.2 or newer. The plugin cannot run until PHP is updated.', 'tinypress')
+            . '</p></div>';
+    };
+    add_action('admin_notices', $requirements_notice);
+    add_action('network_admin_notices', $requirements_notice);
+    return;
+}
+if (version_compare($wp_version, $publishpress_shortlinks_minimum_wp_version, '<')) {
+    $requirements_notice = function () {
+        echo '<div class="notice notice-error"><p>'
+            . esc_html__('PublishPress Shortlinks Free requires WordPress 6.7 or newer. The plugin cannot run until WordPress is updated.', 'tinypress')
+            . '</p></div>';
+    };
+    add_action('admin_notices', $requirements_notice);
+    add_action('network_admin_notices', $requirements_notice);
+    return;
+}
 
 $includeFileRelativePath = '/publishpress/instance-protection/include.php';
 
@@ -57,7 +82,7 @@ if (! defined('TINYPRESS_LOADED')) {
     define('TINYPRESS_LOADED', 1);
 
     define('TINYPRESS_FILE', __DIR__ . '/tinypress.php');
-    define('TINYPRESS_PLUGIN_VERSION', '1.10.1');
+    define('TINYPRESS_PLUGIN_VERSION', '1.11.0');
 
     if (! defined('TINYPRESS_LIB_VENDOR_PATH')) {
         define('TINYPRESS_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
@@ -220,7 +245,7 @@ if (! defined('TINYPRESS_LOADED')) {
 
                 global $wpdb;
                 $table_name = TINYPRESS_TABLE_REPORTS;
-                $schema_version = '2.0.0';
+                $schema_version = '3.0.0';
 
                 $reports_schema_version = get_option('tinypress_reports_schema_version', '0');
 
@@ -438,7 +463,7 @@ if (! defined('TINYPRESS_LOADED')) {
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-statuses.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-import-export.php';
                 require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-migration.php';
-                require_once TINYPRESS_PLUGIN_DIR . 'includes/classes/class-url-metadata.php';
+                require_once TINYPRESS_PLUGIN_DIR . 'includes/Mcp/bootstrap.php';
 
                 new TINYPRESS_Hooks();
                 new TINYPRESS_Settings();
@@ -449,8 +474,6 @@ if (! defined('TINYPRESS_LOADED')) {
                 SHORTLINKS_Reviews::instance();
                 TINYPRESS_Import_Export::get_instance();
                 TINYPRESS_Migration::get_instance();
-                TINYPRESS_URL_Metadata::get_instance();
-
                 // Initialize metaboxes early for proper registration
                 add_action('init', function () {
                     new TINYPRESS_Meta_boxes();
@@ -479,16 +502,13 @@ if (! defined('TINYPRESS_LOADED')) {
                 'inherited_notice'         => esc_html__('This setting is inherited from global settings. Choose another option to override it for this shortlink.', 'tinypress'),
                 'working_text'             => esc_html__('Working...', 'tinypress'),
                 'plugin_title'             => esc_html__('PublishPress Shortlinks', 'tinypress'),
-                'url_metadata_nonce'       => wp_create_nonce('tinypress_fetch_url_metadata'),
-                'url_metadata_i18n'        => array(
-                    'suggested_title'       => esc_html__('Suggested Label from target URL', 'tinypress'),
-                    'suggested_description' => esc_html__('Suggested Notes from target URL', 'tinypress'),
-                    'overwrite_title'       => esc_html__('Overwrite label?', 'tinypress'),
-                    'overwrite_description' => esc_html__('Overwrite notes?', 'tinypress'),
-                    'accept'                => esc_html__('Yes', 'tinypress'),
-                    'reject'                => esc_html__('No', 'tinypress'),
-                    'dismiss'               => esc_html__('Dismiss', 'tinypress'),
-                ),
+                'popup_created_text'       => __('Shortlink created:', 'tinypress'),
+                'popup_error_text'         => __('The shortlink could not be created. Please try again.', 'tinypress'),
+                'settings_search_no_results'      => __('No matching settings', 'tinypress'),
+                'settings_search_no_results_hint' => __('Try a different keyword or clear the search to see all settings.', 'tinypress'),
+                'settings_search_one_result'      => __('1 matching setting', 'tinypress'),
+                /* translators: %d: number of matching settings */
+                'settings_search_results'         => __('%d matching settings', 'tinypress'),
                 ));
             }
 
@@ -517,7 +537,7 @@ if (! defined('TINYPRESS_LOADED')) {
                 wp_register_script('tinypress-qr-code', TINYPRESS_PLUGIN_URL . 'assets/admin/js/qr-code.js', array( 'jquery', 'tinypress-qrcode-lib' ), tinypress_asset_version('assets/admin/js/qr-code.js'), true);
 
                 // Main scripts - always enqueue on shortlinks pages
-                wp_enqueue_script('tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/js/scripts.js', array( 'jquery' ), tinypress_asset_version('assets/admin/js/scripts.js'), true);
+                wp_enqueue_script('tinypress', TINYPRESS_PLUGIN_URL . 'assets/admin/js/scripts.js', array( 'jquery', 'wp-a11y' ), tinypress_asset_version('assets/admin/js/scripts.js'), true);
                 wp_localize_script('tinypress', 'tinypress', $this->localize_scripts());
 
                 // Always enqueue styles

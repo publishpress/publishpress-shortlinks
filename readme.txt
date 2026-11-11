@@ -3,8 +3,8 @@ Contributors: stevejburge, publishpress, deji98
 Tags: link shortener, shortlinks, redirects, link tracking, custom URLs
 Requires at least: 6.7
 Tested up to: 7.1
-Stable tag: 1.10.1
-Requires PHP: 7.4
+Stable tag: 1.11.0
+Requires PHP: 8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -210,6 +210,17 @@ It's similar to link sharing plugins such as Bitly, Better Links, and URL Shortl
 It's similar to affiliate link plugins such as PrettyLinks and Thirsty Affiliates because it enables you to create affiliate URLs for promoting your partners.
 
 == Changelog == 
+
+## [1.11.0] - 11 November, 2026
+
+* Added: Private MCP actions for native Shortlinks settings, links and supported workflows, 436
+* Added: Add quick edit feature, #420
+* Update: Duplicate rather than Copy, #423
+* Update: Require PHP 8.2, #422
+* Update: Join the CHANGELOG.md introduction onto one line, #421
+* Fixed: The spacing of the setting is generally inconsistent, #428
+* Fixed: Menu visbility issues remain when editing shortlinks, #425
+* Removed: Remove Shortlinks label and notes suggestions, #426
 
 ## [1.10.1] - 16 September, 2026
 
