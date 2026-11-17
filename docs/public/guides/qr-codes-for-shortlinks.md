@@ -2,6 +2,7 @@
 title: "QR Codes for Shortlinks"
 order: 7
 doc_category: publishpress-shortlinks
+section: Shortlinks Features
 ---
 
 # QR Codes for Shortlinks

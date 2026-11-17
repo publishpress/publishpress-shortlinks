@@ -2,6 +2,7 @@
 title: "Differences Between Shortlinks Free and Pro"
 order: 10
 doc_category: publishpress-shortlinks
+section: Getting Started
 ---
 
 # Differences Between Shortlinks Free and Pro

@@ -2,6 +2,7 @@
 title: "Redirect Options for Shortlinks"
 order: 8
 doc_category: publishpress-shortlinks
+section: Shortlinks Features
 ---
 
 # Redirect Options for Shortlinks

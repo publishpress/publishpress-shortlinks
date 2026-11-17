@@ -2,6 +2,7 @@
 title: "Automatically Add Links to Keywords"
 order: 2
 doc_category: publishpress-shortlinks
+section: Shortlinks Features
 ---
 
 # Automatically Add Links to Keywords

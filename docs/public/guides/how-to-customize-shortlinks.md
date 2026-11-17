@@ -2,6 +2,7 @@
 title: "How to Customize Shortlinks URLs"
 order: 3
 doc_category: publishpress-shortlinks
+section: Shortlinks Features
 ---
 
 # How to Customize Shortlinks URLs
