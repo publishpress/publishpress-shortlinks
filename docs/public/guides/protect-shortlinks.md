@@ -2,6 +2,7 @@
 title: "Protect Shortlinks With Passwords and Expiry Dates"
 order: 6
 doc_category: publishpress-shortlinks
+section: Shortlinks Features
 ---
 
 # Protect Shortlinks With Passwords and Expiry Dates

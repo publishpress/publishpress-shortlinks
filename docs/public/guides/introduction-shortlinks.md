@@ -2,6 +2,7 @@
 title: "Introduction to PublishPress Shortlinks"
 order: 4
 doc_category: publishpress-shortlinks
+section: Getting Started
 ---
 
 # Introduction to PublishPress Shortlinks

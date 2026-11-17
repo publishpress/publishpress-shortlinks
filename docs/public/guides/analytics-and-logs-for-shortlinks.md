@@ -2,6 +2,7 @@
 title: "Analytics and Logs for Shortlinks"
 order: 1
 doc_category: publishpress-shortlinks
+section: Shortlinks Features
 ---
 
 # Analytics and Logs for Shortlinks

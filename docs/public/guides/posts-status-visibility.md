@@ -2,6 +2,7 @@
 title: "Share Previews of Posts in Draft Status"
 order: 5
 doc_category: publishpress-shortlinks
+section: Shortlinks for Unpublished Content
 ---
 
 # Share Previews of Posts in Draft Status

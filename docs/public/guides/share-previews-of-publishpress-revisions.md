@@ -2,6 +2,7 @@
 title: "Share Previews of PublishPress Revisions (Pro)"
 order: 9
 doc_category: publishpress-shortlinks
+section: Shortlinks for Unpublished Content
 ---
 
 # Share Previews of PublishPress Revisions (Pro)
