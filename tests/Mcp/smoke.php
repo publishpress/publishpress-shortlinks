@@ -1,6 +1,12 @@
 <?php
 /** Adapter integration checks. Run only in a disposable shortlinks_mcp_* database. */
 define('REST_REQUEST', true);
+// Set PUBLISHPRESS_MCP_EARLY_REGISTRY=1 to register before native settings controls are initialized.
+if (getenv('PUBLISHPRESS_MCP_EARLY_REGISTRY') === '1') {
+    $GLOBALS['wp_filter']['init'][0][] = ['function' => static function () {
+        wp_get_abilities();
+    }, 'accepted_args' => 0];
+}
 require $argv[1];
 if (strpos(DB_NAME, 'shortlinks_mcp_') !== 0) {
     throw new RuntimeException('An isolated database is required.');
